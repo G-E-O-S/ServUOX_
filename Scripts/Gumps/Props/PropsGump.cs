@@ -6,8 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 
-using CustomsFramework;
-
 using Server.Accounting;
 using Server.Commands.Generic;
 using Server.Network;
@@ -239,7 +237,7 @@ namespace Server.Gumps
 
 				return String.Format("(?) 0x{0:X}", s.Value);
 			}
-
+            /*
 			if (o is CustomSerial)
 			{
 				var s = (CustomSerial)o;
@@ -251,7 +249,7 @@ namespace Server.Gumps
 
 				return String.Format("(?) 0x{0:X}", s.Value);
 			}
-
+            */
 			if (o is byte || o is sbyte || o is short || o is ushort || o is int || o is uint || o is long || o is ulong)
 			{
 				return String.Format("{0} (0x{0:X})", o);
@@ -640,7 +638,7 @@ namespace Server.Gumps
 
 				return String.Format("(?) 0x{0:X}", s.Value);
 			}
-
+            /*
 			if (o is CustomSerial)
 			{
 				var s = (CustomSerial)o;
@@ -652,7 +650,7 @@ namespace Server.Gumps
 
 				return String.Format("(?) 0x{0:X}", s.Value);
 			}
-
+            */
 			if (o is byte || o is sbyte || o is short || o is ushort || o is int || o is uint || o is long || o is ulong)
 			{
 				return String.Format("{0} (0x{0:X})", o);

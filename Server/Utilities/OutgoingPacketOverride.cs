@@ -1,4 +1,4 @@
-﻿#region References
+#region References
 using System;
 using System.Collections.Generic;
 
@@ -6,7 +6,7 @@ using Server;
 using Server.Network;
 #endregion
 
-namespace CustomsFramework
+namespace Server
 {
 	public delegate void OutgoingPacketOverrideHandler(
 		NetState to, PacketReader reader, ref byte[] packetBuffer, ref int packetLength);

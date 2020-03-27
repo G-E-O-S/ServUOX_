@@ -7,8 +7,6 @@ using System.Net;
 using System.Text;
 using System.Threading;
 
-using CustomsFramework;
-
 using Server.Guilds;
 #endregion
 
@@ -47,17 +45,17 @@ namespace Server
 		public abstract Item ReadItem();
 		public abstract Mobile ReadMobile();
 		public abstract BaseGuild ReadGuild();
-		public abstract SaveData ReadData();
+		//public abstract SaveData ReadData();
 
 		public abstract T ReadItem<T>() where T : Item;
 		public abstract T ReadMobile<T>() where T : Mobile;
 		public abstract T ReadGuild<T>() where T : BaseGuild;
-		public abstract T ReadData<T>() where T : SaveData;
+		//public abstract T ReadData<T>() where T : SaveData;
 
 		public abstract ArrayList ReadItemList();
 		public abstract ArrayList ReadMobileList();
 		public abstract ArrayList ReadGuildList();
-		public abstract ArrayList ReadDataList();
+		//public abstract ArrayList ReadDataList();
 
 		public abstract List<Item> ReadStrongItemList();
 		public abstract List<T> ReadStrongItemList<T>() where T : Item;
@@ -68,8 +66,8 @@ namespace Server
 		public abstract List<BaseGuild> ReadStrongGuildList();
 		public abstract List<T> ReadStrongGuildList<T>() where T : BaseGuild;
 
-		public abstract List<SaveData> ReadStrongDataList();
-		public abstract List<T> ReadStrongDataList<T>() where T : SaveData;
+		//public abstract List<SaveData> ReadStrongDataList();
+		//public abstract List<T> ReadStrongDataList<T>() where T : SaveData;
 
 		public abstract HashSet<Item> ReadItemSet();
 		public abstract HashSet<T> ReadItemSet<T>() where T : Item;
@@ -80,8 +78,8 @@ namespace Server
 		public abstract HashSet<BaseGuild> ReadGuildSet();
 		public abstract HashSet<T> ReadGuildSet<T>() where T : BaseGuild;
 
-		public abstract HashSet<SaveData> ReadDataSet();
-		public abstract HashSet<T> ReadDataSet<T>() where T : SaveData;
+		//public abstract HashSet<SaveData> ReadDataSet();
+		//public abstract HashSet<T> ReadDataSet<T>() where T : SaveData;
 
 		public abstract Race ReadRace();
 
@@ -125,12 +123,12 @@ namespace Server
 		public abstract void Write(Item value);
 		public abstract void Write(Mobile value);
 		public abstract void Write(BaseGuild value);
-		public abstract void Write(SaveData value);
+		//public abstract void Write(SaveData value);
 
 		public abstract void WriteItem<T>(T value) where T : Item;
 		public abstract void WriteMobile<T>(T value) where T : Mobile;
 		public abstract void WriteGuild<T>(T value) where T : BaseGuild;
-		public abstract void WriteData<T>(T value) where T : SaveData;
+		//public abstract void WriteData<T>(T value) where T : SaveData;
 
 		public abstract void Write(Race value);
 
@@ -143,8 +141,8 @@ namespace Server
 		public abstract void WriteGuildList(ArrayList list);
 		public abstract void WriteGuildList(ArrayList list, bool tidy);
 
-		public abstract void WriteDataList(ArrayList list);
-		public abstract void WriteDataList(ArrayList list, bool tidy);
+		//public abstract void WriteDataList(ArrayList list);
+		//public abstract void WriteDataList(ArrayList list, bool tidy);
 
 		public abstract void Write(List<Item> list);
 		public abstract void Write(List<Item> list, bool tidy);
@@ -182,17 +180,17 @@ namespace Server
 		public abstract void WriteGuildSet<T>(HashSet<T> set) where T : BaseGuild;
 		public abstract void WriteGuildSet<T>(HashSet<T> set, bool tidy) where T : BaseGuild;
 
-		public abstract void Write(List<SaveData> list);
-		public abstract void Write(List<SaveData> list, bool tidy);
+		//public abstract void Write(List<SaveData> list);
+		//public abstract void Write(List<SaveData> list, bool tidy);
 
-		public abstract void WriteDataList<T>(List<T> list) where T : SaveData;
-		public abstract void WriteDataList<T>(List<T> list, bool tidy) where T : SaveData;
+		//public abstract void WriteDataList<T>(List<T> list) where T : SaveData;
+		//public abstract void WriteDataList<T>(List<T> list, bool tidy) where T : SaveData;
 
-		public abstract void Write(HashSet<SaveData> set);
-		public abstract void Write(HashSet<SaveData> set, bool tidy);
+		//public abstract void Write(HashSet<SaveData> set);
+		//public abstract void Write(HashSet<SaveData> set, bool tidy);
 
-		public abstract void WriteDataSet<T>(HashSet<T> set) where T : SaveData;
-		public abstract void WriteDataSet<T>(HashSet<T> set, bool tidy) where T : SaveData;
+		//public abstract void WriteDataSet<T>(HashSet<T> set) where T : SaveData;
+		//public abstract void WriteDataSet<T>(HashSet<T> set, bool tidy) where T : SaveData;
 	}
 
 	public class BinaryFileWriter : GenericWriter
@@ -672,7 +670,7 @@ namespace Server
 				Write(value.Id);
 			}
 		}
-
+        /*
 		public override void Write(SaveData value)
 		{
 			if (value == null || value.Deleted)
@@ -684,7 +682,7 @@ namespace Server
 				Write(value.Serial);
 			}
 		}
-
+        */
 		public override void WriteItem<T>(T value)
 		{
 			Write(value);
@@ -699,12 +697,12 @@ namespace Server
 		{
 			Write(value);
 		}
-
+        /*
 		public override void WriteData<T>(T value)
 		{
 			Write(value);
 		}
-
+        */
 		public override void WriteMobileList(ArrayList list)
 		{
 			WriteMobileList(list, false);
@@ -794,7 +792,7 @@ namespace Server
 				Write((BaseGuild)list[i]);
 			}
 		}
-
+        /*
 		public override void WriteDataList(ArrayList list)
 		{
 			WriteDataList(list, false);
@@ -824,6 +822,7 @@ namespace Server
 				Write((SaveData)list[i]);
 			}
 		}
+        */
 
 		public override void Write(List<Item> list)
 		{
@@ -1124,7 +1123,7 @@ namespace Server
 				Write(guild);
 			}
 		}
-
+        /*
 		public override void Write(List<SaveData> list)
 		{
 			Write(list, false);
@@ -1184,7 +1183,7 @@ namespace Server
 				Write(list[i]);
 			}
 		}
-
+        
 		public override void Write(HashSet<SaveData> set)
 		{
 			Write(set, false);
@@ -1224,6 +1223,7 @@ namespace Server
 				Write(data);
 			}
 		}
+        */
 	}
 
 	public sealed class BinaryFileReader : GenericReader
@@ -1451,12 +1451,12 @@ namespace Server
 		{
 			return BaseGuild.Find(ReadInt());
 		}
-
+        /*
 		public override SaveData ReadData()
 		{
 			return World.GetData(ReadInt());
 		}
-
+        */
 		public override T ReadItem<T>()
 		{
 			return ReadItem() as T;
@@ -1471,12 +1471,12 @@ namespace Server
 		{
 			return ReadGuild() as T;
 		}
-
+        /*
 		public override T ReadData<T>()
 		{
 			return ReadData() as T;
 		}
-
+        */
 		public override ArrayList ReadItemList()
 		{
 			int count = ReadInt();
@@ -1554,7 +1554,7 @@ namespace Server
 				return new ArrayList();
 			}
 		}
-
+        /*
 		public override ArrayList ReadDataList()
 		{
 			int count = ReadInt();
@@ -1580,7 +1580,7 @@ namespace Server
 				return new ArrayList();
 			}
 		}
-
+        */
 		public override List<Item> ReadStrongItemList()
 		{
 			return ReadStrongItemList<Item>();
@@ -1766,7 +1766,7 @@ namespace Server
 				return new HashSet<T>();
 			}
 		}
-
+        /*
 		public override List<SaveData> ReadStrongDataList()
 		{
 			return ReadStrongDataList<SaveData>();
@@ -1828,7 +1828,7 @@ namespace Server
 				return new HashSet<T>();
 			}
 		}
-
+        */
 		public override Race ReadRace()
 		{
 			return Race.Races[ReadByte()];
@@ -2210,7 +2210,7 @@ namespace Server
 				Write(value.Id);
 			}
 		}
-
+        /*
 		public override void Write(SaveData value)
 		{
 			if (value == null || value.Deleted)
@@ -2222,7 +2222,7 @@ namespace Server
 				Write(value.Serial);
 			}
 		}
-
+        */
 		public override void WriteItem<T>(T value)
 		{
 			Write(value);
@@ -2237,12 +2237,12 @@ namespace Server
 		{
 			Write(value);
 		}
-
+        /*
 		public override void WriteData<T>(T value)
 		{
 			Write(value);
 		}
-
+        */
 		public override void WriteMobileList(ArrayList list)
 		{
 			WriteMobileList(list, false);
@@ -2332,7 +2332,7 @@ namespace Server
 				Write((BaseGuild)list[i]);
 			}
 		}
-
+        /*
 		public override void WriteDataList(ArrayList list)
 		{
 			WriteDataList(list, false);
@@ -2362,7 +2362,7 @@ namespace Server
 				Write((BaseGuild)list[i]);
 			}
 		}
-
+        */
 		public override void Write(List<Item> list)
 		{
 			Write(list, false);
@@ -2662,7 +2662,7 @@ namespace Server
 				Write(guild);
 			}
 		}
-
+        /*
 		public override void Write(List<SaveData> list)
 		{
 			Write(list, false);
@@ -2762,6 +2762,7 @@ namespace Server
 				Write(data);
 			}
 		}
+        */
 	}
 
 	public interface ISerializable

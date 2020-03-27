@@ -2239,7 +2239,6 @@
     <Compile Include="Mobiles\Hunters Guide\B\BrownBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BulbousPutrification.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\Bull.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BullFrog.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CapturedHordeMinion.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Cat.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Centaur.cs" />
@@ -2278,7 +2277,6 @@
     <Compile Include="Mobiles\Hunters Guide\C\Cursed.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CursedSoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CuSidhe.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\Cyclops.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\Daemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DarkGuardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DarknightCreeper.cs" />
@@ -2288,7 +2286,6 @@
     <Compile Include="Mobiles\Hunters Guide\D\DeathWatchBeetleHatchling.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DeepSeaSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DemonKnight.cs" />
-    <Compile Include="Mobiles\Hunters Guide\D\DesertOstard.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\Devourer.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DireWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DiseasedCat.cs" />
@@ -2343,13 +2340,9 @@
     <Compile Include="Mobiles\Hunters Guide\F\FireSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FleshGolem.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FleshRenderer.cs" />
-    <Compile Include="Mobiles\Hunters Guide\F\ForestOstard.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\ForgottenServant.cs" />
-    <Compile Include="Mobiles\Hunters Guide\F\FrenziedOstard.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FrostDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FrostOoze.cs" />
-    <Compile Include="Mobiles\Hunters Guide\F\FrostSpider.cs" />
-    <Compile Include="Mobiles\Hunters Guide\F\FrostTroll.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Gaman.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Gargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleDestroyer.cs" />
@@ -2363,7 +2356,6 @@
     <Compile Include="Mobiles\Hunters Guide\G\GiantRat.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantSpider.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\GiantToad.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Gibberling.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Goat.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GoldenElemental.cs" />
@@ -2397,12 +2389,7 @@
     <Compile Include="Mobiles\Hunters Guide\H\HordeMinion.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Horse.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hydra.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\IceElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\IceFiend.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Icehound.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\IceSerpent.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\IceSnake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\Imp.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Impaler.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InjuredWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InsaneDryad.cs" />
@@ -2425,7 +2412,6 @@
     <Compile Include="Mobiles\Hunters Guide\K\Kraken.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadyOfTheSnow.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LavaElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\LavaLizard.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LavaSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LavaSnake.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LeatherWolf.cs" />
@@ -2452,17 +2438,10 @@
     <Compile Include="Mobiles\Hunters Guide\M\Mongbat.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MoundOfMaggots.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MountainGoat.cs" />
-    <Compile Include="Mobiles\Hunters Guide\M\Mummy.cs" />
-    <Compile Include="Mobiles\Hunters Guide\N\Nightmare.cs" />
     <Compile Include="Mobiles\Hunters Guide\N\Niporailem.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Ogre.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OgreLord.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Oni.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OphidianArchmage.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OphidianKnight.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OphidianMage.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OphidianMatriarch.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OphidianWarrior.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Orc.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OrcBomber.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OrcBrute.cs" />
@@ -2579,7 +2558,6 @@
     <Compile Include="Mobiles\Hunters Guide\S\Slime.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Slith.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Snake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SnowElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SnowLeopard.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SolenHelper.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SpeckledScorpion.cs" />
@@ -2587,22 +2565,14 @@
     <Compile Include="Mobiles\Hunters Guide\S\Spectre.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Spellbinder.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Squirrel.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\StoneGargoyle.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\StoneHarpy.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\StoneSlith.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\StrongMongbat.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Succubus.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SwampDragon.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SwampTentacle.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\TanglingRoots.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TerathanAvenger.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TerathanDrone.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TerathanMatriarch.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TerathanWarrior.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\ThirdDawnParrot.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\TigersClawMaster.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\TimberWolf.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\Titan.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\Tormented Minotaur.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\ToxicElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\ToxicSlith.cs" />
@@ -2631,7 +2601,6 @@
     <Compile Include="Mobiles\Hunters Guide\W\Wisp.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WolfSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\Wraith.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\Wyvern.cs" />
     <Compile Include="Mobiles\Hunters Guide\Y\Yamandon.cs" />
     <Compile Include="Mobiles\Hunters Guide\Y\YomotsuElder.cs" />
     <Compile Include="Mobiles\Hunters Guide\Y\YomotsuPriest.cs" />
@@ -12161,6 +12130,37 @@
     <Compile Include="Spells\UnsummonTimer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="T2A\Mobiles\Creatures\BullFrog.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\DesertOstard.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\ForestOstard.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\FrenziedOstard.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\FrostSpider.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\GiantToad.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\IceSerpent.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\IceSnake.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\LavaLizard.cs" />
+    <Compile Include="T2A\Mobiles\Creatures\Nightmare.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\Cyclops.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\FrostTroll.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\IceElemental.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\IceFiend.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\Imp.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\Mummy.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\OphidianArchmage.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\OphidianKnight.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\OphidianMage.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\OphidianMatriarch.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\OphidianWarrior.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\SnowElemental.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\StoneGargoyle.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\StoneHarpy.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\SwampTentacle.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\TerathanAvenger.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\TerathanDrone.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\TerathanMatriarch.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\TerathanWarrior.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\Titan.cs" />
+    <Compile Include="T2A\Mobiles\Monsters\Wyvern.cs" />
     <Compile Include="Targets\BladedItemTarget.cs">
       <SubType>Code</SubType>
     </Compile>

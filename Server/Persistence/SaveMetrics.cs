@@ -12,7 +12,7 @@ namespace Server
 
         private readonly PerformanceCounter itemsPerSecond;
         private readonly PerformanceCounter mobilesPerSecond;
-        private readonly PerformanceCounter dataPerSecond;
+        //private readonly PerformanceCounter dataPerSecond;
 
         private readonly PerformanceCounter serializedBytesPerSecond;
         private readonly PerformanceCounter writtenBytesPerSecond;
@@ -77,7 +77,7 @@ namespace Server
 
             this.itemsPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Items/sec", false);
             this.mobilesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Mobiles/sec", false);
-            this.dataPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Customs/sec", false);
+            //this.dataPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Customs/sec", false);
 
             this.serializedBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Serialized bytes/sec", false);
             this.writtenBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Written bytes/sec", false);
@@ -104,14 +104,14 @@ namespace Server
         {
             this.serializedBytesPerSecond.IncrementBy(numberOfBytes);
         }
-
+        /*
         public void OnDataSaved(int numberOfBytes)
         {
             this.dataPerSecond.Increment();
 
             this.serializedBytesPerSecond.IncrementBy(numberOfBytes);
         }
-
+        */
         public void OnFileWritten(int numberOfBytes)
         {
             this.writtenBytesPerSecond.IncrementBy(numberOfBytes);
@@ -129,7 +129,7 @@ namespace Server
 
                 this.itemsPerSecond.Dispose();
                 this.mobilesPerSecond.Dispose();
-                this.dataPerSecond.Dispose();
+                //this.dataPerSecond.Dispose();
 
                 this.serializedBytesPerSecond.Dispose();
                 this.writtenBytesPerSecond.Dispose();

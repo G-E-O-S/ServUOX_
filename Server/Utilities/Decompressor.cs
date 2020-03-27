@@ -1,8 +1,8 @@
-﻿#region References
+#region References
 using System;
 #endregion
 
-namespace CustomsFramework
+namespace Server
 {
 	internal class Decompressor
 	{

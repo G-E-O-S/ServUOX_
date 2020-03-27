@@ -4,8 +4,6 @@ Released: 03/26/06
 */
 using System;
 
-using CustomsFramework;
-
 namespace Server.Mobiles
 {
     public class GMEthereal : EtherealMount

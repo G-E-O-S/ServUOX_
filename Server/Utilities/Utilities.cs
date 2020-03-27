@@ -1,4 +1,4 @@
-﻿#region References
+#region References
 using System;
 using System.IO;
 
@@ -6,7 +6,7 @@ using Server;
 using Server.Items;
 #endregion
 
-namespace CustomsFramework
+namespace Server 
 {
 	public enum SaveStrategyTypes
 	{
@@ -149,12 +149,13 @@ namespace CustomsFramework
 		public static void DumpToConsole(params object[] elements)
 		{
 			Console.WriteLine();
-
+            /*
 			foreach (var element in elements)
 			{
 				Console.WriteLine(ObjectDumper.Dump(element));
 				Console.WriteLine();
 			}
+            */
 		}
 	}
 }

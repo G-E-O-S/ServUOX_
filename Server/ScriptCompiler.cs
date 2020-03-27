@@ -487,10 +487,10 @@ namespace Server
 
 			Utility.PushColor(ConsoleColor.Green);
 			Console.WriteLine(
-				"Finished ({0} items, {1} mobiles, {2} customs) ({3:F2} seconds)",
+				"Finished ({0} items, {1} mobiles) ({2:F2} seconds)",/*, {2} customs*/
 				Core.ScriptItems,
 				Core.ScriptMobiles,
-				Core.ScriptCustoms,
+				/*Core.ScriptCustoms,*/
 				watch.Elapsed.TotalSeconds);
 			Utility.PopColor();
 

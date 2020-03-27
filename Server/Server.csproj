@@ -8,9 +8,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Server</RootNamespace>
     <AssemblyName>ServUOX</AssemblyName>
-    <ApplicationIcon>servuo.ico</ApplicationIcon>
+    <ApplicationIcon>servuox.ico</ApplicationIcon>
     <StartupObject>Server.Core</StartupObject>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -77,19 +77,10 @@
     <Compile Include=".\ContextMenus\ContextMenuEntry.cs" />
     <Compile Include=".\ContextMenus\OpenBackpackEntry.cs" />
     <Compile Include=".\ContextMenus\PaperdollEntry.cs" />
-    <Compile Include=".\Customs Framework\Central Core\Base Types\BaseCore.cs" />
-    <Compile Include=".\Customs Framework\Central Core\Base Types\BaseModule.cs" />
-    <Compile Include=".\Customs Framework\Central Core\Base Types\BaseService.cs" />
-    <Compile Include=".\Customs Framework\Central Core\Base Types\Events.cs" />
-    <Compile Include=".\Customs Framework\Central Core\Base Types\SaveData.cs" />
-    <Compile Include=".\Customs Framework\Central Core\CustomSerial.cs" />
-    <Compile Include=".\Customs Framework\Central Core\Interfaces.cs" />
-    <Compile Include=".\Customs Framework\Custom Types\LastEditedBy.cs" />
-    <Compile Include=".\Customs Framework\Custom Types\Place.cs" />
-    <Compile Include=".\Customs Framework\Utilities\Decompressor.cs" />
-    <Compile Include=".\Customs Framework\Utilities\ObjectDumper.cs" />
-    <Compile Include=".\Customs Framework\Utilities\OutgoingPacketOverride.cs" />
-    <Compile Include=".\Customs Framework\Utilities\Utilities.cs" />
+    <Compile Include="Utilities\Decompressor.cs" />
+    <Compile Include="Utilities\ObjectDumper.cs" />
+    <Compile Include="Utilities\OutgoingPacketOverride.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
     <Compile Include=".\Diagnostics\BaseProfile.cs" />
     <Compile Include=".\Diagnostics\GumpProfile.cs" />
     <Compile Include=".\Diagnostics\PacketProfile.cs" />
@@ -210,7 +201,7 @@
     <Compile Include="SpawnArea.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="servuo.ico" />
+    <Content Include="servuox.ico" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -229,7 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ServUO.exe.manifest" />
+    <None Include="ServUOX.exe.manifest" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

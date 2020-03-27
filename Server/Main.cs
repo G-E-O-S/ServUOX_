@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CustomsFramework;
 using Server.Network;
 using System.Collections;
 
@@ -747,17 +746,17 @@ namespace Server
 		public static int GlobalMaxUpdateRange { get; set; }
         public static int GlobalRadarRange { get; set; }
 		
-		private static int m_ItemCount, m_MobileCount, m_CustomsCount;
+		private static int m_ItemCount, m_MobileCount/*, m_CustomsCount*/;
 
 		public static int ScriptItems { get { return m_ItemCount; } }
 		public static int ScriptMobiles { get { return m_MobileCount; } }
-		public static int ScriptCustoms { get { return m_CustomsCount; } }
+		// public static int ScriptCustoms { get { return m_CustomsCount; } }
 
 		public static void VerifySerialization()
 		{
 			m_ItemCount = 0;
 			m_MobileCount = 0;
-			m_CustomsCount = 0;
+			//m_CustomsCount = 0;
 
 			VerifySerialization(Assembly.GetCallingAssembly());
 
@@ -768,7 +767,7 @@ namespace Server
 		}
 
 		private static readonly Type[] m_SerialTypeArray = {typeof(Serial)};
-		private static readonly Type[] m_CustomsSerialTypeArray = {typeof(CustomSerial)};
+		// private static readonly Type[] m_CustomsSerialTypeArray = {typeof(CustomSerial)};
 
 		private static void VerifyType(Type t)
 		{
@@ -836,6 +835,7 @@ namespace Server
 					Utility.PopColor();
 				}
 			}
+            /*
 			else if (t.IsSubclassOf(typeof(SaveData)))
 			{
 				Interlocked.Increment(ref m_CustomsCount);
@@ -891,6 +891,7 @@ namespace Server
 					Utility.PopColor();
 				}
 			}
+            */
 		}
 
 		private static void VerifySerialization(Assembly a)

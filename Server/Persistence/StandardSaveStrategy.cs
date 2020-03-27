@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using CustomsFramework;
 using Server.Guilds;
 
 namespace Server
@@ -52,7 +51,7 @@ namespace Server
             this.SaveMobiles(metrics);
             this.SaveItems(metrics);
             this.SaveGuilds(metrics);
-            this.SaveData(metrics);
+            //this.SaveData(metrics);
 
             if (permitBackgroundWrite && this.UseSequentialWriters)	//If we're permitted to write in the background, but we don't anyways, then notify.
                 World.NotifyDiskWriteComplete();
@@ -217,7 +216,7 @@ namespace Server
             idx.Close();
             bin.Close();
         }
-
+        /*
         protected void SaveData(SaveMetrics metrics)
         {
             Dictionary<CustomSerial, SaveData> data = World.Data;
@@ -266,5 +265,6 @@ namespace Server
             typeWriter.Close();
             dataWriter.Close();
         }
+        */
     }
 }

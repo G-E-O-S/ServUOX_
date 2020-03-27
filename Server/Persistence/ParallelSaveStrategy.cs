@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using CustomsFramework;
 using Server.Guilds;
 
 namespace Server
@@ -15,7 +14,7 @@ namespace Server
         private SequentialFileWriter itemData, itemIndex;
         private SequentialFileWriter mobileData, mobileIndex;
         private SequentialFileWriter guildData, guildIndex;
-        private SequentialFileWriter customData, customIndex;
+        //private SequentialFileWriter customData, customIndex;
         private Consumer[] consumers;
         private int cycle;
         private bool finished;
@@ -98,7 +97,7 @@ namespace Server
         {
             this.SaveTypeDatabase(World.ItemTypesPath, World.m_ItemTypes);
             this.SaveTypeDatabase(World.MobileTypesPath, World.m_MobileTypes);
-            this.SaveTypeDatabase(World.DataTypesPath, World._DataTypes);
+            //this.SaveTypeDatabase(World.DataTypesPath, World._DataTypes);
         }
 
         private void SaveTypeDatabase(string path, List<Type> types)
@@ -128,13 +127,13 @@ namespace Server
             this.guildData = new SequentialFileWriter(World.GuildDataPath, this.metrics);
             this.guildIndex = new SequentialFileWriter(World.GuildIndexPath, this.metrics);
 
-            this.customData = new SequentialFileWriter(World.DataBinaryPath, this.metrics);
-            this.customIndex = new SequentialFileWriter(World.DataIndexPath, this.metrics);
+            //this.customData = new SequentialFileWriter(World.DataBinaryPath, this.metrics);
+            //this.customIndex = new SequentialFileWriter(World.DataIndexPath, this.metrics);
 
             this.WriteCount(this.itemIndex, World.Items.Count);
             this.WriteCount(this.mobileIndex, World.Mobiles.Count);
             this.WriteCount(this.guildIndex, BaseGuild.List.Count);
-            this.WriteCount(this.customIndex, World.Data.Count);
+            //this.WriteCount(this.customIndex, World.Data.Count);
         }
 
         private void WriteCount(SequentialFileWriter indexFile, int count)
@@ -160,8 +159,8 @@ namespace Server
             this.guildData.Close();
             this.guildIndex.Close();
 
-            this.customData.Close();
-            this.customIndex.Close();
+            //this.customData.Close();
+            //this.customIndex.Close();
 
             World.NotifyDiskWriteComplete();
         }
@@ -189,10 +188,12 @@ namespace Server
                         this.Save(guild, writer);
                     else
                     {
+                        /*
                         SaveData data = value as SaveData;
 
                         if (data != null)
                             this.Save(data, writer);
+                        */
                     }
                 }
             }
@@ -233,6 +234,7 @@ namespace Server
             }
         }
 
+        /*
         private void Save(SaveData data, BinaryMemoryWriter writer)
         {
             int length = writer.CommitTo(this.customData, this.customIndex, data._TypeID, data.Serial);
@@ -240,6 +242,7 @@ namespace Server
             if (this.metrics != null)
                 this.metrics.OnDataSaved(length);
         }
+        */
 
         private bool Enqueue(ISerializable value)
         {
@@ -290,13 +293,13 @@ namespace Server
             private readonly IEnumerable<Item> items;
             private readonly IEnumerable<Mobile> mobiles;
             private readonly IEnumerable<BaseGuild> guilds;
-            private readonly IEnumerable<SaveData> data;
+            // private readonly IEnumerable<SaveData> data;
             public Producer()
             {
                 this.items = World.Items.Values;
                 this.mobiles = World.Mobiles.Values;
                 this.guilds = BaseGuild.List.Values;
-                this.data = World.Data.Values;
+                //this.data = World.Data.Values;
             }
 
             public IEnumerator<ISerializable> GetEnumerator()
@@ -309,9 +312,10 @@ namespace Server
 
                 foreach (BaseGuild guild in this.guilds)
                     yield return guild;
-
+                /*
                 foreach (SaveData data in this.data)
                     yield return data;
+                */
             }
 
             IEnumerator IEnumerable.GetEnumerator()

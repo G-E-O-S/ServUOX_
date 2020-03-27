@@ -2,8 +2,6 @@
 using System;
 using System.Reflection;
 
-using CustomsFramework;
-
 using Server.Commands;
 using Server.Commands.Generic;
 using Server.Gumps;
@@ -27,7 +25,7 @@ namespace Server.Commands
 	{
 		private static readonly Type _TypeOfCPA = typeof(CPA);
 		private static readonly Type _TypeOfSerial = typeof(Serial);
-		private static readonly Type _TypeOfCustomSerial = typeof(CustomSerial);
+		//private static readonly Type _TypeOfCustomSerial = typeof(CustomSerial);
 		private static readonly Type _TypeOfType = typeof(Type);
 		private static readonly Type _TypeOfChar = typeof(Char);
 		private static readonly Type _TypeOfString = typeof(String);
@@ -313,9 +311,9 @@ namespace Server.Commands
 		{
 			object toSet;
 			bool isSerial = IsSerial(type);
-			bool isCustomSerial = IsCustomSerial(type);
+			// bool isCustomSerial = IsCustomSerial(type);
 
-			if (isSerial || isCustomSerial) // mutate into int32
+			if (isSerial /*|| isCustomSerial*/) // mutate into int32
 			{
 				type = _NumericTypes[4];
 			}
@@ -394,11 +392,12 @@ namespace Server.Commands
 			{
 				toSet = (Serial)Convert.ToInt32(toSet);
 			}
+            /*
 			else if (isCustomSerial)
 			{
 				toSet = (CustomSerial)Convert.ToInt32(toSet);
 			}
-
+            */
 			constructed = toSet;
 			return null;
 		}
@@ -638,12 +637,12 @@ namespace Server.Commands
 		{
 			return t == _TypeOfSerial;
 		}
-
+        /*
 		private static bool IsCustomSerial(Type t)
 		{
 			return t == _TypeOfCustomSerial;
 		}
-
+        */
 		private static bool IsType(Type t)
 		{
 			return t == _TypeOfType;

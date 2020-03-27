@@ -30,7 +30,7 @@ namespace Server
 
             this.SaveMobiles(metrics);
             this.SaveGuilds(metrics);
-            this.SaveData(metrics);
+            //this.SaveData(metrics);
 
             saveThread.Join();
 

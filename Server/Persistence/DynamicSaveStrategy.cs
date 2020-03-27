@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CustomsFramework;
 using Server.Guilds;
 
 namespace Server
@@ -14,19 +13,19 @@ namespace Server
         private readonly BlockingCollection<QueuedMemoryWriter> _itemThreadWriters;
         private readonly BlockingCollection<QueuedMemoryWriter> _mobileThreadWriters;
         private readonly BlockingCollection<QueuedMemoryWriter> _guildThreadWriters;
-        private readonly BlockingCollection<QueuedMemoryWriter> _dataThreadWriters;
+        //private readonly BlockingCollection<QueuedMemoryWriter> _dataThreadWriters;
         private SaveMetrics _metrics;
         private SequentialFileWriter _itemData, _itemIndex;
         private SequentialFileWriter _mobileData, _mobileIndex;
         private SequentialFileWriter _guildData, _guildIndex;
-        private SequentialFileWriter _customData, _customIndex;
+        //private SequentialFileWriter _customData, _customIndex;
         public DynamicSaveStrategy()
         {
             this._decayBag = new ConcurrentBag<Item>();
             this._itemThreadWriters = new BlockingCollection<QueuedMemoryWriter>();
             this._mobileThreadWriters = new BlockingCollection<QueuedMemoryWriter>();
             this._guildThreadWriters = new BlockingCollection<QueuedMemoryWriter>();
-            this._dataThreadWriters = new BlockingCollection<QueuedMemoryWriter>();
+            //this._dataThreadWriters = new BlockingCollection<QueuedMemoryWriter>();
         }
 
         public override string Name
@@ -42,12 +41,12 @@ namespace Server
 
             this.OpenFiles();
 
-            Task[] saveTasks = new Task[4];
+            Task[] saveTasks = new Task[3];
 
             saveTasks[0] = this.SaveItems();
             saveTasks[1] = this.SaveMobiles();
             saveTasks[2] = this.SaveGuilds();
-            saveTasks[3] = this.SaveData();
+            //saveTasks[3] = this.SaveData();
 
             this.SaveTypeDatabases();
 
@@ -225,6 +224,7 @@ namespace Server
             return commitTask;
         }
 
+        /*
         private Task SaveData()
         {
             Task commitTask = this.StartCommitTask(this._dataThreadWriters, this._customData, this._customIndex);
@@ -258,6 +258,7 @@ namespace Server
 
             return commitTask;
         }
+        */
 
         private void OpenFiles()
         {
@@ -270,13 +271,13 @@ namespace Server
             this._guildData = new SequentialFileWriter(World.GuildDataPath, this._metrics);
             this._guildIndex = new SequentialFileWriter(World.GuildIndexPath, this._metrics);
 
-            this._customData = new SequentialFileWriter(World.DataBinaryPath, this._metrics);
-            this._customIndex = new SequentialFileWriter(World.DataIndexPath, this._metrics);
+            //this._customData = new SequentialFileWriter(World.DataBinaryPath, this._metrics);
+            //this._customIndex = new SequentialFileWriter(World.DataIndexPath, this._metrics);
 
             this.WriteCount(this._itemIndex, World.Items.Count);
             this.WriteCount(this._mobileIndex, World.Mobiles.Count);
             this.WriteCount(this._guildIndex, BaseGuild.List.Count);
-            this.WriteCount(this._customIndex, World.Data.Count);
+            //this.WriteCount(this._customIndex, World.Data.Count);
         }
 
         private void CloseFiles()
@@ -290,8 +291,8 @@ namespace Server
             this._guildData.Close();
             this._guildIndex.Close();
 
-            this._customData.Close();
-            this._customIndex.Close();
+            //this._customData.Close();
+           // this._customIndex.Close();
         }
 
         private void WriteCount(SequentialFileWriter indexFile, int count)
@@ -311,7 +312,7 @@ namespace Server
         {
             this.SaveTypeDatabase(World.ItemTypesPath, World.m_ItemTypes);
             this.SaveTypeDatabase(World.MobileTypesPath, World.m_MobileTypes);
-            this.SaveTypeDatabase(World.DataTypesPath, World._DataTypes);
+            //this.SaveTypeDatabase(World.DataTypesPath, World._DataTypes);
         }
 
         private void SaveTypeDatabase(string path, List<Type> types)

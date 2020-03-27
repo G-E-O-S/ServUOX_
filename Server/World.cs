@@ -6,8 +6,6 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 
-using CustomsFramework;
-
 using Server.Guilds;
 using Server.Network;
 #endregion
@@ -18,7 +16,7 @@ namespace Server
 	{
 		private static Dictionary<Serial, Mobile> m_Mobiles;
 		private static Dictionary<Serial, Item> m_Items;
-		private static Dictionary<CustomSerial, SaveData> _Data;
+		// private static Dictionary<CustomSerial, SaveData> _Data;
 		
 		private static bool m_Metrics = Config.Get("General.Metrics", false);
 
@@ -29,7 +27,7 @@ namespace Server
 		private static readonly ManualResetEvent m_DiskWriteHandle = new ManualResetEvent(true);
 
 		private static Queue<IEntity> _addQueue, _deleteQueue;
-		private static Queue<ICustomsEntity> _CustomsAddQueue, _CustomsDeleteQueue;
+		// private static Queue<ICustomsEntity> _CustomsAddQueue, _CustomsDeleteQueue;
 
 		public static bool Saving { get { return m_Saving; } }
 		public static bool Loaded { get { return m_Loaded; } }
@@ -46,9 +44,9 @@ namespace Server
 		public static readonly string GuildIndexPath = Path.Combine("Saves/Guilds/", "Guilds.idx");
 		public static readonly string GuildDataPath = Path.Combine("Saves/Guilds/", "Guilds.bin");
 
-		public static readonly string DataIndexPath = Path.Combine("Saves/Customs/", "SaveData.idx");
-		public static readonly string DataTypesPath = Path.Combine("Saves/Customs/", "SaveData.tdb");
-		public static readonly string DataBinaryPath = Path.Combine("Saves/Customs/", "SaveData.bin");
+		//public static readonly string DataIndexPath = Path.Combine("Saves/Customs/", "SaveData.idx");
+		//public static readonly string DataTypesPath = Path.Combine("Saves/Customs/", "SaveData.tdb");
+		//public static readonly string DataBinaryPath = Path.Combine("Saves/Customs/", "SaveData.bin");
 
 		public static void NotifyDiskWriteComplete()
 		{
@@ -67,7 +65,7 @@ namespace Server
 
 		public static Dictionary<Serial, Item> Items { get { return m_Items; } }
 
-		public static Dictionary<CustomSerial, SaveData> Data { get { return _Data; } }
+		// public static Dictionary<CustomSerial, SaveData> Data { get { return _Data; } }
 
 		public static bool OnDelete(IEntity entity)
 		{
@@ -86,6 +84,7 @@ namespace Server
 			return true;
 		}
 
+        /*
 		public static bool OnDelete(ICustomsEntity entity)
 		{
 			if (m_Saving || m_Loading)
@@ -102,6 +101,7 @@ namespace Server
 
 			return true;
 		}
+        */
 
 		public static void Broadcast(int hue, bool ascii, string text)
 		{
@@ -254,6 +254,7 @@ namespace Server
 			}
 		}
 
+        /*
 		public sealed class DataEntry : ICustomsEntry
 		{
 			private readonly SaveData _Data;
@@ -278,13 +279,14 @@ namespace Server
 			public long Position { get { return _Position; } }
 			public int Length { get { return _Length; } }
 		}
+        */
 
 		private static string m_LoadingType;
 
 		public static string LoadingType { get { return m_LoadingType; } }
 
 		private static readonly Type[] m_SerialTypeArray = new Type[1] {typeof(Serial)};
-		private static readonly Type[] _CustomSerialTypeArray = new Type[1] {typeof(CustomSerial)};
+		// private static readonly Type[] _CustomSerialTypeArray = new Type[1] {typeof(CustomSerial)};
 
 		private static List<Tuple<ConstructorInfo, string>> ReadTypes(BinaryReader tdbReader)
 		{
@@ -326,16 +328,18 @@ namespace Server
 				}
 
 				ConstructorInfo ctor = t.GetConstructor(m_SerialTypeArray);
-				ConstructorInfo cctor = t.GetConstructor(_CustomSerialTypeArray);
+				//ConstructorInfo cctor = t.GetConstructor(_CustomSerialTypeArray);
 
 				if (ctor != null)
 				{
 					types.Add(new Tuple<ConstructorInfo, string>(ctor, typeName));
 				}
+                /*
 				else if (cctor != null)
 				{
 					types.Add(new Tuple<ConstructorInfo, string>(cctor, typeName));
 				}
+                */
 				else
 				{
 					throw new Exception(String.Format("Type '{0}' does not have a serialization constructor", t));
@@ -365,17 +369,17 @@ namespace Server
 
 			_addQueue = new Queue<IEntity>();
 			_deleteQueue = new Queue<IEntity>();
-			_CustomsAddQueue = new Queue<ICustomsEntity>();
-			_CustomsDeleteQueue = new Queue<ICustomsEntity>();
+			//_CustomsAddQueue = new Queue<ICustomsEntity>();
+			//_CustomsDeleteQueue = new Queue<ICustomsEntity>();
 
-			int mobileCount = 0, itemCount = 0, guildCount = 0, dataCount = 0;
+			int mobileCount = 0, itemCount = 0, guildCount = 0/*, dataCount = 0*/;
 
 			var ctorArgs = new object[1];
 
 			var items = new List<ItemEntry>();
 			var mobiles = new List<MobileEntry>();
 			var guilds = new List<GuildEntry>();
-			var data = new List<DataEntry>();
+			//var data = new List<DataEntry>();
 
 			if (File.Exists(MobileIndexPath) && File.Exists(MobileTypesPath))
 			{
@@ -526,6 +530,7 @@ namespace Server
 				}
 			}
 
+            /*
 			if (File.Exists(DataIndexPath) && File.Exists(DataTypesPath))
 			{
 				using (FileStream indexStream = new FileStream(DataIndexPath, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -588,11 +593,12 @@ namespace Server
 			{
 				_Data = new Dictionary<CustomSerial, SaveData>();
 			}
+            */
 
-			bool failedMobiles = false, failedItems = false, failedGuilds = false, failedData = false;
+			bool failedMobiles = false, failedItems = false, failedGuilds = false/*, failedData = false*/;
 			Type failedType = null;
 			Serial failedSerial = Serial.Zero;
-			CustomSerial failedCustomSerial = CustomSerial.Zero;
+			//CustomSerial failedCustomSerial = CustomSerial.Zero;
 			Exception failed = null;
 			int failedTypeID = 0;
 
@@ -728,7 +734,7 @@ namespace Server
 					reader.Close();
 				}
 			}
-
+            /*
 			if (!failedMobiles && !failedItems && !failedGuilds && File.Exists(DataBinaryPath))
 			{
 				using (FileStream stream = new FileStream(DataBinaryPath, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -772,8 +778,8 @@ namespace Server
 					reader.Close();
 				}
 			}
-
-			if (failedItems || failedMobiles || failedGuilds || failedData)
+            */
+			if (failedItems || failedMobiles || failedGuilds /*|| failedData*/)
 			{
 				Utility.PushColor(ConsoleColor.Red);
 				Console.WriteLine("An error was encountered while loading a saved object");
@@ -785,11 +791,12 @@ namespace Server
 				{
 					Console.WriteLine(" - Serial: {0}", failedSerial);
 				}
+                /*
 				else
 				{
 					Console.WriteLine(" - Serial: {0}", failedCustomSerial);
 				}
-
+                */
 				if (!Core.Service)
 				{
 					Console.WriteLine("Delete the object? (y/n)");
@@ -830,6 +837,7 @@ namespace Server
 										}
 									}
 								}
+                                /*
 								else if (failedData)
 								{
 									for (int i = 0; i < data.Count;)
@@ -844,13 +852,14 @@ namespace Server
 										}
 									}
 								}
+                                */
 							}
 						}
 
 						SaveIndex(mobiles, MobileIndexPath);
 						SaveIndex(items, ItemIndexPath);
 						SaveIndex(guilds, GuildIndexPath);
-						SaveIndex(DataIndexPath, data);
+						//SaveIndex(DataIndexPath, data);
 					}
 
 					Console.WriteLine("After pressing return an exception will be thrown and the server will terminate.");
@@ -864,15 +873,18 @@ namespace Server
 				}
 
 				throw new Exception(
+                    
 					String.Format(
-						"Load failed (items={0}, mobiles={1}, guilds={2}, data={3}, type={4}, serial={5})",
+						"Load failed (items={0}, mobiles={1}, guilds={2})", /*, data={3}, type={4}, serial={5}*/
 						failedItems,
 						failedMobiles,
-						failedGuilds,
+						failedGuilds),
+                        /*,
 						failedData,
 						failedType,
-						(failedSerial != Serial.Zero ? failedSerial.ToString() : failedCustomSerial.ToString())),
-					failed);
+						(failedSerial != Serial.Zero ? failedSerial.ToString() : failedCustomSerial.ToString())),*/
+					failed
+                    );
 			}
 
 			EventSink.InvokeWorldLoad();
@@ -898,21 +910,21 @@ namespace Server
 
 				m.ClearProperties();
 			}
-
+            /*
 			foreach (SaveData saveData in _Data.Values)
 			{
 				saveData.Prep();
 			}
-
+            */
 			watch.Stop();
 
 			Utility.PushColor(ConsoleColor.Green);
 			Console.WriteLine(
-				"...done ({1} items, {2} mobiles, {3} customs) ({0:F2} seconds)",
+				"...done ({1} items, {2} mobiles) ({0:F2} seconds)",/*, {3} customs*/
 				watch.Elapsed.TotalSeconds,
 				m_Items.Count,
-				m_Mobiles.Count,
-				_Data.Count);
+				m_Mobiles.Count//,
+				/*_Data.Count*/);
 			Utility.PopColor();
 		}
 
@@ -959,7 +971,7 @@ namespace Server
 					}
 				}
 			}
-
+            /*
 			while (_CustomsAddQueue.Count > 0)
 			{
 				ICustomsEntity entity = _CustomsAddQueue.Dequeue();
@@ -983,8 +995,9 @@ namespace Server
 					data.Delete();
 				}
 			}
+            */
 		}
-
+        /*
 		private static void AppendSafetyLog(string action, ICustomsEntity entity)
 		{
 			string message =
@@ -997,6 +1010,7 @@ namespace Server
 
 			AppendSafetyLog(message);
 		}
+        */
 
 		private static void AppendSafetyLog(string action, IEntity entity)
 		{
@@ -1064,7 +1078,7 @@ namespace Server
 				idxWriter.Close();
 			}
 		}
-
+        /*
 		private static void SaveIndex<T>(string path, List<T> list) where T : ICustomsEntry
 		{
 			if (!Directory.Exists("Saves/Customs/"))
@@ -1091,6 +1105,7 @@ namespace Server
 				indexWriter.Close();
 			}
 		}
+        */
 
 		internal static int m_Saves;
 
@@ -1224,7 +1239,7 @@ namespace Server
 
 			return null;
 		}
-
+        /*
 		public static ICustomsEntity FindCustomEntity(CustomSerial serial)
 		{
 			if (serial.IsValid)
@@ -1234,7 +1249,7 @@ namespace Server
 
 			return null;
 		}
-
+        */
 		public static Mobile FindMobile(Serial serial)
 		{
 			Mobile mob;
@@ -1288,7 +1303,7 @@ namespace Server
 		{
 			m_Items.Remove(item.Serial);
 		}
-
+        /*
 		public static void AddData(SaveData data)
 		{
 			if (m_Saving)
@@ -1467,7 +1482,7 @@ namespace Server
 
 			return null;
 		}
-
+      
 		public static List<BaseModule> GetModules(Item item)
 		{
 			var results = new List<BaseModule>();
@@ -1663,5 +1678,6 @@ namespace Server
 
 			return results;
 		}
+        */
 	}
 }
