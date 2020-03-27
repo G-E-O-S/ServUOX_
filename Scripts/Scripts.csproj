@@ -2188,7 +2188,7 @@
     <Compile Include="Mobiles\Hunters Guide\A\AcidSlug.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AgapiteElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AirElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\A\Alligator.cs" />
+    <Compile Include="Original\Mobiles\Animals\Alligator.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AncientLich.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AncientWyrm.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AntLion.cs" />
@@ -2204,8 +2204,8 @@
     <Compile Include="Mobiles\Hunters Guide\B\BattleChickenLizard.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\Beetle.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\Betrayer.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\Bird.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BlackBear.cs" />
+    <Compile Include="Original\Mobiles\Animals\Bird.cs" />
+    <Compile Include="Original\Mobiles\Animals\BlackBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BlackSolenInfiltratorQueen.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BlackSolenInfiltratorWarrior.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BlackSolenQueen.cs" />
@@ -2236,17 +2236,17 @@
     <Compile Include="Mobiles\Hunters Guide\B\BoneMagi.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\Brigand.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BronzeElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BrownBear.cs" />
+    <Compile Include="Original\Mobiles\Animals\BrownBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BulbousPutrification.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\Bull.cs" />
+    <Compile Include="Original\Mobiles\Animals\Bull.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CapturedHordeMinion.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\Cat.cs" />
+    <Compile Include="Original\Mobiles\Animals\Cat.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Centaur.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Changeling.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDragoon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDragoonElite.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\Chicken.cs" />
+    <Compile Include="Original\Mobiles\Animals\Chicken.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChickenLizard.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ClanCA.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ClanCT.cs" />
@@ -2264,8 +2264,8 @@
     <Compile Include="Mobiles\Hunters Guide\C\Corpser.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CorrosiveSlime.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CorruptedSoul.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\Cougar.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\Cow.cs" />
+    <Compile Include="Original\Mobiles\Animals\Cougar.cs" />
+    <Compile Include="Original\Mobiles\Animals\Cow.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Crane.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalElemental.cs" />
@@ -2289,8 +2289,8 @@
     <Compile Include="Mobiles\Hunters Guide\D\Devourer.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DireWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DiseasedCat.cs" />
-    <Compile Include="Mobiles\Hunters Guide\D\Dog.cs" />
-    <Compile Include="Mobiles\Hunters Guide\D\Dolphin.cs" />
+    <Compile Include="Original\Mobiles\Animals\Dog.cs" />
+    <Compile Include="Original\Mobiles\Animals\Dolphin.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\Doppleganger.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\Dragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DragonsFlameGrandMage.cs" />
@@ -2298,7 +2298,7 @@
     <Compile Include="Mobiles\Hunters Guide\D\DreadSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DreamWraith .cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DullCopperElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\E\Eagle.cs" />
+    <Compile Include="Original\Mobiles\Animals\Eagle.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EarthElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffetePutridGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffeteUndeadGargoyle.cs" />
@@ -2353,20 +2353,20 @@
     <Compile Include="Mobiles\Hunters Guide\G\Ghoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantBlackWidow.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantIceWorm.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\GiantRat.cs" />
+    <Compile Include="Original\Mobiles\Animals\GiantRat.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Gibberling.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\Goat.cs" />
+    <Compile Include="Original\Mobiles\Animals\Goat.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GoldenElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Golem.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GolemController.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GoreFiend.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\Gorilla.cs" />
+    <Compile Include="Original\Mobiles\Animals\Gorilla.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreaterDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreaterMongbat.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreaterPoisonElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\GreatHart.cs" />
+    <Compile Include="Original\Mobiles\Animals\GreatHart.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreenGoblin.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreenGoblinAlchemist.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreenGoblinScout.cs" />
@@ -2375,8 +2375,8 @@
     <Compile Include="Mobiles\Hunters Guide\G\GrayGoblin.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GrayGoblinKeeper.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GrayGoblinMage.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\GreyWolf.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\GrizzlyBear.cs" />
+    <Compile Include="Original\Mobiles\Animals\GreyWolf.cs" />
+    <Compile Include="Original\Mobiles\Animals\GrizzlyBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Guardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Harpy.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HeadlessOne.cs" />
@@ -2384,10 +2384,10 @@
     <Compile Include="Mobiles\Hunters Guide\H\HellHound.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HellSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HighPlainsBoura.cs" />
-    <Compile Include="Mobiles\Hunters Guide\H\Hind.cs" />
+    <Compile Include="Original\Mobiles\Animals\Hind.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hiryu.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HordeMinion.cs" />
-    <Compile Include="Mobiles\Hunters Guide\H\Horse.cs" />
+    <Compile Include="Original\Mobiles\Animals\Horse.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hydra.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Icehound.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Impaler.cs" />
@@ -2395,7 +2395,7 @@
     <Compile Include="Mobiles\Hunters Guide\I\InsaneDryad.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InterredGrizzle .cs" />
     <Compile Include="Mobiles\Hunters Guide\I\IronBeetle.cs" />
-    <Compile Include="Mobiles\Hunters Guide\J\JackRabbit.cs" />
+    <Compile Include="Original\Mobiles\Animals\JackRabbit.cs" />
     <Compile Include="Mobiles\Hunters Guide\J\Juggernaut.cs" />
     <Compile Include="Mobiles\Hunters Guide\J\JukaLord.cs" />
     <Compile Include="Mobiles\Hunters Guide\J\JukaMage.cs" />
@@ -2420,7 +2420,7 @@
     <Compile Include="Mobiles\Hunters Guide\L\Lich.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LichLord.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\Lizardman.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\Llama.cs" />
+    <Compile Include="Original\Mobiles\Animals\Llama.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LowlandBoura.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\Macaw.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MaddeningHorror.cs" />
@@ -2451,8 +2451,8 @@
     <Compile Include="Mobiles\Hunters Guide\O\OrcishMage.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OrcScout.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Ortanord.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PackHorse.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PackLlama.cs" />
+    <Compile Include="Original\Mobiles\Animals\PackHorse.cs" />
+    <Compile Include="Original\Mobiles\Animals\PackLlama.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BloodFox.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\Panther.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\ParoxysmusSwampDragon.cs" />
@@ -2489,17 +2489,17 @@
     <Compile Include="Mobiles\NPCs\WanderingShaman.cs" />
     <Compile Include="Mobiles\PlayerMobile.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PoisonElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PolarBear.cs" />
+    <Compile Include="Original\Mobiles\Animals\PolarBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PredatorHellCat.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\Protector.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGuardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\Q\Quagmire.cs" />
-    <Compile Include="Mobiles\Hunters Guide\R\Rabbit.cs" />
+    <Compile Include="Original\Mobiles\Animals\Rabbit.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RagingGrizzlyBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RaiJu.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Raptor.cs" />
-    <Compile Include="Mobiles\Hunters Guide\R\Rat.cs" />
+    <Compile Include="Original\Mobiles\Animals\Rat.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Ratman.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RatmanArcher.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RatmanMage.cs" />
@@ -2515,7 +2515,7 @@
     <Compile Include="Mobiles\Hunters Guide\R\RestlessSoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Revenant.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RevenantLion.cs" />
-    <Compile Include="Mobiles\Hunters Guide\R\RidableLlama.cs" />
+    <Compile Include="Original\Mobiles\Animals\RidableLlama.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Ridgeback.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Ronin.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RottingCorpse.cs" />
@@ -2536,14 +2536,14 @@
     <Compile Include="Mobiles\Hunters Guide\S\SentinelSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SerpentineDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SerpentsFangHighExecutioner.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SewerRat.cs" />
+    <Compile Include="Original\Mobiles\Animals\SewerRat.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Shade.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowDweller.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowIronElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowKnight.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowWisp.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowWyrm.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\Sheep.cs" />
+    <Compile Include="Original\Mobiles\Animals\Sheep.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SilverSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SilverSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDragon.cs" />
@@ -2591,11 +2591,11 @@
     <Compile Include="Mobiles\Hunters Guide\V\Virulent.cs" />
     <Compile Include="Mobiles\Hunters Guide\V\VorpalBunny.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WailingBanshee.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\Walrus.cs" />
+    <Compile Include="Original\Mobiles\Animals\Walrus.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WandererOfTheVoid.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WaterElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WhippingVine.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WhiteWolf.cs" />
+    <Compile Include="Original\Mobiles\Animals\WhiteWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WhiteWyrm.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\Wight.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\Wisp.cs" />
@@ -9209,104 +9209,104 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\MuseumWeapons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\AlterItem.cs">
+    <Compile Include="Original\Skills\Craft\Core\AlterItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\AutoCraft.cs" />
-    <Compile Include="Services\Craft\Core\CraftContext.cs">
+    <Compile Include="Original\Skills\Craft\Core\AutoCraft.cs" />
+    <Compile Include="Original\Skills\Craft\Core\CraftContext.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftGroup.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftGroupCol.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftGroupCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftGump.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftGumpItem.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftGumpItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftItem.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftItemCol.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftItemCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftItemIDAttribute.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftItemIDAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftRes.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftRes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftResCol.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftResCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftSkill.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftSkill.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftSkillCol.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftSkillCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftSubRes.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftSubRes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftSubResCol.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftSubResCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CraftSystem.cs">
+    <Compile Include="Original\Skills\Craft\Core\CraftSystem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\CustomCraft.cs">
+    <Compile Include="Original\Skills\Craft\Core\CustomCraft.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\Enhance.cs">
+    <Compile Include="Original\Skills\Craft\Core\Enhance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\QueryMakersMarkGump.cs">
+    <Compile Include="Original\Skills\Craft\Core\QueryMakersMarkGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\Recipes.cs">
+    <Compile Include="Original\Skills\Craft\Core\Recipes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\Repair.cs">
+    <Compile Include="Original\Skills\Craft\Core\Repair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\Core\Resmelt.cs">
+    <Compile Include="Original\Skills\Craft\Core\Resmelt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefAlchemy.cs">
+    <Compile Include="Original\Skills\Craft\DefAlchemy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefBlacksmithy.cs">
+    <Compile Include="Original\Skills\Craft\DefBlacksmithy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefBowFletching.cs">
+    <Compile Include="Original\Skills\Craft\DefBowFletching.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefCarpentry.cs">
+    <Compile Include="Original\Skills\Craft\DefCarpentry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefCartography.cs">
+    <Compile Include="Original\Skills\Craft\DefCartography.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefCooking.cs">
+    <Compile Include="Original\Skills\Craft\DefCooking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefGlassblowing.cs">
+    <Compile Include="Original\Skills\Craft\DefGlassblowing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefInscription.cs">
+    <Compile Include="Original\Skills\Craft\DefInscription.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefMasonry.cs">
+    <Compile Include="Original\Skills\Craft\DefMasonry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefTailoring.cs">
+    <Compile Include="Original\Skills\Craft\DefTailoring.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Craft\DefTinkering.cs">
+    <Compile Include="Original\Skills\Craft\DefTinkering.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Functional\DespiseAnkh.cs">
@@ -11496,74 +11496,74 @@
     <Compile Include="Services\XmlSpawner\XMLSpawner Support\StaffCloak.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Anatomy.cs">
+    <Compile Include="Original\Skills\Anatomy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\AnimalLore.cs">
+    <Compile Include="Original\Skills\AnimalLore.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\AnimalTaming.cs">
+    <Compile Include="Original\Skills\AnimalTaming.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\ArmsLore.cs">
+    <Compile Include="Original\Skills\ArmsLore.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Begging.cs">
+    <Compile Include="Original\Skills\Begging.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\DetectHidden.cs">
+    <Compile Include="Original\Skills\DetectHidden.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Discordance.cs">
+    <Compile Include="Original\Skills\Discordance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\EvalInt.cs">
+    <Compile Include="Original\Skills\EvalInt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\ForensicEval.cs">
+    <Compile Include="Original\Skills\ForensicEval.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Hiding.cs">
+    <Compile Include="Original\Skills\Hiding.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Inscribe.cs">
+    <Compile Include="Original\Skills\Inscribe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\ItemIdentification.cs">
+    <Compile Include="Original\Skills\ItemIdentification.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Meditation.cs">
+    <Compile Include="Original\Skills\Meditation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Peacemaking.cs">
+    <Compile Include="Original\Skills\Peacemaking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Poisoning.cs">
+    <Compile Include="Original\Skills\Poisoning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Provocation.cs">
+    <Compile Include="Original\Skills\Provocation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\RemoveTrap.cs">
+    <Compile Include="Original\Skills\RemoveTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\SkillCat.cs" />
-    <Compile Include="Skills\Snooping.cs">
+    <Compile Include="Original\Skills\SkillCat.cs" />
+    <Compile Include="Original\Skills\Snooping.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\SpiritSpeak.cs">
+    <Compile Include="Original\Skills\SpiritSpeak.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Stealing.cs">
+    <Compile Include="Original\Skills\Stealing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Stealth.cs">
+    <Compile Include="Original\Skills\Stealth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\TasteID.cs">
+    <Compile Include="Original\Skills\TasteID.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Skills\Tracking.cs">
+    <Compile Include="Original\Skills\Tracking.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\GiftGiving\GiftGiving.cs">
@@ -11581,31 +11581,31 @@
     <Compile Include="Items\Internal\ResGate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\DisturbType.cs">
+    <Compile Include="Original\Skills\Magery\Base\DisturbType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\MagerySpell.cs">
+    <Compile Include="Original\Skills\Magery\Base\MagerySpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\SpecialMove.cs">
+    <Compile Include="Original\Skills\Magery\Base\SpecialMove.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\Spell.cs">
+    <Compile Include="Original\Skills\Magery\Base\Spell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\SpellCircle.cs">
+    <Compile Include="Original\Skills\Magery\Base\SpellCircle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\SpellHelper.cs">
+    <Compile Include="Original\Skills\Magery\Base\SpellHelper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\SpellInfo.cs">
+    <Compile Include="Original\Skills\Magery\Base\SpellInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\SpellRegistry.cs">
+    <Compile Include="Original\Skills\Magery\Base\SpellRegistry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Base\SpellState.cs">
+    <Compile Include="Original\Skills\Magery\Base\SpellState.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spells\Bushido\Confidence.cs">
@@ -11665,106 +11665,106 @@
     <Compile Include="Spells\Chivalry\SacredJourney.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\AirElemental.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\AirElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\EarthElemental.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\EarthElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\Earthquake.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\Earthquake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\EnergyVortex.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\EnergyVortex.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\FireElemental.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\FireElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\Resurrection.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\Resurrection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\SummonDaemon.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\SummonDaemon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Eighth\WaterElemental.cs">
+    <Compile Include="Original\Skills\Magery\8Eighth\WaterElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\BladeSpirits.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\BladeSpirits.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\DispelField.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\DispelField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\Incognito.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\Incognito.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\MagicReflect.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\MagicReflect.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\MindBlast.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\MindBlast.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\Paralyze.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\Paralyze.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\PoisonField.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\PoisonField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fifth\SummonCreature.cs">
+    <Compile Include="Original\Skills\Magery\5Fifth\SummonCreature.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\Clumsy.cs">
+    <Compile Include="Original\Skills\Magery\1First\Clumsy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\CreateFood.cs">
+    <Compile Include="Original\Skills\Magery\1First\CreateFood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\Feeblemind.cs">
+    <Compile Include="Original\Skills\Magery\1First\Feeblemind.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\Heal.cs">
+    <Compile Include="Original\Skills\Magery\1First\Heal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\MagicArrow.cs">
+    <Compile Include="Original\Skills\Magery\1First\MagicArrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\NightSight.cs">
+    <Compile Include="Original\Skills\Magery\1First\NightSight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\ReactiveArmor.cs">
+    <Compile Include="Original\Skills\Magery\1First\ReactiveArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\First\Weaken.cs">
+    <Compile Include="Original\Skills\Magery\1First\Weaken.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\ArchCure.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\ArchCure.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\ArchProtection.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\ArchProtection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\Curse.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\Curse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\FireField.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\FireField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\GreaterHeal.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\GreaterHeal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\Lightning.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\Lightning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\ManaDrain.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\ManaDrain.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Fourth\Recall.cs">
+    <Compile Include="Original\Skills\Magery\4Fourth\Recall.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spells\Gargoyle\SpellDefinitions\FlySpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Initializer.cs">
+    <Compile Include="Original\Skills\Magery\Initializer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spells\Mysticism\MysticSpell.cs">
@@ -11911,79 +11911,79 @@
     <Compile Include="Spells\Ninjitsu\SurpriseAttack.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Reagent.cs">
+    <Compile Include="Original\Skills\Magery\Reagent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\Agility.cs">
+    <Compile Include="Original\Skills\Magery\2Second\Agility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\Cunning.cs">
+    <Compile Include="Original\Skills\Magery\2Second\Cunning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\Cure.cs">
+    <Compile Include="Original\Skills\Magery\2Second\Cure.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\Harm.cs">
+    <Compile Include="Original\Skills\Magery\2Second\Harm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\MagicTrap.cs">
+    <Compile Include="Original\Skills\Magery\2Second\MagicTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\Protection.cs">
+    <Compile Include="Original\Skills\Magery\2Second\Protection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\RemoveTrap.cs">
+    <Compile Include="Original\Skills\Magery\2Second\RemoveTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Second\Strength.cs">
+    <Compile Include="Original\Skills\Magery\2Second\Strength.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\ChainLightning.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\ChainLightning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\EnergyField.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\EnergyField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\FlameStrike.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\FlameStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\GateTravel.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\GateTravel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\ManaVampire.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\ManaVampire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\MassDispel.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\MassDispel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\MeteorSwarm.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\MeteorSwarm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Seventh\Polymorph.cs">
+    <Compile Include="Original\Skills\Magery\7Seventh\Polymorph.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\Dispel.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\Dispel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\EnergyBolt.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\EnergyBolt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\Explosion.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\Explosion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\Invisibility.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\Invisibility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\Mark.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\Mark.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\MassCurse.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\MassCurse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\ParalyzeField.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\ParalyzeField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Sixth\Reveal.cs">
+    <Compile Include="Original\Skills\Magery\6Sixth\Reveal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Spells\Skill Masteries\BardSpells\BardSpell.cs" />
@@ -12103,31 +12103,31 @@
     <Compile Include="Spells\Spellweaving\WordOfDeath.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\Bless.cs">
+    <Compile Include="Original\Skills\Magery\3Third\Bless.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\Fireball.cs">
+    <Compile Include="Original\Skills\Magery\3Third\Fireball.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\MagicLock.cs">
+    <Compile Include="Original\Skills\Magery\3Third\MagicLock.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\Poison.cs">
+    <Compile Include="Original\Skills\Magery\3Third\Poison.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\Telekinesis.cs">
+    <Compile Include="Original\Skills\Magery\3Third\Telekinesis.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\Teleport.cs">
+    <Compile Include="Original\Skills\Magery\3Third\Teleport.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\Unlock.cs">
+    <Compile Include="Original\Skills\Magery\3Third\Unlock.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\Third\WallOfStone.cs">
+    <Compile Include="Original\Skills\Magery\3Third\WallOfStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Spells\UnsummonTimer.cs">
+    <Compile Include="Original\Skills\Magery\UnsummonTimer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="T2A\Mobiles\Creatures\BullFrog.cs" />
@@ -12288,8 +12288,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mobiles\Hunters Guide\X\" />
-    <Folder Include="Mobiles\Quests\" />
-    <Folder Include="Mobiles\Towns\" />
+    <Folder Include="Original\Items\" />
+    <Folder Include="Original\Mobiles\Monsters\" />
+    <Folder Include="T2A\Items\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
