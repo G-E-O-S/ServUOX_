@@ -11,6 +11,7 @@
 
 /Honesty
 /Logs
+/Docs
 /Backups
 /Saves
 /Web
@@ -37,6 +38,7 @@
 *.csproj.user
 *.DotSettings.user
 *.ini
+*.md
 
 !/Data/*
 !/bin/rosyln/*
