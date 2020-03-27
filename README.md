@@ -1,12 +1,14 @@
-# [ServUOX]
+<p align="center">
+ <img src="Docs/images/servuox.png" title="ServUOX">
+ </p>
 
-#[![Build Status](https://travis-ci.com/ServUO/ServUO.svg?branch=master)](https://travis-ci.com/ServUO/ServUO)
-#[![GitHub issues](https://img.shields.io/github/issues/servuo/servuo.svg)](https://github.com/ServUO/ServUO/issues)
-#[![GitHub release](https://img.shields.io/github/release/servuo/servuo.svg)](https://github.com/ServUO/ServUO/releases)
-#[![GitHub repo size](https://img.shields.io/github/repo-size/servuo/servuo.svg)](https://github.com/ServUO/ServUO/)
-#[![Discord](https://img.shields.io/discord/110970849628000256.svg)](https://discord.gg/0cQjvnFUN26nRt7y)
-#[![GitHub contributors](https://img.shields.io/github/contributors/servuo/servuo.svg)](https://github.com/ServUO/ServUO/graphs/contributors)
-#[![GitHub](https://img.shields.io/github/license/servuo/servuo.svg?color=a)](https://github.com/ServUO/ServUO/blob/master/LICENSE)
+#[![Build Status](https://travis-ci.com/ServUOX/ServUOX.svg?branch=master)](https://travis-ci.com/ServUOX/ServUOX)
+#[![GitHub issues](https://img.shields.io/github/issues/servuox/servuox.svg)](https://github.com/ServUOX/ServUOX/issues)
+#[![GitHub release](https://img.shields.io/github/release/servuox/servuox.svg)](https://github.com/ServUOX/ServUOX/releases)
+#[![GitHub repo size](https://img.shields.io/github/repo-size/servuox/servuox.svg)](https://github.com/ServUOX/ServUOX/)
+#[![Discord](https://img.shields.io/discord/692805552367075338.svg)](https://discord.gg/qweyb3w)
+#[![GitHub contributors](https://img.shields.io/github/contributors/servuox/servuox.svg)](https://github.com/ServUOX/ServUOX/graphs/contributors)
+#[![GitHub](https://img.shields.io/github/license/servuox/servuox.svg?color=a)](https://github.com/ServUOX/ServUOX/blob/master/LICENSE)
 
 
 ServUOX is a community driven Ultima Online Server Emulator written in C#.
@@ -56,4 +58,4 @@ GPL v2
 
 
    [ServUOX]: <https://github.com/ServUOX>
-   [Quickstart]: <https://www.servuo.com/wiki/startup/>
+   [Quickstart]: <https://www.servuox.com/wiki/startup/>
