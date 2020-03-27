@@ -88,31 +88,31 @@
     <Compile Include="Commands\BoundingBoxPicker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\CreateWorld.cs">
+    <Compile Include="Needs Deleted Look Over First\CreateWorld.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Decorate.cs">
+    <Compile Include="Needs Deleted Look Over First\Decorate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\DecorateDelete.cs">
+    <Compile Include="Needs Deleted Look Over First\DecorateDelete.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\DecorateMag.cs">
+    <Compile Include="Needs Deleted Look Over First\DecorateMag.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\DecorateSA.cs">
+    <Compile Include="Needs Deleted Look Over First\DecorateSA.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\Docs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\DoorGenDelete.cs">
+    <Compile Include="Needs Deleted Look Over First\DoorGenDelete.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\Dupe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\ExportWSC.cs">
+    <Compile Include="Needs Deleted Look Over First\ExportWSC.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\GenBounds.cs">
@@ -203,10 +203,10 @@
     <Compile Include="Commands\Generic\Implementors\SingleCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\GenTeleporter.cs">
+    <Compile Include="Needs Deleted Look Over First\GenTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\GMbody.cs">
+    <Compile Include="Needs Deleted Look Over First\GMbody.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\Handlers.cs">
@@ -227,10 +227,10 @@
     <Compile Include="Commands\ShardTime.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\SHTelGenDelete.cs">
+    <Compile Include="Needs Deleted Look Over First\SHTelGenDelete.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\SignGenDelete.cs">
+    <Compile Include="Needs Deleted Look Over First\SignGenDelete.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\SignParser.cs">
@@ -248,7 +248,7 @@
     <Compile Include="Commands\TimeStamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\UnloadMaps.cs">
+    <Compile Include="Needs Deleted Look Over First\UnloadMaps.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\VisibilityList.cs">
@@ -276,8 +276,8 @@
     <Compile Include="Context Menus\TeachEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Deprecated\GamblingStone.cs" />
-    <Compile Include="Deprecated\GMStone.cs" />
+    <Compile Include="Needs Deleted Look Over First\GamblingStone.cs" />
+    <Compile Include="Needs Deleted Look Over First\GMStone.cs" />
     <Compile Include="Gumps\AddCustomizableMessageGump.cs" />
     <Compile Include="Gumps\AddDoorGump.cs">
       <SubType>Code</SubType>
@@ -8608,7 +8608,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\ThornedWildStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\AccountPrompt.cs">
+    <Compile Include="Accounting\AccountPrompt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Misc\Animations.cs">
@@ -8659,7 +8659,7 @@
     <Compile Include="Misc\DispellableFieldAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\DoorGenerator.cs">
+    <Compile Include="Needs Deleted Look Over First\DoorGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Misc\Email.cs">
@@ -8773,7 +8773,7 @@
     <Compile Include="Misc\ServerList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ShardPoller.cs">
+    <Compile Include="Needs Deleted Look Over First\ShardPoller.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Misc\ShrinkTable.cs">
@@ -11569,7 +11569,7 @@
     <Compile Include="Services\GiftGiving\GiftGiving.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\ItemFixes.cs">
+    <Compile Include="Needs Deleted Look Over First\ItemFixes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\PreventInaccess.cs">
