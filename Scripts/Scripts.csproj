@@ -12278,10 +12278,6 @@
       <Project>{AE4A9EAA-E0EB-4DC9-9604-BE4289F9F6C3}</Project>
       <Name>Server</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ultima\Ultima.csproj">
-      <Project>{e08cfbe4-e013-44ee-8829-426d05bc083f}</Project>
-      <Name>Ultima</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mobiles\Hunters Guide\X\" />
