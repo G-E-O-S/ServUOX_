@@ -1,36 +1,11 @@
 @SET CURPATH=%~dp0
 @SET CSCPATH=%CURPATH%bin\roslyn\
 
-@SET SDKPATH=%CURPATH%Ultima\
 @SET SRVPATH=%CURPATH%Server\
 
 @SET EXENAME=ServUOX
 
 @TITLE: %EXENAME% - https://www.servuox.com
-
-::##########
-
-@ECHO:
-@ECHO: Compile Ultima SDK
-@ECHO:
-
-@PAUSE
-
-@DEL "%CURPATH%Ultima.dll"
-
-@ECHO ON
-
-"%CSCPATH%csc.exe" /r:"%CURPATH%Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" /target:library /out:"%CURPATH%Ultima.dll" /recurse:"%SDKPATH%*.cs" /d:ServUOX /d:NEWTIMERS /d:DEBUG /nowarn:0618 /debug /nologo /unsafe
-
-@ECHO OFF
-
-@ECHO:
-@ECHO: Done!
-@ECHO:
-
-@PAUSE
-
-@CLS
 
 ::##########
 
@@ -44,7 +19,7 @@
 
 @ECHO ON
 
-"%CSCPATH%csc.exe" /win32icon:"%SRVPATH%servuox.ico" /r:"%CURPATH%Ultima.dll" /r:"%CURPATH%Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" /target:exe /out:"%CURPATH%%EXENAME%.exe" /recurse:"%SRVPATH%*.cs" /d:ServUOX /d:NEWTIMERS /d:NETFX_472 /d:DEBUG /nowarn:0618 /debug /nologo /unsafe
+"%CSCPATH%csc.exe" /win32icon:"%SRVPATH%servuox.ico" /r:"%CURPATH%Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" /target:exe /out:"%CURPATH%%EXENAME%.exe" /recurse:"%SRVPATH%*.cs" /d:ServUOX /d:NEWTIMERS /d:NETFX_472 /d:DEBUG /nowarn:0618 /debug /nologo /unsafe
 
 @ECHO OFF
 
