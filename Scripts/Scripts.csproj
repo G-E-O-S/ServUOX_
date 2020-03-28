@@ -510,7 +510,7 @@
     <Compile Include="Gumps\ResurrectGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\RunebookGump.cs">
+    <Compile Include="T2A\Items\Books\Runebooks\RunebookGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Gumps\SetSecureLevelGump.cs">
@@ -1607,7 +1607,7 @@
     <Compile Include="Items\Tools\Key.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\KeyRing.cs">
+    <Compile Include="T2A\Items\Tools\KeyRing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Internal\LabyrinthTeleporters.cs">
@@ -3965,19 +3965,19 @@
     <Compile Include="Items\Equipment\Armor\ChainLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\DaemonBone\DaemonHelm.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\DaemonBone\DaemonArms.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\DaemonBone\DaemonChest.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\DaemonBone\DaemonGloves.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\DaemonBone\DaemonLegs.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Darkwood\DarkwoodChest.cs">
@@ -4463,40 +4463,40 @@
     <Compile Include="Items\Equipment\Armor\WoodlandLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixArms.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixChest.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixGloves.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixGorget.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixHelm.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixLegs.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Phoenix\PhoenixTicket.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixTicket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Ranger\RangerArms.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Ranger\RangerArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Ranger\RangerChest.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Ranger\RangerChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Ranger\RangerGloves.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Ranger\RangerGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Ranger\RangerGorget.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Ranger\RangerGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Ranger\RangerLegs.cs">
+    <Compile Include="T2A\Items\Equipment\Armor\Sets\Ranger\RangerLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\RingmailArms.cs">
@@ -6042,7 +6042,7 @@
     <Compile Include="Items\Tools\FishingPole.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\MessageInABottle.cs">
+    <Compile Include="T2A\Items\Consumables\MessageInABottle.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\Sextant.cs">
@@ -6051,10 +6051,10 @@
     <Compile Include="Items\Decorative\ShipwreckedItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\SOS.cs">
+    <Compile Include="T2A\Items\Consumables\SOS.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\SpecialFishingNet.cs">
+    <Compile Include="T2A\Items\Consumables\SpecialFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\GargoylesPickaxe.cs">
@@ -6108,7 +6108,7 @@
     <Compile Include="Items\Internal\Moongate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Resource\PotionKeg.cs">
+    <Compile Include="T2A\Items\Resource\PotionKeg.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Original\Items\Craft and Component\RecallRune.cs">
@@ -6201,7 +6201,7 @@
     <Compile Include="Original\Items\Craft and Component\Potions\StrengthPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Spellbooks\Runebook.cs">
+    <Compile Include="T2A\Items\Books\Runebooks\Runebook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Original\Items\Craft and Component\Scrolls\EarthquakeScroll.cs">
@@ -12287,12 +12287,17 @@
     <None Include="Services\TreasureMaps\desktop.ini" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Original\Items\Armor and Shield\" />
     <Folder Include="Original\Items\Clothing and Apparel\" />
     <Folder Include="Original\Items\Houses and Ships\" />
     <Folder Include="Original\Items\Potions\" />
     <Folder Include="Original\Items\Weapon and Ammunition\" />
-    <Folder Include="T2A\Items\" />
+=======
+    <Folder Include="Mobiles\Hunters Guide\X\" />
+    <Folder Include="Original\Items\" />
+    <Folder Include="Original\Mobiles\Monsters\" />
+>>>>>>> 06492062eb2c3c0862225f9d75f8923cc7845ac7
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
