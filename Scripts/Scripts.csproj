@@ -12287,14 +12287,12 @@
     <None Include="Services\TreasureMaps\desktop.ini" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Mobiles\Hunters Guide\X\" />
     <Folder Include="Original\Items\Armor and Shield\" />
     <Folder Include="Original\Items\Clothing and Apparel\" />
     <Folder Include="Original\Items\Houses and Ships\" />
     <Folder Include="Original\Items\Potions\" />
     <Folder Include="Original\Items\Weapon and Ammunition\" />
-    <Folder Include="Mobiles\Hunters Guide\X\" />
-    <Folder Include="Original\Items\" />
-    <Folder Include="Original\Mobiles\Monsters\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
