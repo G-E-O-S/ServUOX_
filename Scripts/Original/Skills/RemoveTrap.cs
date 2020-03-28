@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
+using Server.Engines.VvV;
 using Server.Factions;
+using Server.Guilds;
 using Server.Items;
 using Server.Network;
 using Server.Targeting;
-using Server.Engines.VvV;
-using Server.Guilds;
-using Server.Mobiles;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Server.SkillHandlers
 {
@@ -71,7 +69,7 @@ namespace Server.SkillHandlers
 
                     from.Direction = from.GetDirectionTo(targ);
 
-                   if (targ.TrapType == Server.Items.TrapType.None)
+                    if (targ.TrapType == Server.Items.TrapType.None)
                     {
                         from.SendLocalizedMessage(502373); // That doesn't appear to be trapped
                     }
@@ -108,7 +106,7 @@ namespace Server.SkillHandlers
                     {
                         from.PlaySound(0x241);
 
-                        if (from.CheckTargetSkill(SkillName.RemoveTrap, targ, targ.TrapPower, targ.TrapPower + 10))
+                        if (from.CheckTargetSkill(SkillName.RemoveTrap, targ, targ.TrapPower - 10, targ.TrapPower + 10))
                         {
                             targ.TrapPower = 0;
                             targ.TrapLevel = 0;
@@ -154,7 +152,9 @@ namespace Server.SkillHandlers
                                 int silver = faction.AwardSilver(from, trap.SilverFromDisarm);
 
                                 if (silver > 0)
+                                {
                                     from.SendLocalizedMessage(1008113, true, silver.ToString("N0")); // You have been granted faction silver for removing the enemy trap :
+                                }
                             }
 
                             trap.Delete();
@@ -165,7 +165,9 @@ namespace Server.SkillHandlers
                         }
 
                         if (!isOwner && kit != null)
+                        {
                             kit.ConsumeCharge(from);
+                        }
                     }
                 }
                 else if (targeted is VvVTrap)
@@ -184,7 +186,9 @@ namespace Server.SkillHandlers
                             trap.Delete();
 
                             if (!from.AddToBackpack(kit))
+                            {
                                 kit.MoveToWorld(from.Location, from.Map);
+                            }
 
                             if (trap.Owner != null && from != trap.Owner)
                             {
@@ -219,7 +223,9 @@ namespace Server.SkillHandlers
                             Item item = new FloorTrapComponent();
 
                             if (from.Backpack == null || !from.Backpack.TryDropItem(from, item, false))
+                            {
                                 item.MoveToWorld(from.Location, from.Map);
+                            }
                         }
 
                         targ.Delete();
@@ -286,7 +292,9 @@ namespace Server.SkillHandlers
         public static bool IsDisarming(Mobile from, TreasureMapChest chest)
         {
             if (_Table == null)
+            {
                 return false;
+            }
 
             return _Table.ContainsKey(from);
         }
@@ -294,7 +302,9 @@ namespace Server.SkillHandlers
         public static bool IsBeingDisarmed(TreasureMapChest chest)
         {
             if (_Table == null)
+            {
                 return false;
+            }
 
             return _Table.Values.Any(timer => timer.Chest == chest);
         }
@@ -379,7 +389,7 @@ namespace Server.SkillHandlers
             {
                 From.RevealingAction();
 
-                var min = (double)Math.Ceiling(From.Skills[SkillName.RemoveTrap].Value * .75);
+                var min = Math.Ceiling(From.Skills[SkillName.RemoveTrap].Value * .75);
 
                 if (From.CheckTargetSkill(SkillName.RemoveTrap, Chest, min, min > 50 ? min + 50 : 100))
                 {

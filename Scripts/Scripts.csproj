@@ -12284,9 +12284,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Services\TreasureMaps\desktop.ini" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Mobiles\Hunters Guide\X\" />
     <Folder Include="Original\Items\Armor and Shield\" />
     <Folder Include="Original\Items\Clothing and Apparel\" />

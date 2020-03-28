@@ -343,23 +343,14 @@ namespace Server.Services.Virtues
 				m_Perfection = 100;
 				m_Source.SendLocalizedMessage(1063254); // You have Achieved Perfection in inflicting damage to this opponent!
 
-				BuffInfo.AddBuff(
-					m_Target,
-					new BuffInfo(
-						BuffIcon.AchievePerfection,
-						1075651,
-						1075652,
-						TimeSpan.FromSeconds(5),
-						from,
-						String.Format("{0}\t{1}", m_Perfection, from.Name)));
-			}
+				BuffInfo.AddBuff(m_Target, new BuffInfo(BuffIcon.AchievePerfection, 1075651, 1075652, TimeSpan.FromSeconds(5), from, string.Format("{0}\t{1}", m_Perfection, from.Name)));
+                BuffInfo.AddBuff(from, new BuffInfo(BuffIcon.Perfection, 1153786, 1151394, string.Format("{0}\t{1}", m_Target.Name, m_Perfection)));
+            }
 			else
 			{
 				m_Source.SendLocalizedMessage(1063255); // You gain in Perfection as you precisely strike your opponent.
 
-				BuffInfo.AddBuff(
-					from,
-					new BuffInfo(BuffIcon.Perfection, 1153786, 1151394, String.Format("{0}\t{1}", m_Target.Name, m_Perfection)));
+				BuffInfo.AddBuff(from, new BuffInfo(BuffIcon.Perfection, 1153786, 1151394, string.Format("{0}\t{1}", m_Target.Name, m_Perfection)));
 			}
 		}
 
