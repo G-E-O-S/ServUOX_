@@ -27,7 +27,9 @@ namespace Server
             GlobalRadarRange = 40;
 		}
 
-		public static Action<CrashedEventArgs> CrashedHandler { get; set; }
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        public static Action<CrashedEventArgs> CrashedHandler { get; set; }
 
 		public static bool Crashed { get { return _Crashed; } }
 
@@ -404,17 +406,17 @@ namespace Server
                 }
                 else if (Insensitive.Equals(a, "-h") || Insensitive.Equals(a, "-help"))
                 {
-                    Console.WriteLine("An Ultima Online server emulator written in C# - Visit https://github.com/ServUOX for more information.\n\n");
-                    Console.WriteLine(AppDomain.CurrentDomain.FriendlyName + " [Parameter]\n\n");
-                    Console.WriteLine("     -debug              Starting ServUOX in Debug Mode. Debug Mode is being used in Core and Scripts to give extended inforamtion during runtime.");
-                    Console.WriteLine("     -haltonwarning      ServUOX halts if any warning is raised during compilation of scripts.");
-                    Console.WriteLine("     -h or -help         Displays this help text.");
-                    Console.WriteLine("     -nocache            No known effect.");
-                    Console.WriteLine("     -noconsole          No user interaction during startup and runtime.");
-                    Console.WriteLine("     -profile            Enables profiling allowing to get performance diagnostic information of packets, timers etc. in AdminGump -> Maintenance. Use with caution. This increases server load.");
-                    Console.WriteLine("     -service            This parameter should be set if you're running ServUO as a Windows Service. No user interaction. *Windows only*");
-                    Console.WriteLine("     -usehrt             Enables High Resolution Timing if requirements are met. Increasing the resolution of the timer. *Windows only*");
-                    Console.WriteLine("     -vb                 Enables compilation of VB.NET Scripts. Without this option VB.NET Scripts are skipped.");
+                    log.Info("An Ultima Online server emulator written in C# - Visit https://github.com/ServUOX for more information.\n\n");
+                    log.Info(AppDomain.CurrentDomain.FriendlyName + " [Parameter]\n\n");
+                    log.Info("     -debug              Starting ServUOX in Debug Mode. Debug Mode is being used in Core and Scripts to give extended inforamtion during runtime.");
+                    log.Info("     -haltonwarning      ServUOX halts if any warning is raised during compilation of scripts.");
+                    log.Info("     -h or -help         Displays this help text.");
+                    log.Info("     -nocache            No known effect.");
+                    log.Info("     -noconsole          No user interaction during startup and runtime.");
+                    log.Info("     -profile            Enables profiling allowing to get performance diagnostic information of packets, timers etc. in AdminGump -> Maintenance. Use with caution. This increases server load.");
+                    log.Info("     -service            This parameter should be set if you're running ServUO as a Windows Service. No user interaction. *Windows only*");
+                    log.Info("     -usehrt             Enables High Resolution Timing if requirements are met. Increasing the resolution of the timer. *Windows only*");
+                    log.Info("     -vb                 Enables compilation of VB.NET Scripts. Without this option VB.NET Scripts are skipped.");
 
                     System.Environment.Exit(0);
                 }
@@ -469,8 +471,8 @@ namespace Server
 			var buildDate = new DateTime(2000, 1, 1).AddDays(ver.Build).AddSeconds(ver.Revision * 2);
 			
 			Utility.PushColor(ConsoleColor.Cyan);
-        #if DEBUG
-            Console.WriteLine(
+#if DEBUG
+            log.Debug(
                 "ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Debug",
                 ver.Major,
                 ver.Minor,
@@ -478,7 +480,7 @@ namespace Server
                 ver.Revision,
 				buildDate);
 #else
-            Console.WriteLine(
+            log.Info(
 				"ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Release",
 				ver.Major,
 				ver.Minor,
@@ -486,15 +488,15 @@ namespace Server
 				ver.Revision,
 				buildDate);
 #endif
-            Utility.PopColor();
+            //Utility.PopColor();
 
 			string s = Arguments;
 
             if (s.Length > 0)
 			{
-				Utility.PushColor(ConsoleColor.Yellow);
-				Console.WriteLine("Core: Running with arguments: {0}", s);
-				Utility.PopColor();
+				//Utility.PushColor(ConsoleColor.Yellow);
+                log.Info("Core: Running with arguments: {0}", s);
+				//Utility.PopColor();
 			}
 
 			ProcessorCount = Environment.ProcessorCount;
@@ -902,7 +904,7 @@ namespace Server
 			}
 		}
 	}
-
+    /*
 	public class FileLogger : TextWriter
 	{
 		public const string DateFormat = "[MMMM dd hh:mm:ss.f tt]: ";
@@ -1023,4 +1025,5 @@ namespace Server
 
 		public override Encoding Encoding { get { return Encoding.Default; } }
 	}
+    */
 }

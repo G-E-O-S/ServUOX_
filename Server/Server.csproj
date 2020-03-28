@@ -77,6 +77,14 @@
     <Compile Include=".\ContextMenus\ContextMenuEntry.cs" />
     <Compile Include=".\ContextMenus\OpenBackpackEntry.cs" />
     <Compile Include=".\ContextMenus\PaperdollEntry.cs" />
+    <Compile Include="Logging\BaseLogger.cs" />
+    <Compile Include="Logging\CompositeLogger.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\ErrorFileLogger.cs" />
+    <Compile Include="Logging\Filelogger.cs" />
+    <Compile Include="Logging\ILog.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Logging\LogManager.cs" />
     <Compile Include="Ultima\AnimationEdit.cs" />
     <Compile Include="Ultima\Animations.cs" />
     <Compile Include="Ultima\Animdata.cs" />
