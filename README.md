@@ -41,7 +41,7 @@ After this you can run the server by executing `ServUOX.exe`.
 `apt-get install mono-complete`  
 `make`
 
-A quick start guide is available at our forums. Follow this link: [Quickstart]
+A quick start guide is available on our wiki. Follow this link: [Quickstart]
 
 ### Development
 
