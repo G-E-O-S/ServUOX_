@@ -604,13 +604,13 @@
     <Compile Include="Items\Addons\Shadow Furniture Set\SpikePost.cs" />
     <Compile Include="Items\Addons\Shadow Furniture Set\ObsidianRock.cs" />
     <Compile Include="Items\Addons\Shadow Furniture Set\ShadowBanner.cs" />
-    <Compile Include="Items\Addons\WashBasin.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\WashBasin.cs" />
     <Compile Include="Items\Addons\WoodStove.cs" />
     <Compile Include="Items\Addons\TinkerBench.cs" />
     <Compile Include="Items\Addons\RepairBench.cs" />
     <Compile Include="Items\Addons\WaterWheel.cs" />
     <Compile Include="Items\Addons\CodexOfVirtue.cs" />
-    <Compile Include="Items\Addons\BuffetTable.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\BuffetTable.cs" />
     <Compile Include="Items\Addons\FormalDiningTable.cs" />
     <Compile Include="Items\Addons\GadgetryTable.cs" />
     <Compile Include="Items\Consumables\DecorativeKitchenSet.cs" />
@@ -687,33 +687,33 @@
     <Compile Include="Items\Resource\LiveRock.cs" />
     <Compile Include="Items\Resource\VileTentacles.cs" />
     <Compile Include="Items\Resource\EtherealSand.cs" />
-    <Compile Include="Items\StoreBought\BarrelMailbox.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DecorativeDungeonChair.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DecorativeDungeonStool.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DecorativeWallHook.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DecorativeStocks.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DecorativeDungeonMask.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DungeonFountain.cs" />
-    <Compile Include="Items\StoreBought\Decorative Dungeon Set\DungeonBull.cs" />
-    <Compile Include="Items\StoreBought\GardenSculpture.cs" />
-    <Compile Include="Items\StoreBought\MetalLadder.cs" />
-    <Compile Include="Items\StoreBought\PetWhistle.cs" />
-    <Compile Include="Items\StoreBought\ImprovedRockHammer.cs" />
-    <Compile Include="Items\StoreBought\SecretChest.cs" />
-    <Compile Include="Items\StoreBought\SpiralStaircase.cs" />
-    <Compile Include="Items\StoreBought\SquirrelMailbox.cs" />
-    <Compile Include="Items\StoreBought\StoreSingingBall.cs" />
-    <Compile Include="Items\StoreBought\WineRack.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\BarrelMailbox.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DecorativeDungeonChair.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DecorativeDungeonStool.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DecorativeWallHook.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DecorativeStocks.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DecorativeDungeonMask.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DungeonFountain.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\Decorative Dungeon Set\DungeonBull.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\GardenSculpture.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\MetalLadder.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\PetWhistle.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\ImprovedRockHammer.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\SecretChest.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\SpiralStaircase.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\SquirrelMailbox.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\StoreSingingBall.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\WineRack.cs" />
     <Compile Include="Items\Tools\SteamPoweredBeverageMaker.cs" />
     <Compile Include="Items\Addons\ClawFootTub.cs" />
-    <Compile Include="Items\Addons\GreenMarbleFireplace.cs" />
-    <Compile Include="Items\Addons\GoldMarbleFireplace.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\GreenMarbleFireplace.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\GoldMarbleFireplace.cs" />
     <Compile Include="Items\Addons\Craft Addons\AlchemyStation.cs" />
     <Compile Include="Items\Addons\Craft Addons\BBQSmoker.cs" />
     <Compile Include="Items\Addons\Craft Addons\WritingDesk.cs" />
     <Compile Include="Items\Addons\EnormousVenusFlytrap.cs" />
     <Compile Include="Items\Addons\KoiPond.cs" />
-    <Compile Include="Items\Addons\BlueMarbleFireplace.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\BlueMarbleFireplace.cs" />
     <Compile Include="Items\Addons\PicnicBlanket.cs" />
     <Compile Include="Items\Addons\RoastingPigOnASpit.cs" />
     <Compile Include="Items\Addons\SheepStatue.cs" />
@@ -723,16 +723,16 @@
     <Compile Include="Items\Addons\WeatheredBronzeArcherSculpture.cs" />
     <Compile Include="Items\Addons\WeatheredBronzeManOnABench.cs" />
     <Compile Include="Items\Addons\WeatheredBronzeGlobeSculpture.cs" />
-    <Compile Include="Items\Addons\BaseAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BaseAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BaseAddonContainer.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BaseAddonContainer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BaseAddonContainerDeed.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BaseAddonContainerDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BaseAddonDeed.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BaseAddonDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\Craft Addons\AddonToolComponenet.cs" />
@@ -750,40 +750,40 @@
     <Compile Include="Items\Addons\FancyCouchNorth.cs" />
     <Compile Include="Items\Addons\FancyLoveseatWest.cs" />
     <Compile Include="Items\Addons\FancyLoveseatNorth.cs" />
-    <Compile Include="Items\Addons\SmallDisplayCaseEast.cs" />
-    <Compile Include="Items\Addons\SmallDisplayCaseSouth.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseEast.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseSouth.cs" />
     <Compile Include="Items\Addons\LongMetalTableEast.cs" />
-    <Compile Include="Items\Addons\LongWoodenTableEast.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\LongWoodenTableEast.cs" />
     <Compile Include="Items\Addons\MetalTableEast.cs" />
     <Compile Include="Items\Addons\LongMetalTableSouth.cs" />
-    <Compile Include="Items\Addons\WoodenTableEast.cs" />
-    <Compile Include="Items\Addons\LongWoodenTableSouth.cs" />
-    <Compile Include="Items\Addons\WoodenTableSouth.cs" />
-    <Compile Include="Items\Addons\PlantTapestryEast.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableEast.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\LongWoodenTableSouth.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableSouth.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestryEast.cs" />
     <Compile Include="Items\Addons\MetalTableSouth.cs" />
     <Compile Include="Items\Addons\PlushLoveseatEast.cs" />
-    <Compile Include="Items\Addons\PlantTapestrySouth.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestrySouth.cs" />
     <Compile Include="Items\Addons\PlushLoveseatSouth.cs" />
     <Compile Include="Items\Addons\FancyLoveseatEast.cs" />
     <Compile Include="Items\Addons\FancyCouchSouth.cs" />
     <Compile Include="Items\Addons\FancyLoveseatSouth.cs" />
     <Compile Include="Items\Addons\GeoffreyCampAddon.cs" />
-    <Compile Include="Items\Addons\HitchingPost.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\HitchingPost.cs" />
     <Compile Include="Items\Addons\GardenShed.cs" />
     <Compile Include="Items\Addons\FancyWoodenShelfEast.cs" />
-    <Compile Include="Items\Addons\PlainWoodenShelfEast.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfEast.cs" />
     <Compile Include="Items\Addons\FancyWoodenShelfSouth.cs" />
     <Compile Include="Items\Addons\RusticBenchEast.cs" />
-    <Compile Include="Items\Addons\PlainWoodenShelfSouth.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfSouth.cs" />
     <Compile Include="Items\Addons\RusticBenchSouth.cs" />
-    <Compile Include="Items\Addons\LongTableEastAddon.cs" />
-    <Compile Include="Items\Addons\LongTableSouth.cs" />
-    <Compile Include="Items\Addons\LighthouseAddon.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\LongTableEastAddon.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\LongTableSouth.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\LighthouseAddon.cs" />
     <Compile Include="Items\Addons\RitualTableAddon.cs" />
     <Compile Include="Items\Addons\NexusAddon.cs" />
     <Compile Include="Items\Addons\RoseRug.cs" />
     <Compile Include="Items\Addons\SkullRug.cs" />
-    <Compile Include="Items\Addons\SouthEastPlacementGump.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\SouthEastPlacementGump.cs" />
     <Compile Include="Items\Artifacts\Decorative\AcademicBooks.cs" />
     <Compile Include="Items\Artifacts\Decorative\MapOfTheKnownWorld.cs" />
     <Compile Include="Items\Artifacts\Decorative\MummifiedCorpse.cs" />
@@ -801,18 +801,18 @@
     <Compile Include="Items\Consumables\2018HolidayGiftToken.cs" />
     <Compile Include="Items\Consumables\PoppiesDust.cs" />
     <Compile Include="Items\Consumables\PromotionalToken.cs" />
-    <Compile Include="Items\Corpses\BonePile.cs" />
-    <Compile Include="Items\Corpses\Corpse.cs" />
-    <Compile Include="Items\Corpses\CorpseNameAttribute.cs" />
-    <Compile Include="Items\Corpses\DecayedCorpse.cs" />
-    <Compile Include="Items\Corpses\Head.cs" />
-    <Compile Include="Items\Corpses\LeftArm.cs" />
-    <Compile Include="Items\Corpses\LeftLeg.cs" />
-    <Compile Include="Items\Corpses\Packets.cs" />
-    <Compile Include="Items\Corpses\RibCage.cs" />
-    <Compile Include="Items\Corpses\RightArm.cs" />
-    <Compile Include="Items\Corpses\RightLeg.cs" />
-    <Compile Include="Items\Corpses\Torso.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\BonePile.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\Corpse.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\CorpseNameAttribute.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\DecayedCorpse.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\Head.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\LeftArm.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\LeftLeg.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\Packets.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\RibCage.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\RightArm.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\RightLeg.cs" />
+    <Compile Include="Expansion\Original UO\Corpses\Torso.cs" />
     <Compile Include="Items\Decorative\ValentinesDayTableSet.cs" />
     <Compile Include="Items\Decorative\CustomizableWallSign.cs" />
     <Compile Include="Items\Decorative\SpikeHead.cs" />
@@ -834,7 +834,7 @@
     <Compile Include="Items\Functional\JewelryBox\JewelryBoxFilter.cs" />
     <Compile Include="Items\Resource\Blackrock.cs" />
     <Compile Include="Items\Resource\PolishedMeteorite.cs" />
-    <Compile Include="Items\StoreBought\MysticalPolymorphTotem.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\MysticalPolymorphTotem.cs" />
     <Compile Include="Items\Tools\WhiteLeatherDyeTub.cs" />
     <Compile Include="Misc\Aggression.cs" />
     <Compile Include="Misc\ArchivedSaves.cs" />
@@ -923,8 +923,8 @@
     <Compile Include="Services\LootGeneration\RunicReforging\RunicReforging.cs" />
     <Compile Include="Expansion\Mondains Legacy\MondainsLegacyQuests\Helpers\Persistence.cs" />
     <Compile Include="Expansion\Mondains Legacy\MondainsLegacyQuests\TierQuest.cs" />
-    <Compile Include="Services\New Magincia\MaginciaPlants\GardeningContract.cs" />
-    <Compile Include="Services\Plants\PottedCoffeePlant.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\GardeningContract.cs" />
+    <Compile Include="Expansion\UOR\Services\Plants\PottedCoffeePlant.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\GlovesOfFeudalGrip.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\BritchesOfWarding.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\CuffsOfTheArchmage.cs" />
@@ -992,7 +992,7 @@
     <Compile Include="Items\Decorative\OrderChaosBanners.cs" />
     <Compile Include="Items\Decorative\SingingBall.cs" />
     <Compile Include="Items\Decorative\TatteredWallMap.cs" />
-    <Compile Include="Items\Equipment\Armor\BoneArms.cs" />
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneArms.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\Craven.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\CaptainJohnesBlade.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\Abhorrence.cs" />
@@ -1026,7 +1026,7 @@
     <Compile Include="Items\Consumables\Taffy.cs" />
     <Compile Include="Items\Consumables\ThanksGivingFood.cs" />
     <Compile Include="Items\Consumables\WrappedCandy.cs" />
-    <Compile Include="Items\Containers\BaseTrash.cs" />
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseTrash.cs" />
     <Compile Include="Items\Containers\MeagerImbuingBag.cs" />
     <Compile Include="Items\Containers\ScrollBox2.cs" />
     <Compile Include="Items\Containers\CleanupTrashBarrel.cs" />
@@ -1050,7 +1050,7 @@
     <Compile Include="Items\Decorative\SkullsOnPike.cs" />
     <Compile Include="Items\Decorative\StainedGlassLamp.cs" />
     <Compile Include="Items\Decorative\TallDoubleLamp.cs" />
-    <Compile Include="Items\Equipment\Armor\BaseArmor.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BaseArmor.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\DragonTurtleHideArms.cs" />
@@ -1073,21 +1073,21 @@
     <Compile Include="Items\Equipment\Instruments\Cello.cs" />
     <Compile Include="Items\Equipment\Instruments\AudChar.cs" />
     <Compile Include="Items\Equipment\Instruments\SnakeCharmerFlute.cs" />
-    <Compile Include="Items\Equipment\Light\TwilightLantern.cs" />
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Light\TwilightLantern.cs" />
     <Compile Include="Items\Equipment\Spellbooks\BookOfMasteries.cs" />
-    <Compile Include="Items\Equipment\Weapons\BaseAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseBashing.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseBashing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\BaseBoard.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseBoard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\BaseBook.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Books\BaseBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\BaseClothing.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\BaseClothing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\BaseConflagrationPotion.cs">
@@ -1115,10 +1115,10 @@
     <Compile Include="Items\Functional\Automaton\KotlAutomatonHead.cs" />
     <Compile Include="Items\Functional\BaseArtifactLight.cs" />
     <Compile Include="Items\Functional\BaseDecayingItem.cs" />
-    <Compile Include="Items\Functional\BaseDoor.cs">
+    <Compile Include="Expansion\Original UO\Items\BaseDoor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Light\BaseEquipableLight.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\BaseEquipableLight.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseExplosionPotion.cs">
@@ -1139,9 +1139,9 @@
     <Compile Include="Items\Internal\BlightedGroveTeleporters.cs" />
     <Compile Include="Items\Internal\BlueNinjaQuestTeleporter.cs" />
     <Compile Include="Items\Internal\CrystalTeleporter.cs" />
-    <Compile Include="Items\Internal\EffectMobile.cs" />
+    <Compile Include="Expansion\Original UO\Items\EffectMobile.cs" />
     <Compile Include="Items\Internal\GreenNinjaQuestTeleporter.cs" />
-    <Compile Include="Items\Internal\ItemInterfaces.cs" />
+    <Compile Include="Expansion\Original UO\Items\ItemInterfaces.cs" />
     <Compile Include="Items\Internal\MacawSpawner.cs" />
     <Compile Include="Items\Internal\PrismOfLightTeleporters.cs" />
     <Compile Include="Items\Internal\PvPWarnTeleporter.cs" />
@@ -1212,43 +1212,43 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\WardedDemonboneBracers.cs" />
     <Compile Include="Items\Artifacts\Equipment\Clothing\WardensArmorOfAugmentation.cs" />
     <Compile Include="Items\Resource\BloodOfTheDarkFather.cs" />
-    <Compile Include="Items\Resource\OilFlask.cs" />
+    <Compile Include="Expansion\Original UO\Items\OilFlask.cs" />
     <Compile Include="Items\Resource\SmallFish.cs" />
     <Compile Include="Items\Resource\WorkableGlass.cs" />
-    <Compile Include="Items\StoreBought\AbyssalHairDye.cs" />
-    <Compile Include="Items\StoreBought\AncestralGravestone.cs" />
-    <Compile Include="Items\StoreBought\ArmorEngravingToolToken.cs" />
-    <Compile Include="Items\StoreBought\BulkOrderBookCover.cs" />
-    <Compile Include="Items\StoreBought\CharacterReincarnationToken.cs" />
-    <Compile Include="Items\StoreBought\CommemorativeRobe.cs" />
-    <Compile Include="Items\StoreBought\DecorativeBlackWidow.cs" />
-    <Compile Include="Items\StoreBought\FallenLog.cs" />
-    <Compile Include="Items\StoreBought\FreshGreenLadyBug.cs" />
-    <Compile Include="Items\StoreBought\GenderChangeToken.cs" />
-    <Compile Include="Items\StoreBought\GreenGoblinStatuette.cs" />
-    <Compile Include="Items\StoreBought\GreyGoblinStatuette.cs" />
-    <Compile Include="Items\StoreBought\HABPromotionalToken.cs" />
-    <Compile Include="Items\StoreBought\HaochisPigments.cs" />
-    <Compile Include="Items\StoreBought\HildebrandtDragonRug.cs" />
-    <Compile Include="Items\StoreBought\HoodedBritanniaRobe.cs" />
-    <Compile Include="Items\StoreBought\LargeGlowingLadyBug.cs" />
-    <Compile Include="Items\StoreBought\MapleTree.cs" />
-    <Compile Include="Items\StoreBought\MerchantsTrinket.cs" />
-    <Compile Include="Items\StoreBought\MythicalCharacterToken.cs" />
-    <Compile Include="Items\StoreBought\NameChangeToken.cs" />
-    <Compile Include="Items\StoreBought\NaturalHairDyes.cs" />
-    <Compile Include="Items\StoreBought\PetBrandingIron.cs" />
-    <Compile Include="Items\StoreBought\RaceChangeToken.cs" />
-    <Compile Include="Items\StoreBought\SmugglersEdge.cs" />
-    <Compile Include="Items\StoreBought\SnowTree.cs" />
-    <Compile Include="Items\StoreBought\StableSlotIncreaseToken.cs" />
-    <Compile Include="Items\StoreBought\UndertakersStaff.cs" />
-    <Compile Include="Items\StoreBought\VirtueShield.cs" />
-    <Compile Include="Items\StoreBought\WillowTree.cs" />
-    <Compile Include="Items\StoreBought\WoodenBookcase.cs" />
-    <Compile Include="Items\StoreBought\WoodworkersBench.cs" />
-    <Compile Include="Items\StoreBought\WorldTreeRug.cs" />
-    <Compile Include="Items\Tools\BaseHarvestTool.cs">
+    <Compile Include="Expansion\Endless Journey\StoreBought\AbyssalHairDye.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\AncestralGravestone.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\ArmorEngravingToolToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\BulkOrderBookCover.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\CharacterReincarnationToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\CommemorativeRobe.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\DecorativeBlackWidow.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\FallenLog.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\FreshGreenLadyBug.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\GenderChangeToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\GreenGoblinStatuette.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\GreyGoblinStatuette.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\HABPromotionalToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\HaochisPigments.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\HildebrandtDragonRug.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\HoodedBritanniaRobe.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\LargeGlowingLadyBug.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\MapleTree.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\MerchantsTrinket.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\MythicalCharacterToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\NameChangeToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\NaturalHairDyes.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\PetBrandingIron.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\RaceChangeToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\SmugglersEdge.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\SnowTree.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\StableSlotIncreaseToken.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\UndertakersStaff.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\VirtueShield.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\WillowTree.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\WoodenBookcase.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\WoodworkersBench.cs" />
+    <Compile Include="Expansion\Endless Journey\StoreBought\WorldTreeRug.cs" />
+    <Compile Include="Expansion\Original UO\Items\BaseHarvestTool.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseHealPotion.cs">
@@ -1257,19 +1257,19 @@
     <Compile Include="Items\Decorative\BaseImprisonedMobile.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\BaseInstrument.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseInstrument.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\BaseJewel.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\BaseJewel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseKnife.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseKnife.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\BaseLight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseMeleeWeapon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseMeleeWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\BasePiece.cs">
@@ -1278,7 +1278,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BasePoisonPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BasePoleArm.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BasePoleArm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BasePotion.cs">
@@ -1287,7 +1287,7 @@
     <Compile Include="Items\Equipment\Quivers\BaseQuiver.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseRanged.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseRanged.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\BaseReagent.cs">
@@ -1299,16 +1299,16 @@
     <Compile Include="Items\Tools\BaseRunicTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\BaseShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BaseShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\BaseSign.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseSpear.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseSpear.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseStaff.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\BaseStatuette.cs">
@@ -1320,7 +1320,7 @@
     <Compile Include="Items\Equipment\Suits\BaseSuit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseSword.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseSword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Talismans\BaseTalisman.cs">
@@ -1329,25 +1329,25 @@
     <Compile Include="Items\Equipment\Weapons\BaseThrown.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BaseTool.cs">
+    <Compile Include="Expansion\Original UO\Items\BaseTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\BaseTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\BaseTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\BaseTreasureChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseTreasureChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\BaseWall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseWand.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\BaseWaterContainer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseWeapon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\ChestOfSending.cs" />
@@ -1390,7 +1390,7 @@
     <Compile Include="Expansion\T2A\Items\Consumables\BankCheck.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\BaseTreasureChestMod.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseTreasureChestMod.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Internal\BedlamTeleporters.cs">
@@ -1462,7 +1462,7 @@
     <Compile Include="Items\Resource\BottleIchor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\BulletinBoards.cs">
+    <Compile Include="Expansion\Original UO\Items\BulletinBoards.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\ChagaMushroom.cs">
@@ -1492,16 +1492,16 @@
     <Compile Include="Items\Resource\DaemonClaw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\DeceitBrazier.cs">
+    <Compile Include="Expansion\Original UO\Items\DeceitBrazier.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\DelicateScales.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\EffectController.cs">
+    <Compile Include="Expansion\Original UO\Items\EffectController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\EffectItem.cs">
+    <Compile Include="Expansion\Original UO\Items\EffectItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\ElvenFletchings.cs">
@@ -1555,10 +1555,10 @@
     <Compile Include="Items\Consumables\Firebomb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\FlipableAddonAttribute.cs">
+    <Compile Include="Expansion\Original UO\Items\FlipableAddonAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\FlipableAttribute.cs">
+    <Compile Include="Expansion\Original UO\Items\FlipableAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Fur.cs">
@@ -1579,7 +1579,7 @@
     <Compile Include="Items\Consumables\Gold.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Guillotine.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Guillotine.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\HairDye.cs">
@@ -1594,17 +1594,17 @@
     <Compile Include="Items\Decorative\HoveringWisp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\IDurability.cs">
+    <Compile Include="Expansion\Original UO\Items\IDurability.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Items\Tools\InteriorDecorator.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\InvisibleTile.cs" />
+    <Compile Include="Expansion\Original UO\Items\InvisibleTile.cs" />
     <Compile Include="Items\Decorative\KepetchWax.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Key.cs">
+    <Compile Include="Expansion\Original UO\Items\Key.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Items\Tools\KeyRing.cs">
@@ -1634,7 +1634,7 @@
     <Compile Include="Expansion\UOR\Items\Internal\MoonstoneGate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\MorphItem.cs">
+    <Compile Include="Expansion\Original UO\Items\MorphItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\OilCloth.cs">
@@ -1679,7 +1679,7 @@
     <Compile Include="Items\Addons\PetParrot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\PlayerBulletinBoards.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\PlayerBulletinBoards.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\PlayerVendorDeed.cs">
@@ -1733,7 +1733,7 @@
     <Compile Include="Items\Internal\SanctuaryTele.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Scales.cs">
+    <Compile Include="Expansion\Original UO\Items\Scales.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\ScouringToxin.cs">
@@ -1748,7 +1748,7 @@
     <Compile Include="Items\Functional\SerpentNest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\SerpentPillar.cs">
+    <Compile Include="Expansion\Original UO\Items\SerpentPillar.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\SilverSerpentVenom.cs">
@@ -1841,7 +1841,7 @@
     <Compile Include="Items\Addons\TerMurDresserSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\Teleporter.cs">
+    <Compile Include="Expansion\Original UO\Items\Teleporter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Internal\TeleportRope.cs" />
@@ -1875,7 +1875,7 @@
     <Compile Include="Items\Containers\TrashChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\TreasureChestMod.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\TreasureChestMod.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\TribalBerry.cs">
@@ -1911,10 +1911,10 @@
     <Compile Include="Items\Resource\VoidOrb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\WarningItem.cs">
+    <Compile Include="Expansion\Original UO\Items\WarningItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\Waypoint.cs">
+    <Compile Include="Expansion\Original UO\Items\Waypoint.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\WindChimes.cs">
@@ -1932,13 +1932,13 @@
     <Compile Include="Items\Equipment\Jewelry\StaffRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AbbatoirAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AbbatoirAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AddonComponent.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AddonComponent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AddonContainerComponent.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AddonContainerComponent.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\AlchemistTableEastAddon.cs">
@@ -1947,10 +1947,10 @@
     <Compile Include="Items\Addons\AlchemistTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AnvilEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AnvilEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AnvilSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AnvilSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\ArcaneBookshelfEastAddon.cs">
@@ -1959,7 +1959,7 @@
     <Compile Include="Items\Addons\ArcaneBookshelfSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ArcaneCircleAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\ArcaneCircleAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\ArcanistStatueEastAddon.cs">
@@ -1968,19 +1968,19 @@
     <Compile Include="Items\Addons\ArcanistStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ArcheryButteAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\ArcheryButteAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\BallotBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BearRugs.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BearRugs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BloodPentagram.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BloodPentagram.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DartBoard.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\DartBoard.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\ElvenBedEastAddon.cs">
@@ -2030,43 +2030,43 @@
     <Compile Include="Items\Addons\FancyElvenTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FireColumnAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\FireColumnAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FlourMillEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\FlourMillEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FlourMillSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\FlourMillSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FlowerTapestries.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\FlowerTapestries.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GiantWebs.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\GiantWebs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GozaMats.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\GozaMats.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GrayBrickFireplaceEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\GrayBrickFireplaceEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GrayBrickFireplaceSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\GrayBrickFireplaceSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\JackOLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeBedEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LargeBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeBedSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LargeBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeForgeEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LargeForgeEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeForgeSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LargeForgeSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\LargeStoneTableEastAddon.cs">
@@ -2075,10 +2075,10 @@
     <Compile Include="Items\Addons\LargeStoneTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LoomEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LoomEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LoomSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LoomSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\Aquarium\Rewards\AquariumMessage.cs" />
@@ -2112,7 +2112,7 @@
     <Compile Include="Mobiles\Bosses\Mephitis.cs" />
     <Compile Include="Mobiles\Bosses\Navery\EyeOfNavrey.cs" />
     <Compile Include="Mobiles\Bosses\Navery\Navrey.cs" />
-    <Compile Include="Items\Functional\SpiderWebbing.cs" />
+    <Compile Include="Expansion\Original UO\Items\SpiderWebbing.cs" />
     <Compile Include="Mobiles\Bosses\Neira.cs" />
     <Compile Include="Mobiles\Bosses\PrimevalLich.cs" />
     <Compile Include="Mobiles\Bosses\Rikktor.cs" />
@@ -3034,7 +3034,7 @@
     <Compile Include="Items\Quest\BritannianWool.cs" />
     <Compile Include="Mobiles\NPCs\Laifem.cs" />
     <Compile Include="Items\Quest\LaifemItems.cs" />
-    <Compile Include="Items\Addons\goldcarpetAddon.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\goldcarpetAddon.cs" />
     <Compile Include="Quests\EscortToDugan.cs" />
     <Compile Include="Items\Equipment\Talismans\TalismanofGoblinSlaying.cs" />
     <Compile Include="Mobiles\NPCs\Neville.cs" />
@@ -3207,51 +3207,51 @@
     <Compile Include="Services\18th Anniversary\AnniversaryVaseTall.cs" />
     <Compile Include="Services\18th Anniversary\EnchantedTimepiece.cs" />
     <Compile Include="Services\18th Anniversary\Giver.cs" />
-    <Compile Include="Services\Armor Refinement\ArmorRefiner.cs" />
-    <Compile Include="Services\Armor Refinement\Gumps.cs" />
-    <Compile Include="Services\Armor Refinement\Items.cs" />
-    <Compile Include="Services\BasketWeaving\Baskets\BasketCraftable.cs" />
-    <Compile Include="Services\BulkOrders\BulkOrderSystem.cs" />
-    <Compile Include="Services\BulkOrders\Items\BODRewardTitleDeed.cs" />
-    <Compile Include="Services\BulkOrders\Items\DrSpectorsLenses.cs" />
-    <Compile Include="Services\BulkOrders\Items\FementationBarrel.cs" />
-    <Compile Include="Services\BulkOrders\Items\GuaranteedSpellbookImprovementTalisman.cs" />
-    <Compile Include="Services\BulkOrders\Items\KotlBlackRod.cs" />
-    <Compile Include="Services\BulkOrders\Items\MasterChefsApron.cs" />
-    <Compile Include="Services\BulkOrders\Items\MasterCraftsmanTalisman.cs" />
-    <Compile Include="Services\BulkOrders\Items\PlumTreeAddon.cs" />
-    <Compile Include="Services\BulkOrders\Items\PowderOfFortKeg.cs" />
-    <Compile Include="Services\BulkOrders\Items\RockHammer.cs" />
-    <Compile Include="Services\BulkOrders\Items\SpecialNaturalDye.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeAlchemyBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeBODAcceptGump.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeBODGump.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeBODTarget.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeBulkEntry.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeCarpentryBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeCookingBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeFletchingBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeInscriptionBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeSmithBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeTailorBOD.cs" />
-    <Compile Include="Services\BulkOrders\LargeBODs\LargeTinkerBOD.cs" />
-    <Compile Include="Services\BulkOrders\Rewards\ConfirmBankPointsGump.cs" />
-    <Compile Include="Services\BulkOrders\Rewards\Rewards.cs" />
-    <Compile Include="Services\BulkOrders\Rewards\RewardsGump.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallAlchemyBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallBODAcceptGump.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallBODGump.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallBODTarget.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallBulkEntry.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallCarpentryBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallCookingBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallFletchingBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallInscriptionBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallSmithBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallTailorBOD.cs" />
-    <Compile Include="Services\BulkOrders\SmallBODs\SmallTinkerBOD.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Armor Refinement\ArmorRefiner.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Armor Refinement\Gumps.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Armor Refinement\Items.cs" />
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\BasketCraftable.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\BulkOrderSystem.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\BODRewardTitleDeed.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\DrSpectorsLenses.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\FementationBarrel.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\GuaranteedSpellbookImprovementTalisman.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\KotlBlackRod.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\MasterChefsApron.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\MasterCraftsmanTalisman.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\PlumTreeAddon.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\PowderOfFortKeg.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\RockHammer.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Items\SpecialNaturalDye.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeAlchemyBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeBODAcceptGump.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeBODGump.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeBODTarget.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeBulkEntry.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeCarpentryBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeCookingBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeFletchingBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeInscriptionBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeSmithBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeTailorBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\LargeBODs\LargeTinkerBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Rewards\ConfirmBankPointsGump.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Rewards\Rewards.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Rewards\RewardsGump.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallAlchemyBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallBODAcceptGump.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallBODGump.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallBODTarget.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallBulkEntry.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallCarpentryBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallCookingBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallFletchingBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallInscriptionBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallSmithBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallTailorBOD.cs" />
+    <Compile Include="Expansion\UOR\Services\BulkOrders\SmallBODs\SmallTinkerBOD.cs" />
     <Compile Include="Expansion\High Seas\City Loyalty System\CityDefinition.cs" />
     <Compile Include="Expansion\High Seas\City Loyalty System\CityLoyaltyEntry.cs" />
     <Compile Include="Expansion\High Seas\City Loyalty System\CityLoyaltySystem.cs" />
@@ -3633,10 +3633,10 @@
     <Compile Include="Items\Addons\ParrotPerchAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\PentagramAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\PentagramAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\PickpocketDips.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\PickpocketDips.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\PyramidAddon.cs">
@@ -3666,23 +3666,23 @@
     <Compile Include="Items\Addons\SkullPileAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SmallBedEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SmallBedSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SmallForgeAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallForgeAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SmallSoulForge.cs" />
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallSoulForge.cs" />
     <Compile Include="Items\Addons\SolenAntHole.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SpinningwheelEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\SpinningwheelEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SpinningwheelSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\SpinningwheelSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\SquirrelStatueEastAddon.cs">
@@ -3697,22 +3697,22 @@
     <Compile Include="Items\Addons\StoneAnvilSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneFireplaceEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StoneFireplaceEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneFireplaceSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StoneFireplaceSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneFountainAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StoneFountainAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneOvenEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StoneOvenEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneOvenSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StoneOvenSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StretchedHides.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StretchedHides.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\TallElvenBedEastAddon.cs">
@@ -3721,10 +3721,10 @@
     <Compile Include="Items\Addons\TallElvenBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Telescope.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Telescope.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TrainingDummies.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\TrainingDummies.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\WarriorStatueEastAddon.cs">
@@ -3733,13 +3733,13 @@
     <Compile Include="Items\Addons\WarriorStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WaterTroughEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\WaterTroughEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WaterTroughSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\WaterTroughSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WaterVat.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\WaterVat.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\Aquarium\Aquarium.cs">
@@ -3869,7 +3869,7 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Initiation\InitiationGloves.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Initiation\InitiationGorget.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Initiation\InitiationLegs.cs" />
-    <Compile Include="Items\Equipment\Armor\ArmorEnums.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ArmorEnums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\ArmorOfFortune.cs">
@@ -3944,25 +3944,25 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Assassin\AssassinLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\BoneChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\BoneGloves.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\BoneLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\EvilOrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\ChainChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\ChainHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\ChainLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonHelm.cs">
@@ -4130,37 +4130,37 @@
     <Compile Include="Items\Artifacts\Equipment\Glasses\WizardsGlasses.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\Bascinet.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bascinet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\BoneHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\ChainCoif.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainCoif.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\Circlet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\CloseHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\CloseHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\GemmedCirclet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\Helmet.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherCap.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherCap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\NorseHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\NorseHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\OrcHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\OrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\RavenHelm.cs">
@@ -4226,7 +4226,7 @@
     <Compile Include="Items\Equipment\Armor\FemaleLeafChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleLeatherChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemaleLeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\LeafArms.cs">
@@ -4247,22 +4247,22 @@
     <Compile Include="Items\Equipment\Armor\LeafTonlet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherArms.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherBustierArms.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherBustierArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\LeatherDo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherGloves.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherGorget.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherGorget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\LeatherHaidate.cs">
@@ -4274,7 +4274,7 @@
     <Compile Include="Items\Equipment\Armor\LeatherJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\LeatherMempo.cs">
@@ -4292,10 +4292,10 @@
     <Compile Include="Items\Equipment\Armor\LeatherNinjaPants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherShorts.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherShorts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherSkirt.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\LeatherSuneate.cs">
@@ -4394,7 +4394,7 @@
     <Compile Include="Items\Equipment\Armor\DecorativePlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemalePlateChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemalePlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\FemaleWoodlandChest.cs">
@@ -4406,22 +4406,22 @@
     <Compile Include="Items\Equipment\Armor\LightPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateArms.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\PlateBattleKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\PlateDo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateGloves.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateGorget.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateGorget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\PlateHaidate.cs">
@@ -4433,7 +4433,7 @@
     <Compile Include="Items\Equipment\Armor\PlateHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\PlateMempo.cs">
@@ -4499,16 +4499,16 @@
     <Compile Include="Expansion\T2A\Items\Equipment\Armor\Sets\Ranger\RangerLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\RingmailArms.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\RingmailArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\RingmailChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\RingmailChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\RingmailGloves.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\RingmailGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\RingmailLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\RingmailLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Scout\ScoutArms.cs">
@@ -4562,13 +4562,13 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Sorcerers\SorcererSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleStuddedChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemaleStuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\HideChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HideFemaleChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\HideFemaleChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\HideGloves.cs">
@@ -4583,22 +4583,22 @@
     <Compile Include="Items\Equipment\Armor\HidePauldrons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedArms.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedBustierArms.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedBustierArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\StuddedDo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedGloves.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedGorget.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedGorget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\StuddedHaidate.cs">
@@ -4607,7 +4607,7 @@
     <Compile Include="Items\Equipment\Armor\StuddedHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Armor\StuddedMempo.cs">
@@ -4801,7 +4801,7 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\Tangle1.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Arms.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Arms.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Clothing\CrimsonCincture.cs">
@@ -4828,7 +4828,7 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\SpiritOfTheTotem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Cloaks.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Cloaks.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Clothing\Gargoyle Accessories.cs">
@@ -4852,37 +4852,37 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\SpinedBloodwormBracers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Hats.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Hats.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\MiddleTorso.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\MiddleTorso.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\OuterLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\OuterLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\OuterTorso.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\OuterTorso.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Pants.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Pants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Shirts.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Shirts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Shoes.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Shoes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Waist.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Waist.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\BaseSwitch.cs">
+    <Compile Include="Expansion\Original UO\Items\BaseSwitch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\Switches.cs">
+    <Compile Include="Expansion\Original UO\Items\Switches.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\Ankhs.cs">
+    <Compile Include="Expansion\Original UO\Items\Ankhs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Benchs.cs">
@@ -4909,16 +4909,16 @@
     <Compile Include="Items\Decorative\Tapestry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\Doors.cs">
+    <Compile Include="Expansion\Original UO\Items\Doors.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\HouseDoors.cs">
+    <Compile Include="Expansion\Original UO\Items\HouseDoors.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\Portcullis.cs">
+    <Compile Include="Expansion\Original UO\Items\Portcullis.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\SecretDoors.cs">
+    <Compile Include="Expansion\Original UO\Items\SecretDoors.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Functional\SlidingDoors.cs">
@@ -5011,19 +5011,19 @@
     <Compile Include="Items\Decorative\WhiteStoneWall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\Container.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Container.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\FillableContainers.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\FillableContainers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\FurnitureContainer.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\FurnitureContainer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\LockableContainer.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\LockableContainer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\MarkContainer.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\MarkContainer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\ParagonChest.cs">
@@ -5032,13 +5032,13 @@
     <Compile Include="Items\Containers\SalvageBag.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\Strongbox.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Strongbox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\TrapableContainer.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\TrapableContainer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\TreasureChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\TreasureChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\UnknownSkeletons.cs">
@@ -5089,40 +5089,40 @@
     <Compile Include="Items\Consumables\VendorRentalContract.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\Beard.cs">
+    <Compile Include="Expansion\Original UO\Items\Beard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\Hair.cs">
+    <Compile Include="Expansion\Original UO\Items\Hair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableCabbage.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableCabbage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableCarrot.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableCarrot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableCotton.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableCotton.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableCrop.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableCrop.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableFlax.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableFlax.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableLettuce.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableLettuce.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableOnion.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableOnion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmablePumpkin.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmablePumpkin.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableTurnip.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableTurnip.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FarmableWheat.cs">
+    <Compile Include="Expansion\Original UO\Items\FarmableWheat.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\Asian.cs">
@@ -5203,16 +5203,16 @@
     <Compile Include="Items\Containers\CheckerBoard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\CheckersPieces.cs">
+    <Compile Include="Expansion\Original UO\Items\CheckersPieces.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\Chessboard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\ChessPieces.cs">
+    <Compile Include="Expansion\Original UO\Items\ChessPieces.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Dices.cs">
+    <Compile Include="Expansion\Original UO\Items\Dices.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\Mahjong\MahjongDealerIndicator.cs">
@@ -5281,7 +5281,7 @@
     <Compile Include="Items\Consumables\GuildDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Guildstone.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Guildstone.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Internal\GuildTeleporter.cs">
@@ -5341,13 +5341,13 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\TorcOfTheGuardians.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\Beads.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Beads.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Jewelry\BlueDiamondRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\Bracelet.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Bracelet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Jewelry\BrilliantAmberBracelet.cs">
@@ -5356,7 +5356,7 @@
     <Compile Include="Items\Equipment\Jewelry\DarkSapphireBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\Earrings.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Earrings.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Jewelry\EcruCitrineRing.cs">
@@ -5365,13 +5365,13 @@
     <Compile Include="Items\Equipment\Jewelry\FireRubyBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\Necklace.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Necklace.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Jewelry\PerfectEmeraldRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\Ring.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Ring.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Jewelry\TurqouiseRing.cs">
@@ -5392,7 +5392,7 @@
     <Compile Include="Items\Decorative\CandelabraStand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Light\Candle.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Candle.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\CandleLarge.cs">
@@ -5425,7 +5425,7 @@
     <Compile Include="Items\Decorative\LampPost3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Light\Lantern.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Lantern.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\LightSource.cs">
@@ -5443,7 +5443,7 @@
     <Compile Include="Items\Decorative\ShojiLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Light\Torch.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Torch.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\WallSconce.cs">
@@ -5455,28 +5455,28 @@
     <Compile Include="Items\Decorative\WhiteHangingLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BlankMap.cs">
+    <Compile Include="Expansion\Original UO\Items\BlankMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\CityMap.cs">
+    <Compile Include="Expansion\Original UO\Items\CityMap.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\IndecipherableMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\LocalMap.cs">
+    <Compile Include="Expansion\Original UO\Items\LocalMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\MapItem.cs">
+    <Compile Include="Expansion\Original UO\Items\MapItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\PresetMap.cs">
+    <Compile Include="Expansion\Original UO\Items\PresetMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SeaChart.cs">
+    <Compile Include="Expansion\Original UO\Items\SeaChart.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\WorldMap.cs">
+    <Compile Include="Expansion\Original UO\Items\WorldMap.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Consumables\AdmiralsHeartyRum.cs">
@@ -5790,7 +5790,7 @@
     <Compile Include="Items\Containers\BagOfReagents.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Resource\BatWing.cs">
+    <Compile Include="Expansion\Original UO\Items\BatWing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\BlackPearl.cs">
@@ -5814,7 +5814,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\Ginseng.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Resource\GraveDust.cs">
+    <Compile Include="Expansion\Original UO\Items\GraveDust.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\MandrakeRoot.cs">
@@ -5823,7 +5823,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\Nightshade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Resource\NoxCrystal.cs">
+    <Compile Include="Expansion\Original UO\Items\NoxCrystal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\PigIron.cs">
@@ -5937,31 +5937,31 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\TongueoftheBeast.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\BronzeShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BronzeShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\Buckler.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Buckler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\ChaosShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChaosShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HeaterShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\HeaterShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\MetalKiteShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\MetalKiteShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\MetalShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\MetalShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\OrderShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\OrderShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodenKiteShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\WoodenKiteShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodenShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\WoodenShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\FrenchBread.cs">
@@ -6018,13 +6018,13 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\WinePitcher.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\AnvilForge.cs">
+    <Compile Include="Expansion\Original UO\Items\AnvilForge.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\LargeForge.cs">
+    <Compile Include="Expansion\Original UO\Items\LargeForge.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Bedroll.cs">
+    <Compile Include="Expansion\Original UO\Items\Bedroll.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Provision\Campfire.cs">
@@ -6039,13 +6039,13 @@
     <Compile Include="Expansion\UOR\Items\Consumables\TaxidermyKit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\FishingPole.cs">
+    <Compile Include="Expansion\Original UO\Items\FishingPole.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Items\Consumables\MessageInABottle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Sextant.cs">
+    <Compile Include="Expansion\Original UO\Items\Sextant.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\ShipwreckedItem.cs">
@@ -6066,7 +6066,7 @@
     <Compile Include="Items\Tools\ProspectorsTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Shovel.cs">
+    <Compile Include="Expansion\Original UO\Items\Shovel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\SturdyPickaxe.cs">
@@ -6105,7 +6105,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Bottle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\Moongate.cs">
+    <Compile Include="Expansion\Original UO\Items\Moongate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Items\Resource\PotionKeg.cs">
@@ -6501,7 +6501,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Scrolls\WallOfStoneScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\Spellbook.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Spellbook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Spellbooks\SpellweavingBook.cs">
@@ -6525,22 +6525,22 @@
     <Compile Include="Items\Equipment\Instruments\BambooFlute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\Drums.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Drums.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\Harp.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Harp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\LapHarp.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\LapHarp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\Lute.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Lute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\Tambourine.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Tambourine.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\TambourineTassel.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\TambourineTassel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\EggBomb.cs">
@@ -6582,7 +6582,7 @@
     <Compile Include="Items\Consumables\StoneMiningBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BlackDyeTub.cs">
+    <Compile Include="Expansion\Original UO\Items\BlackDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\BlazeDyeTub.cs">
@@ -6591,7 +6591,7 @@
     <Compile Include="Items\Internal\CustomHuePicker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\DyeTub.cs">
+    <Compile Include="Expansion\Original UO\Items\DyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\FurnitureDyeTub.cs">
@@ -6612,16 +6612,16 @@
     <Compile Include="Items\Tools\StatuetteDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Dressform.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Dressform.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Dyes.cs">
+    <Compile Include="Expansion\Original UO\Items\Dyes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Scissors.cs">
+    <Compile Include="Expansion\Original UO\Items\Scissors.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\DisguiseKit.cs">
+    <Compile Include="Expansion\Original UO\Items\DisguiseKit.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\DisguisePersistence.cs">
@@ -6642,7 +6642,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\ClockParts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Clocks.cs">
+    <Compile Include="Expansion\Original UO\Items\Clocks.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Gears.cs">
@@ -6660,7 +6660,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Springs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Spyglass.cs">
+    <Compile Include="Expansion\Original UO\Items\Spyglass.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Utensils.cs">
@@ -6669,46 +6669,46 @@
     <Compile Include="Items\Tools\Blowpipe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\DovetailSaw.cs">
+    <Compile Include="Expansion\Original UO\Items\DovetailSaw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\DrawKnife.cs">
+    <Compile Include="Expansion\Original UO\Items\DrawKnife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\FletcherTools.cs">
+    <Compile Include="Expansion\Original UO\Items\FletcherTools.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\FlourSifter.cs">
+    <Compile Include="Expansion\Original UO\Items\FlourSifter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Froe.cs">
+    <Compile Include="Expansion\Original UO\Items\Froe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Hammer.cs">
+    <Compile Include="Expansion\Original UO\Items\Hammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Inshave.cs">
+    <Compile Include="Expansion\Original UO\Items\Inshave.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\JointingPlane.cs">
+    <Compile Include="Expansion\Original UO\Items\JointingPlane.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\MalletAndChisel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\MapmakersPen.cs">
+    <Compile Include="Expansion\Original UO\Items\MapmakersPen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\MortarPestle.cs">
+    <Compile Include="Expansion\Original UO\Items\MortarPestle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\MouldingPlane.cs">
+    <Compile Include="Expansion\Original UO\Items\MouldingPlane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Nails.cs">
+    <Compile Include="Expansion\Original UO\Items\Nails.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RollingPin.cs">
+    <Compile Include="Expansion\Original UO\Items\RollingPin.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\RunicDovetailSaw.cs">
@@ -6723,34 +6723,34 @@
     <Compile Include="Items\Tools\RunicSewingKit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Saw.cs">
+    <Compile Include="Expansion\Original UO\Items\Saw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Scorp.cs">
+    <Compile Include="Expansion\Original UO\Items\Scorp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\ScribesPen.cs">
+    <Compile Include="Expansion\Original UO\Items\ScribesPen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SewingKit.cs">
+    <Compile Include="Expansion\Original UO\Items\SewingKit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Skillet.cs">
+    <Compile Include="Expansion\Original UO\Items\Skillet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SledgeHammer.cs">
+    <Compile Include="Expansion\Original UO\Items\SledgeHammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SmithHammer.cs">
+    <Compile Include="Expansion\Original UO\Items\SmithHammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SmoothingPlane.cs">
+    <Compile Include="Expansion\Original UO\Items\SmoothingPlane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\TinkerTools.cs">
+    <Compile Include="Expansion\Original UO\Items\TinkerTools.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Tongs.cs">
+    <Compile Include="Expansion\Original UO\Items\Tongs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Jewelry\EarringsOfProtection.cs">
@@ -6798,34 +6798,34 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\LuckyNecklace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenArmoire.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenArmoire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenBed.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenBed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenBookcase.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenBookcase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenChestOfDrawers.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenChestOfDrawers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenCoveredChair.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenCoveredChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenFallenChair.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenFallenChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BrokenVanity.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BrokenVanity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StandingBrokenChair.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StandingBrokenChair.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Tools\AncientSmithyHammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ColoredAnvil.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\ColoredAnvil.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\GlovesOfMining.cs">
@@ -6903,16 +6903,16 @@
     <Compile Include="Items\Addons\TapestryOfSosaria.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AppleTrunk.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AppleTrunk.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BlueDecorativeRug.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BlueDecorativeRug.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BlueFancyRug.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BlueFancyRug.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BluePlainRug.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BluePlainRug.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\BoilingCauldron.cs">
@@ -6927,34 +6927,34 @@
     <Compile Include="Items\Addons\CinnamonFancyRug.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Curtains.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Curtains.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Fountain.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Fountain.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\FruitTrees.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GoldenDecorativeRug.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\GoldenDecorativeRug.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GuillotineComponent.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\GuillotineComponent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\HangingAxes.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\HangingAxes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\HangingSwords.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\HangingSwords.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\HouseLadder.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\IronMaiden.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\IronMaiden.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeFishingNet.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\LargeFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\PeachTrunk.cs">
@@ -6963,16 +6963,16 @@
     <Compile Include="Items\Addons\PinkFancyRug.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\RedPlainRug.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\RedPlainRug.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\Scarecrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SmallFishingNet.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\SmallFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Statue.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Statue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\SuitOfGoldArmor.cs">
@@ -6981,25 +6981,25 @@
     <Compile Include="Items\Addons\SuitOfSilverArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TableWithBlueCloth.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\TableWithBlueCloth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TableWithOrangeCloth.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\TableWithOrangeCloth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TableWithPurpleCloth.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\TableWithPurpleCloth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TableWithRedCloth.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\TableWithRedCloth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\UnmadeBed.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\UnmadeBed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\Vanity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WallTorch.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\WallTorch.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\WoodenCoffin.cs">
@@ -7032,7 +7032,7 @@
     <Compile Include="Items\Addons\HolidayPottedPlant.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\HolidayTimepiece.cs">
+    <Compile Include="Expansion\Original UO\Items\HolidayTimepiece.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Icecicles.cs">
@@ -7074,7 +7074,7 @@
     <Compile Include="Items\Addons\Wreath.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\WristWatch.cs">
+    <Compile Include="Expansion\Original UO\Items\WristWatch.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\HouseRaffleDeed.cs">
@@ -7131,7 +7131,7 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Bucket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Containers\ClosedBarrel.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\ClosedBarrel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\UnfinishedBarrel.cs">
@@ -7485,19 +7485,19 @@
     <Compile Include="Items\Decorative\ValentinesCard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AnkhOfSacrifice.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\AnkhOfSacrifice.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\Banner.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BloodyPentagram.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\BloodyPentagram.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Brazier.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Brazier.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Cannon.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\Cannon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\CommodityDeedBox.cs">
@@ -7509,10 +7509,10 @@
     <Compile Include="Items\Addons\DecorativeShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FlamingHead.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\FlamingHead.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\HangingSkeleton.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\HangingSkeleton.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\MiningCart.cs">
@@ -7521,10 +7521,10 @@
     <Compile Include="Items\Addons\MinotaurStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\PottedCactus.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\PottedCactus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneAnkh.cs">
+    <Compile Include="Expansion\Original UO\Items\Addons\StoneAnkh.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\TreeStump.cs">
@@ -7732,28 +7732,28 @@
     <Compile Include="Items\Addons\PosedGoblinTopiary.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FireColumnTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\FireColumnTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\FlameSpurtTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\FlameSpurtTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\GasTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\GasTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\GiantSpikeTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\GiantSpikeTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\MushroomTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\MushroomTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\SawTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\SawTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\SpikeTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\SpikeTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Functional\StoneFaceTrap.cs">
+    <Compile Include="Expansion\Original UO\Items\StoneFaceTrap.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Clothing\AntiqueWeddingDress.cs" />
@@ -7788,7 +7788,7 @@
     <Compile Include="Items\Equipment\Weapons\HealWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\IDWand.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\IDWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\LightningWand.cs">
@@ -8028,19 +8028,19 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\ZyronicClaw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Axe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Axe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BattleAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BattleAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\DoubleAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\DoubleAxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\DualShortAxes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\ExecutionersAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\ExecutionersAxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\GargishAxe.cs">
@@ -8052,7 +8052,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\GuardianAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Hatchet.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Hatchet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\HeavyOrnateAxe.cs">
@@ -8061,10 +8061,10 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\JadeWarAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\LargeBattleAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\LargeBattleAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Pickaxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Pickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\SingingAxe.cs">
@@ -8073,10 +8073,10 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\ThunderingAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\TwoHandedAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\TwoHandedAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\WarAxe.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\WarAxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\Fists.cs">
@@ -8085,13 +8085,13 @@
     <Compile Include="Items\Equipment\Weapons\HitLower.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\ButcherKnife.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\ButcherKnife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Cleaver.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Cleaver.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Dagger.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Dagger.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\GargishButcherKnife.cs">
@@ -8109,7 +8109,7 @@
     <Compile Include="Items\Equipment\Weapons\SkinningKnife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Club.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Club.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\DeathsHead.cs">
@@ -8133,16 +8133,16 @@
     <Compile Include="Items\Equipment\Weapons\GargishWarHammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\HammerPick.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\HammerPick.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Mace.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Mace.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\MagicWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Maul.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Maul.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\ProtectoroftheBattleMage.cs">
@@ -8154,7 +8154,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\SapphireMace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Scepter.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Scepter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\SilverEtchedMace.cs">
@@ -8163,10 +8163,10 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\TheImpalersPick.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\WarHammer.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\WarHammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\WarMace.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\WarMace.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\BlightGrippedLongbow.cs">
@@ -8226,13 +8226,13 @@
     <Compile Include="Items\Equipment\Weapons\RuneBlade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\WarCleaver.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\WarCleaver.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\WildStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Bardiche.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Bardiche.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\GargishBardiche.cs">
@@ -8241,7 +8241,7 @@
     <Compile Include="Items\Equipment\Weapons\GargishScythe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Halberd.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Halberd.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\Scythe.cs">
@@ -8253,19 +8253,19 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\BarbedLongbow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Bow.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Bow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\CompositeBow.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\CompositeBow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Crossbow.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Crossbow.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\FrozenLongbow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\HeavyCrossbow.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\HeavyCrossbow.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\JukaBow.cs">
@@ -8356,22 +8356,22 @@
     <Compile Include="Items\Equipment\Weapons\Pike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Pitchfork.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Pitchfork.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\ShortSpear.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\ShortSpear.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Spear.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Spear.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\TribalSpear.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\WarFork.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\WarFork.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BlackStaff.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\BlackStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\GargishGnarledStaff.cs">
@@ -8383,7 +8383,7 @@
     <Compile Include="Items\Equipment\Weapons\GlassStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GnarledStaff.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\GnarledStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\JaanasStaff.cs">
@@ -8392,7 +8392,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\KatrinasCrook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\QuarterStaff.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\QuarterStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\ResonantStaffOfEnlightenment.cs">
@@ -8419,7 +8419,7 @@
     <Compile Include="Items\Equipment\Weapons\BoneMachete.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Broadsword.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Broadsword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\ButchersWarCleaver.cs">
@@ -8437,7 +8437,7 @@
     <Compile Include="Items\Equipment\Weapons\CrescentBlade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Cutlass.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Cutlass.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\DarkglowScimitar.cs">
@@ -8485,13 +8485,13 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\IcySpellblade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Katana.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Katana.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\KnightsWarCleaver.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Kryss.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Kryss.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\Lance.cs">
@@ -8503,7 +8503,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\LifeSyphon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Longsword.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Longsword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\Luckblade.cs">
@@ -8530,7 +8530,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\Runesabre.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\Scimitar.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Scimitar.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\SerratedWarCleaver.cs">
@@ -8545,7 +8545,7 @@
     <Compile Include="Items\Equipment\Weapons\StoneWarSword.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\ThinLongsword.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\ThinLongsword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\TrueAssassinSpike.cs">
@@ -8569,7 +8569,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\VampiricEssence.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\VikingSword.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\VikingSword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\WoundingAssassinSpike.cs">
@@ -8593,7 +8593,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\StoneSlithClaw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\WeaponEnums.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\WeaponEnums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\AncientWildStaff.cs">
@@ -9036,34 +9036,34 @@
     <Compile Include="Services\Assistants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BOBFilter.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BOBFilter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BOBFilterGump.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BOBFilterGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BOBGump.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BOBGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BOBLargeEntry.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BOBLargeEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BOBLargeSubEntry.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BOBLargeSubEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BOBSmallEntry.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BOBSmallEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BODBuyGump.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BODBuyGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BODType.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BODType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\Books\BulkOrderBook.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\Books\BulkOrderBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BulkOrders\BulkMaterialType.cs">
+    <Compile Include="Expansion\UOR\Services\BulkOrders\BulkMaterialType.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOTD\ChampionSystem\ChampionAltar.cs">
@@ -9107,14 +9107,14 @@
     <Compile Include="Expansion\UOTD\ChampionSystem\StarRoomGate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Chat\Channel.cs" />
-    <Compile Include="Services\Chat\ChatActionHandler.cs" />
-    <Compile Include="Services\Chat\ChatActionHandlers.cs" />
-    <Compile Include="Services\Chat\ChatCommand.cs" />
-    <Compile Include="Services\Chat\ChatSystem.cs" />
-    <Compile Include="Services\Chat\ChatUser.cs" />
-    <Compile Include="Services\Chat\Logging.cs" />
-    <Compile Include="Services\Chat\Packets.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\Channel.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\ChatActionHandler.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\ChatActionHandlers.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\ChatCommand.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\ChatSystem.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\ChatUser.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\Logging.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Chat\Packets.cs" />
     <Compile Include="Expansion\Mondains Legacy\CommunityCollections\BaseCollectionItem.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -9706,45 +9706,45 @@
     <Compile Include="Services\Monster Stealing\Items\SmugglersLantern.cs" />
     <Compile Include="Services\Monster Stealing\Items\SmugglersToolBox.cs" />
     <Compile Include="Services\Monster Stealing\Items\StoneSkinLotion.cs" />
-    <Compile Include="Services\New Magincia\Command.cs" />
-    <Compile Include="Services\New Magincia\Distillation\CraftDefinition.cs" />
-    <Compile Include="Services\New Magincia\Distillation\DistillationContext.cs" />
-    <Compile Include="Services\New Magincia\Distillation\DistillationGump.cs" />
-    <Compile Include="Services\New Magincia\Distillation\DistillationSystem.cs" />
-    <Compile Include="Services\New Magincia\Distillation\Items\BottleOfLiquor.cs" />
-    <Compile Include="Services\New Magincia\Distillation\Items\LiquorBarrel.cs" />
-    <Compile Include="Services\New Magincia\Distillation\Items\MetalKeg.cs" />
-    <Compile Include="Services\New Magincia\Distillation\Items\WheatWort.cs" />
-    <Compile Include="Services\New Magincia\Distillation\Items\Yeast.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Core\MaginciaHousingPlot.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Core\MaginciaLottoSystem.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Core\NewMaginciaMessage.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Core\Region.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Gumps\LottoTrackingGump.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Gumps\MaginciaLottoGump.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Gumps\NewMaginciaMessageGump.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Gumps\PlotWinnerGump.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Items\MaginciaPlotStone.cs" />
-    <Compile Include="Services\New Magincia\Housing Lotto\Items\WritOfLease.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Core\BrokerEntries.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Core\MaginciaBizaar.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Core\MaginciaBizaarPlot.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Core\MaginciaPlotAuction.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Core\StorageEntry.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Gumps\BaseBazaarGump.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Gumps\BizaarSignGump.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Gumps\CommodityBrokerGump.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Gumps\PetBrokerGumps.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Items\Containers.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Items\PlotSign.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Items\StallMultis.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Mobiles\BaseBizaarBroker.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Mobiles\CommodityBroker.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Mobiles\PetBroker.cs" />
-    <Compile Include="Services\New Magincia\Magincia Bazaar\Mobiles\WarehouseSuperintendent.cs" />
-    <Compile Include="Services\New Magincia\MaginciaPlants\Hoe.cs" />
-    <Compile Include="Services\New Magincia\MaginciaPlants\MaginciaPlantItem.cs" />
-    <Compile Include="Services\New Magincia\MaginciaPlants\MaginciaPlantSystem.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Command.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\CraftDefinition.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\DistillationContext.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\DistillationGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\DistillationSystem.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\BottleOfLiquor.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\LiquorBarrel.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\MetalKeg.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\WheatWort.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\Yeast.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\MaginciaHousingPlot.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\MaginciaLottoSystem.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\NewMaginciaMessage.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\Region.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Gumps\LottoTrackingGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Gumps\MaginciaLottoGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Gumps\NewMaginciaMessageGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Gumps\PlotWinnerGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Items\MaginciaPlotStone.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Items\WritOfLease.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Core\BrokerEntries.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Core\MaginciaBizaar.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Core\MaginciaBizaarPlot.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Core\MaginciaPlotAuction.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Core\StorageEntry.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Gumps\BaseBazaarGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Gumps\BizaarSignGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Gumps\CommodityBrokerGump.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Gumps\PetBrokerGumps.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Items\Containers.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Items\PlotSign.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Items\StallMultis.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Mobiles\BaseBizaarBroker.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Mobiles\CommodityBroker.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Mobiles\PetBroker.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\Magincia Bazaar\Mobiles\WarehouseSuperintendent.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\Hoe.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\MaginciaPlantItem.cs" />
+    <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\MaginciaPlantSystem.cs" />
     <Compile Include="Expansion\Time Of Legends\Pet Training\AbilityProfile.cs" />
     <Compile Include="Expansion\Time Of Legends\Pet Training\AreaEffects.cs" />
     <Compile Include="Expansion\Time Of Legends\Pet Training\EthologistTitleDeed.cs" />
@@ -9756,9 +9756,9 @@
     <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingDefinition.cs" />
     <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingPoint.cs" />
     <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingProfile.cs" />
-    <Compile Include="Services\Plants\FertileDirtGump.cs" />
-    <Compile Include="Services\Plants\Raised Garden Beds\RaisedGarden.cs" />
-    <Compile Include="Services\Plants\Raised Garden Beds\RaisedGardenPlantItem.cs" />
+    <Compile Include="Expansion\UOR\Services\Plants\FertileDirtGump.cs" />
+    <Compile Include="Expansion\UOR\Services\Plants\Raised Garden Beds\RaisedGarden.cs" />
+    <Compile Include="Expansion\UOR\Services\Plants\Raised Garden Beds\RaisedGardenPlantItem.cs" />
     <Compile Include="Services\PointsSystems\CleanUpBritanniaData.cs" />
     <Compile Include="Services\PointsSystems\BlackthornData.cs" />
     <Compile Include="Services\PointsSystems\CasinoData.cs" />
@@ -10273,10 +10273,10 @@
     <Compile Include="Expansion\Endless Journey\UltimaStore\UltimaStoreGump.cs" />
     <Compile Include="Expansion\Stygian Abyss\Underworld\Navrey%27s Lair\NavreysController.cs" />
     <Compile Include="Expansion\Stygian Abyss\Underworld\Navrey%27s Lair\NavreysPillar.cs" />
-    <Compile Include="Services\Vendor Searching\VendorSearchCriteria.cs" />
-    <Compile Include="Services\Vendor Searching\VendorSearch.cs" />
-    <Compile Include="Services\Vendor Searching\VendorSearchGump.cs" />
-    <Compile Include="Services\Vendor Searching\VendorSearchMap.cs" />
+    <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearchCriteria.cs" />
+    <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearch.cs" />
+    <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearchGump.cs" />
+    <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearchMap.cs" />
     <Compile Include="Services\VeteranRewards\CrystalPortals\CorruptedCrystalPortal.cs" />
     <Compile Include="Services\VeteranRewards\CrystalPortals\CorruptedCrystalPortalGump.cs" />
     <Compile Include="Services\VeteranRewards\CrystalPortals\CrystalPortal.cs" />
@@ -10449,28 +10449,28 @@
     <Compile Include="Expansion\Stygian Abyss\LoyaltySystem\LoyaltyRating.cs" />
     <Compile Include="Expansion\Stygian Abyss\LoyaltySystem\LoyaltyRatingGump.cs" />
     <Compile Include="Services\Paragon.cs" />
-    <Compile Include="Services\Party\AddPartyTarget.cs">
+    <Compile Include="Expansion\UOR\Services\Party\AddPartyTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\DeclineTimer.cs">
+    <Compile Include="Expansion\UOR\Services\Party\DeclineTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\Packets.cs">
+    <Compile Include="Expansion\UOR\Services\Party\Packets.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\Party.cs">
+    <Compile Include="Expansion\UOR\Services\Party\Party.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\PartyCommands.cs">
+    <Compile Include="Expansion\UOR\Services\Party\PartyCommands.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\PartyMemberInfo.cs">
+    <Compile Include="Expansion\UOR\Services\Party\PartyMemberInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\RemoveFromParty.cs">
+    <Compile Include="Expansion\UOR\Services\Party\RemoveFromParty.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Party\RemovePartyTarget.cs">
+    <Compile Include="Expansion\UOR\Services\Party\RemovePartyTarget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\Pathing\FastAStarAlgorithm.cs">
@@ -10497,64 +10497,64 @@
     <Compile Include="Services\Pathing\SlowAStarAlgorithm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\PicnicBasket2.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\PicnicBasket2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\RoundBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\RoundBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\RoundBasketHandles.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\RoundBasketHandles.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\SmallBushel.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\SmallBushel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\SmallRoundBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\SmallRoundBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\SmallSquareBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\SmallSquareBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\SquareBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\SquareBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\TallBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\TallBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\TallRoundBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\TallRoundBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Baskets\WinnowingBasket.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Baskets\WinnowingBasket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\BasketWeavingBook.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\BasketWeavingBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\Clippers.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\Clippers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\ColorFixative.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\ColorFixative.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\MiscSAResources.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\MiscSAResources.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\NaturalDye.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\NaturalDye.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\PlantPigment.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\PlantPigment.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\PlantPigmentHue.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\PlantPigmentHue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\BasketWeaving\SilverSapling.cs">
+    <Compile Include="Expansion\UOR\Services\BasketWeaving\SilverSapling.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\EmptyTheBowlGump.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\EmptyTheBowlGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\MainPlantGump.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\MainPlantGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\FertileDirt.cs">
@@ -10569,40 +10569,40 @@
     <Compile Include="Items\Consumables\RedLeaves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\DisplayHelpTopic.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\DisplayHelpTopic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantBowl.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantBowl.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantHue.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantHue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantItem.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantPourTarget.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantPourTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantResources.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantResources.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantSystem.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantSystem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PlantType.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PlantType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\PollinateTarget.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\PollinateTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\ReproductionGump.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\ReproductionGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\Seed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Plants\SetToDecorativeGump.cs">
+    <Compile Include="Expansion\UOR\Services\Plants\SetToDecorativeGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\PlayerZombies.cs" />
@@ -11578,7 +11578,7 @@
     <Compile Include="Services\TestCenter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Internal\ResGate.cs">
+    <Compile Include="Expansion\Original UO\Items\ResGate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Skills\Magery\Base\DisturbType.cs">
@@ -12268,7 +12268,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\LootGeneration\RunicReforging\ReadMe.txt" />
-    <Content Include="Services\New Magincia\ReadMe.txt" />
+    <Content Include="Expansion\UOR\Services\New Magincia\ReadMe.txt" />
     <Content Include="Expansion\High Seas\DespiseRevamped\Read Me.txt" />
     <Content Include="Expansion\High Seas\Shame Revamped\Read Me.txt" />
     <Content Include="Expansion\Endless Journey\UltimaStore\ReadMe.txt" />
@@ -12280,11 +12280,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Expansion\Original UO\Items\Armor and Shield\" />
-    <Folder Include="Expansion\Original UO\Items\Clothing and Apparel\" />
-    <Folder Include="Expansion\Original UO\Items\Houses and Ships\" />
-    <Folder Include="Expansion\Original UO\Items\Potions\" />
-    <Folder Include="Expansion\Original UO\Items\Weapon and Ammunition\" />
     <Folder Include="Mobiles\Hunters Guide\X\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
