@@ -3586,13 +3586,13 @@
     <Compile Include="Expansion\High Seas\ExploringTheDeep\Questers\MadelineHarte.cs" />
     <Compile Include="Expansion\High Seas\ExploringTheDeep\Questers\SBHepler.cs" />
     <Compile Include="Expansion\High Seas\ExploringTheDeep\Regions.cs" />
-    <Compile Include="Services\Factions\Core\Persistence.cs" />
-    <Compile Include="Services\Factions\Items\Equipment\CollectionBox.cs" />
-    <Compile Include="Services\Factions\Items\Equipment\EnhanctedBandage.cs" />
-    <Compile Include="Services\Factions\Items\Equipment\FactionEquipment.cs" />
-    <Compile Include="Services\Factions\Items\Equipment\PowderOfPerseverance.cs" />
-    <Compile Include="Services\Factions\Items\Equipment\ShrineGem.cs" />
-    <Compile Include="Services\Factions\Items\Equipment\StrongholdRune.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Persistence.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Equipment\CollectionBox.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Equipment\EnhanctedBandage.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Equipment\FactionEquipment.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Equipment\PowderOfPerseverance.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Equipment\ShrineGem.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Equipment\StrongholdRune.cs" />
     <Compile Include="Expansion\High Seas\FireCasino\CasinoGumps.cs" />
     <Compile Include="Expansion\High Seas\FireCasino\DiceGames.cs" />
     <Compile Include="Expansion\High Seas\FireCasino\FortuesFireGrog.cs" />
@@ -9432,250 +9432,250 @@
     <Compile Include="Expansion\Original UO\Ethics\Hero\Powers\SummonFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\Election.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Election.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\Faction.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Faction.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\FactionItem.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\FactionItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\FactionState.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\FactionState.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\Generator.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Generator.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\GuardList.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\GuardList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\Keywords.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Keywords.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\MerchantTitles.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\MerchantTitles.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\PlayerState.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\PlayerState.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\Reflector.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Reflector.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\SilverGivenEntry.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\SilverGivenEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\StrongholdRegion.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\StrongholdRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\Town.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\Town.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\TownState.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\TownState.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Core\VendorList.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Core\VendorList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\FactionDefinition.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\FactionDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\FactionItemDefinition.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\FactionItemDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\GuardDefinition.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\GuardDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\RankDefinition.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\RankDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\StrongholdDefintion.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\StrongholdDefintion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\TownDefinition.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\TownDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Definitions\VendorDefinition.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Definitions\VendorDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\ElectionGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\ElectionGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\ElectionManagementGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\ElectionManagementGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\FactionGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\FactionGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\FactionImbueGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\FactionImbueGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\FactionStoneGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\FactionStoneGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\FinanceGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\FinanceGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\HorseBreederGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\HorseBreederGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\JoinStoneGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\JoinStoneGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\LeaveFactionGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\LeaveFactionGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\SheriffGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\SheriffGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\TownStoneGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\TownStoneGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Gumps\VoteGump.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Gumps\VoteGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Factions\CouncilOfMages.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Factions\CouncilOfMages.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Factions\Minax.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Factions\Minax.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Factions\Shadowlords.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Factions\Shadowlords.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Factions\TrueBritannians.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Factions\TrueBritannians.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Britain.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Britain.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Magincia.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Magincia.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Minoc.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Minoc.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Moonglow.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Moonglow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\SkaraBrae.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\SkaraBrae.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Trinsic.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Trinsic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Vesper.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Vesper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Instances\Towns\Yew.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Instances\Towns\Yew.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\BaseMonolith.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\BaseMonolith.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\BaseSystemController.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\BaseSystemController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\FactionStone.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\FactionStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\JoinStone.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\JoinStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Sigil.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Sigil.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Silver.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Silver.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\StrongholdMonolith.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\StrongholdMonolith.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\TownMonolith.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\TownMonolith.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\TownStone.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\TownStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\BaseFactionTrap.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\BaseFactionTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\BaseFactionTrapDeed.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\BaseFactionTrapDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\FactionExplosionTrap.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\FactionExplosionTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\FactionGasTrap.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\FactionGasTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\FactionSawTrap.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\FactionSawTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\FactionSpikeTrap.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\FactionSpikeTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Items\Traps\FactionTrapRemovalKit.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\FactionTrapRemovalKit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\FactionWarHorse.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\FactionWarHorse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\BaseFactionGuard.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\BaseFactionGuard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\GuardAI.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\GuardAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Orders.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Orders.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionBerserker.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionBerserker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionDeathKnight.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionDeathKnight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionDragoon.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionDragoon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionHenchman.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionHenchman.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionKnight.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionKnight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionMercenary.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionMercenary.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionNecromancer.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionNecromancer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionPaladin.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionPaladin.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionSorceress.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionSorceress.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Guards\Types\FactionWizard.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\Types\FactionWizard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Vendors\BaseFactionVendor.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\BaseFactionVendor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Vendors\FactionBoardVendor.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\FactionBoardVendor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Vendors\FactionBottleVendor.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\FactionBottleVendor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Vendors\FactionHorseVendor.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\FactionHorseVendor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Vendors\FactionOreVendor.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\FactionOreVendor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Factions\Mobiles\Vendors\FactionReagentVendor.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\FactionReagentVendor.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Skills\Harvest\HarvestSystem.cs">
@@ -10419,10 +10419,10 @@
     <Compile Include="Items\Books\TavarasJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Khaldun\KhaldunGen.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\KhaldunGen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Khaldun\KhaldunPitTeleporter.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\KhaldunPitTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mobiles\Hunters Guide\G\GrimmochDrummel.cs">
@@ -10437,13 +10437,13 @@
     <Compile Include="Mobiles\Hunters Guide\T\TavaraSewel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Khaldun\PuzzleChest.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\PuzzleChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Khaldun\RaisableItem.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\RaisableItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Khaldun\RaiseSwitch.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\RaiseSwitch.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Stygian Abyss\LoyaltySystem\LoyaltyRating.cs" />

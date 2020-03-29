@@ -58,4 +58,4 @@ GPL v2
 
 
    [ServUOX]: <https://github.com/ServUOX>
-   [Quickstart]: <https://www.servuox.com/wiki/startup/>
+   [Quickstart]: <https://github.com/ServUOX/ServUOX/wiki/Getting-Started>
