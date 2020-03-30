@@ -1,13 +1,7 @@
-/Ultima.dll
-/Ultima.pdb
-/Ultima.dll.mdb
-/Ultima/bin
-/Ultima/obj
-/Server/bin
 /Server/obj
-/Scripts/bin
 /Scripts/obj
 /Scripts/Output
+/Config/Output
 
 /Honesty
 /Logs
