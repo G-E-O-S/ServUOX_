@@ -412,7 +412,7 @@ namespace Server
                     Console.WriteLine("     -nocache            No known effect.");
                     Console.WriteLine("     -noconsole          No user interaction during startup and runtime.");
                     Console.WriteLine("     -profile            Enables profiling allowing to get performance diagnostic information of packets, timers etc. in AdminGump -> Maintenance. Use with caution. This increases server load.");
-                    Console.WriteLine("     -service            This parameter should be set if you're running ServUO as a Windows Service. No user interaction. *Windows only*");
+                    Console.WriteLine("     -service            This parameter should be set if you're running ServUOX as a Windows Service. No user interaction. *Windows only*");
                     Console.WriteLine("     -usehrt             Enables High Resolution Timing if requirements are met. Increasing the resolution of the timer. *Windows only*");
                     Console.WriteLine("     -vb                 Enables compilation of VB.NET Scripts. Without this option VB.NET Scripts are skipped.");
 
