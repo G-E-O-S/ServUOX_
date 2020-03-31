@@ -5526,12 +5526,23 @@ namespace Server
 
 				IMount m = Mount;
 
-				if (m != null && informMount)
-				{
-					m.OnRiderDamaged(from, ref amount, newHits < 0);
-				}
+                if (m != null && informMount)
+                {
+                    {
+                        int temp = amount;
+                        m.OnRiderDamaged(from, ref amount, newHits < 0);
+                        if (temp > amount)
+                        {
+                            int absorbed = temp - amount;
+                            newHits += absorbed;
+                        }
+                    }
+                }
 
-				if (newHits < 0)
+                SendDamagePacket(from, amount);
+                OnDamage(amount, from, newHits < 0);
+
+                if (newHits < 0)
 				{
 					m_LastKiller = from;
 
