@@ -2900,7 +2900,7 @@ namespace Server.Mobiles
 						}
 					}
 					// Don't ignore friends we want to and can help
-					else if (!bFacFriend || !m_Mobile.IsFriend(m))
+					else if (!bFacFriend || !m_Mobile.IsFriend(m)) // Check this -Fraz
 					{
 						// Let's not target a familiar...
 						if (m is BaseFamiliar)
