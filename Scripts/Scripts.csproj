@@ -552,36 +552,36 @@
     <Compile Include="Items\Addons\EnchantedGraniteCart.cs" />
     <Compile Include="Items\Addons\JollyHolidayTree.cs" />
     <Compile Include="Items\Addons\SkullTiledFloor.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\AlchemistsBookshelf.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\TheTokenBox.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\FirePainting.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\ShipPainting.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\FluffySponge.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\BarrelSponge.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\ShelfSponge.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\CactusSponge.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\FourPostBed.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\OrnateBed.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\MonasteryBell.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\15thAnniversaryLithograph.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalAltar.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalBrazier.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalTable.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalBullStatue.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalBeggarStatue.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalSupplicantStatue.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalThrone.cs" />
-    <Compile Include="Items\Addons\Crystal Furniture Set\CrystalRunnerStatue.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\DragonLantern.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\TallLamp.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\KoiLamp.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\GoldenTable.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\BirdLamp.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\MarbleTable.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\EmbroideredTapestry.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\CastlePainting.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\BullTapestry.cs" />
-    <Compile Include="Items\Addons\TheKingsCollection\HorsePainting.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\AlchemistsBookshelf.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\TheTokenBox.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\FirePainting.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\ShipPainting.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\FluffySponge.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\BarrelSponge.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\ShelfSponge.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\CactusSponge.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\FourPostBed.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\OrnateBed.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\MonasteryBell.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\15thAnniversaryLithograph.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalAltar.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalBrazier.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalTable.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalBullStatue.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalBeggarStatue.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalSupplicantStatue.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalThrone.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Crystal Furniture Set\CrystalRunnerStatue.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\DragonLantern.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\TallLamp.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\KoiLamp.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\GoldenTable.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\BirdLamp.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\MarbleTable.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\EmbroideredTapestry.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\CastlePainting.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\BullTapestry.cs" />
+    <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\HorsePainting.cs" />
     <Compile Include="Items\Addons\Craft Addons\GlassKiln.cs" />
     <Compile Include="Items\Artifacts\Decorative\GildedStatue.cs" />
     <Compile Include="Items\Artifacts\Decorative\KingsPainting.cs" />
@@ -595,15 +595,15 @@
     <Compile Include="Items\Consumables\ShatterPotion.cs" />
     <Compile Include="Items\Containers\BoxOfCrystalItems.cs" />
     <Compile Include="Items\Containers\BoxOfShadowItems.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\ShadowAltar.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\ShadowPillar.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\SpikeColumn.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\ShadowFirePit.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\GlobeOfSosaria.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\FireDemonStatue.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\SpikePost.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\ObsidianRock.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\ShadowBanner.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ShadowAltar.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ShadowPillar.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\SpikeColumn.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ShadowFirePit.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\GlobeOfSosaria.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\FireDemonStatue.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\SpikePost.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ObsidianRock.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ShadowBanner.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\WashBasin.cs" />
     <Compile Include="Items\Addons\WoodStove.cs" />
     <Compile Include="Items\Addons\TinkerBench.cs" />
@@ -648,7 +648,7 @@
     <Compile Include="Items\Decorative\CupidStatue.cs" />
     <Compile Include="Items\Consumables\ValentineChocolate.cs" />
     <Compile Include="Items\Containers\HeartShapedBox.cs" />
-    <Compile Include="Items\Addons\Shadow Furniture Set\ObsidianPillar.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ObsidianPillar.cs" />
     <Compile Include="Items\Decorative\GypsyWagonLamp.cs" />
     <Compile Include="Items\Decorative\PumpkinCarvingKit.cs" />
     <Compile Include="Items\Decorative\HolidayWallArt.cs" />
@@ -745,11 +745,11 @@
     <Compile Include="Items\Addons\Distillery.cs" />
     <Compile Include="Items\Addons\DolphinRug.cs" />
     <Compile Include="Items\Addons\DungeonHitchingPost.cs" />
-    <Compile Include="Items\Addons\FancyCouchEast.cs" />
-    <Compile Include="Items\Addons\FancyCouchWest.cs" />
-    <Compile Include="Items\Addons\FancyCouchNorth.cs" />
-    <Compile Include="Items\Addons\FancyLoveseatWest.cs" />
-    <Compile Include="Items\Addons\FancyLoveseatNorth.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyCouchEast.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyCouchWest.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyCouchNorth.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyLoveseatWest.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyLoveseatNorth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseSouth.cs" />
     <Compile Include="Items\Addons\LongMetalTableEast.cs" />
@@ -761,18 +761,18 @@
     <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestryEast.cs" />
     <Compile Include="Items\Addons\MetalTableSouth.cs" />
-    <Compile Include="Items\Addons\PlushLoveseatEast.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\PlushLoveseatEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestrySouth.cs" />
-    <Compile Include="Items\Addons\PlushLoveseatSouth.cs" />
-    <Compile Include="Items\Addons\FancyLoveseatEast.cs" />
-    <Compile Include="Items\Addons\FancyCouchSouth.cs" />
-    <Compile Include="Items\Addons\FancyLoveseatSouth.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\PlushLoveseatSouth.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyLoveseatEast.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyCouchSouth.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyLoveseatSouth.cs" />
     <Compile Include="Items\Addons\GeoffreyCampAddon.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\HitchingPost.cs" />
     <Compile Include="Items\Addons\GardenShed.cs" />
-    <Compile Include="Items\Addons\FancyWoodenShelfEast.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyWoodenShelfEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfEast.cs" />
-    <Compile Include="Items\Addons\FancyWoodenShelfSouth.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyWoodenShelfSouth.cs" />
     <Compile Include="Items\Addons\RusticBenchEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfSouth.cs" />
     <Compile Include="Items\Addons\RusticBenchSouth.cs" />
@@ -972,7 +972,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\Glenda.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\BowOfTheInfiniteSwarm.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\TheDeceiver.cs" />
-    <Compile Include="Items\Books\BaseJournal.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Journals\BaseJournal.cs" />
     <Compile Include="Items\Books\SpecialScrollBooks\BaseSpecialScrollBook.cs" />
     <Compile Include="Items\Books\SpecialScrollBooks\PowerScrollBook.cs" />
     <Compile Include="Items\Books\SpecialScrollBooks\ScrollOfAlacrityBook.cs" />
@@ -1020,8 +1020,8 @@
     <Compile Include="Items\Consumables\MurkyMilk.cs" />
     <Compile Include="Items\Consumables\NougatSwirl.cs" />
     <Compile Include="Items\Consumables\Nutcrackers.cs" />
-    <Compile Include="Items\Consumables\PersonalAttendantDeed.cs" />
-    <Compile Include="Items\Consumables\PersonalAttendantToken.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\PersonalAttendantDeed.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\PersonalAttendantToken.cs" />
     <Compile Include="Items\Consumables\PumpkinPizza.cs" />
     <Compile Include="Items\Consumables\Taffy.cs" />
     <Compile Include="Items\Consumables\ThanksGivingFood.cs" />
@@ -1564,10 +1564,10 @@
     <Compile Include="Items\Decorative\Fur.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\GargoyleBook100.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleBook100.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\GargoyleBook200.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleBook200.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\GlassItems.cs">
@@ -1941,10 +1941,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\AddonContainerComponent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AlchemistTableEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\AlchemistTableEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AlchemistTableSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\AlchemistTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\AnvilEastAddon.cs">
@@ -1953,19 +1953,19 @@
     <Compile Include="Expansion\Original UO\Items\Addons\AnvilSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ArcaneBookshelfEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ArcaneBookshelfEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ArcaneBookshelfSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ArcaneBookshelfSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\ArcaneCircleAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ArcanistStatueEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ArcanistStatueEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ArcanistStatueSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ArcanistStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\ArcheryButteAddon.cs">
@@ -1983,51 +1983,51 @@
     <Compile Include="Expansion\Original UO\Items\Addons\DartBoard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenBedEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenBedSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenDresserEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenDresserEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenDresserSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenDresserSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenForgeAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenForgeAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenLoveseatEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenLoveseatEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenLoveseatSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenLoveseatSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenSpinningwheelEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenSpinningwheelEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenSpinningwheelSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenSpinningwheelSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenStoveEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenStoveEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenStoveSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenStoveSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenWashbasinEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenWashbasinEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenWashbasinEastAddonWithDrawer.cs" />
-    <Compile Include="Items\Addons\ElvenWashbasinSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenWashbasinEastAddonWithDrawer.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenWashbasinSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ElvenWashbasinSouthAddonWithDrawer.cs" />
-    <Compile Include="Items\Addons\FancyElvenTableEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\ElvenWashbasinSouthAddonWithDrawer.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyElvenTableEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FancyElvenTableSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\FancyElvenTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\FireColumnAddon.cs">
@@ -3054,7 +3054,7 @@
     <Compile Include="Items\Quest\PileofInspectedGoldIngots.cs" />
     <Compile Include="Items\Quest\PileofInspectedShadowIronIngots.cs" />
     <Compile Include="Mobiles\NPCs\Thepem.cs" />
-    <Compile Include="Items\Books\GargishDocuments.cs" />
+    <Compile Include="Expansion\Stygian Abyss\GargishDocuments.cs" />
     <Compile Include="Quests\JourneyToTheAthenaeumIsleQuest.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MinionOfScelestus.cs" />
     <Compile Include="Mobiles\NPCs\Zhah.cs" />
@@ -3618,16 +3618,16 @@
     <Compile Include="Items\Addons\MediumStoneTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\OrnateElvenChestEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\OrnateElvenChestEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\OrnateElvenChestSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\OrnateElvenChestSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\OrnateElvenTableEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\OrnateElvenTableEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\OrnateElvenTableSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\OrnateElvenTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\ParrotPerchAddon.cs">
@@ -3685,10 +3685,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\SpinningwheelSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SquirrelStatueEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\SquirrelStatueEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SquirrelStatueSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\SquirrelStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\StoneAnvilEastAddon.cs">
@@ -3715,10 +3715,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\StretchedHides.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TallElvenBedEastAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\TallElvenBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TallElvenBedSouthAddon.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\TallElvenBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\Telescope.cs">
@@ -4634,10 +4634,10 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Virtue\SacrificeSollerets.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Virtue\SpiritualityHelm.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\SpiritualityHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Virtue\ValorGauntlets.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\ValorGauntlets.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\LavaSerpenCrust.cs">
@@ -4646,35 +4646,35 @@
     <Compile Include="Items\Resource\UndyingFlesh.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\BaseLocalizedBook.cs" />
+    <Compile Include="Expansion\Original UO\Items\Provision\Books\BaseLocalizedBook.cs" />
     <Compile Include="Expansion\Original UO\Items\Provision\Books\BlueBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\BrownBook.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Books\BrownBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Books\BlackthornWelcomeBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\BookContent.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Books\BookContent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\DrakovsJournal.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Journals\DrakovsJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\FropozJournal.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Journals\FropozJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\KaburJournal.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Journals\KaburJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\LibraryBooks.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\Books\LibraryBooks.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\NewAquariumBook.cs">
+    <Compile Include="Items\Addons\Aquarium\NewAquariumBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\TranslatedGargoyleJournal.cs">
+    <Compile Include="Expansion\Stygian Abyss\TranslatedGargoyleJournal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Books\Note.cs" />
@@ -6759,37 +6759,37 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\AnniversaryRobe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DawnsMusicBox\DawnsMusicBox.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DawnsMusicBox\DawnsMusicBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DawnsMusicBox\DawnsMusicGear.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DawnsMusicBox\DawnsMusicGear.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DawnsMusicBox\DawnsMusicInfo.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DawnsMusicBox\DawnsMusicInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DawnsMusicBox\RewardVersion\DawnsMusicBox.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DawnsMusicBox\RewardVersion\DawnsMusicBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DawnsMusicBox\RewardVersion\MusicBoxGears.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DawnsMusicBox\RewardVersion\MusicBoxGears.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DawnsMusicBox\RewardVersion\TrackInfo.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DawnsMusicBox\RewardVersion\TrackInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\DupresShield.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\DupresShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FountainOfLife.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\FountainOfLife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Spellbooks\OssianGrimoire.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\OssianGrimoire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Quivers\QuiverOfInfinity.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\QuiverOfInfinity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\Talismans.cs">
+    <Compile Include="Expansion\Mondains Legacy\8th Anniversary Gifts\TalismanoftheFey.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Clothing\HoodedShroudOfShadows.cs">
@@ -6798,25 +6798,25 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\LuckyNecklace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenArmoire.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenArmoire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenBed.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenBed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenBookcase.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenBookcase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenChestOfDrawers.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenChestOfDrawers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenCoveredChair.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenCoveredChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenFallenChair.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenFallenChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\BrokenVanity.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Broken Furniture Collection\BrokenVanity.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\StandingBrokenChair.cs">
@@ -6837,70 +6837,70 @@
     <Compile Include="Items\Consumables\PowderOfTemperament.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AwesomeDisturbingPortrait.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\AwesomeDisturbingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BedOfNails.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\BedOfNails.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BoneCouch.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\BoneCouch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BoneTable.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\BoneTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BoneThrone.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\BoneThrone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\CreepyPortrait.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\CreepyPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DisturbingPortrait.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\DisturbingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\HauntedMirror.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\HauntedMirror.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MountedPixieBlue.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieBlue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MountedPixieGreen.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieGreen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MountedPixieLime.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieLime.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MountedPixieOrange.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieOrange.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MountedPixieWhite.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieWhite.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\SacrificialAltar.cs">
+    <Compile Include="Items\Addons\Evil Home Decor Set\SacrificialAltar.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\UnsettlingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\HearthOfHomeFire.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\HearthOfHomeFire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\HolySword.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\HolySword.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\LeggingsOfEmbers.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\LeggingsOfEmbers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RoseOfTrinsic.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\RoseOfTrinsic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\SamuraiHelm.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\SamuraiHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\ShaminoCrossbow.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\ShaminoCrossbow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TapestryOfSosaria.cs">
+    <Compile Include="Expansion\AOS\7th Anniversary Gifts\TapestryOfSosaria.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\AppleTrunk.cs">
@@ -6918,10 +6918,10 @@
     <Compile Include="Items\Containers\BoilingCauldron.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\CherryBlossomTree.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\CherryBlossomTree.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\CherryBlossomTrunk.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\CherryBlossomTrunk.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\CinnamonFancyRug.cs">
@@ -7539,7 +7539,7 @@
     <Compile Include="Items\Addons\CorporealBrumeStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\DreadHornStatuette.cs">
+    <Compile Include="Expansion\Mondains Legacy\Addons\DreadHornStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\DreadSpiderStatuette.cs">
@@ -10410,13 +10410,13 @@
     <Compile Include="Expansion\Stygian Abyss\InstancedPeerless\StygianDragon\StygianDragonPlatform.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\GrimmochJournal.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Journals\GrimmochJournal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Books\LysanderNotebook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\TavarasJournal.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Journals\TavarasJournal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Services\Khaldun\KhaldunGen.cs">
@@ -12280,6 +12280,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Expansion\AOS\6th Anniversary Gifts\" />
+    <Folder Include="Expansion\Mondains Legacy\10th Anniversary Gifts\" />
     <Folder Include="Mobiles\Hunters Guide\X\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
