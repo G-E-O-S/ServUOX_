@@ -10277,6 +10277,7 @@
     <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearch.cs" />
     <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearchGump.cs" />
     <Compile Include="Expansion\Endless Journey\Vendor Searching\VendorSearchMap.cs" />
+    <Compile Include="Services\Teleporters\Teleporters.cs" />
     <Compile Include="Services\VeteranRewards\CrystalPortals\CorruptedCrystalPortal.cs" />
     <Compile Include="Services\VeteranRewards\CrystalPortals\CorruptedCrystalPortalGump.cs" />
     <Compile Include="Services\VeteranRewards\CrystalPortals\CrystalPortal.cs" />
