@@ -48,44 +48,44 @@
   <ItemGroup>
     <Compile Include="Expansion\Samurai Empire\Abilities\ColdWind.cs" />
     <Compile Include="Expansion\Samurai Empire\Abilities\Focus.cs" />
-    <Compile Include="Accounting\AccessRestrictions.cs">
+    <Compile Include="Services\Accounting\AccessRestrictions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\Account.cs">
+    <Compile Include="Services\Accounting\Account.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountAttackLimiter.cs">
+    <Compile Include="Services\Accounting\AccountAttackLimiter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountComment.cs">
+    <Compile Include="Services\Accounting\AccountComment.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountHandler.cs">
+    <Compile Include="Services\Accounting\AccountHandler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\Accounts.cs">
+    <Compile Include="Services\Accounting\Accounts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountTag.cs">
+    <Compile Include="Services\Accounting\AccountTag.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\Firewall.cs">
+    <Compile Include="Services\Accounting\Firewall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\IPLimiter.cs">
+    <Compile Include="Services\Accounting\IPLimiter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\AccountGoldCheck.cs" />
-    <Compile Include="Commands\Add.cs">
+    <Compile Include="Services\Commands\AccountGoldCheck.cs" />
+    <Compile Include="Services\Commands\Add.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Attributes.cs">
+    <Compile Include="Services\Commands\Attributes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Batch.cs">
+    <Compile Include="Services\Commands\Batch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\BoundingBoxPicker.cs">
+    <Compile Include="Services\Commands\BoundingBoxPicker.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\CreateWorld.cs">
@@ -103,104 +103,104 @@
     <Compile Include="Needs Deleted Look Over First\DecorateSA.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Docs.cs">
+    <Compile Include="Services\Commands\Docs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\DoorGenDelete.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Dupe.cs">
+    <Compile Include="Services\Commands\Dupe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\ExportWSC.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\GenBounds.cs">
+    <Compile Include="Services\Commands\GenBounds.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\GenCategorization.cs">
+    <Compile Include="Services\Commands\GenCategorization.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\GenerateGameDocs.cs" />
-    <Compile Include="Commands\Generic\Commands\BaseCommand.cs">
+    <Compile Include="Services\Commands\GenerateGameDocs.cs" />
+    <Compile Include="Services\Commands\Generic\Commands\BaseCommand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Commands\Commands.cs">
+    <Compile Include="Services\Commands\Generic\Commands\Commands.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Commands\DesignInsert.cs">
+    <Compile Include="Services\Commands\Generic\Commands\DesignInsert.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Commands\Interface.cs">
+    <Compile Include="Services\Commands\Generic\Commands\Interface.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\BaseExtension.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\BaseExtension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\Compilers\ConditionalCompiler.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\Compilers\ConditionalCompiler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\Compilers\DistinctCompiler.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\Compilers\DistinctCompiler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\Compilers\SortCompiler.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\Compilers\SortCompiler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\DistinctExtension.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\DistinctExtension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\LimitExtension.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\LimitExtension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\SortExtension.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\SortExtension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Extensions\WhereExtension.cs">
+    <Compile Include="Services\Commands\Generic\Extensions\WhereExtension.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\AreaCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\AreaCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\BaseCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\BaseCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\ContainedCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\ContainedCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\FacetCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\FacetCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\GlobalCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\GlobalCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\IPAddressCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\IPAddressCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\MultiCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\MultiCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\ObjectConditional.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\ObjectConditional.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\OnlineCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\OnlineCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\RangeCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\RangeCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\RegionCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\RegionCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\ScreenCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\ScreenCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\SelfCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\SelfCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\SerialCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\SerialCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Generic\Implementors\SingleCommandImplementor.cs">
+    <Compile Include="Services\Commands\Generic\Implementors\SingleCommandImplementor.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\GenTeleporter.cs">
@@ -209,22 +209,22 @@
     <Compile Include="Needs Deleted Look Over First\GMbody.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Handlers.cs">
+    <Compile Include="Services\Commands\Handlers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\HelpInfo.cs">
+    <Compile Include="Services\Commands\HelpInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Logging.cs">
+    <Compile Include="Services\Commands\Logging.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Profiling.cs">
+    <Compile Include="Services\Commands\Profiling.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Properties.cs">
+    <Compile Include="Services\Commands\Properties.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\ShardTime.cs">
+    <Compile Include="Services\Commands\ShardTime.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\SHTelGenDelete.cs">
@@ -233,318 +233,318 @@
     <Compile Include="Needs Deleted Look Over First\SignGenDelete.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\SignParser.cs">
+    <Compile Include="Services\Commands\SignParser.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Skills.cs">
+    <Compile Include="Services\Commands\Skills.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\SkillsMenu.cs">
+    <Compile Include="Services\Commands\SkillsMenu.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Statics.cs">
+    <Compile Include="Services\Commands\Statics.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\TimeStamp.cs">
+    <Compile Include="Services\Commands\TimeStamp.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\UnloadMaps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\VisibilityList.cs">
+    <Compile Include="Services\Commands\VisibilityList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\Wipe.cs">
+    <Compile Include="Services\Commands\Wipe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context Menus\AddToParty.cs">
+    <Compile Include="Services\Context Menus\AddToParty.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context Menus\AddToSpellbookEntry.cs">
+    <Compile Include="Services\Context Menus\AddToSpellbookEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context Menus\EatEntry.cs">
+    <Compile Include="Services\Context Menus\EatEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context Menus\EjectPlayer.cs">
+    <Compile Include="Services\Context Menus\EjectPlayer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context Menus\OpenBankEntry.cs">
+    <Compile Include="Services\Context Menus\OpenBankEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Context Menus\SimpleContextMenuEntry.cs" />
-    <Compile Include="Context Menus\TeachEntry.cs">
+    <Compile Include="Services\Context Menus\SimpleContextMenuEntry.cs" />
+    <Compile Include="Services\Context Menus\TeachEntry.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\GamblingStone.cs" />
     <Compile Include="Needs Deleted Look Over First\GMStone.cs" />
-    <Compile Include="Gumps\AddCustomizableMessageGump.cs" />
-    <Compile Include="Gumps\AddDoorGump.cs">
+    <Compile Include="Services\Gumps\AddCustomizableMessageGump.cs" />
+    <Compile Include="Services\Gumps\AddDoorGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\AddGump.cs">
+    <Compile Include="Services\Gumps\AddGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\AddSignGump.cs">
+    <Compile Include="Services\Gumps\AddSignGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\AdminGump.cs">
+    <Compile Include="Services\Gumps\AdminGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ApplySkillBonusGump.cs" />
-    <Compile Include="Gumps\BanDurationGump.cs">
+    <Compile Include="Services\Gumps\ApplySkillBonusGump.cs" />
+    <Compile Include="Services\Gumps\BanDurationGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\BankerGump.cs" />
-    <Compile Include="Gumps\BaseConfirmGump.cs">
+    <Compile Include="Services\Gumps\BankerGump.cs" />
+    <Compile Include="Services\Gumps\BaseConfirmGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\BaseGridGump.cs">
+    <Compile Include="Services\Gumps\BaseGridGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\BaseGump.cs" />
-    <Compile Include="Gumps\BaseImageTileButtonsGump.cs">
+    <Compile Include="Services\Gumps\BaseGump.cs" />
+    <Compile Include="Services\Gumps\BaseImageTileButtonsGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\BaseRewardGump.cs" />
-    <Compile Include="Gumps\BasicInfoGump.cs" />
-    <Compile Include="Gumps\CategorizedAddGump.cs">
+    <Compile Include="Services\Gumps\BaseRewardGump.cs" />
+    <Compile Include="Services\Gumps\BasicInfoGump.cs" />
+    <Compile Include="Services\Gumps\CategorizedAddGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ClientGump.cs">
+    <Compile Include="Services\Gumps\ClientGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ConfirmBreakCrystalGump.cs">
+    <Compile Include="Services\Gumps\ConfirmBreakCrystalGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ConfirmCallbackGump.cs" />
-    <Compile Include="Gumps\ConfirmHeritageGump.cs">
+    <Compile Include="Services\Gumps\ConfirmCallbackGump.cs" />
+    <Compile Include="Services\Gumps\ConfirmHeritageGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ConfirmHouseResize.cs">
+    <Compile Include="Services\Gumps\ConfirmHouseResize.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ConfirmMountStatuetteGump.cs" />
-    <Compile Include="Gumps\ConfirmReleaseGump.cs">
+    <Compile Include="Services\Gumps\ConfirmMountStatuetteGump.cs" />
+    <Compile Include="Services\Gumps\ConfirmReleaseGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\DawnsMusicBoxGump.cs">
+    <Compile Include="Services\Gumps\DawnsMusicBoxGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\FacetGump.cs">
+    <Compile Include="Services\Gumps\FacetGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Go\ChildNode.cs">
+    <Compile Include="Services\Gumps\Go\ChildNode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Go\GoGump.cs">
+    <Compile Include="Services\Gumps\Go\GoGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Go\LocationTree.cs">
+    <Compile Include="Services\Gumps\Go\LocationTree.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Go\ParentNode.cs">
+    <Compile Include="Services\Gumps\Go\ParentNode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\DeclareFealtyGump.cs">
+    <Compile Include="Services\Gumps\Guilds\DeclareFealtyGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GrantGuildTitleGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GrantGuildTitleGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildAbbrvPrompt.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildAbbrvPrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildAcceptWarGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildAcceptWarGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildAdminCandidatesGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildAdminCandidatesGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildCandidatesGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildCandidatesGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildChangeTypeGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildChangeTypeGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildCharterGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildCharterGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildCharterPrompt.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildCharterPrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildDeclarePeaceGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildDeclarePeaceGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildDeclareWarGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildDeclareWarGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildDeclareWarPrompt.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildDeclareWarPrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildDismissGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildDismissGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildListGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildListGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildmasterGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildmasterGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildMobileListGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildMobileListGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildNamePrompt.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildNamePrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildRejectWarGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildRejectWarGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildRescindDeclarationGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildRescindDeclarationGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildRosterGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildRosterGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildTitlePrompt.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildTitlePrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildWarAdminGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildWarAdminGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildWarGump.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildWarGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\GuildWebsitePrompt.cs">
+    <Compile Include="Services\Gumps\Guilds\GuildWebsitePrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\AdvancedSearch.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\AdvancedSearch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\BaseGuildGump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\BaseGuildGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\BaseGuildListGump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\BaseGuildListGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\Create Guild Gump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\Create Guild Gump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\DiplomacyGump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\DiplomacyGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\GuildInfoGump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\GuildInfoGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\GuildInvitationRequest.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\GuildInvitationRequest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\GuildMemberInfoGump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\GuildMemberInfoGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\GuildRosterGump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\GuildRosterGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\OtherGuildInfo.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\OtherGuildInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\New Guild System\War Declaration gump.cs">
+    <Compile Include="Services\Gumps\Guilds\New Guild System\War Declaration gump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Guilds\RecruitTarget.cs">
+    <Compile Include="Services\Gumps\Guilds\RecruitTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HeritageTokenGump.cs">
+    <Compile Include="Services\Gumps\HeritageTokenGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HonorSelf.cs">
+    <Compile Include="Services\Gumps\HonorSelf.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HouseDemolishGump.cs">
+    <Compile Include="Services\Gumps\HouseDemolishGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HouseGump.cs">
+    <Compile Include="Services\Gumps\HouseGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HouseGumpAOS.cs">
+    <Compile Include="Services\Gumps\HouseGumpAOS.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HouseTransferGump.cs">
+    <Compile Include="Services\Gumps\HouseTransferGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\NoticeGump.cs">
+    <Compile Include="Services\Gumps\NoticeGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\PetResurrectGump.cs">
+    <Compile Include="Services\Gumps\PetResurrectGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\PlayerVendorGumps.cs">
+    <Compile Include="Services\Gumps\PlayerVendorGumps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\PolymorphGump.cs">
+    <Compile Include="Services\Gumps\PolymorphGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Props\PropsConfig.cs" />
-    <Compile Include="Gumps\Props\PropsGump.cs" />
-    <Compile Include="Gumps\Props\SetBodyGump.cs" />
-    <Compile Include="Gumps\Props\SetColorGump.cs" />
-    <Compile Include="Gumps\Props\SetCustomEnumGump.cs" />
-    <Compile Include="Gumps\Props\SetDateTimeGump.cs" />
-    <Compile Include="Gumps\Props\SetGump.cs" />
-    <Compile Include="Gumps\Props\SetListOptionGump.cs" />
-    <Compile Include="Gumps\Props\SetObjectGump.cs" />
-    <Compile Include="Gumps\Props\SetObjectTarget.cs" />
-    <Compile Include="Gumps\Props\SetPoint2DGump.cs" />
-    <Compile Include="Gumps\Props\SetPoint3DGump.cs" />
-    <Compile Include="Gumps\Props\SetTimeSpanGump.cs" />
-    <Compile Include="Gumps\ReclaimVendorGump.cs">
+    <Compile Include="Services\Gumps\Props\PropsConfig.cs" />
+    <Compile Include="Services\Gumps\Props\PropsGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetBodyGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetColorGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetCustomEnumGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetDateTimeGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetListOptionGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetObjectGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetObjectTarget.cs" />
+    <Compile Include="Services\Gumps\Props\SetPoint2DGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetPoint3DGump.cs" />
+    <Compile Include="Services\Gumps\Props\SetTimeSpanGump.cs" />
+    <Compile Include="Services\Gumps\ReclaimVendorGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ReLoginClaimGump.cs" />
-    <Compile Include="Gumps\ReportMurderer.cs">
+    <Compile Include="Services\Gumps\ReLoginClaimGump.cs" />
+    <Compile Include="Services\Gumps\ReportMurderer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ResurrectGump.cs">
+    <Compile Include="Services\Gumps\ResurrectGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Items\Books\Runebooks\RunebookGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\SetSecureLevelGump.cs">
+    <Compile Include="Services\Gumps\SetSecureLevelGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\SkillsGump.cs">
+    <Compile Include="Services\Gumps\SkillsGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\StormLevelGump.cs" />
-    <Compile Include="Gumps\StoryGump.cs" />
-    <Compile Include="Gumps\TithingGump.cs">
+    <Compile Include="Services\Gumps\StormLevelGump.cs" />
+    <Compile Include="Services\Gumps\StoryGump.cs" />
+    <Compile Include="Services\Gumps\TithingGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\TitlesMenu.cs" />
-    <Compile Include="Gumps\ToTAdminGump.cs">
+    <Compile Include="Services\Gumps\TitlesMenu.cs" />
+    <Compile Include="Services\Gumps\ToTAdminGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\Traps\CircuitTrap.cs" />
-    <Compile Include="Gumps\VendorInventoryGump.cs">
+    <Compile Include="Services\Gumps\Traps\CircuitTrap.cs" />
+    <Compile Include="Services\Gumps\VendorInventoryGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\VendorRentalGumps.cs">
+    <Compile Include="Services\Gumps\VendorRentalGumps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\ViewHousesGump.cs">
+    <Compile Include="Services\Gumps\ViewHousesGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\WarningGump.cs">
+    <Compile Include="Services\Gumps\WarningGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\WhoGump.cs">
+    <Compile Include="Services\Gumps\WhoGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\YoungGumps.cs">
+    <Compile Include="Services\Gumps\YoungGumps.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\AdvancedTrainingDummy.cs" />
@@ -836,10 +836,10 @@
     <Compile Include="Items\Resource\PolishedMeteorite.cs" />
     <Compile Include="Expansion\Endless Journey\StoreBought\MysticalPolymorphTotem.cs" />
     <Compile Include="Items\Tools\WhiteLeatherDyeTub.cs" />
-    <Compile Include="Misc\Aggression.cs" />
-    <Compile Include="Misc\ArchivedSaves.cs" />
-    <Compile Include="Misc\Replacer.cs" />
-    <Compile Include="Misc\TaskPollingTimer.cs" />
+    <Compile Include="Services\Misc\Aggression.cs" />
+    <Compile Include="Services\Misc\ArchivedSaves.cs" />
+    <Compile Include="Services\Misc\Replacer.cs" />
+    <Compile Include="Services\Misc\TaskPollingTimer.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CoconutCrab.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HungryCoconutCrab.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalCat.cs" />
@@ -864,13 +864,13 @@
     <Compile Include="Expansion\Endless Journey\Forsaken Foes\Mobile\MiningCooperativeMerchant.cs" />
     <Compile Include="Mobiles\NPCs\CommissionPlayerVendor.cs" />
     <Compile Include="Expansion\Original UO\Multis\ContestHouses.cs" />
-    <Compile Include="Quests\The Ritual\Items.cs" />
-    <Compile Include="Quests\The Ritual\Mobiles.cs" />
-    <Compile Include="Quests\The Ritual\Puzzle.cs" />
-    <Compile Include="Quests\The Ritual\Quests.cs" />
-    <Compile Include="Quests\TieredQuests\PercolemTieredQuests.cs" />
-    <Compile Include="Quests\TieredQuests\ThepemTieredQuests.cs" />
-    <Compile Include="Quests\TieredQuests\ZosilemTieredQuests.cs" />
+    <Compile Include="Mobiles\Quests\The Ritual\Items.cs" />
+    <Compile Include="Mobiles\Quests\The Ritual\Mobiles.cs" />
+    <Compile Include="Mobiles\Quests\The Ritual\Puzzle.cs" />
+    <Compile Include="Mobiles\Quests\The Ritual\Quests.cs" />
+    <Compile Include="Mobiles\Quests\TieredQuests\PercolemTieredQuests.cs" />
+    <Compile Include="Mobiles\Quests\TieredQuests\ThepemTieredQuests.cs" />
+    <Compile Include="Mobiles\Quests\TieredQuests\ZosilemTieredQuests.cs" />
     <Compile Include="Services\22nd Anniversary\Anniversary22GiftToken.cs" />
     <Compile Include="Services\22nd Anniversary\Items\CopperPortraits.cs" />
     <Compile Include="Services\22nd Anniversary\Items\CopperShipRelief.cs" />
@@ -1359,7 +1359,7 @@
     <Compile Include="Items\Tools\PenOfWisdom.cs" />
     <Compile Include="Items\Tools\PetBondingPotion.cs" />
     <Compile Include="Items\Tools\RunicMalletAndChisel.cs" />
-    <Compile Include="Misc\EquipLastWeapon.cs" />
+    <Compile Include="Services\Misc\EquipLastWeapon.cs" />
     <Compile Include="Items\Artifacts\Equipment\Glasses\Glasses.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -2089,11 +2089,11 @@
     <Compile Include="Items\Addons\Aquarium\Rewards\Shell.cs" />
     <Compile Include="Items\Addons\Aquarium\Rewards\ToyBoat.cs" />
     <Compile Include="Items\Addons\Aquarium\Rewards\WaterloggedBoots.cs" />
-    <Compile Include="Misc\Siege.cs" />
-    <Compile Include="Misc\SpawnerPersistence.cs" />
-    <Compile Include="Misc\UntamedPetsCleaning.cs" />
-    <Compile Include="Misc\Waypoints.cs" />
-    <Compile Include="Misc\WorldLocationInfo.cs" />
+    <Compile Include="Services\Misc\Siege.cs" />
+    <Compile Include="Services\Misc\SpawnerPersistence.cs" />
+    <Compile Include="Services\Misc\UntamedPetsCleaning.cs" />
+    <Compile Include="Services\Misc\Waypoints.cs" />
+    <Compile Include="Services\Misc\WorldLocationInfo.cs" />
     <Compile Include="Mobiles\AI\Magical AI\MageAI.cs" />
     <Compile Include="Mobiles\AI\Magical AI\MysticAI.cs" />
     <Compile Include="Mobiles\AI\Magical AI\NecroAI.cs" />
@@ -2910,93 +2910,93 @@
     <Compile Include="Mobiles\Hunters Guide\U\UsagralemBallem.cs" />
     <Compile Include="Mobiles\Hunters Guide\V\Vasanord.cs" />
     <Compile Include="Expansion\Original UO\Multis\HouseTeleporterTile.cs" />
-    <Compile Include="Quests\ALittleSomething.cs" />
-    <Compile Include="Quests\AmbitiousSolenQueen\AmbitiousQueenQuest.cs" />
-    <Compile Include="Quests\AmbitiousSolenQueen\Conversations.cs" />
-    <Compile Include="Quests\AmbitiousSolenQueen\Objectives.cs" />
-    <Compile Include="Quests\Bard Mastery Quests\SirBerran.cs" />
-    <Compile Include="Quests\Bard Mastery Quests\SirFelean.cs" />
-    <Compile Include="Quests\Bard Mastery Quests\SirHareus.cs" />
-    <Compile Include="Quests\Bedlam.cs" />
-    <Compile Include="Quests\BlightedGrove.cs" />
-    <Compile Include="Quests\CloakOfHumility\CloakOfHumilityQuest.cs" />
-    <Compile Include="Quests\CloakOfHumility\CollectionsObjective.cs" />
-    <Compile Include="Quests\CloakOfHumility\Gumps\GiveItemQuestGump.cs" />
-    <Compile Include="Quests\CloakOfHumility\Gumps\QuestInfoGump.cs" />
-    <Compile Include="Quests\CloakOfHumility\Items\ForTheLifeOfBritanniaSash.cs" />
-    <Compile Include="Quests\CloakOfHumility\Items\GoldShield.cs" />
-    <Compile Include="Quests\CloakOfHumility\Items\HumilityShrinePersistence.cs" />
-    <Compile Include="Quests\CloakOfHumility\Items\QuestItems.cs" />
-    <Compile Include="Quests\CloakOfHumility\Items\ShepherdsCrookOfHumility.cs" />
-    <Compile Include="Quests\CloakOfHumility\Items\SpecialPrintingOfVirtue.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Dierdre.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Gareth.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\HumilityQuestMobile.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Jason.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Kevin.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Maribel.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Nelson.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Sean.cs" />
-    <Compile Include="Quests\CloakOfHumility\Mobiles\Walton.cs" />
-    <Compile Include="Quests\DarkTides\Conversations.cs" />
-    <Compile Include="Quests\DarkTides\DarkTidesQuest.cs" />
-    <Compile Include="Quests\DarkTides\Objectives.cs" />
-    <Compile Include="Quests\DiscoveringAnimalTraining\DiscoveringAnimalTraining.cs" />
-    <Compile Include="Quests\ElfHeritage.cs" />
-    <Compile Include="Quests\EminosUndertaking\Conversations.cs" />
-    <Compile Include="Quests\EminosUndertaking\EminosUndertakingQuest.cs" />
-    <Compile Include="Quests\EminosUndertaking\Objectives.cs" />
-    <Compile Include="Quests\Eodon\Hawkwind\Hawkwind.cs" />
-    <Compile Include="Quests\Eodon\Hawkwind\Objective.cs" />
-    <Compile Include="Quests\Eodon\Hawkwind\TimeForLegendsQuest.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Generate.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Items\QuestItems.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Items\Rewards.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Items\Teleporter.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Mobiles\Creatures.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Mobiles\Questers.cs" />
-    <Compile Include="Quests\Eodon\MyrmidexThreat\Quests.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\Creatures.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\DragonTurtleNest.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\Items.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\MyrmidexSpawner.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\Questers.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\Quests.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\TigerCubEnclosure.cs" />
-    <Compile Include="Quests\Eodon\Valley of One Quest\Volcano.cs" />
-    <Compile Include="Quests\HaochisTrials\Conversations.cs" />
-    <Compile Include="Quests\HaochisTrials\HaochisTrialsQuest.cs" />
-    <Compile Include="Quests\HaochisTrials\Objectives.cs" />
-    <Compile Include="Quests\HumanHeritage.cs" />
-    <Compile Include="Quests\Mad Scientist\ClockworkCreature.cs" />
-    <Compile Include="Quests\Mad Scientist\Items\ClockworkMechanism.cs" />
-    <Compile Include="Quests\Mad Scientist\Items\CompletedClockworkAssembly.cs" />
-    <Compile Include="Quests\Mad Scientist\MadScientistQuest.cs" />
-    <Compile Include="Quests\Mad Scientist\Items\MechanicalLifeManual.cs" />
-    <Compile Include="Quests\Mad Scientist\Sutek.cs" />
-    <Compile Include="Quests\Mad Scientist\SutekIngredient.cs" />
-    <Compile Include="Quests\MasteringtheSoulforge.cs" />
-    <Compile Include="Quests\Ortlem.cs" />
-    <Compile Include="Quests\PeptaQuest.cs" />
-    <Compile Include="Quests\RatmenSanctuaryQuest.cs" />
-    <Compile Include="Quests\Sacred Quest\QuestOfSingularity.cs" />
-    <Compile Include="Quests\Sacred Quest\ShrineOfSingularity.cs" />
-    <Compile Include="Quests\Spellweaving.cs" />
-    <Compile Include="Quests\SummonFey.cs" />
-    <Compile Include="Quests\SummonFiend.cs" />
-    <Compile Include="Quests\TheAncientWorld.cs" />
+    <Compile Include="Mobiles\Quests\ALittleSomething.cs" />
+    <Compile Include="Mobiles\Quests\AmbitiousSolenQueen\AmbitiousQueenQuest.cs" />
+    <Compile Include="Mobiles\Quests\AmbitiousSolenQueen\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\AmbitiousSolenQueen\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\Bard Mastery Quests\SirBerran.cs" />
+    <Compile Include="Mobiles\Quests\Bard Mastery Quests\SirFelean.cs" />
+    <Compile Include="Mobiles\Quests\Bard Mastery Quests\SirHareus.cs" />
+    <Compile Include="Mobiles\Quests\Bedlam.cs" />
+    <Compile Include="Mobiles\Quests\BlightedGrove.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\CloakOfHumilityQuest.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\CollectionsObjective.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Gumps\GiveItemQuestGump.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Gumps\QuestInfoGump.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Items\ForTheLifeOfBritanniaSash.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Items\GoldShield.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Items\HumilityShrinePersistence.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Items\QuestItems.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Items\ShepherdsCrookOfHumility.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Items\SpecialPrintingOfVirtue.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Dierdre.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Gareth.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\HumilityQuestMobile.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Jason.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Kevin.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Maribel.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Nelson.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Sean.cs" />
+    <Compile Include="Mobiles\Quests\CloakOfHumility\Mobiles\Walton.cs" />
+    <Compile Include="Mobiles\Quests\DarkTides\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\DarkTides\DarkTidesQuest.cs" />
+    <Compile Include="Mobiles\Quests\DarkTides\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\DiscoveringAnimalTraining\DiscoveringAnimalTraining.cs" />
+    <Compile Include="Mobiles\Quests\ElfHeritage.cs" />
+    <Compile Include="Mobiles\Quests\EminosUndertaking\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\EminosUndertaking\EminosUndertakingQuest.cs" />
+    <Compile Include="Mobiles\Quests\EminosUndertaking\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Hawkwind\Hawkwind.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Hawkwind\Objective.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Hawkwind\TimeForLegendsQuest.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Generate.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Items\QuestItems.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Items\Rewards.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Items\Teleporter.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Mobiles\Creatures.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Mobiles\Questers.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\MyrmidexThreat\Quests.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\Creatures.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\DragonTurtleNest.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\Items.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\MyrmidexSpawner.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\Questers.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\Quests.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\TigerCubEnclosure.cs" />
+    <Compile Include="Mobiles\Quests\Eodon\Valley of One Quest\Volcano.cs" />
+    <Compile Include="Mobiles\Quests\HaochisTrials\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\HaochisTrials\HaochisTrialsQuest.cs" />
+    <Compile Include="Mobiles\Quests\HaochisTrials\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\HumanHeritage.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\ClockworkCreature.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\Items\ClockworkMechanism.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\Items\CompletedClockworkAssembly.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\MadScientistQuest.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\Items\MechanicalLifeManual.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\Sutek.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\SutekIngredient.cs" />
+    <Compile Include="Mobiles\Quests\MasteringtheSoulforge.cs" />
+    <Compile Include="Mobiles\Quests\Ortlem.cs" />
+    <Compile Include="Mobiles\Quests\PeptaQuest.cs" />
+    <Compile Include="Mobiles\Quests\RatmenSanctuaryQuest.cs" />
+    <Compile Include="Mobiles\Quests\Sacred Quest\QuestOfSingularity.cs" />
+    <Compile Include="Mobiles\Quests\Sacred Quest\ShrineOfSingularity.cs" />
+    <Compile Include="Mobiles\Quests\Spellweaving.cs" />
+    <Compile Include="Mobiles\Quests\SummonFey.cs" />
+    <Compile Include="Mobiles\Quests\SummonFiend.cs" />
+    <Compile Include="Mobiles\Quests\TheAncientWorld.cs" />
     <Compile Include="Mobiles\NPCs\Aurvidlem.cs" />
     <Compile Include="Items\Containers\ScrollBox.cs" />
-    <Compile Include="Quests\KnowledgeoftheSoulforge.cs" />
+    <Compile Include="Mobiles\Quests\KnowledgeoftheSoulforge.cs" />
     <Compile Include="Mobiles\NPCs\Beninort.cs" />
     <Compile Include="Items\Containers\ScrollBox3.cs" />
-    <Compile Include="Quests\SecretsoftheSoulforge.cs" />
+    <Compile Include="Mobiles\Quests\SecretsoftheSoulforge.cs" />
     <Compile Include="Mobiles\NPCs\Barreraak.cs" />
     <Compile Include="Items\Artifacts\Equipment\Jewelry\BarreraakRing.cs" />
     <Compile Include="Items\Quest\RedHerring.cs" />
-    <Compile Include="Quests\DoughtyWarriorsQuest.cs" />
+    <Compile Include="Mobiles\Quests\DoughtyWarriorsQuest.cs" />
     <Compile Include="Items\Artifacts\Equipment\Clothing\SashOfMight.cs" />
-    <Compile Include="Quests\GatheringOfEvidence.cs" />
+    <Compile Include="Mobiles\Quests\GatheringOfEvidence.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\ResonantShieldOfVengeance.cs" />
     <Compile Include="Items\Quest\Void Crystals.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\WindOfCorruption.cs" />
@@ -3009,7 +3009,7 @@
     <Compile Include="Items\Quest\BagOfJewels.cs" />
     <Compile Include="Items\Quest\DeBoorShield.cs" />
     <Compile Include="Items\Artifacts\Consumables\GobletOfCelebration.cs" />
-    <Compile Include="Quests\HonorOfDeBoorsQuest.cs" />
+    <Compile Include="Mobiles\Quests\HonorOfDeBoorsQuest.cs" />
     <Compile Include="Items\Books\BookOfCircles.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleGuardian.cs" />
     <Compile Include="Items\Books\ShrineMantra.cs" />
@@ -3023,26 +3023,26 @@
     <Compile Include="Items\Containers\DustyMuseumBag.cs" />
     <Compile Include="Items\Containers\MeagerMuseumBag.cs" />
     <Compile Include="Mobiles\NPCs\Dugan.cs" />
-    <Compile Include="Quests\EndingtheThreat.cs" />
+    <Compile Include="Mobiles\Quests\EndingtheThreat.cs" />
     <Compile Include="Items\Quest\ArielHavenWritofMembership.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\CandlewoodTorch.cs" />
-    <Compile Include="Quests\Missing.cs" />
-    <Compile Include="Quests\ATangledWeb.cs" />
-    <Compile Include="Quests\BadCompany.cs" />
+    <Compile Include="Mobiles\Quests\Missing.cs" />
+    <Compile Include="Mobiles\Quests\ATangledWeb.cs" />
+    <Compile Include="Mobiles\Quests\BadCompany.cs" />
     <Compile Include="Items\Containers\JaacarBox.cs" />
     <Compile Include="Mobiles\NPCs\Jaacar.cs" />
     <Compile Include="Items\Quest\BritannianWool.cs" />
     <Compile Include="Mobiles\NPCs\Laifem.cs" />
     <Compile Include="Items\Quest\LaifemItems.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\goldcarpetAddon.cs" />
-    <Compile Include="Quests\EscortToDugan.cs" />
+    <Compile Include="Mobiles\Quests\EscortToDugan.cs" />
     <Compile Include="Items\Equipment\Talismans\TalismanofGoblinSlaying.cs" />
     <Compile Include="Mobiles\NPCs\Neville.cs" />
     <Compile Include="Items\Containers\RewardBackpack.cs" />
     <Compile Include="Items\Containers\EssenceBox.cs" />
     <Compile Include="Mobiles\NPCs\Sliem.cs" />
-    <Compile Include="Quests\TheExodusEncounter\Generate.cs" />
-    <Compile Include="Quests\UnusualGoods.cs" />
+    <Compile Include="Mobiles\Quests\TheExodusEncounter\Generate.cs" />
+    <Compile Include="Mobiles\Quests\UnusualGoods.cs" />
     <Compile Include="Items\Quest\BouraSkin.cs" />
     <Compile Include="Items\Artifacts\Consumables\ElixirofAgapiteConversion.cs" />
     <Compile Include="Items\Artifacts\Consumables\ElixirofGoldConversion.cs" />
@@ -3055,7 +3055,7 @@
     <Compile Include="Items\Quest\PileofInspectedShadowIronIngots.cs" />
     <Compile Include="Mobiles\NPCs\Thepem.cs" />
     <Compile Include="Expansion\Stygian Abyss\GargishDocuments.cs" />
-    <Compile Include="Quests\JourneyToTheAthenaeumIsleQuest.cs" />
+    <Compile Include="Mobiles\Quests\JourneyToTheAthenaeumIsleQuest.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MinionOfScelestus.cs" />
     <Compile Include="Mobiles\NPCs\Zhah.cs" />
     <Compile Include="Items\Artifacts\Consumables\ElixirofValoriteConversion.cs" />
@@ -3064,51 +3064,51 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\InfusedGlassStave.cs" />
     <Compile Include="Items\Quest\InspectedKegofGreaterPoison.cs" />
     <Compile Include="Items\Quest\InspectedKegofTotalRefreshment.cs" />
-    <Compile Include="Quests\PileofInspectedValoriteIngots.cs" />
-    <Compile Include="Quests\PileofInspectedVeriteIngots.cs" />
+    <Compile Include="Mobiles\Quests\PileofInspectedValoriteIngots.cs" />
+    <Compile Include="Mobiles\Quests\PileofInspectedVeriteIngots.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\TreefellowGuardian.cs" />
-    <Compile Include="Quests\TreefellowWood.cs" />
-    <Compile Include="Quests\UndeadGargoyleMedallions.cs" />
+    <Compile Include="Mobiles\Quests\TreefellowWood.cs" />
+    <Compile Include="Mobiles\Quests\UndeadGargoyleMedallions.cs" />
     <Compile Include="Items\Artifacts\Consumables\VialofArmorEssence.cs" />
     <Compile Include="Mobiles\NPCs\Zosilem.cs" />
     <Compile Include="Items\Quest\MudPuppy.cs" />
     <Compile Include="Mobiles\NPCs\Xenrr.cs" />
     <Compile Include="Items\Artifacts\Tools\XenrrFishingPole.cs" />
-    <Compile Include="Quests\BatteredBucket.cs" />
+    <Compile Include="Mobiles\Quests\BatteredBucket.cs" />
     <Compile Include="Mobiles\NPCs\Beotham.cs" />
     <Compile Include="Mobiles\NPCs\Danoel.cs" />
     <Compile Include="Mobiles\NPCs\Canir.cs" />
     <Compile Include="Mobiles\NPCs\Rollarn.cs" />
-    <Compile Include="Quests\Gemkeepers.cs" />
+    <Compile Include="Mobiles\Quests\Gemkeepers.cs" />
     <Compile Include="Mobiles\NPCs\Onallan.cs" />
-    <Compile Include="Quests\Marauders.cs" />
+    <Compile Include="Mobiles\Quests\Marauders.cs" />
     <Compile Include="Mobiles\NPCs\Dallid.cs" />
-    <Compile Include="Quests\MougGurrMustDie.cs" />
+    <Compile Include="Mobiles\Quests\MougGurrMustDie.cs" />
     <Compile Include="Mobiles\NPCs\Oolua.cs" />
     <Compile Include="Items\Quest\SeveredElfEars.cs" />
     <Compile Include="Items\Quest\SeveredHumanEars.cs" />
     <Compile Include="Mobiles\NPCs\Koole.cs" />
-    <Compile Include="Quests\Discipline.cs" />
+    <Compile Include="Mobiles\Quests\Discipline.cs" />
     <Compile Include="Mobiles\NPCs\Tallinin.cs" />
     <Compile Include="Mobiles\NPCs\Tiana.cs" />
-    <Compile Include="Quests\SolenMatriarch\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\SolenMatriarch\Conversations.cs" />
     <Compile Include="Mobiles\NPCs\SolenMatriarch.cs" />
-    <Compile Include="Quests\SolenMatriarch\Objectives.cs" />
-    <Compile Include="Quests\SolenMatriarch\SolenMatriarchQuest.cs" />
-    <Compile Include="Quests\StudyOfTheSolenHive\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\SolenMatriarch\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\SolenMatriarch\SolenMatriarchQuest.cs" />
+    <Compile Include="Mobiles\Quests\StudyOfTheSolenHive\Conversations.cs" />
     <Compile Include="Mobiles\NPCs\Naturalist.cs" />
-    <Compile Include="Quests\StudyOfTheSolenHive\NestArea.cs" />
-    <Compile Include="Quests\StudyOfTheSolenHive\Objectives.cs" />
-    <Compile Include="Quests\StudyOfTheSolenHive\StudyOfSolenQuest.cs" />
-    <Compile Include="Quests\Mad Scientist\Items\SuteksDirtyGear.cs" />
+    <Compile Include="Mobiles\Quests\StudyOfTheSolenHive\NestArea.cs" />
+    <Compile Include="Mobiles\Quests\StudyOfTheSolenHive\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\StudyOfTheSolenHive\StudyOfSolenQuest.cs" />
+    <Compile Include="Mobiles\Quests\Mad Scientist\Items\SuteksDirtyGear.cs" />
     <Compile Include="Items\Quest\ModifiedClockworkAssembly.cs" />
     <Compile Include="Items\Quest\SecretWallTeleporters.cs" />
     <Compile Include="Mobiles\NPCs\Vollem.cs" />
-    <Compile Include="Quests\TerribleHatchlings\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\TerribleHatchlings\Conversations.cs" />
     <Compile Include="Mobiles\NPCs\AnsellaGryen.cs" />
-    <Compile Include="Quests\TerribleHatchlings\Objectives.cs" />
-    <Compile Include="Quests\TerribleHatchlings\TerribleHatchlingsQuest.cs" />
-    <Compile Include="Quests\TheSummoning\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\TerribleHatchlings\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\TerribleHatchlings\TerribleHatchlingsQuest.cs" />
+    <Compile Include="Mobiles\Quests\TheSummoning\Conversations.cs" />
     <Compile Include="Items\Quest\BellOfTheDead.cs" />
     <Compile Include="Items\Quest\ChylothShroud.cs" />
     <Compile Include="Items\Quest\ChylothStaff.cs" />
@@ -3117,13 +3117,13 @@
     <Compile Include="Items\Quest\SummoningAltar.cs" />
     <Compile Include="Mobiles\NPCs\Chyloth.cs" />
     <Compile Include="Mobiles\NPCs\Victoria.cs" />
-    <Compile Include="Quests\TheSummoning\Objectives.cs" />
-    <Compile Include="Quests\TheSummoning\TheSummoningQuest.cs" />
+    <Compile Include="Mobiles\Quests\TheSummoning\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\TheSummoning\TheSummoningQuest.cs" />
     <Compile Include="Items\Quest\BasinOfCrystalClearWater.cs" />
     <Compile Include="Items\Quest\MirrorOfPurification.cs" />
     <Compile Include="Mobiles\NPCs\Aurelia.cs" />
     <Compile Include="Mobiles\NPCs\Szandor.cs" />
-    <Compile Include="Quests\AemaethQuests.cs" />
+    <Compile Include="Mobiles\Quests\AemaethQuests.cs" />
     <Compile Include="Mobiles\NPCs\Andric.cs" />
     <Compile Include="Mobiles\NPCs\Asandos.cs" />
     <Compile Include="Mobiles\NPCs\Clairesse.cs" />
@@ -3135,7 +3135,7 @@
     <Compile Include="Mobiles\NPCs\Ben.cs" />
     <Compile Include="Mobiles\NPCs\Frederic.cs" />
     <Compile Include="Mobiles\NPCs\Leon.cs" />
-    <Compile Include="Quests\GhostOfCovetous.cs" />
+    <Compile Include="Mobiles\Quests\GhostOfCovetous.cs" />
     <Compile Include="Mobiles\NPCs\Fabrizio.cs" />
     <Compile Include="Items\Quest\FriendOfTheLibraryToken.cs" />
     <Compile Include="Items\Quest\LibraryApplication.cs" />
@@ -3145,13 +3145,13 @@
     <Compile Include="Items\Quest\SpeckledPoisonSac.cs" />
     <Compile Include="Mobiles\NPCs\Petrus.cs" />
     <Compile Include="Mobiles\NPCs\Verity.cs" />
-    <Compile Include="Quests\FriendsOfTheLibrary.cs" />
+    <Compile Include="Mobiles\Quests\FriendsOfTheLibrary.cs" />
     <Compile Include="Mobiles\NPCs\Gervis.cs" />
     <Compile Include="Mobiles\NPCs\Hargrove.cs" />
     <Compile Include="Items\Quest\ReginasLetter.cs" />
     <Compile Include="Items\Artifacts\Equipment\Jewelry\ReginasRing.cs" />
     <Compile Include="Items\Quest\TransparentHeart.cs" />
-    <Compile Include="Quests\HonestBeggar.cs" />
+    <Compile Include="Mobiles\Quests\HonestBeggar.cs" />
     <Compile Include="Mobiles\NPCs\Kashiel.cs" />
     <Compile Include="Mobiles\NPCs\Lowel.cs" />
     <Compile Include="Mobiles\NPCs\Lucius.cs" />
@@ -3167,8 +3167,8 @@
     <Compile Include="Items\Quest\PortraitOfTheBride.cs" />
     <Compile Include="Items\Quest\PrismaticAmber.cs" />
     <Compile Include="Items\Quest\PrismaticCrystal.cs" />
-    <Compile Include="Quests\UnfadingMemories.cs" />
-    <Compile Include="Quests\UzeraanTurmoil\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\UnfadingMemories.cs" />
+    <Compile Include="Mobiles\Quests\UzeraanTurmoil\Conversations.cs" />
     <Compile Include="Items\Addons\HavenCannon.cs" />
     <Compile Include="Items\Quest\DaemonBloodChest.cs" />
     <Compile Include="Items\Quest\QuestDaemonBlood.cs" />
@@ -3184,10 +3184,10 @@
     <Compile Include="Mobiles\Hunters Guide\M\MilitiaFighter.cs" />
     <Compile Include="Mobiles\NPCs\Schmendrick.cs" />
     <Compile Include="Mobiles\NPCs\Uzeraan.cs" />
-    <Compile Include="Quests\UzeraanTurmoil\Objectives.cs" />
-    <Compile Include="Quests\UzeraanTurmoil\UzeraanTurmoilQuest.cs" />
-    <Compile Include="Quests\WitchApprentice\Conversations.cs" />
-    <Compile Include="Quests\WitchApprentice\Ingredient.cs" />
+    <Compile Include="Mobiles\Quests\UzeraanTurmoil\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\UzeraanTurmoil\UzeraanTurmoilQuest.cs" />
+    <Compile Include="Mobiles\Quests\WitchApprentice\Conversations.cs" />
+    <Compile Include="Mobiles\Quests\WitchApprentice\Ingredient.cs" />
     <Compile Include="Items\Quest\Cauldron.cs" />
     <Compile Include="Items\Quest\HagApprenticeCorpse.cs" />
     <Compile Include="Items\Addons\HagCauldron.cs" />
@@ -3198,8 +3198,8 @@
     <Compile Include="Mobiles\NPCs\Blackheart.cs" />
     <Compile Include="Mobiles\NPCs\Grizelda.cs" />
     <Compile Include="Mobiles\NPCs\Zeefzorpul.cs" />
-    <Compile Include="Quests\WitchApprentice\Objectives.cs" />
-    <Compile Include="Quests\WitchApprentice\WitchApprenticeQuest.cs" />
+    <Compile Include="Mobiles\Quests\WitchApprentice\Objectives.cs" />
+    <Compile Include="Mobiles\Quests\WitchApprentice\WitchApprenticeQuest.cs" />
     <Compile Include="Services\18th Anniversary\18th AnniversaryBag.cs" />
     <Compile Include="Services\18th Anniversary\AnniversaryCard.cs" />
     <Compile Include="Services\18th Anniversary\AnniversaryPlate.cs" />
@@ -7080,10 +7080,10 @@
     <Compile Include="Items\Consumables\HouseRaffleDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Gumps\HouseRaffleManagementGump.cs">
+    <Compile Include="Services\Gumps\HouseRaffleManagementGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\HouseRaffleRegion.cs">
+    <Compile Include="Services\Regions\HouseRaffleRegion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Functional\HouseRaffleStone.cs">
@@ -7443,7 +7443,7 @@
     <Compile Include="Items\Tools\BraceletOfBinding.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\MessageHelper.cs">
+    <Compile Include="Services\Misc\MessageHelper.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\PowderOfTranslocation.cs">
@@ -8608,73 +8608,73 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\ThornedWildStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Accounting\AccountPrompt.cs">
+    <Compile Include="Services\Accounting\AccountPrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Animations.cs">
+    <Compile Include="Services\Misc\Animations.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\AOS.cs">
+    <Compile Include="Services\Misc\AOS.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\AutoRestart.cs">
+    <Compile Include="Services\Misc\AutoRestart.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\AutoSave.cs">
+    <Compile Include="Services\Misc\AutoSave.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Broadcasts.cs">
+    <Compile Include="Services\Misc\Broadcasts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\BuffIcons.cs">
+    <Compile Include="Services\Misc\BuffIcons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\CharacterCreation.cs">
+    <Compile Include="Services\Misc\CharacterCreation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Cleanup.cs">
+    <Compile Include="Services\Misc\Cleanup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ClientVerification.cs">
+    <Compile Include="Services\Misc\ClientVerification.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ConsoleCommands.cs">
+    <Compile Include="Services\Misc\ConsoleCommands.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Timestamp.cs">
+    <Compile Include="Services\Misc\Timestamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\CrashGuard.cs">
+    <Compile Include="Services\Misc\CrashGuard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\CurrentExpansion.cs">
+    <Compile Include="Services\Misc\CurrentExpansion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\DataPath.cs">
+    <Compile Include="Services\Misc\DataPath.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\DispellableAttribute.cs">
+    <Compile Include="Services\Misc\DispellableAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\DispellableFieldAttribute.cs">
+    <Compile Include="Services\Misc\DispellableFieldAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\DoorGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Email.cs">
+    <Compile Include="Services\Misc\Email.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Emitter.cs">
+    <Compile Include="Services\Misc\Emitter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Fastwalk.cs">
+    <Compile Include="Services\Misc\Fastwalk.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\FoodDecay.cs">
+    <Compile Include="Services\Misc\FoodDecay.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Geometry.cs">
+    <Compile Include="Services\Misc\Geometry.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DecorativeTopiary.cs">
@@ -8701,113 +8701,113 @@
     <Compile Include="Services\GiftGiving\Winter2004.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Guild.cs">
+    <Compile Include="Services\Misc\Guild.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\HardwareInfo.cs">
+    <Compile Include="Services\Misc\HardwareInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\IDynamicEnum.cs">
+    <Compile Include="Services\Misc\IDynamicEnum.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\InhumanSpeech.cs">
+    <Compile Include="Services\Misc\InhumanSpeech.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Keywords.cs">
+    <Compile Include="Services\Misc\Keywords.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\LanguageStatistics.cs">
+    <Compile Include="Services\Misc\LanguageStatistics.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\LightCycle.cs">
+    <Compile Include="Services\Misc\LightCycle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\LoginStats.cs">
+    <Compile Include="Services\Misc\LoginStats.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Loot.cs">
+    <Compile Include="Services\Misc\Loot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\LootPack.cs">
+    <Compile Include="Services\Misc\LootPack.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\MapDefinitions.cs">
+    <Compile Include="Services\Misc\MapDefinitions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\NameList.cs">
+    <Compile Include="Services\Misc\NameList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\NameVerification.cs">
+    <Compile Include="Services\Misc\NameVerification.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Notoriety.cs">
+    <Compile Include="Services\Misc\Notoriety.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Paperdoll.cs">
+    <Compile Include="Services\Misc\Paperdoll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Poison.cs">
+    <Compile Include="Services\Misc\Poison.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ProfanityProtection.cs">
+    <Compile Include="Services\Misc\ProfanityProtection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Profile.cs">
+    <Compile Include="Services\Misc\Profile.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ProtocolExtensions.cs">
+    <Compile Include="Services\Misc\ProtocolExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\RaceDefinitions.cs">
+    <Compile Include="Services\Misc\RaceDefinitions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\RegenRates.cs">
+    <Compile Include="Services\Misc\RegenRates.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\RenameRequests.cs">
+    <Compile Include="Services\Misc\RenameRequests.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ResourceInfo.cs">
+    <Compile Include="Services\Misc\ResourceInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ServerList.cs">
+    <Compile Include="Services\Misc\ServerList.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\ShardPoller.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ShrinkTable.cs">
+    <Compile Include="Services\Misc\ShrinkTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\SkillCheck.cs">
+    <Compile Include="Services\Misc\SkillCheck.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\SocketOptions.cs">
+    <Compile Include="Services\Misc\SocketOptions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\TextDefinition.cs">
+    <Compile Include="Services\Misc\TextDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\Titles.cs">
+    <Compile Include="Services\Misc\Titles.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ToggleItem.cs">
+    <Compile Include="Services\Misc\ToggleItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\ValidationQueue.cs">
+    <Compile Include="Services\Misc\ValidationQueue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\WeakEntityCollection.cs" />
-    <Compile Include="Misc\Weather.cs">
+    <Compile Include="Services\Misc\WeakEntityCollection.cs" />
+    <Compile Include="Services\Misc\Weather.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\WebStatus.cs">
+    <Compile Include="Services\Misc\WebStatus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\WeightOverloading.cs">
+    <Compile Include="Services\Misc\WeightOverloading.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Misc\WelcomeTimer.cs">
+    <Compile Include="Services\Misc\WelcomeTimer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Samurai Empire\Abilities\BaseSummoned.cs">
@@ -8976,61 +8976,61 @@
     <Compile Include="Expansion\Original UO\Multis\PreviewHouse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Quests\Collector\CollectorQuest.cs">
+    <Compile Include="Mobiles\Quests\Collector\CollectorQuest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Quests\Collector\Conversations.cs">
+    <Compile Include="Mobiles\Quests\Collector\Conversations.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Quests\Collector\Objectives.cs">
+    <Compile Include="Mobiles\Quests\Collector\Objectives.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Quests\Escortables.cs">
+    <Compile Include="Mobiles\Quests\Escortables.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Quests\Vernix.cs">
+    <Compile Include="Mobiles\Quests\Vernix.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\BaseRegion.cs">
+    <Compile Include="Services\Regions\BaseRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\DamagingRegion.cs">
+    <Compile Include="Services\Regions\DamagingRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\DungeonRegion.cs">
+    <Compile Include="Services\Regions\DungeonRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\GreenAcres.cs">
+    <Compile Include="Services\Regions\GreenAcres.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\GuardedRegion.cs">
+    <Compile Include="Services\Regions\GuardedRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\HouseRegion.cs">
+    <Compile Include="Services\Regions\HouseRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\Jail.cs">
+    <Compile Include="Services\Regions\Jail.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\MondainRegion.cs">
+    <Compile Include="Services\Regions\MondainRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\NoHousingRegion.cs">
+    <Compile Include="Services\Regions\NoHousingRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\Spawning\SpawnDefinition.cs">
+    <Compile Include="Services\Regions\Spawning\SpawnDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\Spawning\SpawnEntry.cs">
+    <Compile Include="Services\Regions\Spawning\SpawnEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\Spawning\SpawnPersistence.cs">
+    <Compile Include="Services\Regions\Spawning\SpawnPersistence.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\TownRegion.cs">
+    <Compile Include="Services\Regions\TownRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Regions\TwistedWealdDesert.cs">
+    <Compile Include="Services\Regions\TwistedWealdDesert.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\Assistants.cs">
@@ -10659,7 +10659,7 @@
     <Compile Include="Expansion\Mondains Legacy\MondainsLegacyQuests\BaseEscort.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Quests\BaseQuest.cs">
+    <Compile Include="Mobiles\Quests\BaseQuest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Mondains Legacy\MondainsLegacyQuests\BaseQuestItem.cs">
@@ -12162,110 +12162,110 @@
     <Compile Include="Expansion\T2A\Mobiles\Monsters\TerathanWarrior.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Monsters\Titan.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Monsters\Wyvern.cs" />
-    <Compile Include="Targets\BladedItemTarget.cs">
+    <Compile Include="Services\Targets\BladedItemTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Targets\MoveTarget.cs">
+    <Compile Include="Services\Targets\MoveTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Targets\PickMoveTarget.cs">
+    <Compile Include="Services\Targets\PickMoveTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="VendorInfo\AnimalBuy.cs" />
-    <Compile Include="VendorInfo\BeverageBuy.cs" />
-    <Compile Include="VendorInfo\GenericBuy.cs" />
-    <Compile Include="VendorInfo\GenericSell.cs" />
-    <Compile Include="VendorInfo\PresetMapBuy.cs" />
-    <Compile Include="VendorInfo\SBAlchemist.cs" />
-    <Compile Include="VendorInfo\SBAnimalTrainer.cs" />
-    <Compile Include="VendorInfo\SBArchitect.cs" />
-    <Compile Include="VendorInfo\SBAxeWeapon.cs" />
-    <Compile Include="VendorInfo\SBBaker.cs" />
-    <Compile Include="VendorInfo\SBBanker.cs" />
-    <Compile Include="VendorInfo\SBBard.cs" />
-    <Compile Include="VendorInfo\SBBarkeeper.cs" />
-    <Compile Include="VendorInfo\SBBeekeeper.cs" />
-    <Compile Include="VendorInfo\SBBlacksmith.cs" />
-    <Compile Include="VendorInfo\SBGardener.cs" />
-    <Compile Include="VendorInfo\SBBowyer.cs" />
-    <Compile Include="VendorInfo\SBButcher.cs" />
-    <Compile Include="VendorInfo\SBCarpenter.cs" />
-    <Compile Include="VendorInfo\SBCarpets.cs" />
-    <Compile Include="VendorInfo\SBChainmailArmor.cs" />
-    <Compile Include="VendorInfo\SBCobbler.cs" />
-    <Compile Include="VendorInfo\SBCook.cs" />
-    <Compile Include="VendorInfo\SBFarmer.cs" />
-    <Compile Include="VendorInfo\SBFisherman.cs" />
-    <Compile Include="VendorInfo\SBFortuneTeller.cs" />
-    <Compile Include="VendorInfo\SBFurtrader.cs" />
-    <Compile Include="VendorInfo\SBGlassblower.cs" />
-    <Compile Include="VendorInfo\SBHairStylist.cs" />
-    <Compile Include="VendorInfo\SBHealer.cs" />
-    <Compile Include="VendorInfo\SBHelmetArmor.cs" />
-    <Compile Include="VendorInfo\SBHerbalist.cs" />
-    <Compile Include="VendorInfo\SBHolyMage.cs" />
-    <Compile Include="VendorInfo\SBHouseDeed.cs" />
-    <Compile Include="VendorInfo\SBInfo.cs" />
-    <Compile Include="VendorInfo\SBInnKeeper.cs" />
-    <Compile Include="VendorInfo\SBJewel.cs" />
-    <Compile Include="VendorInfo\SBKeeperOfBushido.cs" />
-    <Compile Include="VendorInfo\SBKeeperOfChivalry.cs" />
-    <Compile Include="VendorInfo\SBKeeperOfNinjitsu.cs" />
-    <Compile Include="VendorInfo\SBKnifeWeapon.cs" />
-    <Compile Include="VendorInfo\SBLeatherArmor.cs" />
-    <Compile Include="VendorInfo\SBLeatherWorker.cs" />
-    <Compile Include="VendorInfo\SBMaceWeapon.cs" />
-    <Compile Include="VendorInfo\SBMage.cs" />
-    <Compile Include="VendorInfo\SBMapmaker.cs" />
-    <Compile Include="VendorInfo\SBMetalShields.cs" />
-    <Compile Include="VendorInfo\SBMiller.cs" />
-    <Compile Include="VendorInfo\SBMiner.cs" />
-    <Compile Include="VendorInfo\SBMonk.cs" />
-    <Compile Include="VendorInfo\SBMystic.cs" />
-    <Compile Include="VendorInfo\SBNecromancer.cs" />
-    <Compile Include="VendorInfo\SBPlateArmor.cs" />
-    <Compile Include="VendorInfo\SBPlayerBarkeeper.cs" />
-    <Compile Include="VendorInfo\SBPoleArmWeapon.cs" />
-    <Compile Include="VendorInfo\SBProvisioner.cs" />
-    <Compile Include="VendorInfo\SBRancher.cs" />
-    <Compile Include="VendorInfo\SBRangedWeapon.cs" />
-    <Compile Include="VendorInfo\SBRanger.cs" />
-    <Compile Include="VendorInfo\SBRealEstateBroker.cs" />
-    <Compile Include="VendorInfo\SBRingmailArmor.cs" />
-    <Compile Include="VendorInfo\SBSAArmor.cs" />
-    <Compile Include="VendorInfo\SBSABlacksmith.cs" />
-    <Compile Include="VendorInfo\SBSATailor.cs" />
-    <Compile Include="VendorInfo\SBSATanner.cs" />
-    <Compile Include="VendorInfo\SBSAWeapons.cs" />
-    <Compile Include="VendorInfo\SBScribe.cs" />
-    <Compile Include="VendorInfo\SBSEArmor.cs" />
-    <Compile Include="VendorInfo\SBSEBowyer.cs" />
-    <Compile Include="VendorInfo\SBSECarpenter.cs" />
-    <Compile Include="VendorInfo\SBSECook.cs" />
-    <Compile Include="VendorInfo\SBSEFood.cs" />
-    <Compile Include="VendorInfo\SBSEHats.cs" />
-    <Compile Include="VendorInfo\SBSELeatherArmor.cs" />
-    <Compile Include="VendorInfo\SBSEWeapons.cs" />
-    <Compile Include="VendorInfo\SBShipwright.cs" />
-    <Compile Include="VendorInfo\SBSmithTools.cs" />
-    <Compile Include="VendorInfo\SBSpearForkWeapon.cs" />
-    <Compile Include="VendorInfo\SBStavesWeapon.cs" />
-    <Compile Include="VendorInfo\SBStoneCrafter.cs" />
-    <Compile Include="VendorInfo\SBStuddedArmor.cs" />
-    <Compile Include="VendorInfo\SBSwordWeapon.cs" />
-    <Compile Include="VendorInfo\SBTailor.cs" />
-    <Compile Include="VendorInfo\SBTanner.cs" />
-    <Compile Include="VendorInfo\SBTavernKeeper.cs" />
-    <Compile Include="VendorInfo\SBThief.cs" />
-    <Compile Include="VendorInfo\SBTinker.cs" />
-    <Compile Include="VendorInfo\SBVagabond.cs" />
-    <Compile Include="VendorInfo\SBVarietyDealer.cs" />
-    <Compile Include="VendorInfo\SBVeterinarian.cs" />
-    <Compile Include="VendorInfo\SBWaiter.cs" />
-    <Compile Include="VendorInfo\SBWeaponSmith.cs" />
-    <Compile Include="VendorInfo\SBWeaver.cs" />
-    <Compile Include="VendorInfo\SBWoodenShields.cs" />
-    <Compile Include="VendorInfo\VendorInventory.cs" />
+    <Compile Include="Mobiles\VendorInfo\AnimalBuy.cs" />
+    <Compile Include="Mobiles\VendorInfo\BeverageBuy.cs" />
+    <Compile Include="Mobiles\VendorInfo\GenericBuy.cs" />
+    <Compile Include="Mobiles\VendorInfo\GenericSell.cs" />
+    <Compile Include="Mobiles\VendorInfo\PresetMapBuy.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBAlchemist.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBAnimalTrainer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBArchitect.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBAxeWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBaker.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBanker.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBard.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBarkeeper.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBeekeeper.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBlacksmith.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBGardener.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBBowyer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBButcher.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBCarpenter.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBCarpets.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBChainmailArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBCobbler.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBCook.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBFarmer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBFisherman.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBFortuneTeller.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBFurtrader.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBGlassblower.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBHairStylist.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBHealer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBHelmetArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBHerbalist.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBHolyMage.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBHouseDeed.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBInfo.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBInnKeeper.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBJewel.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBKeeperOfBushido.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBKeeperOfChivalry.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBKeeperOfNinjitsu.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBKnifeWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBLeatherArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBLeatherWorker.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMaceWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMage.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMapmaker.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMetalShields.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMiller.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMiner.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMonk.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBMystic.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBNecromancer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBPlateArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBPlayerBarkeeper.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBPoleArmWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBProvisioner.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBRancher.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBRangedWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBRanger.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBRealEstateBroker.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBRingmailArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSAArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSABlacksmith.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSATailor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSATanner.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSAWeapons.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBScribe.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSEArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSEBowyer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSECarpenter.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSECook.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSEFood.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSEHats.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSELeatherArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSEWeapons.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBShipwright.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSmithTools.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSpearForkWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBStavesWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBStoneCrafter.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBStuddedArmor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBSwordWeapon.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBTailor.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBTanner.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBTavernKeeper.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBThief.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBTinker.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBVagabond.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBVarietyDealer.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBVeterinarian.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBWaiter.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBWeaponSmith.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBWeaver.cs" />
+    <Compile Include="Mobiles\VendorInfo\SBWoodenShields.cs" />
+    <Compile Include="Mobiles\VendorInfo\VendorInventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\LootGeneration\RunicReforging\ReadMe.txt" />
