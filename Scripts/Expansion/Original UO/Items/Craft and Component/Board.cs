@@ -14,25 +14,33 @@ namespace Server.Items
 			set { m_Resource = value; InvalidateProperties(); }
 		}
 
-		TextDefinition ICommodity.Description 
-		{ 
-			get
-			{
-				if ( m_Resource >= CraftResource.OakWood && m_Resource <= CraftResource.YewWood )
-					return 1075052 + ( (int)m_Resource - (int)CraftResource.OakWood );
+        TextDefinition ICommodity.Description
+        {
+            get
+            {
+                return LabelNumber;
+            }
+        }
 
-				switch ( m_Resource )
-				{
-					case CraftResource.Bloodwood: return 1075055;
-					case CraftResource.Frostwood: return 1075056;
-					case CraftResource.Heartwood: return 1075062;	//WHY Osi.  Why?
-				}
+        public override int LabelNumber
+        {
+            get
+            {
+                if (m_Resource >= CraftResource.OakWood && m_Resource <= CraftResource.YewWood)
+                    return 1075052 + ((int)m_Resource - (int)CraftResource.OakWood);
 
-				return LabelNumber;
-			} 
-		}
+                switch (m_Resource)
+                {
+                    case CraftResource.Bloodwood: return 1075055;
+                    case CraftResource.Frostwood: return 1075056;
+                    case CraftResource.Heartwood: return 1075062;   //WHY Osi.  Why?
+                }
 
-		bool ICommodity.IsDeedable { get { return true; } }
+                return 1015101;
+            }
+        }
+
+        bool ICommodity.IsDeedable { get { return true; } }
 
 		[Constructable]
 		public BaseWoodBoard()
