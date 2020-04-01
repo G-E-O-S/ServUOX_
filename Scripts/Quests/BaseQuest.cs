@@ -535,7 +535,7 @@ namespace Server.Engines.Quests
             if (removeChain)
                 m_Owner.Chains.Remove(ChainID);
 			
-            if (Completed && (RestartDelay > TimeSpan.Zero || ForceRemember || DoneOnce) && NextQuest == null && Owner.AccessLevel == AccessLevel.Player)
+            if (Completed && (RestartDelay > TimeSpan.Zero || ForceRemember || DoneOnce) && NextQuest == null/*&& Owner.AccessLevel == AccessLevel.Player*/)
             {
                 Type type = GetType();	
 				

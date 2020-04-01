@@ -696,11 +696,11 @@ namespace Server.Engines.Quests
 
         public static bool CheckCreature(PlayerMobile player, Mobile creature)
         {
-            for (int i = player.Quests.Count - 1; i >= 0; i --)
+            for (int i = player.Quests.Count - 1; i >= 0; i--)
             {
                 BaseQuest quest = player.Quests[i];
 				
-                for (int j = quest.Objectives.Count - 1; j >= 0; j --)
+                for (int j = quest.Objectives.Count - 1; j >= 0; j--)
                 {
                     if (quest.Objectives[j] is SlayObjective)
                     {
@@ -724,11 +724,11 @@ namespace Server.Engines.Quests
 
         public static bool CheckItem(PlayerMobile player, Item item)
         {
-            for (int i = player.Quests.Count - 1; i >= 0; i --)
+            for (int i = player.Quests.Count - 1; i >= 0; i--)
             {
                 BaseQuest quest = player.Quests[i];
 				
-                for (int j = quest.Objectives.Count - 1; j >= 0; j --)
+                for (int j = quest.Objectives.Count - 1; j >= 0; j--)
                 {
                     BaseObjective objective = quest.Objectives[j];
 					
@@ -773,11 +773,11 @@ namespace Server.Engines.Quests
 
         public static bool CheckSkill(PlayerMobile player, Skill skill)
         { 
-            for (int i = player.Quests.Count - 1; i >= 0; i --)
+            for (int i = player.Quests.Count - 1; i >= 0; i--)
             {
                 BaseQuest quest = player.Quests[i];
 				
-                for (int j = quest.Objectives.Count - 1; j >= 0; j --)
+                for (int j = quest.Objectives.Count - 1; j >= 0; j--)
                 {
                     BaseObjective objective = quest.Objectives[j];
 					
@@ -804,11 +804,11 @@ namespace Server.Engines.Quests
             if (player == null || player.Region == null || skill == null)
                 return false;
 				
-            for (int i = player.Quests.Count - 1; i >= 0; i --)
+            for (int i = player.Quests.Count - 1; i >= 0; i--)
             {
                 BaseQuest quest = player.Quests[i];
 				
-                for (int j = quest.Objectives.Count - 1; j >= 0; j --)
+                for (int j = quest.Objectives.Count - 1; j >= 0; j--)
                 {
                     BaseObjective objective = quest.Objectives[j];
 					
@@ -848,7 +848,7 @@ namespace Server.Engines.Quests
             if (player == null || player.Quests == null)
                 return;
 		
-            for (int i = player.Quests.Count - 1; i >= 0; i --)
+            for (int i = player.Quests.Count - 1; i >= 0; i--)
                 player.Quests[i].StartTimer();
         }
 
@@ -857,7 +857,7 @@ namespace Server.Engines.Quests
             if (player == null || player.Quests == null)
                 return;
 				
-            for (int i = player.Quests.Count - 1; i >= 0; i --)
+            for (int i = player.Quests.Count - 1; i >= 0; i--)
                 player.Quests[i].StopTimer();
         }
 
@@ -874,7 +874,7 @@ namespace Server.Engines.Quests
             if (type == null)
                 return false;
 				
-            for (int i = from.DoneQuests.Count - 1; i >= 0; i --)
+            for (int i = from.DoneQuests.Count - 1; i >= 0; i--)
             {
                 QuestRestartInfo restartInfo = from.DoneQuests[i];
 
@@ -905,7 +905,7 @@ namespace Server.Engines.Quests
             if (type == null)
                 return null;
 				
-            for (int i = from.Quests.Count - 1; i >= 0; i --)
+            for (int i = from.Quests.Count - 1; i >= 0; i--)
             {
                 BaseQuest quest = from.Quests[i];
 
