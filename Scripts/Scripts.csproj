@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Expansion\High Seas\Gothic Theme Pack\GargoyleStatues.cs" />
     <Compile Include="Expansion\Samurai Empire\Abilities\ColdWind.cs" />
     <Compile Include="Expansion\Samurai Empire\Abilities\Focus.cs" />
     <Compile Include="Services\Accounting\AccessRestrictions.cs">
@@ -547,8 +548,8 @@
     <Compile Include="Services\Gumps\YoungGumps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\AdvancedTrainingDummy.cs" />
-    <Compile Include="Items\Addons\Craft Addons\EnchantedSculptingTool.cs" />
+    <Compile Include="Expansion\High Seas\Gothic Theme Pack\AdvancedTrainingDummy.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\EnchantedSculptingTool.cs" />
     <Compile Include="Items\Addons\EnchantedGraniteCart.cs" />
     <Compile Include="Items\Addons\JollyHolidayTree.cs" />
     <Compile Include="Items\Addons\SkullTiledFloor.cs" />
@@ -582,14 +583,14 @@
     <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\CastlePainting.cs" />
     <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\BullTapestry.cs" />
     <Compile Include="Expansion\High Seas\Kings Collection Theme Pack\HorsePainting.cs" />
-    <Compile Include="Items\Addons\Craft Addons\GlassKiln.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\GlassKiln.cs" />
     <Compile Include="Items\Artifacts\Decorative\GildedStatue.cs" />
     <Compile Include="Items\Artifacts\Decorative\KingsPainting.cs" />
     <Compile Include="Items\Artifacts\Decorative\MedusasFloorTileAddon.cs" />
     <Compile Include="Items\Artifacts\Equipment\Glasses\LegendaryMapmakersGlasses.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\TheRedeemer.cs" />
     <Compile Include="Items\Consumables\2019HolidayGiftToken.cs" />
-    <Compile Include="Items\Consumables\AnniversaryPromotionalToken.cs" />
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\AnniversaryPromotionalToken.cs" />
     <Compile Include="Items\Consumables\CommissionPlayerVendorDeed.cs" />
     <Compile Include="Items\Consumables\FearEssence.cs" />
     <Compile Include="Items\Consumables\ShatterPotion.cs" />
@@ -605,19 +606,19 @@
     <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ObsidianRock.cs" />
     <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Shadow Furniture Set\ShadowBanner.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\WashBasin.cs" />
-    <Compile Include="Items\Addons\WoodStove.cs" />
+    <Compile Include="Expansion\Stygian Abyss\WoodStove.cs" />
     <Compile Include="Items\Addons\TinkerBench.cs" />
     <Compile Include="Items\Addons\RepairBench.cs" />
     <Compile Include="Items\Addons\WaterWheel.cs" />
-    <Compile Include="Items\Addons\CodexOfVirtue.cs" />
+    <Compile Include="Expansion\Stygian Abyss\12th Anniversary Gifts\CodexOfVirtue.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\BuffetTable.cs" />
     <Compile Include="Items\Addons\FormalDiningTable.cs" />
     <Compile Include="Items\Addons\GadgetryTable.cs" />
     <Compile Include="Items\Consumables\DecorativeKitchenSet.cs" />
     <Compile Include="Items\Consumables\DecorativeStableSet.cs" />
     <Compile Include="Items\Consumables\EmbroideryTool.cs" />
-    <Compile Include="Items\Damageable\Beacon.cs" />
-    <Compile Include="Items\Damageable\DamageableItem.cs" />
+    <Compile Include="Expansion\Time Of Legends\Damageable\Beacon.cs" />
+    <Compile Include="Expansion\Time Of Legends\Damageable\DamageableItem.cs" />
     <Compile Include="Items\Decorative\AncientWeapons.cs" />
     <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternBrokenShield.cs" />
     <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternHand.cs" />
@@ -652,10 +653,10 @@
     <Compile Include="Items\Decorative\GypsyWagonLamp.cs" />
     <Compile Include="Items\Decorative\PumpkinCarvingKit.cs" />
     <Compile Include="Items\Decorative\HolidayWallArt.cs" />
-    <Compile Include="Items\Decorative\UltimaBanner.cs" />
+    <Compile Include="Expansion\Stygian Abyss\12th Anniversary Gifts\UltimaBanner.cs" />
     <Compile Include="Items\Decorative\EnchantedWheelbarrow.cs" />
     <Compile Include="Items\Decorative\FlamingScarecrow.cs" />
-    <Compile Include="Items\Decorative\SilverSaplingReplica.cs" />
+    <Compile Include="Expansion\Stygian Abyss\12th Anniversary Gifts\SilverSaplingReplica.cs" />
     <Compile Include="Items\Decorative\ValentineBear.cs" />
     <Compile Include="Items\Equipment\Armor\MagesHoodOfScholarlyInsight.cs" />
     <Compile Include="Items\Equipment\Armor\CowlOfTheMaceAndShield.cs" />
@@ -705,24 +706,24 @@
     <Compile Include="Expansion\Endless Journey\StoreBought\StoreSingingBall.cs" />
     <Compile Include="Expansion\Endless Journey\StoreBought\WineRack.cs" />
     <Compile Include="Items\Tools\SteamPoweredBeverageMaker.cs" />
-    <Compile Include="Items\Addons\ClawFootTub.cs" />
+    <Compile Include="Expansion\High Seas\ClawFootTub.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\GreenMarbleFireplace.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\GoldMarbleFireplace.cs" />
-    <Compile Include="Items\Addons\Craft Addons\AlchemyStation.cs" />
-    <Compile Include="Items\Addons\Craft Addons\BBQSmoker.cs" />
-    <Compile Include="Items\Addons\Craft Addons\WritingDesk.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\AlchemyStation.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\BBQSmoker.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\WritingDesk.cs" />
     <Compile Include="Items\Addons\EnormousVenusFlytrap.cs" />
     <Compile Include="Items\Addons\KoiPond.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\BlueMarbleFireplace.cs" />
     <Compile Include="Items\Addons\PicnicBlanket.cs" />
     <Compile Include="Items\Addons\RoastingPigOnASpit.cs" />
     <Compile Include="Items\Addons\SheepStatue.cs" />
-    <Compile Include="Items\Addons\Harpsichord.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Harpsichord.cs" />
     <Compile Include="Items\Addons\VendorMallAddon.cs" />
-    <Compile Include="Items\Addons\WeatheredBronzeFairySculpture.cs" />
-    <Compile Include="Items\Addons\WeatheredBronzeArcherSculpture.cs" />
-    <Compile Include="Items\Addons\WeatheredBronzeManOnABench.cs" />
-    <Compile Include="Items\Addons\WeatheredBronzeGlobeSculpture.cs" />
+    <Compile Include="Expansion\Stygian Abyss\WeatheredBronzeFairySculpture.cs" />
+    <Compile Include="Expansion\Stygian Abyss\WeatheredBronzeArcherSculpture.cs" />
+    <Compile Include="Expansion\Stygian Abyss\WeatheredBronzeManOnABench.cs" />
+    <Compile Include="Expansion\Stygian Abyss\WeatheredBronzeGlobeSculpture.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\BaseAddon.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -735,15 +736,15 @@
     <Compile Include="Expansion\Original UO\Items\Addons\BaseAddonDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Craft Addons\AddonToolComponenet.cs" />
-    <Compile Include="Items\Addons\Craft Addons\CraftAddon.cs" />
-    <Compile Include="Items\Addons\Craft Addons\CraftAddonDeed.cs" />
-    <Compile Include="Items\Addons\Craft Addons\FletchingStation.cs" />
-    <Compile Include="Items\Addons\Craft Addons\SewingMachine.cs" />
-    <Compile Include="Items\Addons\Craft Addons\SmithingPress.cs" />
-    <Compile Include="Items\Addons\Craft Addons\SpinningLathe.cs" />
-    <Compile Include="Items\Addons\Distillery.cs" />
-    <Compile Include="Items\Addons\DolphinRug.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\AddonToolComponenet.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\CraftAddon.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\CraftAddonDeed.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\FletchingStation.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\SewingMachine.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\SmithingPress.cs" />
+    <Compile Include="Expansion\High Seas\Craft Addons\SpinningLathe.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\Distillery.cs" />
+    <Compile Include="Expansion\Mondains Legacy\10th Anniversary Gifts\DolphinRug.cs" />
     <Compile Include="Items\Addons\DungeonHitchingPost.cs" />
     <Compile Include="Expansion\Mondains Legacy\Addons\FancyCouchEast.cs" />
     <Compile Include="Expansion\Mondains Legacy\Addons\FancyCouchWest.cs" />
@@ -752,15 +753,15 @@
     <Compile Include="Expansion\Mondains Legacy\Addons\FancyLoveseatNorth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseSouth.cs" />
-    <Compile Include="Items\Addons\LongMetalTableEast.cs" />
+    <Compile Include="Expansion\Stygian Abyss\LongMetalTableEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\LongWoodenTableEast.cs" />
-    <Compile Include="Items\Addons\MetalTableEast.cs" />
-    <Compile Include="Items\Addons\LongMetalTableSouth.cs" />
+    <Compile Include="Expansion\Stygian Abyss\MetalTableEast.cs" />
+    <Compile Include="Expansion\Stygian Abyss\LongMetalTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\LongWoodenTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestryEast.cs" />
-    <Compile Include="Items\Addons\MetalTableSouth.cs" />
+    <Compile Include="Expansion\Stygian Abyss\MetalTableSouth.cs" />
     <Compile Include="Expansion\Mondains Legacy\Addons\PlushLoveseatEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestrySouth.cs" />
     <Compile Include="Expansion\Mondains Legacy\Addons\PlushLoveseatSouth.cs" />
@@ -773,13 +774,13 @@
     <Compile Include="Expansion\Mondains Legacy\Addons\FancyWoodenShelfEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfEast.cs" />
     <Compile Include="Expansion\Mondains Legacy\Addons\FancyWoodenShelfSouth.cs" />
-    <Compile Include="Items\Addons\RusticBenchEast.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\RusticBenchEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfSouth.cs" />
-    <Compile Include="Items\Addons\RusticBenchSouth.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\RusticBenchSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\LongTableEastAddon.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\LongTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\LighthouseAddon.cs" />
-    <Compile Include="Items\Addons\RitualTableAddon.cs" />
+    <Compile Include="Expansion\High Seas\Gothic Theme Pack\RitualTableAddon.cs" />
     <Compile Include="Items\Addons\NexusAddon.cs" />
     <Compile Include="Items\Addons\RoseRug.cs" />
     <Compile Include="Items\Addons\SkullRug.cs" />
@@ -1053,28 +1054,28 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\BaseArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DragonTurtleHideArms.cs" />
-    <Compile Include="Items\Equipment\Armor\DragonTurtleHideBustier.cs" />
-    <Compile Include="Items\Equipment\Armor\DragonTurtleHideChest.cs" />
-    <Compile Include="Items\Equipment\Armor\DragonTurtleHideHelm.cs" />
-    <Compile Include="Items\Equipment\Armor\DragonTurtleHideLegs.cs" />
-    <Compile Include="Items\Equipment\Armor\GargishClothArmor.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltBustier.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltChest.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltCollar.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltHelm.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltLegs.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltLongSkirt.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltShorts.cs" />
-    <Compile Include="Items\Equipment\Armor\TigerPeltSkirt.cs" />
-    <Compile Include="Items\Equipment\Instruments\Cowbell.cs" />
-    <Compile Include="Items\Equipment\Instruments\Trumpet.cs" />
-    <Compile Include="Items\Equipment\Instruments\WallMountedBell.cs" />
-    <Compile Include="Items\Equipment\Instruments\Cello.cs" />
-    <Compile Include="Items\Equipment\Instruments\AudChar.cs" />
-    <Compile Include="Items\Equipment\Instruments\SnakeCharmerFlute.cs" />
+    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideArms.cs" />
+    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideBustier.cs" />
+    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideChest.cs" />
+    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideHelm.cs" />
+    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideLegs.cs" />
+    <Compile Include="Expansion\Stygian Abyss\GargishClothArmor.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltBustier.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltChest.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltCollar.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltHelm.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltLegs.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltLongSkirt.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltShorts.cs" />
+    <Compile Include="Expansion\Time Of Legends\TigerPeltSkirt.cs" />
+    <Compile Include="Expansion\Time Of Legends\Cowbell.cs" />
+    <Compile Include="Expansion\Time Of Legends\Trumpet.cs" />
+    <Compile Include="Expansion\Time Of Legends\WallMountedBell.cs" />
+    <Compile Include="Expansion\Time Of Legends\Cello.cs" />
+    <Compile Include="Expansion\Time Of Legends\AudChar.cs" />
+    <Compile Include="Expansion\Stygian Abyss\SnakeCharmerFlute.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Light\TwilightLantern.cs" />
-    <Compile Include="Items\Equipment\Spellbooks\BookOfMasteries.cs" />
+    <Compile Include="Expansion\Time Of Legends\BookOfMasteries.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseAxe.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1284,7 +1285,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BasePotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Quivers\BaseQuiver.cs">
+    <Compile Include="Expansion\Mondains Legacy\Quivers\BaseQuiver.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseRanged.cs">
@@ -1323,10 +1324,10 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseSword.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\BaseTalisman.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\BaseTalisman.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\BaseThrown.cs">
+    <Compile Include="Expansion\Stygian Abyss\BaseThrown.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\BaseTool.cs">
@@ -1350,7 +1351,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\ChestOfSending.cs" />
+    <Compile Include="Expansion\High Seas\Gothic Theme Pack\ChestOfSending.cs" />
     <Compile Include="Items\Tools\ForgedMetalOfArtifacts.cs" />
     <Compile Include="Items\Tools\GreaterBraceletOfBinding.cs" />
     <Compile Include="Items\Tools\MetallicLeatherDyeTub.cs" />
@@ -1778,67 +1779,67 @@
     <Compile Include="Items\Functional\ChickenCoop.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargishBanner.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishBanner.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GargishCotEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishCotEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GargishCotSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishCotSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GargishCouchEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishCouchEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GargishCouchSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishCouchSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GargishLongTableEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLongTableEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GargishLongTableSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLongTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargishSculpture.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishSculpture.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleCandelabra.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleCandelabra.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleChair.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleEndTable.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleEndTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleFloorMirror.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleFloorMirror.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoylePainting.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoylePainting.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleShortTableAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleShortTableAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleVase.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleVase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GargoyleWallMirror.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargoyleWallMirror.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\GargoyleWoodenChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeGargoyleBedEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\LargeGargoyleBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeGargoyleBedSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\LargeGargoyleBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TerMurDresserEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\TerMurDresserEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\TerMurDresserSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\TerMurDresserSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Teleporter.cs">
@@ -1971,7 +1972,7 @@
     <Compile Include="Expansion\Original UO\Items\Addons\ArcheryButteAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\BallotBox.cs">
+    <Compile Include="Expansion\UOR\Items\BallotBox.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\BearRugs.cs">
@@ -2069,10 +2070,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\LargeForgeSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeStoneTableEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\LargeStoneTableEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LargeStoneTableSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\LargeStoneTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\LoomEastAddon.cs">
@@ -2081,14 +2082,14 @@
     <Compile Include="Expansion\Original UO\Items\Addons\LoomSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Rewards\AquariumMessage.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\CaptainBlackheartsFishingPole.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\CraftysFishingHat.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\FishBones.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\IslandStatue.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\Shell.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\ToyBoat.cs" />
-    <Compile Include="Items\Addons\Aquarium\Rewards\WaterloggedBoots.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\AquariumMessage.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\CaptainBlackheartsFishingPole.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\CraftysFishingHat.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\FishBones.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\IslandStatue.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\Shell.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\ToyBoat.cs" />
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Rewards\WaterloggedBoots.cs" />
     <Compile Include="Services\Misc\Siege.cs" />
     <Compile Include="Services\Misc\SpawnerPersistence.cs" />
     <Compile Include="Services\Misc\UntamedPetsCleaning.cs" />
@@ -3037,6 +3038,8 @@
     <Compile Include="Expansion\Original UO\Items\Addons\goldcarpetAddon.cs" />
     <Compile Include="Mobiles\Quests\EscortToDugan.cs" />
     <Compile Include="Items\Equipment\Talismans\TalismanofGoblinSlaying.cs" />
+    <Compile Include="Mobiles\Quests\EscortToDugan.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Talismans\TalismanofGoblinSlaying.cs" />
     <Compile Include="Mobiles\NPCs\Neville.cs" />
     <Compile Include="Items\Containers\RewardBackpack.cs" />
     <Compile Include="Items\Containers\EssenceBox.cs" />
@@ -3313,7 +3316,7 @@
     <Compile Include="Services\CleanUpBritannia\Items\JusticeVirtueTile.cs" />
     <Compile Include="Services\CleanUpBritannia\Items\LillyPad.cs" />
     <Compile Include="Services\CleanUpBritannia\Items\LillyPads.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Mailbox.cs" />
+    <Compile Include="Expansion\Stygian Abyss\12th Anniversary Gifts\Mailbox.cs" />
     <Compile Include="Services\CleanUpBritannia\Items\NamedRobes.cs" />
     <Compile Include="Services\CleanUpBritannia\Items\ArachnidDoom.cs" />
     <Compile Include="Services\CleanUpBritannia\Items\ChestOfDrawers.cs" />
@@ -3612,10 +3615,10 @@
     <Compile Include="Expansion\High Seas\HuntmasterChallenge\HuntTrophy.cs" />
     <Compile Include="Expansion\High Seas\HuntmasterChallenge\KillEntry.cs" />
     <Compile Include="Expansion\High Seas\HuntmasterChallenge\RewardItems.cs" />
-    <Compile Include="Items\Addons\MediumStoneTableEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\MediumStoneTableEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MediumStoneTableSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\MediumStoneTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Mondains Legacy\Addons\OrnateElvenChestEastAddon.cs">
@@ -3691,10 +3694,10 @@
     <Compile Include="Expansion\Mondains Legacy\Addons\SquirrelStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneAnvilEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\StoneAnvilEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\StoneAnvilSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\StoneAnvilSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\StoneFireplaceEastAddon.cs">
@@ -3727,10 +3730,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\TrainingDummies.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WarriorStatueEastAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\WarriorStatueEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WarriorStatueSouthAddon.cs">
+    <Compile Include="Expansion\Stygian Abyss\WarriorStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\WaterTroughEastAddon.cs">
@@ -3742,103 +3745,103 @@
     <Compile Include="Expansion\Original UO\Items\Addons\WaterVat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Aquarium.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Aquarium.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\AquariumFishingNet.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\AquariumFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\AquariumFood.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\AquariumFood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\AquariumGump.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\AquariumGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\AquariumState.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\AquariumState.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\FishBowl.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\FishBowl.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\AlbinoCourtesanFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\AlbinoCourtesanFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\AlbinoFrog.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\AlbinoFrog.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\BritainCrownFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\BritainCrownFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\FandancerFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\FandancerFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\GoldenBroadtail.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\GoldenBroadtail.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\Jellyfish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\Jellyfish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\KillerFrog.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\KillerFrog.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\LongClawCrab.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\LongClawCrab.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\MakotoCourtesanFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\MakotoCourtesanFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\MinocBlueFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\MinocBlueFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\NujelmHoneyFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\NujelmHoneyFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\PurpleFrog.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\PurpleFrog.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\RedDartFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\RedDartFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\Shrimp.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\Shrimp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\SmallMouthSuckerFin.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\SmallMouthSuckerFin.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\SpeckledCrab.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\SpeckledCrab.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\SpinedScratcherFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\SpinedScratcherFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\SpottedBuccaneer.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\SpottedBuccaneer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\VesperReefTiger.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\VesperReefTiger.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Fish\YellowFinBluebelly.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Fish\YellowFinBluebelly.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Reward Fish\BrineShrimp.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Reward Fish\BrineShrimp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Reward Fish\Coral.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Reward Fish\Coral.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Reward Fish\FullMoonFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Reward Fish\FullMoonFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Reward Fish\SeaHorse.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Reward Fish\SeaHorse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Reward Fish\StrippedFlakeFish.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Reward Fish\StrippedFlakeFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\Reward Fish\StrippedSosarianSwill.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\Reward Fish\StrippedSosarianSwill.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\VacationWafer.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\VacationWafer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\CastOffZombieSkin.cs">
@@ -3953,13 +3956,13 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\EvilOrcHelm.cs">
+    <Compile Include="Expansion\Original UO\EvilOrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\ChainHatsuburi.cs">
+    <Compile Include="Expansion\Samurai Empire\ChainHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainLegs.cs">
@@ -3998,94 +4001,94 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Darkwood\DarkwoodPauldrons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DragonArms.cs">
+    <Compile Include="Expansion\UOR\DragonArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DragonChest.cs">
+    <Compile Include="Expansion\UOR\DragonChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DragonGloves.cs">
+    <Compile Include="Expansion\UOR\DragonGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DragonHelm.cs">
+    <Compile Include="Expansion\UOR\DragonHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DragonLegs.cs">
+    <Compile Include="Expansion\UOR\DragonLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishLeatherArms.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishLeatherArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishLeatherChest.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishLeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishLeatherKilt.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishLeatherKilt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishLeatherLegs.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishLeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishPlateArms.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishPlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishPlateChest.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishPlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishPlateKilt.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishPlateKilt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishPlateLegs.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishPlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishStoneArms.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishStoneArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishStoneChest.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishStoneChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishStoneLegs.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishStoneLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleGargishStoneKilt.cs">
+    <Compile Include="Expansion\Stygian Abyss\FemaleGargishStoneKilt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishLeatherArms.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLeatherArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishLeatherChest.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishLeatherKilt.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLeatherKilt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishLeatherLegs.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishLeatherWingArmor.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLeatherWingArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishPlateArms.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishPlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishPlateChest.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishPlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishPlateKilt.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishPlateKilt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishPlateLegs.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishPlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishStoneArms.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishStoneArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishStoneChest.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishStoneChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishStoneLegs.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishStoneLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishStoneKilt.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishStoneKilt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Glasses\AnthropomorphistGlasses.cs">
@@ -4094,7 +4097,7 @@
     <Compile Include="Items\Artifacts\Equipment\Glasses\ArtsGlasses.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Glasses\ElvenGlasses.cs">
+    <Compile Include="Expansion\Mondains Legacy\ElvenGlasses.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Glasses\FoldedSteelGlasses.cs">
@@ -4139,13 +4142,13 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainCoif.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\Circlet.cs">
+    <Compile Include="Expansion\Samurai Empire\Circlet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\CloseHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GemmedCirclet.cs">
+    <Compile Include="Expansion\Mondains Legacy\GemmedCirclet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmet.cs">
@@ -4163,16 +4166,16 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\RavenHelm.cs">
+    <Compile Include="Expansion\Mondains Legacy\RavenHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\RoyalCirclet.cs">
+    <Compile Include="Expansion\Mondains Legacy\RoyalCirclet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\VultureHelm.cs">
+    <Compile Include="Expansion\Mondains Legacy\VultureHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WingedHelm.cs">
+    <Compile Include="Expansion\Mondains Legacy\WingedHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Hunter\HuntersArms.cs">
@@ -4223,28 +4226,28 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Knights\KnightsPlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleLeafChest.cs">
+    <Compile Include="Expansion\Mondains Legacy\FemaleLeafChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemaleLeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeafArms.cs">
+    <Compile Include="Expansion\Mondains Legacy\LeafArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeafChest.cs">
+    <Compile Include="Expansion\Mondains Legacy\LeafChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeafGloves.cs">
+    <Compile Include="Expansion\Mondains Legacy\LeafGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeafGorget.cs">
+    <Compile Include="Expansion\Mondains Legacy\LeafGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeafLegs.cs">
+    <Compile Include="Expansion\Mondains Legacy\LeafLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeafTonlet.cs">
+    <Compile Include="Expansion\Mondains Legacy\LeafTonlet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherArms.cs">
@@ -4256,7 +4259,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherDo.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherGloves.cs">
@@ -4265,31 +4268,31 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherHaidate.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherHiroSode.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherMempo.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherNinjaHood.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherNinjaHood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherNinjaJacket.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherNinjaJacket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherNinjaMitts.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherNinjaMitts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherNinjaPants.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherNinjaPants.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherShorts.cs">
@@ -4298,7 +4301,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LeatherSuneate.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Luck\EtoileBleue.cs">
@@ -4391,31 +4394,31 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Paladin\PaladinLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\DecorativePlateKabuto.cs">
+    <Compile Include="Expansion\Samurai Empire\DecorativePlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemalePlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\FemaleWoodlandChest.cs">
+    <Compile Include="Expansion\Mondains Legacy\FemaleWoodlandChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HeavyPlateJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\HeavyPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LightPlateJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\LightPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateBattleKabuto.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateBattleKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateDo.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateGloves.cs">
@@ -4424,43 +4427,43 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateHaidate.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateHatsuburi.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateHiroSode.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateMempo.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\PlateSuneate.cs">
+    <Compile Include="Expansion\Samurai Empire\PlateSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\SmallPlateJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\SmallPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StandardPlateKabuto.cs">
+    <Compile Include="Expansion\Samurai Empire\StandardPlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodlandArms.cs">
+    <Compile Include="Expansion\Mondains Legacy\WoodlandArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodlandChest.cs">
+    <Compile Include="Expansion\Mondains Legacy\WoodlandChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodlandGloves.cs">
+    <Compile Include="Expansion\Mondains Legacy\WoodlandGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodlandGorget.cs">
+    <Compile Include="Expansion\Mondains Legacy\WoodlandGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\WoodlandLegs.cs">
+    <Compile Include="Expansion\Mondains Legacy\WoodlandLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Items\Equipment\Armor\Sets\Phoenix\PhoenixArms.cs">
@@ -4565,22 +4568,22 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemaleStuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HideChest.cs">
+    <Compile Include="Expansion\Mondains Legacy\HideChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\HideFemaleChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HideGloves.cs">
+    <Compile Include="Expansion\Mondains Legacy\HideGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HideGorget.cs">
+    <Compile Include="Expansion\Mondains Legacy\HideGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HidePants.cs">
+    <Compile Include="Expansion\Mondains Legacy\HidePants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\HidePauldrons.cs">
+    <Compile Include="Expansion\Mondains Legacy\HidePauldrons.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedArms.cs">
@@ -4592,7 +4595,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedDo.cs">
+    <Compile Include="Expansion\Samurai Empire\StuddedDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedGloves.cs">
@@ -4601,19 +4604,19 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedHaidate.cs">
+    <Compile Include="Expansion\Samurai Empire\StuddedHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedHiroSode.cs">
+    <Compile Include="Expansion\Samurai Empire\StuddedHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedMempo.cs">
+    <Compile Include="Expansion\Samurai Empire\StuddedMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\StuddedSuneate.cs">
+    <Compile Include="Expansion\Samurai Empire\StuddedSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Virtue\CompassionArms.cs">
@@ -4671,7 +4674,7 @@
     <Compile Include="Expansion\Original UO\Items\Provision\Books\LibraryBooks.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Aquarium\NewAquariumBook.cs">
+    <Compile Include="Expansion\Mondains Legacy\Aquarium\NewAquariumBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Stygian Abyss\TranslatedGargoyleJournal.cs">
@@ -4831,7 +4834,7 @@
     <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Cloaks.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\Gargoyle Accessories.cs">
+    <Compile Include="Expansion\Stygian Abyss\Gargoyle Accessories.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Clothing\LeatherTalons.cs">
@@ -4846,7 +4849,7 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\ObiDiEnse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\PlateTalons.cs">
+    <Compile Include="Expansion\Stygian Abyss\PlateTalons.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\SpinedBloodwormBracers.cs">
@@ -4978,13 +4981,13 @@
     <Compile Include="Items\Decorative\DesCityWall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\SAShadowWall1.cs">
+    <Compile Include="Expansion\Stygian Abyss\SAShadowWall1.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\SAStoneWall1.cs">
+    <Compile Include="Expansion\Stygian Abyss\SAStoneWall1.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\SAStoneWall2.cs">
+    <Compile Include="Expansion\Stygian Abyss\SAStoneWall2.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DungeonWallAndVineAddon.cs">
@@ -5185,7 +5188,7 @@
     <Compile Include="Items\Containers\FancyElvenArmoire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\GiantReplicaAcorn.cs">
+    <Compile Include="Expansion\Stygian Abyss\GiantReplicaAcorn.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\MountedDreadHorn.cs">
@@ -5290,16 +5293,16 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\BurningAmber.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\GargishBracelet.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\GargishEarrings.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishEarrings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\GargishNecklace.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishNecklace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Jewelry\GargishRing.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishRing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Jewelry\ObsidianEarrings.cs">
@@ -5544,7 +5547,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\BladeDance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\BloodwoodSpirit.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\BloodwoodSpirit.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\Bonesmasher.cs">
@@ -5598,7 +5601,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\TalonBite.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\TotemOfVoid.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\TotemOfVoid.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\WildfireBow.cs">
@@ -5721,7 +5724,7 @@
     <Compile Include="Items\Decorative\PottedTrees.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Quivers\ElvenQuiver.cs">
+    <Compile Include="Expansion\Mondains Legacy\Quivers\ElvenQuiver.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Quivers\QuiverOfBlight.cs">
@@ -5868,13 +5871,13 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\DragonHideShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishChaosShield.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishChaosShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishKiteShield.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishKiteShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\GargishOrderShield.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishOrderShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\GargishSignOfChaos.cs">
@@ -5892,16 +5895,16 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\HumanSignOfOrder.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LargePlateShield.cs">
+    <Compile Include="Expansion\Stygian Abyss\LargePlateShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\LargeStoneShield.cs">
+    <Compile Include="Expansion\Stygian Abyss\LargeStoneShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\LordBlackthornsExemplar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\MediumPlateShield.cs">
+    <Compile Include="Expansion\Stygian Abyss\MediumPlateShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\MysticsGuard.cs">
@@ -5913,7 +5916,7 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\SentinelsGuard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Armor\SmallPlateShield.cs">
+    <Compile Include="Expansion\Samurai Empire\SmallPlateShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\WallOfHungryMouths.cs">
@@ -6075,19 +6078,19 @@
     <Compile Include="Items\Tools\SturdyShovel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MiniSoulForge.cs" />
-    <Compile Include="Items\Addons\RoyalSoulForge.cs" />
-    <Compile Include="Items\Addons\SoulForge.cs" />
+    <Compile Include="Expansion\Stygian Abyss\MiniSoulForge.cs" />
+    <Compile Include="Expansion\Stygian Abyss\RoyalSoulForge.cs" />
+    <Compile Include="Expansion\Stygian Abyss\SoulForge.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Log.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\BookOfBushido.cs">
+    <Compile Include="Expansion\Samurai Empire\BookOfBushido.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\BookOfChivalry.cs">
+    <Compile Include="Expansion\AOS\BookOfChivalry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\BookOfNinjitsu.cs">
+    <Compile Include="Expansion\Samurai Empire\BookOfNinjitsu.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Spellbooks\ConjurersGrimoire.cs">
@@ -6114,10 +6117,10 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\RecallRune.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\MysticBook.cs">
+    <Compile Include="Expansion\Stygian Abyss\MysticBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\NecromancerSpellbook.cs">
+    <Compile Include="Expansion\AOS\NecromancerSpellbook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\AgilityPotion.cs">
@@ -6504,13 +6507,13 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Spellbook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Spellbooks\SpellweavingBook.cs">
+    <Compile Include="Expansion\Stygian Abyss\SpellweavingBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Bandage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\FireHorn.cs">
+    <Compile Include="Expansion\UOR\FireHorn.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\RecipeScroll.cs">
@@ -6522,7 +6525,7 @@
     <Compile Include="Items\Consumables\ScrollBinderDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Instruments\BambooFlute.cs">
+    <Compile Include="Expansion\Stygian Abyss\BambooFlute.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Drums.cs">
@@ -6552,7 +6555,7 @@
     <Compile Include="Items\Consumables\FukiyaDarts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Clothing\LeatherNinjaBelt.cs">
+    <Compile Include="Expansion\Samurai Empire\LeatherNinjaBelt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\NinjaWeapons.cs">
@@ -6837,49 +6840,49 @@
     <Compile Include="Items\Consumables\PowderOfTemperament.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\AwesomeDisturbingPortrait.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\AwesomeDisturbingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\BedOfNails.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\BedOfNails.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\BoneCouch.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\BoneCouch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\BoneTable.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\BoneTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\BoneThrone.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\BoneThrone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\CreepyPortrait.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\CreepyPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\DisturbingPortrait.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\DisturbingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\HauntedMirror.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\HauntedMirror.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieBlue.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\MountedPixieBlue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieGreen.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\MountedPixieGreen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieLime.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\MountedPixieLime.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieOrange.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\MountedPixieOrange.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\MountedPixieWhite.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\MountedPixieWhite.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Evil Home Decor Set\SacrificialAltar.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\SacrificialAltar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\UnsettlingPortrait.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\Evil Home Decor Set\UnsettlingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\7th Anniversary Gifts\HearthOfHomeFire.cs">
@@ -6924,7 +6927,7 @@
     <Compile Include="Expansion\Mondains Legacy\Addons\CherryBlossomTrunk.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\CinnamonFancyRug.cs">
+    <Compile Include="Expansion\Mondains Legacy\9th Anniversary Gifts\CinnamonFancyRug.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\Curtains.cs">
@@ -7488,7 +7491,7 @@
     <Compile Include="Expansion\Original UO\Items\Addons\AnkhOfSacrifice.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\Banner.cs">
+    <Compile Include="Expansion\UOR\Items\Banner.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\BloodyPentagram.cs">
@@ -7503,7 +7506,7 @@
     <Compile Include="Items\Containers\CommodityDeedBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\ContestMiniHouse.cs">
+    <Compile Include="Expansion\Mondains Legacy\ContestMiniHouse.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\DecorativeShield.cs">
@@ -7518,7 +7521,7 @@
     <Compile Include="Items\Addons\MiningCart.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MinotaurStatue.cs">
+    <Compile Include="Expansion\Stygian Abyss\MinotaurStatue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\PottedCactus.cs">
@@ -7536,7 +7539,7 @@
     <Compile Include="Items\Tools\WeaponEngravingTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\CorporealBrumeStatuette.cs">
+    <Compile Include="Expansion\Mondains Legacy\CorporealBrumeStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Mondains Legacy\Addons\DreadHornStatuette.cs">
@@ -7551,7 +7554,7 @@
     <Compile Include="Items\Addons\MantraEffervescenceStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MinotaurStatuette.cs">
+    <Compile Include="Expansion\Stygian Abyss\MinotaurStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\OphidianArchMageStatuette.cs">
@@ -7708,22 +7711,22 @@
     <Compile Include="Items\Consumables\RunedSwitch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\RandomTalisman.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\RandomTalisman.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\TalismanAttribute.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\TalismanAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\TalismanSlayer.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\TalismanSlayer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\TalismanSummons.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\TalismanSummons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\GoblinTopiary.cs">
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\GoblinTopiary.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\LlamaTopiary.cs">
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\LlamaTopiary.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\OstardTopiary.cs">
@@ -7763,7 +7766,7 @@
     <Compile Include="Items\Artifacts\Decorative\GrapeVine.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\KelpWovenLeggings.cs" />
     <Compile Include="Items\Artifacts\Decorative\LargeFishingNet.cs" />
-    <Compile Include="Items\Equipment\Talismans\ManaPhasingOrb.cs" />
+    <Compile Include="Expansion\Stygian Abyss\Talismans\ManaPhasingOrb.cs" />
     <Compile Include="Items\Tools\MasterSkeletonKey.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\RunedDriftwoodBow.cs" />
     <Compile Include="Items\Artifacts\Equipment\Clothing\RunedSashOfWarding.cs" />
@@ -8043,10 +8046,10 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\ExecutionersAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishAxe.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishBattleAxe.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishBattleAxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\GuardianAxe.cs">
@@ -8094,16 +8097,16 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Dagger.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishButcherKnife.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishButcherKnife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishCleaver.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishCleaver.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishDagger.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishDagger.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishTekagi.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishTekagi.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\SkinningKnife.cs">
@@ -8124,13 +8127,13 @@
     <Compile Include="Items\Equipment\Weapons\FireworksWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishMaul.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishMaul.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishTessen.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishTessen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishWarHammer.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishWarHammer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\HammerPick.cs">
@@ -8235,10 +8238,10 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Bardiche.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishBardiche.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishBardiche.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishScythe.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishScythe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Halberd.cs">
@@ -8347,10 +8350,10 @@
     <Compile Include="Items\Equipment\Weapons\DualPointedSpear.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishPike.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishPike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishWarFork.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishWarFork.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\Pike.cs">
@@ -8374,13 +8377,13 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BlackStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishGnarledStaff.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishGnarledStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\GlacialStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GlassStaff.cs">
+    <Compile Include="Expansion\Stygian Abyss\GlassStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\GnarledStaff.cs">
@@ -8458,25 +8461,25 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\FierySpellblade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishBoneHarvester.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishBoneHarvester.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishDaisho.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishDaisho.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishKatana.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishKatana.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishKryss.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishKryss.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishLance.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishLance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GargishTalwar.cs">
+    <Compile Include="Expansion\Stygian Abyss\GargishTalwar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Weapons\GlassSword.cs">
+    <Compile Include="Expansion\Stygian Abyss\GlassSword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\IcyScimitar.cs">
@@ -9130,7 +9133,7 @@
     <Compile Include="Items\Artifacts\Decorative\CollectionsBritLibraryQuotes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\CollectionsBritLibraryTalismans.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\CollectionsBritLibraryTalismans.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Mondains Legacy\CommunityCollections\CollectionDecayTimer.cs">
@@ -9707,15 +9710,15 @@
     <Compile Include="Services\Monster Stealing\Items\SmugglersToolBox.cs" />
     <Compile Include="Services\Monster Stealing\Items\StoneSkinLotion.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\Command.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\CraftDefinition.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\DistillationContext.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\DistillationGump.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\DistillationSystem.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\BottleOfLiquor.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\LiquorBarrel.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\MetalKeg.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\WheatWort.cs" />
-    <Compile Include="Expansion\UOR\Services\New Magincia\Distillation\Items\Yeast.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\CraftDefinition.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\DistillationContext.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\DistillationGump.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\DistillationSystem.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\Items\BottleOfLiquor.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\Items\LiquorBarrel.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\Items\MetalKeg.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\Items\WheatWort.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Distillation\Items\Yeast.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\MaginciaHousingPlot.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\MaginciaLottoSystem.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\Housing Lotto\Core\NewMaginciaMessage.cs" />
@@ -9757,8 +9760,8 @@
     <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingPoint.cs" />
     <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingProfile.cs" />
     <Compile Include="Expansion\UOR\Services\Plants\FertileDirtGump.cs" />
-    <Compile Include="Expansion\UOR\Services\Plants\Raised Garden Beds\RaisedGarden.cs" />
-    <Compile Include="Expansion\UOR\Services\Plants\Raised Garden Beds\RaisedGardenPlantItem.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Raised Garden Beds\RaisedGarden.cs" />
+    <Compile Include="Expansion\High Seas\Rustic Theme Pack\Raised Garden Beds\RaisedGardenPlantItem.cs" />
     <Compile Include="Services\PointsSystems\CleanUpBritanniaData.cs" />
     <Compile Include="Services\PointsSystems\BlackthornData.cs" />
     <Compile Include="Services\PointsSystems\CasinoData.cs" />
@@ -10284,63 +10287,63 @@
     <Compile Include="Services\VeteranRewards\CrystalPortals\CrystalPortalGump.cs" />
     <Compile Include="Services\VeteranRewards\DaviesLocker.cs" />
     <Compile Include="Services\VeteranRewards\StatRewardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\CityInfo.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\GuildStats.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\BattleStatsGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\BattleWarningGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\ConfirmSignupGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\ExemptCityGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\GuildLeaderboardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\LeaderboardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\RewardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Gumps\VvVBattleStatusGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\CompassionBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\CovetousBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\DeceitBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\DespiseBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\DestardBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\HonestyBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\HonorBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\HumilityBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\HythlothBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\JusticeBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\PrideBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\SacraficeBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\ShameBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\SpiritualityBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\ValorBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Banners\WrongBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\CannonTurret.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\EssenceOfCourage.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\ForgedRoyalPardon.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\ManaSpike.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\MorphEarrings.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\CovetousTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\DeceitTIle.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\DespiseTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\DestardTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\HythlothTIle.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\PrideTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\ShameTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\Tiles\WrongTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVArms.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVChests.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVEpaulettes.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVHairDye.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVHats.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVPotions.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVRobe.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVSteeds.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVTrapKit.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVTraps.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\Rewards\VvVWands.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\VvVAltar.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Items\VvVSigil.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Mobiles\SilverTrader.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\Mobiles\VvVPriest.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\ViceVsVirtueSystem.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\VvVBattle.cs" />
-    <Compile Include="Expansion\Time Of Legends\ViceVsVirtue\VvVRewards.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\CityInfo.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\GuildStats.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\BattleStatsGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\BattleWarningGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\ConfirmSignupGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\ExemptCityGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\GuildLeaderboardGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\LeaderboardGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\RewardGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Gumps\VvVBattleStatusGump.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\CompassionBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\CovetousBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\DeceitBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\DespiseBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\DestardBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\HonestyBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\HonorBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\HumilityBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\HythlothBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\JusticeBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\PrideBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\SacraficeBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\ShameBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\SpiritualityBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\ValorBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Banners\WrongBanner.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\CannonTurret.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\EssenceOfCourage.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\ForgedRoyalPardon.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\ManaSpike.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\MorphEarrings.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\CovetousTile.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\DeceitTIle.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\DespiseTile.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\DestardTile.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\HythlothTIle.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\PrideTile.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\ShameTile.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\Tiles\WrongTile.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVArms.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVChests.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVEpaulettes.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVHairDye.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVHats.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVPotions.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVRobe.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVSteeds.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVTrapKit.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVTraps.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\Rewards\VvVWands.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\VvVAltar.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Items\VvVSigil.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Mobiles\SilverTrader.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\Mobiles\VvVPriest.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\ViceVsVirtueSystem.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\VvVBattle.cs" />
+    <Compile Include="Expansion\High Seas\ViceVsVirtue\VvVRewards.cs" />
     <Compile Include="Services\Virtues\Honesty.cs" />
     <Compile Include="Services\Virtues\Humility.cs" />
     <Compile Include="Services\Virtues\Spirituality.cs" />
@@ -10776,7 +10779,7 @@
     <Compile Include="Items\Resource\MedusaLightScales.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\MedusaNest.cs">
+    <Compile Include="Expansion\Stygian Abyss\MedusaNest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Decorative\MedusaStatue.cs">
@@ -10785,7 +10788,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\PetrifiedSnake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Equipment\Talismans\Slither.cs">
+    <Compile Include="Expansion\Stygian Abyss\Talismans\Slither.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\StoneDragonsTooth.cs">
@@ -11077,7 +11080,7 @@
     <Compile Include="Expansion\Stygian Abyss\Underworld\Generate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FountainOfFortune.cs">
+    <Compile Include="Expansion\Stygian Abyss\FountainOfFortune.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\GemologistsSatchel.cs">
@@ -12282,7 +12285,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Expansion\AOS\6th Anniversary Gifts\" />
-    <Folder Include="Expansion\Mondains Legacy\10th Anniversary Gifts\" />
     <Folder Include="Mobiles\Hunters Guide\X\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
