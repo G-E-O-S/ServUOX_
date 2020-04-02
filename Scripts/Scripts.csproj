@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Expansion\EJ\Forgotten Treasures\LootBags.cs" />
     <Compile Include="Expansion\HS\Gothic Theme Pack\GargoyleStatues.cs" />
     <Compile Include="Expansion\SE\Abilities\ColdWind.cs" />
     <Compile Include="Expansion\SE\Abilities\Focus.cs" />
@@ -10262,7 +10263,6 @@
     <Compile Include="Expansion\HS\New Town Cryer\TownCryerModeratorEntry.cs" />
     <Compile Include="Expansion\HS\New Town Cryer\TownCryerNewsEntry.cs" />
     <Compile Include="Expansion\HS\New Town Cryer\TownCryerSystem.cs" />
-    <Compile Include="Expansion\EJ\Forgotten Treasures\BagOfGems.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\TreasureMap.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\TreasureMapChest.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\TreasureMapInfo.cs" />
