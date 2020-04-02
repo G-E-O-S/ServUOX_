@@ -718,12 +718,12 @@ namespace Server.Items
                 }
                 #endregion
             }
-
+            /*
             if (parent is Mobile)
             {
                 ((Mobile)parent).AddToBackpack(this);
             }
-
+            */
             if (parent is Mobile)
             {
                 if (Server.Engines.XmlSpawner2.XmlAttach.CheckCanEquip(this, (Mobile)parent))
