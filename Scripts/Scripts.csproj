@@ -3037,8 +3037,6 @@
     <Compile Include="Items\Quest\LaifemItems.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\goldcarpetAddon.cs" />
     <Compile Include="Mobiles\Quests\EscortToDugan.cs" />
-    <Compile Include="Items\Equipment\Talismans\TalismanofGoblinSlaying.cs" />
-    <Compile Include="Mobiles\Quests\EscortToDugan.cs" />
     <Compile Include="Expansion\Stygian Abyss\Talismans\TalismanofGoblinSlaying.cs" />
     <Compile Include="Mobiles\NPCs\Neville.cs" />
     <Compile Include="Items\Containers\RewardBackpack.cs" />
