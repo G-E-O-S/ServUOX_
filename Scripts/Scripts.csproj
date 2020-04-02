@@ -2185,8 +2185,8 @@
     <Compile Include="Mobiles\Hunters Guide\T\Thrasher.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\TikitaviRenowned.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\Twaulo.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\VitaviRenowned.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WyvernRenowned.cs" />
+    <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\VitaviRenowned.cs" />
+    <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\WyvernRenowned.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AbysmalHorror.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AbyssalAbomination.cs" />
     <Compile Include="Expansion\UOR\Mobiles\AcidElemental.cs" />
@@ -2224,8 +2224,8 @@
     <Compile Include="Mobiles\Hunters Guide\F\FrostDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\Lasher.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantTurkey.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\Viscera.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\Windrunner.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Unknown\Viscera.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Unknown\Windrunner.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\StygianDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrimsonDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PlatinumDrake.cs" />
@@ -2476,7 +2476,7 @@
     <Compile Include="Mobiles\Hunters Guide\T\Turkey.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PalaminoHorse.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SabertoothedTiger.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WildTiger.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\WildTiger.cs" />
     <Compile Include="Mobiles\NPCs\BaseTurnInMobile.cs" />
     <Compile Include="Mobiles\NPCs\Brae.cs" />
     <Compile Include="Mobiles\NPCs\Emilio.cs" />
@@ -2591,20 +2591,20 @@
     <Compile Include="Mobiles\Hunters Guide\U\UnfrozenMummy.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\Unicorn.cs" />
     <Compile Include="Expansion\UOR\Mobiles\ValoriteElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\VampireBat.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\VeriteElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\Virulent.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\VorpalBunny.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WailingBanshee.cs" />
+    <Compile Include="Expansion\AOS\Doom\Mobiles\VampireBat.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\VeriteElemental.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Virulent.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\VorpalBunny.cs" />
+    <Compile Include="Expansion\AOS\Doom\Mobiles\WailingBanshee.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Walrus.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WandererOfTheVoid.cs" />
+    <Compile Include="Expansion\AOS\Doom\Mobiles\WandererOfTheVoid.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\WaterElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WhippingVine.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\WhippingVine.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\WhiteWolf.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Monsters\WhiteWyrm.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\Wight.cs" />
+    <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\Wight.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wisp.cs" />
-    <Compile Include="Mobiles\Hunters Guide\W\WolfSpider.cs" />
+    <Compile Include="Expansion\SA\Underworld\Mobiles\WolfSpider.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wraith.cs" />
     <Compile Include="Expansion\SE\Mobiles\Yamandon.cs" />
     <Compile Include="Expansion\SE\Mobiles\YomotsuElder.cs" />
@@ -2902,7 +2902,7 @@
     <Compile Include="Mobiles\Hunters Guide\S\SummonedFireElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SummonedPaladin.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SummonedWaterElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\VampireBatFamiliar.cs" />
+    <Compile Include="Expansion\SA\Familiars\VampireBatFamiliar.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Anlorlem.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Anlorvaglem.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Anlorzen.cs" />
@@ -2913,7 +2913,7 @@
     <Compile Include="Mobiles\Hunters Guide\K\Korpre.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Relanord.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\UsagralemBallem.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\Vasanord.cs" />
+    <Compile Include="Expansion\SA\TerMur\Vasanord.cs" />
     <Compile Include="Expansion\Original UO\Items\Multis\HouseTeleporterTile.cs" />
     <Compile Include="Mobiles\Quests\ALittleSomething.cs" />
     <Compile Include="Mobiles\Quests\AmbitiousSolenQueen\AmbitiousQueenQuest.cs" />
@@ -3007,7 +3007,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\WindOfCorruption.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargishOutcast.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargishRouser.cs" />
-    <Compile Include="Mobiles\Hunters Guide\V\VoidManesfistation.cs" />
+    <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\VoidManesfistation.cs" />
     <Compile Include="Items\Consumables\BaseExplodingTarPotion.cs" />
     <Compile Include="Items\Consumables\ExplodingTarPotion.cs" />
     <Compile Include="Mobiles\NPCs\Gretchen.cs" />
@@ -11763,61 +11763,61 @@
     <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Initializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\MysticSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\MysticSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\AnimatedWeaponSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\AnimatedWeaponSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\BombardSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\BombardSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\CleansingWindsSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\CleansingWindsSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\EagleStrikeSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\EagleStrikeSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\EnchantGump.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\EnchantGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\EnchantSpell .cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\EnchantSpell .cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\HailStormSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\HailStormSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\HealingStoneSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\HealingStoneSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\MassSleepSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\MassSleepSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\MysticTransformationSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\MysticTransformationSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\NetherBoltSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\NetherBoltSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\NetherCycloneSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\NetherCycloneSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\PurgeMagicSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\PurgeMagicSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\RisingColossusSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\RisingColossusSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\SleepSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\SleepSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\SpellPlague.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\SpellPlague.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\SpellTriggerSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\SpellTriggerSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Mysticism\SpellDefinitions\StoneForm.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\SpellDefinitions\StoneForm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Skills\Necromancy\AnimateDeadSpell.cs">
@@ -12027,76 +12027,76 @@
     <Compile Include="Expansion\TOL\Skill Masteries\Warcry.cs" />
     <Compile Include="Expansion\TOL\Skill Masteries\Whispering.cs" />
     <Compile Include="Expansion\TOL\Skill Masteries\WhiteTigerForm.cs" />
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ArcaneCircle.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ArcaneCircle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ArcaneEmpowerment.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ArcaneEmpowerment.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ArcaneForm.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ArcaneForm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ArcaneSummon.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ArcaneSummon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ArcanistSpell.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ArcanistSpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\AttuneWeapon.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\AttuneWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\DryadAllure.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\DryadAllure.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\EssenceOfWind.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\EssenceOfWind.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\EtherealVoyage.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\EtherealVoyage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\GiftOfLife.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\GiftOfLife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\GiftOfRenewal.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\GiftOfRenewal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ImmolatingWeapon.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ImmolatingWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Items\ArcaneFocus.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Items\ArcaneFocus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Items\TransientItem.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Items\TransientItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Mobiles\ArcaneFey.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Mobiles\ArcaneFey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Mobiles\ArcaneFiend.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Mobiles\ArcaneFiend.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Mobiles\NatureFury.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Mobiles\NatureFury.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\NatureFury.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\NatureFury.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\ReaperForm.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\ReaperForm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\SummonFey.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\SummonFey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\SummonFiend.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\SummonFiend.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Thunderstorm.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Thunderstorm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\Wildfire.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\Wildfire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Skills\Spellweaving\WordOfDeath.cs">
+    <Compile Include="Expansion\SA\Mechanics\Skills\Spellweaving\WordOfDeath.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Bless.cs">
