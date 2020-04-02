@@ -12304,7 +12304,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Expansion\AOS\6th Anniversary Gifts\" />
-    <Folder Include="Expansion\Mondains Legacy\10th Anniversary Gifts\" />
     <Folder Include="Mobiles\Hunters Guide\X\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
