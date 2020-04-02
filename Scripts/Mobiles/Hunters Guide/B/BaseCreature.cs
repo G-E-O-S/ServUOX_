@@ -5868,9 +5868,40 @@ namespace Server.Mobiles
 
         public virtual bool IgnoreYoungProtection { get { return false; } }
 
-        public bool IsSoulbound { get; set; }
+        #region Soulbound
+        private bool _IsSoulBound;
 
-        public static bool IsSoulboundEnemies { get { return Core.EJ && PointsSystem.FellowshipData.Enabled; } }
+        public bool IsSoulbound
+        {
+            get
+            {
+                if (!IsSoulboundEnemies)
+                {
+                    return false;
+                }
+
+                return _IsSoulBound || _SoulboundCreatures.Any(c => c == GetType());
+            }
+            set
+            {
+                if (IsSoulboundEnemies)
+                {
+                    _IsSoulBound = value;
+                }
+            }
+        }
+
+        public static bool IsSoulboundEnemies { get { return PointsSystem.FellowshipData.Enabled; } }
+
+        public static Type[] _SoulboundCreatures =
+        {
+            typeof(MerchantCaptain), typeof(PirateCrew), typeof(PirateCaptain), typeof(MerchantCrew), typeof(Osiredon), typeof(Charydbis), typeof(CorgulTheSoulBinder),
+        };
+        #endregion
+
+
+
+
 
         public override bool OnBeforeDeath()
         {

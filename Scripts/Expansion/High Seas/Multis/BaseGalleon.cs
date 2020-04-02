@@ -854,7 +854,7 @@ namespace Server.Multis
 
         public override void OnAfterDelete()
         {
-            foreach (var fixture in Fixtures.Where(f => !f.Deleted))
+            foreach (var fixture in Fixtures.Where(f => !f.Deleted).ToList())
             {
                 fixture.Delete();
             }
@@ -863,7 +863,7 @@ namespace Server.Multis
             {
                 List<Item> cannons = new List<Item>(Cannons);
 
-                foreach (var cannon in cannons.Where(c => c != null && !c.Deleted))
+                foreach (var cannon in cannons.Where(c => c != null && !c.Deleted).ToList())
                 {
                     cannon.Delete();
                 }
@@ -873,7 +873,7 @@ namespace Server.Multis
 
             if (Addons != null)
             {
-                foreach (var addon in Addons.Keys.Where(a => a != null && !a.Deleted))
+                foreach (var addon in Addons.Keys.Where(a => a != null && !a.Deleted).ToList())
                 {
                     addon.Delete();
                 }
