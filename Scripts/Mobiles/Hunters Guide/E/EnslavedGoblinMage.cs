@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public EnslavedGoblinMage()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Enslaved Goblin Mage";
+            Name = "enslaved goblin mage";
             Body = 334;
             BaseSoundID = 0x600;
 

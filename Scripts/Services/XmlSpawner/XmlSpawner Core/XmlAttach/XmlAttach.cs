@@ -2506,7 +2506,7 @@ namespace Server.Engines.XmlSpawner2
 				MailMessage message = null;
 				try
 				{
-					message = new MailMessage("RunUO@localhost", Email.CrashAddresses);
+					message = new MailMessage("ServUOX@localhost", Email.CrashAddresses);
 				}
 				catch { }
 
@@ -2593,7 +2593,7 @@ namespace Server.Engines.XmlSpawner2
 						op.WriteLine("XmlSpawner2 Attachment Error Report");
 						op.WriteLine("===================");
 						op.WriteLine();
-						op.WriteLine("RunUO Version {0}.{1}.{3}, Build {2}", ver.Major, ver.Minor, ver.Revision, ver.Build);
+						op.WriteLine("ServUOX Version {0}.{1}.{3}, Build {2}", ver.Major, ver.Minor, ver.Revision, ver.Build);
 						op.WriteLine("Operating System: {0}", Environment.OSVersion);
 						op.WriteLine(".NET Framework: {0}", Environment.Version);
 						op.WriteLine("XmlSpawner2: {0}", XmlSpawner.Version);

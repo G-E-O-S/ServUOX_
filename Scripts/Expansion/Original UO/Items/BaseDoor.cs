@@ -184,7 +184,7 @@ namespace Server.Items
                 return false;
             }
         }
-        // Called by RunUO
+
         public static void Initialize()
         {
             EventSink.OpenDoorMacroUsed += new OpenDoorMacroEventHandler(EventSink_OpenDoorMacroUsed);

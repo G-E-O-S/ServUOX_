@@ -4,14 +4,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("an  effete undead gargoyle corpse")]
+    [CorpseName("an effete undead gargoyle corpse")]
     public class EffeteUndeadGargoyle : BaseCreature
     {
         [Constructable]
         public EffeteUndeadGargoyle()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            this.Name = "an Effete Undead Gargoyle";
+            this.Name = "an effete undead gargoyle";
             this.Body = 722;
             this.BaseSoundID = 372;
 

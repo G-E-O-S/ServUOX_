@@ -1,10 +1,10 @@
-﻿#region References
+#region References
 using Server.Items;
 #endregion
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Fairy dragon corpse")]
+    [CorpseName("a fairy dragon corpse")]
     public class FairyDragon : BaseCreature
     {
 
@@ -19,7 +19,7 @@ namespace Server.Mobiles
         public FairyDragon()
             : base(AIType.AI_Mystic, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Fairy Dragon";
+            Name = "fairy dragon";
             Body = 718;
             BaseSoundID = 362;
 

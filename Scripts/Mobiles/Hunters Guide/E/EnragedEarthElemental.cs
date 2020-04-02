@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public EnragedEarthElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            this.Name = "Enraged Earth Elemental";
+            this.Name = "an enraged earth elemental";
             this.Body = 14;
             this.BaseSoundID = 268;
             this.Hue = 442;

@@ -20,7 +20,7 @@ namespace Server.Items
         Sparkle3, 
         Explosion,
         ExplosionLightningBolt,
-        DefaultRunUO,
+        DefaultServUOX,
         Snow,
         Glow,
         PoisonField,
@@ -48,9 +48,9 @@ namespace Server.Items
             Hue = 0x0;
             Name = "GM hiding stone";
             LootType = LootType.Blessed;
-            mAppearEffect = StoneEffect.DefaultRunUO;
+            mAppearEffect = StoneEffect.DefaultServUOX;
             mAppearEffectHue = 0;
-            mHideEffect = StoneEffect.DefaultRunUO;
+            mHideEffect = StoneEffect.DefaultServUOX;
             mHideEffectHue = 0;
         }
 
@@ -187,7 +187,7 @@ namespace Server.Items
                     Effects.SendBoltEffect(m, true, 0);
                     Effects.PlaySound(new Point3D(m.X, m.Y, m.Z), m.Map, 0x307);
                     break;
-                case StoneEffect.DefaultRunUO:
+                case StoneEffect.DefaultServUOX:
                     Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z + 4), m.Map, 0x3728, 13, effHue, 0);
                     Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z), m.Map, 0x3728, 13, effHue, 0);
                     Effects.SendLocationEffect(new Point3D(m.X + 1, m.Y, m.Z - 4), m.Map, 0x3728, 13, effHue, 0);

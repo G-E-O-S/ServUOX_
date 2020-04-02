@@ -87,7 +87,7 @@ namespace Server.Items
                         this.DoSomethingSpecial(m);
                     }
 					
-                    //Refresh time of two minutes, equal to RunUO's RaiseSwith
+                    //Refresh time of two minutes, equal to ServUOX's RaiseSwith
                     Timer.DelayCall(TimeSpan.FromMinutes(2.0), delegate()
                     {
                         this.ItemID = this.m_TurnOff;

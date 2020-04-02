@@ -189,7 +189,7 @@ namespace Server.Spells.Necromancy
 
                 if (m.Region.IsPartOf<DungeonRegion>() == Region.Find(c.Location, map).IsPartOf<DungeonRegion>())
                     return false; //Same Map, both in Dungeon region OR They're both NOT in a dungeon region.
-                //Just an approximation cause RunUO doens't divide up the world the same way OSI does ;p
+                //Just an approximation cause ServUOX doens't divide up the world the same way OSI does ;p
             }
 
             Party p = Party.Get(m);

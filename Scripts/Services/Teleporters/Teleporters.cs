@@ -27,7 +27,7 @@ namespace Server
             CommandSystem.Register("TeleGlow", AccessLevel.Player, new CommandEventHandler(TeleGlow_OnCommand));
 
             EventSink.Movement += new MovementEventHandler(EventSink_Movement);
-        //  EventSink.OnTeleport += new TeleportEventHandler(EventSink_Teleport); // This EventSink is not yet implemented in ServUO - Fraz
+        //  EventSink.OnTeleport += new TeleportEventHandler(EventSink_Teleport); // This EventSink is not yet implemented in ServUOX - Fraz
         }
 
         public static void EventSink_Movement(MovementEventArgs e)

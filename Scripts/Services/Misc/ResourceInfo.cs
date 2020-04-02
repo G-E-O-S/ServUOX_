@@ -927,8 +927,6 @@ namespace Server.Items
         }
     }
 
-    // NOTE: This class is only for compatability with very old RunUO versions.
-    // No changes to it should be required for custom resources.
     public class OreInfo
     {
         public static readonly OreInfo Iron = new OreInfo(0, 0x000, "Iron");

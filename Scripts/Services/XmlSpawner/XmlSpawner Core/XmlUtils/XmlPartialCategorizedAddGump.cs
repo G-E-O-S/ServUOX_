@@ -7,12 +7,6 @@ using Server.Targeting;
 using Server.Engines.XmlSpawner2;
 using Server.Mobiles;
 
-/*
-** Modified from RunUO 1.0.0 AddGump.cs
-** by ArteGordon
-** 3/13/05
-*/
-
 namespace Server.Gumps
 {
 	public class XmlPartialCategorizedAddGump : Gump

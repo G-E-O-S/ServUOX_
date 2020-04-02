@@ -10,7 +10,7 @@ namespace Server.Mobiles
         public EnslavedGreenGoblinAlchemist()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Green Goblin Alchemist";
+            Name = "green goblin alchemist";
             Body = 723;
             BaseSoundID = 0x600;
 

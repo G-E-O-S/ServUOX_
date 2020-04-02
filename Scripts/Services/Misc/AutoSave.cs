@@ -80,7 +80,7 @@ namespace Server.Misc
 
         private static void Tick()
         {
-            if (!SavesEnabled || AutoRestart.Restarting || Commands.CreateWorld.WorldCreating)
+            if (!SavesEnabled || AutoRestart.Restarting || CreateWorld.WorldCreating)
                 return;
 
             if (m_Warning == TimeSpan.Zero)

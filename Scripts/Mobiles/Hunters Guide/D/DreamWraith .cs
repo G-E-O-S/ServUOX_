@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public DreamWraith()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Dream Wraith";
+            Name = "a dream wraith";
             Body = 740;
             //Hue = 0;
             BaseSoundID = 0x482;

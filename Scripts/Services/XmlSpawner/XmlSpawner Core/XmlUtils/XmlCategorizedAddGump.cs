@@ -5,14 +5,8 @@ using System.Collections;
 using Server.Network;
 using Server.Mobiles;
 
-/*
-** Modified from RunUO 1.0.0 CategorizedAddGump.cs
-** by ArteGordon
-** 2/5/05
-*/
 namespace Server.Gumps
 {
-
 	public abstract class XmlAddCAGNode
 	{
 		public abstract string Caption{ get; }

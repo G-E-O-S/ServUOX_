@@ -205,8 +205,27 @@ namespace Server.Items
             }
         }
 
+        private bool _CheckSpawn;
+
         public void OnTick()
         {
+            if (_CheckSpawn)
+            {
+                if (BaseCreature.IsSoulboundEnemies && Spawn != null)
+                {
+                    foreach (var bc in Spawn.Keys)
+                    {
+                        if (!bc.Deleted)
+                        {
+                            bc.IsSoulbound = true;
+                        }
+                    }
+
+                }
+
+                _CheckSpawn = false;
+            }
+
             var map = Map;
 
             if (map == null)
@@ -272,7 +291,7 @@ namespace Server.Items
                         creature.Home = spawnLoc;
                         creature.RangeHome = 10;
 
-                        if (creature.IsSoulboundEnemies)
+                        if (BaseCreature.IsSoulboundEnemies)
                             creature.IsSoulbound = true;
 
                         Spawn.Add(creature, initial);

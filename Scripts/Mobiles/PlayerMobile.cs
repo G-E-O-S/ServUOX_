@@ -65,7 +65,7 @@ namespace Server.Mobiles
 		KarmaLocked = 0x00000020,
 		AutoRenewInsurance = 0x00000040,
 		UseOwnFilter = 0x00000080,
-		PublicMyRunUO = 0x00000100,
+		PublicMyServUOX = 0x00000100,
 		PagingSquelched = 0x00000200,
 		Young = 0x00000400,
 		AcceptGuildInvites = 0x00000800,

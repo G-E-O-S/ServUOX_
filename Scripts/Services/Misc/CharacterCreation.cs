@@ -1272,7 +1272,6 @@ namespace Server.Misc
 						regs.LootType = LootType.Regular;
 					}
 
-					// RunUO fix
 					Spellbook
 						book = new NecromancerSpellbook(
 							(ulong)0x8981); // animate dead, evil omen, pain spike, summon familiar, wraith form

@@ -2306,7 +2306,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\ElderGazer.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\ElfBrigand.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EliteNinja.cs" />
-    <Compile Include="Mobiles\Hunters Guide\E\EnragedCollosus.cs" />
+    <Compile Include="Mobiles\Hunters Guide\E\EnragedColossus.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EnragedCreatures.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EnragedEarthElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EnslavedGargoyle.cs" />

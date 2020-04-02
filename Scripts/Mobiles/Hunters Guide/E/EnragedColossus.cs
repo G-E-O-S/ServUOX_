@@ -9,7 +9,7 @@ namespace Server.Mobiles
         public EnragedColossus()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.4, 0.5)
         {
-            this.Name = "Rising Colossus";
+            this.Name = "rising colossus";
             this.Body = 829;
 
             this.SetStr(600);

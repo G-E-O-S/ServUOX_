@@ -94,7 +94,7 @@ namespace Server.Mobiles
 		#region Constant declarations
 		public const byte MaxLoops = 10; //maximum number of recursive calls from spawner to itself. this is to prevent stack overflow from xmlspawner scripting
 		public const string Version = "4.00";
-		//private const double SpawnIdleTime = 72.0;              // time in hours after which idle spawns will be relocated. A value < 0 disables this feature. This does not work properly under RunUO 2.0
+		//private const double SpawnIdleTime = 72.0;              // time in hours after which idle spawns will be relocated. A value < 0 disables this feature. This does not work properly under ServUOX 1.0
 		private const int ShowBoundsItemId = 14089;             // 14089 Fire Column // 3555 Campfire // 8708 Skull Pole
 		private const string SpawnDataSetName = "Spawns";
 		private const string SpawnTablePointName = "Points";
@@ -8049,7 +8049,7 @@ public static void _TraceEnd(int index)
 						// if it has then reposition it because it might be in an inaccessible location
 						// note, vendors and special cases of positioning from the Spawn method will not get relocated
 						// i'm not saying I like those special cases, but they should be treated consistently
-						// doesnt work properly under RunUO 2.0 and also doesnt properly take spawn control keywords into consideration
+						// doesnt work properly under ServUOX 1.0 and also doesnt properly take spawn control keywords into consideration
 						// when repositioning, so disable this for now
 						/*
 						if (SpawnIdleTime > 0 && !m.Deleted && !(m is BaseVendor) && (m.CreationTime < DateTime.UtcNow - TimeSpan.FromHours(SpawnIdleTime))

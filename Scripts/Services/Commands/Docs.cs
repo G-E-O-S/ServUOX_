@@ -541,7 +541,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Index</title>");
+				html.WriteLine("      <title>servuox Documentation - Index</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -620,7 +620,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Bulk Orders - Smith Rewards</title>");
+				html.WriteLine("      <title>servuox Documentation - Bulk Orders - Smith Rewards</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -696,7 +696,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Bulk Orders - Tailor Rewards</title>");
+				html.WriteLine("      <title>servuox Documentation - Bulk Orders - Tailor Rewards</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -951,33 +951,33 @@ namespace Server.Commands
 				"            <td style=\"width: 250px;\" rowspan=\"2\" class=\"entry\"><center>{0}</center></td>",
 				title);
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_1.jpg\" alt=\"Colored Cloth (Level 1)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_1.jpg\" alt=\"Colored Cloth (Level 1)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_2.jpg\" alt=\"Colored Cloth (Level 2)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_2.jpg\" alt=\"Colored Cloth (Level 2)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_3.jpg\" alt=\"Colored Cloth (Level 3)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_3.jpg\" alt=\"Colored Cloth (Level 3)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_4.jpg\" alt=\"Colored Cloth (Level 4)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_4.jpg\" alt=\"Colored Cloth (Level 4)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_5.jpg\" alt=\"Colored Cloth (Level 5)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_5.jpg\" alt=\"Colored Cloth (Level 5)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_sandals_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_sandals.jpg\" alt=\"Colored Sandals\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_sandals_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_sandals.jpg\" alt=\"Colored Sandals\" border=\"0\"></a></center></td>");
 			html.WriteLine(
 				"            <td style=\"width: 100px;\" colspan=\"4\" class=\"entry\"><center>Power Scrolls</center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_smallhides.jpg\" alt=\"Small Stretched Hide\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_smallhides.jpg\" alt=\"Small Stretched Hide\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_mediumhides.jpg\" alt=\"Medium Stretched Hide\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_mediumhides.jpg\" alt=\"Medium Stretched Hide\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_lighttapestry.jpg\" alt=\"Light Flower Tapestry\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_lighttapestry.jpg\" alt=\"Light Flower Tapestry\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_darktapestry.jpg\" alt=\"Dark Flower Tapestry\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_darktapestry.jpg\" alt=\"Dark Flower Tapestry\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_brownbearrug.jpg\" alt=\"Brown Bear Rug\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_brownbearrug.jpg\" alt=\"Brown Bear Rug\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_polarbearrug.jpg\" alt=\"Polar Bear Rug\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_polarbearrug.jpg\" alt=\"Polar Bear Rug\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_clothingbless.jpg\" alt=\"Clothing Bless Deed\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_clothingbless.jpg\" alt=\"Clothing Bless Deed\"></center></td>");
 			html.WriteLine(
 				"            <td style=\"width: 75px;\" colspan=\"3\" class=\"entry\"><center>Runic Kits</center></td>");
 			html.WriteLine("         </tr>");
@@ -987,11 +987,11 @@ namespace Server.Commands
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+15</small></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+20</small></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_runic_spined.jpg\" alt=\"Runic Sewing Kit: Spined\"></center></td>");
+                "            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_runic_spined.jpg\" alt=\"Runic Sewing Kit: Spined\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_runic_horned.jpg\" alt=\"Runic Sewing Kit: Horned\"></center></td>");
+                "            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_runic_horned.jpg\" alt=\"Runic Sewing Kit: Horned\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_runic_barbed.jpg\" alt=\"Runic Sewing Kit: Barbed\"></center></td>");
+                "            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_runic_barbed.jpg\" alt=\"Runic Sewing Kit: Barbed\"></center></td>");
 			html.WriteLine("         </tr>");
 		}
 
@@ -1000,41 +1000,41 @@ namespace Server.Commands
 			html.WriteLine("         <tr>");
 			html.WriteLine("            <td style=\"width: 250px;\" rowspan=\"2\" class=\"entry\">&nbsp;</td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_1.jpg\" alt=\"Colored Cloth (Level 1)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_1.jpg\" alt=\"Colored Cloth (Level 1)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_2.jpg\" alt=\"Colored Cloth (Level 2)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_2.jpg\" alt=\"Colored Cloth (Level 2)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_3.jpg\" alt=\"Colored Cloth (Level 3)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_3.jpg\" alt=\"Colored Cloth (Level 3)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_4.jpg\" alt=\"Colored Cloth (Level 4)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_4.jpg\" alt=\"Colored Cloth (Level 4)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_cloth_5.jpg\" alt=\"Colored Cloth (Level 5)\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_cloth_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_cloth_5.jpg\" alt=\"Colored Cloth (Level 5)\" border=\"0\"></a></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.runuo.com/images/bodreward_sandals_full.jpg\"><img src=\"http://www.runuo.com/images/bodreward_sandals.jpg\" alt=\"Colored Sandals\" border=\"0\"></a></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><a href=\"http://www.servuox.com/images/bodreward_sandals_full.jpg\"><img src=\"http://www.servuox.com/images/bodreward_sandals.jpg\" alt=\"Colored Sandals\" border=\"0\"></a></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+5</small></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+10</small></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+15</small></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+20</small></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_smallhides.jpg\" alt=\"Small Stretched Hide\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_smallhides.jpg\" alt=\"Small Stretched Hide\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_mediumhides.jpg\" alt=\"Medium Stretched Hide\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_mediumhides.jpg\" alt=\"Medium Stretched Hide\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_lighttapestry.jpg\" alt=\"Light Flower Tapestry\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_lighttapestry.jpg\" alt=\"Light Flower Tapestry\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_darktapestry.jpg\" alt=\"Dark Flower Tapestry\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_darktapestry.jpg\" alt=\"Dark Flower Tapestry\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_brownbearrug.jpg\" alt=\"Brown Bear Rug\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_brownbearrug.jpg\" alt=\"Brown Bear Rug\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_polarbearrug.jpg\" alt=\"Polar Bear Rug\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_polarbearrug.jpg\" alt=\"Polar Bear Rug\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_clothingbless.jpg\" alt=\"Clothing Bless Deed\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_clothingbless.jpg\" alt=\"Clothing Bless Deed\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_runic_spined.jpg\" alt=\"Runic Sewing Kit: Spined\"></center></td>");
+				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_runic_spined.jpg\" alt=\"Runic Sewing Kit: Spined\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_runic_horned.jpg\" alt=\"Runic Sewing Kit: Horned\"></center></td>");
+				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_runic_horned.jpg\" alt=\"Runic Sewing Kit: Horned\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_runic_barbed.jpg\" alt=\"Runic Sewing Kit: Barbed\"></center></td>");
+				"            <td style=\"width: 25px;\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_runic_barbed.jpg\" alt=\"Runic Sewing Kit: Barbed\"></center></td>");
 			html.WriteLine("         </tr>");
 			html.WriteLine("         <tr>");
 			html.WriteLine(
@@ -1268,16 +1268,16 @@ namespace Server.Commands
 				"            <td style=\"width: 250px;\" rowspan=\"2\" class=\"entry\"><center>{0}</center></td>",
 				title);
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_sturdytool.jpg\" alt=\"Sturdy Pickaxe/Shovel (150 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_sturdytool.jpg\" alt=\"Sturdy Pickaxe/Shovel (150 uses)\"></center></td>");
 			html.WriteLine("            <td style=\"width: 75px;\" colspan=\"3\" class=\"entry\"><center>Gloves</center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_gargaxe.jpg\" alt=\"Gargoyles Pickaxe (100 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_gargaxe.jpg\" alt=\"Gargoyles Pickaxe (100 uses)\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_prospectortool.jpg\" alt=\"Prospectors Tool (50 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_prospectortool.jpg\" alt=\"Prospectors Tool (50 uses)\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_powder.jpg\" alt=\"Powder of Temperament (10 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_powder.jpg\" alt=\"Powder of Temperament (10 uses)\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_anvil.jpg\" alt=\"Colored Anvil\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_anvil.jpg\" alt=\"Colored Anvil\"></center></td>");
 			html.WriteLine(
 				"            <td style=\"width: 100px;\" colspan=\"4\" class=\"entry\"><center>Power Scrolls</center></td>");
 			html.WriteLine(
@@ -1313,7 +1313,7 @@ namespace Server.Commands
 			html.WriteLine("         <tr>");
 			html.WriteLine("            <td style=\"width: 250px;\" rowspan=\"2\" class=\"entry\">&nbsp;</td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_sturdytool.jpg\" alt=\"Sturdy Pickaxe/Shovel (150 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_sturdytool.jpg\" alt=\"Sturdy Pickaxe/Shovel (150 uses)\"></center></td>");
 			html.WriteLine(
 				"            <td style=\"width: 25px;\" class=\"entry\"><center><small>+1</small></center>&nbsp;</td>");
 			html.WriteLine(
@@ -1321,13 +1321,13 @@ namespace Server.Commands
 			html.WriteLine(
 				"            <td style=\"width: 25px;\" class=\"entry\"><center><small>+5</small></center>&nbsp;</td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_gargaxe.jpg\" alt=\"Gargoyles Pickaxe (100 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_gargaxe.jpg\" alt=\"Gargoyles Pickaxe (100 uses)\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_prospectortool.jpg\" alt=\"Prospectors Tool (50 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_prospectortool.jpg\" alt=\"Prospectors Tool (50 uses)\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_powder.jpg\" alt=\"Powder of Temperament (10 uses)\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_powder.jpg\" alt=\"Powder of Temperament (10 uses)\"></center></td>");
 			html.WriteLine(
-				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.runuo.com/images/bodreward_anvil.jpg\" alt=\"Colored Anvil\"></center></td>");
+				"            <td style=\"width: 25px;\" rowspan=\"2\" class=\"entry\"><center><img src=\"http://www.servuox.com/images/bodreward_anvil.jpg\" alt=\"Colored Anvil\"></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+5</small></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+10</small></center></td>");
 			html.WriteLine("            <td style=\"width: 25px;\" class=\"entry\"><center><small>+15</small></center></td>");
@@ -1604,7 +1604,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Body List</title>");
+				html.WriteLine("      <title>servuox Documentation - Body List</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -1700,7 +1700,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Speech Keywords</title>");
+				html.WriteLine("      <title>servuox Documentation - Speech Keywords</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -1918,7 +1918,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Commands</title>");
+				html.WriteLine("      <title>servuox Documentation - Commands</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -2350,7 +2350,7 @@ namespace Server.Commands
 				html.WriteLine("<!DOCTYPE html>");
 				html.WriteLine("<html>");
 				html.WriteLine("   <head>");
-				html.WriteLine("      <title>RunUO Documentation - Constructable Objects</title>");
+				html.WriteLine("      <title>servuox Documentation - Constructable Objects</title>");
 				html.WriteLine("      <style type=\"text/css\">");
 				html.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				html.WriteLine("      a, a:visited { color: #000000; }");
@@ -2557,7 +2557,7 @@ namespace Server.Commands
 				indexHtml.WriteLine("<!DOCTYPE html>");
 				indexHtml.WriteLine("<html>");
 				indexHtml.WriteLine("   <head>");
-				indexHtml.WriteLine("      <title>RunUO Documentation - Class Overview</title>");
+				indexHtml.WriteLine("      <title>servuox Documentation - Class Overview</title>");
 				indexHtml.WriteLine("      <style type=\"text/css\">");
 				indexHtml.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				indexHtml.WriteLine("      a, a:visited { color: #000000; }");
@@ -2593,7 +2593,7 @@ namespace Server.Commands
 				nsHtml.WriteLine("<!DOCTYPE html>");
 				nsHtml.WriteLine("<html>");
 				nsHtml.WriteLine("   <head>");
-				nsHtml.WriteLine("      <title>RunUO Documentation - Class Overview - {0}</title>", name);
+				nsHtml.WriteLine("      <title>servuox Documentation - Class Overview - {0}</title>", name);
 				nsHtml.WriteLine("      <style type=\"text/css\">");
 				nsHtml.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				nsHtml.WriteLine("      a, a:visited { color: #000000; }");
@@ -2626,7 +2626,7 @@ namespace Server.Commands
 				typeHtml.WriteLine("<!DOCTYPE html>");
 				typeHtml.WriteLine("<html>");
 				typeHtml.WriteLine("   <head>");
-				typeHtml.WriteLine("      <title>RunUO Documentation - Class Overview - {0}</title>", info.TypeName);
+				typeHtml.WriteLine("      <title>servuox Documentation - Class Overview - {0}</title>", info.TypeName);
 				typeHtml.WriteLine("      <style type=\"text/css\">");
 				typeHtml.WriteLine("      body { background-color: white; font-family: Tahoma; color: #000000; }");
 				typeHtml.WriteLine("      a, a:visited { color: #000000; }");
