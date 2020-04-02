@@ -93,6 +93,7 @@
     <Compile Include="Administration\Commands\BoundingBoxPicker.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\AncientLich.cs" />
     <Compile Include="Needs Deleted Look Over First\CreateWorld.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -901,17 +902,17 @@
     <Compile Include="Expansion\ML\MondainsLegacy.cs" />
     <Compile Include="Expansion\TOL\AuctionSafe\AuctionMap.cs" />
     <Compile Include="Services\GiftGiving\HolidayGiftBox2018.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\BonusHarvestResource.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestBank.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestDefinition.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestResource.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestSoundTimer.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestTarget.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestTimer.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestVein.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Fishing.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Lumberjacking.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Harvest\Mining.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\BonusHarvestResource.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestBank.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestDefinition.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestResource.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestSoundTimer.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestTarget.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestTimer.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestVein.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Fishing.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Lumberjacking.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Mining.cs" />
     <Compile Include="Expansion\HS\HuntmasterChallenge\ResourceSatchels.cs" />
     <Compile Include="Mechanics\LootGeneration\Imbuing\Core\Imbuing.cs" />
     <Compile Include="Mechanics\LootGeneration\Imbuing\Core\ImbuingContext.cs" />
@@ -2128,11 +2129,11 @@
     <Compile Include="Mobiles\Event\BaneDragon.cs" />
     <Compile Include="Mobiles\Event\PumpkinHead.cs" />
     <Compile Include="Mobiles\Event\Wanderer.cs" />
-    <Compile Include="Mobiles\Factions\BaseWarHorse.cs" />
-    <Compile Include="Mobiles\Factions\CoMWarHorse.cs" />
-    <Compile Include="Mobiles\Factions\MinaxWarHorse.cs" />
-    <Compile Include="Mobiles\Factions\SLWarHorse.cs" />
-    <Compile Include="Mobiles\Factions\TBWarHorse.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Mounts\BaseWarHorse.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Mounts\CoMWarHorse.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Mounts\MinaxWarHorse.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Mounts\SLWarHorse.cs" />
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Mounts\TBWarHorse.cs" />
     <Compile Include="Mobiles\MobileInterfaces.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Abscess.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AcidElementalRenowned.cs" />
@@ -2188,18 +2189,17 @@
     <Compile Include="Mobiles\Hunters Guide\W\WyvernRenowned.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AbysmalHorror.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AbyssalAbomination.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\AcidElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\AcidElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AcidPopper.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AcidSlug.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\AgapiteElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\AgapiteElemental.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\AirElemental.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Alligator.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\AncientLich.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AncientWyrm.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AntLion.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\ArcaneDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\ArchDaemon.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\ArcticOgreLord.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\ArcticOgreLord.cs" />
     <Compile Include="Expansion\SE\Mobiles\BakeKitsune.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Balron.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\BaseCreature.cs" />
@@ -2240,7 +2240,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\BoneKnight.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\BoneMagi.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Brigand.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\BronzeElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\BronzeElemental.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\BrownBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BulbousPutrification.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Bull.cs" />
@@ -2279,7 +2279,7 @@
     <Compile Include="Mobiles\Hunters Guide\C\CrystalSeaSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalVortex.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalWisp.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\Cursed.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\Cursed.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CursedSoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CuSidhe.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Daemon.cs" />
@@ -2302,7 +2302,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Drake.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\DreadSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DreamWraith .cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\DullCopperElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\DullCopperElemental.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Eagle.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\EarthElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffetePutridGargoyle.cs" />
@@ -2386,7 +2386,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Harpy.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\HeadlessOne.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\HellCat.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\HellHound.cs" />
+    <Compile Include="Expansion\T2A\Mobiles\Creatures\HellHound.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\HellSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HighPlainsBoura.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Hind.cs" />
@@ -2410,9 +2410,9 @@
     <Compile Include="Mobiles\Hunters Guide\K\KazeKemono.cs" />
     <Compile Include="Mobiles\Hunters Guide\K\Kepetch.cs" />
     <Compile Include="Mobiles\Hunters Guide\K\KepetchAmbusher.cs" />
-    <Compile Include="Mobiles\Hunters Guide\K\KhaldunRevenant.cs" />
-    <Compile Include="Mobiles\Hunters Guide\K\KhaldunSummoner.cs" />
-    <Compile Include="Mobiles\Hunters Guide\K\KhaldunZealot.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\KhaldunRevenant.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\KhaldunSummoner.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\KhaldunZealot.cs" />
     <Compile Include="Mobiles\Hunters Guide\K\Kirin.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Kraken.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadyOfTheSnow.cs" />
@@ -2463,7 +2463,7 @@
     <Compile Include="Mobiles\Hunters Guide\P\ParoxysmusSwampDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PatchworkSkeleton.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PestilentBandage.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Phoenix.cs" />
+    <Compile Include="Expansion\T2A\Mobiles\Creatures\Phoenix.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Pig.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PitFiend.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\Pixie.cs" />
@@ -2566,7 +2566,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\SnowLeopard.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SolenHelper.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SpeckledScorpion.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SpectralArmour.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\SpectralArmour.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Spectre.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Spellbinder.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Squirrel.cs" />
@@ -2590,7 +2590,7 @@
     <Compile Include="Mobiles\Hunters Guide\U\UndeadGuardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\UnfrozenMummy.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\Unicorn.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\ValoriteElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\ValoriteElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\V\VampireBat.cs" />
     <Compile Include="Mobiles\Hunters Guide\V\VeriteElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\V\Virulent.cs" />
@@ -2601,7 +2601,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\WaterElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WhippingVine.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\WhiteWolf.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\WhiteWyrm.cs" />
+    <Compile Include="Expansion\T2A\Mobiles\Monsters\WhiteWyrm.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\Wight.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wisp.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WolfSpider.cs" />
@@ -3340,7 +3340,7 @@
     <Compile Include="Expansion\ML\CommunityCollections\CommunityCollectionGump.cs" />
     <Compile Include="Expansion\AOS\Doom\GaryRoom.cs" />
     <Compile Include="Expansion\AOS\Doom\GuardianRoom.cs" />
-    <Compile Include="Expansion\Original UO\Services\Ethics\Core\Persistence.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Persistence.cs" />
     <Compile Include="Expansion\HS\Generate.cs" />
     <Compile Include="Expansion\HS\Gumps\BaseShipGump.cs" />
     <Compile Include="Expansion\HS\Gumps\BountyBoard.cs" />
@@ -8827,16 +8827,16 @@
     <Compile Include="Expansion\SE\Abilities\TimedResistanceMod.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\AIControlMobileTarget.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\AI\AIControlMobileTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\AnimalAI.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\AI\AnimalAI.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mobiles\AI\ArcherAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\BaseAI.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\AI\BaseAI.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mobiles\AI\BerserkAI.cs">
@@ -8857,13 +8857,13 @@
     <Compile Include="Mobiles\AI\PredatorAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\SpeedInfo.cs">
+    <Compile Include="Utilities\SpeedInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mobiles\AI\ThiefAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\VendorAI.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\AI\VendorAI.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Multis\BaseHouse.cs">
@@ -9205,104 +9205,104 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\MuseumWeapons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\AlterItem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\AlterItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\AutoCraft.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftContext.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\AutoCraft.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftContext.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftGroup.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftGroupCol.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftGroupCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftGump.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftGumpItem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftGumpItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftItem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftItemCol.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftItemCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftItemIDAttribute.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftItemIDAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftRes.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftRes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftResCol.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftResCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftSkill.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftSkill.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftSkillCol.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftSkillCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftSubRes.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftSubRes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftSubResCol.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftSubResCol.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CraftSystem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CraftSystem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\CustomCraft.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\CustomCraft.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\Enhance.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\Enhance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\QueryMakersMarkGump.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\QueryMakersMarkGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\Recipes.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\Recipes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\Repair.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\Repair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\Core\Resmelt.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\Core\Resmelt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefAlchemy.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefAlchemy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefBlacksmithy.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefBlacksmithy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefBowFletching.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefBowFletching.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefCarpentry.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefCarpentry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefCartography.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefCartography.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefCooking.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefCooking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefGlassblowing.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefGlassblowing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefInscription.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefInscription.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefMasonry.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefMasonry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefTailoring.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefTailoring.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Craft\DefTinkering.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Craft\DefTinkering.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Functional\DespiseAnkh.cs">
@@ -9347,85 +9347,85 @@
     <Compile Include="Expansion\AOS\Doom\LeverPuzzleRegions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Core\Ethic.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Ethic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Core\Player.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Player.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Core\Power.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Power.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Definitions\EthicDefinition.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Definitions\EthicDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Definitions\PowerDefinition.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Definitions\PowerDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Ethic.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Ethic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Mobiles\UnholyFamiliar.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Mobiles\UnholyFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Mobiles\UnholySteed.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Mobiles\UnholySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\Blight.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\Blight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\SummonFamiliar.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\SummonFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\UnholyItem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholyItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\UnholySense.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholySense.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\UnholyShield.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholyShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\UnholySteed.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\UnholyWord.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholyWord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Evil\Powers\VileBlade.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\VileBlade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Ethic.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Ethic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Mobiles\HolyFamiliar.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Mobiles\HolyFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Mobiles\HolySteed.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Mobiles\HolySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\Bless.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\Bless.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\HolyBlade.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyBlade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\HolyItem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\HolySense.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolySense.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\HolyShield.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\HolySteed.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\HolyWord.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyWord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Services\Ethics\Hero\Powers\SummonFamiliar.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\SummonFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Services\Factions\Core\Election.cs">
@@ -9614,7 +9614,7 @@
     <Compile Include="Expansion\UOR\Services\Factions\Items\Traps\FactionTrapRemovalKit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\FactionWarHorse.cs">
+    <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Mounts\FactionWarHorse.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Guards\BaseFactionGuard.cs">
@@ -9674,7 +9674,7 @@
     <Compile Include="Expansion\UOR\Services\Factions\Mobiles\Vendors\FactionReagentVendor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Harvest\HarvestSystem.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\HarvestSystem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Malas\Sphynx\AncientWall.cs" />
@@ -10130,7 +10130,7 @@
     <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Creatures\KhalAnkur.cs" />
     <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Creatures\KhalAnkurWarriors.cs" />
     <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Creatures\KhaldunBlood.cs" />
-    <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Creatures\ShadowFiend.cs" />
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\ShadowFiend.cs" />
     <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Creatures\SkelementalKnight.cs" />
     <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Creatures\SkelementalMage.cs" />
     <Compile Include="Expansion\EJ\TreasuresOfKhaldun\Generate.cs" />
@@ -10421,16 +10421,16 @@
     <Compile Include="Expansion\UOR\Services\Khaldun\KhaldunPitTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\G\GrimmochDrummel.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\GrimmochDrummel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\L\LysanderGathenwale.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\LysanderGathenwale.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\M\MorgBergen.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\MorgBergen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\T\TavaraSewel.cs">
+    <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\TavaraSewel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Services\Khaldun\PuzzleChest.cs">
@@ -11492,74 +11492,74 @@
     <Compile Include="Mechanics\XmlSpawner\XMLSpawner Support\StaffCloak.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Anatomy.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Anatomy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\AnimalLore.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\AnimalLore.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\AnimalTaming.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\AnimalTaming.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\ArmsLore.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\ArmsLore.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Begging.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Begging.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\DetectHidden.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\DetectHidden.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Discordance.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Discordance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\EvalInt.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\EvalInt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\ForensicEval.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\ForensicEval.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Hiding.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Hiding.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Inscribe.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Inscribe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\ItemIdentification.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\ItemIdentification.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Meditation.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Meditation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Peacemaking.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Peacemaking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Poisoning.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Poisoning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Provocation.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Provocation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\RemoveTrap.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\RemoveTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\SkillCat.cs" />
-    <Compile Include="Expansion\Original UO\Skills\Snooping.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\SkillCat.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Snooping.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\SpiritSpeak.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\SpiritSpeak.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Stealing.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Stealing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Stealth.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Stealth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\TasteID.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\TasteID.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Tracking.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Tracking.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Services\GiftGiving\GiftGiving.cs">
@@ -11577,31 +11577,31 @@
     <Compile Include="Expansion\Original UO\Items\ResGate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\DisturbType.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\DisturbType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\MagerySpell.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\MagerySpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\SpecialMove.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\SpecialMove.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\Spell.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\Spell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\SpellCircle.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\SpellCircle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\SpellHelper.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\SpellHelper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\SpellInfo.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\SpellInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\SpellRegistry.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\SpellRegistry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Base\SpellState.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Base\SpellState.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\Skills\Bushido\Confidence.cs">
@@ -11661,106 +11661,106 @@
     <Compile Include="Expansion\ML\Skills\Chivalry\SacredJourney.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\AirElemental.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\AirElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\EarthElemental.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\EarthElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\Earthquake.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\Earthquake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\EnergyVortex.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\EnergyVortex.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\FireElemental.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\FireElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\Resurrection.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\Resurrection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\SummonDaemon.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\SummonDaemon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\8Eighth\WaterElemental.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\8Eighth\WaterElemental.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\BladeSpirits.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\BladeSpirits.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\DispelField.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\DispelField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\Incognito.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\Incognito.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\MagicReflect.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\MagicReflect.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\MindBlast.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\MindBlast.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\Paralyze.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\Paralyze.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\PoisonField.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\PoisonField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\5Fifth\SummonCreature.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\5Fifth\SummonCreature.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\Clumsy.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\Clumsy.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\CreateFood.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\CreateFood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\Feeblemind.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\Feeblemind.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\Heal.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\Heal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\MagicArrow.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\MagicArrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\NightSight.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\NightSight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\ReactiveArmor.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\ReactiveArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\1First\Weaken.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\1First\Weaken.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\ArchCure.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\ArchCure.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\ArchProtection.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\ArchProtection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\Curse.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\Curse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\FireField.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\FireField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\GreaterHeal.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\GreaterHeal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\Lightning.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\Lightning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\ManaDrain.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\ManaDrain.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\4Fourth\Recall.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\4Fourth\Recall.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Gargoyle\SpellDefinitions\FlySpell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Initializer.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Initializer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Skills\Mysticism\MysticSpell.cs">
@@ -11907,79 +11907,79 @@
     <Compile Include="Expansion\SE\Skills\Ninjitsu\SurpriseAttack.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\Reagent.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\Reagent.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\Agility.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\Agility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\Cunning.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\Cunning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\Cure.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\Cure.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\Harm.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\Harm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\MagicTrap.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\MagicTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\Protection.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\Protection.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\RemoveTrap.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\RemoveTrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\2Second\Strength.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\2Second\Strength.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\ChainLightning.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\ChainLightning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\EnergyField.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\EnergyField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\FlameStrike.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\FlameStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\GateTravel.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\GateTravel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\ManaVampire.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\ManaVampire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\MassDispel.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\MassDispel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\MeteorSwarm.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\MeteorSwarm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\7Seventh\Polymorph.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\7Seventh\Polymorph.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\Dispel.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\Dispel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\EnergyBolt.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\EnergyBolt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\Explosion.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\Explosion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\Invisibility.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\Invisibility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\Mark.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\Mark.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\MassCurse.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\MassCurse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\ParalyzeField.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\ParalyzeField.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\Reveal.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\6Sixth\Reveal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\BardSpell.cs" />
@@ -12099,31 +12099,31 @@
     <Compile Include="Expansion\SA\Skills\Spellweaving\WordOfDeath.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\Bless.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Bless.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\Fireball.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Fireball.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\MagicLock.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\MagicLock.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\Poison.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Poison.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\Telekinesis.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Telekinesis.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\Teleport.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Teleport.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\Unlock.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\Unlock.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\3Third\WallOfStone.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\3Third\WallOfStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Skills\Magery\UnsummonTimer.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\Skills\Magery\UnsummonTimer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\Mobiles\Creatures\BullFrog.cs" />
