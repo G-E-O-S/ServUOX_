@@ -1,1 +1,0 @@
-Server will create a file named Bounds.bin in this folder... DO NOT DELETE!

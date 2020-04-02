@@ -8,8 +8,13 @@ namespace Server.Bounds
 	{
 		public static void Initialize()
 		{	
-			CommandSystem.Register("GenBounds", AccessLevel.Administrator, new CommandEventHandler(GenBounds_OnCommand));		
-		}
+			CommandSystem.Register("GenBounds", AccessLevel.Administrator, new CommandEventHandler(GenBounds_OnCommand));
+
+            if (!File.Exists("Data/Binary/Bounds.bin"))
+            {
+                GenBounds_OnCommand(null);
+            }
+        }
 		
 		[Usage("GenBounds")]
 		[Description("GenBounds")]
@@ -20,8 +25,11 @@ namespace Server.Bounds
 				Utility.PushColor(ConsoleColor.Yellow);
 				Console.Write("Generating Bounds.bin...");
 				Utility.PopColor();
-				
-				FileStream fs = new FileStream( "Data/Binary/Bounds.bin", FileMode.Create, FileAccess.Write );
+
+                if (!Directory.Exists("Data/Binary/"))
+                    Directory.CreateDirectory("Data/Binary/");
+
+                FileStream fs = new FileStream( "Data/Binary/Bounds.bin", FileMode.Create, FileAccess.Write );
 			
 				BinaryWriter bin = new BinaryWriter( fs );
 			
