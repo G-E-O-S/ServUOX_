@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\World\Regions\Spawning\SpawnDefinition.cs" />
+    <Compile Include="Administration\World\Regions\Spawning\SpawnEntry.cs" />
+    <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\LootBags.cs" />
     <Compile Include="Expansion\HS\Gothic Theme Pack\GargoyleStatues.cs" />
     <Compile Include="Expansion\SE\Abilities\ColdWind.cs" />
@@ -9018,15 +9021,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\World\Regions\NoHousingRegion.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\World\Regions\Spawning\SpawnDefinition.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\World\Regions\Spawning\SpawnEntry.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\World\Regions\TownRegion.cs">
