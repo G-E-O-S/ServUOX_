@@ -839,7 +839,7 @@
     <Compile Include="Expansion\EJ\StoreBought\MysticalPolymorphTotem.cs" />
     <Compile Include="Items\Tools\WhiteLeatherDyeTub.cs" />
     <Compile Include="Mechanics\Aggression.cs" />
-    <Compile Include="Administration\World\ArchivedSaves.cs" />
+    <Compile Include="Administration\ArchivedSaves.cs" />
     <Compile Include="Utilities\Replacer.cs" />
     <Compile Include="Utilities\TaskPollingTimer.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CoconutCrab.cs" />
@@ -910,19 +910,19 @@
     <Compile Include="Expansion\Original UO\Skills\Harvest\Lumberjacking.cs" />
     <Compile Include="Expansion\Original UO\Skills\Harvest\Mining.cs" />
     <Compile Include="Expansion\HS\HuntmasterChallenge\ResourceSatchels.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\Core\Imbuing.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\Core\ImbuingContext.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\Core\ImbuingDefinition.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\Gumps\ImbueGump.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\Gumps\ImbueSelectGump.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\Gumps\ImbuingGump.cs" />
-    <Compile Include="Services\LootGeneration\Imbuing\ResourceDrops.cs" />
-    <Compile Include="Services\LootGeneration\ItemPropertiesGump.cs" />
-    <Compile Include="Services\LootGeneration\ItemPropertyInfo.cs" />
-    <Compile Include="Services\LootGeneration\RandomItemGenerator.cs" />
-    <Compile Include="Services\LootGeneration\RunicReforging\Gumps.cs" />
-    <Compile Include="Services\LootGeneration\RunicReforging\ReforgingContext.cs" />
-    <Compile Include="Services\LootGeneration\RunicReforging\RunicReforging.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\Core\Imbuing.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\Core\ImbuingContext.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\Core\ImbuingDefinition.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\Gumps\ImbueGump.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\Gumps\ImbueSelectGump.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\Gumps\ImbuingGump.cs" />
+    <Compile Include="Mechanics\LootGeneration\Imbuing\ResourceDrops.cs" />
+    <Compile Include="Mechanics\LootGeneration\ItemPropertiesGump.cs" />
+    <Compile Include="Mechanics\LootGeneration\ItemPropertyInfo.cs" />
+    <Compile Include="Mechanics\LootGeneration\RandomItemGenerator.cs" />
+    <Compile Include="Mechanics\LootGeneration\RunicReforging\Gumps.cs" />
+    <Compile Include="Mechanics\LootGeneration\RunicReforging\ReforgingContext.cs" />
+    <Compile Include="Mechanics\LootGeneration\RunicReforging\RunicReforging.cs" />
     <Compile Include="Expansion\ML\MondainsLegacyQuests\Helpers\Persistence.cs" />
     <Compile Include="Expansion\ML\MondainsLegacyQuests\TierQuest.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\GardeningContract.cs" />
@@ -2093,7 +2093,7 @@
     <Compile Include="Expansion\ML\Aquarium\Rewards\WaterloggedBoots.cs" />
     <Compile Include="Administration\World\Siege.cs" />
     <Compile Include="Mechanics\SpawnerPersistence.cs" />
-    <Compile Include="Administration\World\UntamedPetsCleaning.cs" />
+    <Compile Include="Administration\UntamedPetsCleaning.cs" />
     <Compile Include="Mechanics\Waypoints.cs" />
     <Compile Include="Utilities\WorldLocationInfo.cs" />
     <Compile Include="Mobiles\AI\Magical AI\MageAI.cs" />
@@ -7085,7 +7085,7 @@
     <Compile Include="Mechanics\Gumps\HouseRaffleManagementGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\HouseRaffleRegion.cs">
+    <Compile Include="Administration\World\Regions\HouseRaffleRegion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Functional\HouseRaffleStone.cs">
@@ -8616,13 +8616,13 @@
     <Compile Include="Mechanics\Animations.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\AOS.cs">
+    <Compile Include="Administration\AOS.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\AutoRestart.cs">
+    <Compile Include="Administration\AutoRestart.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\AutoSave.cs">
+    <Compile Include="Administration\AutoSave.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Broadcasts.cs">
@@ -8631,16 +8631,16 @@
     <Compile Include="Mechanics\BuffIcons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\CharacterCreation.cs">
+    <Compile Include="Administration\CharacterCreation.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Cleanup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\ClientVerification.cs">
+    <Compile Include="Administration\ClientVerification.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\ConsoleCommands.cs">
+    <Compile Include="Administration\Commands\Console\ConsoleCommands.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\Timestamp.cs">
@@ -8649,7 +8649,7 @@
     <Compile Include="Administration\CrashGuard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\CurrentExpansion.cs">
+    <Compile Include="Administration\CurrentExpansion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\DataPath.cs">
@@ -8703,7 +8703,7 @@
     <Compile Include="Services\GiftGiving\Winter2004.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\Guild.cs">
+    <Compile Include="Administration\Guild.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\HardwareInfo.cs">
@@ -8715,7 +8715,7 @@
     <Compile Include="Mechanics\InhumanSpeech.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\Keywords.cs">
+    <Compile Include="Administration\Keywords.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\LanguageStatistics.cs">
@@ -8760,10 +8760,10 @@
     <Compile Include="Utilities\ProtocolExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\RaceDefinitions.cs">
+    <Compile Include="Administration\RaceDefinitions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\RegenRates.cs">
+    <Compile Include="Administration\RegenRates.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\RenameRequests.cs">
@@ -8790,7 +8790,7 @@
     <Compile Include="Utilities\TextDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\World\Titles.cs">
+    <Compile Include="Administration\Titles.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mechanics\ToggleItem.cs">
@@ -8993,46 +8993,46 @@
     <Compile Include="Mobiles\Quests\Vernix.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\BaseRegion.cs">
+    <Compile Include="Administration\World\Regions\BaseRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\DamagingRegion.cs">
+    <Compile Include="Administration\World\Regions\DamagingRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\DungeonRegion.cs">
+    <Compile Include="Administration\World\Regions\DungeonRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\GreenAcres.cs">
+    <Compile Include="Administration\World\Regions\GreenAcres.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\GuardedRegion.cs">
+    <Compile Include="Administration\World\Regions\GuardedRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\HouseRegion.cs">
+    <Compile Include="Administration\World\Regions\HouseRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\Jail.cs">
+    <Compile Include="Administration\World\Regions\Jail.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\MondainRegion.cs">
+    <Compile Include="Administration\World\Regions\MondainRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\NoHousingRegion.cs">
+    <Compile Include="Administration\World\Regions\NoHousingRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\Spawning\SpawnDefinition.cs">
+    <Compile Include="Administration\World\Regions\Spawning\SpawnDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\Spawning\SpawnEntry.cs">
+    <Compile Include="Administration\World\Regions\Spawning\SpawnEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\Spawning\SpawnPersistence.cs">
+    <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\TownRegion.cs">
+    <Compile Include="Administration\World\Regions\TownRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mechanics\Regions\TwistedWealdDesert.cs">
+    <Compile Include="Administration\World\Regions\TwistedWealdDesert.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Assistants.cs">
@@ -10342,9 +10342,9 @@
     <Compile Include="Expansion\HS\ViceVsVirtue\ViceVsVirtueSystem.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\VvVBattle.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\VvVRewards.cs" />
-    <Compile Include="Services\Virtues\Honesty.cs" />
-    <Compile Include="Services\Virtues\Humility.cs" />
-    <Compile Include="Services\Virtues\Spirituality.cs" />
+    <Compile Include="Mechanics\Virtues\Honesty.cs" />
+    <Compile Include="Mechanics\Virtues\Humility.cs" />
+    <Compile Include="Mechanics\Virtues\Spirituality.cs" />
     <Compile Include="Administration\Help\HelpGump.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -11174,31 +11174,31 @@
     <Compile Include="Services\VeteranRewards\RewardSystem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\Compassion.cs">
+    <Compile Include="Mechanics\Virtues\Compassion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\Honor.cs">
+    <Compile Include="Mechanics\Virtues\Honor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\Justice.cs">
+    <Compile Include="Mechanics\Virtues\Justice.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\Sacrifice.cs">
+    <Compile Include="Mechanics\Virtues\Sacrifice.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\Valor.cs">
+    <Compile Include="Mechanics\Virtues\Valor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\VirtueGump.cs">
+    <Compile Include="Mechanics\Virtues\VirtueGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\VirtueHelper.cs">
+    <Compile Include="Mechanics\Virtues\VirtueHelper.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\VirtueInfoGump.cs">
+    <Compile Include="Mechanics\Virtues\VirtueInfoGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\Virtues\VirtueStatusGump.cs">
+    <Compile Include="Mechanics\Virtues\VirtueStatusGump.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mechanics\XmlSpawner\XmlSpawner Core\BaseXmlSpawner.cs">
@@ -12269,7 +12269,7 @@
     <Compile Include="Mobiles\VendorInfo\VendorInventory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\LootGeneration\RunicReforging\ReadMe.txt" />
+    <Content Include="Mechanics\LootGeneration\RunicReforging\ReadMe.txt" />
     <Content Include="Expansion\UOR\Services\New Magincia\ReadMe.txt" />
     <Content Include="Expansion\HS\DespiseRevamped\Read Me.txt" />
     <Content Include="Expansion\HS\Shame Revamped\Read Me.txt" />
