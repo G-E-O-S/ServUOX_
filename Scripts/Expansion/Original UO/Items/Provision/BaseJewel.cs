@@ -721,6 +721,11 @@ namespace Server.Items
 
             if (parent is Mobile)
             {
+                ((Mobile)parent).AddToBackpack(this);
+            }
+
+            if (parent is Mobile)
+            {
                 if (Server.Engines.XmlSpawner2.XmlAttach.CheckCanEquip(this, (Mobile)parent))
                     Server.Engines.XmlSpawner2.XmlAttach.CheckOnEquip(this, (Mobile)parent);
                 else

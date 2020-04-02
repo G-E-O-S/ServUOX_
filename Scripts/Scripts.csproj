@@ -617,8 +617,8 @@
     <Compile Include="Items\Consumables\DecorativeKitchenSet.cs" />
     <Compile Include="Items\Consumables\DecorativeStableSet.cs" />
     <Compile Include="Items\Consumables\EmbroideryTool.cs" />
-    <Compile Include="Expansion\Time Of Legends\Damageable\Beacon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Damageable\DamageableItem.cs" />
+    <Compile Include="Expansion\TOL\Damageable\Beacon.cs" />
+    <Compile Include="Expansion\TOL\Damageable\DamageableItem.cs" />
     <Compile Include="Items\Decorative\AncientWeapons.cs" />
     <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternBrokenShield.cs" />
     <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternHand.cs" />
@@ -878,24 +878,24 @@
     <Compile Include="Services\22nd Anniversary\Items\CopperSunflower.cs" />
     <Compile Include="Services\22nd Anniversary\Items\CopperWings.cs" />
     <Compile Include="Services\22nd Anniversary\Giver.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\21st Anniversary Gifts\Anniversary21Card.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\21st Anniversary Gifts\Anniversary21GiftToken.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\21st Anniversary Gifts\AnniversaryBag21st.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\21st Anniversary Gifts\Giver.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\AstronomerTitleDeed.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\AstronomySystem.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\BrassOrrery.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\ConstellationInfo.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\ConstellationLedger.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\PrimerOnBritannianAstronomy.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\StarChart.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\Telescope.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\Tent.cs" />
-    <Compile Include="Expansion\Time Of Legends\Astronomy\Willebrord.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\Anniversary21Card.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\Anniversary21GiftToken.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\AnniversaryBag21st.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\Giver.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\AstronomerTitleDeed.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\AstronomySystem.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\BrassOrrery.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\ConstellationInfo.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\ConstellationLedger.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\PrimerOnBritannianAstronomy.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\StarChart.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\Telescope.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\Tent.cs" />
+    <Compile Include="Expansion\TOL\Astronomy\Willebrord.cs" />
     <Compile Include="Services\DailyRares.cs" />
     <Compile Include="Expansion\High Seas\Items\Cannons and Ammo\ShipCannon.cs" />
     <Compile Include="Expansion\Mondains Legacy\MondainsLegacy.cs" />
-    <Compile Include="Expansion\Time Of Legends\AuctionSafe\AuctionMap.cs" />
+    <Compile Include="Expansion\TOL\AuctionSafe\AuctionMap.cs" />
     <Compile Include="Services\GiftGiving\HolidayGiftBox2018.cs" />
     <Compile Include="Expansion\Original UO\Skills\Harvest\Core\BonusHarvestResource.cs" />
     <Compile Include="Expansion\Original UO\Skills\Harvest\Core\HarvestBank.cs" />
@@ -1054,28 +1054,28 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\BaseArmor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideArms.cs" />
-    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideBustier.cs" />
-    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideChest.cs" />
-    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideHelm.cs" />
-    <Compile Include="Expansion\Time Of Legends\DragonTurtleHideLegs.cs" />
+    <Compile Include="Expansion\TOL\DragonTurtleHideArms.cs" />
+    <Compile Include="Expansion\TOL\DragonTurtleHideBustier.cs" />
+    <Compile Include="Expansion\TOL\DragonTurtleHideChest.cs" />
+    <Compile Include="Expansion\TOL\DragonTurtleHideHelm.cs" />
+    <Compile Include="Expansion\TOL\DragonTurtleHideLegs.cs" />
     <Compile Include="Expansion\Stygian Abyss\GargishClothArmor.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltBustier.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltChest.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltCollar.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltHelm.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltLegs.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltLongSkirt.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltShorts.cs" />
-    <Compile Include="Expansion\Time Of Legends\TigerPeltSkirt.cs" />
-    <Compile Include="Expansion\Time Of Legends\Cowbell.cs" />
-    <Compile Include="Expansion\Time Of Legends\Trumpet.cs" />
-    <Compile Include="Expansion\Time Of Legends\WallMountedBell.cs" />
-    <Compile Include="Expansion\Time Of Legends\Cello.cs" />
-    <Compile Include="Expansion\Time Of Legends\AudChar.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltBustier.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltChest.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltCollar.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltHelm.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltLegs.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltLongSkirt.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltShorts.cs" />
+    <Compile Include="Expansion\TOL\TigerPeltSkirt.cs" />
+    <Compile Include="Expansion\TOL\Cowbell.cs" />
+    <Compile Include="Expansion\TOL\Trumpet.cs" />
+    <Compile Include="Expansion\TOL\WallMountedBell.cs" />
+    <Compile Include="Expansion\TOL\Cello.cs" />
+    <Compile Include="Expansion\TOL\AudChar.cs" />
     <Compile Include="Expansion\Stygian Abyss\SnakeCharmerFlute.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Light\TwilightLantern.cs" />
-    <Compile Include="Expansion\Time Of Legends\BookOfMasteries.cs" />
+    <Compile Include="Expansion\TOL\BookOfMasteries.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseAxe.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -2196,10 +2196,10 @@
     <Compile Include="Mobiles\Hunters Guide\A\ArcaneDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\ArchDaemon.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\ArcticOgreLord.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BakeKitsune.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\BakeKitsune.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Balron.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BaseCreature.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BaseMount.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\BaseCreature.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\BaseMount.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BaseRenowned.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BaseSABosses.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BattleChickenLizard.cs" />
@@ -2442,7 +2442,7 @@
     <Compile Include="Mobiles\Hunters Guide\N\Niporailem.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ogre.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OgreLord.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\Oni.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\Oni.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Orc.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OrcBomber.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OrcBrute.cs" />
@@ -2488,7 +2488,7 @@
     <Compile Include="Mobiles\NPCs\Tobin.cs" />
     <Compile Include="Mobiles\NPCs\Vrulkax.cs" />
     <Compile Include="Mobiles\NPCs\WanderingShaman.cs" />
-    <Compile Include="Mobiles\PlayerMobile.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\PlayerMobile.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PoisonElemental.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\PolarBear.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PredatorHellCat.cs" />
@@ -2498,7 +2498,7 @@
     <Compile Include="Mobiles\Hunters Guide\Q\Quagmire.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Rabbit.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RagingGrizzlyBear.cs" />
-    <Compile Include="Mobiles\Hunters Guide\R\RaiJu.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\RaiJu.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Raptor.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Rat.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ratman.cs" />
@@ -2518,7 +2518,7 @@
     <Compile Include="Mobiles\Hunters Guide\R\RevenantLion.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\RidableLlama.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Ridgeback.cs" />
-    <Compile Include="Mobiles\Hunters Guide\R\Ronin.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\Ronin.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RottingCorpse.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Rotworm.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RuddyBoura.cs" />
@@ -2581,7 +2581,7 @@
     <Compile Include="Mobiles\Hunters Guide\T\Treefellow.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\Troglodyte.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Troll.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TsukiWolf.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\TsukiWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\UndeadGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\UndeadGuardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\U\UnfrozenMummy.cs" />
@@ -2602,12 +2602,12 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wisp.cs" />
     <Compile Include="Mobiles\Hunters Guide\W\WolfSpider.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wraith.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Y\Yamandon.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Y\YomotsuElder.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Y\YomotsuPriest.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Y\YomotsuWarrior.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Y\YoungNinja.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Y\YoungRonin.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\Yamandon.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\YomotsuElder.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\YomotsuPriest.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\YomotsuWarrior.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\YoungNinja.cs" />
+    <Compile Include="Expansion\Samurai Empire\Mobiles\YoungRonin.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Zombie.cs" />
     <Compile Include="Mobiles\NPCs\Abbein.cs" />
     <Compile Include="Mobiles\NPCs\Acob.cs" />
@@ -2883,7 +2883,7 @@
     <Compile Include="Mobiles\NPCs\Zorda.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AnimatedWeapon.cs" />
     <Compile Include="Mobiles\AI\BaseFamiliar.cs" />
-    <Compile Include="Mobiles\Hunters Guide\B\BladeSpirits.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Summoned\BladeSpirits.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DarkWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DeathAdder.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\EnergyVortex.cs" />
@@ -3469,54 +3469,54 @@
     <Compile Include="Expansion\High Seas\Regions\WarpRegion.cs" />
     <Compile Include="Expansion\High Seas\Spawners\BountyQuestSpawner.cs" />
     <Compile Include="Expansion\High Seas\Spawners\CharybdisSpawner.cs" />
-    <Compile Include="Expansion\Time Of Legends\AuctionSafe\Auction.cs" />
-    <Compile Include="Expansion\Time Of Legends\AuctionSafe\AuctionSafe.cs" />
-    <Compile Include="Expansion\Time Of Legends\AuctionSafe\BidEntry.cs" />
-    <Compile Include="Expansion\Time Of Legends\AuctionSafe\BidHistory.cs" />
-    <Compile Include="Expansion\Time Of Legends\AuctionSafe\Gumps.cs" />
-    <Compile Include="Expansion\Time Of Legends\Items\CardOfSemidar.cs" />
-    <Compile Include="Expansion\Time Of Legends\Items\ClimbingVine.cs" />
-    <Compile Include="Expansion\Time Of Legends\Items\EodonRewardTitleScroll.cs" />
-    <Compile Include="Expansion\Time Of Legends\Items\Resources.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Allosaurus.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Anchisaur.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Archaeosaurus.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\BritannianInfantry.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\DesertScorpion.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Dimetrosaur.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\DragonTurtle.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\DragonTurtleHatchling.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\EodonTribesman.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Gallusaurus.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\GreaterPhoenix.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Infernus.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\MyrmidexDrone.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\MyrmidexLarvae.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\MyrmidexWarrior.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Najasaurus.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\Saurosaurus.cs" />
-    <Compile Include="Expansion\Time Of Legends\Mobiles\SilverbackGorilla.cs" />
-    <Compile Include="Expansion\Time Of Legends\Myrmidex Invasion\AllegianceIdol.cs" />
-    <Compile Include="Expansion\Time Of Legends\Myrmidex Invasion\BattleFlag.cs" />
-    <Compile Include="Expansion\Time Of Legends\Myrmidex Invasion\BattleRegion.cs" />
-    <Compile Include="Expansion\Time Of Legends\Myrmidex Invasion\BattleSpawner.cs" />
-    <Compile Include="Expansion\Time Of Legends\Myrmidex Invasion\MoonstonePowerGenerator.cs" />
-    <Compile Include="Expansion\Time Of Legends\Myrmidex Invasion\System.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Addons\ArmoryAddon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Addons\BarAddon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Addons\BelfryAddon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Addons\FountainAddon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Addons\OrchardAddon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Artifacts.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Bosses.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Controller.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Encounters.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\ExitEntry.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Items.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\Mobiles.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\ShadowguardEncounter.cs" />
-    <Compile Include="Expansion\Time Of Legends\Shadowguard\ShadowguardInstance.cs" />
-    <Compile Include="Expansion\Time Of Legends\TimeOfLegends.cs" />
+    <Compile Include="Expansion\TOL\AuctionSafe\Auction.cs" />
+    <Compile Include="Expansion\TOL\AuctionSafe\AuctionSafe.cs" />
+    <Compile Include="Expansion\TOL\AuctionSafe\BidEntry.cs" />
+    <Compile Include="Expansion\TOL\AuctionSafe\BidHistory.cs" />
+    <Compile Include="Expansion\TOL\AuctionSafe\Gumps.cs" />
+    <Compile Include="Expansion\TOL\Items\CardOfSemidar.cs" />
+    <Compile Include="Expansion\TOL\Items\ClimbingVine.cs" />
+    <Compile Include="Expansion\TOL\Items\EodonRewardTitleScroll.cs" />
+    <Compile Include="Expansion\TOL\Items\Resources.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Allosaurus.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Anchisaur.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Archaeosaurus.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\BritannianInfantry.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\DesertScorpion.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Dimetrosaur.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\DragonTurtle.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\DragonTurtleHatchling.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\EodonTribesman.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Gallusaurus.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\GreaterPhoenix.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Infernus.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\MyrmidexDrone.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\MyrmidexLarvae.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\MyrmidexWarrior.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Najasaurus.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\Saurosaurus.cs" />
+    <Compile Include="Expansion\TOL\Mobiles\SilverbackGorilla.cs" />
+    <Compile Include="Expansion\TOL\Myrmidex Invasion\AllegianceIdol.cs" />
+    <Compile Include="Expansion\TOL\Myrmidex Invasion\BattleFlag.cs" />
+    <Compile Include="Expansion\TOL\Myrmidex Invasion\BattleRegion.cs" />
+    <Compile Include="Expansion\TOL\Myrmidex Invasion\BattleSpawner.cs" />
+    <Compile Include="Expansion\TOL\Myrmidex Invasion\MoonstonePowerGenerator.cs" />
+    <Compile Include="Expansion\TOL\Myrmidex Invasion\System.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Addons\ArmoryAddon.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Addons\BarAddon.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Addons\BelfryAddon.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Addons\FountainAddon.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Addons\OrchardAddon.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Artifacts.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Bosses.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Controller.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Encounters.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\ExitEntry.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Items.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\Mobiles.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\ShadowguardEncounter.cs" />
+    <Compile Include="Expansion\TOL\Shadowguard\ShadowguardInstance.cs" />
+    <Compile Include="Expansion\TOL\TimeOfLegends.cs" />
     <Compile Include="Expansion\High Seas\ExploringTheDeep\Addons\CousteauPerronAddon.cs" />
     <Compile Include="Expansion\High Seas\ExploringTheDeep\ExploringTheDeepQuestChain.cs" />
     <Compile Include="Expansion\High Seas\ExploringTheDeep\Generate.cs" />
@@ -3960,7 +3960,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\ChainHatsuburi.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\ChainHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainLegs.cs">
@@ -4140,7 +4140,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainCoif.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\Circlet.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\Circlet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\CloseHelm.cs">
@@ -4257,7 +4257,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherDo.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherGloves.cs">
@@ -4266,31 +4266,31 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherHaidate.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherHiroSode.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherMempo.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherNinjaHood.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherNinjaHood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherNinjaJacket.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherNinjaJacket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherNinjaMitts.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherNinjaMitts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherNinjaPants.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherNinjaPants.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherShorts.cs">
@@ -4299,7 +4299,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherSuneate.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Luck\EtoileBleue.cs">
@@ -4392,7 +4392,7 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Paladin\PaladinLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\DecorativePlateKabuto.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\DecorativePlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\FemalePlateChest.cs">
@@ -4401,22 +4401,22 @@
     <Compile Include="Expansion\Mondains Legacy\FemaleWoodlandChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\HeavyPlateJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\HeavyPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LightPlateJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LightPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateBattleKabuto.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateBattleKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateDo.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateGloves.cs">
@@ -4425,28 +4425,28 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateHaidate.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateHatsuburi.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateHiroSode.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateMempo.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\PlateSuneate.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\PlateSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\SmallPlateJingasa.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\SmallPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\StandardPlateKabuto.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\StandardPlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Mondains Legacy\WoodlandArms.cs">
@@ -4593,7 +4593,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\StuddedDo.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\StuddedDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedGloves.cs">
@@ -4602,19 +4602,19 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\StuddedHaidate.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\StuddedHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\StuddedHiroSode.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\StuddedHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\StuddedLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\StuddedMempo.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\StuddedMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\StuddedSuneate.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\StuddedSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Virtue\CompassionArms.cs">
@@ -5914,7 +5914,7 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\SentinelsGuard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\SmallPlateShield.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\SmallPlateShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\WallOfHungryMouths.cs">
@@ -6082,13 +6082,13 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Log.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\BookOfBushido.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\BookOfBushido.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\BookOfChivalry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\BookOfNinjitsu.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\BookOfNinjitsu.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Spellbooks\ConjurersGrimoire.cs">
@@ -6553,7 +6553,7 @@
     <Compile Include="Items\Consumables\FukiyaDarts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Samurai Empire\LeatherNinjaBelt.cs">
+    <Compile Include="Expansion\Samurai Empire\Items\LeatherNinjaBelt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\NinjaWeapons.cs">
@@ -9746,17 +9746,17 @@
     <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\Hoe.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\MaginciaPlantItem.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\MaginciaPlants\MaginciaPlantSystem.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\AbilityProfile.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\AreaEffects.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\EthologistTitleDeed.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\Gumps.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\PetTrainingGate.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\PetTrainingHelper.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\PlanningProfile.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\SpecialAbility.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingDefinition.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingPoint.cs" />
-    <Compile Include="Expansion\Time Of Legends\Pet Training\TrainingProfile.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\AbilityProfile.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\AreaEffects.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\EthologistTitleDeed.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\Gumps.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\PetTrainingGate.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\PetTrainingHelper.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\PlanningProfile.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\SpecialAbility.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\TrainingDefinition.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\TrainingPoint.cs" />
+    <Compile Include="Expansion\TOL\Pet Training\TrainingProfile.cs" />
     <Compile Include="Expansion\UOR\Services\Plants\FertileDirtGump.cs" />
     <Compile Include="Expansion\High Seas\Rustic Theme Pack\Raised Garden Beds\RaisedGarden.cs" />
     <Compile Include="Expansion\High Seas\Rustic Theme Pack\Raised Garden Beds\RaisedGardenPlantItem.cs" />
@@ -9772,18 +9772,18 @@
     <Compile Include="Services\PointsSystems\ShameCrystals.cs" />
     <Compile Include="Services\PointsSystems\VirtueArtifactsSystem.cs" />
     <Compile Include="Services\PointsSystems\VoidPool.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaDuel.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaExitBanner.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaGate.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaManager.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaStats.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaStone.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\ArenaTeam.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\Definitions.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\Gumps.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\PVPArena.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\PVPArenaSystem.cs" />
-    <Compile Include="Expansion\Time Of Legends\PVP Arena System\Region.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaDuel.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaExitBanner.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaGate.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaManager.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaStats.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaStone.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\ArenaTeam.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\Definitions.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\Gumps.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\PVPArena.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\PVPArenaSystem.cs" />
+    <Compile Include="Expansion\TOL\PVP Arena System\Region.cs" />
     <Compile Include="Services\Reports\Persistence\PersistableObject.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -10101,27 +10101,27 @@
     <Compile Include="Expansion\Endless Journey\Rising Tide\RisingTideData.cs" />
     <Compile Include="Services\Seasonal Events\SeasonalEventGump.cs" />
     <Compile Include="Services\Seasonal Events\SeasonalEventSystem.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\DoomData.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Generation.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\AncientClayVase.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\AncientParchment.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\AntiqueDocumentsKit.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\CloakOfLight.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\CrookOfHumility.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\DoomPlaque.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\DoomSign.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\LanternOfLight.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\PropheticManuscript.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\RewardTitleDeed.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\ScepterOfPride.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Items\TinctureOfSilver.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Mobiles\Carey.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Mobiles\Elizabeth.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Mobiles\Owain.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Region.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\RewardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\Rewards.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfDoom\VaseSpawner.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\DoomData.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Generation.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\AncientClayVase.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\AncientParchment.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\AntiqueDocumentsKit.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\CloakOfLight.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\CrookOfHumility.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\DoomPlaque.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\DoomSign.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\LanternOfLight.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\PropheticManuscript.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\RewardTitleDeed.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\ScepterOfPride.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\TinctureOfSilver.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Mobiles\Carey.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Mobiles\Elizabeth.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Mobiles\Owain.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Region.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\RewardGump.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\Rewards.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfDoom\VaseSpawner.cs" />
     <Compile Include="Expansion\Endless Journey\Forsaken Foes\Items\CommanderTitleDeed.cs" />
     <Compile Include="Expansion\Endless Journey\Forsaken Foes\Items\CaptainTitleDeed.cs" />
     <Compile Include="Expansion\Endless Journey\Forsaken Foes\Items\EnsignTitleDeed.cs" />
@@ -10177,43 +10177,43 @@
     <Compile Include="Expansion\Endless Journey\TreasuresOfKhaldun\Quest\Mobiles\GraveDigger.cs" />
     <Compile Include="Expansion\Endless Journey\TreasuresOfKhaldun\Quest\Mobiles\Jasper.cs" />
     <Compile Include="Expansion\Endless Journey\TreasuresOfKhaldun\Quest\Mobiles\SageHumbolt.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Generate.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\EnergyTile.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\Journals.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\KotlBattleSimulator.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\KotlCityPuzzle.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\KotlDoor.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\KotlWallAddon.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\PowerCoreDockingStations.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\RegalChest.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\Rewards.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Items\WheelsOfTime.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\KotlCityData.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Mobiles\DescicatedMyrmidexLarvae.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Mobiles\Hal.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Mobiles\SpectralKotlWarrior.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Mobiles\SpectralMyrmidexWarrior.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\RewardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfKotlCity\Rewards.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\AbominableSnowman.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\GarishGingerman.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\HeadlessElf.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\JackInTheBox.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\JackThePumpkinKing.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\NightmareFairy.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\RabidReindeer.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\StockingSerpent.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Creatures\TwistedHolidayTree.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Generate.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Items\Deeds.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Items\JackInTheBox.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Items\JacksBagOfTricks.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Items\ShackledHeartOfThePumpkinKing.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\RewardGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\SorcerersDungeonData.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\SorcerersDungeonResearcher.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\SorcerersDungeonRewards.cs" />
-    <Compile Include="Expansion\Time Of Legends\TreasuresOfSorceresDungeon\Spawner.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Generate.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\EnergyTile.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\Journals.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\KotlBattleSimulator.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\KotlCityPuzzle.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\KotlDoor.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\KotlWallAddon.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\PowerCoreDockingStations.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\RegalChest.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\Rewards.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Items\WheelsOfTime.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\KotlCityData.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Mobiles\DescicatedMyrmidexLarvae.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Mobiles\Hal.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Mobiles\SpectralKotlWarrior.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Mobiles\SpectralMyrmidexWarrior.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\RewardGump.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfKotlCity\Rewards.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\AbominableSnowman.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\GarishGingerman.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\HeadlessElf.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\JackInTheBox.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\JackThePumpkinKing.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\NightmareFairy.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\RabidReindeer.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\StockingSerpent.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Creatures\TwistedHolidayTree.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Generate.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Items\Deeds.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Items\JackInTheBox.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Items\JacksBagOfTricks.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Items\ShackledHeartOfThePumpkinKing.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\RewardGump.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\SorcerersDungeonData.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\SorcerersDungeonResearcher.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\SorcerersDungeonRewards.cs" />
+    <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Spawner.cs" />
     <Compile Include="Expansion\Samurai Empire\TreasuresOfTokuno\TreasuresOfTokuno.cs" />
     <Compile Include="Expansion\Samurai Empire\TreasuresOfTokuno\TreasuresOfTokunoPersistence.cs" />
     <Compile Include="Services\Spawner\SpawnObject.cs" />
@@ -11988,51 +11988,51 @@
     <Compile Include="Expansion\Original UO\Skills\Magery\6Sixth\Reveal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\BardSpell.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\Despair.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\inspire.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\invigorate.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\Perseverance.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\Resilience.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BardSpells\Tribulation.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\BodyGuard.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\CalledShot.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\CombatTraining.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\CommandUndead.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Conduit.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Core\MasteryInfo.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Core\SelectMasteryGump.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Core\SkillMasteryMove.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Core\SkillMasteryPrimer.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Core\SkillMasterySpell.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\DeathRay.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\ElementalFury.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\EtherealBurst.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\FistsOfFury.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\FlamingShot.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\FocusedEye.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\HeightenSenses.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\HolyFistSpell.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\InjectedStrike.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\ManaShield.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\MysticWeapon.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\NetherBlast.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Onslaught.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\PassiveMastery.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Pierce.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\PlayingTheOdds.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Rampage.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Rejuvinate.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Shadow.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\ShieldBash.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Stagger.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\SummonReaper.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Thrust.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Tolerance.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Toughness.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Warcry.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\Whispering.cs" />
-    <Compile Include="Expansion\Time Of Legends\Skill Masteries\WhiteTigerForm.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\BardSpell.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\Despair.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\inspire.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\invigorate.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\Perseverance.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\Resilience.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BardSpells\Tribulation.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\BodyGuard.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\CalledShot.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\CombatTraining.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\CommandUndead.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Conduit.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Core\MasteryInfo.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Core\SelectMasteryGump.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Core\SkillMasteryMove.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Core\SkillMasteryPrimer.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Core\SkillMasterySpell.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\DeathRay.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\ElementalFury.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\EtherealBurst.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\FistsOfFury.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\FlamingShot.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\FocusedEye.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\HeightenSenses.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\HolyFistSpell.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\InjectedStrike.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\ManaShield.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\MysticWeapon.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\NetherBlast.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Onslaught.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\PassiveMastery.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Pierce.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\PlayingTheOdds.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Rampage.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Rejuvinate.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Shadow.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\ShieldBash.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Stagger.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\SummonReaper.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Thrust.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Tolerance.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Toughness.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Warcry.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\Whispering.cs" />
+    <Compile Include="Expansion\TOL\Skill Masteries\WhiteTigerForm.cs" />
     <Compile Include="Expansion\Stygian Abyss\Skills\Spellweaving\ArcaneCircle.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -12283,7 +12283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Expansion\AOS\6th Anniversary Gifts\" />
-    <Folder Include="Mobiles\Hunters Guide\X\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
