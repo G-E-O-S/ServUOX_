@@ -710,7 +710,7 @@
     <Compile Include="Expansion\EJ\StoreBought\SquirrelMailbox.cs" />
     <Compile Include="Expansion\EJ\StoreBought\StoreSingingBall.cs" />
     <Compile Include="Expansion\EJ\StoreBought\WineRack.cs" />
-    <Compile Include="Items\Tools\SteamPoweredBeverageMaker.cs" />
+    <Compile Include="Expansion\HS\SteamPoweredBeverageMaker.cs" />
     <Compile Include="Expansion\HS\ClawFootTub.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\GreenMarbleFireplace.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\GoldMarbleFireplace.cs" />
@@ -775,7 +775,7 @@
     <Compile Include="Expansion\ML\Addons\FancyLoveseatSouth.cs" />
     <Compile Include="Items\Addons\GeoffreyCampAddon.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\HitchingPost.cs" />
-    <Compile Include="Items\Addons\GardenShed.cs" />
+    <Compile Include="Expansion\HS\GardenShed.cs" />
     <Compile Include="Expansion\ML\Addons\FancyWoodenShelfEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfEast.cs" />
     <Compile Include="Expansion\ML\Addons\FancyWoodenShelfSouth.cs" />
@@ -799,11 +799,11 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Epiphany\EpiphanyHelper.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Epiphany\VillainousEpiphany.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Epiphany\VirtuousEpiphany.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\RecipeBook\RecipeBook.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\RecipeBook\RecipeBookGump.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\RecipeBook\RecipeBuyGump.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\RecipeBook\RecipeFilter.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\RecipeBook\RecipeFilterGump.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeBook.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeBookGump.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeBuyGump.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeFilter.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeFilterGump.cs" />
     <Compile Include="Items\Consumables\2018HolidayGiftToken.cs" />
     <Compile Include="Items\Consumables\PoppiesDust.cs" />
     <Compile Include="Items\Consumables\PromotionalToken.cs" />
@@ -841,7 +841,7 @@
     <Compile Include="Items\Resource\Blackrock.cs" />
     <Compile Include="Items\Resource\PolishedMeteorite.cs" />
     <Compile Include="Expansion\EJ\StoreBought\MysticalPolymorphTotem.cs" />
-    <Compile Include="Items\Tools\WhiteLeatherDyeTub.cs" />
+    <Compile Include="Expansion\AOS\WhiteLeatherDyeTub.cs" />
     <Compile Include="Mechanics\Aggression.cs" />
     <Compile Include="Administration\ArchivedSaves.cs" />
     <Compile Include="Utilities\Replacer.cs" />
@@ -850,7 +850,7 @@
     <Compile Include="Mobiles\Hunters Guide\H\HungryCoconutCrab.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalCat.cs" />
     <Compile Include="Mobiles\Hunters Guide\T\TheButcher.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Unknown\Triton.cs" />
+    <Compile Include="Expansion\SA\Triton.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\Eowmu.cs" />
     <Compile Include="Mobiles\NPCs\Gardener.cs" />
     <Compile Include="Mobiles\NPCs\Mannequin\BaseProperty.cs" />
@@ -979,11 +979,11 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\BowOfTheInfiniteSwarm.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\TheDeceiver.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Journals\BaseJournal.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\BaseSpecialScrollBook.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\PowerScrollBook.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\ScrollOfAlacrityBook.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\ScrollOfTranscendenceBook.cs" />
-    <Compile Include="Items\Books\SpecialScrollBooks\SpecialScrollBookGump.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\BaseSpecialScrollBook.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\PowerScrollBook.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\ScrollOfAlacrityBook.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\ScrollOfTranscendenceBook.cs" />
+    <Compile Include="Expansion\SA\Books\SpecialScrollBooks\SpecialScrollBookGump.cs" />
     <Compile Include="Items\Consumables\DeliciouslyTastyTreat.cs" />
     <Compile Include="Items\Consumables\IrresistiblyTastyTreat.cs" />
     <Compile Include="Items\Consumables\SkinTingeingTincture.cs" />
@@ -1008,7 +1008,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\Pincer.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\Equivocation.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\FNPitchfork.cs" />
-    <Compile Include="Items\Books\RunicAtlas.cs" />
+    <Compile Include="Expansion\SA\Books\RunicAtlas.cs" />
     <Compile Include="Items\Consumables\AlterContract.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseAgilityPotion.cs">
       <SubType>Code</SubType>
@@ -1302,7 +1302,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseRefreshPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BaseRunicTool.cs">
+    <Compile Include="Expansion\UOR\BaseRunicTool.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\BaseShield.cs">
@@ -1357,14 +1357,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\HS\Gothic Theme Pack\ChestOfSending.cs" />
-    <Compile Include="Items\Tools\ForgedMetalOfArtifacts.cs" />
-    <Compile Include="Items\Tools\GreaterBraceletOfBinding.cs" />
-    <Compile Include="Items\Tools\MetallicLeatherDyeTub.cs" />
-    <Compile Include="Items\Tools\MetallicDyeTub.cs" />
-    <Compile Include="Items\Tools\MetallicClothDyeTub.cs" />
-    <Compile Include="Items\Tools\PenOfWisdom.cs" />
-    <Compile Include="Items\Tools\PetBondingPotion.cs" />
-    <Compile Include="Items\Tools\RunicMalletAndChisel.cs" />
+    <Compile Include="Expansion\SA\ForgedMetalOfArtifacts.cs" />
+    <Compile Include="Expansion\UOTD\GreaterBraceletOfBinding.cs" />
+    <Compile Include="Expansion\HS\MetallicLeatherDyeTub.cs" />
+    <Compile Include="Expansion\HS\MetallicDyeTub.cs" />
+    <Compile Include="Expansion\HS\MetallicClothDyeTub.cs" />
+    <Compile Include="Expansion\EJ\StoreBought\PenOfWisdom.cs" />
+    <Compile Include="Expansion\EJ\StoreBought\PetBondingPotion.cs" />
+    <Compile Include="Expansion\UOR\RunicMalletAndChisel.cs" />
     <Compile Include="Mechanics\EquipLastWeapon.cs" />
     <Compile Include="Items\Artifacts\Equipment\Glasses\Glasses.cs">
       <SubType>Code</SubType>
@@ -1926,13 +1926,13 @@
     <Compile Include="Items\Decorative\WindChimes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\GMEthereal.cs">
+    <Compile Include="Customs\GMEthereal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\GMHidingStone.cs">
+    <Compile Include="Customs\GMHidingStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\StaffOrb.cs">
+    <Compile Include="Customs\StaffOrb.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Jewelry\StaffRing.cs">
@@ -2224,8 +2224,8 @@
     <Compile Include="Mobiles\Hunters Guide\F\FrostDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\Lasher.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantTurkey.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Unknown\Viscera.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Unknown\Windrunner.cs" />
+    <Compile Include="Expansion\EJ\Viscera.cs" />
+    <Compile Include="Expansion\EJ\StoreBought\Windrunner.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\StygianDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrimsonDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PlatinumDrake.cs" />
@@ -2385,16 +2385,16 @@
     <Compile Include="Mobiles\Hunters Guide\G\Guardian.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Harpy.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\HeadlessOne.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Unknown\HellCat.cs" />
+    <Compile Include="Expansion\T2A\Mobiles\Monsters\HellCat.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Creatures\HellHound.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Unknown\HellSteed.cs" />
+    <Compile Include="Expansion\AOS\HellSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HighPlainsBoura.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Hind.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hiryu.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HordeMinion.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Horse.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hydra.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Unknown\Icehound.cs" />
+    <Compile Include="Customs\Icehound.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Impaler.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InjuredWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InsaneDryad.cs" />
@@ -3015,9 +3015,9 @@
     <Compile Include="Items\Quest\DeBoorShield.cs" />
     <Compile Include="Items\Artifacts\Consumables\GobletOfCelebration.cs" />
     <Compile Include="Mobiles\Quests\HonorOfDeBoorsQuest.cs" />
-    <Compile Include="Items\Books\BookOfCircles.cs" />
+    <Compile Include="Expansion\SA\Books\BookOfCircles.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleGuardian.cs" />
-    <Compile Include="Items\Books\ShrineMantra.cs" />
+    <Compile Include="Expansion\SA\Books\ShrineMantra.cs" />
     <Compile Include="Mobiles\NPCs\Agralem.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\AbyssReaver.cs" />
     <Compile Include="Mobiles\NPCs\Aliabeth.cs" />
@@ -4658,7 +4658,7 @@
     <Compile Include="Expansion\Original UO\Items\Provision\Books\BrownBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\BlackthornWelcomeBook.cs">
+    <Compile Include="Expansion\SA\Books\BlackthornWelcomeBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Provision\Books\BookContent.cs">
@@ -4682,7 +4682,7 @@
     <Compile Include="Expansion\SA\TranslatedGargoyleJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\Note.cs" />
+    <Compile Include="Expansion\SA\Books\Note.cs" />
     <Compile Include="Expansion\Original UO\Items\Provision\Books\RedBook.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -5466,7 +5466,7 @@
     <Compile Include="Expansion\Original UO\Items\CityMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\IndecipherableMap.cs">
+    <Compile Include="Expansion\UOR\IndecipherableMap.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\LocalMap.cs">
@@ -6005,7 +6005,7 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Fish Steak.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BegFishingPole.cs">
+    <Compile Include="Expansion\HS\BegFishingPole.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\FlowerGarland.cs">
@@ -6062,22 +6062,22 @@
     <Compile Include="Expansion\T2A\Items\Consumables\SpecialFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\GargoylesPickaxe.cs">
+    <Compile Include="Expansion\UOTD\GargoylesPickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Tools\JacobsPickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\ProspectorsTool.cs">
+    <Compile Include="Expansion\UOR\ProspectorsTool.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Shovel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SturdyPickaxe.cs">
+    <Compile Include="Expansion\UOR\SturdyPickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SturdyShovel.cs">
+    <Compile Include="Expansion\UOR\SturdyShovel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\MiniSoulForge.cs" />
@@ -6590,7 +6590,7 @@
     <Compile Include="Expansion\Original UO\Items\BlackDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BlazeDyeTub.cs">
+    <Compile Include="Customs\BlazeDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Internal\CustomHuePicker.cs">
@@ -6599,22 +6599,22 @@
     <Compile Include="Expansion\Original UO\Items\DyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\FurnitureDyeTub.cs">
+    <Compile Include="Expansion\SE\FurnitureDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\LeatherDyeTub.cs">
+    <Compile Include="Expansion\SE\LeatherDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RewardBlackDyeTub.cs">
+    <Compile Include="Expansion\SE\RewardBlackDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RunebookDyeTub.cs">
+    <Compile Include="Expansion\SE\RunebookDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\SpecialDyeTub.cs">
+    <Compile Include="Expansion\AOS\SpecialDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\StatuetteDyeTub.cs">
+    <Compile Include="Expansion\UOR\StatuetteDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\Dressform.cs">
@@ -6671,7 +6671,7 @@
     <Compile Include="Items\Decorative\Utensils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\Blowpipe.cs">
+    <Compile Include="Expansion\UOTD\Blowpipe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\DovetailSaw.cs">
@@ -6698,7 +6698,7 @@
     <Compile Include="Expansion\Original UO\Items\JointingPlane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\MalletAndChisel.cs">
+    <Compile Include="Expansion\UOTD\MalletAndChisel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\MapmakersPen.cs">
@@ -6716,16 +6716,16 @@
     <Compile Include="Expansion\Original UO\Items\RollingPin.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RunicDovetailSaw.cs">
+    <Compile Include="Expansion\UOR\RunicDovetailSaw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RunicFletcherTool.cs">
+    <Compile Include="Expansion\UOR\RunicFletcherTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RunicHammer.cs">
+    <Compile Include="Expansion\UOR\RunicHammer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\RunicSewingKit.cs">
+    <Compile Include="Expansion\UOR\RunicSewingKit.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Saw.cs">
@@ -6827,7 +6827,7 @@
     <Compile Include="Expansion\Original UO\Items\Addons\StandingBrokenChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\AncientSmithyHammer.cs">
+    <Compile Include="Expansion\UOR\AncientSmithyHammer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\ColoredAnvil.cs">
@@ -6836,7 +6836,7 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\GlovesOfMining.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\HammerOfHephaestus.cs">
+    <Compile Include="Expansion\ML\HammerOfHephaestus.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\PowderOfTemperament.cs">
@@ -7439,13 +7439,13 @@
     <Compile Include="Items\Consumables\RewardCake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BagOfSending.cs">
+    <Compile Include="Expansion\UOTD\BagOfSending.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BallOfSummoning.cs">
+    <Compile Include="Expansion\UOTD\BallOfSummoning.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\BraceletOfBinding.cs">
+    <Compile Include="Expansion\UOTD\BraceletOfBinding.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\MessageHelper.cs">
@@ -7538,7 +7538,7 @@
     <Compile Include="Items\Addons\WallBanner.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Tools\WeaponEngravingTool.cs">
+    <Compile Include="Expansion\ML\WeaponEngravingTool.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\CorporealBrumeStatuette.cs">
@@ -7769,10 +7769,10 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\KelpWovenLeggings.cs" />
     <Compile Include="Items\Artifacts\Decorative\LargeFishingNet.cs" />
     <Compile Include="Expansion\SA\Talismans\ManaPhasingOrb.cs" />
-    <Compile Include="Items\Tools\MasterSkeletonKey.cs" />
+    <Compile Include="Expansion\SA\MasterSkeletonKey.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\RunedDriftwoodBow.cs" />
     <Compile Include="Items\Artifacts\Equipment\Clothing\RunedSashOfWarding.cs" />
-    <Compile Include="Items\Tools\SkeletonKey.cs" />
+    <Compile Include="Expansion\SA\SkeletonKey.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\SurgeShield.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\ValkryieArmor.cs" />
     <Compile Include="Items\Equipment\Weapons\ClumsyWand.cs">
@@ -9767,18 +9767,18 @@
     <Compile Include="Mechanics\PointsSystems\ShameCrystals.cs" />
     <Compile Include="Mechanics\PointsSystems\VirtueArtifactsSystem.cs" />
     <Compile Include="Mechanics\PointsSystems\VoidPool.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaDuel.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaExitBanner.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaGate.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaManager.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaStats.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaStone.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\ArenaTeam.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\Definitions.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\Gumps.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\PVPArena.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\PVPArenaSystem.cs" />
-    <Compile Include="Expansion\TOL\PVP Arena System\Region.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaDuel.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaExitBanner.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaGate.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaManager.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaStats.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaStone.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\ArenaTeam.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\Definitions.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\Gumps.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\PVPArena.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\PVPArenaSystem.cs" />
+    <Compile Include="Expansion\HS\PVP Arena System\Region.cs" />
     <Compile Include="Administration\Reports\Persistence\PersistableObject.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -10277,7 +10277,7 @@
     <Compile Include="Expansion\HS\CorruptedCrystalPortalGump.cs" />
     <Compile Include="Expansion\ML\CrystalPortals\CrystalPortal.cs" />
     <Compile Include="Expansion\ML\CrystalPortals\CrystalPortalGump.cs" />
-    <Compile Include="Expansion\AOS\DaviesLocker.cs" />
+    <Compile Include="Expansion\HS\DaviesLocker.cs" />
     <Compile Include="Expansion\UOR\VeteranRewards\StatRewardGump.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\CityInfo.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\GuildStats.cs" />
@@ -10409,7 +10409,7 @@
     <Compile Include="Expansion\UOR\Services\Khaldun\Journals\GrimmochJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Books\LysanderNotebook.cs">
+    <Compile Include="Expansion\SA\Books\LysanderNotebook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Services\Khaldun\Journals\TavarasJournal.cs">
