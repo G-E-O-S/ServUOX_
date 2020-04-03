@@ -877,12 +877,12 @@
     <Compile Include="Mobiles\Quests\TieredQuests\PercolemTieredQuests.cs" />
     <Compile Include="Mobiles\Quests\TieredQuests\ThepemTieredQuests.cs" />
     <Compile Include="Mobiles\Quests\TieredQuests\ZosilemTieredQuests.cs" />
-    <Compile Include="Services\22nd Anniversary\Anniversary22GiftToken.cs" />
-    <Compile Include="Services\22nd Anniversary\Items\CopperPortraits.cs" />
-    <Compile Include="Services\22nd Anniversary\Items\CopperShipRelief.cs" />
-    <Compile Include="Services\22nd Anniversary\Items\CopperSunflower.cs" />
-    <Compile Include="Services\22nd Anniversary\Items\CopperWings.cs" />
-    <Compile Include="Services\22nd Anniversary\Giver.cs" />
+    <Compile Include="Expansion\EJ\Forsaken Foes\22nd Anniversary\Anniversary22GiftToken.cs" />
+    <Compile Include="Expansion\EJ\Forsaken Foes\22nd Anniversary\Items\CopperPortraits.cs" />
+    <Compile Include="Expansion\EJ\Forsaken Foes\22nd Anniversary\Items\CopperShipRelief.cs" />
+    <Compile Include="Expansion\EJ\Forsaken Foes\22nd Anniversary\Items\CopperSunflower.cs" />
+    <Compile Include="Expansion\EJ\Forsaken Foes\22nd Anniversary\Items\CopperWings.cs" />
+    <Compile Include="Expansion\EJ\Forsaken Foes\22nd Anniversary\Giver.cs" />
     <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\Anniversary21Card.cs" />
     <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\Anniversary21GiftToken.cs" />
     <Compile Include="Expansion\TOL\Astronomy\21st Anniversary Gifts\AnniversaryBag21st.cs" />
@@ -901,7 +901,7 @@
     <Compile Include="Expansion\HS\Items\Cannons and Ammo\ShipCannon.cs" />
     <Compile Include="Expansion\ML\MondainsLegacy.cs" />
     <Compile Include="Expansion\TOL\AuctionSafe\AuctionMap.cs" />
-    <Compile Include="Services\GiftGiving\HolidayGiftBox2018.cs" />
+    <Compile Include="Administration\World\GiftGiving\HolidayGiftBox2018.cs" />
     <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\BonusHarvestResource.cs" />
     <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestBank.cs" />
     <Compile Include="Expansion\Original UO\Mechanics\Skills\Harvest\Core\HarvestDefinition.cs" />
@@ -3205,13 +3205,13 @@
     <Compile Include="Mobiles\NPCs\Zeefzorpul.cs" />
     <Compile Include="Mobiles\Quests\WitchApprentice\Objectives.cs" />
     <Compile Include="Mobiles\Quests\WitchApprentice\WitchApprenticeQuest.cs" />
-    <Compile Include="Services\18th Anniversary\18th AnniversaryBag.cs" />
-    <Compile Include="Services\18th Anniversary\AnniversaryCard.cs" />
-    <Compile Include="Services\18th Anniversary\AnniversaryPlate.cs" />
-    <Compile Include="Services\18th Anniversary\AnniversaryVaseShort.cs" />
-    <Compile Include="Services\18th Anniversary\AnniversaryVaseTall.cs" />
-    <Compile Include="Services\18th Anniversary\EnchantedTimepiece.cs" />
-    <Compile Include="Services\18th Anniversary\Giver.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\18th AnniversaryBag.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\AnniversaryCard.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\AnniversaryPlate.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\AnniversaryVaseShort.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\AnniversaryVaseTall.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\EnchantedTimepiece.cs" />
+    <Compile Include="Expansion\TOL\18th Anniversary\Giver.cs" />
     <Compile Include="Expansion\SA\Armor Refinement\ArmorRefiner.cs" />
     <Compile Include="Expansion\SA\Armor Refinement\Gumps.cs" />
     <Compile Include="Expansion\SA\Armor Refinement\Items.cs" />
@@ -3285,58 +3285,58 @@
     <Compile Include="Expansion\HS\City Loyalty System\Trading\TradeCrate.cs" />
     <Compile Include="Expansion\HS\City Loyalty System\Trading\TradeEntry.cs" />
     <Compile Include="Expansion\HS\City Loyalty System\Trading\TradeSystem.cs" />
-    <Compile Include="Services\CleanUpBritannia\CleanUpBritanniaRewards.cs" />
-    <Compile Include="Services\CleanUpBritannia\Creatures\TheCleanupOfficer.cs" />
-    <Compile Include="Services\CleanUpBritannia\Gumps.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\RefinementAmalgamator.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\SherryTheMouseStatue.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\VollemHeldInCrystal.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Beehive.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\BootsOfTheCrystalHydra.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\BootsOfTheIceWyrm.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\BootsOfTheLavaLizard.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\BootsOfTheThrasher.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\ChaosTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\NecromancersPhylactery.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\WizardsCurio.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\DuelistsEdge.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\MysticsMemento.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\SoldiersMedal.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\LuckyCharm.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\DragonHead.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Mushrooms.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Pigments\CleanupPigments.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Pigments\CompassionPigment.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\PresentationStone.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\FootedChestOfDrawers.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\CompassionVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\FirePit.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\HonestyVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\HonorVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\HorseBarding.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\HumilityVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\JusticeVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\LillyPad.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\LillyPads.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\CleanUpBritanniaRewards.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Creatures\TheCleanupOfficer.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Gumps.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\RefinementAmalgamator.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\SherryTheMouseStatue.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\VollemHeldInCrystal.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\Beehive.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\BootsOfTheCrystalHydra.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\BootsOfTheIceWyrm.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\BootsOfTheLavaLizard.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\BootsOfTheThrasher.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\ChaosTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\NecromancersPhylactery.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\WizardsCurio.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\DuelistsEdge.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\MysticsMemento.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\SoldiersMedal.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\LuckyCharm.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\DragonHead.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\Mushrooms.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\Pigments\CleanupPigments.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\Pigments\CompassionPigment.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\PresentationStone.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\FootedChestOfDrawers.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\CompassionVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\FirePit.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\HonestyVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\HonorVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\HorseBarding.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\HumilityVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\JusticeVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\LillyPad.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\LillyPads.cs" />
     <Compile Include="Expansion\SA\12th Anniversary Gifts\Mailbox.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\NamedRobes.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\ArachnidDoom.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\ChestOfDrawers.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\PrimordialDecay.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\NocturneEarrings.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\SacrificeVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\SnakeSkinBoots.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\OrnateElvenTapestry.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\SophisticatedElvenTapestry.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\SpiritualityVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Steward.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\ValorVirtueTile.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\TableLamp.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\Bamboo.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\NaturesTears.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\NestWithEggs.cs" />
-    <Compile Include="Services\CleanUpBritannia\Items\YuccaTree.cs" />
-    <Compile Include="Services\CleanUpBritannia\PointExchange.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\NamedRobes.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\ArachnidDoom.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\ChestOfDrawers.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\PrimordialDecay.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\NocturneEarrings.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\SacrificeVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\SnakeSkinBoots.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\OrnateElvenTapestry.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\SophisticatedElvenTapestry.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\SpiritualityVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\Steward.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\ValorVirtueTile.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\TableLamp.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\Bamboo.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\NaturesTears.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\NestWithEggs.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\Items\YuccaTree.cs" />
+    <Compile Include="Expansion\UOR\CleanUpBritannia\PointExchange.cs" />
     <Compile Include="Expansion\ML\CommunityCollections\CommunityCollectionGump.cs" />
     <Compile Include="Expansion\AOS\Doom\GaryRoom.cs" />
     <Compile Include="Expansion\AOS\Doom\GuardianRoom.cs" />
@@ -8703,7 +8703,7 @@
     <Compile Include="Items\Decorative\SnowyTree.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\GiftGiving\Winter2004.cs">
+    <Compile Include="Administration\World\GiftGiving\Winter2004.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\Guild.cs">
@@ -9688,20 +9688,20 @@
     <Compile Include="Expansion\ML\MondainsLegacyQuests\Q&amp;AEntry.cs" />
     <Compile Include="Expansion\ML\MondainsLegacyQuests\QuestHintItem.cs" />
     <Compile Include="Expansion\ML\MondainsLegacyQuests\SimpleObjective.cs" />
-    <Compile Include="Services\Monster Stealing\Core\BaseBalmOrLotion.cs" />
-    <Compile Include="Services\Monster Stealing\Core\BaseThieveConsumable.cs" />
-    <Compile Include="Services\Monster Stealing\Core\StealingHandler.cs" />
-    <Compile Include="Services\Monster Stealing\Items\BalmOfProtection.cs" />
-    <Compile Include="Services\Monster Stealing\Items\BalmOfStrength.cs" />
-    <Compile Include="Services\Monster Stealing\Items\BalmOfSwiftness.cs" />
-    <Compile Include="Services\Monster Stealing\Items\BalmOfWisdom.cs" />
-    <Compile Include="Services\Monster Stealing\Items\GemOfSalvation.cs" />
-    <Compile Include="Services\Monster Stealing\Items\LifeShieldLotion.cs" />
-    <Compile Include="Services\Monster Stealing\Items\ManaDraught.cs" />
-    <Compile Include="Services\Monster Stealing\Items\SeedOflife.cs" />
-    <Compile Include="Services\Monster Stealing\Items\SmugglersLantern.cs" />
-    <Compile Include="Services\Monster Stealing\Items\SmugglersToolBox.cs" />
-    <Compile Include="Services\Monster Stealing\Items\StoneSkinLotion.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Core\BaseBalmOrLotion.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Core\BaseThieveConsumable.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Core\StealingHandler.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\BalmOfProtection.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\BalmOfStrength.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\BalmOfSwiftness.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\BalmOfWisdom.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\GemOfSalvation.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\LifeShieldLotion.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\ManaDraught.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\SeedOflife.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\SmugglersLantern.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\SmugglersToolBox.cs" />
+    <Compile Include="Expansion\ML\Monster Stealing\Items\StoneSkinLotion.cs" />
     <Compile Include="Expansion\UOR\Services\New Magincia\Command.cs" />
     <Compile Include="Expansion\HS\Rustic Theme Pack\Distillation\CraftDefinition.cs" />
     <Compile Include="Expansion\HS\Rustic Theme Pack\Distillation\DistillationContext.cs" />
@@ -9755,18 +9755,18 @@
     <Compile Include="Expansion\UOR\Services\Plants\FertileDirtGump.cs" />
     <Compile Include="Expansion\HS\Rustic Theme Pack\Raised Garden Beds\RaisedGarden.cs" />
     <Compile Include="Expansion\HS\Rustic Theme Pack\Raised Garden Beds\RaisedGardenPlantItem.cs" />
-    <Compile Include="Services\PointsSystems\CleanUpBritanniaData.cs" />
-    <Compile Include="Services\PointsSystems\BlackthornData.cs" />
-    <Compile Include="Services\PointsSystems\CasinoData.cs" />
-    <Compile Include="Services\PointsSystems\DespiseCrystals.cs" />
-    <Compile Include="Services\PointsSystems\GauntletPoints.cs" />
-    <Compile Include="Services\PointsSystems\PlayerMobileProps.cs" />
-    <Compile Include="Services\PointsSystems\PointsSystem.cs" />
-    <Compile Include="Services\PointsSystems\QueensLoyalty.cs" />
-    <Compile Include="Services\PointsSystems\FellowshipData.cs" />
-    <Compile Include="Services\PointsSystems\ShameCrystals.cs" />
-    <Compile Include="Services\PointsSystems\VirtueArtifactsSystem.cs" />
-    <Compile Include="Services\PointsSystems\VoidPool.cs" />
+    <Compile Include="Mechanics\PointsSystems\CleanUpBritanniaData.cs" />
+    <Compile Include="Mechanics\PointsSystems\BlackthornData.cs" />
+    <Compile Include="Mechanics\PointsSystems\CasinoData.cs" />
+    <Compile Include="Mechanics\PointsSystems\DespiseCrystals.cs" />
+    <Compile Include="Mechanics\PointsSystems\GauntletPoints.cs" />
+    <Compile Include="Mechanics\PointsSystems\PlayerMobileProps.cs" />
+    <Compile Include="Mechanics\PointsSystems\PointsSystem.cs" />
+    <Compile Include="Mechanics\PointsSystems\QueensLoyalty.cs" />
+    <Compile Include="Mechanics\PointsSystems\FellowshipData.cs" />
+    <Compile Include="Mechanics\PointsSystems\ShameCrystals.cs" />
+    <Compile Include="Mechanics\PointsSystems\VirtueArtifactsSystem.cs" />
+    <Compile Include="Mechanics\PointsSystems\VoidPool.cs" />
     <Compile Include="Expansion\TOL\PVP Arena System\ArenaDuel.cs" />
     <Compile Include="Expansion\TOL\PVP Arena System\ArenaExitBanner.cs" />
     <Compile Include="Expansion\TOL\PVP Arena System\ArenaGate.cs" />
@@ -10094,8 +10094,8 @@
     <Compile Include="Expansion\EJ\Rising Tide\Rewards.cs" />
     <Compile Include="Expansion\EJ\Rising Tide\RewardsGump.cs" />
     <Compile Include="Expansion\EJ\Rising Tide\RisingTideData.cs" />
-    <Compile Include="Services\Seasonal Events\SeasonalEventGump.cs" />
-    <Compile Include="Services\Seasonal Events\SeasonalEventSystem.cs" />
+    <Compile Include="Mechanics\Seasonal Events\SeasonalEventGump.cs" />
+    <Compile Include="Mechanics\Seasonal Events\SeasonalEventSystem.cs" />
     <Compile Include="Expansion\TOL\TreasuresOfDoom\DoomData.cs" />
     <Compile Include="Expansion\TOL\TreasuresOfDoom\Generation.cs" />
     <Compile Include="Expansion\TOL\TreasuresOfDoom\Items\AncientClayVase.cs" />
@@ -10273,12 +10273,12 @@
     <Compile Include="Expansion\EJ\Vendor Searching\VendorSearchGump.cs" />
     <Compile Include="Expansion\EJ\Vendor Searching\VendorSearchMap.cs" />
     <Compile Include="Mechanics\Teleporters\Teleporters.cs" />
-    <Compile Include="Services\VeteranRewards\CrystalPortals\CorruptedCrystalPortal.cs" />
-    <Compile Include="Services\VeteranRewards\CrystalPortals\CorruptedCrystalPortalGump.cs" />
-    <Compile Include="Services\VeteranRewards\CrystalPortals\CrystalPortal.cs" />
-    <Compile Include="Services\VeteranRewards\CrystalPortals\CrystalPortalGump.cs" />
-    <Compile Include="Services\VeteranRewards\DaviesLocker.cs" />
-    <Compile Include="Services\VeteranRewards\StatRewardGump.cs" />
+    <Compile Include="Expansion\HS\CorruptedCrystalPortal.cs" />
+    <Compile Include="Expansion\HS\CorruptedCrystalPortalGump.cs" />
+    <Compile Include="Expansion\ML\CrystalPortals\CrystalPortal.cs" />
+    <Compile Include="Expansion\ML\CrystalPortals\CrystalPortalGump.cs" />
+    <Compile Include="Expansion\AOS\DaviesLocker.cs" />
+    <Compile Include="Expansion\UOR\VeteranRewards\StatRewardGump.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\CityInfo.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\GuildStats.cs" />
     <Compile Include="Expansion\HS\ViceVsVirtue\Gumps\BattleStatsGump.cs" />
@@ -10601,8 +10601,8 @@
     <Compile Include="Expansion\UOR\Services\Plants\SetToDecorativeGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\PlayerZombies.cs" />
-    <Compile Include="Services\PumpkinPatch.cs" />
+    <Compile Include="Expansion\AOS\Shard of the Dead\PlayerZombies.cs" />
+    <Compile Include="Expansion\AOS\Shard of the Dead\PumpkinPatch.cs" />
     <Compile Include="Expansion\LBR\Quests\BaseQuester.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -11047,7 +11047,7 @@
     <Compile Include="Items\Artifacts\TOTLesserArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\TrickOrTreat.cs" />
+    <Compile Include="Expansion\AOS\Shard of the Dead\TrickOrTreat.cs" />
     <Compile Include="Expansion\SA\Underworld\ExperimentalRoom\ExperimentalBook.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -11126,46 +11126,46 @@
     <Compile Include="Expansion\SA\Underworld\PuzzleRoom\PuzzleRoomTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\Character Statue Maker\CharacterStatue.cs">
+    <Compile Include="Expansion\HS\Character Statue Maker\CharacterStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\Character Statue Maker\CharacterStatueMaker.cs">
+    <Compile Include="Expansion\HS\Character Statue Maker\CharacterStatueMaker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\Character Statue Maker\CharacterStatuePlinth.cs">
+    <Compile Include="Expansion\HS\Character Statue Maker\CharacterStatuePlinth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\Character Statue Maker\Gumps\CharacterStatueGump.cs">
+    <Compile Include="Expansion\HS\Character Statue Maker\Gumps\CharacterStatueGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\Character Statue Maker\Packets.cs">
+    <Compile Include="Expansion\HS\Character Statue Maker\Packets.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardCategory.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardCategory.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardChoiceGump.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardChoiceGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardConfirmGump.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardConfirmGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardDemolitionGump.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardDemolitionGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardEntry.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardList.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardNoticeGump.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardNoticeGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardOptionGump.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardOptionGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\VeteranRewards\RewardSystem.cs">
+    <Compile Include="Expansion\UOR\VeteranRewards\RewardSystem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mechanics\Virtues\Compassion.cs">
@@ -11562,7 +11562,7 @@
     <Compile Include="Expansion\Original UO\Mechanics\Skills\Tracking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Services\GiftGiving\GiftGiving.cs">
+    <Compile Include="Administration\World\GiftGiving\GiftGiving.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Needs Deleted Look Over First\ItemFixes.cs">
