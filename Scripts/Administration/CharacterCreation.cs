@@ -208,7 +208,7 @@ namespace Server.Misc
 				
 				pm.AutoRenewInsurance = true;
 
-				var skillcap = INI.Get("PlayerCaps.SkillCap", 1000.0d) / 10;
+				var skillcap = Initialization.Get("PlayerCaps.SkillCap", 1000.0d) / 10;
 				
 				if (skillcap != 100.0)
 				{

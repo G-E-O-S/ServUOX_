@@ -40,28 +40,28 @@ namespace Server.Commands
                     {
                         m_Mobile = from;
                         
-                        if (INI.Get("Staff.Staffbody", true))
+                        if (Initialization.Get("Staff.Staffbody", true))
                         {
                             m_Mobile.BodyValue = 987;
 
-                            if (INI.Get("Staff.UseColoring", true))
+                            if (Initialization.Get("Staff.UseColoring", true))
                             {
                                 switch (m_Mobile.AccessLevel)
                                 {
-                                    case AccessLevel.Owner:m_Mobile.Hue = INI.Get("Staff.Owner", 1001); break;
-                                    case AccessLevel.Developer:m_Mobile.Hue = INI.Get("Staff.Developer", 1001); break;
-                                    case AccessLevel.Administrator: m_Mobile.Hue = INI.Get("Staff.Administrator", 1001); break;
-                                    case AccessLevel.Seer: m_Mobile.Hue = INI.Get("Staff.Seer", 467); break;
-                                    case AccessLevel.GameMaster: m_Mobile.Hue = INI.Get("Staff.GameMaster", 39); break;
-                                    case AccessLevel.Counselor: m_Mobile.Hue = INI.Get("Staff.Counselor", 3); break;
+                                    case AccessLevel.Owner:m_Mobile.Hue = Initialization.Get("Staff.Owner", 1001); break;
+                                    case AccessLevel.Developer:m_Mobile.Hue = Initialization.Get("Staff.Developer", 1001); break;
+                                    case AccessLevel.Administrator: m_Mobile.Hue = Initialization.Get("Staff.Administrator", 1001); break;
+                                    case AccessLevel.Seer: m_Mobile.Hue = Initialization.Get("Staff.Seer", 467); break;
+                                    case AccessLevel.GameMaster: m_Mobile.Hue = Initialization.Get("Staff.GameMaster", 39); break;
+                                    case AccessLevel.Counselor: m_Mobile.Hue = Initialization.Get("Staff.Counselor", 3); break;
                                 }
                             }
                         }
 
-                        if (INI.Get("Staff.CutHair", true))
+                        if (Initialization.Get("Staff.CutHair", true))
                             m_Mobile.HairItemID = 0;
 
-                        if (INI.Get("Staff.CutFacialHair", true))
+                        if (Initialization.Get("Staff.CutFacialHair", true))
                             m_Mobile.FacialHairItemID = 0;
 
                         CommandLogging.WriteLine(from, "{0} {1} is assuming a GM body", from.AccessLevel, CommandLogging.Format(from));
@@ -127,19 +127,19 @@ namespace Server.Commands
                                 targ.Skills[i].Base = 120;
                         }
 
-                        if (INI.Get("Staff.GiveBoots", true))
+                        if (Initialization.Get("Staff.GiveBoots", true))
                         {
                             int color = 0;
-                            if (INI.Get("Staff.UseColoring", true))
+                            if (Initialization.Get("Staff.UseColoring", true))
                             {
                                 switch (m_Mobile.AccessLevel)
                                 {
-                                    case AccessLevel.Owner: color = INI.Get("Staff.Owner", 1001); break;
-                                    case AccessLevel.Developer: color = INI.Get("Staff.Developer", 1001); break;
-                                    case AccessLevel.Administrator: color = INI.Get("Staff.Administrator", 1001); break;
-                                    case AccessLevel.Seer: color = INI.Get("Staff.Seer", 467); break;
-                                    case AccessLevel.GameMaster: color = INI.Get("Staff.GameMaster", 39); break;
-                                    case AccessLevel.Counselor: color = INI.Get("Staff.Counselor", 3); break;
+                                    case AccessLevel.Owner: color = Initialization.Get("Staff.Owner", 1001); break;
+                                    case AccessLevel.Developer: color = Initialization.Get("Staff.Developer", 1001); break;
+                                    case AccessLevel.Administrator: color = Initialization.Get("Staff.Administrator", 1001); break;
+                                    case AccessLevel.Seer: color = Initialization.Get("Staff.Seer", 467); break;
+                                    case AccessLevel.GameMaster: color = Initialization.Get("Staff.GameMaster", 39); break;
+                                    case AccessLevel.Counselor: color = Initialization.Get("Staff.Counselor", 3); break;
                                 }
                             }
 

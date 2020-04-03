@@ -30,8 +30,8 @@ namespace Server.Engines.Shadowguard
     [DeleteConfirm("Are you sure you want to delete this? Deleting this will delete any saved encounter data your players have.")]
     public class ShadowguardController : Item
     {
-        public static readonly TimeSpan ReadyDuration = TimeSpan.FromSeconds(INI.Get("Shadowguard.ReadyDuration", 30));
-        public static bool RandomInstances = INI.Get("Shadowguard.RandomizeInstances", false);
+        public static readonly TimeSpan ReadyDuration = TimeSpan.FromSeconds(Initialization.Get("Shadowguard.ReadyDuration", 30));
+        public static bool RandomInstances = Initialization.Get("Shadowguard.RandomizeInstances", false);
 
         public static ShadowguardController Instance { get; set; }
 

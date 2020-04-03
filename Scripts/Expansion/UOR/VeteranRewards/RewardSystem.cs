@@ -13,14 +13,14 @@ namespace Server.Engines.VeteranRewards
 
     public class RewardSystem
     {
-        public static bool Enabled = INI.Get("VetRewards.Enabled", true);
-        public static bool SkillCapRewards = INI.Get("VetRewards.SkillCapRewards", true);
-        public static int SkillCap = INI.Get("ServUOX.TotalSkillCap", 7000);
-        public static int SkillCapBonus = INI.Get("VetRewards.SkillCapBonus", 200);
-        public static int SkillCapBonusLevels = INI.Get("VetRewards.SkillCapBonusLevels", 4);
+        public static bool Enabled = Initialization.Get("VetRewards.Enabled", true);
+        public static bool SkillCapRewards = Initialization.Get("VetRewards.SkillCapRewards", true);
+        public static int SkillCap = Initialization.Get("ServUOX.TotalSkillCap", 7000);
+        public static int SkillCapBonus = Initialization.Get("VetRewards.SkillCapBonus", 200);
+        public static int SkillCapBonusLevels = Initialization.Get("VetRewards.SkillCapBonusLevels", 4);
         public static float SkillCapBonusIncrement = SkillCapBonus / SkillCapBonusLevels;
-        public static TimeSpan RewardInterval = INI.Get("VetRewards.RewardInterval", TimeSpan.FromDays(30.0d));
-        public static int StartingLevel = INI.Get("VetRewards.StartingLevel", 0);
+        public static TimeSpan RewardInterval = Initialization.Get("VetRewards.RewardInterval", TimeSpan.FromDays(30.0d));
+        public static int StartingLevel = Initialization.Get("VetRewards.StartingLevel", 0);
 
         private static RewardCategory[] m_Categories;
         private static RewardList[] m_Lists;

@@ -87,16 +87,16 @@ namespace Server.Engines.CityLoyalty
 	[PropertyObject]
 	public class CityLoyaltySystem : PointsSystem
 	{
-        public static readonly bool Enabled = INI.Get("CityLoyalty.Enabled", true);
-		public static readonly int CitizenJoinWait = INI.Get("CityLoyalty.JoinWait", 7);
-		public static readonly int BannerCost = INI.Get("CityLoyalty.BannerCost", 250000);
-        public static readonly int BannerCooldownDuration = INI.Get("CityLoyalty.BannerCooldown", 24);
-        public static readonly int TradeDealCostPeriod = INI.Get("CityLoyalty.TradeDealPeriod", 7);
-        public static readonly int TradeDealCooldown = INI.Get("CityLoyalty.TradeDealCooldown", 7);
-        public static readonly int TradeDealCost = INI.Get("CityLoyalty.TradeDealCost", 2000000);
-        public static readonly int TradeDealUtilizationPeriod = INI.Get("CityLoyalty.TradeDealUtilizationPeriod", 24);
-        public static readonly int MaxBallotBoxes = INI.Get("CityLoyalty.MaxBallotBoxes", 10);
-        public static readonly int AnnouncementPeriod = INI.Get("CityLoyalty.AnnouncementPeriod", 48);
+        public static readonly bool Enabled = Initialization.Get("CityLoyalty.Enabled", true);
+		public static readonly int CitizenJoinWait = Initialization.Get("CityLoyalty.JoinWait", 7);
+		public static readonly int BannerCost = Initialization.Get("CityLoyalty.BannerCost", 250000);
+        public static readonly int BannerCooldownDuration = Initialization.Get("CityLoyalty.BannerCooldown", 24);
+        public static readonly int TradeDealCostPeriod = Initialization.Get("CityLoyalty.TradeDealPeriod", 7);
+        public static readonly int TradeDealCooldown = Initialization.Get("CityLoyalty.TradeDealCooldown", 7);
+        public static readonly int TradeDealCost = Initialization.Get("CityLoyalty.TradeDealCost", 2000000);
+        public static readonly int TradeDealUtilizationPeriod = Initialization.Get("CityLoyalty.TradeDealUtilizationPeriod", 24);
+        public static readonly int MaxBallotBoxes = Initialization.Get("CityLoyalty.MaxBallotBoxes", 10);
+        public static readonly int AnnouncementPeriod = Initialization.Get("CityLoyalty.AnnouncementPeriod", 48);
 
         public static readonly TimeSpan LoveAtrophyDuration = TimeSpan.FromHours(40);
         public static Map SystemMap { get { return Siege.SiegeShard ? Map.Felucca : Map.Trammel; } }

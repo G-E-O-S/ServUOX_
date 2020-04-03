@@ -7,7 +7,7 @@ namespace Server
 {
     public class SocketOptions
     {
-	    public static readonly int Port = INI.Get("Server.Port", 2593);
+	    public static readonly int Port = Initialization.Get("Server.Port", 2593);
 
         private static readonly IPEndPoint[] m_ListenerEndPoints = new IPEndPoint[]
         {

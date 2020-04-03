@@ -20,16 +20,16 @@ namespace Server.Misc
         * Example:
         *  public static readonly string SpeechLogPageAddresses = "first@email.here,second@email.here,third@email.here";
         */
-        public static readonly string EmailServer = INI.Get("Email.EmailServer", default(string));
-        public static readonly int EmailPort = INI.Get("Email.EmailPort", 25);
-        public static readonly bool EmailSsl = INI.Get("Email.EmailSsl", false);
+        public static readonly string EmailServer = Initialization.Get("Email.EmailServer", default(string));
+        public static readonly int EmailPort = Initialization.Get("Email.EmailPort", 25);
+        public static readonly bool EmailSsl = Initialization.Get("Email.EmailSsl", false);
 
-        public static readonly string FromAddress = INI.Get("Email.FromAddress", default(string));
-        public static readonly string CrashAddresses = INI.Get("Email.CrashAddresses", default(string));
-        public static readonly string SpeechLogPageAddresses = INI.Get("Email.SpeechLogPageAddresses", default(string));
+        public static readonly string FromAddress = Initialization.Get("Email.FromAddress", default(string));
+        public static readonly string CrashAddresses = Initialization.Get("Email.CrashAddresses", default(string));
+        public static readonly string SpeechLogPageAddresses = Initialization.Get("Email.SpeechLogPageAddresses", default(string));
 
-        public static readonly string EmailUsername = INI.Get("Email.EmailUsername", default(string));
-        public static readonly string EmailPassword = INI.Get("Email.EmailPassword", default(string));
+        public static readonly string EmailUsername = Initialization.Get("Email.EmailUsername", default(string));
+        public static readonly string EmailPassword = Initialization.Get("Email.EmailPassword", default(string));
 
         private static readonly Regex _pattern = new Regex(@"^[a-z0-9.+_-]+@([a-z0-9-]+\.)+[a-z]+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 

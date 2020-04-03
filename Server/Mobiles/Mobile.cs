@@ -6034,12 +6034,12 @@ namespace Server
 
 						if (version < 34)
 						{
-                            m_StrCap = INI.Get("ServUOX.StrCap", 125);
-                            m_DexCap = INI.Get("ServUOX.DexCap", 125);
-                            m_IntCap = INI.Get("ServUOX.IntCap", 125);
-                            m_StrMaxCap = INI.Get("ServUOX.StrMaxCap", 150);
-                            m_DexMaxCap = INI.Get("ServUOX.DexMaxCap", 150);
-                            m_IntMaxCap = INI.Get("ServUOX.IntMaxCap", 150);
+                            m_StrCap = Initialization.Get("ServUOX.StrCap", 125);
+                            m_DexCap = Initialization.Get("ServUOX.DexCap", 125);
+                            m_IntCap = Initialization.Get("ServUOX.IntCap", 125);
+                            m_StrMaxCap = Initialization.Get("ServUOX.StrMaxCap", 150);
+                            m_DexMaxCap = Initialization.Get("ServUOX.DexMaxCap", 150);
+                            m_IntMaxCap = Initialization.Get("ServUOX.IntMaxCap", 150);
 						}
 
 						if (version < 21)
@@ -6059,7 +6059,7 @@ namespace Server
 
 						if (version < 3)
 						{
-                            m_StatCap = INI.Get("ServUOX.TotalStatCap", 225);
+                            m_StatCap = Initialization.Get("ServUOX.TotalStatCap", 225);
 						}
 
 						if (version < 15)
@@ -11081,13 +11081,13 @@ namespace Server
 
 		public void DefaultMobileInit()
 		{
-            m_StatCap = INI.Get("ServUOX.TotalStatCap", 225);
-            m_StrCap = INI.Get("ServUOX.StrCap", 125);
-            m_DexCap = INI.Get("ServUOX.DexCap", 125);
-            m_IntCap = INI.Get("ServUOX.IntCap", 125);
-            m_StrMaxCap = INI.Get("ServUOX.StrMaxCap", 150);
-            m_DexMaxCap = INI.Get("ServUOX.DexMaxCap", 150);
-            m_IntMaxCap = INI.Get("ServUOX.IntMaxCap", 150);
+            m_StatCap = Initialization.Get("ServUOX.TotalStatCap", 225);
+            m_StrCap = Initialization.Get("ServUOX.StrCap", 125);
+            m_DexCap = Initialization.Get("ServUOX.DexCap", 125);
+            m_IntCap = Initialization.Get("ServUOX.IntCap", 125);
+            m_StrMaxCap = Initialization.Get("ServUOX.StrMaxCap", 150);
+            m_DexMaxCap = Initialization.Get("ServUOX.DexMaxCap", 150);
+            m_IntMaxCap = Initialization.Get("ServUOX.IntMaxCap", 150);
 			m_FollowersMax = 5;
 			m_Skills = new Skills(this);
 			m_Items = new List<Item>();

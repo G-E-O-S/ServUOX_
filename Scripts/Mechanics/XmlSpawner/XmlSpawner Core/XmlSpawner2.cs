@@ -51,9 +51,9 @@ namespace Server.Mobiles
 
 		public static void Configure()
 		{
-			m_XmlPoints = INI.Get("XmlSpawner2.Points", false);
-			m_XmlFactions = INI.Get("XmlSpawner2.Factions", false);
-			m_XmlSockets = INI.Get("XmlSpawner2.Sockets", false);
+			m_XmlPoints = Initialization.Get("XmlSpawner2.Points", false);
+			m_XmlFactions = Initialization.Get("XmlSpawner2.Factions", false);
+			m_XmlSockets = Initialization.Get("XmlSpawner2.Sockets", false);
 		}
 
 		#region Type declarations

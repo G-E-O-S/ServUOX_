@@ -71,21 +71,21 @@ namespace Server.Engines.CannedEvil
 
 		public static void Configure()
 		{
-			m_Enabled = INI.Get("Champions.Enabled", true);
-			m_RotateDelay = INI.Get("Champions.RotateDelay", TimeSpan.FromDays(1.0d));
-			m_GoldShowerPiles = INI.Get("Champions.GoldPiles", 50);
-			m_GoldShowerMinAmount = INI.Get("Champions.GoldMin", 4000);
-			m_GoldShowerMaxAmount = INI.Get("Champions.GoldMax", 5500);
-			m_HarrowerGoldPiles = INI.Get("Champions.HarrowerGoldPiles", 75);
-			m_HarrowerGoldMinAmount = INI.Get("Champions.HarrowerGoldMin", 5000);
-			m_HarrowerGoldMaxAmount = INI.Get("Champions.HarrowerGoldMax", 10000);
-			m_PowerScrollAmount = INI.Get("Champions.PowerScrolls", 6);
-			m_StatScrollAmount = INI.Get("Champions.StatScrolls", 16);
-			m_ScrollChance = INI.Get("Champions.ScrollChance", 0.1d) / 100.0d;
-			m_TranscendenceChance = INI.Get("Champions.TranscendenceChance", 50.0d) / 100.0d;
-			int rank2 = INI.Get("Champions.Rank2RedSkulls", 5);
-			int rank3 = INI.Get("Champions.Rank3RedSkulls", 10);
-			int rank4 = INI.Get("Champions.Rank4RedSkulls", 10);
+			m_Enabled = Initialization.Get("Champions.Enabled", true);
+			m_RotateDelay = Initialization.Get("Champions.RotateDelay", TimeSpan.FromDays(1.0d));
+			m_GoldShowerPiles = Initialization.Get("Champions.GoldPiles", 50);
+			m_GoldShowerMinAmount = Initialization.Get("Champions.GoldMin", 4000);
+			m_GoldShowerMaxAmount = Initialization.Get("Champions.GoldMax", 5500);
+			m_HarrowerGoldPiles = Initialization.Get("Champions.HarrowerGoldPiles", 75);
+			m_HarrowerGoldMinAmount = Initialization.Get("Champions.HarrowerGoldMin", 5000);
+			m_HarrowerGoldMaxAmount = Initialization.Get("Champions.HarrowerGoldMax", 10000);
+			m_PowerScrollAmount = Initialization.Get("Champions.PowerScrolls", 6);
+			m_StatScrollAmount = Initialization.Get("Champions.StatScrolls", 16);
+			m_ScrollChance = Initialization.Get("Champions.ScrollChance", 0.1d) / 100.0d;
+			m_TranscendenceChance = Initialization.Get("Champions.TranscendenceChance", 50.0d) / 100.0d;
+			int rank2 = Initialization.Get("Champions.Rank2RedSkulls", 5);
+			int rank3 = Initialization.Get("Champions.Rank3RedSkulls", 10);
+			int rank4 = Initialization.Get("Champions.Rank4RedSkulls", 10);
 			for (int i = 0; i < m_Rank.Length; ++i)
 			{
 				if (i < rank2)
@@ -97,10 +97,10 @@ namespace Server.Engines.CannedEvil
 				else
 					m_Rank[i] = 3;
 			}
-			m_MaxKill[0] = INI.Get("Champions.Rank1MaxKills", 256);
-			m_MaxKill[1] = INI.Get("Champions.Rank2MaxKills", 128);
-			m_MaxKill[2] = INI.Get("Champions.Rank3MaxKills", 64);
-			m_MaxKill[3] = INI.Get("Champions.Rank4MaxKills", 32);
+			m_MaxKill[0] = Initialization.Get("Champions.Rank1MaxKills", 256);
+			m_MaxKill[1] = Initialization.Get("Champions.Rank2MaxKills", 128);
+			m_MaxKill[2] = Initialization.Get("Champions.Rank3MaxKills", 64);
+			m_MaxKill[3] = Initialization.Get("Champions.Rank4MaxKills", 32);
 			EventSink.WorldLoad += EventSink_WorldLoad;
 			EventSink.WorldSave += EventSink_WorldSave;
 		}

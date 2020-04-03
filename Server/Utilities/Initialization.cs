@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace Server
 {
-    public static class INI
+    public static class Initialization
     {
         public sealed class Entry : IEquatable<Entry>, IComparable<Entry>
         {
@@ -128,7 +128,7 @@ namespace Server
             }
             catch (DirectoryNotFoundException)
             {
-                Console.WriteLine("Warning: No INI files found!");
+                Console.WriteLine("Warning: No Initialization files found!");
                 return;
             }
 
@@ -465,7 +465,7 @@ namespace Server
         private static void Warn<T>(string key)
         {
             Utility.PushColor(ConsoleColor.Yellow);
-            Console.WriteLine("INI: Warning, '{0}' invalid value for '{1}'", typeof(T), key);
+            Console.WriteLine("Initialization: Warning, '{0}' invalid value for '{1}'", typeof(T), key);
             Utility.PopColor();
         }
 
@@ -483,7 +483,7 @@ namespace Server
             }
 
             Utility.PushColor(ConsoleColor.Yellow);
-            Console.WriteLine("INI: Warning, using default value for {0}", key);
+            Console.WriteLine("Initialization: Warning, using default value for {0}", key);
             Utility.PopColor();
 
             return null;

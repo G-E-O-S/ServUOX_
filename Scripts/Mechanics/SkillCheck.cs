@@ -41,18 +41,18 @@ namespace Server.Misc
 
 		static SkillCheck()
 		{
-			_AntiMacroCode = INI.Get("PlayerCaps.EnableAntiMacro", false);
+			_AntiMacroCode = Initialization.Get("PlayerCaps.EnableAntiMacro", false);
 
-			_StatGainDelay = INI.Get("PlayerCaps.PlayerStatTimeDelay", TimeSpan.FromMinutes(15.0));
-			_PetStatGainDelay = INI.Get("PlayerCaps.PetStatTimeDelay", TimeSpan.FromMinutes(5.0));
+			_StatGainDelay = Initialization.Get("PlayerCaps.PlayerStatTimeDelay", TimeSpan.FromMinutes(15.0));
+			_PetStatGainDelay = Initialization.Get("PlayerCaps.PetStatTimeDelay", TimeSpan.FromMinutes(5.0));
 
-			_PlayerChanceToGainStats = INI.Get("PlayerCaps.PlayerChanceToGainStats", 5);
-			_PetChanceToGainStats = INI.Get("PlayerCaps.PetChanceToGainStats", 5);
+			_PlayerChanceToGainStats = Initialization.Get("PlayerCaps.PlayerChanceToGainStats", 5);
+			_PetChanceToGainStats = Initialization.Get("PlayerCaps.PetChanceToGainStats", 5);
 
-			if (!INI.Get("PlayerCaps.EnablePlayerStatTimeDelay", false))
+			if (!Initialization.Get("PlayerCaps.EnablePlayerStatTimeDelay", false))
 				_StatGainDelay = TimeSpan.FromSeconds(0.5);
 
-			if (!INI.Get("PlayerCaps.EnablePetStatTimeDelay", false))
+			if (!Initialization.Get("PlayerCaps.EnablePetStatTimeDelay", false))
 				_PetStatGainDelay = TimeSpan.FromSeconds(0.5);
 		}
 

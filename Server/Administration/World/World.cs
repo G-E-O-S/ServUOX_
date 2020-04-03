@@ -18,7 +18,7 @@ namespace Server
 		private static Dictionary<Serial, Item> m_Items;
 		// private static Dictionary<CustomSerial, SaveData> _Data;
 		
-		private static bool m_Metrics = INI.Get("ServUOX.Metrics", false);
+		private static bool m_Metrics = Initialization.Get("ServUOX.Metrics", false);
 
 		private static bool m_Loading;
 		private static bool m_Loaded;

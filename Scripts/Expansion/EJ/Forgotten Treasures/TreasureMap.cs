@@ -21,9 +21,9 @@ namespace Server.Items
     {
         public static bool NewSystem { get { return false; } }
 
-        public static bool NewChestLocations = INI.Get("TreasureMaps.Enabled", true);
-        public static double LootChance = INI.Get("TreasureMaps.LootChance", .01);
-        private static TimeSpan ResetTime = TimeSpan.FromDays(INI.Get("TreasureMaps.ResetTime", 30.0));
+        public static bool NewChestLocations = Initialization.Get("TreasureMaps.Enabled", true);
+        public static double LootChance = Initialization.Get("TreasureMaps.LootChance", .01);
+        private static TimeSpan ResetTime = TimeSpan.FromDays(Initialization.Get("TreasureMaps.ResetTime", 30.0));
 
         #region Forgotten Treasures
         private TreasurePackage _Package;
