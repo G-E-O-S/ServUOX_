@@ -8,12 +8,6 @@ namespace Server.Mobiles
     {
         [Constructable]
         public VeriteElemental()
-            : this(25)
-        {
-        }
-
-        [Constructable]
-        public VeriteElemental(int oreAmount)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "a verite elemental";
@@ -45,10 +39,6 @@ namespace Server.Mobiles
             Karma = -3500;
 
             VirtualArmor = 35;
-
-            Item ore = new VeriteOre(oreAmount);
-            ore.ItemID = 0x19B9;
-            PackItem(ore);
         }
 
         public VeriteElemental(Serial serial)
@@ -56,26 +46,15 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel
+        public override bool AutoDispel { get { return true; } }
+        public override bool BleedImmune { get { return true; } }
+        public override int TreasureMapLevel { get { return 1; } }
+
+        public override void OnDeath(Container c)
         {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 1;
-            }
+            base.OnDeath(c);
+            c.DropItem(new VeriteOre(25));
+            //ore.ItemID = 0x19B9;
         }
 
         public static void OnHit(Mobile defender, Item item, int damage)

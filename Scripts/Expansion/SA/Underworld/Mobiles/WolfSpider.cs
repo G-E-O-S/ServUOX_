@@ -3,14 +3,14 @@ using Server.Items;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a wolf spider spider corpse")]
+    [CorpseName("a wolf spider corpse")]
     public class WolfSpider : BaseCreature
     {
         [Constructable]
         public WolfSpider()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Wolf spider";
+            Name = "a wolf spider";
             Body = 736;
             Hue = 0;
 
@@ -44,6 +44,10 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 2;
             MinTameSkill = 59.1;
+
+            // VirtualArmor?
+
+            PackItem(new SpidersSilk(8));
         }
 
         public WolfSpider(Serial serial)
@@ -51,68 +55,29 @@ namespace Server.Mobiles
         {
         }
 
-        public override FoodType FavoriteFood
-        {
-            get
-            {
-                return FoodType.Meat;
-            }
-        }
-        public override PackInstinct PackInstinct
-        {
-            get
-            {
-                return PackInstinct.Arachnid;
-            }
-        }
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }
-        public override Poison HitPoison
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }
+        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
+        public override PackInstinct PackInstinct { get { return PackInstinct.Arachnid; } }
+        public override Poison PoisonImmune { get { return Poison.Regular; } }
+        public override Poison HitPoison { get { return Poison.Regular; } }
+
         public override void GenerateLoot()
         {
-            PackItem(new SpidersSilk(8));
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.Gems, 2);
         }
 
-        public override void OnDeath(Container c)
+        public override void OnDeath(Container CorpseLoot)
         {
-            base.OnDeath(c);
-
             if (!Controlled && Utility.RandomDouble() < 0.01)
-                c.DropItem(new LuckyCoin());
+                CorpseLoot.DropItem(new LuckyCoin());
+
+            base.OnDeath(CorpseLoot);
         }
 
-        public override int GetIdleSound()
-        {
-            return 1605;
-        }
-
-        public override int GetAngerSound()
-        {
-            return 1602;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 1604;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 1603;
-        }
+        public override int GetIdleSound() { return 1605; }
+        public override int GetAngerSound() { return 1602; }
+        public override int GetHurtSound() { return 1604; }
+        public override int GetDeathSound() { return 1603; }
 
         public override void Serialize(GenericWriter writer)
         {

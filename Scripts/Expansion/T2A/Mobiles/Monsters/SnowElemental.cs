@@ -40,11 +40,6 @@ namespace Server.Mobiles
 
             VirtualArmor = 50;
 
-            PackItem(new BlackPearl(3));
-            Item ore = new IronOre(3);
-            ore.ItemID = 0x19B8;
-            PackItem(ore);
-
             SetAreaEffect(AreaEffect.AuraDamage);
         }
 
@@ -53,20 +48,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        public override bool BleedImmune { get { return true; } }
+        public override int TreasureMapLevel { get { return 2; } }
 
         public void AuraEffect(Mobile m)
         {
@@ -79,6 +62,14 @@ namespace Server.Mobiles
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich);
+        }
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new BlackPearl(3));
+            CorpseLoot.DropItem(new IronOre(3));
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override void Serialize(GenericWriter writer)

@@ -5898,11 +5898,7 @@ namespace Server.Mobiles
             typeof(MerchantCaptain), typeof(PirateCrew), typeof(PirateCaptain), typeof(MerchantCrew), typeof(Osiredon), typeof(Charydbis), typeof(CorgulTheSoulBinder),
         };
         #endregion
-
-
-
-
-
+                          
         public override bool OnBeforeDeath()
         {
             int treasureLevel = TreasureMapInfo.ConvertLevel(TreasureMapLevel);

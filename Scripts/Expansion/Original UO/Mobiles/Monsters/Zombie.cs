@@ -45,35 +45,23 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }
-
+        public override bool BleedImmune { get { return true; } }
+        public override Poison PoisonImmune { get { return Poison.Regular; }  }
         public override TribeType Tribe { get { return TribeType.Undead; } }
+        public override OppositionGroup OppositionGroup { get { return OppositionGroup.FeyAndUndead; } }
 
-        public override OppositionGroup OppositionGroup
-        {
-            get
-            {
-                return OppositionGroup.FeyAndUndead;
-            }
-        }
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Meager);
         }
-        
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+        //    PackBodyPartOrBones();
+
+            base.OnDeath(CorpseLoot);
+        }
+
         public override bool IsEnemy(Mobile m)
         {
             if(Region.IsPartOf("Haven Island"))

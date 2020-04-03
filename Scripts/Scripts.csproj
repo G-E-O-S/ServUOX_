@@ -2263,7 +2263,7 @@
     <Compile Include="Mobiles\Hunters Guide\C\ClanSSW.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ClockworkScorpion.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ColdDrake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\CopperElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\CopperElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CoralSnake.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CorporealBrume.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Corpser.cs" />
@@ -2307,7 +2307,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\EarthElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffetePutridGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffeteUndeadGargoyle.cs" />
-    <Compile Include="Mobiles\Hunters Guide\E\Efreet.cs" />
+    <Compile Include="Expansion\T2A\Mobiles\Monsters\Efreet.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\ElderGazer.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\ElfBrigand.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EliteNinja.cs" />
@@ -2363,7 +2363,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Gibberling.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Goat.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\GoldenElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\GoldenElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Golem.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GolemController.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GoreFiend.cs" />
@@ -2448,13 +2448,13 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OgreLord.cs" />
     <Compile Include="Expansion\SE\Mobiles\Oni.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Orc.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OrcBomber.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OrcBrute.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcBomber.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcBrute.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OrcCaptain.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OrcChopper.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcChopper.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OrcishLord.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OrcishMage.cs" />
-    <Compile Include="Mobiles\Hunters Guide\O\OrcScout.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcScout.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Ortanord.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\PackHorse.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\PackLlama.cs" />
@@ -2544,7 +2544,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Animals\SewerRat.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Shade.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowDweller.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\ShadowIronElemental.cs" />
+    <Compile Include="Expansion\UOR\Mobiles\ShadowIronElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowKnight.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowWisp.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowWyrm.cs" />

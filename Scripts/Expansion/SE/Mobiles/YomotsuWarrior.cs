@@ -37,34 +37,7 @@ namespace Server.Mobiles
             SetSkill(SkillName.Wrestling, 97.6, 107.5);
 
             Fame = 4200;	
-            Karma = -4200;
-
-            PackItem(new GreenGourd());
-            PackItem(new ExecutionersAxe());
-
-            if (Utility.RandomBool())
-                PackItem(new LongPants());
-            else
-                PackItem(new ShortPants());
-
-            switch ( Utility.Random(4) )
-            {
-                case 0:
-                    PackItem(new Shoes());
-                    break;
-                case 1:
-                    PackItem(new Sandals());
-                    break;
-                case 2:
-                    PackItem(new Boots());
-                    break;
-                case 3:
-                    PackItem(new ThighBoots());
-                    break;
-            }
-
-            if (Utility.RandomDouble() < .25)
-                PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
+            Karma = -4200; 
 
             SetWeaponAbility(WeaponAbility.DoubleStrike);
         }
@@ -74,39 +47,52 @@ namespace Server.Mobiles
         {
         }
 
-        public override FoodType FavoriteFood
-        {
-            get
-            {
-                return FoodType.Fish;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 3;
-            }
-        }
+        public override FoodType FavoriteFood { get { return FoodType.Fish; } }
+        public override int Meat { get { return 1; } }
+        public override bool CanRummageCorpses { get { return true; } }
+        public override int TreasureMapLevel { get { return 3; } }
+
+        public override int GetIdleSound() { return 0x42A; }
+        public override int GetAttackSound() { return 0x435; }
+        public override int GetHurtSound() { return 0x436; }
+        public override int GetDeathSound() { return 0x43A; }
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich, 2);
             AddLoot(LootPack.Gems, 2);
+        }
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new GreenGourd());
+            CorpseLoot.DropItem(new ExecutionersAxe());
+
+            if (Utility.RandomBool())
+                CorpseLoot.DropItem(new LongPants());
+            else
+                CorpseLoot.DropItem(new ShortPants());
+
+            switch (Utility.Random(4))
+            {
+                case 0:
+                    CorpseLoot.DropItem(new Shoes());
+                    break;
+                case 1:
+                    CorpseLoot.DropItem(new Sandals());
+                    break;
+                case 2:
+                    CorpseLoot.DropItem(new Boots());
+                    break;
+                case 3:
+                    CorpseLoot.DropItem(new ThighBoots());
+                    break;
+            }
+
+            if (Core.SE && Utility.RandomDouble() < .25)
+                CorpseLoot.DropItem(Engines.Plants.Seed.RandomBonsaiSeed());
+
+            base.OnDeath(CorpseLoot);
         }
 
         // TODO: Throwing Dagger
@@ -138,26 +124,6 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-        }
-
-        public override int GetIdleSound()
-        {
-            return 0x42A;
-        }
-
-        public override int GetAttackSound()
-        {
-            return 0x435;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x436;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x43A;
         }
     }
 }

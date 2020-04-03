@@ -8,12 +8,6 @@ namespace Server.Mobiles
     {
         [Constructable]
         public CopperElemental()
-            : this(25)
-        {
-        }
-
-        [Constructable]
-        public CopperElemental(int oreAmount)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             Name = "a copper elemental";
@@ -44,10 +38,6 @@ namespace Server.Mobiles
             Karma = -4800;
 
             VirtualArmor = 26;
-
-            Item ore = new CopperOre(oreAmount);
-            ore.ItemID = 0x19B9;
-            PackItem(ore);
         }
 
         public CopperElemental(Serial serial)
@@ -55,27 +45,17 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune
+        public override bool AutoDispel { get { return true; } }
+        public override bool BleedImmune { get { return true; } }
+        public override int TreasureMapLevel { get { return 1; } }
+
+        public override void OnDeath(Container c)
         {
-            get
-            {
-                return true;
-            }
+            base.OnDeath(c);
+            c.DropItem(new CopperOre(25));
+            //ore.ItemID = 0x19B9;
         }
-        public override bool AutoDispel
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 1;
-            }
-        }
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Average);

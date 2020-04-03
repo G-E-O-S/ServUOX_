@@ -39,39 +39,7 @@ namespace Server.Mobiles
 
             Fame = 9000;
             Karma = -9000;
-
-            PackItem(new GreenGourd());
-            PackItem(new ExecutionersAxe());
-
-            switch ( Utility.Random(3) )
-            {
-                case 0:
-                    PackItem(new LongPants());
-                    break;
-                case 1:
-                    PackItem(new ShortPants());
-                    break;
-            }
-
-            switch ( Utility.Random(6) )
-            {
-                case 0:
-                    PackItem(new Shoes());
-                    break;
-                case 1:
-                    PackItem(new Sandals());
-                    break;
-                case 2:
-                    PackItem(new Boots());
-                    break;
-                case 3:
-                    PackItem(new ThighBoots());
-                    break;
-            }
-
-            if (Utility.RandomDouble() < .25)
-                PackItem(Engines.Plants.Seed.RandomBonsaiSeed());
-
+                       
             SetWeaponAbility(WeaponAbility.DoubleStrike);
         }
 
@@ -79,36 +47,59 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
-		
-		public override int TreasureMapLevel { get { return 4; } }
 
-        public override FoodType FavoriteFood
-        {
-            get
-            {
-                return FoodType.Fish;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override FoodType FavoriteFood { get { return FoodType.Fish; } }
+        public override int Meat { get { return 1; } }
+        public override bool CanRummageCorpses { get { return true; } }
+        public override int TreasureMapLevel { get { return 4; } }
+
+        public override int GetIdleSound() { return 0x42A; }
+        public override int GetAttackSound() { return 0x435; }
+        public override int GetHurtSound() { return 0x436; }
+        public override int GetDeathSound() { return 0x43A; }
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich);
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.Gems, 4);
+        }
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new GreenGourd());
+            CorpseLoot.DropItem(new ExecutionersAxe());
+
+            switch (Utility.Random(3))
+            {
+                case 0:
+                    CorpseLoot.DropItem(new LongPants());
+                    break;
+                case 1:
+                    CorpseLoot.DropItem(new ShortPants());
+                    break;
+            }
+
+            switch (Utility.Random(6))
+            {
+                case 0:
+                    CorpseLoot.DropItem(new Shoes());
+                    break;
+                case 1:
+                    CorpseLoot.DropItem(new Sandals());
+                    break;
+                case 2:
+                    CorpseLoot.DropItem(new Boots());
+                    break;
+                case 3:
+                    CorpseLoot.DropItem(new ThighBoots());
+                    break;
+            }
+
+            if (Core.SE && Utility.RandomDouble() < .25)
+                CorpseLoot.DropItem(Engines.Plants.Seed.RandomBonsaiSeed());
+
+            base.OnDeath(CorpseLoot);
         }
 
         // TODO: Body Transformation
@@ -140,26 +131,6 @@ namespace Server.Mobiles
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-        }
-
-        public override int GetIdleSound()
-        {
-            return 0x42A;
-        }
-
-        public override int GetAttackSound()
-        {
-            return 0x435;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x436;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x43A;
         }
     }
 }

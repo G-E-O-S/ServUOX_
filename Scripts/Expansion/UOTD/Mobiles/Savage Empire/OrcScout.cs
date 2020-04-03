@@ -50,22 +50,6 @@ namespace Server.Mobiles
 
 			Fame = 1500;
 			Karma = -1500;
-
-			PackItem(new Apple(Utility.RandomMinMax(3, 5)));
-			PackItem(new Arrow(Utility.RandomMinMax(60, 70)));
-			PackItem(new Bandage(Utility.RandomMinMax(1, 15)));
-
-			if (0.1 > Utility.RandomDouble())
-			{
-				AddItem(new OrcishBow());
-			}
-			else
-			{
-				AddItem(new Bow());
-			}
-
-            if (0.5 > Utility.RandomDouble())
-                PackItem(new Yeast());
 		}
 
 		public OrcScout(Serial serial)
@@ -79,13 +63,34 @@ namespace Server.Mobiles
 		public override InhumanSpeech SpeechType { get { return InhumanSpeech.Orc; } }
 		public override OppositionGroup OppositionGroup { get { return OppositionGroup.SavagesAndOrcs; } }
         public override TribeType Tribe { get { return TribeType.Orc; } }
-		public override void GenerateLoot()
 
+		public override void GenerateLoot()
 		{
 			AddLoot(LootPack.Rich);
 		}
 
-		public override bool IsEnemy(Mobile m)
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new Apple(Utility.RandomMinMax(3, 5)));
+            CorpseLoot.DropItem(new Arrow(Utility.RandomMinMax(60, 70)));
+            CorpseLoot.DropItem(new Bandage(Utility.RandomMinMax(1, 15)));
+
+            if (Utility.RandomDouble() < 0.1)
+            {
+                CorpseLoot.DropItem(new OrcishBow());
+            }
+            else
+            {
+                CorpseLoot.DropItem(new Bow());
+            }
+
+            if (Core.HS && Utility.RandomDouble() > 0.5)
+                CorpseLoot.DropItem(new Yeast());
+
+            base.OnDeath(CorpseLoot);
+        }
+
+        public override bool IsEnemy(Mobile m)
 		{
 			if (m.Player && m.FindItemOnLayer(Layer.Helm) is OrcishKinMask)
 			{

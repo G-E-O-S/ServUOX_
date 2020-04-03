@@ -40,19 +40,6 @@ namespace Server.Mobiles
             Karma = -15000;
 
             VirtualArmor = 50;
-
-            Item ore = new ShadowIronOre(25);
-            ore.ItemID = 0x19B9;
-            PackItem(ore);
-            PackItem(new IronIngot(10));
-
-            if (0.05 > Utility.RandomDouble())
-                PackItem(new OrcishKinMask());
-
-            if (0.2 > Utility.RandomDouble())
-                PackItem(new BolaBall());
-
-            PackItem(new Yeast());
         }
 
         public OrcBrute(Serial serial)
@@ -60,55 +47,35 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BardImmune
-        {
-            get
-            {
-                return !Core.AOS;
-            }
-        }
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 2;
-            }
-        }
-
+        public override bool BardImmune { get { return !Core.AOS; } }
+        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override int Meat { get { return 2; } }
         public override TribeType Tribe { get { return TribeType.Orc; } }
+        public override OppositionGroup OppositionGroup { get { return OppositionGroup.SavagesAndOrcs; } }
+        public override bool CanRummageCorpses { get { return true; } }
+        public override bool AutoDispel { get { return true; }  }
 
-        public override OppositionGroup OppositionGroup
-        {
-            get
-            {
-                return OppositionGroup.SavagesAndOrcs;
-            }
-        }
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool AutoDispel
-        {
-            get
-            {
-                return true;
-            }
-        }
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich);
             AddLoot(LootPack.Rich);
+        }
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new ShadowIronOre(25));
+
+            CorpseLoot.DropItem(new IronIngot(10));
+
+            if (Core.UOTD && Utility.RandomDouble() > 0.05)
+                CorpseLoot.DropItem(new OrcishKinMask());
+
+            if (Core.UOR && Utility.RandomDouble() < 0.2)
+                CorpseLoot.DropItem(new BolaBall());
+
+            if (Core.HS) CorpseLoot.DropItem(new Yeast());
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override bool IsEnemy(Mobile m)

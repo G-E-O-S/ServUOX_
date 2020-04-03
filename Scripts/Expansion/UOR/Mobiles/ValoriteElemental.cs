@@ -8,12 +8,6 @@ namespace Server.Mobiles
     {
         [Constructable]
         public ValoriteElemental()
-            : this(25)
-        {
-        }
-
-        [Constructable]
-        public ValoriteElemental(int oreAmount)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             // TODO: Gas attack
@@ -49,10 +43,6 @@ namespace Server.Mobiles
 
             VirtualArmor = 38;
 
-            Item ore = new ValoriteOre(oreAmount);
-            ore.ItemID = 0x19B9;
-            PackItem(ore);
-
             SetAreaEffect(AreaEffect.PoisonBreath);
         }
 
@@ -61,26 +51,15 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel
+        public override bool AutoDispel { get { return true; } }
+        public override bool BleedImmune { get { return true; } }
+        public override int TreasureMapLevel { get { return 1; } }
+
+        public override void OnDeath(Container c)
         {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 1;
-            }
+            base.OnDeath(c);
+            c.DropItem(new ValoriteOre(25));
+            //ore.ItemID = 0x19B9;
         }
 
         public override void GenerateLoot()

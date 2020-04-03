@@ -4,15 +4,14 @@ using Server.Items;
 namespace Server.Mobiles
 {
     [CorpseName("an ore elemental corpse")]
-    public class BronzeElemental : BaseCreature
+    public class GoldenElemental : BaseCreature
     {
         [Constructable]
-        public BronzeElemental()
+        public GoldenElemental()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            // TODO: Gas attack
-            Name = "a bronze elemental";
-            Body = 108;
+            Name = "a golden elemental";
+            Body = 166;
             BaseSoundID = 268;
 
             SetStr(226, 255);
@@ -23,28 +22,25 @@ namespace Server.Mobiles
 
             SetDamage(9, 16);
 
-            SetDamageType(ResistanceType.Physical, 30);
-            SetDamageType(ResistanceType.Fire, 70);
+            SetDamageType(ResistanceType.Physical, 100);
 
-            SetResistance(ResistanceType.Physical, 30, 40);
-            SetResistance(ResistanceType.Fire, 30, 40);
-            SetResistance(ResistanceType.Cold, 10, 20);
-            SetResistance(ResistanceType.Poison, 70, 80);
-            SetResistance(ResistanceType.Energy, 20, 30);
+            SetResistance(ResistanceType.Physical, 60, 75);
+            SetResistance(ResistanceType.Fire, 10, 20);
+            SetResistance(ResistanceType.Cold, 30, 40);
+            SetResistance(ResistanceType.Poison, 30, 40);
+            SetResistance(ResistanceType.Energy, 30, 40);
 
             SetSkill(SkillName.MagicResist, 50.1, 95.0);
             SetSkill(SkillName.Tactics, 60.1, 100.0);
             SetSkill(SkillName.Wrestling, 60.1, 100.0);
 
-            Fame = 5000;
-            Karma = -5000;
+            Fame = 3500;
+            Karma = -3500;
 
-            VirtualArmor = 29;
-
-            SetAreaEffect(AreaEffect.PoisonBreath);
+            VirtualArmor = 60;
         }
 
-        public BronzeElemental(Serial serial)
+        public GoldenElemental(Serial serial)
             : base(serial)
         {
         }
@@ -56,14 +52,14 @@ namespace Server.Mobiles
         public override void OnDeath(Container c)
         {
             base.OnDeath(c);
-            c.DropItem(new BronzeOre(25));
+            c.DropItem(new GoldOre(25));
             //ore.ItemID = 0x19B9;
         }
 
         public override void GenerateLoot()
         {
-            AddLoot(LootPack.Average);
-            AddLoot(LootPack.Gems, 2);
+            this.AddLoot(LootPack.Average);
+            this.AddLoot(LootPack.Gems, 2);
         }
 
         public override void Serialize(GenericWriter writer)

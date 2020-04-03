@@ -7,12 +7,6 @@ namespace Server.Mobiles
     public class DullCopperElemental : BaseCreature
     {
         [Constructable]
-        public DullCopperElemental()
-            : this(2)
-        {
-        }
-
-        [Constructable]
         public DullCopperElemental(int oreAmount)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
@@ -44,10 +38,6 @@ namespace Server.Mobiles
             Karma = -3500;
 
             VirtualArmor = 20;
-
-            Item ore = new DullCopperOre(oreAmount);
-            ore.ItemID = 0x19B9;
-            PackItem(ore);
         }
 
         public DullCopperElemental(Serial serial)
@@ -55,26 +45,15 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel
+        public override bool AutoDispel { get { return true; } }
+        public override bool BleedImmune { get { return true; } }
+        public override int TreasureMapLevel { get { return 1; } }
+
+        public override void OnDeath(Container c)
         {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 1;
-            }
+            base.OnDeath(c);
+            c.DropItem(new DullCopperOre(25));
+            //ore.ItemID = 0x19B9;
         }
 
         public override bool OnBeforeDeath()
