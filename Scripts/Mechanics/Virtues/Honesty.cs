@@ -41,9 +41,9 @@ namespace Server.Services.Virtues
 
 		static HonestyVirtue()
 		{
-			Enabled = Config.Get("Honesty.Enabled", true);
-			MaxGeneration = Config.Get("Honesty.MaxGeneration", 1000);
-			TrammelGeneration = !Siege.SiegeShard && Config.Get("Honesty.TrammelGeneration", true);
+			Enabled = Initialization.Get("Honesty.Enabled", true);
+			MaxGeneration = Initialization.Get("Honesty.MaxGeneration", 1000);
+			TrammelGeneration = !Siege.SiegeShard && Initialization.Get("Honesty.TrammelGeneration", true);
 
 			_Items = new List<Item>(MaxGeneration);
 		}

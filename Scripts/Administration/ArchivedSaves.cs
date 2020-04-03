@@ -89,15 +89,15 @@ namespace Server.Misc
         {
             _DefaultDestination = Path.Combine(Core.BaseDirectory, "Backups", "Archived");
 
-            _Destination = Config.Get("AutoSave.ArchivesPath", (string)null);
+            _Destination = Initialization.Get("AutoSave.ArchivesPath", (string)null);
 
-            Enabled = Config.Get("AutoSave.ArchivesEnabled", false);
+            Enabled = Initialization.Get("AutoSave.ArchivesEnabled", false);
 
-            Async = Config.Get("AutoSave.ArchivesAsync", true);
+            Async = Initialization.Get("AutoSave.ArchivesAsync", true);
 
-            ExpireAge = Config.Get("AutoSave.ArchivesExpire", TimeSpan.Zero);
+            ExpireAge = Initialization.Get("AutoSave.ArchivesExpire", TimeSpan.Zero);
 
-            Merge = Config.GetEnum("AutoSave.ArchivesMerging", MergeType.Minutes);
+            Merge = Initialization.GetEnum("AutoSave.ArchivesMerging", MergeType.Minutes);
         }
 
         [CallPriority(int.MaxValue - 10)]

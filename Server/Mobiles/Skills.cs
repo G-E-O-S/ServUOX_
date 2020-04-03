@@ -993,7 +993,7 @@ namespace Server
 		public Skills(Mobile owner)
 		{
 			m_Owner = owner;
-            m_Cap = Config.Get("PlayerCaps.TotalSkillCap", 7000); ;
+            m_Cap = Initialization.Get("ServUOX.TotalSkillCap", 7000); ;
 
 			var info = SkillInfo.Table;
 

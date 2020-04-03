@@ -41,11 +41,11 @@ namespace Server.Misc
         * firewalls) or specific IP adddresses you can do so by modifying the file SocketOptions.cs found in this directory.
         */
 
-		public static readonly string Address = Config.Get("Server.Address", default(string));
+		public static readonly string Address = Initialization.Get("Server.Address", default(string));
 
-		public static readonly bool AutoDetect = Config.Get("Server.AutoDetect", true);
+		public static readonly bool AutoDetect = Initialization.Get("Server.AutoDetect", true);
 
-		public static string ServerName = Config.Get("Server.Name", "My Shard");
+		public static string ServerName = Initialization.Get("Server.Name", "My Shard");
 
 		private static IPAddress _PublicAddress;
 

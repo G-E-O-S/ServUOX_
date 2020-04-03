@@ -47,7 +47,7 @@ namespace Server.Engines.Help
 
     public class HelpGump : Gump
     {
-        public static readonly string SupportWebsite = Config.Get("General.SupportWebsite", default(string));
+        public static readonly string SupportWebsite = Initialization.Get("General.SupportWebsite", default(string));
 		
         public HelpGump(Mobile from)
             : base(0, 0)

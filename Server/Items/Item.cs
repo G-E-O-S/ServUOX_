@@ -1962,7 +1962,7 @@ namespace Server
             get { return this is IArtifact && ((IArtifact)this).ArtifactRarity > 0; }
         }
 
-        private static TimeSpan m_DDT = TimeSpan.FromMinutes(Config.Get("General.DefaultItemDecayTime", 60));
+        private static TimeSpan m_DDT = TimeSpan.FromMinutes(Initialization.Get("ServUOX.DefaultItemDecayTime", 60));
 
         public static TimeSpan DefaultDecayTime { get { return m_DDT; } set { m_DDT = value; } }
 

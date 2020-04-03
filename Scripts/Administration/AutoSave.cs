@@ -23,10 +23,10 @@ namespace Server.Misc
 
         static AutoSave()
         {
-            SavesEnabled = Config.Get("AutoSave.Enabled", true);
+            SavesEnabled = Initialization.Get("AutoSave.Enabled", true);
 
-            m_Delay = Config.Get("AutoSave.Frequency", TimeSpan.FromMinutes(5.0));
-            m_Warning = Config.Get("AutoSave.WarningTime", TimeSpan.Zero);
+            m_Delay = Initialization.Get("AutoSave.Frequency", TimeSpan.FromMinutes(5.0));
+            m_Warning = Initialization.Get("AutoSave.WarningTime", TimeSpan.Zero);
 
             m_Timer = Timer.DelayCall(m_Delay - m_Warning, m_Delay, Tick);
             m_Timer.Stop();

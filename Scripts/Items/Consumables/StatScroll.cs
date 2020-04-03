@@ -5,7 +5,7 @@ namespace Server.Items
 {
     public class StatCapScroll : SpecialScroll
     {
-        private int m_StatCap = Config.Get("PlayerCaps.TotalStatCap", 225);
+        private int m_StatCap = Initialization.Get("PlayerCaps.TotalStatCap", 225);
         public StatCapScroll()
             : this(105)
         {
