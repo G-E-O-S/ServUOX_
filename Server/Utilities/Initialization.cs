@@ -106,78 +106,6 @@ namespace Server
 
         public static IEnumerable<Entry> Entries => _Entries.Values;
 
-        public static bool LoadCFG()
-        {
-            string cfg_Path = Path.Combine(Core.BaseDirectory, "Config");
-
-            if (!Directory.Exists(cfg_Path))
-            {
-                Directory.CreateDirectory(cfg_Path);
-            }
-
-            IEnumerable<string> files;
-
-            try
-            {
-                files = Directory.EnumerateFiles(_Path, "*.cfg", SearchOption.AllDirectories);
-            }
-            catch (DirectoryNotFoundException)
-            {
-                Console.WriteLine("Warning: No Config files found!");
-                return false;
-            }
-
-            foreach (var path in files)
-            {
-                try
-                {
-                    LoadFile(path);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Warning: Failed to load cfg file:");
-                    Console.WriteLine(path);
-                    Utility.PushColor(ConsoleColor.Red);
-                    Console.WriteLine(e.Message);
-                    Utility.PopColor();
-
-                    ConsoleKey key;
-
-                    do
-                    {
-                        Console.WriteLine("Ignore this warning? (y/n)");
-
-                        key = Console.ReadKey(true).Key;
-                    }
-                    while (key != ConsoleKey.Y && key != ConsoleKey.N);
-
-                    if (key != ConsoleKey.Y)
-                    {
-                        Console.WriteLine("Press any key to exit...");
-                        Console.ReadKey();
-
-                        Core.Kill(false);
-
-                        return false;
-                    }
-                }
-            }
-
-            if (Core.Debug)
-            {
-                Console.WriteLine();
-
-                foreach (var e in _Entries.Values)
-                {
-                    Console.WriteLine(e);
-                }
-
-                Console.WriteLine();
-            }
-
-            return false;
-        }
-
         public static void Load()
         {
             if (_Initialized)
@@ -186,8 +114,6 @@ namespace Server
             }
 
             _Initialized = true;
-
-            LoadCFG();
 
             if (!Directory.Exists(_Path))
             {
