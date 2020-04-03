@@ -359,7 +359,7 @@ namespace Server
             var file = new FileInfo(Path.Combine(_Path, Path.Combine(parts) + ".ini"));
             var idx = _Entries.Values.Where(o => Insensitive.Equals(o.File, file.FullName)).Select(o => o.FileIndex).DefaultIfEmpty().Max();
 
-            _Entries[key] = new Entry(file.FullName, idx, String.Join(".", parts), String.Empty, realKey, value, false);
+            _Entries[key] = new Entry(file.FullName, idx, string.Join(".", parts), string.Empty, realKey, value, false);
         }
 
         public static void Set(string key, string value)
