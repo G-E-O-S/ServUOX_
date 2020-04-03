@@ -17,11 +17,11 @@ namespace Server.Misc
         private static ClientVersion m_Required;
         private static ClientVersion m_RequiredEC;
 
-        public static TimeSpan KickDelay = TimeSpan.FromSeconds(Config.Get("Client.KickDelay", 20.0));
-        public static bool AllowRegular = Config.Get("Client.AllowRegular", true);
-        public static bool AllowUOTD = Config.Get("Client.AllowUOTD", true);
-        public static bool AllowGod = Config.Get("Client.AllowGod", true);
-        public static bool AllowEC = Config.Get("Client.AllowEC", true);
+        public static TimeSpan KickDelay = TimeSpan.FromSeconds(INI.Get("Client.KickDelay", 20.0));
+        public static bool AllowRegular = INI.Get("Client.AllowRegular", true);
+        public static bool AllowUOTD = INI.Get("Client.AllowUOTD", true);
+        public static bool AllowGod = INI.Get("Client.AllowGod", true);
+        public static bool AllowEC = INI.Get("Client.AllowEC", true);
 
         private enum OldClientResponse
         {

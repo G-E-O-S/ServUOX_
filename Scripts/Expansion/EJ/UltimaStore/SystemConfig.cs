@@ -40,20 +40,20 @@ namespace Server.Engines.UOStore
 
         static Configuration()
         {
-            Enabled = Config.Get("Store.Enabled", true);
-            Expansion = Config.GetEnum("Store.Expansion", Expansion.TOL);
-            Website = Config.Get("Store.Website", "https://uo.com/ultima-store/");
+            Enabled = INI.Get("Store.Enabled", true);
+            Expansion = INI.GetEnum("Store.Expansion", Expansion.TOL);
+            Website = INI.Get("Store.Website", "https://uo.com/ultima-store/");
 
-            ResolveCurrency = Config.GetDelegate("Store.ResolveCurrency", (CustomCurrencyHandler)null);
+            ResolveCurrency = INI.GetDelegate("Store.ResolveCurrency", (CustomCurrencyHandler)null);
 
-            CurrencyImpl = Config.GetEnum("Store.CurrencyImpl", CurrencyType.Sovereigns);
-            CurrencyName = Config.Get("Store.CurrencyName", "Sovereigns");
-            CurrencyDisplay = Config.Get("Store.CurrencyDisplay", true);
+            CurrencyImpl = INI.GetEnum("Store.CurrencyImpl", CurrencyType.Sovereigns);
+            CurrencyName = INI.Get("Store.CurrencyName", "Sovereigns");
+            CurrencyDisplay = INI.Get("Store.CurrencyDisplay", true);
 
-            PointsImpl = Config.GetEnum("Store.PointsImpl", PointsType.None);
+            PointsImpl = INI.GetEnum("Store.PointsImpl", PointsType.None);
 
-            CostMultiplier = Config.Get("Store.CostMultiplier", 1.0);
-            CartCapacity = Config.Get("Store.CartCapacity", 10);
+            CostMultiplier = INI.Get("Store.CostMultiplier", 1.0);
+            CartCapacity = INI.Get("Store.CartCapacity", 10);
         }
         
         public static int GetCustomCurrency(Mobile m)

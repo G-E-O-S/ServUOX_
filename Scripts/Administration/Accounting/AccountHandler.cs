@@ -21,14 +21,14 @@ namespace Server.Misc
 
     public class AccountHandler
     {
-	    public static PasswordProtection ProtectPasswords = Config.GetEnum(
+	    public static PasswordProtection ProtectPasswords = INI.GetEnum(
 		    "Accounts.ProtectPasswords",
 			PasswordProtection.NewSecureCrypt);
 
-        private static readonly int MaxAccountsPerIP = Config.Get("Accounts.AccountsPerIp", 1);
-        private static readonly bool AutoAccountCreation = Config.Get("Accounts.AutoCreateAccounts", true);
-        private static readonly bool RestrictDeletion = Config.Get("Accounts.RestrictDeletion", !TestCenter.Enabled);
-        private static readonly TimeSpan DeleteDelay = Config.Get("Accounts.DeleteDelay", TimeSpan.FromDays(7.0));
+        private static readonly int MaxAccountsPerIP = INI.Get("Accounts.AccountsPerIp", 1);
+        private static readonly bool AutoAccountCreation = INI.Get("Accounts.AutoCreateAccounts", true);
+        private static readonly bool RestrictDeletion = INI.Get("Accounts.RestrictDeletion", !TestCenter.Enabled);
+        private static readonly TimeSpan DeleteDelay = INI.Get("Accounts.DeleteDelay", TimeSpan.FromDays(7.0));
 
         private static readonly CityInfo[] StartingCitiesT2A = new CityInfo[]
         {
@@ -93,7 +93,7 @@ namespace Server.Misc
         }
         */
 
-		private static readonly bool PasswordCommandEnabled = Config.Get("Accounts.PasswordCommandEnabled", false);
+		private static readonly bool PasswordCommandEnabled = INI.Get("Accounts.PasswordCommandEnabled", false);
 
         private static readonly char[] m_ForbiddenChars = new char[]
         {

@@ -6,7 +6,7 @@ namespace Server.Items
 {
     public class DailyRaresSpawner
     {
-        public static readonly bool Enabled = Config.Get("DailyRares.Enabled", true);
+        public static readonly bool Enabled = INI.Get("DailyRares.Enabled", true);
 
         public static void Initialize()
         {

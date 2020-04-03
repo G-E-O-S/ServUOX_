@@ -12,7 +12,7 @@ namespace Server.Engines.Reports
 {
     public class Reports
     {
-        public static bool Enabled = Config.Get("Reports.AutoGenerate", false);
+        public static bool Enabled = INI.Get("Reports.AutoGenerate", false);
         private static DateTime m_GenerateTime;
         private static SnapshotHistory m_StatsHistory;
         private static StaffHistory m_StaffHistory;
@@ -154,7 +154,7 @@ namespace Server.Engines.Reports
 
             foreach (Mobile mob in World.Mobiles.Values)
             {
-                if (mob.SkillsTotal >= 1500 && mob.SkillsTotal <= (Config.Get("PlayerCaps.TotalSkillCap", 7000) + 200) && mob is PlayerMobile)
+                if (mob.SkillsTotal >= 1500 && mob.SkillsTotal <= (INI.Get("PlayerCaps.TotalSkillCap", 7000) + 200) && mob is PlayerMobile)
                 {
                     Skills skills = mob.Skills;
 

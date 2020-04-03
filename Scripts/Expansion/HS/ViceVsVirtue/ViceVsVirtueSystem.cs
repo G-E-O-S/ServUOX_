@@ -40,9 +40,9 @@ namespace Server.Engines.VvV
         public static int VirtueHue = 2124;
         public static int ViceHue = 2118;
 
-        public static bool Enabled = Config.Get("VvV.Enabled", true);
-        public static int StartSilver = Config.Get("VvV.StartSilver", 2000);
-        public static bool EnhancedRules = Config.Get("VvV.EnhancedRules", false);
+        public static bool Enabled = INI.Get("VvV.Enabled", true);
+        public static int StartSilver = INI.Get("VvV.StartSilver", 2000);
+        public static bool EnhancedRules = INI.Get("VvV.EnhancedRules", false);
 
         public static ViceVsVirtueSystem Instance { get; set; }
 

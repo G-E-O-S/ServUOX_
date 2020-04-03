@@ -31,11 +31,11 @@ namespace Server.Mobiles
 	public abstract class BaseVendor : BaseCreature, IVendor
 	{
         public static bool UseVendorEconomy = Core.AOS && !Siege.SiegeShard;
-        public static int BuyItemChange = Config.Get("Vendors.BuyItemChange", 1000);
-        public static int SellItemChange = Config.Get("Vendors.SellItemChange", 1000);
-        public static int EconomyStockAmount = Config.Get("Vendors.EconomyStockAmount", 500);
-        public static TimeSpan DelayRestock = TimeSpan.FromMinutes(Config.Get("Vendors.RestockDelay", 60));
-        public static int MaxSell = Config.Get("Vendors.MaxSell", 500);
+        public static int BuyItemChange = INI.Get("Vendors.BuyItemChange", 1000);
+        public static int SellItemChange = INI.Get("Vendors.SellItemChange", 1000);
+        public static int EconomyStockAmount = INI.Get("Vendors.EconomyStockAmount", 500);
+        public static TimeSpan DelayRestock = TimeSpan.FromMinutes(INI.Get("Vendors.RestockDelay", 60));
+        public static int MaxSell = INI.Get("Vendors.MaxSell", 500);
 
 		public static List<BaseVendor> AllVendors { get; private set; }
 
@@ -1370,8 +1370,8 @@ namespace Server.Mobiles
 
         private void CheckNextMultiplierDecay(bool force = true)
         {
-            int minDays = Config.Get("Vendors.BribeDecayMinTime", 25);
-            int maxDays = Config.Get("Vendors.BribeDecayMaxTime", 30);
+            int minDays = INI.Get("Vendors.BribeDecayMinTime", 25);
+            int maxDays = INI.Get("Vendors.BribeDecayMaxTime", 30);
 
             if (force || (NextMultiplierDecay > DateTime.UtcNow + TimeSpan.FromDays(maxDays)))
                 NextMultiplierDecay = DateTime.UtcNow + TimeSpan.FromDays(Utility.RandomMinMax(minDays, maxDays));

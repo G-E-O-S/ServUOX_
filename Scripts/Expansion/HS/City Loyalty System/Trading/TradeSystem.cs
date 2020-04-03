@@ -26,10 +26,10 @@ namespace Server.Engines.CityLoyalty
 
 	public class CityTradeSystem : PointsSystem
 	{
-        public static readonly int TurnInGold = Config.Get("CityTrading.TurnInGold", 10000);
-        public static readonly int CrateDuration = Config.Get("CityTrading.CrateDuration", 24);
-        public static readonly int AmbushWaitDuration = Config.Get("CityTrading.AmbushWaitDuration", 5);
-        public static readonly int AmbusherDelete = Config.Get("CityTrading.AmbusherDelete", 10);
+        public static readonly int TurnInGold = INI.Get("CityTrading.TurnInGold", 10000);
+        public static readonly int CrateDuration = INI.Get("CityTrading.CrateDuration", 24);
+        public static readonly int AmbushWaitDuration = INI.Get("CityTrading.AmbushWaitDuration", 5);
+        public static readonly int AmbusherDelete = INI.Get("CityTrading.AmbusherDelete", 10);
 
         public override TextDefinition Name { get { return new TextDefinition("City Trading"); } }
         public override PointsType Loyalty { get { return PointsType.CityTrading; } }

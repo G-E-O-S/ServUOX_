@@ -202,7 +202,7 @@
     <Compile Include="Utilities\Utility.cs" />
     <Compile Include="Mechanics\VirtueInfo.cs" />
     <Compile Include="Administration\World\World.cs" />
-    <Compile Include="Utilities\Config.cs" />
+    <Compile Include="Utilities\Initialization.cs" />
     <Compile Include="Mechanics\Gumps\ECHandleInput.cs" />
     <Compile Include="Mechanics\Gumps\Gump.cs" />
     <Compile Include="Mechanics\Gumps\GumpAlphaRegion.cs" />

@@ -607,7 +607,7 @@ namespace Server
 
 			Utility.PushColor(ConsoleColor.Green);
 			Console.WriteLine("Core: Loading config...");
-			Config.Load();
+			INI.Load();
 			Utility.PopColor();
 
 			while (!ScriptCompiler.Compile(Debug, _Cache))

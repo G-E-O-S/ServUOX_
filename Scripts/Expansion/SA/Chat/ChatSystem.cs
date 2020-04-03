@@ -7,8 +7,8 @@ namespace Server.Engines.Chat
 {
     public class ChatSystem
     {
-        public static readonly bool Enabled = Config.Get("Chat.Enabled", true);
-        public static readonly bool AllowCreateChannels = Config.Get("Chat.AllowCreateChannels", true);
+        public static readonly bool Enabled = INI.Get("Chat.Enabled", true);
+        public static readonly bool AllowCreateChannels = INI.Get("Chat.AllowCreateChannels", true);
         public static readonly string DefaultChannel = "Help";
 
         public static void Initialize()

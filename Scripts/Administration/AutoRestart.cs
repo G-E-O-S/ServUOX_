@@ -13,10 +13,10 @@ namespace Server.Misc
         public static Timer Timer { get; private set; }
         public static bool DoneWarning { get; private set; }
 
-        public static bool Enabled = Config.Get("AutoRestart.Enabled", false);
-        public static int Hour = Config.Get("AutoRestart.Hour", 12);
-        public static int Minutes = Config.Get("AutoRestart.Minute", 0);
-        public static int Frequency = Config.Get("AutoRestart.Frequency", 24);
+        public static bool Enabled = INI.Get("AutoRestart.Enabled", false);
+        public static int Hour = INI.Get("AutoRestart.Hour", 12);
+        public static int Minutes = INI.Get("AutoRestart.Minute", 0);
+        public static int Frequency = INI.Get("AutoRestart.Frequency", 24);
         
         public AutoRestart()
             : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(1.0))
