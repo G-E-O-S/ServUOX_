@@ -616,7 +616,7 @@
     <Compile Include="Items\Addons\RepairBench.cs" />
     <Compile Include="Items\Addons\WaterWheel.cs" />
     <Compile Include="Expansion\SA\12th Anniversary Gifts\CodexOfVirtue.cs" />
-    <Compile Include="Expansion\Original UO\Items\Addons\BuffetTable.cs" />
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\BuffetTable.cs" />
     <Compile Include="Items\Addons\FormalDiningTable.cs" />
     <Compile Include="Items\Addons\GadgetryTable.cs" />
     <Compile Include="Items\Consumables\DecorativeKitchenSet.cs" />
@@ -625,32 +625,32 @@
     <Compile Include="Expansion\TOL\Damageable\Beacon.cs" />
     <Compile Include="Expansion\TOL\Damageable\DamageableItem.cs" />
     <Compile Include="Items\Decorative\AncientWeapons.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternBrokenShield.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternHand.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternHeart.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\LanternUnevenScales.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PaintingAnkh.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PaintingAxe.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PaintingMasks.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PaintingSword.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PillowChalice.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PillowMoon.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PillowSkull.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\PillowTear.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\SculptureWoodCanes.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\SculptureWoodCoin.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\SculptureWoodEven.cs" />
-    <Compile Include="Items\Decorative\ArtisanFestivalRewards\SculptureWoodScept.cs" />
-    <Compile Include="Items\Decorative\DecorativeHourglass.cs" />
-    <Compile Include="Items\Decorative\DecorativeStableSet\ChickenStatue.cs" />
-    <Compile Include="Items\Decorative\DecorativeStableSet\CowPie.cs" />
-    <Compile Include="Items\Decorative\DecorativeStableSet\CowStatue.cs" />
-    <Compile Include="Items\Decorative\DecorativeStableSet\Feedbag.cs" />
-    <Compile Include="Items\Decorative\DecorativeStableSet\HorseStatue.cs" />
-    <Compile Include="Items\Decorative\DecorativeStableSet\MetalTub.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\LanternBrokenShield.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\LanternHand.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\LanternHeart.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\LanternUnevenScales.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PaintingAnkh.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PaintingAxe.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PaintingMasks.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PaintingSword.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PillowChalice.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PillowMoon.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PillowSkull.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\PillowTear.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\SculptureWoodCanes.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\SculptureWoodCoin.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\SculptureWoodEven.cs" />
+    <Compile Include="Expansion\EJ\ArtisanFestivalRewards\SculptureWoodScept.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecorativeHourglass.cs" />
+    <Compile Include="Expansion\EJ\DecorativeStableSet\ChickenStatue.cs" />
+    <Compile Include="Expansion\EJ\DecorativeStableSet\CowPie.cs" />
+    <Compile Include="Expansion\EJ\DecorativeStableSet\CowStatue.cs" />
+    <Compile Include="Expansion\EJ\DecorativeStableSet\Feedbag.cs" />
+    <Compile Include="Expansion\EJ\DecorativeStableSet\HorseStatue.cs" />
+    <Compile Include="Expansion\EJ\DecorativeStableSet\MetalTub.cs" />
     <Compile Include="Items\Decorative\DoveCage.cs" />
-    <Compile Include="Items\Decorative\Countertop.cs" />
-    <Compile Include="Items\Decorative\ButcherBlock.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\Countertop.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\ButcherBlock.cs" />
     <Compile Include="Items\Decorative\CupidStatue.cs" />
     <Compile Include="Items\Consumables\ValentineChocolate.cs" />
     <Compile Include="Items\Containers\HeartShapedBox.cs" />
@@ -759,11 +759,11 @@
     <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\SmallDisplayCaseSouth.cs" />
     <Compile Include="Expansion\SA\LongMetalTableEast.cs" />
-    <Compile Include="Expansion\Original UO\Items\Addons\LongWoodenTableEast.cs" />
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\LongWoodenTableEast.cs" />
     <Compile Include="Expansion\SA\MetalTableEast.cs" />
     <Compile Include="Expansion\SA\LongMetalTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableEast.cs" />
-    <Compile Include="Expansion\Original UO\Items\Addons\LongWoodenTableSouth.cs" />
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\LongWoodenTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\WoodenTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlantTapestryEast.cs" />
     <Compile Include="Expansion\SA\MetalTableSouth.cs" />
@@ -782,8 +782,8 @@
     <Compile Include="Expansion\HS\Rustic Theme Pack\RusticBenchEast.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\PlainWoodenShelfSouth.cs" />
     <Compile Include="Expansion\HS\Rustic Theme Pack\RusticBenchSouth.cs" />
-    <Compile Include="Expansion\Original UO\Items\Addons\LongTableEastAddon.cs" />
-    <Compile Include="Expansion\Original UO\Items\Addons\LongTableSouth.cs" />
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\LongTableEastAddon.cs" />
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\LongTableSouth.cs" />
     <Compile Include="Expansion\Original UO\Items\Addons\LighthouseAddon.cs" />
     <Compile Include="Expansion\HS\Gothic Theme Pack\RitualTableAddon.cs" />
     <Compile Include="Items\Addons\NexusAddon.cs" />
@@ -991,9 +991,9 @@
     <Compile Include="Items\Consumables\TastyTreat.cs" />
     <Compile Include="Items\Containers\ShipsStrongbox.cs" />
     <Compile Include="Items\Decorative\AllegiancePouch.cs" />
-    <Compile Include="Items\Decorative\Bridle.cs" />
-    <Compile Include="Items\Decorative\DecorativeCarpet.cs" />
-    <Compile Include="Items\Decorative\DecorativeVine.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\Bridle.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecorativeCarpet.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecorativeVine.cs" />
     <Compile Include="Items\Decorative\UpholsteredChair.cs" />
     <Compile Include="Items\Decorative\OrderChaosBanners.cs" />
     <Compile Include="Items\Decorative\SingingBall.cs" />
@@ -1039,7 +1039,7 @@
     <Compile Include="Items\Decorative\AcidWall.cs" />
     <Compile Include="Items\Decorative\AcidWall1.cs" />
     <Compile Include="Items\Decorative\BasePaintedMask.cs" />
-    <Compile Include="Items\Decorative\ChairInAGhostCostume.cs" />
+    <Compile Include="Expansion\Original UO\Items\Decorations\ChairInAGhostCostume.cs" />
     <Compile Include="Items\Decorative\ClownMask.cs" />
     <Compile Include="Items\Decorative\ColoredSmallWebs.cs" />
     <Compile Include="Items\Decorative\DaemonMask.cs" />
@@ -1272,13 +1272,13 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseKnife.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BaseLight.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BaseLight.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseMeleeWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BasePiece.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BasePiece.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BasePoisonPotion.cs">
@@ -1308,7 +1308,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\BaseShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BaseSign.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BaseSign.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseSpear.cs">
@@ -1317,7 +1317,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BaseStatuette.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BaseStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseStrengthPotion.cs">
@@ -1344,7 +1344,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseTreasureChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BaseWall.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BaseWall.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\BaseWand.cs">
@@ -1456,7 +1456,7 @@
     <Compile Include="Items\Internal\Blocker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Blood.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Blood.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\Bola.cs">
@@ -1486,7 +1486,7 @@
     <Compile Include="Items\Resource\CrushedGlass.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CrystalBall.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CrystalBall.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\CrystallineBlackrock.cs">
@@ -4890,10 +4890,10 @@
     <Compile Include="Expansion\Original UO\Items\Ankhs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Benchs.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Benchs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Chairs.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Chairs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Stools.cs">
@@ -4902,10 +4902,10 @@
     <Compile Include="Items\Decorative\Thrones.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecorativeShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecorativeShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecorativeWeapon.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecorativeWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\PaintingPortraits.cs">
@@ -5385,31 +5385,31 @@
     <Compile Include="Items\Equipment\Jewelry\WhitePearlBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Brazier.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Brazier.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BrazierTall.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BrazierTall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Candelabra.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Candelabra.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CandelabraStand.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CandelabraStand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Provision\Candle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CandleLarge.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CandleLarge.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CandleLong.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CandleLong.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CandleShort.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CandleShort.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CandleSkull.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CandleSkull.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DarkSource.cs">
@@ -6935,10 +6935,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\Curtains.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\Fountain.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\Fountain.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\FruitTrees.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\FruitTrees.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\GoldenDecorativeRug.cs">
@@ -6953,13 +6953,13 @@
     <Compile Include="Expansion\Original UO\Items\Addons\HangingSwords.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\HouseLadder.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\HouseLadder.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\IronMaiden.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LargeFishingNet.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\LargeFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\PeachTrunk.cs">
@@ -6968,16 +6968,16 @@
     <Compile Include="Items\Addons\PinkFancyRug.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\RedPlainRug.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\RedPlainRug.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\Scarecrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SmallFishingNet.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\SmallFishingNet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\Statue.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\Statue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\SuitOfGoldArmor.cs">
@@ -7007,7 +7007,7 @@
     <Compile Include="Expansion\Original UO\Items\Addons\WallTorch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Addons\WoodenCoffin.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\WoodenCoffin.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\HeritageToken.cs">
@@ -7148,34 +7148,34 @@
     <Compile Include="Items\Consumables\WaterTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoRock.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoRock.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoRock2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoRock2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoRocks.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoRocks.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoRocks2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoRocks2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoFlower.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoFlower.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoFlower2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoFlower2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoRoseOfTrinsic.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoRoseOfTrinsic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoRoseOfTrinsic2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoRoseOfTrinsic2.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DecoRoseOfTrinsic3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BottlesOfLiquor.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BottlesOfLiquor.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Tray2.cs">
@@ -7184,64 +7184,64 @@
     <Compile Include="Items\Decorative\Trays.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\BrokenChair.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\BrokenChair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Checkers.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Checkers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Checkers2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Checkers2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Chessmen.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Chessmen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Chessmen2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Chessmen2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Chessmen3.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Chessmen3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGoldIngot.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGoldIngot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGoldIngot2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGoldIngot2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGoldIngots.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGoldIngots.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGoldIngots2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGoldIngots2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGoldIngots3.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGoldIngots3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGoldIngots4.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGoldIngots4.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngot.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngot2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngot2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngots.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngots.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngots2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngots2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngots3.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngots3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngots4.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngots4.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngots5.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngots5.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoIronIngots6.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoIronIngots6.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DecoSilverIngot.cs">
@@ -7274,103 +7274,103 @@
     <Compile Include="Items\Decorative\HalfEmptyJars.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoCrystalBall.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoCrystalBall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoMagicalCrystal.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoMagicalCrystal.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DecoSpittoon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoBlackmoor.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoBlackmoor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoBloodspawn.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoBloodspawn.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoBrimstone.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoBrimstone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoDragonsBlood.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoDragonsBlood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoDragonsBlood2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoDragonsBlood2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoEyeOfNewt.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoEyeOfNewt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGarlic.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGarlic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGarlic2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGarlic2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGarlicBulb.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGarlicBulb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGarlicBulb2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGarlicBulb2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGinseng.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGinseng.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGinseng2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGinseng2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGinsengRoot.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGinsengRoot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoGinsengRoot2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoGinsengRoot2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoMandrake.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoMandrake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoMandrake2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoMandrake2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoMandrake3.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoMandrake3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoMandrakeRoot.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoMandrakeRoot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoMandrakeRoot2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoMandrakeRoot2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoNightshade.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoNightshade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoNightshade2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoNightshade2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoNightshade3.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoNightshade3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoObsidian.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoObsidian.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoPumice.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoPumice.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DecoWyrmsHeart.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Cards.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Cards.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Cards2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Cards2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Cards3.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Cards3.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Cards4.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Cards4.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\Cards5.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\Cards5.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\PlayingCards.cs">
@@ -7382,19 +7382,19 @@
     <Compile Include="Items\Decorative\TerMurStyleCandelabra.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoHay.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoHay.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoHay2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoHay2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoHorseDung.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoHorseDung.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoDeckOfTarot.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoDeckOfTarot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecoDeckOfTarot2.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecoDeckOfTarot2.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\DecoTarot.cs">
@@ -7421,7 +7421,7 @@
     <Compile Include="Items\Decorative\ArrowShafts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\CrossbowBolts.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\CrossbowBolts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\EmptyToolKit.cs">
@@ -8682,7 +8682,7 @@
     <Compile Include="Utilities\Geometry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Decorative\DecorativeTopiary.cs">
+    <Compile Include="Expansion\Original UO\Items\Decorations\DecorativeTopiary.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\FestiveCactus.cs">
