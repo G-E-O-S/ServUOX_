@@ -3,7 +3,6 @@ using System;
 namespace Server.Items
 {
     public delegate void SpinCallback(ISpinningWheel sender, Mobile from, int hue);
-
     public interface ISpinningWheel
     {
         bool Spinning { get; }
@@ -19,42 +18,27 @@ namespace Server.Items
             AddComponent(new AddonComponent(0x1019), 0, 0, 0);
         }
 
-        public SpinningwheelEastAddon(Serial serial)
-            : base(serial)
+        public SpinningwheelEastAddon(Serial serial) : base(serial)
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new SpinningwheelEastDeed();
-            }
-        }
-        public bool Spinning
-        {
-            get
-            {
-                return m_Timer != null;
-            }
-        }
+        public override BaseAddonDeed Deed => new SpinningwheelEastDeed();
+        public bool Spinning => m_Timer != null;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnComponentLoaded(AddonComponent c)
         {
-            switch ( c.ItemID )
+            switch (c.ItemID)
             {
                 case 0x1016:
                 case 0x101A:
@@ -72,7 +56,7 @@ namespace Server.Items
 
             foreach (AddonComponent c in Components)
             {
-                switch ( c.ItemID )
+                switch (c.ItemID)
                 {
                     case 0x1015:
                     case 0x1019:
@@ -87,13 +71,15 @@ namespace Server.Items
         public void EndSpin(SpinCallback callback, Mobile from, int hue)
         {
             if (m_Timer != null)
+            {
                 m_Timer.Stop();
+            }
 
             m_Timer = null;
 
             foreach (AddonComponent c in Components)
             {
-                switch ( c.ItemID )
+                switch (c.ItemID)
                 {
                     case 0x1016:
                     case 0x101A:
@@ -104,8 +90,7 @@ namespace Server.Items
                 }
             }
 
-            if (callback != null)
-                callback(this, from, hue);
+            callback?.Invoke(this, from, hue);
         }
 
         private class SpinTimer : Timer
@@ -138,37 +123,22 @@ namespace Server.Items
         {
         }
 
-        public SpinningwheelEastDeed(Serial serial)
-            : base(serial)
+        public SpinningwheelEastDeed(Serial serial) : base(serial)
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new SpinningwheelEastAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1044341;
-            }
-        }// spining wheel (east)
+        public override BaseAddon Addon => new SpinningwheelEastAddon();
+        public override int LabelNumber => 1044341;// spining wheel (east)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

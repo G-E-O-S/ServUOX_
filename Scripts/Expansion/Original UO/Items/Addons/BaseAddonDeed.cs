@@ -1,7 +1,7 @@
-using System;
 using Server.Engines.Craft;
 using Server.Multis;
 using Server.Targeting;
+using System;
 
 namespace Server.Items
 {
@@ -17,7 +17,9 @@ namespace Server.Items
             Weight = 1.0;
 
             if (!Core.AOS)
+            {
                 LootType = LootType.Newbied;
+            }
         }
 
         public BaseAddonDeed(Serial serial)
@@ -27,17 +29,14 @@ namespace Server.Items
 
         public abstract BaseAddon Addon { get; }
 
-        public virtual bool UseCraftResource { get { return true; } }
+        public virtual bool UseCraftResource => true;
 
-        public virtual bool ExcludeDeedHue { get { return false; } }
+        public virtual bool ExcludeDeedHue => false;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get
-            {
-                return m_Resource;
-            }
+            get => m_Resource;
             set
             {
                 if (UseCraftResource && m_Resource != value)
@@ -53,8 +52,8 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public bool IsReDeed
         {
-            get { return m_ReDeed; }
-            set 
+            get => m_ReDeed;
+            set
             {
                 m_ReDeed = value;
 
@@ -114,9 +113,13 @@ namespace Server.Items
         public override void OnDoubleClick(Mobile from)
         {
             if (IsChildOf(from.Backpack))
+            {
                 from.Target = new InternalTarget(this);
+            }
             else
+            {
                 from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+            }
         }
 
         public virtual void DeleteDeed()
@@ -129,7 +132,9 @@ namespace Server.Items
             base.GetProperties(list);
 
             if (!CraftResources.IsStandard(m_Resource))
+            {
                 list.Add(CraftResources.GetLocalizationNumber(m_Resource));
+            }
         }
 
         public virtual int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
@@ -137,16 +142,22 @@ namespace Server.Items
             Type resourceType = typeRes;
 
             if (resourceType == null)
+            {
                 resourceType = craftItem.Resources.GetAt(0).ItemType;
+            }
 
             Resource = CraftResources.GetFromType(resourceType);
 
             CraftContext context = craftSystem.GetContext(from);
 
             if (context != null && context.DoNotColor)
+            {
                 Hue = 0;
+            }
             else if (Hue == 0)
+            {
                 Hue = resHue;
+            }
 
             return quality;
         }
@@ -168,7 +179,9 @@ namespace Server.Items
                 Map map = from.Map;
 
                 if (p == null || map == null || m_Deed.Deleted)
+                {
                     return;
+                }
 
                 if (m_Deed.IsChildOf(from.Backpack))
                 {
@@ -188,28 +201,42 @@ namespace Server.Items
                         if (!m_Deed.ExcludeDeedHue)
                         {
                             if (addon.RetainDeedHue || (m_Deed.Hue != 0 && CraftResources.GetHue(m_Deed.Resource) != m_Deed.Hue))
+                            {
                                 addon.Hue = m_Deed.Hue;
+                            }
                         }
 
                         addon.MoveToWorld(new Point3D(p), map);
 
                         if (house != null)
+                        {
                             house.Addons[addon] = from;
+                        }
 
                         if (galleon != null)
+                        {
                             galleon.AddAddon(addon);
+                        }
 
                         m_Deed.DeleteDeed();
                     }
                     else if (res == AddonFitResult.Blocked)
+                    {
                         from.SendLocalizedMessage(500269); // You cannot build that there.
+                    }
                     else if (res == AddonFitResult.NotInHouse)
+                    {
                         from.SendLocalizedMessage(500274); // You can only place this in a house that you own!
+                    }
                     else if (res == AddonFitResult.DoorTooClose)
+                    {
                         from.SendLocalizedMessage(500271); // You cannot build near the door.
+                    }
                     else if (res == AddonFitResult.NoWall)
+                    {
                         from.SendLocalizedMessage(500268); // This object needs to be mounted on something.
-					
+                    }
+
                     if (res != AddonFitResult.Valid)
                     {
                         addon.Delete();

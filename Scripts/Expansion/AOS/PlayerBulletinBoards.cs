@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Multis;
 using Server.Network;
 using Server.Prompts;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -23,18 +23,12 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1062421;
-            }
-        }// bulletin board (south)
+        public override int LabelNumber => 1062421;// bulletin board (south)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -59,18 +53,12 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1062420;
-            }
-        }// bulletin board (east)
+        public override int LabelNumber => 1062420;// bulletin board (east)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -99,61 +87,43 @@ namespace Server.Items
         {
         }
 
-        public List<PlayerBBMessage> Messages
-        {
-            get
-            {
-                return m_Messages;
-            }
-        }
+        public List<PlayerBBMessage> Messages => m_Messages;
         public PlayerBBMessage Greeting
         {
-            get
-            {
-                return m_Greeting;
-            }
-            set
-            {
-                m_Greeting = value;
-            }
+            get => m_Greeting;
+            set => m_Greeting = value;
         }
         [CommandProperty(AccessLevel.GameMaster)]
         public string Title
         {
-            get
-            {
-                return m_Title;
-            }
-            set
-            {
-                m_Title = value;
-            }
+            get => m_Title;
+            set => m_Title = value;
         }
         [CommandProperty(AccessLevel.GameMaster)]
         public SecureLevel Level
         {
-            get
-            {
-                return m_Level;
-            }
-            set
-            {
-                m_Level = value;
-            }
+            get => m_Level;
+            set => m_Level = value;
         }
 
-        public virtual bool Public { get { return false; } }
+        public virtual bool Public => false;
 
         public virtual bool CheckAccess(BaseHouse house, Mobile from)
         {
             if (Public)
+            {
                 return true;
+            }
 
             if (house == null)
+            {
                 return false;
+            }
 
             if (house.Public || !house.IsAosRules)
+            {
                 return !house.IsBanned(from);
+            }
 
             return house.HasAccess(from);
         }
@@ -161,7 +131,9 @@ namespace Server.Items
         public virtual bool CheckUse(BaseHouse house, Mobile m)
         {
             if (Public)
+            {
                 return true;
+            }
 
             return house != null && house.IsLockedDown(this);
         }
@@ -182,7 +154,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1);
+            writer.Write(1);
 
             writer.Write((int)m_Level);
 
@@ -201,7 +173,9 @@ namespace Server.Items
             writer.WriteEncodedInt(m_Messages.Count);
 
             for (int i = 0; i < m_Messages.Count; ++i)
+            {
                 m_Messages[i].Serialize(writer);
+            }
         }
 
         public override void Deserialize(GenericReader reader)
@@ -210,7 +184,7 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 1:
                     {
@@ -220,19 +194,25 @@ namespace Server.Items
                 case 0:
                     {
                         if (version < 1)
+                        {
                             m_Level = SecureLevel.Anyone;
+                        }
 
                         m_Title = reader.ReadString();
 
                         if (reader.ReadBool())
+                        {
                             m_Greeting = new PlayerBBMessage(reader);
+                        }
 
                         int count = reader.ReadEncodedInt();
 
                         m_Messages = new List<PlayerBBMessage>(count);
 
                         for (int i = 0; i < count; ++i)
+                        {
                             m_Messages.Add(new PlayerBBMessage(reader));
+                        }
 
                         break;
                     }
@@ -244,11 +224,17 @@ namespace Server.Items
             BaseHouse house = BaseHouse.FindHouseAt(this);
 
             if (!CheckUse(house, from))
+            {
                 from.SendLocalizedMessage(1062396); // This bulletin board must be locked down in a house to be usable.
+            }
             else if (!from.InRange(GetWorldLocation(), 2) || !from.InLOS(this))
+            {
                 from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
+            }
             else if (CheckAccess(house, from))
+            {
                 from.SendGump(new PlayerBBGump(from, house, this, 0));
+            }
         }
 
         public class PostPrompt : Prompt
@@ -300,7 +286,9 @@ namespace Server.Items
                 text = text.Trim();
 
                 if (text.Length > 255)
+                {
                     text = text.Substring(0, 255);
+                }
 
                 if (text.Length > 0)
                 {
@@ -319,7 +307,9 @@ namespace Server.Items
                             board.Messages.RemoveAt(0);
 
                             if (page > 0)
+                            {
                                 --page;
+                            }
                         }
                     }
                 }
@@ -330,7 +320,7 @@ namespace Server.Items
 
         public class SetTitlePrompt : Prompt
         {
-            public override int MessageCliloc { get { return 1062402; } }
+            public override int MessageCliloc => 1062402;
             private readonly int m_Page;
             private readonly BaseHouse m_House;
             private readonly BasePlayerBB m_Board;
@@ -372,10 +362,14 @@ namespace Server.Items
                 text = text.Trim();
 
                 if (text.Length > 255)
+                {
                     text = text.Substring(0, 255);
+                }
 
                 if (text.Length > 0)
+                {
                     board.Title = text;
+                }
 
                 from.SendGump(new PlayerBBGump(from, house, board, page));
             }
@@ -399,7 +393,7 @@ namespace Server.Items
         {
             int version = reader.ReadEncodedInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 0:
                     {
@@ -414,38 +408,20 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime Time
         {
-            get
-            {
-                return m_Time;
-            }
-            set
-            {
-                m_Time = value;
-            }
+            get => m_Time;
+            set => m_Time = value;
         }
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile Poster
         {
-            get
-            {
-                return m_Poster;
-            }
-            set
-            {
-                m_Poster = value;
-            }
+            get => m_Poster;
+            set => m_Poster = value;
         }
         [CommandProperty(AccessLevel.GameMaster)]
         public string Message
         {
-            get
-            {
-                return m_Message;
-            }
-            set
-            {
-                m_Message = value;
-            }
+            get => m_Message;
+            set => m_Message = value;
         }
         public void Serialize(GenericWriter writer)
         {
@@ -497,7 +473,9 @@ namespace Server.Items
             string title = board.Title;
 
             if (title != null)
+            {
                 AddHtml(183, 68, 180, 23, title, false, false);
+            }
 
             AddHtmlLocalized(385, 89, 60, 20, 1062409, LabelColor, false, false); // Post
 
@@ -508,7 +486,9 @@ namespace Server.Items
             PlayerBBMessage message = board.Greeting;
 
             if (page >= 1 && page <= board.Messages.Count)
-                message = (PlayerBBMessage)board.Messages[page - 1];
+            {
+                message = board.Messages[page - 1];
+            }
 
             AddImageTiled(150, 220, 240, 1, 2700); // Separator
 
@@ -523,14 +503,18 @@ namespace Server.Items
                 string name = (poster == null ? null : poster.Name);
 
                 if (name == null || (name = name.Trim()).Length == 0)
+                {
                     name = "Someone";
+                }
 
                 AddHtml(255, 200, 150, 20, name, false, false);
 
                 string body = message.Message;
 
                 if (body == null)
+                {
                     body = "";
+                }
 
                 AddHtml(150, 240, 250, 100, body, false, false);
 
@@ -547,7 +531,9 @@ namespace Server.Items
                 }
 
                 if (from.AccessLevel >= AccessLevel.GameMaster)
+                {
                     AddButton(135, 242, 1209, 1210, 8, GumpButtonType.Reply, 0); // Post props
+                }
             }
         }
 
@@ -574,7 +560,7 @@ namespace Server.Items
                 return;
             }
 
-            switch ( info.ButtonID )
+            switch (info.ButtonID)
             {
                 case 1: // Post message
                     {
@@ -606,9 +592,13 @@ namespace Server.Items
                 case 4: // Scroll up
                     {
                         if (page == 0)
+                        {
                             page = board.Messages.Count;
+                        }
                         else
+                        {
                             page -= 1;
+                        }
 
                         from.SendGump(new PlayerBBGump(from, house, board, page));
 
@@ -629,7 +619,7 @@ namespace Server.Items
                         {
                             if (page >= 1 && page <= board.Messages.Count)
                             {
-                                PlayerBBMessage message = (PlayerBBMessage)board.Messages[page - 1];
+                                PlayerBBMessage message = board.Messages[page - 1];
                                 Mobile poster = message.Poster;
 
                                 if (poster == null)
@@ -665,12 +655,16 @@ namespace Server.Items
                                 else
                                 {
                                     if (!house.Bans.Contains(poster))
+                                    {
                                         house.Bans.Add(poster);
+                                    }
 
                                     from.SendLocalizedMessage(1062417); // That person has been banned from this house.
 
                                     if (house.IsInside(poster) && !board.CheckAccess(house, poster))
+                                    {
                                         poster.MoveToWorld(house.BanLocation, house.Map);
+                                    }
                                 }
                             }
 
@@ -684,7 +678,9 @@ namespace Server.Items
                         if (board.CanPostGreeting(house, from))
                         {
                             if (page >= 1 && page <= board.Messages.Count)
+                            {
                                 board.Messages.RemoveAt(page - 1);
+                            }
 
                             from.SendGump(new PlayerBBGump(from, house, board, 0));
                         }
@@ -698,7 +694,9 @@ namespace Server.Items
                             PlayerBBMessage message = board.Greeting;
 
                             if (page >= 1 && page <= board.Messages.Count)
-                                message = (PlayerBBMessage)board.Messages[page - 1];
+                            {
+                                message = board.Messages[page - 1];
+                            }
 
                             from.SendGump(new PlayerBBGump(from, house, board, page));
                             from.SendGump(new PropertiesGump(from, message));

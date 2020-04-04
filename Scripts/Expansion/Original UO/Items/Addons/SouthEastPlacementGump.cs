@@ -1,7 +1,6 @@
-using System;
-using Server;
 using Server.Gumps;
 using Server.Network;
+using System;
 
 namespace Server.Items
 {
@@ -31,7 +30,9 @@ namespace Server.Items
             if (info.ButtonID != 0)
             {
                 if (Callback != null)
+                {
                     Callback(info.ButtonID == 1);
+                }
             }
         }
     }

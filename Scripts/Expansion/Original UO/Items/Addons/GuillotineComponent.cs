@@ -1,6 +1,6 @@
-using System;
 using Server.Network;
 using Server.Spells;
+using System;
 
 namespace Server.Items
 {
@@ -17,13 +17,7 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1024656;
-            }
-        }// Guillotine
+        public override int LabelNumber => 1024656;// Guillotine
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -45,7 +39,7 @@ namespace Server.Items
         public GuillotineAddon()
             : base()
         {
-            this.AddComponent(new GuillotineComponent(), 0, 0, 0);
+            AddComponent(new GuillotineComponent(), 0, 0, 0);
         }
 
         public GuillotineAddon(Serial serial)
@@ -53,28 +47,26 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new GuillotineDeed();
-            }
-        }
+        public override BaseAddonDeed Deed => new GuillotineDeed();
         public override void OnComponentUsed(AddonComponent c, Mobile from)
         {
-            if (from.InRange(this.Location, 2))
+            if (from.InRange(Location, 2))
             {
                 if (Utility.RandomBool())
                 {
-                    from.Location = this.Location;
+                    from.Location = Location;
 
                     Timer.DelayCall(TimeSpan.FromSeconds(0.5), new TimerStateCallback(Activate), new object[] { c, from });
                 }
                 else
+                {
                     from.LocalOverheadMessage(MessageType.Regular, 0, 501777); // Hmm... you suspect that if you used this again, it might hurt.
+                }
             }
             else
+            {
                 from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
+            }
         }
 
         public override void Serialize(GenericWriter writer)
@@ -94,9 +86,13 @@ namespace Server.Items
         public virtual void Activate(AddonComponent c, Mobile from)
         {
             if (c.ItemID == 0x125E || c.ItemID == 0x1269 || c.ItemID == 0x1260)
+            {
                 c.ItemID = 0x1269;
+            }
             else
+            {
                 c.ItemID = 0x1247;
+            }
 
             // blood
             int amount = Utility.RandomMinMax(3, 7);
@@ -112,7 +108,9 @@ namespace Server.Items
                     z = c.Map.GetAverageZ(x, y);
 
                     if (!c.Map.CanFit(x, y, z, 1, false, false, true))
+                    {
                         continue;
+                    }
                 }
 
                 Blood blood = new Blood(Utility.RandomMinMax(0x122C, 0x122F));
@@ -120,9 +118,13 @@ namespace Server.Items
             }
 
             if (from.Female)
+            {
                 from.PlaySound(Utility.RandomMinMax(0x150, 0x153));
+            }
             else
+            {
                 from.PlaySound(Utility.RandomMinMax(0x15A, 0x15D));
+            }
 
             from.LocalOverheadMessage(MessageType.Regular, 0, 501777); // Hmm... you suspect that if you used this again, it might hurt.
             SpellHelper.Damage(TimeSpan.Zero, from, Utility.Dice(2, 10, 5));
@@ -135,7 +137,9 @@ namespace Server.Items
             object[] param = (object[])obj;
 
             if (param[0] is AddonComponent && param[1] is Mobile)
-                this.Activate((AddonComponent)param[0], (Mobile)param[1]);
+            {
+                Activate((AddonComponent)param[0], (Mobile)param[1]);
+            }
         }
 
         private void Deactivate(object obj)
@@ -145,13 +149,21 @@ namespace Server.Items
                 AddonComponent c = (AddonComponent)obj;
 
                 if (c.ItemID == 0x1269)
+                {
                     c.ItemID = 0x1260;
+                }
                 else if (c.ItemID == 0x1260)
+                {
                     c.ItemID = 0x125E;
+                }
                 else if (c.ItemID == 0x1247)
+                {
                     c.ItemID = 0x1246;
+                }
                 else if (c.ItemID == 0x1246)
+                {
                     c.ItemID = 0x1230;
+                }
             }
         }
     }
@@ -162,7 +174,7 @@ namespace Server.Items
         public GuillotineDeed()
             : base()
         {
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public GuillotineDeed(Serial serial)
@@ -170,20 +182,8 @@ namespace Server.Items
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new GuillotineAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1024656;
-            }
-        }// Guillotine
+        public override BaseAddon Addon => new GuillotineAddon();
+        public override int LabelNumber => 1024656;// Guillotine
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

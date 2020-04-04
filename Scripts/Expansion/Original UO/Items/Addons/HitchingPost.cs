@@ -1,24 +1,18 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Multis;
 using Server.Network;
 using Server.Targeting;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
     [FlipableAttribute(0x14E7, 0x14E8)]
     public class HitchingPost : Item, ISecurable
     {
-        public override int LabelNumber
-        {
-            get
-            {
-                return m_Replica ? 1071127 : 1025351;
-            }
-        }// hitching post (replica)
+        public override int LabelNumber => m_Replica ? 1071127 : 1025351;// hitching post (replica)
 
         private int m_UsesRemaining;
         private int m_Charges;
@@ -28,29 +22,22 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public SecureLevel Level
         {
-            get
-            {
-                return m_Level;
-            }
-            set
-            {
-                m_Level = value;
-            }
+            get => m_Level;
+            set => m_Level = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Charges
         {
-            get
-            {
-                return m_Charges;
-            }
+            get => m_Charges;
             set
             {
                 m_Charges = value;
 
                 if (!m_Replica && m_Charges != -1)
+                {
                     m_Charges = -1;
+                }
 
                 InvalidateProperties();
             }
@@ -59,10 +46,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int UsesRemaining
         {
-            get
-            {
-                return m_UsesRemaining;
-            }
+            get => m_UsesRemaining;
             set
             {
                 m_UsesRemaining = value;
@@ -73,7 +57,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public bool Replica
         {
-            get { return m_Replica; }
+            get => m_Replica;
             set
             {
                 m_Replica = value;
@@ -111,13 +95,7 @@ namespace Server.Items
         {
         }
 
-        public override bool ForceShowProperties
-        {
-            get
-            {
-                return ObjectPropertyList.Enabled;
-            }
-        }
+        public override bool ForceShowProperties => ObjectPropertyList.Enabled;
 
         public override void GetProperties(ObjectPropertyList list)
         {
@@ -171,7 +149,9 @@ namespace Server.Items
                     BaseCreature pet = list[i];
 
                     if (pet == null || pet.Deleted)
+                    {
                         continue;
+                    }
 
                     AddButton(15, 39 + (i * 20), 10006, 10006, i + 1, GumpButtonType.Reply, 0);
                     AddHtml(32, 35 + (i * 20), 275, 18, String.Format("<BASEFONT COLOR=#C0C0EE>{0}</BASEFONT>", pet.Name), false, false);
@@ -203,18 +183,26 @@ namespace Server.Items
             protected override void OnTarget(Mobile from, object targeted)
             {
                 if (targeted is BaseCreature)
+                {
                     m_Post.EndStable(from, (BaseCreature)targeted);
+                }
                 else if (targeted == from)
+                {
                     from.SendLocalizedMessage(502672); // HA HA HA! Sorry, I am not an inn.
+                }
                 else
+                {
                     from.SendLocalizedMessage(1048053); // You can't stable that!
+                }
             }
         }
 
         public void BeginClaimList(Mobile from)
         {
             if (Deleted || !from.CheckAlive())
+            {
                 return;
+            }
 
             if (UsesRemaining <= 0)
             {
@@ -248,23 +236,31 @@ namespace Server.Items
                 }
 
                 if (list.Count > 0)
+                {
                     from.SendGump(new ClaimListGump(this, from, list));
+                }
                 else
+                {
                     from.SendLocalizedMessage(502671); // But I have no animals stabled with me at the moment!
+                }
             }
         }
 
         public void EndClaimList(Mobile from, BaseCreature pet)
         {
             if (pet == null || pet.Deleted || from.Map != Map || !from.InRange(this, 14) || !from.Stabled.Contains(pet) || !from.CheckAlive())
+            {
                 return;
+            }
 
             if ((from.Followers + pet.ControlSlots) <= from.FollowersMax)
             {
                 pet.SetControlMaster(from);
 
                 if (pet.Summoned)
+                {
                     pet.SummonMaster = from;
+                }
 
                 pet.ControlTarget = from;
                 pet.ControlOrder = OrderType.Follow;
@@ -285,7 +281,9 @@ namespace Server.Items
         public void BeginStable(Mobile from)
         {
             if (Deleted || !from.CheckAlive())
+            {
                 return;
+            }
 
             if (UsesRemaining <= 0)
             {
@@ -317,7 +315,9 @@ namespace Server.Items
         public void EndStable(Mobile from, BaseCreature pet)
         {
             if (Deleted || !from.CheckAlive())
+            {
                 return;
+            }
 
             if (!pet.Controlled || pet.ControlMaster != from)
             {
@@ -369,7 +369,9 @@ namespace Server.Items
                     pet.IsStabled = true;
 
                     if (Core.SE)
+                    {
                         pet.Loyalty = BaseCreature.MaxLoyalty; // Wonderfully happy
+                    }
 
                     from.Stabled.Add(pet);
 
@@ -404,7 +406,9 @@ namespace Server.Items
             else
             {
                 if (Deleted || !from.CheckAlive())
+                {
                     return;
+                }
 
                 bool claimed = false;
                 int stabled = 0;
@@ -428,7 +432,9 @@ namespace Server.Items
                         pet.SetControlMaster(from);
 
                         if (pet.Summoned)
+                        {
                             pet.SummonMaster = from;
+                        }
 
                         pet.ControlTarget = from;
                         pet.ControlOrder = OrderType.Follow;
@@ -438,7 +444,9 @@ namespace Server.Items
                         pet.IsStabled = false;
 
                         if (Core.SE)
+                        {
                             pet.Loyalty = BaseCreature.MaxLoyalty; // Wonderfully Happy
+                        }
 
                         from.Stabled.RemoveAt(i);
                         --i;
@@ -457,7 +465,9 @@ namespace Server.Items
                     UsesRemaining -= 1;
                 }
                 else if (stabled == 0)
+                {
                     from.SendLocalizedMessage(502671); // But I have no animals stabled with me at the moment!
+                }
             }
         }
 
@@ -471,23 +481,21 @@ namespace Server.Items
         public bool CheckAccess(Mobile m)
         {
             if (!IsLockedDown || m.AccessLevel >= AccessLevel.GameMaster)
+            {
                 return true;
+            }
 
             BaseHouse house = BaseHouse.FindHouseAt(this);
 
             if (house != null && house.IsAosRules && (house.Public ? house.IsBanned(m) : !house.HasAccess(m)))
+            {
                 return false;
+            }
 
             return (house != null && house.HasSecureAccess(m, m_Level));
         }
 
-        public override bool HandlesOnSpeech
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool HandlesOnSpeech => true;
 
         public override void OnSpeech(SpeechEventArgs e)
         {
@@ -503,9 +511,13 @@ namespace Server.Items
                     e.Handled = true;
 
                     if (!Insensitive.Equals(e.Speech, "claim"))
+                    {
                         BeginClaimList(e.Mobile);
+                    }
                     else
+                    {
                         Claim(e.Mobile);
+                    }
                 }
                 else
                 {
@@ -518,13 +530,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)4); // version
+            writer.Write(4); // version
 
             writer.Write(m_Replica);
 
             writer.Write((int)m_Level);
-            writer.Write((int)m_UsesRemaining);
-            writer.Write((int)m_Charges);
+            writer.Write(m_UsesRemaining);
+            writer.Write(m_Charges);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -534,7 +546,9 @@ namespace Server.Items
             int version = reader.ReadInt();
 
             if (Weight == 1)
+            {
                 Weight = 10;
+            }
 
             switch (version)
             {
@@ -565,7 +579,9 @@ namespace Server.Items
             }
 
             if (version < 4)
+            {
                 m_Replica = true;
+            }
         }
     }
 }

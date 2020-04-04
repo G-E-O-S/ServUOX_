@@ -1,11 +1,8 @@
-using System;
-using Server;
-using Server.Mobiles;
 using Server.Accounting;
+using Server.Engines.VeteranRewards;
 using Server.Multis;
 using System.Collections.Generic;
 using System.Linq;
-using Server.Engines.VeteranRewards;
 
 namespace Server.Items
 {
@@ -14,9 +11,9 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public string Account { get; set; }
 
-        public Account LinkedAccount { get { return Account == null ? null : Accounts.GetAccount(Account) as Account; } }
+        public Account LinkedAccount => Account == null ? null : Accounts.GetAccount(Account) as Account;
 
-        public override BaseAddonDeed Deed { get { return new LighthouseAddonDeed(Account); } }
+        public override BaseAddonDeed Deed => new LighthouseAddonDeed(Account);
 
         [Constructable]
         public LighthouseAddon(string account)
@@ -33,7 +30,9 @@ namespace Server.Items
             base.OnAfterDelete();
 
             if (Lighthouses.Contains(this))
+            {
                 Lighthouses.Remove(this);
+            }
         }
 
         public override AddonFitResult CouldFit(IPoint3D p, Map map, Mobile from, ref BaseHouse house)
@@ -48,11 +47,15 @@ namespace Server.Items
                 foreach (StaticTile tile in staticTiles)
                 {
                     if (tile.Z > p.Z)
+                    {
                         return AddonFitResult.Blocked;
+                    }
                 }
 
                 if (from != null)
+                {
                     from.SendLocalizedMessage(1154596); // Ships placed by this account will now be linked to this lighthouse when they decay. Lost ships will be  found in your house moving crate.
+                }
             }
 
             return result;
@@ -63,7 +66,9 @@ namespace Server.Items
             foreach (var entity in boat.GetEntitiesOnBoard())
             {
                 if (!(entity is Item) || entity == this || boat.IsComponentItem(entity) || entity is EffectItem || entity == boat.TillerMan)
+                {
                     continue;
+                }
 
                 Item item = entity as Item;
 
@@ -86,14 +91,18 @@ namespace Server.Items
                                 AddonComponent c = addon.Components[j];
 
                                 if (c.Hue != 0)
+                                {
                                     hue = c.Hue;
+                                }
                             }
                         }
 
                         if (deed != null)
                         {
                             if (retainDeedHue)
+                            {
                                 deed.Hue = hue;
+                            }
 
                             house.DropToMovingCrate(deed);
                         }
@@ -107,18 +116,26 @@ namespace Server.Items
                 Container cont;
 
                 if (boat is BaseGalleon)
+                {
                     cont = ((BaseGalleon)boat).GalleonHold;
+                }
                 else
+                {
                     cont = boat.Hold;
+                }
 
                 if (cont != null)
                 {
                     cont.Items.ForEach(i =>
                         {
                             if (i is BaseWeapon)
+                            {
                                 house.DropToMovingCrate(i);
+                            }
                             else
+                            {
                                 i.Delete();
+                            }
                         });
                 }
             }
@@ -126,15 +143,21 @@ namespace Server.Items
             BaseDockedBoat model = boat.BoatItem;
 
             if (model == null || model.Deleted)
+            {
                 model = boat.DockedBoat;
+            }
 
             if (model == null)
+            {
                 return;
+            }
 
             model.BoatItem = boat;
 
             if (boat.IsClassicBoat && boat.Owner != null)
+            {
                 boat.RemoveKeys(boat.Owner);
+            }
 
             house.DropToMovingCrate(model);
 
@@ -154,7 +177,9 @@ namespace Server.Items
         public static LighthouseAddon GetLighthouse(Mobile m)
         {
             if (m == null)
+            {
                 return null;
+            }
 
             Account a = m.Account as Account;
 
@@ -189,16 +214,16 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public string Account { get; set; }
 
-        public Account LinkedAccount { get { return Account == null ? null : Accounts.GetAccount(Account) as Account; } }
+        public Account LinkedAccount => Account == null ? null : Accounts.GetAccount(Account) as Account;
 
         public bool IsRewardItem
         {
-            get { return true; }
+            get => true;
             set { }
         }
 
-        public override BaseAddon Addon { get { return new LighthouseAddon(Account); } }
-        public override int LabelNumber { get { return 1154582; } } // Deed for a Lighthouse
+        public override BaseAddon Addon => new LighthouseAddon(Account);
+        public override int LabelNumber => 1154582;  // Deed for a Lighthouse
 
         [Constructable]
         public LighthouseAddonDeed() : this(null)
@@ -208,7 +233,7 @@ namespace Server.Items
         public LighthouseAddonDeed(string account)
         {
             Account = account;
-            this.LootType = LootType.Blessed;
+            LootType = LootType.Blessed;
         }
 
         public override void OnDoubleClick(Mobile from)

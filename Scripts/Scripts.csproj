@@ -1685,7 +1685,7 @@
     <Compile Include="Items\Addons\PetParrot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\PlayerBulletinBoards.cs">
+    <Compile Include="Expansion\AOS\PlayerBulletinBoards.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\PlayerVendorDeed.cs">
@@ -1938,7 +1938,7 @@
     <Compile Include="Items\Equipment\Jewelry\StaffRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\AbbatoirAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\AbbatoirAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\AddonComponent.cs">
@@ -1953,10 +1953,10 @@
     <Compile Include="Expansion\ML\Addons\AlchemistTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\AnvilEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\AnvilEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\AnvilSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\AnvilSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Addons\ArcaneBookshelfEastAddon.cs">
@@ -1974,7 +1974,7 @@
     <Compile Include="Expansion\ML\Addons\ArcanistStatueSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\ArcheryButteAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\ArcheryButteAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Items\BallotBox.cs">
@@ -2039,10 +2039,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\FireColumnAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\FlourMillEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\FlourMillEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\FlourMillSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\FlourMillSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\FlowerTapestries.cs">
@@ -2063,16 +2063,16 @@
     <Compile Include="Items\Addons\JackOLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LargeBedEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\LargeBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LargeBedSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\LargeBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LargeForgeEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\LargeForgeEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LargeForgeSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\LargeForgeSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\LargeStoneTableEastAddon.cs">
@@ -2081,10 +2081,10 @@
     <Compile Include="Expansion\SA\LargeStoneTableSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LoomEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\LoomEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\LoomSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\LoomSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Aquarium\Rewards\AquariumMessage.cs" />
@@ -3039,7 +3039,6 @@
     <Compile Include="Items\Quest\BritannianWool.cs" />
     <Compile Include="Mobiles\NPCs\Laifem.cs" />
     <Compile Include="Items\Quest\LaifemItems.cs" />
-    <Compile Include="Expansion\Original UO\Items\Addons\goldcarpetAddon.cs" />
     <Compile Include="Mobiles\Quests\EscortToDugan.cs" />
     <Compile Include="Expansion\SA\Talismans\TalismanofGoblinSlaying.cs" />
     <Compile Include="Mobiles\NPCs\Neville.cs" />
@@ -3638,10 +3637,10 @@
     <Compile Include="Items\Addons\ParrotPerchAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\PentagramAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\PentagramAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\PickpocketDips.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\PickpocketDips.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Addons\PyramidAddon.cs">
@@ -3671,23 +3670,23 @@
     <Compile Include="Items\Addons\SkullPileAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SmallBedEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\SmallBedEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SmallBedSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\SmallBedSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SmallForgeAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\SmallForgeAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SmallSoulForge.cs" />
+    <Compile Include="Expansion\SA\SmallSoulForge.cs" />
     <Compile Include="Items\Addons\SolenAntHole.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SpinningwheelEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\SpinningwheelEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\SpinningwheelSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\SpinningwheelSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Addons\SquirrelStatueEastAddon.cs">
@@ -3711,10 +3710,10 @@
     <Compile Include="Expansion\Original UO\Items\Addons\StoneFountainAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\StoneOvenEastAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\StoneOvenEastAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\StoneOvenSouthAddon.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\StoneOvenSouthAddon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\StretchedHides.cs">
@@ -3729,7 +3728,7 @@
     <Compile Include="Expansion\Original UO\Items\Addons\Telescope.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Addons\TrainingDummies.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\TrainingDummies.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\WarriorStatueEastAddon.cs">

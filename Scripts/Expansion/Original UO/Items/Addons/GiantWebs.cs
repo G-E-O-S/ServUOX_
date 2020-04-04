@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class GiantWeb1 : BaseAddon
@@ -12,7 +10,9 @@ namespace Server.Items
             bool leftToRight = false;
 
             for (int i = 0; i < count; ++i)
-                this.AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            {
+                AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            }
         }
 
         public GiantWeb1(Serial serial)
@@ -45,7 +45,9 @@ namespace Server.Items
             bool leftToRight = true;
 
             for (int i = 0; i < count; ++i)
-                this.AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            {
+                AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            }
         }
 
         public GiantWeb2(Serial serial)
@@ -78,7 +80,9 @@ namespace Server.Items
             bool leftToRight = true;
 
             for (int i = 0; i < count; ++i)
-                this.AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            {
+                AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            }
         }
 
         public GiantWeb3(Serial serial)
@@ -111,7 +115,9 @@ namespace Server.Items
             bool leftToRight = false;
 
             for (int i = 0; i < count; ++i)
-                this.AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            {
+                AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            }
         }
 
         public GiantWeb4(Serial serial)
@@ -144,7 +150,9 @@ namespace Server.Items
             bool leftToRight = true;
 
             for (int i = 0; i < count; ++i)
-                this.AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            {
+                AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            }
         }
 
         public GiantWeb5(Serial serial)
@@ -177,7 +185,9 @@ namespace Server.Items
             bool leftToRight = false;
 
             for (int i = 0; i < count; ++i)
-                this.AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            {
+                AddComponent(new AddonComponent(itemID++), leftToRight ? i : count - 1 - i, -(leftToRight ? i : count - 1 - i), 0);
+            }
         }
 
         public GiantWeb6(Serial serial)

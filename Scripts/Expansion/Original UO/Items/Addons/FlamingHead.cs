@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.VeteranRewards;
 using Server.Gumps;
 using Server.Multis;
@@ -6,7 +5,7 @@ using Server.Network;
 using Server.Targeting;
 
 namespace Server.Items
-{ 
+{
     public class FlamingHead : StoneFaceTrapNoDamage, IAddon, IRewardItem
     {
         private bool m_IsRewardItem;
@@ -20,9 +19,9 @@ namespace Server.Items
         public FlamingHead(StoneFaceTrapType type)
             : base()
         {
-            this.LootType = LootType.Blessed;
-            this.Movable = false;
-            this.Type = type;
+            LootType = LootType.Blessed;
+            Movable = false;
+            Type = type;
         }
 
         public FlamingHead(Serial serial)
@@ -30,49 +29,38 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1041266;
-            }
-        }// Flaming Head
-        public override bool ForceShowProperties
-        {
-            get
-            {
-                return ObjectPropertyList.Enabled;
-            }
-        }
+        public override int LabelNumber => 1041266;// Flaming Head
+        public override bool ForceShowProperties => ObjectPropertyList.Enabled;
         public Item Deed
-        { 
+        {
             get
-            { 
-                FlamingHeadDeed deed = new FlamingHeadDeed();
-                deed.IsRewardItem = this.m_IsRewardItem;
+            {
+                FlamingHeadDeed deed = new FlamingHeadDeed
+                {
+                    IsRewardItem = m_IsRewardItem
+                };
 
-                return deed;	
+                return deed;
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
         public bool IsRewardItem
         {
-            get
-            {
-                return this.m_IsRewardItem;
-            }
+            get => m_IsRewardItem;
             set
             {
-                this.m_IsRewardItem = value;
-                this.InvalidateProperties();
+                m_IsRewardItem = value;
+                InvalidateProperties();
             }
         }
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
-			
-            if (Core.ML && this.m_IsRewardItem)
+
+            if (Core.ML && m_IsRewardItem)
+            {
                 list.Add(1076218); // 2nd Year Veteran Reward
+            }
         }
 
         void IChopable.OnChop(Mobile user)
@@ -82,20 +70,24 @@ namespace Server.Items
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (from.InRange(this.Location, 2))
+            if (from.InRange(Location, 2))
             {
-                BaseHouse house = BaseHouse.FindHouseAt(this);  
-				
+                BaseHouse house = BaseHouse.FindHouseAt(this);
+
                 if (house != null && house.IsOwner(from))
                 {
                     from.CloseGump(typeof(RewardDemolitionGump));
                     from.SendGump(new RewardDemolitionGump(this, 1018329)); // Do you wish to re-deed this skull?
                 }
                 else
+                {
                     from.SendLocalizedMessage(1018328); // You can only re-deed a skull if you placed it or you are the owner of the house.
+                }
             }
             else
+            {
                 from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 1019045); // I can't reach that.
+            }
         }
 
         public override void Serialize(GenericWriter writer)
@@ -103,8 +95,8 @@ namespace Server.Items
             base.Serialize(writer);
 
             writer.WriteEncodedInt(0); // version
-			
-            writer.Write((bool)this.m_IsRewardItem);
+
+            writer.Write(m_IsRewardItem);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -112,22 +104,30 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadEncodedInt();
-			
-            this.m_IsRewardItem = reader.ReadBool();
+
+            m_IsRewardItem = reader.ReadBool();
         }
 
         public bool CouldFit(IPoint3D p, Map map)
-        { 
-            if (map == null || !map.CanFit(p.X, p.Y, p.Z, this.ItemData.Height))
+        {
+            if (map == null || !map.CanFit(p.X, p.Y, p.Z, ItemData.Height))
+            {
                 return false;
+            }
 
-            if (this.Type == StoneFaceTrapType.NorthWestWall)
+            if (Type == StoneFaceTrapType.NorthWestWall)
+            {
                 return BaseAddon.IsWall(p.X, p.Y - 1, p.Z, map) && BaseAddon.IsWall(p.X - 1, p.Y, p.Z, map); // north and west wall
-            else if (this.Type == StoneFaceTrapType.NorthWall)
+            }
+            else if (Type == StoneFaceTrapType.NorthWall)
+            {
                 return BaseAddon.IsWall(p.X, p.Y - 1, p.Z, map); // north wall
-            else if (this.Type == StoneFaceTrapType.WestWall) 
+            }
+            else if (Type == StoneFaceTrapType.WestWall)
+            {
                 return BaseAddon.IsWall(p.X - 1, p.Y, p.Z, map); // west wall
-				
+            }
+
             return false;
         }
     }
@@ -138,9 +138,9 @@ namespace Server.Items
         [Constructable]
         public FlamingHeadDeed()
             : base(0x14F0)
-        { 
-            this.LootType = LootType.Blessed;
-            this.Weight = 1.0;
+        {
+            LootType = LootType.Blessed;
+            Weight = 1.0;
         }
 
         public FlamingHeadDeed(Serial serial)
@@ -148,41 +148,36 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1041050;
-            }
-        }// a flaming head deed
+        public override int LabelNumber => 1041050;// a flaming head deed
         [CommandProperty(AccessLevel.GameMaster)]
         public bool IsRewardItem
         {
-            get
-            {
-                return this.m_IsRewardItem;
-            }
+            get => m_IsRewardItem;
             set
             {
-                this.m_IsRewardItem = value;
-                this.InvalidateProperties();
+                m_IsRewardItem = value;
+                InvalidateProperties();
             }
         }
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
-			
-            if (this.m_IsRewardItem)
+
+            if (m_IsRewardItem)
+            {
                 list.Add(1076218); // 2nd Year Veteran Reward
+            }
         }
 
         public override void OnDoubleClick(Mobile from)
-        { 
-            if (this.m_IsRewardItem && !RewardSystem.CheckIsUsableBy(from, this, null))
+        {
+            if (m_IsRewardItem && !RewardSystem.CheckIsUsableBy(from, this, null))
+            {
                 return;
-		
-            if (this.IsChildOf(from.Backpack))
-            { 
+            }
+
+            if (IsChildOf(from.Backpack))
+            {
                 BaseHouse house = BaseHouse.FindHouseAt(from);
 
                 if (house != null && house.IsOwner(from))
@@ -191,10 +186,14 @@ namespace Server.Items
                     from.Target = new InternalTarget(this);
                 }
                 else
+                {
                     from.SendLocalizedMessage(502115); // You must be in your house to do this.
+                }
             }
             else
+            {
                 from.SendLocalizedMessage(1042038); // You must have the object in your backpack to use it.          	
+            }
         }
 
         public override void Serialize(GenericWriter writer)
@@ -202,8 +201,8 @@ namespace Server.Items
             base.Serialize(writer);
 
             writer.WriteEncodedInt(0); // version
-			
-            writer.Write((bool)this.m_IsRewardItem);
+
+            writer.Write(m_IsRewardItem);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -211,8 +210,8 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadEncodedInt();
-			
-            this.m_IsRewardItem = reader.ReadBool();
+
+            m_IsRewardItem = reader.ReadBool();
         }
 
         private class InternalTarget : Target
@@ -221,31 +220,35 @@ namespace Server.Items
             public InternalTarget(FlamingHeadDeed head)
                 : base(-1, true, TargetFlags.None)
             {
-                this.m_Head = head;
+                m_Head = head;
             }
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                if (this.m_Head == null || this.m_Head.Deleted)
+                if (m_Head == null || m_Head.Deleted)
+                {
                     return;
-					
-                if (this.m_Head.IsChildOf(from.Backpack))
+                }
+
+                if (m_Head.IsChildOf(from.Backpack))
                 {
                     BaseHouse house = BaseHouse.FindHouseAt(from);
-					
+
                     if (house != null && house.IsOwner(from))
                     {
                         IPoint3D p = targeted as IPoint3D;
                         Map map = from.Map;
-						
+
                         if (p == null || map == null)
+                        {
                             return;
-							
+                        }
+
                         Point3D p3d = new Point3D(p);
                         ItemData id = TileData.ItemTable[0x10F5];
-						
+
                         house = BaseHouse.FindHouseAt(p3d, map, id.Height);
-						
+
                         if (house != null && house.IsOwner(from))
                         {
                             if (map.CanFit(p3d, id.Height))
@@ -254,37 +257,53 @@ namespace Server.Items
                                 bool west = BaseAddon.IsWall(p3d.X - 1, p3d.Y, p3d.Z, map);
 
                                 FlamingHead head = null;
-								
+
                                 if (north && west)
+                                {
                                     head = new FlamingHead(StoneFaceTrapType.NorthWestWall);
+                                }
                                 else if (north)
+                                {
                                     head = new FlamingHead(StoneFaceTrapType.NorthWall);
+                                }
                                 else if (west)
+                                {
                                     head = new FlamingHead(StoneFaceTrapType.WestWall);
-								
+                                }
+
                                 if (north || west)
                                 {
-                                    house.Addons[head] = from;	
+                                    house.Addons[head] = from;
 
-                                    head.IsRewardItem = this.m_Head.IsRewardItem;
+                                    head.IsRewardItem = m_Head.IsRewardItem;
                                     head.MoveToWorld(p3d, map);
 
-                                    this.m_Head.Delete();
+                                    m_Head.Delete();
                                 }
-                                else 
+                                else
+                                {
                                     from.SendLocalizedMessage(1042266); // The head must be placed next to a wall.
+                                }
                             }
                             else
+                            {
                                 from.SendLocalizedMessage(1042266); // The head must be placed next to a wall.
+                            }
                         }
                         else
+                        {
                             from.SendLocalizedMessage(1042036); // That location is not in your house.			
+                        }
                     }
                     else
+                    {
                         from.SendLocalizedMessage(502115); // You must be in your house to do this.
+                    }
                 }
                 else
+                {
                     from.SendLocalizedMessage(1042038); // You must have the object in your backpack to use it.     
+                }
             }
         }
     }

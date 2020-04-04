@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public interface ILoom
@@ -9,8 +7,6 @@ namespace Server.Items
 
     public class LoomEastAddon : BaseAddon, ILoom
     {
-        private int m_Phase;
-
         [Constructable]
         public LoomEastAddon()
         {
@@ -18,49 +14,29 @@ namespace Server.Items
             AddComponent(new AddonComponent(0x105F), 0, 1, 0);
         }
 
-        public LoomEastAddon(Serial serial)
-            : base(serial)
+        public LoomEastAddon(Serial serial) : base(serial)
         {
         }
 
-        public override BaseAddonDeed Deed
-        {
-            get
-            {
-                return new LoomEastDeed();
-            }
-        }
-        public int Phase
-        {
-            get
-            {
-                return m_Phase;
-            }
-            set
-            {
-                m_Phase = value;
-            }
-        }
+        public override BaseAddonDeed Deed => new LoomEastDeed();
+        public int Phase { get; set; }
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
-
-            writer.Write((int)m_Phase);
+            writer.Write(1);
+            writer.Write(Phase);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 1:
                     {
-                        m_Phase = reader.ReadInt();
+                        Phase = reader.ReadInt();
                         break;
                     }
             }
@@ -74,37 +50,22 @@ namespace Server.Items
         {
         }
 
-        public LoomEastDeed(Serial serial)
-            : base(serial)
+        public LoomEastDeed(Serial serial) : base(serial)
         {
         }
 
-        public override BaseAddon Addon
-        {
-            get
-            {
-                return new LoomEastAddon();
-            }
-        }
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1044343;
-            }
-        }// loom (east)
+        public override BaseAddon Addon => new LoomEastAddon();
+        public override int LabelNumber => 1044343;// loom (east)
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }
