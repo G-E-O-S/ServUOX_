@@ -1,4 +1,3 @@
-using System;
 
 namespace Server.Mobiles
 {
@@ -46,47 +45,19 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat
-        {
-            get
-            {
-                return 6;
-            }
-        }
-        public override int Hides
-        {
-            get
-            {
-                return 15;
-            }
-        }
-        public override FoodType FavoriteFood
-        {
-            get
-            {
-                return FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
-            }
-        }
-        public override int GetAttackSound() 
-        { 
-            return 0x82; 
-        }
+        public override int Meat { get { return 6; } }
+        public override int Hides { get { return 15; } }
+        public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
 
-        public override int GetHurtSound() 
-        { 
-            return 0x83; 
-        }
-
-        public override int GetDeathSound() 
-        { 
-            return 0x84; 
-        }
+        public override int GetAttackSound() { return 0x82; }
+        public override int GetHurtSound() { return 0x83; }
+        public override int GetDeathSound() { return 0x84; }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)

@@ -2243,7 +2243,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Brigand.cs" />
     <Compile Include="Expansion\UOR\Mobiles\BronzeElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BulbousPutrification.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Bull.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Bovine.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CapturedHordeMinion.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Cat.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Centaur.cs" />
@@ -2251,7 +2251,6 @@
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDragoon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDragoonElite.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Chicken.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChickenLizard.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ClanCA.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ClanCT.cs" />
@@ -2270,7 +2269,6 @@
     <Compile Include="Mobiles\Hunters Guide\C\CorrosiveSlime.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CorruptedSoul.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Cougar.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Cow.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Crane.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalElemental.cs" />
@@ -2357,7 +2355,6 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ghoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantBlackWidow.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\GiantIceWorm.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\GiantRat.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSerpent.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Gibberling.cs" />
@@ -2389,7 +2386,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Hind.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hiryu.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HordeMinion.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Horse.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Horses.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hydra.cs" />
     <Compile Include="Customs\Icehound.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Impaler.cs" />
@@ -2397,7 +2394,6 @@
     <Compile Include="Mobiles\Hunters Guide\I\InsaneDryad.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InterredGrizzle .cs" />
     <Compile Include="Mobiles\Hunters Guide\I\IronBeetle.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\JackRabbit.cs" />
     <Compile Include="Mobiles\Hunters Guide\J\Juggernaut.cs" />
     <Compile Include="Mobiles\Hunters Guide\J\JukaLord.cs" />
     <Compile Include="Mobiles\Hunters Guide\J\JukaMage.cs" />
@@ -2422,7 +2418,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Lich.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\LichLord.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Lizardman.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Llama.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Llamas.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LowlandBoura.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\Macaw.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MaddeningHorror.cs" />
@@ -2453,8 +2449,6 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OrcishMage.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcScout.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Ortanord.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\PackHorse.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\PackLlama.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BloodFox.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Panther.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\ParoxysmusSwampDragon.cs" />
@@ -2495,11 +2489,11 @@
     <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGuardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\Q\Quagmire.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Rabbit.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Rabbits.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RagingGrizzlyBear.cs" />
     <Compile Include="Expansion\SE\Mobiles\RaiJu.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Raptor.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Rat.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Rats.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ratman.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RatmanArcher.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RatmanMage.cs" />
@@ -2515,7 +2509,6 @@
     <Compile Include="Mobiles\Hunters Guide\R\RestlessSoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Revenant.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RevenantLion.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\RidableLlama.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Ridgeback.cs" />
     <Compile Include="Expansion\SE\Mobiles\Ronin.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\RottingCorpse.cs" />
@@ -2536,7 +2529,6 @@
     <Compile Include="Mobiles\Hunters Guide\S\SentinelSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SerpentineDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SerpentsFangHighExecutioner.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\SewerRat.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Shade.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowDweller.cs" />
     <Compile Include="Expansion\UOR\Mobiles\ShadowIronElemental.cs" />

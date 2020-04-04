@@ -62,40 +62,19 @@ namespace Server.Mobiles
                 Body = (DateTime.UtcNow >= m_NextWoolTime) ? 0xCF : 0xDF;
             }
         }
-        public override int Meat
-        {
-            get
-            {
-                return 3;
-            }
-        }
-        public override MeatType MeatType
-        {
-            get
-            {
-                return MeatType.LambLeg;
-            }
-        }
-        public override FoodType FavoriteFood
-        {
-            get
-            {
-                return FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
-            }
-        }
-        public override int Wool
-        {
-            get
-            {
-                return (Body == 0xCF ? 3 : 0);
-            }
-        }
+
+        public override int Wool { get { return (Body == 0xCF ? 3 : 0); } }
+
+
+        public override int Meat { get { return 3; } }
+        public override MeatType MeatType { get { return MeatType.LambLeg; } }
+        public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+
         public bool Carve(Mobile from, Item item)
         {
             if (DateTime.UtcNow < m_NextWoolTime)
-            {
-                // This sheep is not yet ready to be shorn.
-                PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500449, from.NetState);
+            {                
+                PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500449, from.NetState);// This sheep is not yet ready to be shorn.
                 return false;
             }
 
@@ -134,7 +113,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)1);
+            writer.Write(1);
 
             writer.WriteDeltaTime(m_NextWoolTime);
         }
