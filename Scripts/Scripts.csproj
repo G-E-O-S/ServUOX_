@@ -54,6 +54,8 @@
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Bears.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Pigs.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Wolves.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Elementals.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Undead.cs" />
     <Compile Include="Expansion\SE\Abilities\ColdWind.cs" />
     <Compile Include="Expansion\SE\Abilities\Focus.cs" />
     <Compile Include="Administration\Accounting\AccessRestrictions.cs">
@@ -2103,15 +2105,15 @@
     <Compile Include="Administration\UntamedPetsCleaning.cs" />
     <Compile Include="Mechanics\Waypoints.cs" />
     <Compile Include="Utilities\WorldLocationInfo.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\MageAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\MysticAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\NecroAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\NecromageAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\NinjaAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\PaladinAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\SamuraiAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\SpellbinderAI.cs" />
-    <Compile Include="Mobiles\AI\Magical AI\SpellweavingAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\MageAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\MysticAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\NecroAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\NecromageAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\NinjaAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\PaladinAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\SamuraiAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\SpellbinderAI.cs" />
+    <Compile Include="Mechanics\AI\Magical AI\SpellweavingAI.cs" />
     <Compile Include="Mobiles\Bosses\AbyssalInfernal.cs" />
     <Compile Include="Mobiles\Bosses\Barracoon.cs" />
     <Compile Include="Mobiles\Bosses\BaseChampion.cs" />
@@ -2196,7 +2198,6 @@
     <Compile Include="Mobiles\Hunters Guide\A\AcidPopper.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AcidSlug.cs" />
     <Compile Include="Expansion\UOR\Mobiles\AgapiteElemental.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\AirElemental.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Alligator.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\AncientWyrm.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AntLion.cs" />
@@ -2218,7 +2219,6 @@
     <Compile Include="Mobiles\Hunters Guide\B\BlackSolenQueen.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BlackSolenWarrior.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BlackSolenWorker.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\BloodElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Grubber.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\Lifestealer.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DragonWolf.cs" />
@@ -2238,14 +2238,12 @@
     <Compile Include="Mobiles\Hunters Guide\B\Bogling.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BogThing.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BoneDemon.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\BoneKnight.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\BoneMagi.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Brigand.cs" />
     <Compile Include="Expansion\UOR\Mobiles\BronzeElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BulbousPutrification.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Bovine.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CapturedHordeMinion.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Cat.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Cats.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Centaur.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Changeling.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\ChaosDaemon.cs" />
@@ -2268,7 +2266,6 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Corpser.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CorrosiveSlime.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CorruptedSoul.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Cougar.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\Crane.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalDaemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalElemental.cs" />
@@ -2290,7 +2287,6 @@
     <Compile Include="Mobiles\Hunters Guide\D\DeepSeaSerpent.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DemonKnight.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\Devourer.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\DireWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DiseasedCat.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Dog.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Dolphin.cs" />
@@ -2301,7 +2297,6 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\DreadSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DreamWraith .cs" />
     <Compile Include="Expansion\UOR\Mobiles\DullCopperElemental.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\EarthElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffetePutridGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffeteUndeadGargoyle.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Monsters\Efreet.cs" />
@@ -2336,7 +2331,6 @@
     <Compile Include="Mobiles\Hunters Guide\F\FireAnt.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FireBeetle.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FireDaemon.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\FireElemental.cs" />
     <Compile Include="Expansion\UOR\Mobiles\FireGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FireRabbit.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FireSteed.cs" />
@@ -2352,13 +2346,12 @@
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleShade.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Gazer.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GazerLarva.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ghoul.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantBlackWidow.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\GiantIceWorm.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSerpent.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSpider.cs" />
     <Compile Include="Expansion\AOS\Gibberling.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Goat.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Goats.cs" />
     <Compile Include="Expansion\UOR\Mobiles\GoldenElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Golem.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GolemController.cs" />
@@ -2367,7 +2360,6 @@
     <Compile Include="Mobiles\Hunters Guide\G\GreaterDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreaterMongbat.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreaterPoisonElemental.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\GreatHart.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreenGoblin.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreenGoblinAlchemist.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GreenGoblinScout.cs" />
@@ -2383,7 +2375,7 @@
     <Compile Include="Expansion\T2A\Mobiles\Creatures\HellHound.cs" />
     <Compile Include="Expansion\AOS\HellSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HighPlainsBoura.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Hind.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Animals\Deer.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\Hiryu.cs" />
     <Compile Include="Mobiles\Hunters Guide\H\HordeMinion.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Horses.cs" />
@@ -2415,8 +2407,6 @@
     <Compile Include="Mobiles\Hunters Guide\L\LeatherWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LesserHiryu.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\Leviathan.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Lich.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\LichLord.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Lizardman.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Llamas.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LowlandBoura.cs" />
@@ -2435,7 +2425,6 @@
     <Compile Include="Mobiles\Hunters Guide\M\Moloch.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Mongbat.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MoundOfMaggots.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\MountainGoat.cs" />
     <Compile Include="Mobiles\Hunters Guide\N\Niporailem.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ogre.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\OgreLord.cs" />
@@ -2450,7 +2439,6 @@
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcScout.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Ortanord.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BloodFox.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\Panther.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\ParoxysmusSwampDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PatchworkSkeleton.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PestilentBandage.cs" />
@@ -2483,7 +2471,6 @@
     <Compile Include="Mobiles\NPCs\Vrulkax.cs" />
     <Compile Include="Mobiles\NPCs\WanderingShaman.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\PlayerMobile.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\PoisonElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PredatorHellCat.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\Protector.cs" />
     <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGargoyle.cs" />
@@ -2529,7 +2516,6 @@
     <Compile Include="Mobiles\Hunters Guide\S\SentinelSpider.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SerpentineDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SerpentsFangHighExecutioner.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Shade.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowDweller.cs" />
     <Compile Include="Expansion\UOR\Mobiles\ShadowIronElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\ShadowKnight.cs" />
@@ -2540,21 +2526,16 @@
     <Compile Include="Expansion\T2A\Mobiles\Creatures\SilverSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDrake.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\SkeletalKnight.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalLich.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\SkeletalMage.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalMount.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Skeleton.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkitteringHopper.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Skree.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Slime.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Slith.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Snake.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Animals\SnowLeopard.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SolenHelper.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SpeckledScorpion.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\SpectralArmour.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Spectre.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Spellbinder.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\Squirrel.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\StoneSlith.cs" />
@@ -2563,11 +2544,11 @@
     <Compile Include="Mobiles\Hunters Guide\S\SwampDragon.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\TanglingRoots.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\ThirdDawnParrot.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TigersClawMaster.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\Tormented Minotaur.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\ToxicElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\ToxicSlith.cs" />
-    <Compile Include="Mobiles\Hunters Guide\T\TrapdoorSpider.cs" />
+    <Compile Include="Expansion\ML\Mobiles\TigersClawMaster.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Labyrinth\Tormented Minotaur.cs" />
+    <Compile Include="Customs\ToxicElemental.cs" />
+    <Compile Include="Expansion\SA\TerMur\ToxicSlith.cs" />
+    <Compile Include="Expansion\SA\TerMur\TrapdoorSpider.cs" />
     <Compile Include="Expansion\AOS\Living Forest\Mobiles\Treefellow.cs" />
     <Compile Include="Expansion\ML\PaintedCaves\Troglodyte.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Troll.cs" />
@@ -2584,20 +2565,17 @@
     <Compile Include="Expansion\AOS\Doom\Mobiles\WailingBanshee.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Walrus.cs" />
     <Compile Include="Expansion\AOS\Doom\Mobiles\WandererOfTheVoid.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\WaterElemental.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\WhippingVine.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Monsters\WhiteWyrm.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\Wight.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wisp.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\WolfSpider.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Wraith.cs" />
     <Compile Include="Expansion\SE\Mobiles\Yamandon.cs" />
     <Compile Include="Expansion\SE\Mobiles\YomotsuElder.cs" />
     <Compile Include="Expansion\SE\Mobiles\YomotsuPriest.cs" />
     <Compile Include="Expansion\SE\Mobiles\YomotsuWarrior.cs" />
     <Compile Include="Expansion\SE\Mobiles\YoungNinja.cs" />
     <Compile Include="Expansion\SE\Mobiles\YoungRonin.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Zombie.cs" />
     <Compile Include="Mobiles\NPCs\Abbein.cs" />
     <Compile Include="Mobiles\NPCs\Acob.cs" />
     <Compile Include="Mobiles\NPCs\Actor.cs" />
@@ -2871,7 +2849,7 @@
     <Compile Include="Mobiles\NPCs\Zoel.cs" />
     <Compile Include="Mobiles\NPCs\Zorda.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\AnimatedWeapon.cs" />
-    <Compile Include="Mobiles\AI\BaseFamiliar.cs" />
+    <Compile Include="Mechanics\AI\BaseFamiliar.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Summoned\BladeSpirits.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DarkWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DeathAdder.cs" />
@@ -2893,7 +2871,7 @@
     <Compile Include="Mobiles\Hunters Guide\A\Anlorzen.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Anzuanord.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\Ballem.cs" />
-    <Compile Include="Mobiles\AI\BaseVoidCreature.cs" />
+    <Compile Include="Mechanics\AI\BaseVoidCreature.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\Betballem.cs" />
     <Compile Include="Mobiles\Hunters Guide\K\Korpre.cs" />
     <Compile Include="Mobiles\Hunters Guide\R\Relanord.cs" />
@@ -8817,34 +8795,34 @@
     <Compile Include="Expansion\Original UO\Mechanics\AI\AnimalAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\ArcherAI.cs">
+    <Compile Include="Mechanics\AI\ArcherAI.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Mechanics\AI\BaseAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\BerserkAI.cs">
+    <Compile Include="Mechanics\AI\BerserkAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\HealerAI.cs">
+    <Compile Include="Mechanics\AI\HealerAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\MeleeAI.cs">
+    <Compile Include="Mechanics\AI\MeleeAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\OppositionGroup.cs">
+    <Compile Include="Mechanics\AI\OppositionGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\OrcScoutAI.cs">
+    <Compile Include="Mechanics\AI\OrcScoutAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\PredatorAI.cs">
+    <Compile Include="Mechanics\AI\PredatorAI.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utilities\SpeedInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\AI\ThiefAI.cs">
+    <Compile Include="Mechanics\AI\ThiefAI.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Mechanics\AI\VendorAI.cs">
@@ -10872,7 +10850,7 @@
     <Compile Include="Items\Quest\TigerClawKey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\T\TigersClawThief.cs">
+    <Compile Include="Expansion\ML\Mobiles\TigersClawThief.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Decorative\TragicRemainsOfTravesty.cs">
@@ -12150,101 +12128,101 @@
     <Compile Include="Mechanics\Targets\PickMoveTarget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\VendorInfo\AnimalBuy.cs" />
-    <Compile Include="Mobiles\VendorInfo\BeverageBuy.cs" />
-    <Compile Include="Mobiles\VendorInfo\GenericBuy.cs" />
-    <Compile Include="Mobiles\VendorInfo\GenericSell.cs" />
-    <Compile Include="Mobiles\VendorInfo\PresetMapBuy.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBAlchemist.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBAnimalTrainer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBArchitect.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBAxeWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBaker.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBanker.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBard.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBarkeeper.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBeekeeper.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBlacksmith.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBGardener.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBBowyer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBButcher.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBCarpenter.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBCarpets.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBChainmailArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBCobbler.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBCook.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBFarmer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBFisherman.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBFortuneTeller.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBFurtrader.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBGlassblower.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBHairStylist.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBHealer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBHelmetArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBHerbalist.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBHolyMage.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBHouseDeed.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBInfo.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBInnKeeper.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBJewel.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBKeeperOfBushido.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBKeeperOfChivalry.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBKeeperOfNinjitsu.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBKnifeWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBLeatherArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBLeatherWorker.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMaceWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMage.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMapmaker.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMetalShields.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMiller.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMiner.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMonk.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBMystic.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBNecromancer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBPlateArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBPlayerBarkeeper.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBPoleArmWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBProvisioner.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBRancher.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBRangedWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBRanger.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBRealEstateBroker.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBRingmailArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSAArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSABlacksmith.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSATailor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSATanner.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSAWeapons.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBScribe.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSEArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSEBowyer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSECarpenter.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSECook.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSEFood.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSEHats.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSELeatherArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSEWeapons.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBShipwright.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSmithTools.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSpearForkWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBStavesWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBStoneCrafter.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBStuddedArmor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBSwordWeapon.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBTailor.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBTanner.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBTavernKeeper.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBThief.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBTinker.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBVagabond.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBVarietyDealer.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBVeterinarian.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBWaiter.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBWeaponSmith.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBWeaver.cs" />
-    <Compile Include="Mobiles\VendorInfo\SBWoodenShields.cs" />
-    <Compile Include="Mobiles\VendorInfo\VendorInventory.cs" />
+    <Compile Include="Mechanics\Vendors\AnimalBuy.cs" />
+    <Compile Include="Mechanics\Vendors\BeverageBuy.cs" />
+    <Compile Include="Mechanics\Vendors\GenericBuy.cs" />
+    <Compile Include="Mechanics\Vendors\GenericSell.cs" />
+    <Compile Include="Mechanics\Vendors\PresetMapBuy.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBAlchemist.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBAnimalTrainer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBArchitect.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBAxeWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBaker.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBanker.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBard.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBarkeeper.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBeekeeper.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBlacksmith.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBGardener.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBBowyer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBButcher.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBCarpenter.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBCarpets.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBChainmailArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBCobbler.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBCook.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBFarmer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBFisherman.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBFortuneTeller.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBFurtrader.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBGlassblower.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBHairStylist.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBHealer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBHelmetArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBHerbalist.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBHolyMage.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBHouseDeed.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBInfo.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBInnKeeper.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBJewel.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBKeeperOfBushido.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBKeeperOfChivalry.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBKeeperOfNinjitsu.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBKnifeWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBLeatherArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBLeatherWorker.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMaceWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMage.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMapmaker.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMetalShields.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMiller.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMiner.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMonk.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBMystic.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBNecromancer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBPlateArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBPlayerBarkeeper.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBPoleArmWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBProvisioner.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBRancher.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBRangedWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBRanger.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBRealEstateBroker.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBRingmailArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSAArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSABlacksmith.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSATailor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSATanner.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSAWeapons.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBScribe.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSEArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSEBowyer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSECarpenter.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSECook.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSEFood.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSEHats.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSELeatherArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSEWeapons.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBShipwright.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSmithTools.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSpearForkWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBStavesWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBStoneCrafter.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBStuddedArmor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBSwordWeapon.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBTailor.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBTanner.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBTavernKeeper.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBThief.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBTinker.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBVagabond.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBVarietyDealer.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBVeterinarian.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBWaiter.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBWeaponSmith.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBWeaver.cs" />
+    <Compile Include="Administration\World\VendorInfo\SBWoodenShields.cs" />
+    <Compile Include="Mechanics\Vendors\VendorInventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Mechanics\LootGeneration\RunicReforging\ReadMe.txt" />
