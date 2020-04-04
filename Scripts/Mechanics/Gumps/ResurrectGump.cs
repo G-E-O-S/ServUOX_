@@ -201,7 +201,8 @@ namespace Server.Gumps
                 }
 
                 from.PlaySound(0x214);
-                from.FixedEffect(0x376A, 10, 16);
+
+                // from.FixedEffect(0x376A, 10, 16);
 
                 from.Resurrect();
 

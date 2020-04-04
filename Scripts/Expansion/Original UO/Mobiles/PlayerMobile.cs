@@ -2066,7 +2066,7 @@ namespace Server.Mobiles
 					}
 					else
 					{
-						SendLocalizedMessage(500111); // You are frozen and cannot move.
+					//	SendLocalizedMessage(500111); // You are frozen and cannot move.
 						return false;
 					}
 				}
