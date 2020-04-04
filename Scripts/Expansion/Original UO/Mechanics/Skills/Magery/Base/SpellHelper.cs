@@ -790,7 +790,7 @@ namespace Server.Spells
             return false;
         }
 
-        public static bool RestrictRedTravel { get { return Initialization.Get("General.RestrictRedsToFel", false); } }
+        public static bool RestrictRedTravel { get { return Config.Get("General.RestrictRedsToFel", false); } }
 
         private delegate bool TravelValidator(Map map, Point3D loc);
 

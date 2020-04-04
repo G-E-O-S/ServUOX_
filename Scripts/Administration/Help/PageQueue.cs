@@ -43,8 +43,8 @@ namespace Server.Engines.Help
 		private  Map m_PageMap;
 		private  List<SpeechLogEntry> m_SpeechLog;
 		
-		public static readonly string SupportEmail = Initialization.Get("General.SupportEmail", default(string));
-		public static readonly string SupportWebsite = Initialization.Get("General.SupportWebsite", default(string));
+		public static readonly string SupportEmail = Config.Get("General.SupportEmail", default(string));
+		public static readonly string SupportWebsite = Config.Get("General.SupportWebsite", default(string));
 
 		private readonly PageInfo m_PageInfo;
 
@@ -305,7 +305,7 @@ namespace Server.Engines.Help
 		private static readonly Hashtable m_KeyedByHandler = new Hashtable();
 		private static readonly Hashtable m_KeyedBySender = new Hashtable();
 		
-		public static readonly bool ShowStaffOffline = Initialization.Get("General.ShowStaffOffline", true);
+		public static readonly bool ShowStaffOffline = Config.Get("General.ShowStaffOffline", true);
 
 		public static void Initialize()
 		{

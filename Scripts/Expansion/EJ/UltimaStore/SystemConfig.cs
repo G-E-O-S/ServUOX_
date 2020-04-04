@@ -40,20 +40,20 @@ namespace Server.Engines.UOStore
 
         static Configuration()
         {
-            Enabled = Initialization.Get("Store.Enabled", true);
-            Expansion = Initialization.GetEnum("Store.Expansion", Expansion.TOL);
-            Website = Initialization.Get("Store.Website", "https://uo.com/ultima-store/");
+            Enabled = Config.Get("Store.Enabled", true);
+            Expansion = Config.GetEnum("Store.Expansion", Expansion.TOL);
+            Website = Config.Get("Store.Website", "https://uo.com/ultima-store/");
 
-            ResolveCurrency = Initialization.GetDelegate("Store.ResolveCurrency", (CustomCurrencyHandler)null);
+            ResolveCurrency = Config.GetDelegate("Store.ResolveCurrency", (CustomCurrencyHandler)null);
 
-            CurrencyImpl = Initialization.GetEnum("Store.CurrencyImpl", CurrencyType.Sovereigns);
-            CurrencyName = Initialization.Get("Store.CurrencyName", "Sovereigns");
-            CurrencyDisplay = Initialization.Get("Store.CurrencyDisplay", true);
+            CurrencyImpl = Config.GetEnum("Store.CurrencyImpl", CurrencyType.Sovereigns);
+            CurrencyName = Config.Get("Store.CurrencyName", "Sovereigns");
+            CurrencyDisplay = Config.Get("Store.CurrencyDisplay", true);
 
-            PointsImpl = Initialization.GetEnum("Store.PointsImpl", PointsType.None);
+            PointsImpl = Config.GetEnum("Store.PointsImpl", PointsType.None);
 
-            CostMultiplier = Initialization.Get("Store.CostMultiplier", 1.0);
-            CartCapacity = Initialization.Get("Store.CartCapacity", 10);
+            CostMultiplier = Config.Get("Store.CostMultiplier", 1.0);
+            CartCapacity = Config.Get("Store.CartCapacity", 10);
         }
         
         public static int GetCustomCurrency(Mobile m)

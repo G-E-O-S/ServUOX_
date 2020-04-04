@@ -6,7 +6,7 @@ namespace Server.Items
 {
     public class PowderOfTemperament : Item, IUsesRemaining
     {
-        public static bool CanPOFJewelry = Initialization.Get("Loot.CanPOFJewelry", false);
+        public static bool CanPOFJewelry = Config.Get("Loot.CanPOFJewelry", false);
 
         private int m_UsesRemaining;
 

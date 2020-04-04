@@ -75,6 +75,7 @@
     <Compile Include="Mechanics\ContextMenus\ContextMenuEntry.cs" />
     <Compile Include="Mechanics\ContextMenus\OpenBackpackEntry.cs" />
     <Compile Include="Mechanics\ContextMenus\PaperdollEntry.cs" />
+    <Compile Include="Utilities\Config.cs" />
     <Compile Include="Utilities\Point4D.cs" />
     <Compile Include="Ultima\AnimationEdit.cs" />
     <Compile Include="Ultima\Animations.cs" />

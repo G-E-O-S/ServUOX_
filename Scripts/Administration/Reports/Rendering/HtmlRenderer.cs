@@ -54,7 +54,7 @@ namespace Server.Engines.Reports
         {
             this.m_Type = outputDirectory;
             this.m_Title = (this.m_Type == "staff" ? "Staff" : "Stats");
-            this.m_OutputDirectory = Path.Combine(Core.BaseDirectory, Initialization.Get("Reports.Path", "reports"));
+            this.m_OutputDirectory = Path.Combine(Core.BaseDirectory, Config.Get("Reports.Path", "reports"));
 
             if (!Directory.Exists(this.m_OutputDirectory))
                 Directory.CreateDirectory(this.m_OutputDirectory);
