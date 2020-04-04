@@ -75,56 +75,23 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-		
-		public override int TreasureMapLevel { get { return 3; } }
-		
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        public override int TreasureMapLevel { get { return 3; } }
+        public override bool AlwaysMurderer { get { return true; } }
+        public override bool BardImmune { get { return !Core.AOS; } }
+        public override bool CanRummageCorpses { get { return true; } }
+        public override int Meat { get { return 1; } }
+
+        public override int GetIdleSound() { return 0x1AC; }
+        public override int GetAngerSound() { return 0x1CD; }
+        public override int GetHurtSound() { return 0x1D0; }
+        public override int GetDeathSound() { return 0x28D; }
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Average, 2);
             AddLoot(LootPack.MedScrolls, 2);
         }
-
-        public override int GetIdleSound()
-        {
-            return 0x1AC;
-        }
-
-        public override int GetAngerSound()
-        {
-            return 0x1CD;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x1D0;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x28D;
-        }
-
+        
         public override void OnThink()
         {
             if (DateTime.UtcNow >= this.m_NextAbilityTime)
@@ -196,18 +163,6 @@ namespace Server.Mobiles
             base.OnThink();
         }
 
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-            writer.Write((int)0);
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-            int version = reader.ReadInt();
-        }
-
         private void Unbuff(object state)
         {
             object[] states = (object[])state;
@@ -225,6 +180,18 @@ namespace Server.Mobiles
 
             toDebuff.Hits = toDebuff.Hits;
             toDebuff.Stam = toDebuff.Stam;
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write(0);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
         }
     }
 }

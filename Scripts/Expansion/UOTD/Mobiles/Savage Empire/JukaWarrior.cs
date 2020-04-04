@@ -51,52 +51,21 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        public override bool AlwaysMurderer { get { return true; } }
+        public override bool BardImmune { get { return !Core.AOS; } }
+        public override bool CanRummageCorpses { get { return true; } }
+        public override int Meat { get { return 1; } }
+
+        public override int GetIdleSound() { return 0x1AC; }
+        public override int GetAngerSound() { return 0x1CD; }
+        public override int GetHurtSound() { return 0x1D0; }
+        public override int GetDeathSound() { return 0x28D; }
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Average);
             AddLoot(LootPack.Meager);
             AddLoot(LootPack.Gems, 1);
-        }
-
-        public override int GetIdleSound()
-        {
-            return 0x1AC;
-        }
-
-        public override int GetAngerSound()
-        {
-            return 0x1CD;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x1D0;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x28D;
         }
 
         public override void OnGaveMeleeAttack(Mobile defender)
@@ -132,7 +101,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
