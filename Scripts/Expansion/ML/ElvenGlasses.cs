@@ -127,7 +127,7 @@ namespace Server.Items
 
             if (version == 0)
             {
-                xWeaponAttributesDeserializeHelper(reader, this);
+                XWeaponAttributesDeserializeHelper(reader, this);
             }
         }
     }

@@ -1003,7 +1003,7 @@
     <Compile Include="Items\Decorative\OrderChaosBanners.cs" />
     <Compile Include="Items\Decorative\SingingBall.cs" />
     <Compile Include="Items\Decorative\TatteredWallMap.cs" />
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneArms.cs" />
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bone Armor\BoneArms.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\Craven.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\CaptainJohnesBlade.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\Abhorrence.cs" />
@@ -3898,16 +3898,16 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Assassin\AssassinLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneChest.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bone Armor\BoneChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneGloves.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bone Armor\BoneGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bone Armor\BoneLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\EvilOrcHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmets\EvilOrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainChest.cs">
@@ -4084,10 +4084,10 @@
     <Compile Include="Items\Artifacts\Equipment\Glasses\WizardsGlasses.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bascinet.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmets\Bascinet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BoneHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Bone Armor\BoneHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChainCoif.cs">
@@ -4096,22 +4096,22 @@
     <Compile Include="Expansion\SE\Items\Circlet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\CloseHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmets\CloseHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\GemmedCirclet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmet.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmets\Helmet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\LeatherCap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\NorseHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmets\NorseHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\OrcHelm.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Helmets\OrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\PlateHelm.cs">
@@ -5891,31 +5891,31 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\TongueoftheBeast.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\BronzeShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\BronzeShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Buckler.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\Buckler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ChaosShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\ChaosShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\HeaterShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\HeaterShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\MetalKiteShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\MetalKiteShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\MetalShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\MetalShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\OrderShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\OrderShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\WoodenKiteShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\WoodenKiteShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\WoodenShield.cs">
+    <Compile Include="Expansion\Original UO\Items\Armor and Shields\Shields\WoodenShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\FrenchBread.cs">

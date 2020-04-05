@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public enum ArmorDurabilityLevel
@@ -28,7 +26,7 @@ namespace Server.Items
         Gloves,
         Helmet,
         Arms,
-        Legs, 
+        Legs,
         Chest,
         Shield
     }
