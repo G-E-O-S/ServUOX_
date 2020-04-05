@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -10,38 +9,38 @@ namespace Server.Mobiles
         public Gazer()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            this.Name = "a gazer";
-            this.Body = 22;
-            this.BaseSoundID = 377;
+            Name = "a gazer";
+            Body = 22;
+            BaseSoundID = 377;
 
-            this.SetStr(96, 125);
-            this.SetDex(86, 105);
-            this.SetInt(141, 165);
+            SetStr(96, 125);
+            SetDex(86, 105);
+            SetInt(141, 165);
 
-            this.SetHits(58, 75);
+            SetHits(58, 75);
 
-            this.SetDamage(5, 10);
+            SetDamage(5, 10);
 
-            this.SetDamageType(ResistanceType.Physical, 100);
+            SetDamageType(ResistanceType.Physical, 100);
 
-            this.SetResistance(ResistanceType.Physical, 35, 40);
-            this.SetResistance(ResistanceType.Fire, 40, 50);
-            this.SetResistance(ResistanceType.Cold, 20, 30);
-            this.SetResistance(ResistanceType.Poison, 10, 20);
-            this.SetResistance(ResistanceType.Energy, 20, 30);
+            SetResistance(ResistanceType.Physical, 35, 40);
+            SetResistance(ResistanceType.Fire, 40, 50);
+            SetResistance(ResistanceType.Cold, 20, 30);
+            SetResistance(ResistanceType.Poison, 10, 20);
+            SetResistance(ResistanceType.Energy, 20, 30);
 
-            this.SetSkill(SkillName.EvalInt, 50.1, 65.0);
-            this.SetSkill(SkillName.Magery, 50.1, 65.0);
-            this.SetSkill(SkillName.MagicResist, 60.1, 75.0);
-            this.SetSkill(SkillName.Tactics, 50.1, 70.0);
-            this.SetSkill(SkillName.Wrestling, 50.1, 70.0);
+            SetSkill(SkillName.EvalInt, 50.1, 65.0);
+            SetSkill(SkillName.Magery, 50.1, 65.0);
+            SetSkill(SkillName.MagicResist, 60.1, 75.0);
+            SetSkill(SkillName.Tactics, 50.1, 70.0);
+            SetSkill(SkillName.Wrestling, 50.1, 70.0);
 
-            this.Fame = 3500;
-            this.Karma = -3500;
+            Fame = 3500;
+            Karma = -3500;
 
-            this.VirtualArmor = 36;
+            VirtualArmor = 36;
 
-            this.PackItem(new Nightshade(4));
+            PackItem(new Nightshade(4));
         }
 
         public Gazer(Serial serial)
@@ -65,8 +64,80 @@ namespace Server.Mobiles
         }
         public override void GenerateLoot()
         {
-            this.AddLoot(LootPack.Average);
-            this.AddLoot(LootPack.Potions);
+            AddLoot(LootPack.Average);
+            AddLoot(LootPack.Potions);
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write(0);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+    }
+
+    [CorpseName("an elder gazer corpse")]
+    public class ElderGazer : BaseCreature
+    {
+        [Constructable]
+        public ElderGazer()
+            : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
+        {
+            Name = "an elder gazer";
+            Body = 22;
+            BaseSoundID = 377;
+
+            SetStr(296, 325);
+            SetDex(86, 105);
+            SetInt(291, 385);
+
+            SetHits(178, 195);
+
+            SetDamage(8, 19);
+
+            SetDamageType(ResistanceType.Physical, 50);
+            SetDamageType(ResistanceType.Energy, 50);
+
+            SetResistance(ResistanceType.Physical, 45, 55);
+            SetResistance(ResistanceType.Fire, 60, 70);
+            SetResistance(ResistanceType.Cold, 40, 50);
+            SetResistance(ResistanceType.Poison, 40, 50);
+            SetResistance(ResistanceType.Energy, 40, 50);
+
+            SetSkill(SkillName.Anatomy, 62.0, 100.0);
+            SetSkill(SkillName.EvalInt, 90.1, 100.0);
+            SetSkill(SkillName.Magery, 90.1, 100.0);
+            SetSkill(SkillName.MagicResist, 115.1, 130.0);
+            SetSkill(SkillName.Tactics, 80.1, 100.0);
+            SetSkill(SkillName.Wrestling, 80.1, 100.0);
+
+            Fame = 12500;
+            Karma = -12500;
+
+            VirtualArmor = 50;
+        }
+
+        public ElderGazer(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override int TreasureMapLevel
+        {
+            get
+            {
+                return Core.AOS ? 4 : 0;
+            }
+        }
+
+        public override void GenerateLoot()
+        {
+            AddLoot(LootPack.FilthyRich);
         }
 
         public override void Serialize(GenericWriter writer)
