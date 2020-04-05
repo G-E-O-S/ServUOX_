@@ -1,7 +1,3 @@
-// by henry_r
-// 12/28/07
-// Made using Arya's Addon Generator
-//
 using System;
 using Server;
 using Server.Items;
