@@ -1,7 +1,6 @@
 using Server.Ethics;
 using Server.Factions;
 using Server.Items;
-using Server.Services;
 
 namespace Server.Mobiles
 {
@@ -42,26 +41,6 @@ namespace Server.Mobiles
             Karma = -15000;
 
             VirtualArmor = 58;
-
-            switch (Utility.Random(20))
-            {
-                case 0:
-                    PackItem(new LichFormScroll());
-                    break;
-                case 1:
-                    PackItem(new PoisonStrikeScroll());
-                    break;
-                case 2:
-                    PackItem(new StrangleScroll());
-                    break;
-                case 3:
-                    PackItem(new VengefulSpiritScroll());
-                    break;
-                case 4:
-                    PackItem(new WitherScroll());
-                    break;
-            }
-
 
             ControlSlots = Core.SE ? 4 : 5;
         }
@@ -121,6 +100,33 @@ namespace Server.Mobiles
             AddLoot(LootPack.Rich);
             AddLoot(LootPack.Average, 2);
             AddLoot(LootPack.MedScrolls, 2);
+        }
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+            if (Core.ML)
+            {
+                switch (Utility.Random(20))
+                {
+                    case 0:
+                        CorpseLoot.DropItem(new LichFormScroll());
+                        break;
+                    case 1:
+                        CorpseLoot.DropItem(new PoisonStrikeScroll());
+                        break;
+                    case 2:
+                        CorpseLoot.DropItem(new StrangleScroll());
+                        break;
+                    case 3:
+                        CorpseLoot.DropItem(new VengefulSpiritScroll());
+                        break;
+                    case 4:
+                        CorpseLoot.DropItem(new WitherScroll());
+                        break;
+                }
+            }
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override void Serialize(GenericWriter writer)

@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -103,6 +102,11 @@ namespace Server.Mobiles
             }
         }
 
+        public override void GenerateLoot()
+        {
+            AddLoot(LootPack.Average);
+        }
+
         public override void OnDeath(Container c)
         {
             base.OnDeath(c);
@@ -111,16 +115,11 @@ namespace Server.Mobiles
                 c.DropItem(new SeveredHumanEars());
         }
 
-        public override void GenerateLoot()
-        {
-            AddLoot(LootPack.Average);
-        }
-
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)

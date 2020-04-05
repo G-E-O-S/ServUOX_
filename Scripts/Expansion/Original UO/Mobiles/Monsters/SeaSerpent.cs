@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -44,13 +43,6 @@ namespace Server.Mobiles
             CanSwim = true;
             CantWalk = true;
 
-            if (Utility.RandomBool())
-                PackItem(new SulfurousAsh(4));
-            else
-                PackItem(new BlackPearl(4));
-
-            PackItem(new RawFishSteak());
-
             SetSpecialAbility(SpecialAbility.DragonBreath);
         }
 
@@ -70,10 +62,22 @@ namespace Server.Mobiles
             AddLoot(LootPack.Meager);
         }
 
+        public override void OnDeath(Container CorpseLoot)
+        {
+            if (Utility.RandomBool())
+                CorpseLoot.DropItem(new SulfurousAsh(4));
+            else
+                CorpseLoot.DropItem(new BlackPearl(4));
+
+            CorpseLoot.DropItem(new RawFishSteak());
+
+            base.OnDeath(CorpseLoot);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)

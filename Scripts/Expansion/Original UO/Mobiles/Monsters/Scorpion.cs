@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -45,8 +44,6 @@ namespace Server.Mobiles
             Tamable = true;
             ControlSlots = 1;
             MinTameSkill = 47.1;
-
-            PackItem(new LesserPoisonPotion());
         }
 
         public Scorpion(Serial serial)
@@ -89,15 +86,22 @@ namespace Server.Mobiles
                 return (0.8 >= Utility.RandomDouble() ? Poison.Greater : Poison.Deadly);
             }
         }
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Meager);
         }
 
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new LesserPoisonPotion());
+            base.OnDeath(CorpseLoot);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)1);
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)

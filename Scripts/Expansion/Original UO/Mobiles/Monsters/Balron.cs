@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -44,8 +43,6 @@ namespace Server.Mobiles
             Karma = -24000;
 
             VirtualArmor = 90;
-
-            PackItem(new Longsword());
         }
 
         public Balron(Serial serial)
@@ -86,17 +83,18 @@ namespace Server.Mobiles
                 return 1;
             }
         }
+
         public override void GenerateLoot()
         {
-            this.AddLoot(LootPack.FilthyRich, 2);
-            this.AddLoot(LootPack.Rich);
-            this.AddLoot(LootPack.MedScrolls, 2);
+            AddLoot(LootPack.FilthyRich, 2);
+            AddLoot(LootPack.Rich);
+            AddLoot(LootPack.MedScrolls, 2);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)

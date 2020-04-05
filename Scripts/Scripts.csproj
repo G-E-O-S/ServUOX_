@@ -98,6 +98,7 @@
     <Compile Include="Administration\Commands\BoundingBoxPicker.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Mobiles\DarkSteed.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\AncientLich.cs" />
     <Compile Include="Needs Deleted Look Over First\CreateWorld.cs">
       <SubType>Code</SubType>
@@ -2298,7 +2299,6 @@
     <Compile Include="Mobiles\Hunters Guide\E\EffetePutridGargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffeteUndeadGargoyle.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Efreet.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\ElderGazer.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\ElfBrigand.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EliteNinja.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EnragedColossus.cs" />
@@ -2341,7 +2341,7 @@
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleDestroyer.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleEnforcer.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleShade.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Gazer.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Gazers.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GazerLarva.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantBlackWidow.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\GiantIceWorm.cs" />
@@ -2514,7 +2514,7 @@
     <Compile Include="Expansion\UOR\Mobiles\ShadowWyrm.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Sheep.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\SilverSerpent.cs" />
-    <Compile Include="Expansion\T2A\Mobiles\SilverSteed.cs" />
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\SilverSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalLich.cs" />
@@ -3289,7 +3289,7 @@
     <Compile Include="Expansion\ML\CommunityCollections\CommunityCollectionGump.cs" />
     <Compile Include="Expansion\AOS\Doom\GaryRoom.cs" />
     <Compile Include="Expansion\AOS\Doom\GuardianRoom.cs" />
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Persistence.cs" />
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Core\Persistence.cs" />
     <Compile Include="Expansion\HS\Generate.cs" />
     <Compile Include="Expansion\HS\Gumps\BaseShipGump.cs" />
     <Compile Include="Expansion\HS\Gumps\BountyBoard.cs" />
@@ -9296,85 +9296,85 @@
     <Compile Include="Expansion\AOS\Doom\LeverPuzzleRegions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Ethic.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Core\Ethic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Player.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Core\Player.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Core\Power.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Core\Power.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Definitions\EthicDefinition.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Definitions\EthicDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Definitions\PowerDefinition.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Definitions\PowerDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Ethic.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Ethic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Mobiles\UnholyFamiliar.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Mobiles\UnholyFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Mobiles\UnholySteed.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Mobiles\UnholySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\Blight.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\Blight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\SummonFamiliar.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\SummonFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholyItem.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\UnholyItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholySense.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\UnholySense.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholyShield.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\UnholyShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholySteed.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\UnholySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\UnholyWord.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\UnholyWord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Evil\Powers\VileBlade.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Powers\VileBlade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Ethic.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Ethic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Mobiles\HolyFamiliar.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\HolyFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Mobiles\HolySteed.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\HolySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\Bless.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\Bless.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyBlade.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\HolyBlade.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyItem.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\HolyItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolySense.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\HolySense.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyShield.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\HolyShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolySteed.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\HolySteed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\HolyWord.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\HolyWord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Ethics\Hero\Powers\SummonFamiliar.cs">
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Powers\SummonFamiliar.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Services\Factions\Core\Election.cs">
