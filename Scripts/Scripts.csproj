@@ -981,9 +981,9 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\AnkhPendant.cs" />
     <Compile Include="Items\Artifacts\Equipment\Jewelry\NecklaceofDiligence.cs" />
     <Compile Include="Items\Artifacts\Equipment\Jewelry\BraceletOfPrimalConsumption.cs" />
-    <Compile Include="Items\Artifacts\Equipment\Weapons\Glenda.cs" />
-    <Compile Include="Items\Artifacts\Equipment\Weapons\BowOfTheInfiniteSwarm.cs" />
-    <Compile Include="Items\Artifacts\Equipment\Weapons\TheDeceiver.cs" />
+    <Compile Include="Expansion\AOS\Artifacts Doom\Glenda.cs" />
+    <Compile Include="Expansion\AOS\Artifacts Doom\BowOfTheInfiniteSwarm.cs" />
+    <Compile Include="Expansion\AOS\Artifacts Doom\TheDeceiver.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Journals\BaseJournal.cs" />
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\BaseSpecialScrollBook.cs" />
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\PowerScrollBook.cs" />
@@ -1216,8 +1216,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Resource\HotGoo.cs" />
-    <Compile Include="Items\Artifacts\Talismans\FrostguardTalisman.cs" />
-    <Compile Include="Items\Artifacts\Talismans\JadeSnakeHead.cs" />
+    <Compile Include="Expansion\SA\Talismans\FrostguardTalisman.cs" />
+    <Compile Include="Expansion\SA\Talismans\JadeSnakeHead.cs" />
     <Compile Include="Items\Artifacts\Equipment\Jewelry\PetrifiedMatriarchsTongue.cs" />
     <Compile Include="Items\Artifacts\Equipment\Clothing\RangersCloakOfAugmentation.cs" />
     <Compile Include="Items\Artifacts\Equipment\Clothing\ShadowCloakOfRejuvenation.cs" />
@@ -3027,7 +3027,7 @@
     <Compile Include="Mobiles\NPCs\Zosilem.cs" />
     <Compile Include="Items\Quest\MudPuppy.cs" />
     <Compile Include="Mobiles\NPCs\Xenrr.cs" />
-    <Compile Include="Items\Artifacts\Tools\XenrrFishingPole.cs" />
+    <Compile Include="Expansion\SA\XenrrFishingPole.cs" />
     <Compile Include="Mobiles\Quests\BatteredBucket.cs" />
     <Compile Include="Mobiles\NPCs\Beotham.cs" />
     <Compile Include="Mobiles\NPCs\Danoel.cs" />
@@ -3826,7 +3826,7 @@
     <Compile Include="Expansion\Original UO\Items\Armor and Shields\ArmorEnums.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\ArmorOfFortune.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\ArmorOfFortune.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\BasiliskHideBreastplate.cs">
@@ -3850,16 +3850,16 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\StitchersMittens.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\CrownOfArcaneTemperament.cs">
+    <Compile Include="Expansion\SA\Artifacts\CrownOfArcaneTemperament.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\GauntletsOfNobility.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\GauntletsOfNobility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\HelmOfInsight.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\HelmOfInsight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\HolyKnightsBreastplate.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\HolyKnightsBreastplate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\InquisitorsResolution.cs">
@@ -3868,19 +3868,19 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\JackalsCollar.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\LeggingsOfBane.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\LeggingsOfBane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\MidnightBracers.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\MidnightBracers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\OrnateCrownOfTheHarrower.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\OrnateCrownOfTheHarrower.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\ShadowDancerLeggings.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\ShadowDancerLeggings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\TunicOfFire.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\TunicOfFire.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\VoiceOfTheFallenKing.cs">
@@ -4761,13 +4761,13 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\CrimsonCincture.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Clothing\DivineCountenance.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\DivineCountenance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Clothing\HatOfTheMagi.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\HatOfTheMagi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Clothing\HuntersHeaddress.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\HuntersHeaddress.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Clothing\MarkOfTravesty.cs">
@@ -4779,7 +4779,7 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\ShroudOfTheCondemned.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Clothing\SpiritOfTheTotem.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\SpiritOfTheTotem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Cloaks.cs">
@@ -5259,7 +5259,7 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\ObsidianEarrings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Jewelry\BraceletOfHealth.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\BraceletOfHealth.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Jewelry\EssenceOfBattle.cs">
@@ -5283,13 +5283,13 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\Lavaliere.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Jewelry\OrnamentOfTheMagician.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\OrnamentOfTheMagician.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Jewelry\RingOfTheElements.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\RingOfTheElements.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Jewelry\RingOfTheVile.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\RingOfTheVile.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Jewelry\TorcOfTheGuardians.cs">
@@ -5597,7 +5597,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\WrathOfTheDryad.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Tools\AmeliasToolbox.cs">
+    <Compile Include="Expansion\TOL\Artifacts\AmeliasToolbox.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\ArmsOfArmstrong.cs">
@@ -5858,7 +5858,7 @@
     <Compile Include="Expansion\SA\MediumPlateShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\MysticsGuard.cs">
+    <Compile Include="Expansion\SA\Artifacts\MysticsGuard.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\PillarOfStrength.cs">
@@ -5873,10 +5873,10 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\WallOfHungryMouths.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\Aegis.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\Aegis.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Armor\ArcaneShield.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\ArcaneShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\BouraTailShield.cs">
@@ -6014,7 +6014,7 @@
     <Compile Include="Expansion\UOTD\GargoylesPickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Tools\JacobsPickaxe.cs">
+    <Compile Include="Expansion\TOL\Artifacts\JacobsPickaxe.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\ProspectorsTool.cs">
@@ -7646,7 +7646,7 @@
     <Compile Include="Items\Equipment\Suits\LordBritishSuit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Talismans\ConjurersTrinket.cs" />
+    <Compile Include="Expansion\SA\Talismans\ConjurersTrinket.cs" />
     <Compile Include="Items\Resource\EnchantedSwitch.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -7868,7 +7868,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\AxeOfAbandon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\AxeOfTheHeavens.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\AxeOfTheHeavens.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\AxesOfFury.cs">
@@ -7877,19 +7877,19 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\BladeOfBattle.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\BladeOfInsanity.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\BladeOfInsanity.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\BladeOfTheRighteous.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\BoneCrusher.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\BoneCrusher.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\BreastplateOfTheBerserker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\BreathOfTheDead.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\BreathOfTheDead.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\CavalrysFolly.cs">
@@ -7910,7 +7910,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\FaerieFire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\Frostbringer.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\Frostbringer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\GiantSteps.cs">
@@ -7919,10 +7919,10 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\LegacyOfDespair.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\LegacyOfTheDreadLord.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\LegacyOfTheDreadLord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\LightInTheVoid.cs">
+    <Compile Include="Expansion\SA\Artifacts\LightInTheVoid.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\Mangler.cs">
@@ -7934,16 +7934,16 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\ScepterOfTheChief.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\SerpentsFang.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\SerpentsFang.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\StaffOfResonance.cs">
+    <Compile Include="Expansion\SA\Artifacts\StaffOfResonance.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\StaffOfShatteredDreams.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\StaffOfTheMagi.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\StaffOfTheMagi.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\StandardOfChaos.cs">
@@ -7958,16 +7958,16 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\SwordOfShatteredHopes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\TheBeserkersMaul.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\TheBeserkersMaul.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\TheDragonSlayer.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\TheDragonSlayer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\TheDryadBow.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\TheDryadBow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\TheTaskmaster.cs">
+    <Compile Include="Expansion\AOS\Artifacts Doom\TheTaskmaster.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\TitansHammer.cs">
@@ -7976,7 +7976,7 @@
     <Compile Include="Items\Artifacts\Equipment\Jewelry\TokenofHolyFavor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Equipment\Weapons\ValkyriesGlaive.cs">
+    <Compile Include="Expansion\SA\Artifacts\ValkyriesGlaive.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Weapons\ZyronicClaw.cs">
@@ -9257,7 +9257,7 @@
     <Compile Include="Items\Functional\DespiseAnkh.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\DespiseArtifacts.cs">
+    <Compile Include="Expansion\HS\DespiseRevamped\DespiseArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Quest\WispOrb.cs">
@@ -10987,13 +10987,13 @@
     <Compile Include="Mechanics\Spawner\SpawnerType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\Consumables\BasePigmentsOfTokuno.cs">
+    <Compile Include="Expansion\SE\BasePigmentsOfTokuno.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\TOTGreaterArtifacts.cs">
+    <Compile Include="Expansion\TOL\Artifacts\TOTGreaterArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Artifacts\TOTLesserArtifacts.cs">
+    <Compile Include="Expansion\TOL\Artifacts\TOTLesserArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Shard of the Dead\TrickOrTreat.cs" />
