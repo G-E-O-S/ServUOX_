@@ -270,57 +270,57 @@ namespace Server.Items
         #endregion
 
         #region Virtual Properties
-        public virtual WeaponAbility PrimaryAbility { get { return null; } }
-		public virtual WeaponAbility SecondaryAbility { get { return null; } }
+        public virtual WeaponAbility PrimaryAbility => null;
+        public virtual WeaponAbility SecondaryAbility => null;
 
-		public virtual int DefMaxRange { get { return 1; } }
-		public virtual int DefHitSound { get { return 0; } }
-		public virtual int DefMissSound { get { return 0; } }
-		public virtual SkillName DefSkill { get { return SkillName.Swords; } }
-		public virtual WeaponType DefType { get { return WeaponType.Slashing; } }
-		public virtual WeaponAnimation DefAnimation { get { return WeaponAnimation.Slash1H; } }
+        public virtual int DefMaxRange => 1;
+        public virtual int DefHitSound => 0;
+        public virtual int DefMissSound => 0;
+        public virtual SkillName DefSkill => SkillName.Swords;
+		public virtual WeaponType DefType => WeaponType.Slashing;
+		public virtual WeaponAnimation DefAnimation => WeaponAnimation.Slash1H;
 
-		public virtual int AosStrengthReq { get { return 0; } }
-		public virtual int AosDexterityReq { get { return 0; } }
-		public virtual int AosIntelligenceReq { get { return 0; } }
-		public virtual int AosMinDamage { get { return 0; } }
-		public virtual int AosMaxDamage { get { return 0; } }
-		public virtual int AosSpeed { get { return 0; } }
-		public virtual float MlSpeed { get { return 0.0f; } }
-		public virtual int AosMaxRange { get { return DefMaxRange; } }
-		public virtual int AosHitSound { get { return DefHitSound; } }
-		public virtual int AosMissSound { get { return DefMissSound; } }
-		public virtual SkillName AosSkill { get { return DefSkill; } }
-		public virtual WeaponType AosType { get { return DefType; } }
-		public virtual WeaponAnimation AosAnimation { get { return DefAnimation; } }
+        public virtual int AosStrengthReq => 0;
+		public virtual int AosDexterityReq => 0;
+		public virtual int AosIntelligenceReq => 0;
+		public virtual int AosMinDamage => 0;
+		public virtual int AosMaxDamage => 0; 
+		public virtual int AosSpeed => 0;
+		public virtual float MlSpeed => 0.0f;
+		public virtual int AosMaxRange => DefMaxRange;
+		public virtual int AosHitSound => DefHitSound;
+		public virtual int AosMissSound => DefMissSound;
+		public virtual SkillName AosSkill => DefSkill;
+		public virtual WeaponType AosType => DefType;
+		public virtual WeaponAnimation AosAnimation => DefAnimation;
 
-		public virtual int OldStrengthReq { get { return 0; } }
-		public virtual int OldDexterityReq { get { return 0; } }
-		public virtual int OldIntelligenceReq { get { return 0; } }
-		public virtual int OldMinDamage { get { return 0; } }
-		public virtual int OldMaxDamage { get { return 0; } }
-		public virtual int OldSpeed { get { return 0; } }
-		public virtual int OldMaxRange { get { return DefMaxRange; } }
-		public virtual int OldHitSound { get { return DefHitSound; } }
-		public virtual int OldMissSound { get { return DefMissSound; } }
-		public virtual SkillName OldSkill { get { return DefSkill; } }
-		public virtual WeaponType OldType { get { return DefType; } }
-		public virtual WeaponAnimation OldAnimation { get { return DefAnimation; } }
+		public virtual int OldStrengthReq => 0;
+		public virtual int OldDexterityReq => 0;
+		public virtual int OldIntelligenceReq => 0;
+		public virtual int OldMinDamage => 0; 
+		public virtual int OldMaxDamage => 0;
+		public virtual int OldSpeed => 0; 
+		public virtual int OldMaxRange => DefMaxRange;
+		public virtual int OldHitSound => DefHitSound; 
+		public virtual int OldMissSound => DefMissSound;
+		public virtual SkillName OldSkill => DefSkill;
+		public virtual WeaponType OldType => DefType;
+		public virtual WeaponAnimation OldAnimation => DefAnimation;
 
-		public virtual int InitMinHits { get { return 0; } }
-		public virtual int InitMaxHits { get { return 0; } }
+		public virtual int InitMinHits => 0;
+		public virtual int InitMaxHits => 0;
 
-        public virtual bool CanFortify { get { return !IsImbued && NegativeAttributes.Antique < 4; } }
-        public virtual bool CanRepair { get { return m_NegativeAttributes.NoRepair == 0; } }
-		public virtual bool CanAlter { get { return true; } }
+        public virtual bool CanFortify => !IsImbued && NegativeAttributes.Antique < 4;
+        public virtual bool CanRepair => m_NegativeAttributes.NoRepair == 0; 
+		public virtual bool CanAlter => true; 
 
-		public override int PhysicalResistance { get { return m_AosWeaponAttributes.ResistPhysicalBonus; } }
-		public override int FireResistance { get { return m_AosWeaponAttributes.ResistFireBonus; } }
-		public override int ColdResistance { get { return m_AosWeaponAttributes.ResistColdBonus; } }
-		public override int PoisonResistance { get { return m_AosWeaponAttributes.ResistPoisonBonus; } }
-		public override int EnergyResistance { get { return m_AosWeaponAttributes.ResistEnergyBonus; } }
+		public override int PhysicalResistance => m_AosWeaponAttributes.ResistPhysicalBonus;
+		public override int FireResistance => m_AosWeaponAttributes.ResistFireBonus; 
+		public override int ColdResistance => m_AosWeaponAttributes.ResistColdBonus; 
+		public override int PoisonResistance => m_AosWeaponAttributes.ResistPoisonBonus;
+		public override int EnergyResistance => m_AosWeaponAttributes.ResistEnergyBonus;
 
-		public virtual SkillName AccuracySkill { get { return SkillName.Tactics; } }
+		public virtual SkillName AccuracySkill => SkillName.Tactics; 
 
         public override double DefaultWeight
         {

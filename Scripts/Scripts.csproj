@@ -1099,7 +1099,7 @@
     <Compile Include="Expansion\Original UO\Items\Provision\Books\BaseBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\BaseClothing.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseClothing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\BaseConflagrationPotion.cs">
@@ -4755,7 +4755,7 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\Tangle1.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Arms.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Arms.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Clothing\CrimsonCincture.cs">
@@ -4782,7 +4782,7 @@
     <Compile Include="Expansion\AOS\Artifacts Doom\SpiritOfTheTotem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Cloaks.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Cloaks.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Gargoyle Accessories.cs">
@@ -4806,28 +4806,28 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\SpinedBloodwormBracers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Hats.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Hats.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\MiddleTorso.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\MiddleTorso.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\OuterLegs.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\OuterLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\OuterTorso.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\OuterTorso.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Pants.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Pants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Shirts.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Shirts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Shoes.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Shoes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Appearl\Waist.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Waist.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\World\BaseSwitch.cs">
