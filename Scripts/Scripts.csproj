@@ -98,7 +98,7 @@
     <Compile Include="Administration\Commands\BoundingBoxPicker.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Mobiles\DarkSteed.cs" />
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Evil\Mobiles\Deprecated\DarkSteed.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\AncientLich.cs" />
     <Compile Include="Needs Deleted Look Over First\CreateWorld.cs">
       <SubType>Code</SubType>
@@ -815,7 +815,7 @@
     <Compile Include="Items\Consumables\PromotionalToken.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\BonePile.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\Corpse.cs" />
-    <Compile Include="Expansion\Original UO\Items\Corpses\CorpseNameAttribute.cs" />
+    <Compile Include="Expansion\Original UO\Mechanics\CorpseNameAttribute.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\DecayedCorpse.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\Head.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\LeftArm.cs" />
@@ -2514,7 +2514,7 @@
     <Compile Include="Expansion\UOR\Mobiles\ShadowWyrm.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Sheep.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\SilverSerpent.cs" />
-    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\SilverSteed.cs" />
+    <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\Deprecated\SilverSteed.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDragon.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalLich.cs" />
@@ -3823,7 +3823,7 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Initiation\InitiationGloves.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Initiation\InitiationGorget.cs" />
     <Compile Include="Items\Artifacts\Equipment\Armor\Sets\Initiation\InitiationLegs.cs" />
-    <Compile Include="Expansion\Original UO\Items\Armor and Shields\ArmorEnums.cs">
+    <Compile Include="Expansion\Original UO\Mechanics\ArmorEnums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Artifacts Doom\ArmorOfFortune.cs">
@@ -7496,7 +7496,7 @@
     <Compile Include="Expansion\ML\Addons\DreadHornStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\DreadSpiderStatuette.cs">
+    <Compile Include="Expansion\XSORTINGX\DreadSpiderStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\FetidEssenceStatuette.cs">
@@ -7508,16 +7508,16 @@
     <Compile Include="Expansion\SA\MinotaurStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\OphidianArchMageStatuette.cs">
+    <Compile Include="Expansion\XSORTINGX\OphidianArchMageStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\OphidianKnightStatuette.cs">
+    <Compile Include="Expansion\XSORTINGX\OphidianKnightStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\OphidianMageStatuette.cs">
+    <Compile Include="Expansion\XSORTINGX\OphidianMageStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\OphidianWarriorStatuette.cs">
+    <Compile Include="Expansion\XSORTINGX\OphidianWarriorStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\ParoxysmusSwampDragonStatuette.cs">
@@ -7532,7 +7532,7 @@
     <Compile Include="Expansion\ML\ShimmeringEffusionStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\SlimeStatuette.cs">
+    <Compile Include="Expansion\XSORTINGX\SlimeStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\TormentedMinotaurStatuette.cs">
