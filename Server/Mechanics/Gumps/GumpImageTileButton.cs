@@ -42,160 +42,91 @@ namespace Server.Gumps
 		}
 
 		public int X
-		{
-			get
-			{
-				return m_X;
-			}
-			set
-			{
-				Delta( ref m_X, value );
-			}
-		}
+        {
+            get => m_X;
+            set => Delta(ref m_X, value);
+        }
 
-		public int Y
-		{
-			get
-			{
-				return m_Y;
-			}
-			set
-			{
-				Delta( ref m_Y, value );
-			}
-		}
+        public int Y
+        {
+            get => m_Y;
+            set => Delta(ref m_Y, value);
+        }
 
-		public int NormalID
-		{
-			get
-			{
-				return m_ID1;
-			}
-			set
-			{
-				Delta( ref m_ID1, value );
-			}
-		}
+        public int NormalID
+        {
+            get => m_ID1;
+            set => Delta(ref m_ID1, value);
+        }
 
-		public int PressedID
-		{
-			get
-			{
-				return m_ID2;
-			}
-			set
-			{
-				Delta( ref m_ID2, value );
-			}
-		}
+        public int PressedID
+        {
+            get => m_ID2;
+            set => Delta(ref m_ID2, value);
+        }
 
-		public int ButtonID
-		{
-			get
-			{
-				return m_ButtonID;
-			}
-			set
-			{
-				Delta( ref m_ButtonID, value );
-			}
-		}
+        public int ButtonID
+        {
+            get => m_ButtonID;
+            set => Delta(ref m_ButtonID, value);
+        }
 
-		public GumpButtonType Type
-		{
-			get
-			{
-				return m_Type;
-			}
-			set
-			{
-				if( m_Type != value )
-				{
-					m_Type = value;
+        public GumpButtonType Type
+        {
+            get => m_Type;
+            set
+            {
+                if (m_Type != value)
+                {
+                    m_Type = value;
 
-					Gump parent = Parent;
+                    Gump parent = Parent;
 
-					if( parent != null )
-					{
-						parent.Invalidate();
-					}
-				}
-			}
-		}
+                    if (parent != null)
+                    {
+                        parent.Invalidate();
+                    }
+                }
+            }
+        }
 
-		public int Param
-		{
-			get
-			{
-				return m_Param;
-			}
-			set
-			{
-				Delta( ref m_Param, value );
-			}
-		}
+        public int Param
+        {
+            get => m_Param;
+            set => Delta(ref m_Param, value);
+        }
 
-		public int ItemID
-		{
-			get
-			{
-				return m_ItemID;
-			}
-			set
-			{
-				Delta( ref m_ItemID, value );
-			}
-		}
+        public int ItemID
+        {
+            get => m_ItemID;
+            set => Delta(ref m_ItemID, value);
+        }
 
-		public int Hue
-		{
-			get
-			{
-				return m_Hue;
-			}
-			set
-			{
-				Delta( ref m_Hue, value );
-			}
-		}
+        public int Hue
+        {
+            get => m_Hue;
+            set => Delta(ref m_Hue, value);
+        }
 
-		public int Width
-		{
-			get
-			{
-				return m_Width;
-			}
-			set
-			{
-				Delta( ref m_Width, value );
-			}
-		}
+        public int Width
+        {
+            get => m_Width;
+            set => Delta(ref m_Width, value);
+        }
 
-		public int Height
-		{
-			get
-			{
-				return m_Height;
-			}
-			set
-			{
-				Delta( ref m_Height, value );
-			}
-		}
+        public int Height
+        {
+            get => m_Height;
+            set => Delta(ref m_Height, value);
+        }
 
-		public int LocalizedTooltip
-		{
-			get
-			{
-				return m_LocalizedTooltip;
-			}
-			set
-			{
-				m_LocalizedTooltip = value;
-			}
-		}
+        public int LocalizedTooltip
+        {
+            get => m_LocalizedTooltip;
+            set => m_LocalizedTooltip = value;
+        }
 
-		public override string Compile()
+        public override string Compile()
 		{
 			if( m_LocalizedTooltip > 0 )
 				return String.Format( "{{ buttontileart {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} }}{{ tooltip {11} }}", m_X, m_Y, m_ID1, m_ID2, (int)m_Type, m_Param, m_ButtonID, m_ItemID, m_Hue, m_Width, m_Height, m_LocalizedTooltip );

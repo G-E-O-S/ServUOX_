@@ -9,30 +9,30 @@ namespace Server.Gumps
 		private Gump _Parent;
 
 		public Gump Parent
-		{
-			get { return _Parent; }
-			set
-			{
-				if (_Parent == value)
-				{
-					return;
-				}
+        {
+            get => _Parent;
+            set
+            {
+                if (_Parent == value)
+                {
+                    return;
+                }
 
-				if (_Parent != null)
-				{
-					_Parent.Remove(this);
-				}
+                if (_Parent != null)
+                {
+                    _Parent.Remove(this);
+                }
 
-				_Parent = value;
+                _Parent = value;
 
-				if (_Parent != null)
-				{
-					_Parent.Add(this);
-				}
-			}
-		}
+                if (_Parent != null)
+                {
+                    _Parent.Add(this);
+                }
+            }
+        }
 
-		protected void Delta(ref int var, int val)
+        protected void Delta(ref int var, int val)
 		{
 			if (var == val)
 			{

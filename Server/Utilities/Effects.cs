@@ -26,9 +26,9 @@ namespace Server
 	{
 		private static ParticleSupportType m_ParticleSupportType = ParticleSupportType.Detect;
 
-		public static ParticleSupportType ParticleSupportType { get { return m_ParticleSupportType; } set { m_ParticleSupportType = value; } }
+		public static ParticleSupportType ParticleSupportType { get => m_ParticleSupportType; set => m_ParticleSupportType = value; }
 
-		public static bool SendParticlesTo(NetState state)
+        public static bool SendParticlesTo(NetState state)
 		{
 			return (m_ParticleSupportType == ParticleSupportType.Full ||
 					(m_ParticleSupportType == ParticleSupportType.Detect && (state.IsUOTDClient || state.IsEnhancedClient)));

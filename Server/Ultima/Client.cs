@@ -372,13 +372,13 @@ namespace Ultima
 		///     <seealso cref="FindLocation" />
 		///     <seealso cref="Calibrate" />
 		/// </summary>
-		public static LocationPointer LocationPointer { get { return m_LocationPointer; } set { m_LocationPointer = value; } }
+		public static LocationPointer LocationPointer { get => m_LocationPointer; set => m_LocationPointer = value; }
 
-		/// <summary>
-		///     Gets the current window handle. A value of <c>ClientHandle.Invalid</c> is returned if the Client is not currently running.
-		///     <seealso cref="Running" />
-		/// </summary>
-		public static ClientWindowHandle Handle
+        /// <summary>
+        ///     Gets the current window handle. A value of <c>ClientHandle.Invalid</c> is returned if the Client is not currently running.
+        ///     <seealso cref="Running" />
+        /// </summary>
+        public static ClientWindowHandle Handle
 		{
 			get
 			{
@@ -400,9 +400,9 @@ namespace Ultima
 		/// <summary>
 		///     Is Client Iris2
 		/// </summary>
-		public static bool Is_Iris2 { get { return m_Is_Iris2; } set { m_Is_Iris2 = value; } }
+		public static bool Is_Iris2 { get => m_Is_Iris2; set => m_Is_Iris2 = value; }
 
-		private static void SendChar(ClientWindowHandle hWnd, char c)
+        private static void SendChar(ClientWindowHandle hWnd, char c)
 		{
 			int value = c;
 			int lParam = 1 | ((NativeMethods.OemKeyScan(value) & 0xFF) << 16) | (0x3 << 30);

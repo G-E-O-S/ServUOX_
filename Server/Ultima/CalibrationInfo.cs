@@ -163,9 +163,9 @@ namespace Ultima
 				new byte[] {0x2C, 0x04, 0xFF, 0xFF, 0xFF, 0x01})
 		};
 
-		public static CalibrationInfo[] DefaultList { get { return m_DefaultList; } set { m_DefaultList = value; } }
+		public static CalibrationInfo[] DefaultList { get => m_DefaultList; set => m_DefaultList = value; }
 
-		public static CalibrationInfo[] GetList()
+        public static CalibrationInfo[] GetList()
 		{
 			var list = new List<CalibrationInfo>();
 

@@ -811,7 +811,7 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public byte GridLocation
         {
-            get { return m_GridLocation; }
+            get => m_GridLocation;
             set
             {
                 if (Parent is Container)
@@ -1938,7 +1938,7 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public LootType LootType
         {
-            get { return m_LootType; }
+            get => m_LootType;
             set
             {
                 if (m_LootType != value)
@@ -1964,7 +1964,7 @@ namespace Server
 
         private static TimeSpan m_DDT = TimeSpan.FromMinutes(Initialization.Get("ServUOX.DefaultItemDecayTime", 60));
 
-        public static TimeSpan DefaultDecayTime { get { return m_DDT; } set { m_DDT = value; } }
+        public static TimeSpan DefaultDecayTime { get => m_DDT; set => m_DDT = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual int DecayMultiplier { get { return 1; } }
@@ -2004,7 +2004,7 @@ namespace Server
             m_LastMovedTime = DateTime.UtcNow;
         }
 
-        public DateTime LastMoved { get { return m_LastMovedTime; } set { m_LastMovedTime = value; } }
+        public DateTime LastMoved { get => m_LastMovedTime; set => m_LastMovedTime = value; }
 
         public virtual bool StackIgnoreItemID { get { return false; } }
         public virtual bool StackIgnoreHue { get { return false; } }
@@ -2153,7 +2153,7 @@ namespace Server
         }
 
         [CommandProperty(AccessLevel.Decorator)]
-        public bool Stackable { get { return GetFlag(ImplFlag.Stackable); } set { SetFlag(ImplFlag.Stackable, value); } }
+        public bool Stackable { get => GetFlag(ImplFlag.Stackable); set => SetFlag(ImplFlag.Stackable, value); }
 
         private readonly object _rpl = new object();
 
@@ -2371,7 +2371,7 @@ namespace Server
         [CommandProperty(AccessLevel.Decorator)]
         public bool Visible
         {
-            get { return GetFlag(ImplFlag.Visible); }
+            get => GetFlag(ImplFlag.Visible);
             set
             {
                 if (GetFlag(ImplFlag.Visible) != value)
@@ -2406,7 +2406,7 @@ namespace Server
         [CommandProperty(AccessLevel.Decorator)]
         public bool Movable
         {
-            get { return GetFlag(ImplFlag.Movable); }
+            get => GetFlag(ImplFlag.Movable);
             set
             {
                 if (GetFlag(ImplFlag.Movable) != value)
@@ -2469,7 +2469,7 @@ namespace Server
         [CommandProperty(AccessLevel.Counselor, AccessLevel.Decorator)]
         public Map Map
         {
-            get { return m_Map; }
+            get => m_Map;
             set
             {
                 if (m_Map != value)
@@ -2965,13 +2965,13 @@ namespace Server
         private static int m_LockedDownFlag;
         private static int m_SecureFlag;
 
-        public static int LockedDownFlag { get { return m_LockedDownFlag; } set { m_LockedDownFlag = value; } }
+        public static int LockedDownFlag { get => m_LockedDownFlag; set => m_LockedDownFlag = value; }
 
-        public static int SecureFlag { get { return m_SecureFlag; } set { m_SecureFlag = value; } }
+        public static int SecureFlag { get => m_SecureFlag; set => m_SecureFlag = value; }
 
         public bool IsLockedDown
         {
-            get { return GetTempFlag(m_LockedDownFlag); }
+            get => GetTempFlag(m_LockedDownFlag);
             set
             {
                 SetTempFlag(m_LockedDownFlag, value);
@@ -2987,7 +2987,7 @@ namespace Server
 
         public bool IsSecure
         {
-            get { return GetTempFlag(m_SecureFlag); }
+            get => GetTempFlag(m_SecureFlag);
             set
             {
                 SetTempFlag(m_SecureFlag, value);
@@ -3806,7 +3806,7 @@ namespace Server
         [Hue, CommandProperty(AccessLevel.GameMaster)]
         public virtual int Hue
         {
-            get { return m_Hue; }
+            get => m_Hue;
             set
             {
                 if (m_Hue != value)
@@ -3838,7 +3838,7 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual Layer Layer
         {
-            get { return m_Layer; }
+            get => m_Layer;
             set
             {
                 if (m_Layer != value)
@@ -4012,7 +4012,7 @@ namespace Server
 
         private bool m_NoMoveHS;
 
-        public bool NoMoveHS { get { return m_NoMoveHS; } set { m_NoMoveHS = value; } }
+        public bool NoMoveHS { get => m_NoMoveHS; set => m_NoMoveHS = value; }
 
         public void ProcessDelta()
         {
@@ -4705,7 +4705,7 @@ namespace Server
         [CommandProperty(AccessLevel.Counselor, AccessLevel.Decorator)]
         public virtual Point3D Location
         {
-            get { return m_Location; }
+            get => m_Location;
             set
             {
                 Point3D oldLocation = m_Location;
@@ -4789,19 +4789,19 @@ namespace Server
         }
 
         [CommandProperty(AccessLevel.Counselor, AccessLevel.Decorator)]
-        public int X { get { return m_Location.m_X; } set { Location = new Point3D(value, m_Location.m_Y, m_Location.m_Z); } }
+        public int X { get => m_Location.m_X; set => Location = new Point3D(value, m_Location.m_Y, m_Location.m_Z); }
 
         [CommandProperty(AccessLevel.Counselor, AccessLevel.Decorator)]
-        public int Y { get { return m_Location.m_Y; } set { Location = new Point3D(m_Location.m_X, value, m_Location.m_Z); } }
+        public int Y { get => m_Location.m_Y; set => Location = new Point3D(m_Location.m_X, value, m_Location.m_Z); }
 
         [CommandProperty(AccessLevel.Counselor, AccessLevel.Decorator)]
-        public int Z { get { return m_Location.m_Z; } set { Location = new Point3D(m_Location.m_X, m_Location.m_Y, value); } }
+        public int Z { get => m_Location.m_Z; set => Location = new Point3D(m_Location.m_X, m_Location.m_Y, value); }
         #endregion
 
         [CommandProperty(AccessLevel.Decorator)]
         public virtual int ItemID
         {
-            get { return m_ItemID; }
+            get => m_ItemID;
             set
             {
                 if (m_ItemID != value)
@@ -4809,7 +4809,7 @@ namespace Server
                     int oldPileWeight = PileWeight;
 
                     m_ItemID = value;
-                    
+
                     ReleaseWorldPackets();
 
                     int newPileWeight = PileWeight;
@@ -4861,7 +4861,7 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual object Parent
         {
-            get { return m_Parent; }
+            get => m_Parent;
             set
             {
                 if (m_Parent == value)
@@ -4910,7 +4910,7 @@ namespace Server
         [CommandProperty(AccessLevel.Decorator)]
         public LightType Light
         {
-            get { return m_Light; }
+            get => m_Light;
             set
             {
                 if (m_Light != value)
@@ -4926,7 +4926,7 @@ namespace Server
         [CommandProperty(AccessLevel.Decorator)]
         public Direction Direction
         {
-            get { return m_Direction; }
+            get => m_Direction;
             set
             {
                 if (m_Direction != value)
@@ -4942,7 +4942,7 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int Amount
         {
-            get { return m_Amount; }
+            get => m_Amount;
             set
             {
                 int oldValue = m_Amount;
@@ -5950,7 +5950,7 @@ namespace Server
 
         private static bool m_ScissorCopyLootType;
 
-        public static bool ScissorCopyLootType { get { return m_ScissorCopyLootType; } set { m_ScissorCopyLootType = value; } }
+        public static bool ScissorCopyLootType { get => m_ScissorCopyLootType; set => m_ScissorCopyLootType = value; }
 
         public virtual void ScissorHelper(Mobile from, Item newItem, int amountPerOldItem)
         {
@@ -6030,7 +6030,7 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public bool QuestItem
         {
-            get { return GetFlag(ImplFlag.QuestItem); }
+            get => GetFlag(ImplFlag.QuestItem);
             set
             {
                 SetFlag(ImplFlag.QuestItem, value);
@@ -6045,7 +6045,7 @@ namespace Server
 
         public bool Insured
         {
-            get { return GetFlag(ImplFlag.Insured); }
+            get => GetFlag(ImplFlag.Insured);
             set
             {
                 SetFlag(ImplFlag.Insured, value);
@@ -6053,7 +6053,7 @@ namespace Server
             }
         }
 
-        public bool PayedInsurance { get { return GetFlag(ImplFlag.PayedInsurance); } set { SetFlag(ImplFlag.PayedInsurance, value); } }
+        public bool PayedInsurance { get => GetFlag(ImplFlag.PayedInsurance); set => SetFlag(ImplFlag.PayedInsurance, value); }
 
         public Mobile BlessedFor
         {

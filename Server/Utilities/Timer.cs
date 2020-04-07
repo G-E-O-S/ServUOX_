@@ -66,64 +66,64 @@ namespace Server
 		}
 
 		public TimerPriority Priority
-		{
-			get { return m_Priority; }
-			set
-			{
-				if (!m_PrioritySet)
-				{
-					m_PrioritySet = true;
-				}
+        {
+            get => m_Priority;
+            set
+            {
+                if (!m_PrioritySet)
+                {
+                    m_PrioritySet = true;
+                }
 
-				if (m_Priority == value)
-				{
-					return;
-				}
+                if (m_Priority == value)
+                {
+                    return;
+                }
 
-				m_Priority = value;
+                m_Priority = value;
 
-				if (m_Running)
-				{
-					TimerThread.PriorityChange(this, (int)m_Priority);
-				}
-			}
-		}
+                if (m_Running)
+                {
+                    TimerThread.PriorityChange(this, (int)m_Priority);
+                }
+            }
+        }
 
-		public DateTime Next
+        public DateTime Next
 		{
 			// Obnoxious
 			get { return DateTime.UtcNow.AddMilliseconds(m_Next - Core.TickCount); }
 		}
 
 		public TimeSpan Delay
-		{
-			get { return TimeSpan.FromMilliseconds(m_Delay); }
-			set { m_Delay = (long)value.TotalMilliseconds; }
-		}
+        {
+            get => TimeSpan.FromMilliseconds(m_Delay);
+            set => m_Delay = (long)value.TotalMilliseconds;
+        }
 
-		public TimeSpan Interval
-		{
-			get { return TimeSpan.FromMilliseconds(m_Interval); }
-			set { m_Interval = (long)value.TotalMilliseconds; }
-		}
+        public TimeSpan Interval
+        {
+            get => TimeSpan.FromMilliseconds(m_Interval);
+            set => m_Interval = (long)value.TotalMilliseconds;
+        }
 
-		public bool Running
-		{
-			get { return m_Running; }
-			set
-			{
-				if (value)
-				{
-					Start();
-				}
-				else
-				{
-					Stop();
-				}
-			}
-		}
+        public bool Running
+        {
+            get => m_Running;
+            set
+            {
+                if (value)
+                {
+                    Start();
+                }
+                else
+                {
+                    Stop();
+                }
+            }
+        }
 
-		public TimerProfile GetProfile()
+        public TimerProfile GetProfile()
 		{
 			return Core.Profiling ? TimerProfile.Acquire(ToString()) : null;
 		}
@@ -382,9 +382,9 @@ namespace Server
 		private static readonly Queue<Timer> m_Queue = new Queue<Timer>();
 		private static int m_BreakCount = 20000;
 
-		public static int BreakCount { get { return m_BreakCount; } set { m_BreakCount = value; } }
+		public static int BreakCount { get => m_BreakCount; set => m_BreakCount = value; }
 
-		private static int m_QueueCountAtSlice;
+        private static int m_QueueCountAtSlice;
 
 		private bool m_Queued;
 

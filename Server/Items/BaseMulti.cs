@@ -20,30 +20,30 @@ namespace Server.Items
 
 		[CommandProperty(AccessLevel.GameMaster)]
 		public override int ItemID
-		{
-			get { return base.ItemID; }
-			set
-			{
-				if (base.ItemID != value)
-				{
-					Map facet = (Parent == null ? Map : null);
+        {
+            get => base.ItemID;
+            set
+            {
+                if (base.ItemID != value)
+                {
+                    Map facet = (Parent == null ? Map : null);
 
-					if (facet != null)
-					{
-						facet.OnLeave(this);
-					}
+                    if (facet != null)
+                    {
+                        facet.OnLeave(this);
+                    }
 
-					base.ItemID = value;
+                    base.ItemID = value;
 
-					if (facet != null)
-					{
-						facet.OnEnter(this);
-					}
-				}
-			}
-		}
+                    if (facet != null)
+                    {
+                        facet.OnEnter(this);
+                    }
+                }
+            }
+        }
 
-		[Obsolete("Replace with calls to OnLeave and OnEnter surrounding component invalidation.", true)]
+        [Obsolete("Replace with calls to OnLeave and OnEnter surrounding component invalidation.", true)]
 		public virtual void RefreshComponents()
 		{
 			if (Parent == null)

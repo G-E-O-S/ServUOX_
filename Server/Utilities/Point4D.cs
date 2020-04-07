@@ -41,16 +41,16 @@ namespace Server
         { }
 
         [CommandProperty(AccessLevel.Counselor)]
-        public int X { get { return m_X; } set { m_X = value; } }
+        public int X { get => m_X; set => m_X = value; }
 
         [CommandProperty(AccessLevel.Counselor)]
-        public int Y { get { return m_Y; } set { m_Y = value; } }
+        public int Y { get => m_Y; set => m_Y = value; }
 
         [CommandProperty(AccessLevel.Counselor)]
-        public int Z { get { return m_Z; } set { m_Z = value; } }
+        public int Z { get => m_Z; set => m_Z = value; }
 
         [CommandProperty(AccessLevel.Counselor)]
-        public int M { get { return m_M; } set { m_M = value; } }
+        public int M { get => m_M; set => m_M = value; }
 
         public override string ToString()
         {

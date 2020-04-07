@@ -29,100 +29,61 @@ namespace Server.Gumps
 		}
 
 		public int X
-		{
-			get
-			{
-				return m_X;
-			}
-			set
-			{
-				Delta( ref m_X, value );
-			}
-		}
+        {
+            get => m_X;
+            set => Delta(ref m_X, value);
+        }
 
-		public int Y
-		{
-			get
-			{
-				return m_Y;
-			}
-			set
-			{
-				Delta( ref m_Y, value );
-			}
-		}
+        public int Y
+        {
+            get => m_Y;
+            set => Delta(ref m_Y, value);
+        }
 
-		public int NormalID
-		{
-			get
-			{
-				return m_ID1;
-			}
-			set
-			{
-				Delta( ref m_ID1, value );
-			}
-		}
+        public int NormalID
+        {
+            get => m_ID1;
+            set => Delta(ref m_ID1, value);
+        }
 
-		public int PressedID
-		{
-			get
-			{
-				return m_ID2;
-			}
-			set
-			{
-				Delta( ref m_ID2, value );
-			}
-		}
+        public int PressedID
+        {
+            get => m_ID2;
+            set => Delta(ref m_ID2, value);
+        }
 
-		public int ButtonID
-		{
-			get
-			{
-				return m_ButtonID;
-			}
-			set
-			{
-				Delta( ref m_ButtonID, value );
-			}
-		}
+        public int ButtonID
+        {
+            get => m_ButtonID;
+            set => Delta(ref m_ButtonID, value);
+        }
 
-		public GumpButtonType Type
-		{
-			get
-			{
-				return m_Type;
-			}
-			set
-			{
-				if ( m_Type != value )
-				{
-					m_Type = value;
+        public GumpButtonType Type
+        {
+            get => m_Type;
+            set
+            {
+                if (m_Type != value)
+                {
+                    m_Type = value;
 
-					Gump parent = Parent;
+                    Gump parent = Parent;
 
-					if ( parent != null )
-					{
-						parent.Invalidate();
-					}
-				}
-			}
-		}
+                    if (parent != null)
+                    {
+                        parent.Invalidate();
+                    }
+                }
+            }
+        }
 
-		public int Param
-		{
-			get
-			{
-				return m_Param;
-			}
-			set
-			{
-				Delta( ref m_Param, value );
-			}
-		}
+        public int Param
+        {
+            get => m_Param;
+            set => Delta(ref m_Param, value);
+        }
 
-		public override string Compile()
+        public override string Compile()
 		{
 			return String.Format( "{{ button {0} {1} {2} {3} {4} {5} {6} }}", m_X, m_Y, m_ID1, m_ID2, (int)m_Type, m_Param, m_ButtonID );
 		}

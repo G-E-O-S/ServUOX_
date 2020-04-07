@@ -22,54 +22,30 @@ namespace Server.Gumps
 		}
 
 		public int X
-		{
-			get
-			{
-				return m_X;
-			}
-			set
-			{
-				Delta( ref m_X, value );
-			}
-		}
+        {
+            get => m_X;
+            set => Delta(ref m_X, value);
+        }
 
-		public int Y
-		{
-			get
-			{
-				return m_Y;
-			}
-			set
-			{
-				Delta( ref m_Y, value );
-			}
-		}
+        public int Y
+        {
+            get => m_Y;
+            set => Delta(ref m_Y, value);
+        }
 
-		public int ItemID
-		{
-			get
-			{
-				return m_ItemID;
-			}
-			set
-			{
-				Delta( ref m_ItemID, value );
-			}
-		}
+        public int ItemID
+        {
+            get => m_ItemID;
+            set => Delta(ref m_ItemID, value);
+        }
 
-		public int Hue
-		{
-			get
-			{
-				return m_Hue;
-			}
-			set
-			{
-				Delta( ref m_Hue, value );
-			}
-		}
+        public int Hue
+        {
+            get => m_Hue;
+            set => Delta(ref m_Hue, value);
+        }
 
-		public override string Compile()
+        public override string Compile()
 		{
 			if ( m_Hue == 0 )
 				return String.Format( "{{ tilepic {0} {1} {2} }}", m_X, m_Y, m_ItemID );

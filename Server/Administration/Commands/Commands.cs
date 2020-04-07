@@ -130,9 +130,9 @@ namespace Server.Commands
 	{
 		private static string m_Prefix = "[";
 
-		public static string Prefix { get { return m_Prefix; } set { m_Prefix = value; } }
+		public static string Prefix { get => m_Prefix; set => m_Prefix = value; }
 
-		public static string[] Split(string value)
+        public static string[] Split(string value)
 		{
 			var array = value.ToCharArray();
 			var list = new List<string>();
@@ -209,9 +209,9 @@ namespace Server.Commands
 
 		private static AccessLevel m_BadCommandIngoreLevel = AccessLevel.Player;
 
-		public static AccessLevel BadCommandIgnoreLevel { get { return m_BadCommandIngoreLevel; } set { m_BadCommandIngoreLevel = value; } }
+		public static AccessLevel BadCommandIgnoreLevel { get => m_BadCommandIngoreLevel; set => m_BadCommandIngoreLevel = value; }
 
-		public static bool Handle(Mobile from, string text)
+        public static bool Handle(Mobile from, string text)
 		{
 			return Handle(from, text, MessageType.Regular);
 		}

@@ -22,132 +22,75 @@ namespace Server.Gumps
 		private GumpHtmlLocalizedType m_Type;
 
 		public int X
-		{
-			get
-			{
-				return m_X;
-			}
-			set
-			{
-				Delta( ref m_X, value );
-			}
-		}
+        {
+            get => m_X;
+            set => Delta(ref m_X, value);
+        }
 
-		public int Y
-		{
-			get
-			{
-				return m_Y;
-			}
-			set
-			{
-				Delta( ref m_Y, value );
-			}
-		}
+        public int Y
+        {
+            get => m_Y;
+            set => Delta(ref m_Y, value);
+        }
 
-		public int Width
-		{
-			get
-			{
-				return m_Width;
-			}
-			set
-			{
-				Delta( ref m_Width, value );
-			}
-		}
+        public int Width
+        {
+            get => m_Width;
+            set => Delta(ref m_Width, value);
+        }
 
-		public int Height
-		{
-			get
-			{
-				return m_Height;
-			}
-			set
-			{
-				Delta( ref m_Height, value );
-			}
-		}
+        public int Height
+        {
+            get => m_Height;
+            set => Delta(ref m_Height, value);
+        }
 
-		public int Number
-		{
-			get
-			{
-				return m_Number;
-			}
-			set
-			{
-				Delta( ref m_Number, value );
-			}
-		}
+        public int Number
+        {
+            get => m_Number;
+            set => Delta(ref m_Number, value);
+        }
 
-		public string Args
-		{
-			get
-			{
-				return m_Args;
-			}
-			set
-			{
-				Delta( ref m_Args, value );
-			}
-		}
+        public string Args
+        {
+            get => m_Args;
+            set => Delta(ref m_Args, value);
+        }
 
-		public int Color
-		{
-			get
-			{
-				return m_Color;
-			}
-			set
-			{
-				Delta( ref m_Color, value );
-			}
-		}
+        public int Color
+        {
+            get => m_Color;
+            set => Delta(ref m_Color, value);
+        }
 
-		public bool Background
-		{
-			get
-			{
-				return m_Background;
-			}
-			set
-			{
-				Delta( ref m_Background, value );
-			}
-		}
+        public bool Background
+        {
+            get => m_Background;
+            set => Delta(ref m_Background, value);
+        }
 
-		public bool Scrollbar
-		{
-			get
-			{
-				return m_Scrollbar;
-			}
-			set
-			{
-				Delta( ref m_Scrollbar, value );
-			}
-		}
+        public bool Scrollbar
+        {
+            get => m_Scrollbar;
+            set => Delta(ref m_Scrollbar, value);
+        }
 
-		public GumpHtmlLocalizedType Type
-		{
-			get
-			{
-				return m_Type;
-			}
-			set
-			{
-				if ( m_Type != value )
-				{
-					m_Type = value;
+        public GumpHtmlLocalizedType Type
+        {
+            get => m_Type;
+            set
+            {
+                if (m_Type != value)
+                {
+                    m_Type = value;
 
-					if ( Parent != null )
-						Parent.Invalidate();
-				}
-			}
-		}
+                    if (Parent != null)
+                        Parent.Invalidate();
+                }
+            }
+        }
 
-		public GumpHtmlLocalized( int x, int y, int width, int height, int number, bool background, bool scrollbar )
+        public GumpHtmlLocalized( int x, int y, int width, int height, int number, bool background, bool scrollbar )
 		{
 			m_X = x;
 			m_Y = y;

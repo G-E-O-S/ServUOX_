@@ -29,7 +29,7 @@ namespace Server
 
         public void CommitTo(SequentialFileWriter dataFile, SequentialFileWriter indexFile)
         {
-            this.Flush();
+            Flush();
 
             int memLength = (int)_memStream.Position;
 

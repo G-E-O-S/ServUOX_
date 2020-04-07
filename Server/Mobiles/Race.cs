@@ -217,8 +217,8 @@ namespace Server
 
 		public int RaceIndex { get { return m_RaceIndex; } }
 
-		public string Name { get { return m_Name; } set { m_Name = value; } }
+		public string Name { get => m_Name; set => m_Name = value; }
 
-		public string PluralName { get; set; }
+        public string PluralName { get; set; }
 	}
 }

@@ -9,54 +9,30 @@ namespace Server.Gumps
 		private int m_Width, m_Height;
 
 		public int X
-		{
-			get
-			{
-				return m_X;
-			}
-			set
-			{
-				Delta( ref m_X, value );
-			}
-		}
+        {
+            get => m_X;
+            set => Delta(ref m_X, value);
+        }
 
-		public int Y
-		{
-			get
-			{
-				return m_Y;
-			}
-			set
-			{
-				Delta( ref m_Y, value );
-			}
-		}
+        public int Y
+        {
+            get => m_Y;
+            set => Delta(ref m_Y, value);
+        }
 
-		public int Width
-		{
-			get
-			{
-				return m_Width;
-			}
-			set
-			{
-				Delta( ref m_Width, value );
-			}
-		}
+        public int Width
+        {
+            get => m_Width;
+            set => Delta(ref m_Width, value);
+        }
 
-		public int Height
-		{
-			get
-			{
-				return m_Height;
-			}
-			set
-			{
-				Delta( ref m_Height, value );
-			}
-		}
+        public int Height
+        {
+            get => m_Height;
+            set => Delta(ref m_Height, value);
+        }
 
-		public GumpAlphaRegion( int x, int y, int width, int height )
+        public GumpAlphaRegion( int x, int y, int width, int height )
 		{
 			m_X = x;
 			m_Y = y;

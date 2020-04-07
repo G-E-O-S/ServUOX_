@@ -83,7 +83,7 @@ namespace Server.Items
 
         private static ContainerSnoopHandler m_SnoopHandler;
 
-        public static ContainerSnoopHandler SnoopHandler { get { return m_SnoopHandler; } set { m_SnoopHandler = value; } }
+        public static ContainerSnoopHandler SnoopHandler { get => m_SnoopHandler; set => m_SnoopHandler = value; }
 
         private ContainerData m_ContainerData;
 
@@ -110,13 +110,13 @@ namespace Server.Items
 
                 return m_ContainerData;
             }
-            set { m_ContainerData = value; }
+            set => m_ContainerData = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public override int ItemID
         {
-            get { return base.ItemID; }
+            get => base.ItemID;
             set
             {
                 int oldID = ItemID;
@@ -131,15 +131,15 @@ namespace Server.Items
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int GumpID { get { return (m_GumpID == -1 ? DefaultGumpID : m_GumpID); } set { m_GumpID = value; } }
+        public int GumpID { get => (m_GumpID == -1 ? DefaultGumpID : m_GumpID); set => m_GumpID = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int DropSound { get { return (m_DropSound == -1 ? DefaultDropSound : m_DropSound); } set { m_DropSound = value; } }
+        public int DropSound { get => (m_DropSound == -1 ? DefaultDropSound : m_DropSound); set => m_DropSound = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int MaxItems
         {
-            get { return (m_MaxItems == -1 ? DefaultMaxItems : m_MaxItems); }
+            get => (m_MaxItems == -1 ? DefaultMaxItems : m_MaxItems);
             set
             {
                 m_MaxItems = value;
@@ -164,7 +164,7 @@ namespace Server.Items
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool LiftOverride { get { return m_LiftOverride; } set { m_LiftOverride = value; } }
+        public bool LiftOverride { get => m_LiftOverride; set => m_LiftOverride = value; }
 
         public virtual void UpdateContainerData()
         {
@@ -1672,8 +1672,8 @@ namespace Server.Items
         private static int m_GlobalMaxItems = 125;
         private static int m_GlobalMaxWeight = 400;
 
-        public static int GlobalMaxItems { get { return m_GlobalMaxItems; } set { m_GlobalMaxItems = value; } }
-        public static int GlobalMaxWeight { get { return m_GlobalMaxWeight; } set { m_GlobalMaxWeight = value; } }
+        public static int GlobalMaxItems { get => m_GlobalMaxItems; set => m_GlobalMaxItems = value; }
+        public static int GlobalMaxWeight { get => m_GlobalMaxWeight; set => m_GlobalMaxWeight = value; }
 
         public Container(int itemID)
             : base(itemID)
@@ -2163,7 +2163,7 @@ namespace Server.Items
         private static ContainerData m_Default;
         private static readonly Dictionary<int, ContainerData> m_Table;
 
-        public static ContainerData Default { get { return m_Default; } set { m_Default = value; } }
+        public static ContainerData Default { get => m_Default; set => m_Default = value; }
 
         public static ContainerData GetData(int itemID)
         {

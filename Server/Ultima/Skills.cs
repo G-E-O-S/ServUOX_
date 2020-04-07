@@ -13,31 +13,31 @@ namespace Ultima
 		private static List<SkillInfo> m_SkillEntries;
 
 		public static List<SkillInfo> SkillEntries
-		{
-			get
-			{
-				if (m_SkillEntries == null)
-				{
-					m_SkillEntries = new List<SkillInfo>();
-					for (int i = 0; i < m_FileIndex.Index.Length; ++i)
-					{
-						SkillInfo info = GetSkill(i);
-						if (info == null)
-						{
-							break;
-						}
-						m_SkillEntries.Add(info);
-					}
-				}
-				return m_SkillEntries;
-			}
-			set { m_SkillEntries = value; }
-		}
+        {
+            get
+            {
+                if (m_SkillEntries == null)
+                {
+                    m_SkillEntries = new List<SkillInfo>();
+                    for (int i = 0; i < m_FileIndex.Index.Length; ++i)
+                    {
+                        SkillInfo info = GetSkill(i);
+                        if (info == null)
+                        {
+                            break;
+                        }
+                        m_SkillEntries.Add(info);
+                    }
+                }
+                return m_SkillEntries;
+            }
+            set => m_SkillEntries = value;
+        }
 
-		/// <summary>
-		///     ReReads skills.mul
-		/// </summary>
-		public static void Reload()
+        /// <summary>
+        ///     ReReads skills.mul
+        /// </summary>
+        public static void Reload()
 		{
 			m_FileIndex = new FileIndex("skills.idx", "skills.mul", 16);
 			m_SkillEntries = new List<SkillInfo>();
@@ -141,22 +141,22 @@ namespace Ultima
 		public bool IsAction { get; set; }
 
 		public string Name
-		{
-			get { return m_Name; }
-			set
-			{
-				if (value == null)
-				{
-					m_Name = "";
-				}
-				else
-				{
-					m_Name = value;
-				}
-			}
-		}
+        {
+            get => m_Name;
+            set
+            {
+                if (value == null)
+                {
+                    m_Name = "";
+                }
+                else
+                {
+                    m_Name = value;
+                }
+            }
+        }
 
-		public int Extra { get; private set; }
+        public int Extra { get; private set; }
 
 		public SkillInfo(int nr, string name, bool action, int extra)
 		{

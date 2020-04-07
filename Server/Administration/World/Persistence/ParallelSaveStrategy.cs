@@ -18,18 +18,17 @@ namespace Server
         private Consumer[] consumers;
         private int cycle;
         private bool finished;
-        public ParallelSaveStrategy(int processorCount)
+        public ParallelSaveStrategy(int _processorCount)
         {
-            this.processorCount = processorCount;
-
+            processorCount = _processorCount;
             _decayQueue = new Queue<Item>();
         }
 
         public override string Name => "Parallel";
 
-        public override void Save(SaveMetrics metrics, bool permitBackgroundWrite)
+        public override void Save(SaveMetrics _metrics, bool permitBackgroundWrite)
         {
-            this.metrics = metrics;
+            metrics = _metrics;
 
             OpenFiles();
 
@@ -128,7 +127,7 @@ namespace Server
             WriteCount(itemIndex, World.Items.Count);
             WriteCount(mobileIndex, World.Mobiles.Count);
             WriteCount(guildIndex, BaseGuild.List.Count);
-            //WriteCount(this.customIndex, World.Data.Count);
+            //WriteCount(customIndex, World.Data.Count);
         }
 
         private void WriteCount(SequentialFileWriter indexFile, int count)
@@ -187,7 +186,7 @@ namespace Server
                         SaveData data = value as SaveData;
 
                         if (data != null)
-                            this.Save(data, writer);
+                            Save(data, writer);
                         */
                     }
                 }
@@ -232,10 +231,10 @@ namespace Server
         /*
         private void Save(SaveData data, BinaryMemoryWriter writer)
         {
-            int length = writer.CommitTo(this.customData, this.customIndex, data._TypeID, data.Serial);
+            int length = writer.CommitTo(customData, customIndex, data._TypeID, data.Serial);
 
-            if (this.metrics != null)
-                this.metrics.OnDataSaved(length);
+            if (metrics != null)
+                metrics.OnDataSaved(length);
         }
         */
 
@@ -294,21 +293,21 @@ namespace Server
                 items = World.Items.Values;
                 mobiles = World.Mobiles.Values;
                 guilds = BaseGuild.List.Values;
-                //this.data = World.Data.Values;
+                //data = World.Data.Values;
             }
 
             public IEnumerator<ISerializable> GetEnumerator()
             {
-                foreach (Item item in this.items)
+                foreach (Item item in items)
                     yield return item;
 
-                foreach (Mobile mob in this.mobiles)
+                foreach (Mobile mob in mobiles)
                     yield return mob;
 
-                foreach (BaseGuild guild in this.guilds)
+                foreach (BaseGuild guild in guilds)
                     yield return guild;
                 /*
-                foreach (SaveData data in this.data)
+                foreach (SaveData data in data)
                     yield return data;
                 */
             }
@@ -326,9 +325,9 @@ namespace Server
             public int head, done, tail;
             private readonly ParallelSaveStrategy owner;
             private readonly Thread thread;
-            public Consumer(ParallelSaveStrategy owner, int bufferSize)
+            public Consumer(ParallelSaveStrategy _owner, int bufferSize)
             {
-                this.owner = owner;
+                owner = _owner;
 
                 buffer = new ConsumableEntry[bufferSize];
 
@@ -350,7 +349,7 @@ namespace Server
             {
                 try
                 {
-                    while (!this.owner.finished)
+                    while (!owner.finished)
                     {
                         Process();
                         Thread.Sleep(0);

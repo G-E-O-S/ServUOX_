@@ -20,16 +20,16 @@ namespace Ultima
 		private static bool m_UseDiff;
 
 		public static bool UseDiff
-		{
-			get { return m_UseDiff; }
-			set
-			{
-				m_UseDiff = value;
-				Reload();
-			}
-		}
+        {
+            get => m_UseDiff;
+            set
+            {
+                m_UseDiff = value;
+                Reload();
+            }
+        }
 
-		public static Map Felucca = new Map(0, 0, 6144, 4096);
+        public static Map Felucca = new Map(0, 0, 6144, 4096);
 		public static Map Trammel = new Map(0, 1, 6144, 4096);
 		public static readonly Map Ilshenar = new Map(2, 2, 2304, 1600);
 		public static readonly Map Malas = new Map(3, 3, 2560, 2048);
@@ -118,9 +118,9 @@ namespace Ultima
 			}
 		}
 
-		public int Width { get { return m_Width; } set { m_Width = value; } }
+		public int Width { get => m_Width; set => m_Width = value; }
 
-		public int Height { get { return m_Height; } }
+        public int Height { get { return m_Height; } }
 
 		public int FileIndex { get { return m_FileIndex; } }
 

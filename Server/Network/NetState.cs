@@ -100,80 +100,80 @@ namespace Server.Network
 
 		[CommandProperty(AccessLevel.Administrator, true)]
 		public ClientVersion Version
-		{
-			get { return m_Version; }
-			set
-			{
-				m_Version = value;
+        {
+            get => m_Version;
+            set
+            {
+                m_Version = value;
 
-				if (value >= m_Version70610)
-				{
-					_ProtocolChanges = ProtocolChanges.Version70610;
-				}
-				else if (value >= m_Version70500)
-				{
-					_ProtocolChanges = ProtocolChanges.Version70500;
-				}
-				else if (value >= m_Version704565)
-				{
-					_ProtocolChanges = ProtocolChanges.Version704565;
-				}
-				else if (value >= m_Version70331)
-				{
-					_ProtocolChanges = ProtocolChanges.Version70331;
-				}
-				else if (value >= m_Version70300)
-				{
-					_ProtocolChanges = ProtocolChanges.Version70300;
-				}
-				else if (value >= m_Version70160)
-				{
-					_ProtocolChanges = ProtocolChanges.Version70160;
-				}
-				else if (value >= m_Version70130)
-				{
-					_ProtocolChanges = ProtocolChanges.Version70130;
-				}
-				else if (value >= m_Version7090)
-				{
-					_ProtocolChanges = ProtocolChanges.Version7090;
-				}
-				else if (value >= m_Version7000)
-				{
-					_ProtocolChanges = ProtocolChanges.Version7000;
-				}
-				else if (value >= m_Version60142)
-				{
-					_ProtocolChanges = ProtocolChanges.Version60142;
-				}
-				else if (value >= m_Version6017)
-				{
-					_ProtocolChanges = ProtocolChanges.Version6017;
-				}
-				else if (value >= m_Version6000)
-				{
-					_ProtocolChanges = ProtocolChanges.Version6000;
-				}
-				else if (value >= m_Version502b)
-				{
-					_ProtocolChanges = ProtocolChanges.Version502b;
-				}
-				else if (value >= m_Version500a)
-				{
-					_ProtocolChanges = ProtocolChanges.Version500a;
-				}
-				else if (value >= m_Version407a)
-				{
-					_ProtocolChanges = ProtocolChanges.Version407a;
-				}
-				else if (value >= m_Version400a)
-				{
-					_ProtocolChanges = ProtocolChanges.Version400a;
-				}
-			}
-		}
+                if (value >= m_Version70610)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70610;
+                }
+                else if (value >= m_Version70500)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70500;
+                }
+                else if (value >= m_Version704565)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version704565;
+                }
+                else if (value >= m_Version70331)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70331;
+                }
+                else if (value >= m_Version70300)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70300;
+                }
+                else if (value >= m_Version70160)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70160;
+                }
+                else if (value >= m_Version70130)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version70130;
+                }
+                else if (value >= m_Version7090)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version7090;
+                }
+                else if (value >= m_Version7000)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version7000;
+                }
+                else if (value >= m_Version60142)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version60142;
+                }
+                else if (value >= m_Version6017)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version6017;
+                }
+                else if (value >= m_Version6000)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version6000;
+                }
+                else if (value >= m_Version502b)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version502b;
+                }
+                else if (value >= m_Version500a)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version500a;
+                }
+                else if (value >= m_Version407a)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version407a;
+                }
+                else if (value >= m_Version400a)
+                {
+                    _ProtocolChanges = ProtocolChanges.Version400a;
+                }
+            }
+        }
 
-		private static readonly ClientVersion m_Version400a = new ClientVersion("4.0.0a");
+        private static readonly ClientVersion m_Version400a = new ClientVersion("4.0.0a");
 		private static readonly ClientVersion m_Version407a = new ClientVersion("4.0.7a");
 		private static readonly ClientVersion m_Version500a = new ClientVersion("5.0.0a");
 		private static readonly ClientVersion m_Version502b = new ClientVersion("5.0.2b");
@@ -407,11 +407,11 @@ namespace Server.Network
 
 		private static int m_GumpCap = 512, m_HuePickerCap = 512, m_MenuCap = 512;
 
-		public static int GumpCap { get { return m_GumpCap; } set { m_GumpCap = value; } }
-		public static int HuePickerCap { get { return m_HuePickerCap; } set { m_HuePickerCap = value; } }
-		public static int MenuCap { get { return m_MenuCap; } set { m_MenuCap = value; } }
-		
-		[CommandProperty(AccessLevel.Administrator, true)]
+		public static int GumpCap { get => m_GumpCap; set => m_GumpCap = value; }
+        public static int HuePickerCap { get => m_HuePickerCap; set => m_HuePickerCap = value; }
+        public static int MenuCap { get => m_MenuCap; set => m_MenuCap = value; }
+
+        [CommandProperty(AccessLevel.Administrator, true)]
         public int UpdateRange { get; set; }
 
 		public void WriteConsole(string text)
@@ -1035,9 +1035,9 @@ namespace Server.Network
 
 		private static int m_CoalesceSleep = -1;
 
-		public static int CoalesceSleep { get { return m_CoalesceSleep; } set { m_CoalesceSleep = value; } }
+		public static int CoalesceSleep { get => m_CoalesceSleep; set => m_CoalesceSleep = value; }
 
-		private long m_NextCheckActivity;
+        private long m_NextCheckActivity;
 
 		public void CheckAlive(long curTicks)
 		{

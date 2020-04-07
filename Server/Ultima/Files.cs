@@ -31,29 +31,29 @@ namespace Ultima
 		/// <summary>
 		///     Should loaded Data be cached
 		/// </summary>
-		public static bool CacheData { get { return m_CacheData; } set { m_CacheData = value; } }
+		public static bool CacheData { get => m_CacheData; set => m_CacheData = value; }
 
-		/// <summary>
-		///     Should a Hashfile be used to speed up loading
-		/// </summary>
-		public static bool UseHashFile { get; set; }
+        /// <summary>
+        ///     Should a Hashfile be used to speed up loading
+        /// </summary>
+        public static bool UseHashFile { get; set; }
 
 		/// <summary>
 		///     Contains the path infos
 		/// </summary>
-		public static Dictionary<string, string> MulPath { get { return m_MulPath; } set { m_MulPath = value; } }
+		public static Dictionary<string, string> MulPath { get => m_MulPath; set => m_MulPath = value; }
 
-		/// <summary>
-		///     Gets a list of paths to the Client's data files.
-		/// </summary>
-		public static string Directory { get { return m_Directory; } }
+        /// <summary>
+        ///     Gets a list of paths to the Client's data files.
+        /// </summary>
+        public static string Directory { get { return m_Directory; } }
 
 		/// <summary>
 		///     Contains the rootDir (so relative values are possible for <see cref="MulPath" />
 		/// </summary>
-		public static string RootDir { get { return m_RootDir; } set { m_RootDir = value; } }
+		public static string RootDir { get => m_RootDir; set => m_RootDir = value; }
 
-		private static readonly string[] m_Files = new[]
+        private static readonly string[] m_Files = new[]
 		{
 			"anim.idx", "anim.mul", "anim2.idx", "anim2.mul", "anim3.idx", "anim3.mul", "anim4.idx", "anim4.mul", "anim5.idx",
 			"anim5.mul", "animdata.mul", "art.mul", "artidx.mul", "artlegacymul.uop", "body.def", "bodyconv.def", "client.exe",

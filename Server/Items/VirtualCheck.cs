@@ -28,29 +28,29 @@ namespace Server
 
 		[CommandProperty(AccessLevel.Administrator)]
 		public int Plat
-		{
-			get { return _Plat; }
-			set
-			{
-				_Plat = value;
-				InvalidateProperties();
-			}
-		}
+        {
+            get => _Plat;
+            set
+            {
+                _Plat = value;
+                InvalidateProperties();
+            }
+        }
 
-		private int _Gold;
+        private int _Gold;
 
 		[CommandProperty(AccessLevel.Administrator)]
 		public int Gold
-		{
-			get { return _Gold; }
-			set
-			{
-				_Gold = value;
-				InvalidateProperties();
-			}
-		}
+        {
+            get => _Gold;
+            set
+            {
+                _Gold = value;
+                InvalidateProperties();
+            }
+        }
 
-		public VirtualCheck()
+        public VirtualCheck()
 			: this(0, 0)
 		{ }
 

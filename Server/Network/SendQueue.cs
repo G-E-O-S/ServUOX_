@@ -72,31 +72,31 @@ namespace Server.Network
 		private static BufferPool m_UnusedBuffers = new BufferPool("Coalesced", 2048, m_CoalesceBufferSize);
 
 		public static int CoalesceBufferSize
-		{
-			get { return m_CoalesceBufferSize; }
-			set
-			{
-				if (m_CoalesceBufferSize == value)
-				{
-					return;
-				}
+        {
+            get => m_CoalesceBufferSize;
+            set
+            {
+                if (m_CoalesceBufferSize == value)
+                {
+                    return;
+                }
 
-				BufferPool old = m_UnusedBuffers;
+                BufferPool old = m_UnusedBuffers;
 
-				lock (old)
-				{
-					if (m_UnusedBuffers != null)
-					{
-						m_UnusedBuffers.Free();
-					}
+                lock (old)
+                {
+                    if (m_UnusedBuffers != null)
+                    {
+                        m_UnusedBuffers.Free();
+                    }
 
-					m_CoalesceBufferSize = value;
-					m_UnusedBuffers = new BufferPool("Coalesced", 2048, m_CoalesceBufferSize);
-				}
-			}
-		}
+                    m_CoalesceBufferSize = value;
+                    m_UnusedBuffers = new BufferPool("Coalesced", 2048, m_CoalesceBufferSize);
+                }
+            }
+        }
 
-		public static byte[] AcquireBuffer()
+        public static byte[] AcquireBuffer()
 		{
 			lock (m_UnusedBuffers)
 				return m_UnusedBuffers.AcquireBuffer();

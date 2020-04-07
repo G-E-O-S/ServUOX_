@@ -22,38 +22,20 @@ namespace Server
 
         public static int BufferSize
         {
-            get
-            {
-                return bufferSize;
-            }
-            set
-            {
-                bufferSize = value;
-            }
+            get => bufferSize;
+            set => bufferSize = value;
         }
 
         public static int Concurrency
         {
-            get
-            {
-                return concurrency;
-            }
-            set
-            {
-                concurrency = value;
-            }
+            get => concurrency;
+            set => concurrency = value;
         }
 
         public static bool Unbuffered
         {
-            get
-            {
-                return unbuffered;
-            }
-            set
-            {
-                unbuffered = value;
-            }
+            get => unbuffered;
+            set => unbuffered = value;
         }
 
         public static bool AreSynchronous
@@ -104,10 +86,10 @@ namespace Server
         {
             private readonly SafeFileHandle fileHandle;
 
-            public UnbufferedFileStream(SafeFileHandle fileHandle, FileAccess access, int bufferSize, bool isAsync)
-                : base(fileHandle, access, bufferSize, isAsync)
+            public UnbufferedFileStream(SafeFileHandle _fileHandle, FileAccess access, int bufferSize, bool isAsync)
+                : base(_fileHandle, access, bufferSize, isAsync)
             {
-                this.fileHandle = fileHandle;
+                fileHandle = _fileHandle;
             }
 
             public override void Write(byte[] array, int offset, int count)
@@ -122,9 +104,9 @@ namespace Server
 
             protected override void Dispose(bool disposing)
             {
-                if (!this.fileHandle.IsClosed)
+                if (!fileHandle.IsClosed)
                 {
-                    this.fileHandle.Close();
+                    fileHandle.Close();
                 }
 
                 base.Dispose(disposing);

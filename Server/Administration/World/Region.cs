@@ -151,15 +151,15 @@ namespace Server
 		}
 
 		private static Type m_DefaultRegionType = typeof(Region);
-		public static Type DefaultRegionType { get { return m_DefaultRegionType; } set { m_DefaultRegionType = value; } }
+		public static Type DefaultRegionType { get => m_DefaultRegionType; set => m_DefaultRegionType = value; }
 
-		private static TimeSpan m_StaffLogoutDelay = TimeSpan.Zero;
+        private static TimeSpan m_StaffLogoutDelay = TimeSpan.Zero;
 		private static TimeSpan m_DefaultLogoutDelay = TimeSpan.FromMinutes(5.0);
 
-		public static TimeSpan StaffLogoutDelay { get { return m_StaffLogoutDelay; } set { m_StaffLogoutDelay = value; } }
-		public static TimeSpan DefaultLogoutDelay { get { return m_DefaultLogoutDelay; } set { m_DefaultLogoutDelay = value; } }
+		public static TimeSpan StaffLogoutDelay { get => m_StaffLogoutDelay; set => m_StaffLogoutDelay = value; }
+        public static TimeSpan DefaultLogoutDelay { get => m_DefaultLogoutDelay; set => m_DefaultLogoutDelay = value; }
 
-		public static readonly int DefaultPriority = 50;
+        public static readonly int DefaultPriority = 50;
 
 		public static readonly int MinZ = sbyte.MinValue;
 		public static readonly int MaxZ = sbyte.MaxValue + 1;
@@ -224,9 +224,9 @@ namespace Server
 		public bool Registered { get { return m_Registered; } }
 
 		[CommandProperty(AccessLevel.GameMaster)]
-		public Point3D GoLocation { get { return m_GoLocation; } set { m_GoLocation = value; } }
+		public Point3D GoLocation { get => m_GoLocation; set => m_GoLocation = value; }
 
-		[CommandProperty(AccessLevel.GameMaster)]
+        [CommandProperty(AccessLevel.GameMaster)]
 		public MusicName Music { get; set; }
 
 		[CommandProperty(AccessLevel.GameMaster)]

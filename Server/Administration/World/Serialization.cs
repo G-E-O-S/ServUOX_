@@ -1937,24 +1937,24 @@ namespace Server
 		}
 
 		public MemoryStream MemStream
-		{
-			get { return m_Mem; }
-			set
-			{
-				if (m_Mem.Length > 0)
-				{
-					Enqueue(m_Mem);
-				}
+        {
+            get => m_Mem;
+            set
+            {
+                if (m_Mem.Length > 0)
+                {
+                    Enqueue(m_Mem);
+                }
 
-				m_Mem = value;
-				m_Bin = new BinaryWriter(m_Mem, Utility.UTF8WithEncoding);
-				m_LastPos = 0;
-				m_CurPos = m_Mem.Length;
-				m_Mem.Seek(0, SeekOrigin.End);
-			}
-		}
+                m_Mem = value;
+                m_Bin = new BinaryWriter(m_Mem, Utility.UTF8WithEncoding);
+                m_LastPos = 0;
+                m_CurPos = m_Mem.Length;
+                m_Mem.Seek(0, SeekOrigin.End);
+            }
+        }
 
-		public override void Close()
+        public override void Close()
 		{
 			Enqueue(m_Mem);
 			m_Closed = true;

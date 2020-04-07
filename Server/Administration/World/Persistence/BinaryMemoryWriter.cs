@@ -10,7 +10,7 @@ namespace Server
         public BinaryMemoryWriter()
             : base(new MemoryStream(512), true)
         {
-            this.stream = this.UnderlyingStream as MemoryStream;
+            stream = UnderlyingStream as MemoryStream;
         }
 
         protected override int BufferSize
@@ -22,10 +22,10 @@ namespace Server
         }
         public int CommitTo(SequentialFileWriter dataFile, SequentialFileWriter indexFile, int typeCode, int serial)
         {
-            this.Flush();
+            Flush();
 
-            byte[] buffer = this.stream.GetBuffer();
-            int length = (int)this.stream.Length;
+            byte[] buffer = stream.GetBuffer();
+            int length = (int)stream.Length;
 
             long position = dataFile.Position;
 
@@ -62,7 +62,7 @@ namespace Server
 
             indexFile.Write(indexBuffer, 0, indexBuffer.Length);
 
-            this.stream.SetLength(0);
+            stream.SetLength(0);
 
             return length;
         }

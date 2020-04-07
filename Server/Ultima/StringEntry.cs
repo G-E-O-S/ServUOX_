@@ -20,22 +20,22 @@ namespace Ultima
 		public int Number { get; private set; }
 
 		public string Text
-		{
-			get { return m_Text; }
-			set
-			{
-				if (value == null)
-				{
-					m_Text = "";
-				}
-				else
-				{
-					m_Text = value;
-				}
-			}
-		}
+        {
+            get => m_Text;
+            set
+            {
+                if (value == null)
+                {
+                    m_Text = "";
+                }
+                else
+                {
+                    m_Text = value;
+                }
+            }
+        }
 
-		public CliLocFlag Flag { get; set; }
+        public CliLocFlag Flag { get; set; }
 
 		public StringEntry(int number, string text, byte flag)
 		{

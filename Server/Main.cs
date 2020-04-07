@@ -47,27 +47,27 @@ namespace Server
 		public static Slice Slice;
 
 		public static bool Profiling
-		{
-			get { return _Profiling; }
-			set
-			{
-				if (_Profiling == value)
-				{
-					return;
-				}
+        {
+            get => _Profiling;
+            set
+            {
+                if (_Profiling == value)
+                {
+                    return;
+                }
 
-				_Profiling = value;
+                _Profiling = value;
 
-				if (_ProfileStart > DateTime.MinValue)
-				{
-					_ProfileTime += DateTime.UtcNow - _ProfileStart;
-				}
+                if (_ProfileStart > DateTime.MinValue)
+                {
+                    _ProfileTime += DateTime.UtcNow - _ProfileStart;
+                }
 
-				_ProfileStart = (_Profiling ? DateTime.UtcNow : DateTime.MinValue);
-			}
-		}
+                _ProfileStart = (_Profiling ? DateTime.UtcNow : DateTime.MinValue);
+            }
+        }
 
-		public static TimeSpan ProfileTime
+        public static TimeSpan ProfileTime
 		{
 			get
 			{

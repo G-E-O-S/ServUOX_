@@ -12,9 +12,9 @@ namespace Server.Targeting
 
 		private static bool m_TargetIDValidation = true;
 
-		public static bool TargetIDValidation { get { return m_TargetIDValidation; } set { m_TargetIDValidation = value; } }
+		public static bool TargetIDValidation { get => m_TargetIDValidation; set => m_TargetIDValidation = value; }
 
-		private readonly int m_TargetID;
+        private readonly int m_TargetID;
 		private int m_Range;
 		private bool m_CheckLOS;
 		private bool m_AllowNonlocal;
@@ -127,13 +127,13 @@ namespace Server.Targeting
 			}
 		}
 
-		public bool CheckLOS { get { return m_CheckLOS; } set { m_CheckLOS = value; } }
+		public bool CheckLOS { get => m_CheckLOS; set => m_CheckLOS = value; }
 
-		public bool DisallowMultis { get; set; }
+        public bool DisallowMultis { get; set; }
 
-		public bool AllowNonlocal { get { return m_AllowNonlocal; } set { m_AllowNonlocal = value; } }
+		public bool AllowNonlocal { get => m_AllowNonlocal; set => m_AllowNonlocal = value; }
 
-		public int TargetID { get { return m_TargetID; } }
+        public int TargetID { get { return m_TargetID; } }
 
 		public virtual Packet GetPacketFor(NetState ns)
 		{
@@ -323,9 +323,9 @@ namespace Server.Targeting
 		protected virtual void OnTargetFinish(Mobile from)
 		{ }
 
-		public int Range { get { return m_Range; } set { m_Range = value; } }
+		public int Range { get => m_Range; set => m_Range = value; }
 
-		public bool AllowGround { get; set; }
+        public bool AllowGround { get; set; }
 
 		public TargetFlags Flags { get; set; }
 	}

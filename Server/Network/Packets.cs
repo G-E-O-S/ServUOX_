@@ -3350,11 +3350,11 @@ m_Stream.Write( (int) renderMode );
 		private static int m_Maximum = 25;
 		private static bool m_Enabled = true;
 
-		public static int Maximum { get { return m_Maximum; } set { m_Maximum = value; } }
+		public static int Maximum { get => m_Maximum; set => m_Maximum = value; }
 
-		public static bool Enabled { get { return m_Enabled; } set { m_Enabled = value; } }
+        public static bool Enabled { get => m_Enabled; set => m_Enabled = value; }
 
-		public static void Write(PacketWriter stream, int cur, int max)
+        public static void Write(PacketWriter stream, int cur, int max)
 		{
 			if (m_Enabled && max != 0)
 			{
@@ -4607,11 +4607,11 @@ m_Stream.Write( (int) renderMode );
 		public string City { get; set; }
 		public string Building { get; set; }
 		public int Description { get; set; }
-		public int X { get { return m_Location.X; } set { m_Location.X = value; } }
-		public int Y { get { return m_Location.Y; } set { m_Location.Y = value; } }
-		public int Z { get { return m_Location.Z; } set { m_Location.Z = value; } }
-		public Point3D Location { get { return m_Location; } set { m_Location = value; } }
-		public Map Map { get; set; }
+		public int X { get => m_Location.X; set => m_Location.X = value; }
+        public int Y { get => m_Location.Y; set => m_Location.Y = value; }
+        public int Z { get => m_Location.Z; set => m_Location.Z = value; }
+        public Point3D Location { get => m_Location; set => m_Location = value; }
+        public Map Map { get; set; }
 	}
 
 	public sealed class CharacterListUpdate : Packet

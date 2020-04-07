@@ -58,97 +58,97 @@ namespace Server.Gumps
 		public List<GumpEntry> Entries { get { return m_Entries; } }
 
 		public int Serial
-		{
-			get { return m_Serial; }
-			set
-			{
-				if (m_Serial != value)
-				{
-					m_Serial = value;
-					Invalidate();
-				}
-			}
-		}
+        {
+            get => m_Serial;
+            set
+            {
+                if (m_Serial != value)
+                {
+                    m_Serial = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public int X
-		{
-			get { return m_X; }
-			set
-			{
-				if (m_X != value)
-				{
-					m_X = value;
-					Invalidate();
-				}
-			}
-		}
+        public int X
+        {
+            get => m_X;
+            set
+            {
+                if (m_X != value)
+                {
+                    m_X = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public int Y
-		{
-			get { return m_Y; }
-			set
-			{
-				if (m_Y != value)
-				{
-					m_Y = value;
-					Invalidate();
-				}
-			}
-		}
+        public int Y
+        {
+            get => m_Y;
+            set
+            {
+                if (m_Y != value)
+                {
+                    m_Y = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public bool Disposable
-		{
-			get { return m_Disposable; }
-			set
-			{
-				if (m_Disposable != value)
-				{
-					m_Disposable = value;
-					Invalidate();
-				}
-			}
-		}
+        public bool Disposable
+        {
+            get => m_Disposable;
+            set
+            {
+                if (m_Disposable != value)
+                {
+                    m_Disposable = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public bool Resizable
-		{
-			get { return m_Resizable; }
-			set
-			{
-				if (m_Resizable != value)
-				{
-					m_Resizable = value;
-					Invalidate();
-				}
-			}
-		}
+        public bool Resizable
+        {
+            get => m_Resizable;
+            set
+            {
+                if (m_Resizable != value)
+                {
+                    m_Resizable = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public bool Dragable
-		{
-			get { return m_Dragable; }
-			set
-			{
-				if (m_Dragable != value)
-				{
-					m_Dragable = value;
-					Invalidate();
-				}
-			}
-		}
+        public bool Dragable
+        {
+            get => m_Dragable;
+            set
+            {
+                if (m_Dragable != value)
+                {
+                    m_Dragable = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public bool Closable
-		{
-			get { return m_Closable; }
-			set
-			{
-				if (m_Closable != value)
-				{
-					m_Closable = value;
-					Invalidate();
-				}
-			}
-		}
+        public bool Closable
+        {
+            get => m_Closable;
+            set
+            {
+                if (m_Closable != value)
+                {
+                    m_Closable = value;
+                    Invalidate();
+                }
+            }
+        }
 
-		public void AddPage(int page)
+        public void AddPage(int page)
 		{
 			Add(new GumpPage(page));
 		}

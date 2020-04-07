@@ -705,11 +705,11 @@ namespace Ultima
 		internal ushort m_ID;
 		internal int m_Hue;
 
-		public ushort ID { get { return m_ID; } set { m_ID = value; } }
-		public int Hue { get { return m_Hue; } set { m_Hue = value; } }
-		public int Z { get { return m_Z; } set { m_Z = (sbyte)value; } }
+		public ushort ID { get => m_ID; set => m_ID = value; }
+        public int Hue { get => m_Hue; set => m_Hue = value; }
+        public int Z { get => m_Z; set => m_Z = (sbyte)value; }
 
-		public HuedTile(ushort id, short hue, sbyte z)
+        public HuedTile(ushort id, short hue, sbyte z)
 		{
 			m_ID = id;
 			m_Hue = hue;
@@ -732,12 +732,12 @@ namespace Ultima
 		internal int m_Solver;
 
 		public ushort ID { get { return m_ID; } }
-		public int Z { get { return m_Z; } set { m_Z = (sbyte)value; } }
+		public int Z { get => m_Z; set => m_Z = (sbyte)value; }
 
-        public TileFlag Flag { get { return m_Flag; } set { m_Flag = value; } }
-		public int Solver { get { return m_Solver; } set { m_Solver = value; } }
+        public TileFlag Flag { get => m_Flag; set => m_Flag = value; }
+        public int Solver { get => m_Solver; set => m_Solver = value; }
 
-		public MTile(ushort id, sbyte z)
+        public MTile(ushort id, sbyte z)
 		{
 			m_ID = Art.GetLegalItemID(id);
 			m_Z = z;
@@ -826,9 +826,9 @@ namespace Ultima
 		internal sbyte m_Z;
 
 		public ushort ID { get { return m_ID; } }
-		public int Z { get { return m_Z; } set { m_Z = (sbyte)value; } }
+		public int Z { get => m_Z; set => m_Z = (sbyte)value; }
 
-		public Tile(ushort id, sbyte z)
+        public Tile(ushort id, sbyte z)
 		{
 			m_ID = id;
 			m_Z = z;

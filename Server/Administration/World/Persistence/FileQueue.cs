@@ -19,7 +19,7 @@ namespace Server
         private int activeCount;
         private ManualResetEvent idle;
         private long position;
-        public FileQueue(int concurrentWrites, FileCommitCallback callback)
+        public FileQueue(int concurrentWrites, FileCommitCallback _callback)
         {
             if (concurrentWrites < 1)
             {
@@ -39,7 +39,7 @@ namespace Server
             active = new Chunk[concurrentWrites];
             pending = new Queue<Page>();
 
-            this.callback = callback;
+            callback = _callback;
 
             idle = new ManualResetEvent(true);
         }
@@ -132,7 +132,7 @@ namespace Server
 
                 if (buffered.length == page.Length)
                 { // page full
-                    Append(this.buffered);
+                    Append(buffered);
 
                     buffered.buffer = null;
                     buffered.length = 0;
@@ -218,14 +218,14 @@ namespace Server
             private readonly byte[] buffer;
             private readonly int offset;
             private readonly int size;
-            public Chunk(FileQueue owner, int slot, byte[] buffer, int offset, int size)
+            public Chunk(FileQueue _owner, int _slot, byte[] _buffer, int _offset, int _size)
             {
-                this.owner = owner;
-                this.slot = slot;
+                owner = _owner;
+                slot = _slot;
 
-                this.buffer = buffer;
-                this.offset = offset;
-                this.size = size;
+                buffer = _buffer;
+                offset = _offset;
+                size = _size;
             }
 
             public byte[] Buffer => buffer;

@@ -30,13 +30,13 @@ namespace Server.Diagnostics
 
 		private long _created, _started, _stopped;
 
-		public long Created { get { return _created; } set { _created = value; } }
+		public long Created { get => _created; set => _created = value; }
 
-		public long Started { get { return _started; } set { _started = value; } }
+        public long Started { get => _started; set => _started = value; }
 
-		public long Stopped { get { return _stopped; } set { _stopped = value; } }
+        public long Stopped { get => _stopped; set => _stopped = value; }
 
-		public TimerProfile(string name)
+        public TimerProfile(string name)
 			: base(name)
 		{ }
 

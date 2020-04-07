@@ -413,12 +413,12 @@ namespace Server.Network
 		/// <summary>
 		///     Gets or sets the current stream position.
 		/// </summary>
-		public long Position { get { return m_Stream.Position; } set { m_Stream.Position = value; } }
+		public long Position { get => m_Stream.Position; set => m_Stream.Position = value; }
 
-		/// <summary>
-		///     The internal stream used by this PacketWriter instance.
-		/// </summary>
-		public MemoryStream UnderlyingStream { get { return m_Stream; } }
+        /// <summary>
+        ///     The internal stream used by this PacketWriter instance.
+        /// </summary>
+        public MemoryStream UnderlyingStream { get { return m_Stream; } }
 
 		/// <summary>
 		///     Offsets the current position from an origin.

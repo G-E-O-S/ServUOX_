@@ -23,14 +23,8 @@ namespace Server
 
         protected bool PermitBackgroundWrite
         {
-            get
-            {
-                return _permitBackgroundWrite;
-            }
-            set
-            {
-                _permitBackgroundWrite = value;
-            }
+            get => _permitBackgroundWrite;
+            set => _permitBackgroundWrite = value;
         }
         protected bool UseSequentialWriters => (SaveType == SaveOption.Normal || !_permitBackgroundWrite);
 

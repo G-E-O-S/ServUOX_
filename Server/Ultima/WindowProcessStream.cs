@@ -5,9 +5,9 @@ namespace Ultima
 		private ClientWindowHandle m_Window;
 		private ClientProcessHandle m_ProcessID;
 
-		public ClientWindowHandle Window { get { return m_Window; } set { m_Window = value; } }
+		public ClientWindowHandle Window { get => m_Window; set => m_Window = value; }
 
-		public WindowProcessStream(ClientWindowHandle window)
+        public WindowProcessStream(ClientWindowHandle window)
 		{
 			m_Window = window;
 			m_ProcessID = ClientProcessHandle.Invalid;

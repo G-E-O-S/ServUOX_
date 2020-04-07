@@ -1809,9 +1809,9 @@ namespace Server.Network
 			120, 121, 123, 124, 125, 126, 127, 128
 		};
 
-		public static int[] ValidAnimations { get { return m_ValidAnimations; } set { m_ValidAnimations = value; } }
+		public static int[] ValidAnimations { get => m_ValidAnimations; set => m_ValidAnimations = value; }
 
-		public static void Animate(NetState state, PacketReader pvSrc)
+        public static void Animate(NetState state, PacketReader pvSrc)
 		{
 			Mobile from = state.Mobile;
 			int action = pvSrc.ReadInt32();
@@ -2884,9 +2884,9 @@ namespace Server.Network
 
         private static bool m_ClientVerification = true;
 
-		public static bool ClientVerification { get { return m_ClientVerification; } set { m_ClientVerification = value; } }
+		public static bool ClientVerification { get => m_ClientVerification; set => m_ClientVerification = value; }
 
-		internal struct AuthIDPersistence
+        internal struct AuthIDPersistence
 		{
 			public DateTime Age;
 			public ClientVersion Version;

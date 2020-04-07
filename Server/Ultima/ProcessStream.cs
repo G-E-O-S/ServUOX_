@@ -86,9 +86,9 @@ namespace Ultima
 		public override bool CanSeek { get { return true; } }
 
 		public override long Length { get { throw new NotSupportedException(); } }
-		public override long Position { get { return m_Position; } set { m_Position = (int)value; } }
+		public override long Position { get => m_Position; set => m_Position = (int)value; }
 
-		public override void SetLength(long value)
+        public override void SetLength(long value)
 		{
 			throw new NotSupportedException();
 		}

@@ -47,24 +47,24 @@ namespace Ultima
 		/// <summary>
 		///     Gets the name of this land tile.
 		/// </summary>
-		public string Name { get { return m_Name; } set { m_Name = value; } }
+		public string Name { get => m_Name; set => m_Name = value; }
 
-		/// <summary>
-		///     Gets the Texture ID of this land tile.
-		/// </summary>
-		public short TextureID { get { return m_TexID; } set { m_TexID = value; } }
+        /// <summary>
+        ///     Gets the Texture ID of this land tile.
+        /// </summary>
+        public short TextureID { get => m_TexID; set => m_TexID = value; }
 
-		/// <summary>
-		///     Gets a bitfield representing the 32 individual flags of this land tile.
-		/// </summary>
-		public TileFlag Flags { get { return m_Flags; } set { m_Flags = value; } }
+        /// <summary>
+        ///     Gets a bitfield representing the 32 individual flags of this land tile.
+        /// </summary>
+        public TileFlag Flags { get => m_Flags; set => m_Flags = value; }
 
-		/// <summary>
-		///     Gets a new UOHSA Unknown Int
-		/// </summary>
-		public int Unk1 { get { return m_Unk1; } set { m_Unk1 = value; } }
+        /// <summary>
+        ///     Gets a new UOHSA Unknown Int
+        /// </summary>
+        public int Unk1 { get => m_Unk1; set => m_Unk1 = value; }
 
-		public void ReadData(string[] split)
+        public void ReadData(string[] split)
 		{
 			int i = 1;
 			m_Name = split[i++];
@@ -327,30 +327,30 @@ namespace Ultima
 		/// <summary>
 		///     Gets the name of this item.
 		/// </summary>
-		public string Name { get { return m_Name; } set { m_Name = value; } }
+		public string Name { get => m_Name; set => m_Name = value; }
 
-		/// <summary>
-		///     Gets the animation body index of this item.
-		///     <seealso cref="Animations" />
-		/// </summary>
-		public short Animation { get { return m_Animation; } set { m_Animation = value; } }
+        /// <summary>
+        ///     Gets the animation body index of this item.
+        ///     <seealso cref="Animations" />
+        /// </summary>
+        public short Animation { get => m_Animation; set => m_Animation = value; }
 
-		/// <summary>
-		///     Gets a bitfield representing the 32 individual flags of this item.
-		///     <seealso cref="TileFlag" />
-		/// </summary>
-		public TileFlag Flags { get { return m_Flags; } set { m_Flags = value; } }
+        /// <summary>
+        ///     Gets a bitfield representing the 32 individual flags of this item.
+        ///     <seealso cref="TileFlag" />
+        /// </summary>
+        public TileFlag Flags { get => m_Flags; set => m_Flags = value; }
 
-		/// <summary>
-		///     Gets an unknown new UOAHS int
-		/// </summary>
-		public int Unk1 { get { return m_Unk1; } set { m_Unk1 = value; } }
+        /// <summary>
+        ///     Gets an unknown new UOAHS int
+        /// </summary>
+        public int Unk1 { get => m_Unk1; set => m_Unk1 = value; }
 
-		/// <summary>
-		///     Whether or not this item is flagged as '<see cref="TileFlag.Background" />'.
-		///     <seealso cref="TileFlag" />
-		/// </summary>
-		public bool Background { get { return ((m_Flags & TileFlag.Background) != 0); } }
+        /// <summary>
+        ///     Whether or not this item is flagged as '<see cref="TileFlag.Background" />'.
+        ///     <seealso cref="TileFlag" />
+        /// </summary>
+        public bool Background { get { return ((m_Flags & TileFlag.Background) != 0); } }
 
 		/// <summary>
 		///     Whether or not this item is flagged as '<see cref="TileFlag.Bridge" />'.
@@ -373,61 +373,61 @@ namespace Ultima
 		/// <summary>
 		///     Gets the weight of this item.
 		/// </summary>
-		public byte Weight { get { return m_Weight; } set { m_Weight = value; } }
+		public byte Weight { get => m_Weight; set => m_Weight = value; }
 
-		/// <summary>
-		///     Gets the 'quality' of this item. For wearable items, this will be the layer.
-		/// </summary>
-		public byte Quality { get { return m_Quality; } set { m_Quality = value; } }
+        /// <summary>
+        ///     Gets the 'quality' of this item. For wearable items, this will be the layer.
+        /// </summary>
+        public byte Quality { get => m_Quality; set => m_Quality = value; }
 
-		/// <summary>
-		///     Gets the 'quantity' of this item.
-		/// </summary>
-		public byte Quantity { get { return m_Quantity; } set { m_Quantity = value; } }
+        /// <summary>
+        ///     Gets the 'quantity' of this item.
+        /// </summary>
+        public byte Quantity { get => m_Quantity; set => m_Quantity = value; }
 
-		/// <summary>
-		///     Gets the 'value' of this item.
-		/// </summary>
-		public byte Value { get { return m_Value; } set { m_Value = value; } }
+        /// <summary>
+        ///     Gets the 'value' of this item.
+        /// </summary>
+        public byte Value { get => m_Value; set => m_Value = value; }
 
-		/// <summary>
-		///     Gets the Hue of this item.
-		/// </summary>
-		public byte Hue { get { return m_Hue; } set { m_Hue = value; } }
+        /// <summary>
+        ///     Gets the Hue of this item.
+        /// </summary>
+        public byte Hue { get => m_Hue; set => m_Hue = value; }
 
-		/// <summary>
-		///     Gets the stackingoffset of this item. (If flag Generic)
-		/// </summary>
-		public byte StackingOffset { get { return m_StackOffset; } set { m_StackOffset = value; } }
+        /// <summary>
+        ///     Gets the stackingoffset of this item. (If flag Generic)
+        /// </summary>
+        public byte StackingOffset { get => m_StackOffset; set => m_StackOffset = value; }
 
-		/// <summary>
-		///     Gets the height of this item.
-		/// </summary>
-		public byte Height { get { return m_Height; } set { m_Height = value; } }
+        /// <summary>
+        ///     Gets the height of this item.
+        /// </summary>
+        public byte Height { get => m_Height; set => m_Height = value; }
 
-		/// <summary>
-		///     Gets the MiscData of this item. (old UO Demo weapontemplate definition) (Unk1)
-		/// </summary>
-		public short MiscData { get { return m_MiscData; } set { m_MiscData = value; } }
+        /// <summary>
+        ///     Gets the MiscData of this item. (old UO Demo weapontemplate definition) (Unk1)
+        /// </summary>
+        public short MiscData { get => m_MiscData; set => m_MiscData = value; }
 
-		/// <summary>
-		///     Gets the unk2 of this item.
-		/// </summary>
-		public byte Unk2 { get { return m_Unk2; } set { m_Unk2 = value; } }
+        /// <summary>
+        ///     Gets the unk2 of this item.
+        /// </summary>
+        public byte Unk2 { get => m_Unk2; set => m_Unk2 = value; }
 
-		/// <summary>
-		///     Gets the unk3 of this item.
-		/// </summary>
-		public byte Unk3 { get { return m_Unk3; } set { m_Unk3 = value; } }
+        /// <summary>
+        ///     Gets the unk3 of this item.
+        /// </summary>
+        public byte Unk3 { get => m_Unk3; set => m_Unk3 = value; }
 
-		/// <summary>
-		///     Gets the 'calculated height' of this item. For <see cref="Bridge">bridges</see>, this will be:
-		///     <c>
-		///         (<see cref="Height" /> / 2)
-		///     </c>
-		///     .
-		/// </summary>
-		public int CalcHeight
+        /// <summary>
+        ///     Gets the 'calculated height' of this item. For <see cref="Bridge">bridges</see>, this will be:
+        ///     <c>
+        ///         (<see cref="Height" /> / 2)
+        ///     </c>
+        ///     .
+        /// </summary>
+        public int CalcHeight
 		{
 			get
 			{
@@ -815,14 +815,14 @@ namespace Ultima
 		/// <summary>
 		///     Gets the list of <see cref="LandData">land tile data</see>.
 		/// </summary>
-		public static LandData[] LandTable { get { return m_LandData; } set { m_LandData = value; } }
+		public static LandData[] LandTable { get => m_LandData; set => m_LandData = value; }
 
-		/// <summary>
-		///     Gets the list of <see cref="ItemData">item tile data</see>.
-		/// </summary>
-		public static ItemData[] ItemTable { get { return m_ItemData; } set { m_ItemData = value; } }
+        /// <summary>
+        ///     Gets the list of <see cref="ItemData">item tile data</see>.
+        /// </summary>
+        public static ItemData[] ItemTable { get => m_ItemData; set => m_ItemData = value; }
 
-		public static int[] HeightTable { get { return m_HeightTable; } }
+        public static int[] HeightTable { get { return m_HeightTable; } }
 
 		private static readonly byte[] m_StringBuffer = new byte[20];
 

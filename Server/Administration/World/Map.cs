@@ -1914,12 +1914,12 @@ namespace Server
 		}
 
 		public Region DefaultRegion
-		{
-			get { return m_DefaultRegion ?? (m_DefaultRegion = new Region(null, this, 0, new Rectangle3D[0])); }
-			set { m_DefaultRegion = value; }
-		}
+        {
+            get => m_DefaultRegion ?? (m_DefaultRegion = new Region(null, this, 0, new Rectangle3D[0]));
+            set => m_DefaultRegion = value;
+        }
 
-		public MapRules Rules { get; set; }
+        public MapRules Rules { get; set; }
 
 		public Sector InvalidSector { get { return m_InvalidSector; } }
 
@@ -2864,9 +2864,9 @@ namespace Server
 		#region Line Of Sight
 		private static int m_MaxLOSDistance = Core.GlobalMaxUpdateRange + 1;
 
-		public static int MaxLOSDistance { get { return m_MaxLOSDistance; } set { m_MaxLOSDistance = value; } }
+		public static int MaxLOSDistance { get => m_MaxLOSDistance; set => m_MaxLOSDistance = value; }
 
-		public bool LineOfSight(Point3D org, Point3D dest)
+        public bool LineOfSight(Point3D org, Point3D dest)
 		{
 			if (this == Internal)
 			{
@@ -3164,9 +3164,9 @@ namespace Server
 
 		private static int[] m_InvalidLandTiles = {0x244};
 
-		public static int[] InvalidLandTiles { get { return m_InvalidLandTiles; } set { m_InvalidLandTiles = value; } }
+		public static int[] InvalidLandTiles { get => m_InvalidLandTiles; set => m_InvalidLandTiles = value; }
 
-		public int CompareTo(Map other)
+        public int CompareTo(Map other)
 		{
 			if (other == null)
 			{

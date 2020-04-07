@@ -19,10 +19,10 @@ namespace Server
 		public IEntity Entity { get { return m_Entity; } }
 		public int Hash { get { return 0x40000000 + m_Hash; } }
 
-		public int Header { get { return m_Header; } set { m_Header = value; } }
-		public string HeaderArgs { get { return m_HeaderArgs; } set { m_HeaderArgs = value; } }
+		public int Header { get => m_Header; set => m_Header = value; }
+        public string HeaderArgs { get => m_HeaderArgs; set => m_HeaderArgs = value; }
 
-		public static bool Enabled { get; set; }
+        public static bool Enabled { get; set; }
 
 		public ObjectPropertyList(IEntity e)
 			: base(0xD6)

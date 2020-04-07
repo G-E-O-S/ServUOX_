@@ -9,14 +9,14 @@ namespace Server
         private FileStream fileStream;
         private FileQueue fileQueue;
         private AsyncCallback writeCallback;
-        public SequentialFileWriter(string path, SaveMetrics metrics)
+        public SequentialFileWriter(string path, SaveMetrics _metrics)
         {
             if (path == null)
             {
                 throw new ArgumentNullException("path");
             }
 
-            this.metrics = metrics;
+            metrics = _metrics;
 
             fileStream = FileOperations.OpenSequentialStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
 
@@ -27,14 +27,8 @@ namespace Server
 
         public override long Position
         {
-            get
-            {
-                return fileQueue.Position;
-            }
-            set
-            {
-                throw new InvalidOperationException();
-            }
+            get => fileQueue.Position;
+            set => throw new InvalidOperationException();
         }
 
         public override bool CanRead => false;

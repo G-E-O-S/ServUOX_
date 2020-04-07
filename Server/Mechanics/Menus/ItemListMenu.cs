@@ -42,9 +42,9 @@ namespace Server.Menus.ItemLists
 
 		public string Question { get { return m_Question; } }
 
-		public ItemListEntry[] Entries { get { return m_Entries; } set { m_Entries = value; } }
+		public ItemListEntry[] Entries { get => m_Entries; set => m_Entries = value; }
 
-		public ItemListMenu(string question, ItemListEntry[] entries)
+        public ItemListMenu(string question, ItemListEntry[] entries)
 		{
 			m_Question = question;
 			m_Entries = entries;
