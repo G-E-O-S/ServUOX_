@@ -600,9 +600,9 @@
     <Compile Include="Items\Artifacts\Decorative\MedusasFloorTileAddon.cs" />
     <Compile Include="Items\Artifacts\Equipment\Glasses\LegendaryMapmakersGlasses.cs" />
     <Compile Include="Items\Artifacts\Equipment\Weapons\TheRedeemer.cs" />
-    <Compile Include="Items\Consumables\2019HolidayGiftToken.cs" />
+    <Compile Include="Holiday Items\2019HolidayGiftToken.cs" />
     <Compile Include="Expansion\ML\9th Anniversary Gifts\AnniversaryPromotionalToken.cs" />
-    <Compile Include="Items\Consumables\CommissionPlayerVendorDeed.cs" />
+    <Compile Include="Expansion\EJ\CommissionPlayerVendorDeed.cs" />
     <Compile Include="Items\Consumables\FearEssence.cs" />
     <Compile Include="Items\Consumables\ShatterPotion.cs" />
     <Compile Include="Items\Containers\BoxOfCrystalItems.cs" />
@@ -625,8 +625,8 @@
     <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\BuffetTable.cs" />
     <Compile Include="Expansion\TOL\FormalDiningTable.cs" />
     <Compile Include="Expansion\HS\GadgetryTable.cs" />
-    <Compile Include="Items\Consumables\DecorativeKitchenSet.cs" />
-    <Compile Include="Items\Consumables\DecorativeStableSet.cs" />
+    <Compile Include="Expansion\EJ\StoreBought\DecorativeKitchenSet.cs" />
+    <Compile Include="Expansion\EJ\StoreBought\DecorativeStableSet.cs" />
     <Compile Include="Items\Consumables\EmbroideryTool.cs" />
     <Compile Include="Expansion\TOL\Damageable\Beacon.cs" />
     <Compile Include="Expansion\TOL\Damageable\DamageableItem.cs" />
@@ -658,7 +658,7 @@
     <Compile Include="Expansion\Original UO\Items\Decorations\Countertop.cs" />
     <Compile Include="Expansion\Original UO\Items\Decorations\ButcherBlock.cs" />
     <Compile Include="Items\Decorative\CupidStatue.cs" />
-    <Compile Include="Items\Consumables\ValentineChocolate.cs" />
+    <Compile Include="Holiday Items\ValentineChocolate.cs" />
     <Compile Include="Items\Containers\HeartShapedBox.cs" />
     <Compile Include="Expansion\ML\9th Anniversary Gifts\Shadow Furniture Set\ObsidianPillar.cs" />
     <Compile Include="Items\Decorative\GypsyWagonLamp.cs" />
@@ -810,7 +810,7 @@
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeBuyGump.cs" />
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeFilter.cs" />
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\RecipeBook\RecipeFilterGump.cs" />
-    <Compile Include="Items\Consumables\2018HolidayGiftToken.cs" />
+    <Compile Include="Holiday Items\2018HolidayGiftToken.cs" />
     <Compile Include="Items\Consumables\PoppiesDust.cs" />
     <Compile Include="Items\Consumables\PromotionalToken.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\BonePile.cs" />
@@ -991,7 +991,7 @@
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\ScrollOfTranscendenceBook.cs" />
     <Compile Include="Expansion\SA\Books\SpecialScrollBooks\SpecialScrollBookGump.cs" />
     <Compile Include="Items\Consumables\DeliciouslyTastyTreat.cs" />
-    <Compile Include="Items\Consumables\IrresistiblyTastyTreat.cs" />
+    <Compile Include="Expansion\SA\IrresistiblyTastyTreat.cs" />
     <Compile Include="Items\Consumables\SkinTingeingTincture.cs" />
     <Compile Include="Items\Consumables\SoulstonePromotionalTokens.cs" />
     <Compile Include="Items\Consumables\TastyTreat.cs" />
@@ -1021,23 +1021,23 @@
     </Compile>
     <Compile Include="Items\Consumables\BaseRewardTitleDeed.cs" />
     <Compile Include="Items\Consumables\BaseRewardTitleScroll.cs" />
-    <Compile Include="Items\Consumables\CreepyCake.cs" />
+    <Compile Include="Holiday Items\CreepyCake.cs" />
     <Compile Include="Items\Consumables\ElixirOfRebirth.cs" />
-    <Compile Include="Items\Consumables\EodonPotions.cs" />
+    <Compile Include="Expansion\TOL\EodonPotions.cs" />
     <Compile Include="Items\Consumables\GoldFoil.cs" />
-    <Compile Include="Items\Consumables\HarvestWine.cs" />
-    <Compile Include="Items\Consumables\Jellybeans.cs" />
-    <Compile Include="Items\Consumables\Lollipops.cs" />
-    <Compile Include="Items\Consumables\MrPlainsCookies.cs" />
-    <Compile Include="Items\Consumables\MurkyMilk.cs" />
-    <Compile Include="Items\Consumables\NougatSwirl.cs" />
-    <Compile Include="Items\Consumables\Nutcrackers.cs" />
+    <Compile Include="Holiday Items\HarvestWine.cs" />
+    <Compile Include="Holiday Items\Jellybeans.cs" />
+    <Compile Include="Holiday Items\Lollipops.cs" />
+    <Compile Include="Holiday Items\MrPlainsCookies.cs" />
+    <Compile Include="Holiday Items\MurkyMilk.cs" />
+    <Compile Include="Holiday Items\NougatSwirl.cs" />
+    <Compile Include="Holiday Items\Nutcrackers.cs" />
     <Compile Include="Expansion\ML\9th Anniversary Gifts\PersonalAttendantDeed.cs" />
     <Compile Include="Expansion\ML\9th Anniversary Gifts\PersonalAttendantToken.cs" />
     <Compile Include="Items\Consumables\PumpkinPizza.cs" />
-    <Compile Include="Items\Consumables\Taffy.cs" />
+    <Compile Include="Holiday Items\Taffy.cs" />
     <Compile Include="Items\Consumables\ThanksGivingFood.cs" />
-    <Compile Include="Items\Consumables\WrappedCandy.cs" />
+    <Compile Include="Holiday Items\WrappedCandy.cs" />
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Containers\BaseTrash.cs" />
     <Compile Include="Items\Containers\MeagerImbuingBag.cs" />
     <Compile Include="Items\Containers\ScrollBox2.cs" />
@@ -1356,7 +1356,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Weapons\BaseWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\BaseWaterContainer.cs">
+    <Compile Include="Expansion\Original UO\BaseWaterContainer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Weapons\BaseWeapon.cs">
@@ -1465,7 +1465,7 @@
     <Compile Include="Expansion\Original UO\Items\Decorations\Blood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\Bola.cs">
+    <Compile Include="Expansion\UOR\Bola.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\BolaBall.cs">
@@ -1564,7 +1564,7 @@
     <Compile Include="Items\Resource\FeyWings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\Firebomb.cs">
+    <Compile Include="Expansion\SE\Firebomb.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Mechanics\FlipableAddonAttribute.cs">
@@ -1594,7 +1594,7 @@
     <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\Misc\Guillotine.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\HairDye.cs">
+    <Compile Include="Expansion\Original UO\HairDye.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\HitchingRope.cs">
@@ -5016,22 +5016,22 @@
     <Compile Include="Expansion\UOR\Items\Consumables\BarkeepContract.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\ClothingBlessDeed.cs">
+    <Compile Include="Expansion\UOR\ClothingBlessDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Items\Consumables\CommodityDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\DragonBardingDeed.cs">
+    <Compile Include="Expansion\UOTD\DragonBardingDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\ForgedPardon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\HairRestylingDeed.cs">
+    <Compile Include="Expansion\Original UO\HairRestylingDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\HolidayTreeDeed.cs">
+    <Compile Include="Holiday Items\HolidayTreeDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\NameChangeDeed.cs">
@@ -5079,16 +5079,16 @@
     <Compile Include="Expansion\Original UO\Items\World\FarmableWheat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\Asian.cs">
+    <Compile Include="Expansion\SE\Asian.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\BaseMagicalFood.cs">
+    <Compile Include="Expansion\Original UO\BaseMagicalFood.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Beverage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\BeverageEmpty.cs">
+    <Compile Include="Expansion\Original UO\BeverageEmpty.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Bowls.cs">
@@ -5103,7 +5103,7 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Cooking.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\EnchantedApple.cs">
+    <Compile Include="Expansion\SA\EnchantedApple.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\EndlessDecanter.cs">
@@ -5232,7 +5232,7 @@
     <Compile Include="Expansion\Original UO\Items\Provision\Gems\Tourmaline.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\GuildDeed.cs">
+    <Compile Include="Expansion\Original UO\GuildDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\Guildstone.cs">
@@ -5930,7 +5930,7 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Dates.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\Lantern.cs">
+    <Compile Include="Expansion\Original UO\BegLantern.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\LiquorPitcher.cs">
@@ -5939,7 +5939,7 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Pizza.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\Shirt.cs">
+    <Compile Include="Expansion\Original UO\BegShirt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Stew.cs">
@@ -6146,7 +6146,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\RefreshPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\TotalRefreshPotion.cs">
+    <Compile Include="Expansion\Original UO\TotalRefreshPotion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\GreaterStrengthPotion.cs">
@@ -6260,7 +6260,7 @@
     <Compile Include="Items\Consumables\BombardScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\CleansingWindsScroll.cs">
+    <Compile Include="Expansion\ML\CleansingWindsScroll.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\EagleStrikeScroll.cs">
@@ -6302,55 +6302,55 @@
     <Compile Include="Items\Consumables\StoneFormScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\AnimateDeadScroll.cs">
+    <Compile Include="Expansion\ML\AnimateDeadScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\BloodOathScroll.cs">
+    <Compile Include="Expansion\ML\BloodOathScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\CorpseSkinScroll.cs">
+    <Compile Include="Expansion\ML\CorpseSkinScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\CurseWeaponScroll.cs">
+    <Compile Include="Expansion\ML\CurseWeaponScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\EvilOmenScroll.cs">
+    <Compile Include="Expansion\ML\EvilOmenScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\ExorcismScroll.cs">
+    <Compile Include="Expansion\ML\ExorcismScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\HorrificBeastScroll.cs">
+    <Compile Include="Expansion\ML\HorrificBeastScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\LichFormScroll.cs">
+    <Compile Include="Expansion\ML\LichFormScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\MindRotScroll.cs">
+    <Compile Include="Expansion\ML\MindRotScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\PainSpikeScroll.cs">
+    <Compile Include="Expansion\ML\PainSpikeScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\PoisonStrikeScroll.cs">
+    <Compile Include="Expansion\ML\PoisonStrikeScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\StrangleScroll.cs">
+    <Compile Include="Expansion\ML\StrangleScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\SummonFamiliarScroll.cs">
+    <Compile Include="Expansion\ML\SummonFamiliarScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\VampiricEmbraceScroll.cs">
+    <Compile Include="Expansion\ML\VampiricEmbraceScroll.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\VengefulSpiritScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\WitherScroll.cs">
+    <Compile Include="Expansion\ML\WitherScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\WraithFormScroll.cs">
+    <Compile Include="Expansion\ML\WraithFormScroll.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Scrolls\AgilityScroll.cs">
@@ -6497,13 +6497,13 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Instruments\TambourineTassel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\EggBomb.cs">
+    <Compile Include="Expansion\SE\EggBomb.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Equipment\Weapons\Fukiya.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\FukiyaDarts.cs">
+    <Compile Include="Expansion\SE\FukiyaDarts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\Items\LeatherNinjaBelt.cs">
@@ -6518,10 +6518,10 @@
     <Compile Include="Items\Consumables\SmokeBomb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\GemMiningBook.cs">
+    <Compile Include="Expansion\UOTD\GemMiningBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\GlassblowingBook.cs">
+    <Compile Include="Expansion\UOTD\GlassblowingBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\MasonryBook.cs">
@@ -6530,7 +6530,7 @@
     <Compile Include="Items\Resource\Sand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\SandMiningBook.cs">
+    <Compile Include="Expansion\UOTD\SandMiningBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\StoneMiningBook.cs">
@@ -6788,7 +6788,7 @@
     <Compile Include="Expansion\ML\HammerOfHephaestus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\PowderOfTemperament.cs">
+    <Compile Include="Expansion\UOTD\PowderOfTemperament.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\9th Anniversary Gifts\Evil Home Decor Set\AwesomeDisturbingPortrait.cs">
@@ -6959,13 +6959,13 @@
     <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\Misc\WoodenCoffin.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\HeritageToken.cs">
+    <Compile Include="Expansion\ML\9th Anniversary Gifts\Heritage Collection\HeritageToken.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\AngelDecoration.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\World\HolidayTree.cs">
+    <Compile Include="Holiday Items\HolidayTree.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\GiftBox.cs">
@@ -6977,7 +6977,7 @@
     <Compile Include="Items\Decorative\HolidayBell.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\HolidayFoods.cs">
+    <Compile Include="Holiday Items\HolidayFoods.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Containers\HolidayGiftBoxes.cs">
@@ -6986,7 +6986,7 @@
     <Compile Include="Expansion\AOS\HolidayPottedPlant.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Holidays\HolidayTimepiece.cs">
+    <Compile Include="Holiday Items\HolidayTimepiece.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Decorative\Icecicles.cs">
@@ -7025,7 +7025,7 @@
     <Compile Include="Items\Containers\WinterGiftPackage2003.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\AOS\Wreath.cs">
+    <Compile Include="Holiday Items\Wreath.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Provision\WristWatch.cs">
@@ -7094,7 +7094,7 @@
     <Compile Include="Expansion\Original UO\Items\Food and Drink\WaterBarrel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\WaterTub.cs">
+    <Compile Include="Expansion\Original UO\WaterTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Decorations\DecoRock.cs">
@@ -7409,7 +7409,7 @@
     <Compile Include="Items\Consumables\SoulStone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\ItemBlessDeed.cs">
+    <Compile Include="Expansion\T2A\ItemBlessDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\PersonalBlessDeed.cs">
@@ -7496,7 +7496,7 @@
     <Compile Include="Expansion\ML\Addons\DreadHornStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\DreadSpiderStatuette.cs">
+    <Compile Include="Expansion\UOR\DreadSpiderStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\FetidEssenceStatuette.cs">
@@ -7508,16 +7508,16 @@
     <Compile Include="Expansion\SA\MinotaurStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\OphidianArchMageStatuette.cs">
+    <Compile Include="Expansion\UOR\OphidianArchMageStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\OphidianKnightStatuette.cs">
+    <Compile Include="Expansion\UOR\OphidianKnightStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\OphidianMageStatuette.cs">
+    <Compile Include="Expansion\UOR\OphidianMageStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\OphidianWarriorStatuette.cs">
+    <Compile Include="Expansion\UOR\OphidianWarriorStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\ParoxysmusSwampDragonStatuette.cs">
@@ -7532,7 +7532,7 @@
     <Compile Include="Expansion\ML\ShimmeringEffusionStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\SlimeStatuette.cs">
+    <Compile Include="Expansion\UOR\SlimeStatuette.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\TormentedMinotaurStatuette.cs">
@@ -10505,7 +10505,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\FertileDirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Items\Consumables\GreenThorns.cs">
+    <Compile Include="Expansion\UOTD\GreenThorns.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Consumables\OrangePetals.cs">
@@ -12226,6 +12226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Expansion\AOS\6th Anniversary Gifts\" />
+    <Folder Include="Expansion\XSORTINGX\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
