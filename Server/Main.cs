@@ -10,7 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Server.Network;
-using System.Collections;
+
+using static System.Console;
 
 namespace Server
 {
@@ -215,8 +216,8 @@ namespace Server
 
 		private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
 		{
-			Console.WriteLine(e.IsTerminating ? "Error:" : "Warning:");
-			Console.WriteLine(e.ExceptionObject);
+			WriteLine(e.IsTerminating ? "Error:" : "Warning:");
+			WriteLine(e.ExceptionObject);
 
 			if (e.IsTerminating)
 			{
@@ -257,8 +258,8 @@ namespace Server
 					catch
 					{ }
 
-					Console.WriteLine("This exception is fatal, press return to exit");
-					Console.ReadLine();
+					WriteLine("This exception is fatal, press return to exit");
+					ReadLine();
 				}
 
 				Kill();
@@ -349,7 +350,7 @@ namespace Server
 			Timer.TimerThread.Set();
 
             if (Debug)
-                Console.WriteLine("done");
+                WriteLine("done");
 		}
 
 		private static readonly AutoResetEvent _Signal = new AutoResetEvent(true);
@@ -404,19 +405,19 @@ namespace Server
                 }
                 else if (Insensitive.Equals(a, "-h") || Insensitive.Equals(a, "-help"))
                 {
-                    Console.WriteLine("An Ultima Online server emulator written in C# - Visit https://github.com/ServUOX for more information.\n\n");
-                    Console.WriteLine(AppDomain.CurrentDomain.FriendlyName + " [Parameter]\n\n");
-                    Console.WriteLine("     -debug              Starting ServUOX in Debug Mode. Debug Mode is being used in Core and Scripts to give extended inforamtion during runtime.");
-                    Console.WriteLine("     -haltonwarning      ServUOX halts if any warning is raised during compilation of scripts.");
-                    Console.WriteLine("     -h or -help         Displays this help text.");
-                    Console.WriteLine("     -nocache            No known effect.");
-                    Console.WriteLine("     -noconsole          No user interaction during startup and runtime.");
-                    Console.WriteLine("     -profile            Enables profiling allowing to get performance diagnostic information of packets, timers etc. in AdminGump -> Maintenance. Use with caution. This increases server load.");
-                    Console.WriteLine("     -service            This parameter should be set if you're running ServUOX as a Windows Service. No user interaction. *Windows only*");
-                    Console.WriteLine("     -usehrt             Enables High Resolution Timing if requirements are met. Increasing the resolution of the timer. *Windows only*");
-                    Console.WriteLine("     -vb                 Enables compilation of VB.NET Scripts. Without this option VB.NET Scripts are skipped.");
+                    WriteLine("An Ultima Online server emulator written in C# - Visit https://github.com/ServUOX for more information.\n\n");
+                    WriteLine(AppDomain.CurrentDomain.FriendlyName + " [Parameter]\n\n");
+                    WriteLine("     -debug              Starting ServUOX in Debug Mode. Debug Mode is being used in Core and Scripts to give extended inforamtion during runtime.");
+                    WriteLine("     -haltonwarning      ServUOX halts if any warning is raised during compilation of scripts.");
+                    WriteLine("     -h or -help         Displays this help text.");
+                    WriteLine("     -nocache            No known effect.");
+                    WriteLine("     -noconsole          No user interaction during startup and runtime.");
+                    WriteLine("     -profile            Enables profiling allowing to get performance diagnostic information of packets, timers etc. in AdminGump -> Maintenance. Use with caution. This increases server load.");
+                    WriteLine("     -service            This parameter should be set if you're running ServUOX as a Windows Service. No user interaction. *Windows only*");
+                    WriteLine("     -usehrt             Enables High Resolution Timing if requirements are met. Increasing the resolution of the timer. *Windows only*");
+                    WriteLine("     -vb                 Enables compilation of VB.NET Scripts. Without this option VB.NET Scripts are skipped.");
 
-                    System.Environment.Exit(0);
+                    Environment.Exit(0);
                 }
             }
 
@@ -470,7 +471,7 @@ namespace Server
 			
 			Utility.PushColor(ConsoleColor.Cyan);
         #if DEBUG
-            Console.WriteLine(
+            WriteLine(
                 "ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Debug",
                 ver.Major,
                 ver.Minor,
@@ -478,7 +479,7 @@ namespace Server
                 ver.Revision,
 				buildDate);
 #else
-            Console.WriteLine(
+            WriteLine(
 				"ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Release",
 				ver.Major,
 				ver.Minor,
@@ -493,7 +494,7 @@ namespace Server
             if (s.Length > 0)
 			{
 				Utility.PushColor(ConsoleColor.Yellow);
-				Console.WriteLine("Core: Running with arguments: {0}", s);
+				WriteLine("Core: Running with arguments: {0}", s);
 				Utility.PopColor();
 			}
 
@@ -507,7 +508,7 @@ namespace Server
 			if (MultiProcessor || Is64Bit)
 			{
 				Utility.PushColor(ConsoleColor.Green);
-				Console.WriteLine(
+				WriteLine(
 					"Core: Optimizing for {0} {2}processor{1}",
 					ProcessorCount,
 					ProcessorCount == 1 ? "" : "s",
@@ -526,7 +527,7 @@ namespace Server
 					dotnet = displayName.Invoke(null, null).ToString();
 					
 					Utility.PushColor(ConsoleColor.Yellow);
-					Console.WriteLine("Core: Unix environment detected");
+					WriteLine("Core: Unix environment detected");
 					Utility.PopColor();
 					
 					Unix = true;
@@ -590,31 +591,31 @@ namespace Server
                 dotnet = "MONO/CSC/Unknown";
             
             Utility.PushColor(ConsoleColor.Green);
-            Console.WriteLine("Core: Compiled for " + ( Unix ? "MONO and running on {0}" : ".NET {0}" ), dotnet);
+            WriteLine("Core: Compiled for " + ( Unix ? "MONO and running on {0}" : ".NET {0}" ), dotnet);
             Utility.PopColor();
 
 			if (GCSettings.IsServerGC)
 			{
 				Utility.PushColor(ConsoleColor.Green);
-				Console.WriteLine("Core: Server garbage collection mode enabled");
+				WriteLine("Core: Server garbage collection mode enabled");
 				Utility.PopColor();
 			}
 
 			if (_UseHRT)
 			{
 				Utility.PushColor(ConsoleColor.DarkYellow);
-				Console.WriteLine(
+				WriteLine(
 					"Core: Requested high resolution timing ({0})",
 					UsingHighResolutionTiming ? "Supported" : "Unsupported");
 				Utility.PopColor();
 			}
 
 			Utility.PushColor(ConsoleColor.DarkYellow);
-			Console.WriteLine("RandomImpl: {0} ({1})", RandomImpl.Type.Name, RandomImpl.IsHardwareRNG ? "Hardware" : "Software");
+			WriteLine("RandomImpl: {0} ({1})", RandomImpl.Type.Name, RandomImpl.IsHardwareRNG ? "Hardware" : "Software");
 			Utility.PopColor();
 
 			Utility.PushColor(ConsoleColor.Green);
-			Console.WriteLine("Core: Loading config...");
+			WriteLine("Core: Loading config...");
             Config.Load();
             Initialization.Load();
 			Utility.PopColor();
@@ -622,7 +623,7 @@ namespace Server
 			while (!ScriptCompiler.Compile(Debug, _Cache))
 			{
 				Utility.PushColor(ConsoleColor.Red);
-				Console.WriteLine("Scripts: One or more scripts failed to compile or no script files were found.");
+				WriteLine("Scripts: One or more scripts failed to compile or no script files were found.");
 				Utility.PopColor();
 
 				if (Service)
@@ -630,7 +631,7 @@ namespace Server
 					return;
 				}
 
-				Console.WriteLine(" - Press return to exit, or R to try again.");
+				WriteLine(" - Press return to exit, or R to try again.");
 
                 if (Console.ReadKey(true).Key != ConsoleKey.R)
 				{
@@ -840,7 +841,7 @@ namespace Server
 				catch
 				{
 					Utility.PushColor(ConsoleColor.Yellow);
-					Console.WriteLine("Warning: Exception in serialization verification of type {0}", t);
+					WriteLine("Warning: Exception in serialization verification of type {0}", t);
 					Utility.PopColor();
 				}
 			}
@@ -889,14 +890,14 @@ namespace Server
 					if (warningSb != null && warningSb.Length > 0)
 					{
 						Utility.PushColor(ConsoleColor.Yellow);
-						Console.WriteLine("Warning: {0}\n{1}", t, warningSb);
+						WriteLine("Warning: {0}\n{1}", t, warningSb);
 						Utility.PopColor();
 					}
 				}
 				catch
 				{
 					Utility.PushColor(ConsoleColor.Yellow);
-					Console.WriteLine("Warning: Exception in serialization verification of type {0}", t);
+					WriteLine("Warning: Exception in serialization verification of type {0}", t);
 					Utility.PopColor();
 				}
 			}
