@@ -30,10 +30,9 @@ namespace Server
 
 		public static Action<CrashedEventArgs> CrashedHandler { get; set; }
 
-		public static bool Crashed { get { return _Crashed; } }
+        public static bool Crashed { get; set; }
 
-		private static bool _Crashed;
-		private static Thread _TimerThread;
+        private static Thread _TimerThread;
 		private static string _BaseDirectory;
 		private static string _ExePath;
 
@@ -221,7 +220,7 @@ namespace Server
 
 			if (e.IsTerminating)
 			{
-				_Crashed = true;
+				Crashed = true;
 
 				bool close = false;
 
@@ -338,11 +337,11 @@ namespace Server
 			Closing = true;
 
             if(Debug)
-                Console.Write("Exiting...");
+                Write("Exiting...");
 
 			World.WaitForWriteCompletion();
 
-			if (!_Crashed)
+			if (!Crashed)
 			{
 				EventSink.InvokeShutdown(new ShutdownEventArgs());
 			}
@@ -435,11 +434,11 @@ namespace Server
 						Directory.CreateDirectory("Logs");
 					}
 
-					Console.SetOut(MultiConsoleOut = new MultiTextWriter(new FileLogger("Logs/Console.log")));
+					SetOut(MultiConsoleOut = new MultiTextWriter(new FileLogger("Logs/log")));
 				}
 				else
 				{
-					Console.SetOut(MultiConsoleOut = new MultiTextWriter(Console.Out));
+					SetOut(MultiConsoleOut = new MultiTextWriter(Out));
 				}
 			}
 			catch
@@ -633,7 +632,7 @@ namespace Server
 
 				WriteLine(" - Press return to exit, or R to try again.");
 
-                if (Console.ReadKey(true).Key != ConsoleKey.R)
+                if (ReadKey(true).Key != ConsoleKey.R)
 				{
 					return;
 				}
@@ -834,7 +833,7 @@ namespace Server
 					if (warningSb != null && warningSb.Length > 0)
 					{
 						Utility.PushColor(ConsoleColor.Yellow);
-						Console.WriteLine("Warning: {0}\n{1}", t, warningSb);
+						WriteLine("Warning: {0}\n{1}", t, warningSb);
 						Utility.PopColor();
 					}
 				}
