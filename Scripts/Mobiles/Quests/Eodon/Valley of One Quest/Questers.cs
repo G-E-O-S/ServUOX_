@@ -1,5 +1,4 @@
 using System;
-using Server;
 using Server.Items;
 using Server.Engines.Quests;
 
@@ -7,7 +6,7 @@ namespace Server.Mobiles
 {
     public class Hawkwind2 : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(TimeIsOfTheEssenceQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(TimeIsOfTheEssenceQuest) };
 
         [Constructable]
         public Hawkwind2()
@@ -40,15 +39,23 @@ namespace Server.Mobiles
         {
             InitStats(100, 100, 25);
 
-            Female = false;
-            Race = Race.Human;
+            if (Core.SA)
+            {
+                Body = 689;
+            }
+            else
+            {
+                Female = false;
+                Race = Race.Human;
+            }
             Hue = 0x83EB;
         }
 
         public override void InitOutfit()
         {
-            Robe robe = new Robe();
+            if (Core.SA) return;
 
+            Robe robe = new Robe();
             robe.ItemID = 0x7816;
             AddItem(robe);
         }
@@ -57,7 +64,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -70,9 +77,9 @@ namespace Server.Mobiles
 
     public class SirGeoffery : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(UnitingTheTribesQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(UnitingTheTribesQuest) };
 
-        public override bool ChangeRace { get { return false; } }
+        public override bool ChangeRace=> false;
 
         [Constructable]
         public SirGeoffery()
@@ -136,7 +143,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -149,7 +156,7 @@ namespace Server.Mobiles
 
     public class SakkhraHighChieftess : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(TheGreatHuntQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(TheGreatHuntQuest) };
 
         [Constructable]
         public SakkhraHighChieftess()
@@ -187,7 +194,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -203,7 +210,7 @@ namespace Server.Mobiles
 
     public class UraliHighChieftess : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(EmptyNestQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(EmptyNestQuest) };
 
         [Constructable]
         public UraliHighChieftess()
@@ -242,7 +249,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -258,7 +265,7 @@ namespace Server.Mobiles
 
     public class JukariHighChief : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(TheGreatVolcanoQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(TheGreatVolcanoQuest) };
 
         [Constructable]
         public JukariHighChief()
@@ -293,7 +300,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -309,7 +316,7 @@ namespace Server.Mobiles
 
     public class KurakHighChief : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(PrideOfTheAmbushQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(PrideOfTheAmbushQuest) };
 
         [Constructable]
         public KurakHighChief()
@@ -345,7 +352,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -361,7 +368,7 @@ namespace Server.Mobiles
 
     public class BarakoHighChief : MondainQuester
     {
-        public override Type[] Quests { get { return new Type[] { typeof(TheGreatApeQuest) }; } }
+        public override Type[] Quests => new Type[] { typeof(TheGreatApeQuest) };
 
         [Constructable]
         public BarakoHighChief()
@@ -399,7 +406,7 @@ namespace Server.Mobiles
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)

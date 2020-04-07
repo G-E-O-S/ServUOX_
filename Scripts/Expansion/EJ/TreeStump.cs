@@ -8,7 +8,7 @@ namespace Server.Items
 {
     public class TreeStump : BaseAddon, IRewardItem
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         private bool m_IsRewardItem;
         private int m_Logs;

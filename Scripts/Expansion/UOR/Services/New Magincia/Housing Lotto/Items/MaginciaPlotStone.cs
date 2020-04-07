@@ -8,7 +8,7 @@ namespace Server.Engines.NewMagincia
 {
     public class MaginciaPlotStone : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         private MaginciaHousingPlot m_Plot;
 

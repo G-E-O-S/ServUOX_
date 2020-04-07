@@ -197,7 +197,7 @@ namespace Server.Items
 
         private class InternalComponent : AddonComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
 
             public InternalComponent(int id)
                 : base(id)

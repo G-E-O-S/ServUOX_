@@ -71,7 +71,7 @@ namespace Server.Engines.Quests
             }
         }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
         public override int LabelNumber { get { return 1158168; } }
 
         public CorpseOfBennetYardley()

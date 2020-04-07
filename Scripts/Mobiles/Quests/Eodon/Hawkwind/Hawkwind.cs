@@ -22,18 +22,23 @@ namespace Server.Engines.Quests.TimeLord
         public Hawkwind(Serial serial) : base(serial) { }
 
         public override bool CanBeDamaged() { return false; }
-        public override bool ChangeRace { get { return false; } }
+        public override bool ChangeRace=> false;
 
         public override void InitBody()
         {
             Name = "Hawkwind";
             Female = false;
-            Body = Race.Human.MaleBody;
+
+            if (Core.SA)
+                Body = 689;
+            else
+                Body = Race.Human.MaleBody;
+
+            InitStats(100, 100, 100);
             Hue = 33823;
             HairItemID = 8252;
             FacialHairItemID = 8267;
             HairHue = FacialHairHue = 1129;
-            InitStats(100, 75, 75);
         }
 
         public override bool CanPaperdollBeOpenedBy(Mobile from)
@@ -43,9 +48,10 @@ namespace Server.Engines.Quests.TimeLord
 
         public override void InitOutfit()
         {
+            if (Core.SA) return;
+
             Robe robe = new Robe();
             robe.ItemID = 0x7816;
-
             AddItem(robe); // TODO: Fancy Robe
         }
 

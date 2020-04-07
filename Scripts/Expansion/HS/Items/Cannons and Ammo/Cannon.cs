@@ -100,7 +100,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public double Durability { get { return ((double)m_Hits / (double)MaxHits) * 100.0; } }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public BaseCannon(BaseGalleon galleon)
         {

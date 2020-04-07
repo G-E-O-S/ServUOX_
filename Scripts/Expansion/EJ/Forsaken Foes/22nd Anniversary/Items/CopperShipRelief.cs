@@ -36,7 +36,7 @@ namespace Server.Items
 
         private class CopperShipReliefComponent : LocalizedAddonComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
 
             public CopperShipReliefComponent(int id)
                 : base(id, 1159148) // Copper Ship Relief

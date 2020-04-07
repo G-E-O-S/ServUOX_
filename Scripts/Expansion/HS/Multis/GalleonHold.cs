@@ -8,7 +8,7 @@ namespace Server.Items
     public class GalleonHold : Container, IGalleonFixture
     {
         public override int LabelNumber { get { return 1149699; } } // cargo hold
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public BaseGalleon Galleon { get; set; }
@@ -85,7 +85,7 @@ namespace Server.Items
     public class HoldItem : Item, IGalleonFixture
     {
         public override int LabelNumber { get { return 1149699; } } // cargo hold
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public BaseGalleon Galleon { get; set; }

@@ -399,7 +399,7 @@ namespace Server.Engines.Quests.RitualQuest
         [CommandProperty(AccessLevel.GameMaster)]
         public int Group { get; private set; }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public PuzzleTile(CrystalLotusPuzzle puzzle, int hue, int group)
             : base(0x519)

@@ -12,7 +12,7 @@ namespace Server.Items
     public class DoomPlaque : Item
     {
         public override int LabelNumber { get { return 1155662; } } // Plaque
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public Dictionary<Mobile, DateTime> NextMessage { get; set; }
 

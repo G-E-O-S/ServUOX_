@@ -13,7 +13,7 @@ namespace Server.Items
 {
     public class RepairBenchComponent : LocalizedAddonComponent
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public RepairBenchComponent(int id)
             : base(id, 1158860) // Repair Bench

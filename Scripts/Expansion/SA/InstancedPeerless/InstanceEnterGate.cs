@@ -13,7 +13,7 @@ namespace Server.Engines.InstancedPeerless
 
 		public override int LabelNumber { get { return 1113494; } } // (Entrance)
 
-		public override bool ForceShowProperties { get { return true; } }
+		public override bool ForceShowProperties => true;
 
 		public InstanceEnterGate( PeerlessInstance instance, List<Mobile> allowedPlayers )
 			: base( 0xF6C )

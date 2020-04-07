@@ -8,7 +8,7 @@ namespace Server.Engines.ArenaSystem
 {
     public class ArenaExitBanner : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
         public override int LabelNumber { get { return 1116111; } } // Arena Exit Banner
         public override bool HandlesOnMovement { get { return true; } }
 

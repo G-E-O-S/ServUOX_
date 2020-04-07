@@ -61,7 +61,7 @@ namespace Server.Items
 
     public class CustomizableSquaredDoorMatComponent : LocalizedAddonComponent
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public CustomizableSquaredDoorMatComponent(int id)
             : base(id, 1097996) // door mat

@@ -12,7 +12,7 @@ namespace Server.Engines.VeteranRewards
 {
     public class GadgetryTableComponent : LocalizedAddonComponent
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public GadgetryTableComponent(int id)
             : base(id, 1098558) // gadgetry table

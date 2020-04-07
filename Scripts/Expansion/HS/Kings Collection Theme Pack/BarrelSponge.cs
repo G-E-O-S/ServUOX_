@@ -5,7 +5,7 @@ namespace Server.Items
 {
     public class BarrelSpongeAddon : BaseAddon, IDyable
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime NextResourceCount { get; set; }

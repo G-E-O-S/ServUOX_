@@ -7,7 +7,7 @@ namespace Server.Engines.ArenaSystem
 {
     public class ArenaGate : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
         public override int LabelNumber { get { return 1115879; } } // Arena Gate
 
         [CommandProperty(AccessLevel.GameMaster)]

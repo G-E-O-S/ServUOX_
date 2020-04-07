@@ -32,7 +32,7 @@ namespace Server.Items
         public Item Deed { get { return new WallSafeDeed(); } }
 
         public override int LabelNumber { get { return 1119751; } } // Wall Safe
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public List<string> History { get; set; }
 

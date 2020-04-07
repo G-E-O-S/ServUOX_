@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections.Generic;
 using Server.Items;
@@ -11,15 +10,11 @@ using Server.Spells.Chivalry;
 using Server.Spells.Ninjitsu;
 using Server.Spells.First;
 using Server.Spells.Second;
-using Server.Spells.Third;
 using Server.Spells.Fourth;
-using Server.Spells.Spellweaving;
 using Server.Targeting;
-using Server.Spells.SkillMasteries;
 using System.Reflection;
 using Server.Spells.Mysticism;
 using System.Linq;
-#endregion
 
 namespace Server.Spells
 {
@@ -36,38 +31,38 @@ namespace Server.Spells
 
 		public SpellState State { get { return m_State; } set { m_State = value; } }
 
-		public Mobile Caster { get { return m_Caster; } }
-		public SpellInfo Info { get { return m_Info; } }
-		public string Name { get { return m_Info.Name; } }
-		public string Mantra { get { return m_Info.Mantra; } }
-		public Type[] Reagents { get { return m_Info.Reagents; } }
-		public Item Scroll { get { return m_Scroll; } }
-		public long StartCastTime { get { return m_StartCastTime; } }
+		public Mobile Caster => m_Caster;
+		public SpellInfo Info => m_Info;
+		public string Name => m_Info.Name;
+		public string Mantra => m_Info.Mantra;
+		public Type[] Reagents => m_Info.Reagents;
+		public Item Scroll => m_Scroll;
+		public long StartCastTime => m_StartCastTime;
 
         public IDamageable InstantTarget { get { return m_InstantTarget; } set { m_InstantTarget = value; } }
 
         private static readonly TimeSpan NextSpellDelay = TimeSpan.FromSeconds(0.75);
 		private static TimeSpan AnimateDelay = TimeSpan.FromSeconds(1.5);
 
-		public virtual SkillName CastSkill { get { return SkillName.Magery; } }
-		public virtual SkillName DamageSkill { get { return SkillName.EvalInt; } }
+		public virtual SkillName CastSkill => SkillName.Magery;
+		public virtual SkillName DamageSkill => SkillName.EvalInt;
 
-		public virtual bool RevealOnCast { get { return true; } }
-		public virtual bool ClearHandsOnCast { get { return true; } }
-		public virtual bool ShowHandMovement { get { return true; } }
+		public virtual bool RevealOnCast => true;
+		public virtual bool ClearHandsOnCast => true;
+		public virtual bool ShowHandMovement => true;
 
-		public virtual bool DelayedDamage { get { return false; } }
-        public virtual Type[] DelayDamageFamily { get { return null; } }
+		public virtual bool DelayedDamage => false;
+        public virtual Type[] DelayDamageFamily => null;
         // DelayDamageFamily can define spells so they don't stack, even though they are different spells
         // Right now, magic arrow and nether bolt are the only ones that have this functionality
 
-		public virtual bool DelayedDamageStacking { get { return true; } }
+		public virtual bool DelayedDamageStacking => true;
 		//In reality, it's ANY delayed Damage spell Post-AoS that can't stack, but, only 
 		//Expo & Magic Arrow have enough delay and a short enough cast time to bring up 
 		//the possibility of stacking 'em.  Note that a MA & an Explosion will stack, but
 		//of course, two MA's won't.
 
-        public virtual DamageType SpellDamageType { get { return DamageType.Spell; } }
+        public virtual DamageType SpellDamageType => DamageType.Spell;
 
 		private static readonly Dictionary<Type, DelayedDamageContextWrapper> m_ContextTable =
 			new Dictionary<Type, DelayedDamageContextWrapper>();
@@ -238,7 +233,7 @@ namespace Server.Spells
             return damage / 100;
 		}
 
-		public virtual bool IsCasting { get { return m_State == SpellState.Casting; } }
+		public virtual bool IsCasting => m_State == SpellState.Casting;
 
         public virtual void OnCasterHurt()
         {
@@ -677,7 +672,7 @@ namespace Server.Spells
 		public virtual bool CheckCast()
 		{
             #region High Seas
-            if (Server.Multis.BaseBoat.IsDriving(m_Caster) && m_Caster.AccessLevel == AccessLevel.Player)
+            if (Multis.BaseBoat.IsDriving(m_Caster) && m_Caster.AccessLevel == AccessLevel.Player)
             {
                 m_Caster.SendLocalizedMessage(1049616); // You are too busy to do that at the moment.
                 return false;
@@ -717,10 +712,10 @@ namespace Server.Spells
             } 
         }
 
-		public virtual bool BlockedByAnimalForm { get { return true; } }
-		public virtual bool BlocksMovement { get { return true; } }
+		public virtual bool BlockedByAnimalForm => true;
+		public virtual bool BlocksMovement => true;
 
-		public virtual bool CheckNextSpellTime { get { return !(m_Scroll is BaseWand); } }
+		public virtual bool CheckNextSpellTime => !(m_Scroll is BaseWand);
 
 		public virtual bool Cast()
 		{
@@ -996,10 +991,10 @@ namespace Server.Spells
 			return TimeSpan.FromSeconds(delay);
 		}
 
-		public virtual int CastRecoveryBase { get { return 6; } }
-		public virtual int CastRecoveryFastScalar { get { return 1; } }
-		public virtual int CastRecoveryPerSecond { get { return 4; } }
-		public virtual int CastRecoveryMinimum { get { return 0; } }
+		public virtual int CastRecoveryBase => 6;
+		public virtual int CastRecoveryFastScalar => 1;
+		public virtual int CastRecoveryPerSecond => 4;
+		public virtual int CastRecoveryMinimum => 0;
 
 		public virtual TimeSpan GetCastRecovery()
 		{
@@ -1024,9 +1019,9 @@ namespace Server.Spells
 
 		public abstract TimeSpan CastDelayBase { get; }
 
-		public virtual double CastDelayFastScalar { get { return 1; } }
-		public virtual double CastDelaySecondsPerTick { get { return 0.25; } }
-		public virtual TimeSpan CastDelayMinimum { get { return TimeSpan.FromSeconds(0.25); } }
+		public virtual double CastDelayFastScalar => 1;
+		public virtual double CastDelaySecondsPerTick => 0.25;
+		public virtual TimeSpan CastDelayMinimum => TimeSpan.FromSeconds(0.25);
 
 		public virtual TimeSpan GetCastDelay()
 		{

@@ -9,7 +9,7 @@ namespace Server.Items
         public override int DefaultGumpID { get { return 0x107; } }
         public override int DefaultDropSound { get { return 0x42; } }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [Constructable]
         public ArcaneBookShelfAddonEast()

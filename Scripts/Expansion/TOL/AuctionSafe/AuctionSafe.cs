@@ -179,7 +179,7 @@ namespace Server.Engines.Auction
         [Flipable(0x9C18, 0x9C19)]
         public class InternalComponent : AddonComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
             public override int LabelNumber { get { return 1156371; } } // Auction Safe
 
             public InternalComponent()

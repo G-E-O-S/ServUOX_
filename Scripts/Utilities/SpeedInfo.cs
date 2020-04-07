@@ -1,10 +1,7 @@
-#region References
 using System;
 using System.Collections;
-
 using Server.Factions;
 using Server.Mobiles;
-#endregion
 
 namespace Server
 {

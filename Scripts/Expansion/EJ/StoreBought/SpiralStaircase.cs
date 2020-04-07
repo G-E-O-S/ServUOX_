@@ -10,7 +10,7 @@ namespace Server.Items
 {
     public class TeleporterComponent : AddonComponent
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public Direction _Direction { get; set; }
 

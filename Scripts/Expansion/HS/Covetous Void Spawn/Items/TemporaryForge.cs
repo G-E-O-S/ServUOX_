@@ -82,7 +82,7 @@ namespace Server.Items
 
         private class InternalComponent : ForgeComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
             public override int LabelNumber { get { return 1152601; } } //Temporary forge
 
             public InternalComponent() : base(0xFB1)

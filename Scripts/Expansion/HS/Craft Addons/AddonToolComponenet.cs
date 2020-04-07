@@ -16,7 +16,7 @@ namespace Server.Items
 
         public override CraftSystem CraftSystem { get { return _CraftSystem; } }
         public override bool BreakOnDepletion { get { return false; } }
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
         public override int LabelNumber { get { return _LabelNumber; } }
 
         public virtual bool NeedsWall { get { return false; } }

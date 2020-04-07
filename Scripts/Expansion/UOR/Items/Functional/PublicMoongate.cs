@@ -119,7 +119,7 @@ namespace Server.Items
 		public override int LabelNumber {get {return 1023952;} } // Blue Moongate
 
 		public override bool HandlesOnMovement { get { return true; } }
-		public override bool ForceShowProperties { get { return true; } }
+		public override bool ForceShowProperties => true;
 
 		[Constructable]
 		public PublicMoongate()

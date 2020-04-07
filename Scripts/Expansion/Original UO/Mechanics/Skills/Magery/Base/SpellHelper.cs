@@ -790,7 +790,7 @@ namespace Server.Spells
             return false;
         }
 
-        public static bool RestrictRedTravel { get { return Config.Get("General.RestrictRedsToFel", false); } }
+        public static bool RestrictRedTravel => Config.Get("General.RestrictRedsToFel", false);
 
         private delegate bool TravelValidator(Map map, Point3D loc);
 
@@ -804,7 +804,7 @@ namespace Server.Spells
             new TravelValidator(IsFeluccaDungeon),
             new TravelValidator(IsTrammelSolenHive),
             new TravelValidator(IsFeluccaSolenHive),
-            new TravelValidator(IsCrystalCave),
+            new TravelValidator(IsCrystalCave),//Expansion? -Fraz
             new TravelValidator(IsDoomGauntlet),
             new TravelValidator(IsDoomFerry),
             new TravelValidator(IsSafeZone),
@@ -821,6 +821,8 @@ namespace Server.Spells
             new TravelValidator(IsSAEntrance),
             new TravelValidator(IsEodon),
         };
+
+        // Certain Locations will need added/removed according to Expansion .. Crystal Cave? -Fraz
 
         private static readonly bool[,] m_Rules = new bool[,]
         {
@@ -1029,6 +1031,7 @@ namespace Server.Spells
             return (Region.Find(loc, map).Name == "Khaldun");
         }
 
+        // Future adjusted existence by expansion -Fraz
         public static bool IsCrystalCave(Map map, Point3D loc)
         {
             if (map != Map.Malas || loc.Z >= -80)
@@ -1509,7 +1512,7 @@ namespace Server.Spells
 
         public static void Heal(int amount, Mobile target, Mobile from, bool message)
         {
-            Spellweaving.ArcaneEmpowermentSpell.AddHealBonus(from, ref amount);
+            ArcaneEmpowermentSpell.AddHealBonus(from, ref amount);
 
             if (amount > 0 && target != from && from is PlayerMobile && target is PlayerMobile)
             {
@@ -1580,7 +1583,7 @@ namespace Server.Spells
             private DFAlgorithm m_DFA;
             private Spell m_Spell;
 
-            public Spell Spell { get { return m_Spell; } }
+            public Spell Spell => m_Spell;
 
             public SpellDamageTimerAOS(Spell s, IDamageable target, Mobile from, int damage, int phys, int fire, int cold, int pois, int nrgy, int chaos, int direct, TimeSpan delay, DFAlgorithm dfa)
                 : base(delay)

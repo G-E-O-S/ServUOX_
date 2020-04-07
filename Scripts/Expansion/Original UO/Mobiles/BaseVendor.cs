@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +14,6 @@ using Server.Network;
 using Server.Regions;
 using Server.Services.Virtues;
 using Server.Targeting;
-#endregion
 
 namespace Server.Mobiles
 {
@@ -51,29 +49,29 @@ namespace Server.Mobiles
 
 		private DateTime m_LastRestock;
 
-		public override bool CanTeach { get { return true; } }
+		public override bool CanTeach => true;
 
-		public override bool BardImmune { get { return true; } }
+		public override bool BardImmune => true; 
 
-		public override bool PlayerRangeSensitive { get { return true; } }
+		public override bool PlayerRangeSensitive => true; 
 
-        public override bool UseSmartAI { get { return true; } }
+        public override bool UseSmartAI => true;
 
-		public virtual bool IsActiveVendor { get { return true; } }
-		public virtual bool IsActiveBuyer { get { return IsActiveVendor && !Siege.SiegeShard; } } // response to vendor SELL
-		public virtual bool IsActiveSeller { get { return IsActiveVendor; } } // repsonse to vendor BUY
-		public virtual bool HasHonestyDiscount { get { return true; } }
+		public virtual bool IsActiveVendor => true;
+		public virtual bool IsActiveBuyer => IsActiveVendor && !Siege.SiegeShard; // response to vendor SELL
+		public virtual bool IsActiveSeller => IsActiveVendor; // repsonse to vendor BUY
+		public virtual bool HasHonestyDiscount => true;
 
-		public virtual NpcGuild NpcGuild { get { return NpcGuild.None; } }
+		public virtual NpcGuild NpcGuild => NpcGuild.None;
 
-        public virtual bool ChangeRace { get { return true; } }
+        public virtual bool ChangeRace => true;
 
-		public override bool IsInvulnerable { get { return true; } }
+		public override bool IsInvulnerable => true;
 
 		public virtual DateTime NextTrickOrTreat { get; set; }
-        public virtual double GetMoveDelay { get { return (double)Utility.RandomMinMax(30, 120); } }
+        public virtual double GetMoveDelay => (double)Utility.RandomMinMax(30, 120);
 
-		public override bool ShowFameTitle { get { return false; } }
+		public override bool ShowFameTitle => false;
 
 		public virtual bool IsValidBulkOrder(Item item)
 		{
@@ -98,7 +96,7 @@ namespace Server.Mobiles
 		public virtual void OnSuccessfulBulkOrderReceive(Mobile from)
 		{ }
 
-        public virtual BODType BODType { get { return BODType.Smith; } }
+        public virtual BODType BODType => BODType.Smith;
 
 		#region Faction
 		public virtual int GetPriceScalar()
@@ -360,7 +358,7 @@ namespace Server.Mobiles
 
 		public DateTime LastRestock { get { return m_LastRestock; } set { m_LastRestock = value; } }
 
-        public virtual TimeSpan RestockDelay { get { return DelayRestock; } }
+        public virtual TimeSpan RestockDelay => DelayRestock;
 
 		public Container BuyPack
 		{
@@ -382,8 +380,8 @@ namespace Server.Mobiles
 
 		public abstract void InitSBInfo();
 
-		public virtual bool IsTokunoVendor { get { return (Map == Map.Tokuno); } }
-        public virtual bool IsStygianVendor { get { return (Map == Map.TerMur); } }
+		public virtual bool IsTokunoVendor => (Map == Map.Tokuno);
+        public virtual bool IsStygianVendor => (Map == Map.TerMur);
 
 		protected void LoadSBInfo()
 		{
@@ -467,7 +465,7 @@ namespace Server.Mobiles
 			return Utility.RandomNeutralHue();
 		}
 
-		public virtual VendorShoeType ShoeType { get { return VendorShoeType.Shoes; } }
+		public virtual VendorShoeType ShoeType => VendorShoeType.Shoes;
 
 		public virtual void CheckMorph()
 		{
@@ -1245,15 +1243,15 @@ namespace Server.Mobiles
                     {
                         case PointsMode.Enabled:
                             context.AddPending(BODType, points);
-                            from.SendGump(new ConfirmBankPointsGump((PlayerMobile)from, this, this.BODType, points, banked));
+                            from.SendGump(new ConfirmBankPointsGump((PlayerMobile)from, this, BODType, points, banked));
                             break;
                         case PointsMode.Disabled:
                             context.AddPending(BODType, points);
-                            from.SendGump(new RewardsGump(this, (PlayerMobile)from, this.BODType, points));
+                            from.SendGump(new RewardsGump(this, (PlayerMobile)from, BODType, points));
                             break;
                         case PointsMode.Automatic:
-                            BulkOrderSystem.SetPoints(from, this.BODType, banked);
-                            from.SendGump(new RewardsGump(this, (PlayerMobile)from, this.BODType));
+                            BulkOrderSystem.SetPoints(from, BODType, banked);
+                            from.SendGump(new RewardsGump(this, (PlayerMobile)from, BODType));
                             break;
                     }
 
@@ -1321,12 +1319,12 @@ namespace Server.Mobiles
             }
             else
             {
-                this.SayTo(from, 1071971, String.Format("#{0}", dropped.LabelNumber.ToString()), 0x3B2); // Thou art giving me ~1_VAL~?
+                SayTo(from, 1071971, String.Format("#{0}", dropped.LabelNumber.ToString()), 0x3B2); // Thou art giving me ~1_VAL~?
             }
 
             if (dropped is Gold)
             {
-                this.SayTo(from, 501548, 0x3B2); // I thank thee.
+                SayTo(from, 501548, 0x3B2); // I thank thee.
                 Titles.AwardFame(from, dropped.Amount / 100, true);
 
                 return true;
@@ -1338,14 +1336,14 @@ namespace Server.Mobiles
             {
                 if (ssi.IsSellable(dropped))
                 {
-                    this.SayTo(from, 501548, 0x3B2); // I thank thee.
+                    SayTo(from, 501548, 0x3B2); // I thank thee.
                     Titles.AwardFame(from, ssi.GetSellPriceFor(dropped, this) * dropped.Amount, true);
 
                     return true;
                 }
             }
 
-            this.SayTo(from, 501550, 0x3B2); // I am not interested in this.
+            SayTo(from, 501550, 0x3B2); // I am not interested in this.
 
             return false;
         }
@@ -1364,7 +1362,7 @@ namespace Server.Mobiles
         public int RecentBribes { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool UnderWatch { get { return WatchEnds > DateTime.MinValue; } }
+        public bool UnderWatch => WatchEnds > DateTime.MinValue;
 
         public Dictionary<Mobile, PendingBribe> Bribes { get; set; }
 
@@ -2471,7 +2469,7 @@ namespace Server.Mobiles
         }
 
         #region Mage Armor Conversion
-        public virtual bool ConvertsMageArmor { get { return false; } }
+        public virtual bool ConvertsMageArmor => false;
 
         private List<PendingConvert> _PendingConvertEntries = new List<PendingConvert>();
 
@@ -2592,7 +2590,7 @@ namespace Server.Mobiles
             public Timer Timer { get; set; }
             public DateTime Expires { get; set; }
 
-            public bool Expired { get { return DateTime.UtcNow > Expires; } }
+            public bool Expired => DateTime.UtcNow > Expires;
 
             public PendingConvert(Mobile from, BaseArmor armor, BaseVendor vendor)
             {

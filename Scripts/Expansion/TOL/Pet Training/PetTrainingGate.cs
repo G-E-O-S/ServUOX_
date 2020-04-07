@@ -7,7 +7,7 @@ namespace Server.Items
 {
     public class PetTrainingGate : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public override string DefaultName
         {
@@ -73,7 +73,7 @@ namespace Server.Items
 
     public class PetBondRemoveGate : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public override string DefaultName
         {
@@ -129,7 +129,7 @@ namespace Server.Items
 
     public class PowerScrollGiver : Item
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public override string DefaultName
         {

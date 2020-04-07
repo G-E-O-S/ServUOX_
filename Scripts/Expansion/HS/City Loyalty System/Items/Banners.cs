@@ -10,7 +10,7 @@ namespace Server.Engines.CityLoyalty
     {
         public override BaseAddonDeed Deed { get { return new CityBannerDeed(City); } }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public City City { get; private set; }

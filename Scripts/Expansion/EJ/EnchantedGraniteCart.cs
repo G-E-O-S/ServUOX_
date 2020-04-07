@@ -10,7 +10,7 @@ namespace Server.Engines.VeteranRewards
 {
     public class EnchantedGraniteCartComponent : LocalizedAddonComponent, IDyable
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int RewardCount { get { return ((EnchantedGraniteCartAddon)Addon).RewardCount; } }

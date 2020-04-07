@@ -196,7 +196,7 @@ namespace Server.Multis
     {
         public override int LabelNumber { get { return 1149698; } } // wheel
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public override bool Babbles { get { return false; } }
 

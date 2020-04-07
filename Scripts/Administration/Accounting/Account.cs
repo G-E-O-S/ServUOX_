@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ using Server.Misc;
 using Server.Mobiles;
 using Server.Multis;
 using Server.Network;
-#endregion
 
 namespace Server.Accounting
 {
@@ -492,12 +490,12 @@ namespace Server.Accounting
 		public DateTime Created { get; set; }
 
 		[CommandProperty(AccessLevel.Administrator)]
-		public TimeSpan Age { get { return DateTime.UtcNow - Created; } }
+        public TimeSpan Age => DateTime.UtcNow - Created;
 
-		/// <summary>
-		///     Gets or sets the date and time when this account was last accessed.
-		/// </summary>
-		[CommandProperty(AccessLevel.Administrator)]
+        /// <summary>
+        ///     Gets or sets the date and time when this account was last accessed.
+        /// </summary>
+        [CommandProperty(AccessLevel.Administrator)]
 		public DateTime LastLogin { get; set; }
 
 		/// <summary>
@@ -583,13 +581,13 @@ namespace Server.Accounting
 		///     not supported by the client.
 		/// </summary>
 		[CommandProperty(AccessLevel.Administrator)]
-		public int Limit { get { return (Siege.SiegeShard ? Siege.CharacterSlots : Core.SA ? 7 : Core.AOS ? 6 : 5); } }
+		public int Limit => (Siege.SiegeShard ? Siege.CharacterSlots : Core.SA ? 7 : Core.AOS ? 6 : 5);
 
-		/// <summary>
-		///     Gets the maxmimum amount of characters that this account can hold.
-		/// </summary>
-		[CommandProperty(AccessLevel.Administrator)]
-		public int Length { get { return m_Mobiles.Length; } }
+        /// <summary>
+        ///     Gets the maxmimum amount of characters that this account can hold.
+        /// </summary>
+        [CommandProperty(AccessLevel.Administrator)]
+        public int Length => m_Mobiles.Length;
 
 		/// <summary>
 		///     Gets or sets the character at a specified index for this account.
@@ -1603,10 +1601,7 @@ namespace Server.Accounting
 		///     0 to 999,999,999 by default.
 		/// </summary>
 		[CommandProperty(AccessLevel.Administrator)]
-		public int TotalGold
-		{
-			get { return (int)Math.Floor((TotalCurrency - Math.Truncate(TotalCurrency)) * Math.Max(1.0, CurrencyThreshold)); }
-		}
+		public int TotalGold => (int)Math.Floor((TotalCurrency - Math.Truncate(TotalCurrency)) * Math.Max(1.0, CurrencyThreshold));
 
 		/// <summary>
 		///     This amount represents the current amount of Platinum owned by the player.
@@ -1615,7 +1610,7 @@ namespace Server.Accounting
 		///     One Platinum represents the value of CurrencyThreshold in Gold.
 		/// </summary>
 		[CommandProperty(AccessLevel.Administrator)]
-		public int TotalPlat { get { return (int)Math.Truncate(TotalCurrency); } }
+		public int TotalPlat => (int)Math.Truncate(TotalCurrency);
 
 		/// <summary>
 		///     Attempts to deposit the given amount of Gold and Platinum into this account.

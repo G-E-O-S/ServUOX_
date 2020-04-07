@@ -201,7 +201,7 @@ namespace Server.Engines.VeteranRewards
 
         public class DaviesLockerComponent : LocalizedAddonComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
 
             public DaviesLockerComponent(int id)
                 : base(id, 1153534) // Davies' Locker

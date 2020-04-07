@@ -9,7 +9,7 @@ namespace Server.Items
     [TypeAlias("Server.Items.SkullRugEastAddon", "Server.Items.SkullRugSouthAddon")]
     public class SkullRugAddon : BaseAddon, IRewardItem
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         private bool m_IsRewardItem;
         private int m_ResourceCount;

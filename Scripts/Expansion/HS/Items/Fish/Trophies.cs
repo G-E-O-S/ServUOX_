@@ -378,7 +378,7 @@ namespace Server.Items
 
     public class TrophyComponent : LocalizedAddonComponent
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public TrophyComponent(int itemID, int label, int hue) : base(itemID, label)
         {

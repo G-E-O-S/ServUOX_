@@ -92,7 +92,7 @@ namespace Server.Items
 
     public class RoastingPigOnASpitComponent : LocalizedAddonComponent
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public RoastingPigOnASpitComponent(int id)
             : base(id, 1123329) // Roasting Pig on a Spit

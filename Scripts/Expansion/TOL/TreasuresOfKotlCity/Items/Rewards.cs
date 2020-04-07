@@ -44,7 +44,7 @@ namespace Server.Items
 
         public class InternalComponent : AddonComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
 
             public InternalComponent(int id) : base(id)
             {
@@ -383,7 +383,7 @@ namespace Server.Items
     public class TribalBanner : Item, IFlipable
     {
         public override int LabelNumber { get { return ItemID + 1084024; } }
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public int NorthID { get { return GetTribeID(_Tribe); } }
         public int WestID { get { return GetTribeID(_Tribe) + 1; } }

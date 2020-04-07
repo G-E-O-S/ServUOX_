@@ -14,7 +14,7 @@ namespace Server.Items
         public List<Mobile> Revealed { get; set; }
         public Dictionary<Mobile, DateTime> NextMessage { get; set; }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
         public bool CheckWhenHidden { get { return false; } }
 
         [Constructable]

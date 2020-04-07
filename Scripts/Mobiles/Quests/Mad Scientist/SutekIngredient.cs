@@ -76,7 +76,7 @@ namespace Server.Items
     public class SutekIngredientItem : Item
     {
         public override int LabelNumber { get { return m_TextId; } }
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         private SutekIngredient m_Ingredient;
         private int m_TextId;

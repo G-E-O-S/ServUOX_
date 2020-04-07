@@ -13,7 +13,7 @@ namespace Server.Items
 
 		public override int LabelNumber { get { return 1113495; } } // (Exit)
 
-		public override bool ForceShowProperties { get { return true; } }
+		public override bool ForceShowProperties => true;
 
 		[CommandProperty( AccessLevel.GameMaster )]
 		public Map MapDest { get { return m_MapDest; } set { m_MapDest = value; } }

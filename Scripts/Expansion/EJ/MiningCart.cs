@@ -16,7 +16,7 @@ namespace Server.Items
 
     public class MiningCart : BaseAddon, IRewardItem
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public override BaseAddonDeed Deed
         {

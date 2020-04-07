@@ -18,7 +18,7 @@ namespace Server.Items
 
         public override int LabelNumber { get { return 1027774; } } // bulletin board
         public override bool Public { get { return true; } }
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [Constructable]
         public CityMessageBoard(City city, int id) : base(id)

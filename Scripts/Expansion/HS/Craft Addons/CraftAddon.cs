@@ -177,7 +177,7 @@ namespace Server.Items
 
         public class ToolDropComponent : LocalizedAddonComponent
         {
-            public override bool ForceShowProperties { get { return true; } }
+            public override bool ForceShowProperties => true;
 
             public ToolDropComponent(int id, int cliloc)
                 : base(id, cliloc)

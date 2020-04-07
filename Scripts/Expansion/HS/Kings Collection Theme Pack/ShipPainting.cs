@@ -6,7 +6,7 @@ namespace Server.Items
 {
     public class ShipPaintingAddon : BaseAddon
     {
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime NextResourceCount { get; set; }

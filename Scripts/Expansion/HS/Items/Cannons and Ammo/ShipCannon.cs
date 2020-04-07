@@ -74,7 +74,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public double Durability { get { return ((double)m_Hits / (double)MaxHits) * 100.0; } }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
         public override int DefaultGumpID { get { return 0x9CE7; } }
         public override bool DisplaysContent { get { return false; } }
         public override int DefaultMaxWeight { get { return 300; } }

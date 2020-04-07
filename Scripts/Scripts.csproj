@@ -8595,7 +8595,7 @@
     <Compile Include="Administration\Commands\Console\ConsoleCommands.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utilities\Timestamp.cs">
+    <Compile Include="Administration\Commands\Console\Timestamp.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\CrashGuard.cs">
@@ -11514,7 +11514,7 @@
     <Compile Include="Administration\World\GiftGiving\GiftGiving.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Needs Deleted Look Over First\ItemFixes.cs">
+    <Compile Include="Administration\World\ItemFixes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\PreventInaccess.cs">

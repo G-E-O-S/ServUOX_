@@ -311,7 +311,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public Beacon Beacon { get; set; }
 
-        public override bool ForceShowProperties { get { return true; } }
+        public override bool ForceShowProperties => true;
 
         public BeaconItem(Beacon beacon)
             : base(18223)
