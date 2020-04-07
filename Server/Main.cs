@@ -92,9 +92,9 @@ namespace Server
 
 		public static Assembly Assembly { get; set; }
 
-		public static Version Version { get { return Assembly.GetName().Version; } }
+        public static Version Version => Assembly.GetName().Version;
 
-		public static Process Process { get; private set; }
+        public static Process Process { get; private set; }
 		public static Thread Thread { get; private set; }
 
 		public static MultiTextWriter MultiConsoleOut { get; private set; }
@@ -117,11 +117,11 @@ namespace Server
 
 		private static bool _UseHRT;
 
-		public static bool UsingHighResolutionTiming { get { return _UseHRT && _HighRes && !Unix; } }
+        public static bool UsingHighResolutionTiming => _UseHRT && _HighRes && !Unix;
 
-		public static long TickCount { get { return (long)Ticks; } }
+        public static long TickCount => (long)Ticks;
 
-		public static double Ticks
+        public static double Ticks
 		{
 			get
 			{
@@ -167,28 +167,28 @@ namespace Server
 
 		public static string FindDataFile(string format, params object[] args)
 		{
-			return FindDataFile(String.Format(format, args));
+			return FindDataFile(string.Format(format, args));
 		}
 
 		#region Expansions
 		public static Expansion Expansion { get; set; }
 
-		public static bool T2A { get { return Expansion >= Expansion.T2A; } }
-		public static bool UOR { get { return Expansion >= Expansion.UOR; } }
-		public static bool UOTD { get { return Expansion >= Expansion.UOTD; } }
-		public static bool LBR { get { return Expansion >= Expansion.LBR; } }
-		public static bool AOS { get { return Expansion >= Expansion.AOS; } }
-		public static bool SE { get { return Expansion >= Expansion.SE; } }
-		public static bool ML { get { return Expansion >= Expansion.ML; } }
-		public static bool SA { get { return Expansion >= Expansion.SA; } }
-		public static bool HS { get { return Expansion >= Expansion.HS; } }
-		public static bool TOL { get { return Expansion >= Expansion.TOL; } }
-		public static bool EJ { get { return Expansion >= Expansion.EJ; } }
-		#endregion
+        public static bool T2A => Expansion >= Expansion.T2A;
+        public static bool UOR => Expansion >= Expansion.UOR;
+        public static bool UOTD => Expansion >= Expansion.UOTD;
+        public static bool LBR => Expansion >= Expansion.LBR;
+        public static bool AOS => Expansion >= Expansion.AOS;
+        public static bool SE => Expansion >= Expansion.SE;
+        public static bool ML => Expansion >= Expansion.ML;
+        public static bool SA => Expansion >= Expansion.SA;
+        public static bool HS => Expansion >= Expansion.HS;
+        public static bool TOL => Expansion >= Expansion.TOL;
+        public static bool EJ => Expansion >= Expansion.EJ;
+        #endregion
 
-		public static string ExePath { get { return _ExePath ?? (_ExePath = Assembly.Location); } }
+        public static string ExePath => _ExePath ?? (_ExePath = Assembly.Location);
 
-		public static string BaseDirectory
+        public static string BaseDirectory
 		{
 			get
 			{
@@ -306,11 +306,11 @@ namespace Server
 		private static int _CycleIndex = 1;
 		private static readonly float[] _CyclesPerSecond = new float[100];
 
-		public static float CyclesPerSecond { get { return _CyclesPerSecond[(_CycleIndex - 1) % _CyclesPerSecond.Length]; } }
+        public static float CyclesPerSecond => _CyclesPerSecond[(_CycleIndex - 1) % _CyclesPerSecond.Length];
 
-		public static float AverageCPS { get { return _CyclesPerSecond.Take(_CycleIndex).Average(); } }
+        public static float AverageCPS => _CyclesPerSecond.Take(_CycleIndex).Average();
 
-		public static void Kill()
+        public static void Kill()
 		{
 			Kill(false);
 		}
@@ -757,11 +757,11 @@ namespace Server
 		
 		private static int m_ItemCount, m_MobileCount/*, m_CustomsCount*/;
 
-		public static int ScriptItems { get { return m_ItemCount; } }
-		public static int ScriptMobiles { get { return m_MobileCount; } }
-		// public static int ScriptCustoms { get { return m_CustomsCount; } }
+        public static int ScriptItems => m_ItemCount;
+        public static int ScriptMobiles => m_MobileCount;
+        // public static int ScriptCustoms { get { return m_CustomsCount; } }
 
-		public static void VerifySerialization()
+        public static void VerifySerialization()
 		{
 			m_ItemCount = 0;
 			m_MobileCount = 0;
@@ -982,8 +982,8 @@ namespace Server
 			}
 		}
 
-		public override Encoding Encoding { get { return Encoding.Default; } }
-	}
+        public override Encoding Encoding => Encoding.Default;
+    }
 
 	public class MultiTextWriter : TextWriter
 	{
@@ -1027,9 +1027,9 @@ namespace Server
 
 		public override void WriteLine(string line, params object[] args)
 		{
-			WriteLine(String.Format(line, args));
+			WriteLine(string.Format(line, args));
 		}
 
-		public override Encoding Encoding { get { return Encoding.Default; } }
-	}
+        public override Encoding Encoding => Encoding.Default;
+    }
 }
