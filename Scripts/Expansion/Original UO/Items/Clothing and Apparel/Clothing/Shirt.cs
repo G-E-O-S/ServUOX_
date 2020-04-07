@@ -2,19 +2,23 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [FlipableAttribute(0x1517, 0x1518)]
+    public class Shirt : BaseShirt
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public Shirt()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public Shirt(int hue)
+            : base(0x1517, hue)
         {
+            this.Weight = 1.0;
         }
 
-        public BaseWaist(Serial serial)
+        public Shirt(Serial serial)
             : base(serial)
         {
         }
@@ -31,6 +35,9 @@ namespace Server.Items
             base.Deserialize(reader);
 
             int version = reader.ReadInt();
+
+            if (this.Weight == 2.0)
+                this.Weight = 1.0;
         }
     }
 }

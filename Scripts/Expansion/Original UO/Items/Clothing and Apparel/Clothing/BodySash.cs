@@ -1,20 +1,25 @@
-using System;
+using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [Alterable(typeof(DefTailoring), typeof(GargishSash))]
+    [Flipable(0x1541, 0x1542)]
+    public class BodySash : BaseMiddleTorso
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public BodySash()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public BodySash(int hue)
+            : base(0x1541, hue)
         {
+            this.Weight = 1.0;
         }
 
-        public BaseWaist(Serial serial)
+        public BodySash(Serial serial)
             : base(serial)
         {
         }

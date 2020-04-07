@@ -2,19 +2,23 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [Flipable(0x1f7b, 0x1f7c)]
+    public class Doublet : BaseMiddleTorso
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public Doublet()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public Doublet(int hue)
+            : base(0x1F7B, hue)
         {
+            this.Weight = 2.0;
         }
 
-        public BaseWaist(Serial serial)
+        public Doublet(Serial serial)
             : base(serial)
         {
         }

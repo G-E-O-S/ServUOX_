@@ -1,20 +1,26 @@
+using Server.Engines.Craft;
 using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [Alterable(typeof(DefTailoring), typeof(GargishApron), true)]
+    [FlipableAttribute(0x153b, 0x153c)]
+    public class HalfApron : BaseWaist
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public HalfApron()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public HalfApron(int hue)
+            : base(0x153b, hue)
         {
+            this.Weight = 2.0;
         }
 
-        public BaseWaist(Serial serial)
+        public HalfApron(Serial serial)
             : base(serial)
         {
         }

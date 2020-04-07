@@ -2,19 +2,23 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [Flipable(0x2310, 0x230F)]
+    public class FormalShirt : BaseMiddleTorso
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public FormalShirt()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public FormalShirt(int hue)
+            : base(0x2310, hue)
         {
+            this.Weight = 1.0;
         }
 
-        public BaseWaist(Serial serial)
+        public FormalShirt(Serial serial)
             : base(serial)
         {
         }
@@ -24,6 +28,9 @@ namespace Server.Items
             base.Serialize(writer);
 
             writer.Write((int)0); // version
+
+            if (this.Weight == 2.0)
+                this.Weight = 1.0;
         }
 
         public override void Deserialize(GenericReader reader)

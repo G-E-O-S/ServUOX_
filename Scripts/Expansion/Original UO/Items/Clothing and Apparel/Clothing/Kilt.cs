@@ -2,19 +2,23 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [Flipable(0x1537, 0x1538)]
+    public class Kilt : BaseOuterLegs
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public Kilt()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public Kilt(int hue)
+            : base(0x1537, hue)
         {
+            this.Weight = 2.0;
         }
 
-        public BaseWaist(Serial serial)
+        public Kilt(Serial serial)
             : base(serial)
         {
         }

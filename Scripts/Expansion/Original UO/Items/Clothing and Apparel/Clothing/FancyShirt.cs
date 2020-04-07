@@ -2,19 +2,23 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [FlipableAttribute(0x1efd, 0x1efe)]
+    public class FancyShirt : BaseShirt
     {
-        public BaseWaist(int itemID)
-            : this(itemID, 0)
+        [Constructable]
+        public FancyShirt()
+            : this(0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        [Constructable]
+        public FancyShirt(int hue)
+            : base(0x1EFD, hue)
         {
+            this.Weight = 2.0;
         }
 
-        public BaseWaist(Serial serial)
+        public FancyShirt(Serial serial)
             : base(serial)
         {
         }

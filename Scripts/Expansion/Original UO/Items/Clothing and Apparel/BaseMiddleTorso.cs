@@ -2,19 +2,19 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    public abstract class BaseMiddleTorso : BaseClothing
     {
-        public BaseWaist(int itemID)
+        public BaseMiddleTorso(int itemID)
             : this(itemID, 0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        public BaseMiddleTorso(int itemID, int hue)
+            : base(itemID, Layer.MiddleTorso, hue)
         {
         }
 
-        public BaseWaist(Serial serial)
+        public BaseMiddleTorso(Serial serial)
             : base(serial)
         {
         }

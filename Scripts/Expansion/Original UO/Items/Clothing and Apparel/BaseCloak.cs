@@ -1,20 +1,22 @@
+using Server.Engines.Craft;
 using System;
 
 namespace Server.Items
 {
-    public abstract class BaseWaist : BaseClothing
+    [Alterable(typeof(DefTailoring), typeof(GargishLeatherWingArmor), true)]
+    public abstract class BaseCloak : BaseClothing
     {
-        public BaseWaist(int itemID)
+        public BaseCloak(int itemID)
             : this(itemID, 0)
         {
         }
 
-        public BaseWaist(int itemID, int hue)
-            : base(itemID, Layer.Waist, hue)
+        public BaseCloak(int itemID, int hue)
+            : base(itemID, Layer.Cloak, hue)
         {
         }
 
-        public BaseWaist(Serial serial)
+        public BaseCloak(Serial serial)
             : base(serial)
         {
         }

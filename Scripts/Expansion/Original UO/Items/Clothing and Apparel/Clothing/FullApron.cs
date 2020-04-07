@@ -1,25 +1,26 @@
+using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
 {
     [Alterable(typeof(DefTailoring), typeof(GargoyleHalfApron))]
-    [FlipableAttribute(0x153b, 0x153c)]
-    public class HalfApron : BaseWaist
+    [Flipable(0x153d, 0x153e)]
+    public class FullApron : BaseMiddleTorso
     {
         [Constructable]
-        public HalfApron()
+        public FullApron()
             : this(0)
         {
         }
 
         [Constructable]
-        public HalfApron(int hue)
-            : base(0x153b, hue)
+        public FullApron(int hue)
+            : base(0x153d, hue)
         {
-            this.Weight = 2.0;
+            this.Weight = 4.0;
         }
 
-        public HalfApron(Serial serial)
+        public FullApron(Serial serial)
             : base(serial)
         {
         }

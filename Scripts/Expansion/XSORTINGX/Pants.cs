@@ -2,19 +2,92 @@ using System;
 
 namespace Server.Items
 {
-    public abstract class BaseShirt : BaseClothing
+    #region Reward Clothing
+    public class LibraryFriendSkirt : Kilt
     {
-        public BaseShirt(int itemID)
-            : this(itemID, 0)
+        public override int LabelNumber { get { return 1073352; } }// Friends of the Library Kilt
+
+        [Constructable]
+        public LibraryFriendSkirt()
+            : this(0)
         {
         }
 
-        public BaseShirt(int itemID, int hue)
-            : base(itemID, Layer.Shirt, hue)
+        [Constructable]
+        public LibraryFriendSkirt(int hue)
+            : base(hue)
         {
         }
 
-        public BaseShirt(Serial serial)
+        public LibraryFriendSkirt(Serial serial)
+            : base(serial)
+        {
+        }
+      
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class LibraryFriendPants : LongPants
+    {
+        public override int LabelNumber { get { return 1073349; } }// Friends of the Library Pants
+
+        [Constructable]
+        public LibraryFriendPants()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public LibraryFriendPants(int hue)
+            : base(hue)
+        {
+        }
+
+        public LibraryFriendPants(Serial serial)
+            : base(serial)
+        {
+        }
+        
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write((int)0); // version
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            int version = reader.ReadInt();
+        }
+    }
+
+    public class MalabellesDress : Skirt
+    {
+        public override int LabelNumber { get { return 1073251; } }// Malabelle's Dress - Museum of Vesper Replica
+
+        [Constructable]
+        public MalabellesDress()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public MalabellesDress(int hue)
+            : base(hue)
+        {
+        }
+
+        public MalabellesDress(Serial serial)
             : base(serial)
         {
         }
@@ -33,24 +106,25 @@ namespace Server.Items
             int version = reader.ReadInt();
         }
     }
+    #endregion
 
-    [FlipableAttribute(0x1efd, 0x1efe)]
-    public class FancyShirt : BaseShirt
+    [Flipable(0x279B, 0x27E6)]
+    public class TattsukeHakama : BasePants
     {
         [Constructable]
-        public FancyShirt()
+        public TattsukeHakama()
             : this(0)
         {
         }
 
         [Constructable]
-        public FancyShirt(int hue)
-            : base(0x1EFD, hue)
+        public TattsukeHakama(int hue)
+            : base(0x279B, hue)
         {
             this.Weight = 2.0;
         }
 
-        public FancyShirt(Serial serial)
+        public TattsukeHakama(Serial serial)
             : base(serial)
         {
         }
@@ -70,102 +144,9 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x1517, 0x1518)]
-    public class Shirt : BaseShirt
+    [FlipableAttribute(0x2FC3, 0x3179)]
+    public class ElvenPants : BasePants
     {
-        [Constructable]
-        public Shirt()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public Shirt(int hue)
-            : base(0x1517, hue)
-        {
-            this.Weight = 1.0;
-        }
-
-        public Shirt(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write((int)0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (this.Weight == 2.0)
-                this.Weight = 1.0;
-        }
-    }
-
-    [Flipable(0x2794, 0x27DF)]
-    public class ClothNinjaJacket : BaseShirt
-    {
-        [Constructable]
-        public ClothNinjaJacket()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public ClothNinjaJacket(int hue)
-            : base(0x2794, hue)
-        {
-            this.Weight = 5.0;
-            this.Layer = Layer.InnerTorso;
-        }
-
-        public ClothNinjaJacket(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.Write((int)0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-        }
-    }
-
-    public class ElvenShirt : BaseShirt
-    {
-        [Constructable]
-        public ElvenShirt()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public ElvenShirt(int hue)
-            : base(0x3175, hue)
-        {
-            this.Weight = 2.0;
-        }
-
-        public ElvenShirt(Serial serial)
-            : base(serial)
-        {
-        }
-
         public override Race RequiredRace
         {
             get
@@ -173,6 +154,25 @@ namespace Server.Items
                 return Race.Elf;
             }
         }
+
+        [Constructable]
+        public ElvenPants()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public ElvenPants(int hue)
+            : base(0x2FC3, hue)
+        {
+            this.Weight = 2.0;
+        }
+
+        public ElvenPants(Serial serial)
+            : base(serial)
+        {
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -188,68 +188,8 @@ namespace Server.Items
         }
     }
 
-    public class ElvenDarkShirt : BaseShirt
+    public class GargishClothLegs : BaseClothing
     {
-        [Constructable]
-        public ElvenDarkShirt()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public ElvenDarkShirt(int hue)
-            : base(0x3176, hue)
-        {
-            this.Weight = 2.0;
-        }
-
-        public ElvenDarkShirt(Serial serial)
-            : base(serial)
-        {
-        }
-
-        public override Race RequiredRace
-        {
-            get
-            {
-                return Race.Elf;
-            }
-        }
-        public override void Serialize(GenericWriter writer)
-        {
-            base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
-        }
-
-        public override void Deserialize(GenericReader reader)
-        {
-            base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
-        }
-    }
-
-    public class GargishClothChest : BaseClothing
-    {
-        [Constructable]
-        public GargishClothChest()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public GargishClothChest(int hue)
-            : base(0x0406, Layer.InnerTorso, hue)
-        {
-            this.Weight = 2.0;
-        }
-
-        public GargishClothChest(Serial serial)
-            : base(serial)
-        {
-        }
-
         public override Race RequiredRace
         {
             get
@@ -264,6 +204,20 @@ namespace Server.Items
                 return true;
             }
         }
+
+        [Constructable]
+        public GargishClothLegs()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public GargishClothLegs(int hue)
+            : base(0x040A, Layer.Pants, hue)
+        {
+            this.Weight = 2.0;
+        }
+
         public override void OnAdded(object parent)
         {
             base.OnAdded(parent);
@@ -271,10 +225,15 @@ namespace Server.Items
             if (parent is Mobile)
             {
                 if (((Mobile)parent).Female)
-                    this.ItemID = 0x0405;
+                    this.ItemID = 0x0409;
                 else
-                    this.ItemID = 0x0406;
+                    this.ItemID = 0x040A;
             }
+        }
+
+        public GargishClothLegs(Serial serial)
+            : base(serial)
+        {
         }
 
         public override void Serialize(GenericWriter writer)
@@ -290,26 +249,8 @@ namespace Server.Items
         }
     }
 
-    public class FemaleGargishClothChest : BaseClothing
+    public class FemaleGargishClothLegs : BaseClothing
     {
-        [Constructable]
-        public FemaleGargishClothChest()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public FemaleGargishClothChest(int hue)
-            : base(0x0405, Layer.InnerTorso, hue)
-        {
-            this.Weight = 2.0;
-        }
-
-        public FemaleGargishClothChest(Serial serial)
-            : base(serial)
-        {
-        }
-
         public override Race RequiredRace
         {
             get
@@ -324,6 +265,25 @@ namespace Server.Items
                 return true;
             }
         }
+
+        [Constructable]
+        public FemaleGargishClothLegs()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public FemaleGargishClothLegs(int hue)
+            : base(0x0409, Layer.Pants, hue)
+        {
+            this.Weight = 2.0;
+        }
+
+        public FemaleGargishClothLegs(Serial serial)
+            : base(serial)
+        {
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -337,26 +297,8 @@ namespace Server.Items
         }
     }
 
-    public class MaleGargishClothChest : BaseClothing
+    public class MaleGargishClothLegs : BaseClothing
     {
-        [Constructable]
-        public MaleGargishClothChest()
-            : this(0)
-        {
-        }
-
-        [Constructable]
-        public MaleGargishClothChest(int hue)
-            : base(0x0406, Layer.InnerTorso, hue)
-        {
-            this.Weight = 2.0;
-        }
-
-        public MaleGargishClothChest(Serial serial)
-            : base(serial)
-        {
-        }
-
         public override Race RequiredRace
         {
             get
@@ -371,6 +313,25 @@ namespace Server.Items
                 return true;
             }
         }
+
+        [Constructable]
+        public MaleGargishClothLegs()
+            : this(0)
+        {
+        }
+
+        [Constructable]
+        public MaleGargishClothLegs(int hue)
+            : base(0x040A, Layer.Pants, hue)
+        {
+            this.Weight = 2.0;
+        }
+
+        public MaleGargishClothLegs(Serial serial)
+            : base(serial)
+        {
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

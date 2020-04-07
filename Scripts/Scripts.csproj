@@ -51,9 +51,59 @@
     <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\LootBags.cs" />
     <Compile Include="Expansion\HS\Gothic Theme Pack\GargoyleStatues.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseCloak.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseMiddleTorso.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseOuterLegs.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseOuterTorso.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BasePants.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseShirt.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseShoes.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseWaist.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\BodySash.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Boots.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Cloak.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\DeathRobe.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Doublet.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\FancyDress.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\FancyShirt.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\FormalShirt.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\FullApron.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\HalfApron.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\Bandana.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\BearMask.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\Bonnet.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\Cap.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\DeerMask.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\FeatheredHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\FloppyHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\HornedTribalMask.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\JesterHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\MagicWizardsHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\OrcMasks.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\SavageMask.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\SkullCap.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\StrawHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\TallStrawHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\TribalMask.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\TricorneHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\WideBrimHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Hats\WizardsHat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\JesterSuit.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Kilt.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\LongPants.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\PlainDress.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Robe.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Sandals.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Shirt.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Shoes.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\ShortPants.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Skirt.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Surcoat.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\ThighBoots.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Clothing\Tunic.cs" />
     <Compile Include="Expansion\SA\GargishApron.cs" />
     <Compile Include="Expansion\SA\GargoyleHalfApron.cs" />
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\HalfApron.cs" />
     <Compile Include="Expansion\ML\WoodlandBelt.cs" />
     <Compile Include="Expansion\SE\Items\Obi.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Bears.cs" />
@@ -1361,7 +1411,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Weapons\BaseWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\BaseWaterContainer.cs">
+    <Compile Include="Expansion\Original UO\Items\World\BaseWaterContainer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Weapons\BaseWeapon.cs">
@@ -4787,7 +4837,7 @@
     <Compile Include="Expansion\AOS\Artifacts Doom\SpiritOfTheTotem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Cloaks.cs">
+    <Compile Include="Expansion\XSORTINGX\Cloaks.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Gargoyle Accessories.cs">
@@ -4811,28 +4861,25 @@
     <Compile Include="Items\Artifacts\Equipment\Armor\SpinedBloodwormBracers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Hats.cs">
+    <Compile Include="Expansion\XSORTINGX\Hats.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\MiddleTorso.cs">
+    <Compile Include="Expansion\XSORTINGX\MiddleTorso.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\OuterLegs.cs">
+    <Compile Include="Expansion\XSORTINGX\OuterLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\OuterTorso.cs">
+    <Compile Include="Expansion\XSORTINGX\OuterTorso.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Pants.cs">
+    <Compile Include="Expansion\XSORTINGX\Pants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Shirts.cs">
+    <Compile Include="Expansion\XSORTINGX\Shirts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Shoes.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseWaist.cs">
+    <Compile Include="Expansion\XSORTINGX\Shoes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\World\BaseSwitch.cs">
@@ -5087,13 +5134,13 @@
     <Compile Include="Expansion\SE\Asian.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\XSORTINGX\BaseMagicalFood.cs">
+    <Compile Include="Expansion\SA\BaseMagicalFood.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Beverage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\BeverageEmpty.cs">
+    <Compile Include="Expansion\Original UO\Items\World\BeverageEmpty.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Bowls.cs">
