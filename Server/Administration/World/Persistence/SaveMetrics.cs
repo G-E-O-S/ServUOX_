@@ -73,66 +73,66 @@ namespace Server
 				}
             }
 
-            this.numberOfWorldSaves = new PerformanceCounter(PerformanceCategoryName, "Save - Count", false);
+            numberOfWorldSaves = new PerformanceCounter(PerformanceCategoryName, "Save - Count", false);
 
-            this.itemsPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Items/sec", false);
-            this.mobilesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Mobiles/sec", false);
-            //this.dataPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Customs/sec", false);
+            itemsPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Items/sec", false);
+            mobilesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Mobiles/sec", false);
+            //dataPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Customs/sec", false);
 
-            this.serializedBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Serialized bytes/sec", false);
-            this.writtenBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Written bytes/sec", false);
+            serializedBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Serialized bytes/sec", false);
+            writtenBytesPerSecond = new PerformanceCounter(PerformanceCategoryName, "Save - Written bytes/sec", false);
 
             // increment number of world saves
-            this.numberOfWorldSaves.Increment();
+            numberOfWorldSaves.Increment();
         }
 
         public void OnItemSaved(int numberOfBytes)
         {
-            this.itemsPerSecond.Increment();
+            itemsPerSecond.Increment();
 
-            this.serializedBytesPerSecond.IncrementBy(numberOfBytes);
+            serializedBytesPerSecond.IncrementBy(numberOfBytes);
         }
 
         public void OnMobileSaved(int numberOfBytes)
         {
-            this.mobilesPerSecond.Increment();
+            mobilesPerSecond.Increment();
 
-            this.serializedBytesPerSecond.IncrementBy(numberOfBytes);
+            serializedBytesPerSecond.IncrementBy(numberOfBytes);
         }
 
         public void OnGuildSaved(int numberOfBytes)
         {
-            this.serializedBytesPerSecond.IncrementBy(numberOfBytes);
+            serializedBytesPerSecond.IncrementBy(numberOfBytes);
         }
         /*
         public void OnDataSaved(int numberOfBytes)
         {
-            this.dataPerSecond.Increment();
+            dataPerSecond.Increment();
 
-            this.serializedBytesPerSecond.IncrementBy(numberOfBytes);
+            serializedBytesPerSecond.IncrementBy(numberOfBytes);
         }
         */
         public void OnFileWritten(int numberOfBytes)
         {
-            this.writtenBytesPerSecond.IncrementBy(numberOfBytes);
+            writtenBytesPerSecond.IncrementBy(numberOfBytes);
         }
 
         private bool isDisposed;
 
         public void Dispose()
         {
-            if (!this.isDisposed)
+            if (!isDisposed)
             {
-                this.isDisposed = true;
+                isDisposed = true;
 
-                this.numberOfWorldSaves.Dispose();
+                numberOfWorldSaves.Dispose();
 
-                this.itemsPerSecond.Dispose();
-                this.mobilesPerSecond.Dispose();
-                //this.dataPerSecond.Dispose();
+                itemsPerSecond.Dispose();
+                mobilesPerSecond.Dispose();
+                //dataPerSecond.Dispose();
 
-                this.serializedBytesPerSecond.Dispose();
-                this.writtenBytesPerSecond.Dispose();
+                serializedBytesPerSecond.Dispose();
+                writtenBytesPerSecond.Dispose();
             }
         }
     }

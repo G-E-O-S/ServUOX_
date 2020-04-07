@@ -377,7 +377,7 @@ namespace Server
 				//There has to be this distinction between the racial values and not to account for gaining skills and these skills aren't displayed nor Totaled up.
 				double value = NonRacialValue;
 
-				double raceBonus = m_Owner.Owner.GetRacialSkillBonus(this.SkillName);
+				double raceBonus = m_Owner.Owner.GetRacialSkillBonus(SkillName);
 
 				if (raceBonus > value)
 				{

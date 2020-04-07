@@ -1,4 +1,3 @@
-
 using System;
 
 namespace Server.Mobiles
@@ -25,7 +24,6 @@ namespace Server.Mobiles
             SetMana(0);
 
             SetDamage(4, 9);
-
             SetDamageType(ResistanceType.Physical, 100);
 
             SetResistance(ResistanceType.Physical, 25, 30);
@@ -58,14 +56,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -92,7 +88,6 @@ namespace Server.Mobiles
             SetMana(0);
 
             SetDamage(1, 4);
-
             SetDamageType(ResistanceType.Physical, 100);
 
             SetResistance(ResistanceType.Physical, 5, 15);
@@ -194,9 +189,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(1);
-
             writer.Write(m_MilkedOn);
             writer.Write(m_Milk);
         }
@@ -204,9 +197,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-
             if (version > 0)
             {
                 m_MilkedOn = reader.ReadDateTime();

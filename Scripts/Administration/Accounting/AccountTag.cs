@@ -13,8 +13,8 @@ namespace Server.Accounting
         /// <param name="value">Initial value.</param>
         public AccountTag(string name, string value)
         {
-            this.m_Name = name;
-            this.m_Value = value;
+            m_Name = name;
+            m_Value = value;
         }
 
         /// <summary>
@@ -23,8 +23,8 @@ namespace Server.Accounting
         /// <param name="node">The XmlElement instance from which to deserialize.</param>
         public AccountTag(XmlElement node)
         {
-            this.m_Name = Utility.GetAttribute(node, "name", "empty");
-            this.m_Value = Utility.GetText(node, "");
+            m_Name = Utility.GetAttribute(node, "name", "empty");
+            m_Value = Utility.GetText(node, "");
         }
 
         /// <summary>
@@ -34,11 +34,11 @@ namespace Server.Accounting
         {
             get
             {
-                return this.m_Name;
+                return m_Name;
             }
             set
             {
-                this.m_Name = value;
+                m_Name = value;
             }
         }
         /// <summary>
@@ -48,11 +48,11 @@ namespace Server.Accounting
         {
             get
             {
-                return this.m_Value;
+                return m_Value;
             }
             set
             {
-                this.m_Value = value;
+                m_Value = value;
             }
         }
         /// <summary>
@@ -62,8 +62,8 @@ namespace Server.Accounting
         public void Save(XmlTextWriter xml)
         {
             xml.WriteStartElement("tag");
-            xml.WriteAttributeString("name", this.m_Name);
-            xml.WriteString(this.m_Value);
+            xml.WriteAttributeString("name", m_Name);
+            xml.WriteString(m_Value);
             xml.WriteEndElement();
         }
     }

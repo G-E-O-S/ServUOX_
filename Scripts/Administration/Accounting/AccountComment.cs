@@ -15,9 +15,9 @@ namespace Server.Accounting
         /// <param name="content">Initial Content value.</param>
         public AccountComment(string addedBy, string content)
         {
-            this.m_AddedBy = addedBy;
-            this.m_Content = content;
-            this.m_LastModified = DateTime.UtcNow;
+            m_AddedBy = addedBy;
+            m_Content = content;
+            m_LastModified = DateTime.UtcNow;
         }
 
         /// <summary>
@@ -26,9 +26,9 @@ namespace Server.Accounting
         /// <param name="node">The XmlElement instance from which to deserialize.</param>
         public AccountComment(XmlElement node)
         {
-            this.m_AddedBy = Utility.GetAttribute(node, "addedBy", "empty");
-            this.m_LastModified = Utility.GetXMLDateTime(Utility.GetAttribute(node, "lastModified"), DateTime.UtcNow);
-            this.m_Content = Utility.GetText(node, "");
+            m_AddedBy = Utility.GetAttribute(node, "addedBy", "empty");
+            m_LastModified = Utility.GetXMLDateTime(Utility.GetAttribute(node, "lastModified"), DateTime.UtcNow);
+            m_Content = Utility.GetText(node, "");
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Server.Accounting
         {
             get
             {
-                return this.m_AddedBy;
+                return m_AddedBy;
             }
         }
         /// <summary>
@@ -48,12 +48,12 @@ namespace Server.Accounting
         {
             get
             {
-                return this.m_Content;
+                return m_Content;
             }
             set
             {
-                this.m_Content = value;
-                this.m_LastModified = DateTime.UtcNow;
+                m_Content = value;
+                m_LastModified = DateTime.UtcNow;
             }
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Server.Accounting
         {
             get
             {
-                return this.m_LastModified;
+                return m_LastModified;
             }
         }
         /// <summary>
@@ -74,11 +74,11 @@ namespace Server.Accounting
         {
             xml.WriteStartElement("comment");
 
-            xml.WriteAttributeString("addedBy", this.m_AddedBy);
+            xml.WriteAttributeString("addedBy", m_AddedBy);
 
-            xml.WriteAttributeString("lastModified", XmlConvert.ToString(this.m_LastModified, XmlDateTimeSerializationMode.Utc));
+            xml.WriteAttributeString("lastModified", XmlConvert.ToString(m_LastModified, XmlDateTimeSerializationMode.Utc));
 
-            xml.WriteString(this.m_Content);
+            xml.WriteString(m_Content);
 
             xml.WriteEndElement();
         }

@@ -3043,7 +3043,7 @@ namespace Server
 
 		public virtual bool CheckMovement(Direction d, out int newZ)
 		{
-			return Movement.Movement.CheckMovement(this, this.Map, this.Location, d, out newZ);
+			return Movement.Movement.CheckMovement(this, Map, Location, d, out newZ);
 		}
 
 		public virtual bool Move(Direction d)
@@ -4185,7 +4185,7 @@ namespace Server
 				Warmode = false;
 
 				BodyMod = 0;
-				//Body = this.Female ? 0x193 : 0x192;
+				//Body = Female ? 0x193 : 0x192;
 				Body = Race.GhostBody(this);
 
 				Item deathShroud = new Item(0x204E);
@@ -10896,7 +10896,7 @@ namespace Server
 		///     <code>
 		///  public override bool OnDragLift( Item item )
 		///  {
-		/// 		if ( item is Pickaxe &amp;&amp; this.Str &lt; 60 )
+		/// 		if ( item is Pickaxe &amp;&amp; Str &lt; 60 )
 		/// 		{
 		/// 			SendMessage( "That is too heavy for you to lift." );
 		/// 			return false;

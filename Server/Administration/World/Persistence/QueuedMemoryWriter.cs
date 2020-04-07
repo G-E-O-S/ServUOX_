@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -11,16 +10,11 @@ namespace Server
         public QueuedMemoryWriter()
             : base(new MemoryStream(1024 * 1024), true)
         {
-            this._memStream = this.UnderlyingStream as MemoryStream;
+            _memStream = UnderlyingStream as MemoryStream;
         }
 
-        protected override int BufferSize
-        {
-            get
-            {
-                return 512;
-            }
-        }
+        protected override int BufferSize => 512;
+
         public void QueueForIndex(ISerializable serializable, int size)
         {
             IndexInfo info;
@@ -30,18 +24,18 @@ namespace Server
             info.typeCode = serializable.TypeReference;	//For guilds, this will automagically be zero.
             info.serial = serializable.SerialIdentity;
 
-            this._orderedIndexInfo.Add(info);
+            _orderedIndexInfo.Add(info);
         }
 
         public void CommitTo(SequentialFileWriter dataFile, SequentialFileWriter indexFile)
         {
             this.Flush();
 
-            int memLength = (int)this._memStream.Position;
+            int memLength = (int)_memStream.Position;
 
             if (memLength > 0)
             {
-                byte[] memBuffer = this._memStream.GetBuffer();
+                byte[] memBuffer = _memStream.GetBuffer();
 
                 long actualPosition = dataFile.Position;
 
@@ -54,9 +48,9 @@ namespace Server
                 //int indexWritten = _orderedIndexInfo.Count * indexBuffer.Length;
                 //int totalWritten = memLength + indexWritten
 
-                for (int i = 0; i < this._orderedIndexInfo.Count; i++)
+                for (int i = 0; i < _orderedIndexInfo.Count; i++)
                 {
-                    IndexInfo info = this._orderedIndexInfo[i];
+                    IndexInfo info = _orderedIndexInfo[i];
 
                     int typeCode = info.typeCode;
                     int serial = info.serial;
@@ -91,8 +85,7 @@ namespace Server
                     actualPosition += info.size;
                 }
             }
-
-            this.Close();	//We're done with this writer.
+            Close();	//We're done with this writer.
         }
 
         private struct IndexInfo

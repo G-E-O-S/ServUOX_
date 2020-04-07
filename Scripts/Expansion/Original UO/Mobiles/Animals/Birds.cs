@@ -14,15 +14,10 @@ namespace Server.Mobiles
 
                 switch ( Utility.Random(3) )
                 {
-                    case 0:
-                        Name = "a crow";
-                        break;
-                    case 2:
-                        Name = "a raven";
-                        break;
-                    case 1:
-                        Name = "a magpie";
-                        break;
+                    default: break;
+                    case 0: Name = "a crow"; break;
+                    case 2: Name = "a raven"; break;
+                    case 1: Name = "a magpie"; break;
                 }
             }
             else
@@ -41,7 +36,6 @@ namespace Server.Mobiles
             SetInt(10);
 
             SetDamage(0);
-
             SetDamageType(ResistanceType.Physical, 100);
 
             SetSkill(SkillName.Wrestling, 4.2, 6.4);
@@ -99,7 +93,6 @@ namespace Server.Mobiles
             SetInt(10);
 
             SetDamage(0);
-
             SetDamageType(ResistanceType.Physical, 100);
 
             SetSkill(SkillName.Wrestling, 4.2, 6.4);
@@ -127,14 +120,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -158,7 +149,6 @@ namespace Server.Mobiles
             SetMana(0);
 
             SetDamage(1);
-
             SetDamageType(ResistanceType.Physical, 100);
 
             SetResistance(ResistanceType.Physical, 1, 5);
@@ -191,14 +181,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -222,7 +210,6 @@ namespace Server.Mobiles
             SetMana(0);
 
             SetDamage(5, 10);
-
             SetDamageType(ResistanceType.Physical, 100);
 
             SetResistance(ResistanceType.Physical, 20, 25);
@@ -259,14 +246,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

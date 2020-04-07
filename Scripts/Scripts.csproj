@@ -51,6 +51,11 @@
     <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\LootBags.cs" />
     <Compile Include="Expansion\HS\Gothic Theme Pack\GargoyleStatues.cs" />
+    <Compile Include="Expansion\SA\GargishApron.cs" />
+    <Compile Include="Expansion\SA\GargoyleHalfApron.cs" />
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\HalfApron.cs" />
+    <Compile Include="Expansion\ML\WoodlandBelt.cs" />
+    <Compile Include="Expansion\SE\Items\Obi.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Bears.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Pigs.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Wolves.cs" />
@@ -4755,7 +4760,7 @@
     <Compile Include="Items\Artifacts\Equipment\Clothing\Tangle1.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Arms.cs">
+    <Compile Include="Expansion\SA\GargishClothArms.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Clothing\CrimsonCincture.cs">
@@ -4827,7 +4832,7 @@
     <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Shoes.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\Waist.cs">
+    <Compile Include="Expansion\Original UO\Items\Clothing and Apparel\BaseWaist.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\World\BaseSwitch.cs">
@@ -5082,7 +5087,7 @@
     <Compile Include="Expansion\SE\Asian.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\BaseMagicalFood.cs">
+    <Compile Include="Expansion\XSORTINGX\BaseMagicalFood.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Food and Drink\Beverage.cs">
@@ -12226,7 +12231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Expansion\AOS\6th Anniversary Gifts\" />
-    <Folder Include="Expansion\XSORTINGX\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>

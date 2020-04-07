@@ -1,4 +1,4 @@
-﻿#region References
+#region References
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -581,7 +581,7 @@ namespace Ultima
 				int i;
 				for (i = 0; i < 0x100; i++)
 				{
-					this.Palette[i] = 0;
+					Palette[i] = 0;
 				}
 				try
 				{
@@ -595,7 +595,7 @@ namespace Ultima
 						int contaFinal = (((0x400 * Red) + (0x20 * Green)) + Blue) + 0x8000;
 						if (contaFinal == 0x8000)
 							contaFinal = 0x8001;
-						this.Palette[i] = (ushort)contaFinal;
+						Palette[i] = (ushort)contaFinal;
 						i++;
 					}
 				}
@@ -605,8 +605,8 @@ namespace Ultima
 				{ }
 				for (i = 0; i < 0x100; i++)
 				{
-					if (this.Palette[i] < 0x8000)
-						this.Palette[i] = 0x8000;
+					if (Palette[i] < 0x8000)
+						Palette[i] = 0x8000;
 				}
 			}
 		}

@@ -27,7 +27,7 @@ namespace Server.Gumps
 
 		public virtual int GetTypeID()
 		{
-			return this.GetType().FullName.GetHashCode();
+			return GetType().FullName.GetHashCode();
 		}
 
 		public Gump(int x, int y)

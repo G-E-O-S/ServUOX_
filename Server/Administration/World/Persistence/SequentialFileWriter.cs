@@ -18,9 +18,9 @@ namespace Server
 
             this.metrics = metrics;
 
-            this.fileStream = FileOperations.OpenSequentialStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
+            fileStream = FileOperations.OpenSequentialStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
 
-            this.fileQueue = new FileQueue(
+            fileQueue = new FileQueue(
                 Math.Max(1, FileOperations.Concurrency),
                 FileCallback);
         }
@@ -29,50 +29,28 @@ namespace Server
         {
             get
             {
-                return this.fileQueue.Position;
+                return fileQueue.Position;
             }
             set
             {
                 throw new InvalidOperationException();
             }
         }
-        public override bool CanRead
-        {
-            get
-            {
-                return false;
-            }
-        }
-        public override bool CanSeek
-        {
-            get
-            {
-                return false;
-            }
-        }
-        public override bool CanWrite
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override long Length
-        {
-            get
-            {
-                return this.Position;
-            }
-        }
+
+        public override bool CanRead => false;
+        public override bool CanSeek => false;
+        public override bool CanWrite => true;
+        public override long Length => Position;
+
         public override void Write(byte[] buffer, int offset, int size)
         {
-            this.fileQueue.Enqueue(buffer, offset, size);
+            fileQueue.Enqueue(buffer, offset, size);
         }
 
         public override void Flush()
         {
-            this.fileQueue.Flush();
-            this.fileStream.Flush();
+            fileQueue.Flush();
+            fileStream.Flush();
         }
 
         public override int Read(byte[] buffer, int offset, int count)
@@ -87,20 +65,20 @@ namespace Server
 
         public override void SetLength(long value)
         {
-            this.fileStream.SetLength(value);
+            fileStream.SetLength(value);
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (this.fileStream != null)
+            if (fileStream != null)
             {
-                this.Flush();
+                Flush();
 
-                this.fileQueue.Dispose();
-                this.fileQueue = null;
+                fileQueue.Dispose();
+                fileQueue = null;
 
-                this.fileStream.Close();
-                this.fileStream = null;
+                fileStream.Close();
+                fileStream = null;
             }
 
             base.Dispose(disposing);
@@ -110,23 +88,23 @@ namespace Server
         {
             if (FileOperations.AreSynchronous)
             {
-                this.fileStream.Write(chunk.Buffer, chunk.Offset, chunk.Size);
+                fileStream.Write(chunk.Buffer, chunk.Offset, chunk.Size);
 
-                if (this.metrics != null)
+                if (metrics != null)
                 {
-                    this.metrics.OnFileWritten(chunk.Size);
+                    metrics.OnFileWritten(chunk.Size);
                 }
 
                 chunk.Commit();
             }
             else
             {
-                if (this.writeCallback == null)
+                if (writeCallback == null)
                 {
-                    this.writeCallback = this.OnWrite;
+                    writeCallback = OnWrite;
                 }
 
-                this.fileStream.BeginWrite(chunk.Buffer, chunk.Offset, chunk.Size, this.writeCallback, chunk);
+                fileStream.BeginWrite(chunk.Buffer, chunk.Offset, chunk.Size, writeCallback, chunk);
             }
         }
 
@@ -134,11 +112,11 @@ namespace Server
         {
             FileQueue.Chunk chunk = asyncResult.AsyncState as FileQueue.Chunk;
 
-            this.fileStream.EndWrite(asyncResult);
+            fileStream.EndWrite(asyncResult);
 
-            if (this.metrics != null)
+            if (metrics != null)
             {
-                this.metrics.OnFileWritten(chunk.Size);
+                metrics.OnFileWritten(chunk.Size);
             }
 
             chunk.Commit();
