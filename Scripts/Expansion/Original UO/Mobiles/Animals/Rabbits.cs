@@ -46,9 +46,9 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 1; } }
-        public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies; } }
+        public override int Meat => 1;
+        public override int Hides => 1;
+        public override FoodType FavoriteFood => FoodType.FruitsAndVegies;
 
         public override int GetAttackSound() { return 0xC9; }
         public override int GetHurtSound() { return 0xCA; }
@@ -57,14 +57,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -113,9 +111,9 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 1; } }
-        public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies; } }
+        public override int Meat => 1;
+        public override int Hides => 1;
+        public override FoodType FavoriteFood => FoodType.FruitsAndVegies;
 
         public override int GetAttackSound() { return 0xC9; }
         public override int GetHurtSound() { return 0xCA; }
@@ -124,14 +122,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

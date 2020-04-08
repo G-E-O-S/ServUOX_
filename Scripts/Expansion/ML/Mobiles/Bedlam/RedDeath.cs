@@ -4,7 +4,7 @@ using Server.Items;
 namespace Server.Mobiles
 {
     [CorpseName("a Red Death corpse")]
-    public class RedDeath : SkeletalMount
+    public class RedDeath : SkeletalSteed
     {
         [Constructable]
         public RedDeath()

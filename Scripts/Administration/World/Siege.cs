@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +8,6 @@ using Server.Items;
 using Server.Mobiles;
 using Server.Regions;
 using Server.Spells;
-#endregion
 
 namespace Server
 {

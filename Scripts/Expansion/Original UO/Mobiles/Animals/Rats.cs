@@ -45,25 +45,23 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat | FoodType.Fish | FoodType.Eggs | FoodType.GrainsAndHay; } }
+        public override int Meat => 1;
+        public override FoodType FavoriteFood => FoodType.Meat | FoodType.Fish | FoodType.Eggs | FoodType.GrainsAndHay;
 
         public override void GenerateLoot()
         {
-            this.AddLoot(LootPack.Poor);
+            AddLoot(LootPack.Poor);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -113,8 +111,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat | FoodType.Eggs | FoodType.FruitsAndVegies; } }
+        public override int Meat => 1;
+        public override FoodType FavoriteFood => FoodType.Meat | FoodType.Eggs | FoodType.FruitsAndVegies;
 
         public override void GenerateLoot()
         {
@@ -124,14 +122,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -182,9 +178,9 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 6; } }
-        public override FoodType FavoriteFood { get { return FoodType.Fish | FoodType.Meat | FoodType.FruitsAndVegies | FoodType.Eggs; } }
+        public override int Meat => 1;
+        public override int Hides => 6;
+        public override FoodType FavoriteFood => FoodType.Fish | FoodType.Meat | FoodType.FruitsAndVegies | FoodType.Eggs;
 
         public override void GenerateLoot()
         {
@@ -194,17 +190,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
-
-
 }

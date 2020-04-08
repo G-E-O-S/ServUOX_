@@ -61,7 +61,7 @@ namespace Server.Mobiles
 
             AddItem(weapon);
 
-            //new SkeletalMount().Rider = this;
+            //new SkeletalSteed().Rider = this;
             AddItem(new VirtualMountItem(this));
         }
 

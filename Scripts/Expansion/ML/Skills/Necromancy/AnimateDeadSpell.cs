@@ -122,7 +122,7 @@ namespace Server.Spells.Necromancy
             }, new SummonEntry[]
                {
                    new SummonEntry(10000, typeof(HellSteed)),
-                   new SummonEntry(0, typeof(SkeletalMount))
+                   new SummonEntry(0, typeof(SkeletalSteed))
                }),
             // Elementals
             new CreatureGroup(new Type[]

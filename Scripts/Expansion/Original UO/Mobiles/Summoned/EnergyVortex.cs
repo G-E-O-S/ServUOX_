@@ -18,9 +18,8 @@ namespace Server.Mobiles
             Name = "an energy vortex";
 
             if (Core.SE && 0.002 > Utility.RandomDouble()) // Per OSI FoF, it's a 1/500 chance.
-            {
-                // Llama vortex!
-                Body = 0xDC;
+            {                
+                Body = 0xDC; // Llama vortex!
                 Hue = 0x76;
             }
             else
@@ -65,62 +64,20 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool DeleteCorpseOnDeath
-        {
-            get
-            {
-                return Summoned;
-            }
-        }
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }// Or Llama vortices will appear gray.
-        public override double DispelDifficulty
-        {
-            get
-            {
-                return 80.0;
-            }
-        }
-        public override double DispelFocus
-        {
-            get
-            {
-                return 20.0;
-            }
-        }
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
+        public override bool DeleteCorpseOnDeath => Summoned;
+        public override bool AlwaysMurderer => true;// Or Llama vortices will appear gray.
+        public override double DispelDifficulty => 80.0;
+        public override double DispelFocus => 20.0;
+        public override bool BleedImmune => true;
+        public override Poison PoisonImmune => Poison.Lethal;
+
         public override double GetFightModeRanking(Mobile m, FightMode acqType, bool bPlayerOnly)
         {
             return (m.Int + m.Skills[SkillName.Magery].Value) / Math.Max(GetDistanceToSqrt(m), 1.0);
         }
 
-        public override int GetAngerSound()
-        {
-            return 0x15;
-        }
-
-        public override int GetAttackSound()
-        {
-            return 0x28;
-        }
+        public override int GetAngerSound() { return 0x15; }
+        public override int GetAttackSound() { return 0x28; }
 
         public override void OnThink()
         {
@@ -155,8 +112,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)

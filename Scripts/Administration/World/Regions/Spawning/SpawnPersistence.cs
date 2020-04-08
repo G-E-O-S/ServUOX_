@@ -1,4 +1,3 @@
-using System;
 
 namespace Server.Regions
 {
@@ -14,7 +13,7 @@ namespace Server.Regions
         private SpawnPersistence()
             : base(1)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public SpawnPersistence Instance
@@ -43,10 +42,10 @@ namespace Server.Regions
 
             writer.WriteEncodedInt(0); // version
 
-            writer.Write((int)SpawnEntry.Table.Values.Count);
+            writer.Write(SpawnEntry.Table.Values.Count);
             foreach (SpawnEntry entry in SpawnEntry.Table.Values)
             {
-                writer.Write((int)entry.ID);
+                writer.Write(entry.ID);
 
                 entry.Serialize(writer);
             }

@@ -207,34 +207,16 @@ namespace Server.Misc
             private readonly Point2D point;
             private readonly int angle;
             private readonly int quadrant;
-            public CirclePoint(Point2D point, int angle, int quadrant)
+            public CirclePoint(Point2D _point, int _angle, int _quadrant)
             {
-                this.point = point;
-                this.angle = angle;
-                this.quadrant = quadrant;
+                point = _point;
+                angle = _angle;
+                quadrant = _quadrant;
             }
 
-            public Point2D Point
-            {
-                get
-                {
-                    return this.point;
-                }
-            }
-            public int Angle
-            {
-                get
-                {
-                    return this.angle;
-                }
-            }
-            public int Quadrant
-            {
-                get
-                {
-                    return this.quadrant;
-                }
-            }
+            public Point2D Point => point;
+            public int Angle => angle;
+            public int Quadrant => quadrant;
         }
     }
 }

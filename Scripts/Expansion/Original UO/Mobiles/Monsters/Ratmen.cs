@@ -45,10 +45,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override InhumanSpeech SpeechType { get { return InhumanSpeech.Ratman; } }
-        public override bool CanRummageCorpses { get { return true; } }
-        public override int Hides { get { return 8; } }
-        public override HideType HideType { get { return HideType.Spined; } }
+        public override InhumanSpeech SpeechType => InhumanSpeech.Ratman;
+        public override bool CanRummageCorpses => true;
+        public override int Hides => 8;
+        public override HideType HideType => HideType.Spined;
 
         public override void GenerateLoot()
         {
@@ -115,10 +115,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override InhumanSpeech SpeechType { get { return InhumanSpeech.Ratman; } }
-        public override bool CanRummageCorpses { get { return true; } }
-        public override int Hides { get { return 8; } }
-        public override HideType HideType { get { return HideType.Spined; } }
+        public override InhumanSpeech SpeechType => InhumanSpeech.Ratman;
+        public override bool CanRummageCorpses => true;
+        public override int Hides => 8;
+        public override HideType HideType => HideType.Spined;
 
         public override void GenerateLoot()
         {
@@ -187,11 +187,11 @@ namespace Server.Mobiles
         {
         }
 
-        public override int TreasureMapLevel { get { return 2; } }
-        public override InhumanSpeech SpeechType { get { return InhumanSpeech.Ratman; } }
-        public override bool CanRummageCorpses { get { return true; } }
-        public override int Hides { get { return 8; } }
-        public override HideType HideType { get { return HideType.Spined; } }
+        public override int TreasureMapLevel => 2;
+        public override InhumanSpeech SpeechType => InhumanSpeech.Ratman;
+        public override bool CanRummageCorpses => true;
+        public override int Hides => 8;
+        public override HideType HideType => HideType.Spined;
 
         public override void GenerateLoot()
         {

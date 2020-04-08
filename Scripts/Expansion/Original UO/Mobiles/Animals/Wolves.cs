@@ -49,22 +49,20 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 6; } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Canine; } }
+        public override int Meat => 1;
+        public override int Hides => 6;
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -117,22 +115,20 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 5; } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Canine; } }
+        public override int Meat => 1;
+        public override int Hides => 5;
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -185,22 +181,20 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 6; } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Canine; } }
+        public override int Meat => 1;
+        public override int Hides => 6;
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }
@@ -265,23 +259,21 @@ namespace Server.Mobiles
             return base.IsEnemy(m);
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 7; } }
-        public override HideType HideType { get { return HideType.Spined; } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Canine; } }
+        public override int Meat => 1;
+        public override int Hides => 7;
+        public override HideType HideType => HideType.Spined;
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Canine;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

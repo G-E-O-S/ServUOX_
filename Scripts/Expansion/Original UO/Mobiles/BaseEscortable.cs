@@ -45,24 +45,12 @@ namespace Server.Mobiles
         {
         }
 
-        public static Hashtable EscortTable
-        {
-            get
-            {
-                return m_EscortTable;
-            }
-        }
+        public static Hashtable EscortTable => m_EscortTable;
 
-        public override bool UseSmartAI { get { return true; } }
-        public override bool CanAutoStable { get { return false; } }
+        public override bool UseSmartAI => true;
+        public override bool CanAutoStable => false;
 
-        public override bool Commandable
-        {
-            get
-            {
-                return false;
-            }
-        }// Our master cannot boss us around!
+        public override bool Commandable => false;// Our master cannot boss us around!
         [CommandProperty(AccessLevel.GameMaster)]
         public string Destination
         {
@@ -525,20 +513,8 @@ namespace Server.Mobiles
             m_Region = region;
         }
 
-        public string Name
-        {
-            get
-            {
-                return m_Name;
-            }
-        }
-        public Region Region
-        {
-            get
-            {
-                return m_Region;
-            }
-        }
+        public string Name => m_Name;
+        public Region Region => m_Region;
         public static void LoadTable()
         {
             ICollection list = Map.Felucca.Regions.Values;

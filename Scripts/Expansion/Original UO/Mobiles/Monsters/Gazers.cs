@@ -48,8 +48,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override int TreasureMapLevel { get { return 1; } }
-        public override int Meat { get { return 1; } }
+        public override int TreasureMapLevel => 1;
+        public override int Meat => 1;
 
         public override void GenerateLoot()
         {
@@ -116,7 +116,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override int TreasureMapLevel { get { return Core.AOS ? 4 : 0; } }
+        public override int TreasureMapLevel => Core.AOS ? 4 : 0;
 
         public override void GenerateLoot()
         {

@@ -48,20 +48,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override double DispelDifficulty
-        {
-            get
-            {
-                return 117.5;
-            }
-        }
-        public override double DispelFocus
-        {
-            get
-            {
-                return 45.0;
-            }
-        }
+        public override double DispelDifficulty => 117.5;
+        public override double DispelFocus => 45.0;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -121,37 +109,13 @@ namespace Server.Mobiles
         {
         }
 
-        public override double DispelDifficulty
-        {
-            get
-            {
-                return 125.0;
-            }
-        }
+        public override double DispelDifficulty => 125.0;
 
-        public override double DispelFocus
-        {
-            get
-            {
-                return 45.0;
-            }
-        }
+        public override double DispelFocus => 45.0;
 
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }// TODO: Immune to poison?
+        public override Poison PoisonImmune => Poison.Regular;// TODO: Immune to poison?
 
-        public override bool CanFly
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool CanFly => true;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -206,20 +170,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override double DispelDifficulty
-        {
-            get
-            {
-                return 117.5;
-            }
-        }
-        public override double DispelFocus
-        {
-            get
-            {
-                return 45.0;
-            }
-        }
+        public override double DispelDifficulty => 117.5;
+        public override double DispelFocus => 45.0;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -277,20 +229,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override double DispelDifficulty
-        {
-            get
-            {
-                return 117.5;
-            }
-        }
-        public override double DispelFocus
-        {
-            get
-            {
-                return 45.0;
-            }
-        }
+        public override double DispelDifficulty => 117.5;
+        public override double DispelFocus => 45.0;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -350,20 +290,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override double DispelDifficulty
-        {
-            get
-            {
-                return 117.5;
-            }
-        }
-        public override double DispelFocus
-        {
-            get
-            {
-                return 45.0;
-            }
-        }
+        public override double DispelDifficulty => 117.5;
+        public override double DispelFocus => 45.0;
 
         public override void Serialize(GenericWriter writer)
         {

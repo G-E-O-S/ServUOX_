@@ -1,10 +1,8 @@
-#region References
 using System;
 
 using Server.Commands;
 using Server.Items;
 using Server.Network;
-#endregion
 
 namespace Server
 {
@@ -15,16 +13,15 @@ namespace Server
         public const int DungeonLevel = 26;
         public const int JailLevel = 9;
 
-		private static int _LevelOverride = Int32.MinValue;
+		private static int _LevelOverride = int.MinValue;
 
         public static int LevelOverride
         {
-			get { return _LevelOverride; }
+            get => _LevelOverride;
             set
             {
-				_LevelOverride = value;
-
-				CheckLightLevels();
+                _LevelOverride = value;
+                CheckLightLevels();
             }
         }
 

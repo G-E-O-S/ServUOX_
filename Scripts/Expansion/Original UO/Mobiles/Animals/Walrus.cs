@@ -48,21 +48,19 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 12; } }
-        public override FoodType FavoriteFood { get { return FoodType.Fish; } }
+        public override int Meat => 1;
+        public override int Hides => 12;
+        public override FoodType FavoriteFood => FoodType.Fish;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

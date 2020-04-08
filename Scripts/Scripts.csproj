@@ -911,7 +911,7 @@
     <Compile Include="Utilities\TaskPollingTimer.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CoconutCrab.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\HungryCoconutCrab.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkeletalCat.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\SkeletalCat.cs" />
     <Compile Include="Holiday Mobiles\Halloween\TheButcher.cs" />
     <Compile Include="Expansion\SA\Triton.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\Eowmu.cs" />
@@ -2230,17 +2230,17 @@
     <Compile Include="Mobiles\Hunters Guide\M\Miasma.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\Mistral.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MougGuur.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PixieRenowned.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\Putrefier.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\Pyre.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\PixieRenowned.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\Putrefier.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Labyrinth\Pyre.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\RakktaviRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\Bedlam\RedDeath.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Rend.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Saliva.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\Silk.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SirPatrick.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkeletalDragonRenowned.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\Spite.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\Silk.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\SirPatrick.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\SkeletalDragonRenowned.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Spite.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Swoop.cs" />
     <Compile Include="Expansion\ML\Mobiles\Sanctuary\Szavetra.cs" />
     <Compile Include="Expansion\ML\Mobiles\Tangle.cs" />
@@ -2287,7 +2287,7 @@
     <Compile Include="Expansion\EJ\StoreBought\Windrunner.cs" />
     <Compile Include="Expansion\SA\Underworld\StygianDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrimsonDrake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PlatinumDrake.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\PlatinumDrake.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\OsseinRam.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FrostMite.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BloodWorm.cs" />
@@ -2488,21 +2488,21 @@
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcScout.cs" />
     <Compile Include="Mobiles\Hunters Guide\O\Ortanord.cs" />
     <Compile Include="Mobiles\Hunters Guide\B\BloodFox.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\ParoxysmusSwampDragon.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PatchworkSkeleton.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PestilentBandage.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\ParoxysmusSwampDragon.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\PatchworkSkeleton.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Bedlam\PestilentBandage.cs" />
     <Compile Include="Expansion\T2A\Mobiles\Phoenix.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PitFiend.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\Pixie.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PlagueBeast.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PlagueBeastLord.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PlagueRat.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PlagueSpawn.cs" />
+    <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\PitFiend.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Pixie.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueBeast.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueBeastLord.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueRat.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueSpawn.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\Lion.cs" />
     <Compile Include="Expansion\TOL\Mobiles\Triceratops.cs" />
     <Compile Include="Expansion\HS\Thanksgiving2012\Turkey.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PalaminoHorse.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SabertoothedTiger.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\PalaminoHorse.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\SabertoothedTiger.cs" />
     <Compile Include="Expansion\TOL\Mobiles\WildTiger.cs" />
     <Compile Include="Mobiles\NPCs\BaseTurnInMobile.cs" />
     <Compile Include="Mobiles\NPCs\Brae.cs" />
@@ -2520,11 +2520,11 @@
     <Compile Include="Mobiles\NPCs\Vrulkax.cs" />
     <Compile Include="Mobiles\NPCs\WanderingShaman.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\PlayerMobile.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PredatorHellCat.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\Protector.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGargoyle.cs" />
-    <Compile Include="Mobiles\Hunters Guide\P\PutridUndeadGuardian.cs" />
-    <Compile Include="Mobiles\Hunters Guide\Q\Quagmire.cs" />
+    <Compile Include="Expansion\T2A\Mobiles\PredatorHellCat.cs" />
+    <Compile Include="Expansion\ML\Mobiles\PrismOfLight\Protector.cs" />
+    <Compile Include="Expansion\SA\Mobiles\HolyCity\PutridUndeadGargoyle.cs" />
+    <Compile Include="Expansion\SA\Mobiles\HolyCity\PutridUndeadGuardian.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\Quagmire.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Rabbits.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\RagingGrizzlyBear.cs" />
     <Compile Include="Expansion\SE\Mobiles\RaiJu.cs" />
@@ -2560,33 +2560,33 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Scorpion.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SeaHorse.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\SeaSerpent.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SentinelSpider.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SerpentineDragon.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SerpentsFangHighExecutioner.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\ShadowDweller.cs" />
+    <Compile Include="Expansion\SA\Underworld\Mobiles\SentinelSpider.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\SerpentineDragon.cs" />
+    <Compile Include="Expansion\AOS\Doom\Mobiles\SerpentsFangHighExecutioner.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\Deprecated\ShadowDweller.cs" />
     <Compile Include="Expansion\UOR\Mobiles\ShadowIronElemental.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\ShadowKnight.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\ShadowWisp.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\ShadowKnight.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\ShadowWisp.cs" />
     <Compile Include="Expansion\UOR\Mobiles\ShadowWyrm.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Sheep.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\SilverSerpent.cs" />
     <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\Deprecated\SilverSteed.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkeletalDragon.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkeletalDrake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkeletalLich.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkeletalMount.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SkitteringHopper.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\Skree.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\SkeletalDragon.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\SkeletalDrake.cs" />
+    <Compile Include="Holiday Mobiles\Halloween\SkeletalLich.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\SkeletalSteed.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\SkitteringHopper.cs" />
+    <Compile Include="Expansion\SA\TerMur\Skree.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Slime.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\Slith.cs" />
+    <Compile Include="Expansion\SA\TerMur\Slith.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Snake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SolenHelper.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SpeckledScorpion.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\SolenHelper.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\Quest\SpeckledScorpion.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\SpectralArmour.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\Spellbinder.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\New Haven\Spellbinder.cs" />
     <Compile Include="Expansion\ML\Mobiles\Squirrel.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\StoneSlith.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\StrongMongbat.cs" />
+    <Compile Include="Expansion\SA\TerMur\StoneSlith.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\StrongMongbat.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Succubus.cs" />
     <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\SwampDragon.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\TanglingRoots.cs" />
@@ -2903,10 +2903,10 @@
     <Compile Include="Expansion\Original UO\Mobiles\Summoned\EnergyVortex.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoylePet.cs" />
     <Compile Include="Expansion\SA\Mechanics\Skills\Mysticism\Mobiles\RisingColossus.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\ShadowWispFamiliar.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SpawnedOrcishLord.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\ShadowWispFamiliar.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\Spawned\SpawnedOrcishLord.cs" />
     <Compile Include="Expansion\AOS\Mobiles\MageSummonAOS.cs" />
-    <Compile Include="Mobiles\Hunters Guide\S\SummonedPaladin.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\SummonedPaladin.cs" />
     <Compile Include="Expansion\SA\Familiars\VampireBatFamiliar.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Anlorlem.cs" />
     <Compile Include="Mobiles\Hunters Guide\A\Anlorvaglem.cs" />
@@ -10787,7 +10787,7 @@
     <Compile Include="Items\Artifacts\Equipment\Weapons\StoneDragonsTooth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\S\StoneMonster.cs">
+    <Compile Include="Expansion\XSORTINGX\Mobiles\StoneMonster.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Items\Artifacts\Equipment\Armor\SummonersKilt.cs">
@@ -10883,7 +10883,7 @@
     <Compile Include="Expansion\ML\Quest\SerpentFangKey.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mobiles\Hunters Guide\S\SerpentsFangAssassin.cs">
+    <Compile Include="Expansion\AOS\Doom\Mobiles\SerpentsFangAssassin.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Quest\TigerClawKey.cs">

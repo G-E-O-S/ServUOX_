@@ -46,10 +46,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 12; } }
-        public override FoodType FavoriteFood { get { return FoodType.Fish | FoodType.Meat | FoodType.FruitsAndVegies; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Bear; } }
+        public override int Meat => 1;
+        public override int Hides => 12;
+        public override FoodType FavoriteFood => FoodType.Fish | FoodType.Meat | FoodType.FruitsAndVegies;
+        public override PackInstinct PackInstinct => PackInstinct.Bear;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -108,10 +108,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 12; } }
-        public override FoodType FavoriteFood { get { return FoodType.Fish | FoodType.FruitsAndVegies | FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Bear; } }
+        public override int Meat => 1;
+        public override int Hides => 12;
+        public override FoodType FavoriteFood => FoodType.Fish | FoodType.FruitsAndVegies | FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Bear;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -172,10 +172,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 2; } }
-        public override int Hides { get { return 16; } }
-        public override FoodType FavoriteFood { get { return FoodType.Fish | FoodType.FruitsAndVegies | FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Bear; } }
+        public override int Meat => 2;
+        public override int Hides => 16;
+        public override FoodType FavoriteFood => FoodType.Fish | FoodType.FruitsAndVegies | FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Bear;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -236,10 +236,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 2; } }
-        public override int Hides { get { return 16; } }
-        public override FoodType FavoriteFood { get { return FoodType.Fish | FoodType.FruitsAndVegies | FoodType.Meat; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Bear; } }
+        public override int Meat => 2;
+        public override int Hides => 16;
+        public override FoodType FavoriteFood => FoodType.Fish | FoodType.FruitsAndVegies | FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Bear;
 
         public override void Serialize(GenericWriter writer)
         {

@@ -22,7 +22,7 @@ namespace Server.Mobiles
             new EtherealInfo(0x260F, 0x3E97), //Beetle
             new EtherealInfo(0x25A0, 0x3E9C), //Kirin
             new EtherealInfo(0x2619, 0x3E98), //SwampDragon
-            new EtherealInfo(9751, 16059), //SkeletalMount
+            new EtherealInfo(9751, 16059), //SkeletalSteed
             new EtherealInfo(10090, 16020), //Hiryu
             new EtherealInfo(11676, 16018), //ChargerOfTheFallen
             new EtherealInfo(9658, 16051), //SeaHorse

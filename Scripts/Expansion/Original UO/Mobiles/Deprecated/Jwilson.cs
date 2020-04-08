@@ -29,42 +29,21 @@ namespace Server.Mobiles
         {
         }
 
-        public override int GetAngerSound() 
-        { 
-            return 0x1C8; 
-        }
-
-        public override int GetIdleSound() 
-        { 
-            return 0x1C9; 
-        }
-
-        public override int GetAttackSound() 
-        { 
-            return 0x1CA; 
-        }
-
-        public override int GetHurtSound() 
-        { 
-            return 0x1CB; 
-        }
-
-        public override int GetDeathSound() 
-        { 
-            return 0x1CC; 
-        }
+        public override int GetAngerSound() { return 0x1C8; }
+        public override int GetIdleSound() { return 0x1C9; }
+        public override int GetAttackSound() { return 0x1CA; }
+        public override int GetHurtSound() { return 0x1CB; }
+        public override int GetDeathSound() { return 0x1CC; }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

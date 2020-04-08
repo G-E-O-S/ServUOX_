@@ -48,10 +48,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 10; } }
-        public override int Hides { get { return 15; } }
-        public override FoodType FavoriteFood { get { return FoodType.GrainsAndHay; } }
-        public override PackInstinct PackInstinct { get { return PackInstinct.Bull; } }
+        public override int Meat => 10;
+        public override int Hides => 15;
+        public override FoodType FavoriteFood => FoodType.GrainsAndHay;
+        public override PackInstinct PackInstinct => PackInstinct.Bull;
 
         public override void Serialize(GenericWriter writer)
         {
@@ -140,9 +140,9 @@ namespace Server.Mobiles
             }
         }
 
-        public override int Meat { get { return 8; } }
-        public override int Hides { get { return 12; } }
-        public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+        public override int Meat => 8;
+        public override int Hides => 12;
+        public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
 
         public override void OnDoubleClick(Mobile from)
         {

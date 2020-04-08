@@ -49,19 +49,19 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool ReacquireOnMovement { get { return !Controlled; } }
-        public override bool AutoDispel { get { return !Controlled; } }
-        public override int TreasureMapLevel { get { return 5; } }
-        public override int Meat { get { return 19; } }
-        public override int DragonBlood { get { return 8; } }
-        public override int Hides { get { return 40; } }
-        public override HideType HideType { get { return HideType.Barbed; } }
-        public override int Scales { get { return 12; } }
-        public override ScaleType ScaleType { get { return (ScaleType)Utility.Random(4); } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override bool CanAngerOnTame { get { return true; } }
-        public override bool CanFly { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Regular; } }
+        public override bool ReacquireOnMovement => !Controlled;
+        public override bool AutoDispel => !Controlled;
+        public override int TreasureMapLevel => 5;
+        public override int Meat => 19;
+        public override int DragonBlood => 8;
+        public override int Hides => 40;
+        public override HideType HideType => HideType.Barbed;
+        public override int Scales => 12;
+        public override ScaleType ScaleType => (ScaleType)Utility.Random(4);
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override bool CanAngerOnTame => true;
+        public override bool CanFly => true;
+        public override Poison PoisonImmune => Poison.Regular;
         // public override Poison HitPoison { get { return Utility.RandomBool() ? Poison.Lesser : Poison.Regular; } }
 
         public override int GetIdleSound() { return 0x2D3; }
@@ -136,18 +136,18 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool ReacquireOnMovement { get { return !Controlled; } }
-        public override bool AutoDispel { get { return !Controlled; } }
-        public override int TreasureMapLevel { get { return 4; } }
-        public override int Meat { get { return 19; } }
-        public override int DragonBlood { get { return 8; } }
-        public override int Hides { get { return 20; } }
-        public override HideType HideType { get { return HideType.Barbed; } }
-        public override int Scales { get { return 7; } }
-        public override ScaleType ScaleType { get { return (Body == 12 ? ScaleType.Yellow : ScaleType.Red); } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override bool CanAngerOnTame { get { return true; } }
-        public override bool CanFly { get { return true; } }
+        public override bool ReacquireOnMovement => !Controlled;
+        public override bool AutoDispel => !Controlled;
+        public override int TreasureMapLevel => 4;
+        public override int Meat => 19;
+        public override int DragonBlood => 8;
+        public override int Hides => 20;
+        public override HideType HideType => HideType.Barbed;
+        public override int Scales => 7;
+        public override ScaleType ScaleType => (Body == 12 ? ScaleType.Yellow : ScaleType.Red);
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override bool CanAngerOnTame => true;
+        public override bool CanFly => true;
 
         public override void GenerateLoot()
         {
@@ -219,18 +219,18 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool ReacquireOnMovement { get { return !Controlled; } }
-        public override bool AutoDispel { get { return !Controlled; } }
-        public override int TreasureMapLevel { get { return 2; } }
-        public override int Meat { get { return 10; } }
-        public override int DragonBlood { get { return 8; } }
-        public override int Hides { get { return 20; } }
-        public override HideType HideType { get { return HideType.Horned; } }
-        public override int Scales { get { return 2; } }
-        public override ScaleType ScaleType { get { return (Body == 60 ? ScaleType.Yellow : ScaleType.Red); } }
-        public override FoodType FavoriteFood { get { return FoodType.Meat; } }
-        public override bool CanAngerOnTame { get { return true; } }
-        public override bool CanFly { get { return true; } }
+        public override bool ReacquireOnMovement => !Controlled;
+        public override bool AutoDispel => !Controlled;
+        public override int TreasureMapLevel => 2;
+        public override int Meat => 10;
+        public override int DragonBlood => 8;
+        public override int Hides => 20;
+        public override HideType HideType => HideType.Horned;
+        public override int Scales => 2;
+        public override ScaleType ScaleType => (Body == 60 ? ScaleType.Yellow : ScaleType.Red);
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override bool CanAngerOnTame => true;
+        public override bool CanFly => true;
 
         public override void GenerateLoot()
         {

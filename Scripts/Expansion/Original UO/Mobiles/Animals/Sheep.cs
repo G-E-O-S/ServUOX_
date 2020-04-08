@@ -63,12 +63,10 @@ namespace Server.Mobiles
             }
         }
 
-        public override int Wool { get { return (Body == 0xCF ? 3 : 0); } }
-
-
-        public override int Meat { get { return 3; } }
-        public override MeatType MeatType { get { return MeatType.LambLeg; } }
-        public override FoodType FavoriteFood { get { return FoodType.FruitsAndVegies | FoodType.GrainsAndHay; } }
+        public override int Wool => Body == 0xCF ? 3 : 0;
+        public override int Meat => 3;
+        public override MeatType MeatType => MeatType.LambLeg;
+        public override FoodType FavoriteFood => FoodType.FruitsAndVegies | FoodType.GrainsAndHay;
 
         public bool Carve(Mobile from, Item item)
         {
@@ -112,7 +110,6 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(1);
 
             writer.WriteDeltaTime(m_NextWoolTime);
@@ -121,7 +118,6 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             switch ( version )

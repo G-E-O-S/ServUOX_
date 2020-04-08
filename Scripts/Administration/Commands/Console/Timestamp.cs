@@ -57,7 +57,7 @@ namespace System
                 value = Timestamp + value;
             }
 
-            byte[] data = this.Encoding.GetBytes(value);
+            byte[] data = Encoding.GetBytes(value);
             m_OldOutput.Write(data, 0, data.Length);
             m_Newline = false;
         }

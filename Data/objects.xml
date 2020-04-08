@@ -5183,7 +5183,7 @@
 					<object type="Server.Mobiles.ScaledSwampDragon" gfx="9753" />
 					<object type="Server.Mobiles.SeaHorse" gfx="9658" />
 					<object type="Server.Mobiles.SilverSteed" gfx="9629" />
-					<object type="Server.Mobiles.SkeletalMount" gfx="9751" />
+					<object type="Server.Mobiles.SkeletalSteed" gfx="9751" />
 					<object type="Server.Mobiles.SwampDragon" gfx="9753" hue="2129" />
 					<object type="Server.Mobiles.UnholySteed" gfx="9628" />
 					<object type="Server.Mobiles.Unicorn" gfx="9678" />

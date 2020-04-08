@@ -48,117 +48,61 @@ namespace Server.Items
 
     public class CraftAttributeInfo
     {
-        private int m_WeaponFireDamage;
-        private int m_WeaponColdDamage;
-        private int m_WeaponPoisonDamage;
-        private int m_WeaponEnergyDamage;
-        private int m_WeaponChaosDamage;
-        private int m_WeaponDirectDamage;
-        private int m_WeaponDurability;
-        private int m_WeaponLuck;
-        private int m_WeaponGoldIncrease;
-        private int m_WeaponLowerRequirements;
-        private int m_WeaponDamage;
-        private int m_WeaponHitChance;
-        private int m_WeaponHitLifeLeech;
-        private int m_WeaponRegenHits;
-        private int m_WeaponSwingSpeed;
+        public int WeaponFireDamage { get; set; }
+        public int WeaponColdDamage { get; set; }
+        public int WeaponPoisonDamage { get; set; }
+        public int WeaponEnergyDamage { get; set; }
+        public int WeaponChaosDamage { get; set; }
+        public int WeaponDirectDamage { get; set; }
+        public int WeaponDurability { get; set; }
+        public int WeaponLuck { get; set; }
+        public int WeaponGoldIncrease { get; set; }
+        public int WeaponLowerRequirements { get; set; }
+        public int WeaponDamage { get; set; }
+        public int WeaponHitChance { get; set; }
+        public int WeaponHitLifeLeech { get; set; }
+        public int WeaponRegenHits { get; set; }
+        public int WeaponSwingSpeed { get; set; }
 
-        private int m_ArmorPhysicalResist;
-        private int m_ArmorFireResist;
-        private int m_ArmorColdResist;
-        private int m_ArmorPoisonResist;
-        private int m_ArmorEnergyResist;
-        private int m_ArmorDurability;
-        private int m_ArmorLuck;
-        private int m_ArmorGoldIncrease;
-        private int m_ArmorLowerRequirements;
-        private int m_ArmorDamage;
-        private int m_ArmorHitChance;
-        private int m_ArmorRegenHits;
-        private int m_ArmorMage;
+        public int ArmorPhysicalResist { get; set; }
+        public int ArmorFireResist { get; set; }
+        public int ArmorColdResist { get; set; }
+        public int ArmorPoisonResist { get; set; }
+        public int ArmorEnergyResist { get; set; }
+        public int ArmorDurability { get; set; }
+        public int ArmorLuck { get; set; }
+        public int ArmorGoldIncrease { get; set; }
+        public int ArmorLowerRequirements { get; set; }
+        public int ArmorDamage { get; set; }
+        public int ArmorHitChance { get; set; }
+        public int ArmorRegenHits { get; set; }
+        public int ArmorMage { get; set; }
 
-        private int m_ShieldPhysicalResist;
-        private int m_ShieldFireResist;
-        private int m_ShieldColdResist;
-        private int m_ShieldPoisonResist;
-        private int m_ShieldEnergyResist;
-        private int m_ShieldPhysicalRandom;
-        private int m_ShieldColdRandom;
-        private int m_ShieldSpellChanneling;
-        private int m_ShieldLuck;
-        private int m_ShieldLowerRequirements;
-        private int m_ShieldRegenHits;
-        private int m_ShieldBonusDex;
-        private int m_ShieldBonusStr;
-        private int m_ShieldReflectPhys;
-        private int m_SelfRepair;
+        public int ShieldPhysicalResist { get; set; }
+        public int ShieldFireResist { get; set; }
+        public int ShieldColdResist { get; set; }
+        public int ShieldPoisonResist { get; set; }
+        public int ShieldEnergyResist { get; set; }
+        public int ShieldPhysicalRandom { get; set; }
+        public int ShieldColdRandom { get; set; }
+        public int ShieldSpellChanneling { get; set; }
+        public int ShieldLuck { get; set; }
+        public int ShieldLowerRequirements { get; set; }
+        public int ShieldRegenHits { get; set; }
+        public int ShieldBonusDex { get; set; }
+        public int ShieldBonusStr { get; set; }
+        public int ShieldReflectPhys { get; set; }
+        public int ShieldSelfRepair { get; set; }
 
-        private int m_OtherSpellChanneling;
-        private int m_OtherLuck;
-        private int m_OtherRegenHits;
-        private int m_OtherLowerRequirements;
+        public int OtherSpellChanneling { get; set; }
+        public int OtherLuck { get; set; }
+        public int OtherRegenHits { get; set; }
+        public int OtherLowerRequirements { get; set; }
 
-        private int m_RunicMinAttributes;
-        private int m_RunicMaxAttributes;
-        private int m_RunicMinIntensity;
-        private int m_RunicMaxIntensity;
-        
-        public int WeaponFireDamage { get { return m_WeaponFireDamage; } set { m_WeaponFireDamage = value; } }
-        public int WeaponColdDamage { get { return m_WeaponColdDamage; } set { m_WeaponColdDamage = value; } }
-        public int WeaponPoisonDamage { get { return m_WeaponPoisonDamage; } set { m_WeaponPoisonDamage = value; } }
-        public int WeaponEnergyDamage { get { return m_WeaponEnergyDamage; } set { m_WeaponEnergyDamage = value; } }
-        public int WeaponChaosDamage { get { return m_WeaponChaosDamage; } set { m_WeaponChaosDamage = value; } }
-        public int WeaponDirectDamage { get { return m_WeaponDirectDamage; } set { m_WeaponDirectDamage = value; } }
-        public int WeaponDurability { get { return m_WeaponDurability; } set { m_WeaponDurability = value; } }
-        public int WeaponLuck { get { return m_WeaponLuck; } set { m_WeaponLuck = value; } }
-        public int WeaponGoldIncrease { get { return m_WeaponGoldIncrease; } set { m_WeaponGoldIncrease = value; } }
-        public int WeaponLowerRequirements { get { return m_WeaponLowerRequirements; } set { m_WeaponLowerRequirements = value; } }
-        public int WeaponDamage { get { return m_WeaponDamage; } set { m_WeaponDamage = value; } }
-        public int WeaponHitChance { get { return m_WeaponHitChance; } set { m_WeaponHitChance = value; } }
-        public int WeaponHitLifeLeech { get { return m_WeaponHitLifeLeech; } set { m_WeaponHitLifeLeech = value; } }
-        public int WeaponRegenHits { get { return m_WeaponRegenHits; } set { m_WeaponRegenHits = value; } }
-        public int WeaponSwingSpeed { get { return m_WeaponSwingSpeed; } set { m_WeaponSwingSpeed = value; } }
-
-        public int ArmorPhysicalResist { get { return m_ArmorPhysicalResist; } set { m_ArmorPhysicalResist = value; } }
-        public int ArmorFireResist { get { return m_ArmorFireResist; } set { m_ArmorFireResist = value; } }
-        public int ArmorColdResist { get { return m_ArmorColdResist; } set { m_ArmorColdResist = value; } }
-        public int ArmorPoisonResist { get { return m_ArmorPoisonResist; } set { m_ArmorPoisonResist = value; } }
-        public int ArmorEnergyResist { get { return m_ArmorEnergyResist; } set { m_ArmorEnergyResist = value; } }
-        public int ArmorDurability { get { return m_ArmorDurability; } set { m_ArmorDurability = value; } }
-        public int ArmorLuck { get { return m_ArmorLuck; } set { m_ArmorLuck = value; } }
-        public int ArmorGoldIncrease { get { return m_ArmorGoldIncrease; } set { m_ArmorGoldIncrease = value; } }
-        public int ArmorLowerRequirements { get { return m_ArmorLowerRequirements; } set { m_ArmorLowerRequirements = value; } }
-        public int ArmorDamage { get { return m_ArmorDamage; } set { m_ArmorDamage = value; } }
-        public int ArmorHitChance { get { return m_ArmorHitChance; } set { m_ArmorHitChance = value; } }
-        public int ArmorRegenHits { get { return m_ArmorRegenHits; } set { m_ArmorRegenHits = value; } }
-        public int ArmorMage { get { return m_ArmorMage; } set { m_ArmorMage = value; } }
-
-        public int ShieldPhysicalResist { get { return m_ShieldPhysicalResist; } set { m_ShieldPhysicalResist = value; } }
-        public int ShieldFireResist { get { return m_ShieldFireResist; } set { m_ShieldFireResist = value; } }
-        public int ShieldColdResist { get { return m_ShieldColdResist; } set { m_ShieldColdResist = value; } }
-        public int ShieldPoisonResist { get { return m_ShieldPoisonResist; } set { m_ShieldPoisonResist = value; } }
-        public int ShieldEnergyResist { get { return m_ShieldEnergyResist; } set { m_ShieldEnergyResist = value; } }
-        public int ShieldPhysicalRandom { get { return m_ShieldPhysicalRandom; } set { m_ShieldPhysicalRandom = value; } }
-        public int ShieldColdRandom { get { return m_ShieldColdRandom; } set { m_ShieldColdRandom = value; } }
-        public int ShieldSpellChanneling { get { return m_ShieldSpellChanneling; } set { m_ShieldSpellChanneling = value; } }
-        public int ShieldLuck { get { return m_ShieldLuck; } set { m_ShieldLuck = value; } }
-        public int ShieldLowerRequirements { get { return m_ShieldLowerRequirements; } set { m_ShieldLowerRequirements = value; } }
-        public int ShieldRegenHits { get { return m_ShieldRegenHits; } set { m_ShieldRegenHits = value; } }
-        public int ShieldBonusDex { get { return m_ShieldBonusDex; } set { m_ShieldBonusDex = value; } }
-        public int ShieldBonusStr { get { return m_ShieldBonusStr; } set { m_ShieldBonusStr = value; } }
-        public int ShieldReflectPhys { get { return m_ShieldReflectPhys; } set { m_ShieldReflectPhys = value; } }
-        public int ShieldSelfRepair { get { return m_SelfRepair; } set { m_SelfRepair = value; } }
-
-        public int OtherSpellChanneling { get { return m_OtherSpellChanneling; } set { m_OtherSpellChanneling = value; } }
-        public int OtherLuck { get { return m_OtherLuck; } set { m_OtherLuck = value; } }
-        public int OtherRegenHits { get { return m_OtherRegenHits; } set { m_OtherRegenHits = value; } }
-        public int OtherLowerRequirements { get { return m_OtherLowerRequirements; } set { m_OtherLowerRequirements = value; } }
-
-        public int RunicMinAttributes { get { return m_RunicMinAttributes; } set { m_RunicMinAttributes = value; } }
-        public int RunicMaxAttributes { get { return m_RunicMaxAttributes; } set { m_RunicMaxAttributes = value; } }
-        public int RunicMinIntensity { get { return m_RunicMinIntensity; } set { m_RunicMinIntensity = value; } }
-        public int RunicMaxIntensity { get { return m_RunicMaxIntensity; } set { m_RunicMaxIntensity = value; } }
+        public int RunicMinAttributes { get; set; }
+        public int RunicMaxAttributes { get; set; }
+        public int RunicMinIntensity { get; set; }
+        public int RunicMaxIntensity { get; set; }
 
         public CraftAttributeInfo()
         {
@@ -597,20 +541,10 @@ namespace Server.Items
 
     public class CraftResourceInfo
     {
-        private readonly int m_Hue;
         private readonly int m_Number;
-        private readonly string m_Name;
-        private readonly CraftAttributeInfo m_AttributeInfo;
-        private readonly CraftResource m_Resource;
         private readonly Type[] m_ResourceTypes;
 
-        public int Hue
-        {
-            get
-            {
-                return this.m_Hue;
-            }
-        }
+        public int Hue { get; }
         public int Number
         {
             get
@@ -618,27 +552,9 @@ namespace Server.Items
                 return this.m_Number;
             }
         }
-        public string Name
-        {
-            get
-            {
-                return this.m_Name;
-            }
-        }
-        public CraftAttributeInfo AttributeInfo
-        {
-            get
-            {
-                return this.m_AttributeInfo;
-            }
-        }
-        public CraftResource Resource
-        {
-            get
-            {
-                return this.m_Resource;
-            }
-        }
+        public string Name { get; }
+        public CraftAttributeInfo AttributeInfo { get; }
+        public CraftResource Resource { get; }
         public Type[] ResourceTypes
         {
             get
@@ -649,12 +565,12 @@ namespace Server.Items
 
         public CraftResourceInfo(int hue, int number, string name, CraftAttributeInfo attributeInfo, CraftResource resource, params Type[] resourceTypes)
         {
-            this.m_Hue = hue;
-            this.m_Number = number;
-            this.m_Name = name;
-            this.m_AttributeInfo = attributeInfo;
-            this.m_Resource = resource;
-            this.m_ResourceTypes = resourceTypes;
+            Hue = hue;
+            m_Number = number;
+            Name = name;
+            AttributeInfo = attributeInfo;
+            Resource = resource;
+            m_ResourceTypes = resourceTypes;
 
             for (int i = 0; i < resourceTypes.Length; ++i)
                 CraftResources.RegisterType(resourceTypes[i], resource);
@@ -834,7 +750,7 @@ namespace Server.Items
             if (start == CraftResource.None)
                 return 0;
 
-            return (int)(resource - start);
+            return (resource - start);
         }
 
         /// <summary>
@@ -864,7 +780,7 @@ namespace Server.Items
         {
             CraftResourceInfo info = GetInfo(resource);
 
-            return (info == null ? String.Empty : info.Name);
+            return (info == null ? string.Empty : info.Name);
         }
 
         /// <summary>
@@ -938,39 +854,24 @@ namespace Server.Items
         public static readonly OreInfo Agapite = new OreInfo(6, 0x979, "Agapite");
         public static readonly OreInfo Verite = new OreInfo(7, 0x89F, "Verite");
         public static readonly OreInfo Valorite = new OreInfo(8, 0x8AB, "Valorite");
-
-        private readonly int m_Level;
-        private readonly int m_Hue;
         private readonly string m_Name;
 
         public OreInfo(int level, int hue, string name)
         {
-            this.m_Level = level;
-            this.m_Hue = hue;
-            this.m_Name = name;
+            Level = level;
+            Hue = hue;
+            m_Name = name;
         }
 
-        public int Level
-        {
-            get
-            {
-                return this.m_Level;
-            }
-        }
+        public int Level { get; }
 
-        public int Hue
-        {
-            get
-            {
-                return this.m_Hue;
-            }
-        }
+        public int Hue { get; }
 
         public string Name
         {
             get
             {
-                return this.m_Name;
+                return m_Name;
             }
         }
     }

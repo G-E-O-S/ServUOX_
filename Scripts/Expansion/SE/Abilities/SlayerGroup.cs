@@ -131,7 +131,7 @@ namespace Server.Items
                     typeof(Revenant), typeof(RevenantLion),
                     typeof(RottingCorpse), typeof(Shade),
                     typeof(ShadowKnight), typeof(SkeletalKnight),
-                    typeof(SkeletalMage), typeof(SkeletalMount),
+                    typeof(SkeletalMage), typeof(SkeletalSteed),
                     typeof(Skeleton), typeof(Spectre),
                     typeof(Wraith), typeof(Zombie),
                     typeof(UnfrozenMummy), typeof(RedDeath),
