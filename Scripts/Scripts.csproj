@@ -912,7 +912,7 @@
     <Compile Include="Mobiles\Hunters Guide\C\CoconutCrab.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\HungryCoconutCrab.cs" />
     <Compile Include="Mobiles\Hunters Guide\S\SkeletalCat.cs" />
-    <Compile Include="Holiday Mobiles\TheButcher.cs" />
+    <Compile Include="Holiday Mobiles\Halloween\TheButcher.cs" />
     <Compile Include="Expansion\SA\Triton.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\Eowmu.cs" />
     <Compile Include="Mobiles\NPCs\Gardener.cs" />
@@ -9149,7 +9149,7 @@
     <Compile Include="Expansion\ML\CommunityCollections\RoyalZooDonationBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\AOS\Decorative\BakeKitsuneStatue.cs">
+    <Compile Include="Expansion\SE\Decorative\BakeKitsuneStatue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Decorative\ChangelingStatue.cs">
@@ -9170,7 +9170,7 @@
     <Compile Include="Expansion\AOS\Decorative\QuagmireStatue.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\AOS\Decorative\ReptalonStatue.cs">
+    <Compile Include="Expansion\ML\Decorative\ReptalonStatue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Decorative\SnakeStatue.cs">
