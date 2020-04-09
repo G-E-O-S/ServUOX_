@@ -270,7 +270,7 @@ namespace Server.Mobiles
 
             List<Point3D> points = new List<Point3D>();
 
-            Server.Misc.Geometry.Circle2D(loc, pmmap, 7, (pnt, map) =>
+            Misc.Geometry.Circle2D(loc, pmmap, 7, (pnt, map) =>
             {
                 if (map.CanFit(pnt, 0) && InLOS(pnt))
                     points.Add(pnt);
@@ -278,7 +278,7 @@ namespace Server.Mobiles
 
             if (pmmap != Map.Internal && pmmap != null)
             {
-                Server.Misc.Geometry.Circle2D(loc, pmmap, 6, (pnt, map) =>
+                Misc.Geometry.Circle2D(loc, pmmap, 6, (pnt, map) =>
                 {
                     if (map.CanFit(pnt, 0) && InLOS(pnt) && Utility.RandomBool())
                     {
@@ -287,7 +287,7 @@ namespace Server.Mobiles
                     }
                 });
 
-                Server.Misc.Geometry.Circle2D(loc, pmmap, 7, (pnt, map) =>
+                Misc.Geometry.Circle2D(loc, pmmap, 7, (pnt, map) =>
                 {
                     if (map.CanFit(pnt, 0) && InLOS(pnt) && Utility.RandomBool())
                     {
@@ -306,7 +306,7 @@ namespace Server.Mobiles
                     if (!from.Alive || from == this || from.AccessLevel > AccessLevel.Player)
                         continue;
 
-                    if (from is PlayerMobile || (from is BaseCreature && (((BaseCreature)from).Controlled) || ((BaseCreature)from).Summoned))
+                    if /*(points.Count > 0 && */(from is PlayerMobile || (from is BaseCreature && (((BaseCreature)from).Controlled) || ((BaseCreature)from).Summoned))
                     {
                         Point3D point = points[Utility.Random(points.Count)];
                         from.MoveToWorld(point, pmmap);
