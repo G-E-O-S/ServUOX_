@@ -1,6 +1,4 @@
-#region References
 using System.Collections;
-#endregion
 
 namespace Server
 {

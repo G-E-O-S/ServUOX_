@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -10,7 +9,6 @@ using System.Security.Cryptography;
 using System.Text;
 
 using Microsoft.CSharp;
-#endregion
 
 namespace Server
 {

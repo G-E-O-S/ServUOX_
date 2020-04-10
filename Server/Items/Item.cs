@@ -1,556 +1,135 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-
 using Server.ContextMenus;
 using Server.Items;
 using Server.Network;
 using Server.Targeting;
-#endregion
 
 namespace Server
 {
-    /// <summary>
-    ///     Enumeration of item layer values.
-    /// </summary>
     public enum Layer : byte
     {
-        /// <summary>
-        ///     Invalid layer.
-        /// </summary>
         Invalid = 0x00,
-
-        /// <summary>
-        ///     First valid layer. Equivalent to <c>Layer.OneHanded</c>.
-        /// </summary>
         FirstValid = 0x01,
-
-        /// <summary>
-        ///     One handed weapon.
-        /// </summary>
         OneHanded = 0x01,
-
-        /// <summary>
-        ///     Two handed weapon or shield.
-        /// </summary>
         TwoHanded = 0x02,
-
-        /// <summary>
-        ///     Shoes.
-        /// </summary>
         Shoes = 0x03,
-
-        /// <summary>
-        ///     Pants.
-        /// </summary>
         Pants = 0x04,
-
-        /// <summary>
-        ///     Shirts.
-        /// </summary>
         Shirt = 0x05,
-
-        /// <summary>
-        ///     Helmets, hats, and masks.
-        /// </summary>
         Helm = 0x06,
-
-        /// <summary>
-        ///     Gloves.
-        /// </summary>
         Gloves = 0x07,
-
-        /// <summary>
-        ///     Rings.
-        /// </summary>
         Ring = 0x08,
-
-        /// <summary>
-        ///     Talismans.
-        /// </summary>
         Talisman = 0x09,
-
-        /// <summary>
-        ///     Gorgets and necklaces.
-        /// </summary>
         Neck = 0x0A,
-
-        /// <summary>
-        ///     Hair.
-        /// </summary>
         Hair = 0x0B,
-
-        /// <summary>
-        ///     Half aprons.
-        /// </summary>
         Waist = 0x0C,
-
-        /// <summary>
-        ///     Torso, inner layer.
-        /// </summary>
         InnerTorso = 0x0D,
-
-        /// <summary>
-        ///     Bracelets.
-        /// </summary>
         Bracelet = 0x0E,
-
-        /// <summary>
-        ///     Face.
-        /// </summary>
         Face = 0x0F,
-
-        /// <summary>
-        ///     Beards and mustaches.
-        /// </summary>
         FacialHair = 0x10,
-
-        /// <summary>
-        ///     Torso, outer layer.
-        /// </summary>
         MiddleTorso = 0x11,
-
-        /// <summary>
-        ///     Earings.
-        /// </summary>
         Earrings = 0x12,
-
-        /// <summary>
-        ///     Arms and sleeves.
-        /// </summary>
         Arms = 0x13,
-
-        /// <summary>
-        ///     Cloaks.
-        /// </summary>
         Cloak = 0x14,
-
-        /// <summary>
-        ///     Backpacks.
-        /// </summary>
         Backpack = 0x15,
-
-        /// <summary>
-        ///     Torso, outer layer.
-        /// </summary>
         OuterTorso = 0x16,
-
-        /// <summary>
-        ///     Leggings, outer layer.
-        /// </summary>
         OuterLegs = 0x17,
-
-        /// <summary>
-        ///     Leggings, inner layer.
-        /// </summary>
         InnerLegs = 0x18,
-
-        /// <summary>
-        ///     Last valid non-internal layer. Equivalent to <c>Layer.InnerLegs</c>.
-        /// </summary>
         LastUserValid = 0x18,
-
-        /// <summary>
-        ///     Mount item layer.
-        /// </summary>
         Mount = 0x19,
-
-        /// <summary>
-        ///     Vendor 'buy pack' layer.
-        /// </summary>
         ShopBuy = 0x1A,
-
-        /// <summary>
-        ///     Vendor 'resale pack' layer.
-        /// </summary>
         ShopResale = 0x1B,
-
-        /// <summary>
-        ///     Vendor 'sell pack' layer.
-        /// </summary>
         ShopSell = 0x1C,
-
-        /// <summary>
-        ///     Bank box layer.
-        /// </summary>
         Bank = 0x1D,
-
-        /// <summary>
-        /// Unused, using this layer makes you invisible to other players. Strange.
-        /// </summary>
-        /// 
         Reserved_1 = 0x1E,
-
-        /// <summary>
-        ///     Secure Trade Layer
-        /// </summary>
         SecureTrade = 0x1F,
     }
 
-    /// <summary>
-    ///     Internal flags used to signal how the item should be updated and resent to nearby clients.
-    /// </summary>
     [Flags]
     public enum ItemDelta
     {
-        /// <summary>
-        ///     Nothing.
-        /// </summary>
         None = 0x00000000,
-
-        /// <summary>
-        ///     Resend the item.
-        /// </summary>
         Update = 0x00000001,
-
-        /// <summary>
-        ///     Resend the item only if it is equiped.
-        /// </summary>
         EquipOnly = 0x00000002,
-
-        /// <summary>
-        ///     Resend the item's properties.
-        /// </summary>
         Properties = 0x00000004
     }
 
-    /// <summary>
-    ///     Enumeration containing possible ways to handle item ownership on death.
-    /// </summary>
     public enum DeathMoveResult
     {
-        /// <summary>
-        ///     The item should be placed onto the corpse.
-        /// </summary>
         MoveToCorpse,
-
-        /// <summary>
-        ///     The item should remain equiped.
-        /// </summary>
         RemainEquiped,
-
-        /// <summary>
-        ///     The item should be placed into the owners backpack.
-        /// </summary>
         MoveToBackpack
     }
 
-    /// <summary>
-    ///     Enumeration containing all possible light types. These are only applicable to light source items, like lanterns, candles, braziers, etc.
-    /// </summary>
     public enum LightType
     {
-        /// <summary>
-        ///     Window shape, arched, ray shining east.
-        /// </summary>
         ArchedWindowEast = 0,
-
-        /// <summary>
-        ///     Medium circular shape.
-        /// </summary>
         Circle225 = 1,
-
-        /// <summary>
-        ///     Small circular shape.
-        /// </summary>
         Circle150 = 2,
-
-        /// <summary>
-        ///     Door shape, shining south.
-        /// </summary>
         DoorSouth = 3,
-
-        /// <summary>
-        ///     Door shape, shining east.
-        /// </summary>
         DoorEast = 4,
-
-        /// <summary>
-        ///     Large semicircular shape (180 degrees), north wall.
-        /// </summary>
         NorthBig = 5,
-
-        /// <summary>
-        ///     Large pie shape (90 degrees), north-east corner.
-        /// </summary>
         NorthEastBig = 6,
-
-        /// <summary>
-        ///     Large semicircular shape (180 degrees), east wall.
-        /// </summary>
         EastBig = 7,
-
-        /// <summary>
-        ///     Large semicircular shape (180 degrees), west wall.
-        /// </summary>
         WestBig = 8,
-
-        /// <summary>
-        ///     Large pie shape (90 degrees), south-west corner.
-        /// </summary>
         SouthWestBig = 9,
-
-        /// <summary>
-        ///     Large semicircular shape (180 degrees), south wall.
-        /// </summary>
         SouthBig = 10,
-
-        /// <summary>
-        ///     Medium semicircular shape (180 degrees), north wall.
-        /// </summary>
         NorthSmall = 11,
-
-        /// <summary>
-        ///     Medium pie shape (90 degrees), north-east corner.
-        /// </summary>
         NorthEastSmall = 12,
-
-        /// <summary>
-        ///     Medium semicircular shape (180 degrees), east wall.
-        /// </summary>
         EastSmall = 13,
-
-        /// <summary>
-        ///     Medium semicircular shape (180 degrees), west wall.
-        /// </summary>
         WestSmall = 14,
-
-        /// <summary>
-        ///     Medium semicircular shape (180 degrees), south wall.
-        /// </summary>
         SouthSmall = 15,
-
-        /// <summary>
-        ///     Shaped like a wall decoration, north wall.
-        /// </summary>
         DecorationNorth = 16,
-
-        /// <summary>
-        ///     Shaped like a wall decoration, north-east corner.
-        /// </summary>
         DecorationNorthEast = 17,
-
-        /// <summary>
-        ///     Small semicircular shape (180 degrees), east wall.
-        /// </summary>
         EastTiny = 18,
-
-        /// <summary>
-        ///     Shaped like a wall decoration, west wall.
-        /// </summary>
         DecorationWest = 19,
-
-        /// <summary>
-        ///     Shaped like a wall decoration, south-west corner.
-        /// </summary>
         DecorationSouthWest = 20,
-
-        /// <summary>
-        ///     Small semicircular shape (180 degrees), south wall.
-        /// </summary>
         SouthTiny = 21,
-
-        /// <summary>
-        ///     Window shape, rectangular, no ray, shining south.
-        /// </summary>
         RectWindowSouthNoRay = 22,
-
-        /// <summary>
-        ///     Window shape, rectangular, no ray, shining east.
-        /// </summary>
         RectWindowEastNoRay = 23,
-
-        /// <summary>
-        ///     Window shape, rectangular, ray shining south.
-        /// </summary>
         RectWindowSouth = 24,
-
-        /// <summary>
-        ///     Window shape, rectangular, ray shining east.
-        /// </summary>
         RectWindowEast = 25,
-
-        /// <summary>
-        ///     Window shape, arched, no ray, shining south.
-        /// </summary>
         ArchedWindowSouthNoRay = 26,
-
-        /// <summary>
-        ///     Window shape, arched, no ray, shining east.
-        /// </summary>
         ArchedWindowEastNoRay = 27,
-
-        /// <summary>
-        ///     Window shape, arched, ray shining south.
-        /// </summary>
         ArchedWindowSouth = 28,
-
-        /// <summary>
-        ///     Large circular shape.
-        /// </summary>
         Circle300 = 29,
-
-        /// <summary>
-        ///     Large pie shape (90 degrees), north-west corner.
-        /// </summary>
         NorthWestBig = 30,
-
-        /// <summary>
-        ///     Negative light. Medium pie shape (90 degrees), south-east corner.
-        /// </summary>
         DarkSouthEast = 31,
-
-        /// <summary>
-        ///     Negative light. Medium semicircular shape (180 degrees), south wall.
-        /// </summary>
         DarkSouth = 32,
-
-        /// <summary>
-        ///     Negative light. Medium pie shape (90 degrees), north-west corner.
-        /// </summary>
         DarkNorthWest = 33,
-
-        /// <summary>
-        ///     Negative light. Medium pie shape (90 degrees), south-east corner. Equivalent to <c>LightType.SouthEast</c>.
-        /// </summary>
         DarkSouthEast2 = 34,
-
-        /// <summary>
-        ///     Negative light. Medium circular shape (180 degrees), east wall.
-        /// </summary>
         DarkEast = 35,
-
-        /// <summary>
-        ///     Negative light. Large circular shape.
-        /// </summary>
         DarkCircle300 = 36,
-
-        /// <summary>
-        ///     Opened door shape, shining south.
-        /// </summary>
         DoorOpenSouth = 37,
-
-        /// <summary>
-        ///     Opened door shape, shining east.
-        /// </summary>
         DoorOpenEast = 38,
-
-        /// <summary>
-        ///     Window shape, square, ray shining east.
-        /// </summary>
         SquareWindowEast = 39,
-
-        /// <summary>
-        ///     Window shape, square, no ray, shining east.
-        /// </summary>
         SquareWindowEastNoRay = 40,
-
-        /// <summary>
-        ///     Window shape, square, ray shining south.
-        /// </summary>
         SquareWindowSouth = 41,
-
-        /// <summary>
-        ///     Window shape, square, no ray, shining south.
-        /// </summary>
         SquareWindowSouthNoRay = 42,
-
-        /// <summary>
-        ///     Empty.
-        /// </summary>
         Empty = 43,
-
-        /// <summary>
-        ///     Window shape, skinny, no ray, shining south.
-        /// </summary>
         SkinnyWindowSouthNoRay = 44,
-
-        /// <summary>
-        ///     Window shape, skinny, ray shining east.
-        /// </summary>
         SkinnyWindowEast = 45,
-
-        /// <summary>
-        ///     Window shape, skinny, no ray, shining east.
-        /// </summary>
         SkinnyWindowEastNoRay = 46,
-
-        /// <summary>
-        ///     Shaped like a hole, shining south.
-        /// </summary>
         HoleSouth = 47,
-
-        /// <summary>
-        ///     Shaped like a hole, shining south.
-        /// </summary>
         HoleEast = 48,
-
-        /// <summary>
-        ///     Large circular shape with a moongate graphic embeded.
-        /// </summary>
         Moongate = 49,
-
-        /// <summary>
-        ///     Unknown usage. Many rows of slightly angled lines.
-        /// </summary>
         Strips = 50,
-
-        /// <summary>
-        ///     Shaped like a small hole, shining south.
-        /// </summary>
         SmallHoleSouth = 51,
-
-        /// <summary>
-        ///     Shaped like a small hole, shining east.
-        /// </summary>
         SmallHoleEast = 52,
-
-        /// <summary>
-        ///     Large semicircular shape (180 degrees), north wall. Identical graphic as <c>LightType.NorthBig</c>, but slightly different positioning.
-        /// </summary>
         NorthBig2 = 53,
-
-        /// <summary>
-        ///     Large semicircular shape (180 degrees), west wall. Identical graphic as <c>LightType.WestBig</c>, but slightly different positioning.
-        /// </summary>
         WestBig2 = 54,
-
-        /// <summary>
-        ///     Large pie shape (90 degrees), north-west corner. Equivalent to <c>LightType.NorthWestBig</c>.
-        /// </summary>
         NorthWestBig2 = 55
     }
 
-    /// <summary>
-    ///     Enumeration of an item's loot and steal state.
-    /// </summary>
     public enum LootType : byte
     {
-        /// <summary>
-        ///     Stealable. Lootable.
-        /// </summary>
         Regular = 0,
-
-        /// <summary>
-        ///     Unstealable. Unlootable, unless owned by a murderer.
-        /// </summary>
-        Newbied = 1,
-
-        /// <summary>
-        ///     Unstealable. Unlootable, always.
-        /// </summary>
-        Blessed = 2,
-
-        /// <summary>
-        ///     Stealable. Lootable, always.
-        /// </summary>
-        Cursed = 3
+        Newbied = 1,//     Unstealable. Unlootable, unless owned by a murderer.
+        Blessed = 2,//     Unstealable. Unlootable, always.
+        Cursed = 3  //     Stealable. Lootable, always.
     }
 
     public class BounceInfo
@@ -695,6 +274,59 @@ namespace Server
             }
 
             throw new ArgumentException();
+        }
+
+        internal int m_TypeRef;
+
+        public Item()
+        {
+            m_Serial = Serial.NewItem;
+            m_Map = Map.Internal;
+
+            m_Light = LightType.Empty;
+
+            m_Amount = 1;
+
+            Visible = true;
+            Movable = true;
+
+            SetLastMoved();
+
+            World.AddItem(this);
+
+            Type ourType = GetType();
+            m_TypeRef = World.m_ItemTypes.IndexOf(ourType);
+
+            if (m_TypeRef == -1)
+            {
+                World.m_ItemTypes.Add(ourType);
+                m_TypeRef = World.m_ItemTypes.Count - 1;
+            }
+
+            Timer.DelayCall(EventSink.InvokeItemCreated, new ItemCreatedEventArgs(this));
+        }
+
+        [Constructable]
+        public Item(int itemID)
+            : this()
+        {
+            m_ItemID = itemID;
+
+            UpdateLight();
+        }
+
+        public Item(Serial serial)
+        {
+            m_Serial = serial;
+
+            Type ourType = GetType();
+            m_TypeRef = World.m_ItemTypes.IndexOf(ourType);
+
+            if (m_TypeRef == -1)
+            {
+                World.m_ItemTypes.Add(ourType);
+                m_TypeRef = World.m_ItemTypes.Count - 1;
+            }
         }
 
         #region Standard fields
@@ -5228,7 +4860,11 @@ namespace Server
                 }
 
                 int top = tile.Z + id.CalcHeight;
-                if (top > p.Z) myTop = top;
+                if (top > p.Z)
+                {
+                    if (myTop == -255) myTop = top;
+                    else if (top < myTop) myTop = top;
+                }
 
                 if (top > maxZ || top < z)
                 {
@@ -6120,60 +5756,7 @@ namespace Server
 
         public override string ToString()
         {
-            return String.Format("0x{0:X} \"{1}\"", m_Serial.Value, GetType().Name);
-        }
-
-        internal int m_TypeRef;
-
-        public Item()
-        {
-            m_Serial = Serial.NewItem;
-            m_Map = Map.Internal;
-            
-            m_Light = LightType.Empty;
-
-            m_Amount = 1;
-
-            Visible = true;
-            Movable = true;
-
-            SetLastMoved();
-
-            World.AddItem(this);
-
-            Type ourType = GetType();
-            m_TypeRef = World.m_ItemTypes.IndexOf(ourType);
-
-            if (m_TypeRef == -1)
-            {
-                World.m_ItemTypes.Add(ourType);
-                m_TypeRef = World.m_ItemTypes.Count - 1;
-            }
-
-            Timer.DelayCall(EventSink.InvokeItemCreated, new ItemCreatedEventArgs(this));
-        }
-
-        [Constructable]
-        public Item(int itemID)
-            : this()
-        {
-            m_ItemID = itemID;
-
-            UpdateLight();
-        }
-
-        public Item(Serial serial)
-        {
-            m_Serial = serial;
-
-            Type ourType = GetType();
-            m_TypeRef = World.m_ItemTypes.IndexOf(ourType);
-
-            if (m_TypeRef == -1)
-            {
-                World.m_ItemTypes.Add(ourType);
-                m_TypeRef = World.m_ItemTypes.Count - 1;
-            }
+            return string.Format("0x{0:X} \"{1}\"", m_Serial.Value, GetType().Name);
         }
 
         public virtual void UpdateLight()

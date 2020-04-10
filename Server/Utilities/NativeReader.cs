@@ -1,8 +1,6 @@
-#region References
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-#endregion
 
 namespace Server
 {

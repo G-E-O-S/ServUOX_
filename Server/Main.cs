@@ -469,7 +469,7 @@ namespace Server
 			var buildDate = new DateTime(2000, 1, 1).AddDays(ver.Build).AddSeconds(ver.Revision * 2);
 			
 			Utility.PushColor(ConsoleColor.Cyan);
-        #if DEBUG
+#if DEBUG
             WriteLine(
                 "ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Debug",
                 ver.Major,
@@ -479,12 +479,12 @@ namespace Server
 				buildDate);
 #else
             WriteLine(
-				"ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Release",
-				ver.Major,
-				ver.Minor,
-				ver.Build,
-				ver.Revision,
-				buildDate);
+                "ServUOX - [https://github.com/ServUOX] Version {0}.{1}, Build {2}.{3} - Build on {4} UTC - Release",
+                ver.Major,
+                ver.Minor,
+                ver.Build,
+                ver.Revision,
+                buildDate);
 #endif
             Utility.PopColor();
 

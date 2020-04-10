@@ -66,7 +66,7 @@
   <ItemGroup>
     <Compile Include="Mobiles\AggressorInfo.cs" />
     <Compile Include=".\AssemblyInfo.cs" />
-    <Compile Include=".\Attributes.cs" />
+    <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Mobiles\BaseVendor.cs" />
     <Compile Include="Mobiles\Body.cs" />
     <Compile Include="Administration\Client\ClientVersion.cs" />
@@ -129,8 +129,8 @@
     <Compile Include="Mechanics\Guild.cs" />
     <Compile Include="Mobiles\HuePicker.cs" />
     <Compile Include="Administration\Account\IAccount.cs" />
-    <Compile Include=".\IEntity.cs" />
-    <Compile Include=".\Insensitive.cs" />
+    <Compile Include="Administration\IEntity.cs" />
+    <Compile Include="Utilities\Insensitive.cs" />
     <Compile Include="Mobiles\Interfaces.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Administration\World\ItemBounds.cs" />
@@ -148,7 +148,7 @@
     <Compile Include="Mobiles\Mobile.cs" />
     <Compile Include="Mobiles\Movement.cs" />
     <Compile Include="Administration\World\MultiData.cs" />
-    <Compile Include=".\NativeReader.cs" />
+    <Compile Include="Utilities\NativeReader.cs" />
     <Compile Include=".\Network\BufferPool.cs" />
     <Compile Include=".\Network\ByteQueue.cs" />
     <Compile Include=".\Network\Compression.cs" />

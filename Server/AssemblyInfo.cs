@@ -1,8 +1,6 @@
-#region References
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-#endregion
 
 //
 // General Information about an assembly is controlled through the following 
