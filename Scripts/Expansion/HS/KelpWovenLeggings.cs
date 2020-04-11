@@ -1,4 +1,4 @@
-﻿using Server;
+using Server;
 using System;
 
 namespace Server.Items
@@ -6,7 +6,7 @@ namespace Server.Items
     public class KelpWovenLeggings : LeatherLegs
 	{
 		public override bool IsArtifact { get { return true; } }
-        public override int LabelNumber { get { return 1149960; } }
+        public override int LabelNumber { get { return 1149960; } }//Enchanted Kelp Woven Leggings
 
         public override int BasePhysicalResistance { get { return 5; } }
         public override int BaseFireResistance { get { return 13; } }
