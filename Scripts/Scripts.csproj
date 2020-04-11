@@ -2221,7 +2221,7 @@
     <Compile Include="Mobiles\Hunters Guide\L\LadyLissith.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadyMarai.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadySabrix.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\Lurg.cs" />
+    <Compile Include="Expansion\ML\PaintedCaves\Lurg.cs" />
     <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Malefic.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MasterJonath.cs" />
     <Compile Include="Mobiles\Hunters Guide\M\MasterMikael.cs" />
@@ -2229,7 +2229,7 @@
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Meraktus.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Miasma.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Mistral.cs" />
-    <Compile Include="Mobiles\Hunters Guide\M\MougGuur.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Sanctuary\MougGuur.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\PixieRenowned.cs" />
     <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\Putrefier.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Pyre.cs" />
@@ -2277,11 +2277,11 @@
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenWarrior.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenWorker.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Grubber.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\Lifestealer.cs" />
+    <Compile Include="Expansion\SA\TerMur\Lifestealer.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DragonWolf.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DreadWarhorse.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FrostDrake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\Lasher.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\Lasher.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantTurkey.cs" />
     <Compile Include="Expansion\EJ\Viscera.cs" />
     <Compile Include="Expansion\EJ\StoreBought\Windrunner.cs" />
@@ -2457,12 +2457,12 @@
     <Compile Include="Expansion\SA\Mobiles\LavaElemental.cs" />
     <Compile Include="Expansion\T2A\Mobiles\LavaSerpent.cs" />
     <Compile Include="Expansion\T2A\Mobiles\LavaSnake.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\LeatherWolf.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\LesserHiryu.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\Leviathan.cs" />
+    <Compile Include="Expansion\SA\TerMur\LeatherWolf.cs" />
+    <Compile Include="Expansion\SE\Mobiles\LesserHiryu.cs" />
+    <Compile Include="Expansion\HS\Mobiles\Leviathan.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Lizardman.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Llamas.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\LowlandBoura.cs" />
+    <Compile Include="Expansion\SA\TerMur\LowlandBoura.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Eodon\Macaw.cs" />
     <Compile Include="Expansion\SA\Mobiles\MaddeningHorror.cs" />
     <Compile Include="Expansion\ML\Mobiles\PrismOfLight\MantraEffervescence.cs" />
@@ -2498,7 +2498,7 @@
     <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueBeastLord.cs" />
     <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueRat.cs" />
     <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueSpawn.cs" />
-    <Compile Include="Mobiles\Hunters Guide\L\Lion.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\Lion.cs" />
     <Compile Include="Expansion\TOL\Mobiles\Triceratops.cs" />
     <Compile Include="Expansion\HS\Thanksgiving2012\Turkey.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\PalaminoHorse.cs" />
@@ -3065,7 +3065,7 @@
     <Compile Include="Mobiles\NPCs\Thepem.cs" />
     <Compile Include="Expansion\SA\GargishDocuments.cs" />
     <Compile Include="Mobiles\Quests\JourneyToTheAthenaeumIsleQuest.cs" />
-    <Compile Include="Mobiles\Hunters Guide\M\MinionOfScelestus.cs" />
+    <Compile Include="Expansion\SA\TerMur\Athenaeum Isle\MinionOfScelestus.cs" />
     <Compile Include="Mobiles\NPCs\Zhah.cs" />
     <Compile Include="Expansion\HS\ElixirofValoriteConversion.cs" />
     <Compile Include="Expansion\HS\ElixirofVeriteConversion.cs" />

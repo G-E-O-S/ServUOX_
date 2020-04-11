@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +13,6 @@ using Server.Spells;
 using Server.Targets;
 
 using MoveImpl = Server.Movement.MovementImpl;
-#endregion
 
 namespace Server.Mobiles
 {
@@ -2062,7 +2060,7 @@ namespace Server.Mobiles
 
 						m_Creature.PlaySound(m_Creature.GetIdleSound());
 
-						var args = String.Format("{0}\t{1}\t{2}", from.Name, m_Creature.Name, to.Name);
+						var args = string.Format("{0}\t{1}\t{2}", from.Name, m_Creature.Name, to.Name);
 
 						from.SendLocalizedMessage(1043253, args); // You have transferred your pet to ~3_GETTER~.
 						to.SendLocalizedMessage(1043252, args); // ~1_NAME~ has transferred the allegiance of ~2_PET_NAME~ to you.
@@ -2098,7 +2096,7 @@ namespace Server.Mobiles
 				}
 				else if (!m_Mobile.CanBeControlledBy(to))
 				{
-					var args = String.Format("{0}\t{1}\t ", to.Name, from.Name);
+					var args = string.Format("{0}\t{1}\t ", to.Name, from.Name);
 
 					from.SendLocalizedMessage(1043248, args);
 					// The pet refuses to be transferred because it will not obey ~1_NAME~.~3_BLANK~
@@ -2107,7 +2105,7 @@ namespace Server.Mobiles
 				}
 				else if (!m_Mobile.CanBeControlledBy(from))
 				{
-					var args = String.Format("{0}\t{1}\t ", to.Name, from.Name);
+					var args = string.Format("{0}\t{1}\t ", to.Name, from.Name);
 
 					from.SendLocalizedMessage(1043250, args);
 					// The pet refuses to be transferred because it will not obey you sufficiently.~3_BLANK~
