@@ -2332,8 +2332,8 @@
     <Compile Include="Mobiles\Hunters Guide\C\CrystalVortex.cs" />
     <Compile Include="Mobiles\Hunters Guide\C\CrystalWisp.cs" />
     <Compile Include="Expansion\UOR\Services\Khaldun\Mobiles\Cursed.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\CursedSoul.cs" />
-    <Compile Include="Mobiles\Hunters Guide\C\CuSidhe.cs" />
+    <Compile Include="Expansion\XSORTINGX\Mobiles\CursedSoul.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\CuSidhe.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Daemon.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DarkGuardian.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DarknightCreeper.cs" />
