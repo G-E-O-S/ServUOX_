@@ -113,25 +113,25 @@ namespace Server.Items
 
         private void ClearComponents(Item item)
         {
-            if (item is BaseAddon addon)
+            if (item is BaseAddon baseaddon)
             {
-                foreach (AddonComponent c in addon.Components)
+                foreach (AddonComponent c in baseaddon.Components)
                 {
                     c.Addon = null;
                     c.Delete();
                 }
 
-                addon.Components.Clear();
+                baseaddon.Components.Clear();
             }
-            else if (item is BaseAddonContainer addon)
+            else if (item is BaseAddonContainer baseaddoncontainer)
             {
-                foreach (AddonContainerComponent c in addon.Components)
+                foreach (AddonContainerComponent c in baseaddoncontainer.Components)
                 {
                     c.Addon = null;
                     c.Delete();
                 }
 
-                addon.Components.Clear();
+                baseaddoncontainer.Components.Clear();
             }
         }
     }
