@@ -1,10 +1,8 @@
-#region References
 using Server.ContextMenus;
 using Server.Engines.Craft;
 using Server.Network;
 using System;
 using System.Collections.Generic;
-#endregion
 
 namespace Server.Items
 {

@@ -16,15 +16,10 @@ namespace Server.Items
 
         private int m_UsesRemaining;
         private int m_Charges;
-        private SecureLevel m_Level;
         private bool m_Replica;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public SecureLevel Level
-        {
-            get => m_Level;
-            set => m_Level = value;
-        }
+        public SecureLevel Level { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Charges
@@ -81,7 +76,7 @@ namespace Server.Items
             Charges = replica ? 2 : -1;
             UsesRemaining = replica ? 15 : 30;
 
-            m_Level = SecureLevel.CoOwners;
+            Level = SecureLevel.CoOwners;
         }
 
         public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
@@ -154,7 +149,7 @@ namespace Server.Items
                     }
 
                     AddButton(15, 39 + (i * 20), 10006, 10006, i + 1, GumpButtonType.Reply, 0);
-                    AddHtml(32, 35 + (i * 20), 275, 18, String.Format("<BASEFONT COLOR=#C0C0EE>{0}</BASEFONT>", pet.Name), false, false);
+                    AddHtml(32, 35 + (i * 20), 275, 18, $"<BASEFONT COLOR=#C0C0EE>{pet.Name}</BASEFONT>", false, false);
                 }
             }
 
@@ -332,7 +327,7 @@ namespace Server.Items
                 from.SendLocalizedMessage(502673); // I can not stable summoned creatures.
             }
             #region Mondain's Legacy
-            else if (pet.Allured)
+            else if (Core.ML && pet.Allured)
             {
                 from.SendLocalizedMessage(1048053); // You can't stable that!
             }
@@ -492,7 +487,7 @@ namespace Server.Items
                 return false;
             }
 
-            return (house != null && house.HasSecureAccess(m, m_Level));
+            return house != null && house.HasSecureAccess(m, Level);
         }
 
         public override bool HandlesOnSpeech => true;
@@ -534,7 +529,7 @@ namespace Server.Items
 
             writer.Write(m_Replica);
 
-            writer.Write((int)m_Level);
+            writer.Write((int)Level);
             writer.Write(m_UsesRemaining);
             writer.Write(m_Charges);
         }
@@ -559,7 +554,7 @@ namespace Server.Items
                     }
                 case 3:
                     {
-                        m_Level = (SecureLevel)reader.ReadInt();
+                        Level = (SecureLevel)reader.ReadInt();
                         goto case 2;
                     }
                 case 2:

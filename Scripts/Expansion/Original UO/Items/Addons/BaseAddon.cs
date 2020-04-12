@@ -1,7 +1,5 @@
-#region References
 using Server.Multis;
 using System.Collections.Generic;
-#endregion
 
 namespace Server.Items
 {
@@ -44,7 +42,6 @@ namespace Server.Items
         }
         #endregion
 
-        private List<AddonComponent> m_Components;
 
         public void AddComponent(AddonComponent c, int x, int y, int z)
         {
@@ -53,7 +50,7 @@ namespace Server.Items
                 return;
             }
 
-            m_Components.Add(c);
+            Components.Add(c);
 
             c.Addon = this;
             c.Offset = new Point3D(x, y, z);
@@ -66,7 +63,7 @@ namespace Server.Items
             Movable = false;
             Visible = false;
 
-            m_Components = new List<AddonComponent>();
+            Components = new List<AddonComponent>();
         }
 
         public void ApplyLight(LightType light)
@@ -86,11 +83,14 @@ namespace Server.Items
             var house = BaseHouse.FindHouseAt(this);
 
             #region High Seas
-            var boat = BaseBoat.FindBoatAt(from, from.Map);
-            if (boat != null && boat is BaseGalleon)
+            if (Core.HS)
             {
-                ((BaseGalleon)boat).OnChop(this, from);
-                return;
+                var boat = BaseBoat.FindBoatAt(from, from.Map);
+                if (boat != null && boat is BaseGalleon)
+                {
+                    ((BaseGalleon)boat).OnChop(this, from);
+                    return;
+                }
             }
             #endregion
 
@@ -103,9 +103,9 @@ namespace Server.Items
 
                 if (RetainDeedHue)
                 {
-                    for (var i = 0; hue == 0 && i < m_Components.Count; ++i)
+                    for (var i = 0; hue == 0 && i < Components.Count; ++i)
                     {
-                        var c = m_Components[i];
+                        var c = Components[i];
 
                         if (c.Hue != 0)
                         {
@@ -158,7 +158,7 @@ namespace Server.Items
 
         Item IAddon.Deed => GetDeed();
 
-        public List<AddonComponent> Components => m_Components;
+        public List<AddonComponent> Components { get; private set; }
 
         public BaseAddon(Serial serial)
             : base(serial)
@@ -177,7 +177,7 @@ namespace Server.Items
                 return AddonFitResult.Blocked;
             }
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 var p3D = new Point3D(p.X + c.Offset.X, p.Y + c.Offset.Y, p.Z + c.Offset.Z);
 
@@ -213,7 +213,7 @@ namespace Server.Items
                     var doorLoc = door.GetWorldLocation();
                     var doorHeight = door.ItemData.CalcHeight;
 
-                    foreach (var c in m_Components)
+                    foreach (var c in Components)
                     {
                         var addonLoc = new Point3D(p.X + c.Offset.X, p.Y + c.Offset.Y, p.Z + c.Offset.Z);
                         var addonHeight = c.ItemData.CalcHeight;
@@ -278,7 +278,7 @@ namespace Server.Items
                 return;
             }
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 c.Location = new Point3D(X + c.Offset.X, Y + c.Offset.Y, Z + c.Offset.Z);
             }
@@ -291,7 +291,7 @@ namespace Server.Items
                 return;
             }
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 c.Map = Map;
             }
@@ -301,7 +301,7 @@ namespace Server.Items
         {
             base.OnAfterDelete();
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 c.Delete();
             }
@@ -319,9 +319,9 @@ namespace Server.Items
                 {
                     base.Hue = value;
 
-                    if (!Deleted && ShareHue && m_Components != null)
+                    if (!Deleted && ShareHue && Components != null)
                     {
-                        foreach (var c in m_Components)
+                        foreach (var c in Components)
                         {
                             c.Hue = value;
                         }
@@ -348,11 +348,11 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(2); // version
+            writer.Write(2);
 
             writer.Write((int)m_Resource);
 
-            writer.WriteItemList(m_Components);
+            writer.WriteItemList(Components);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -369,7 +369,7 @@ namespace Server.Items
                 case 1:
                 case 0:
                     {
-                        m_Components = reader.ReadStrongItemList<AddonComponent>();
+                        Components = reader.ReadStrongItemList<AddonComponent>();
                         break;
                     }
             }

@@ -23,15 +23,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((byte)0); // version
+            writer.Write((byte)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadByte();
+            _ = reader.ReadByte();
         }
     }
 
@@ -58,15 +56,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((byte)0); // version
+            writer.Write((byte)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadByte();
+            _ = reader.ReadByte();
         }
     }
 
@@ -93,15 +89,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((byte)0); // version
+            writer.Write((byte)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadByte();
+            _ = reader.ReadByte();
         }
     }
 
@@ -128,15 +122,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((byte)0); // version
+            writer.Write((byte)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadByte();
+            _ = reader.ReadByte();
         }
     }
 
@@ -163,15 +155,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((byte)0); // version
+            writer.Write((byte)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadByte();
+            _ = reader.ReadByte();
         }
     }
 
@@ -198,15 +188,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((byte)0); // version
+            writer.Write((byte)0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadByte();
+            _ = reader.ReadByte();
         }
     }
 }

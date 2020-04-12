@@ -42,8 +42,7 @@ namespace Server.Items
 
             from.Direction = dir;
 
-            bool canThrow = true;
-
+            bool canThrow;
             if (!from.InRange(this, 4) || !from.InLOS(this))
             {
                 canThrow = false;
@@ -69,9 +68,7 @@ namespace Server.Items
 
         public void Throw(Mobile from)
         {
-            BaseKnife knife = from.Weapon as BaseKnife;
-
-            if (knife == null)
+            if (!(from.Weapon is BaseKnife knife))
             {
                 from.LocalOverheadMessage(MessageType.Regular, 0x3B2, 500751); // Try holding a knife...
                 return;
@@ -123,15 +120,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 
@@ -151,15 +146,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 
@@ -180,15 +173,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 
@@ -208,15 +199,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 
@@ -237,15 +226,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
     }
 }

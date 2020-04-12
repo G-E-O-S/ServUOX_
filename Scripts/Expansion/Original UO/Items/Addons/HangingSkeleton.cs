@@ -104,17 +104,14 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
-
+            writer.WriteEncodedInt(0);
             writer.Write(m_IsRewardItem);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_IsRewardItem = reader.ReadBool();
         }
@@ -217,17 +214,14 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
-
+            writer.WriteEncodedInt(0);
             writer.Write(m_IsRewardItem);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_IsRewardItem = reader.ReadBool();
         }
@@ -280,16 +274,16 @@ namespace Server.Items
                     info.ButtonID == 0x1B1E || info.ButtonID == 0x1B7F)
                 {
                     m.SendLocalizedMessage(1049780); // Where would you like to place this decoration?
-                    m.Target = new InternalTarget(m_Skeleton, info.ButtonID);
+                    m.Target = new HangingSkeletonDeedTarget(m_Skeleton, info.ButtonID);
                 }
             }
         }
 
-        private class InternalTarget : Target
+        private class HangingSkeletonDeedTarget : Target
         {
             private readonly HangingSkeletonDeed m_Skeleton;
             private readonly int m_ItemID;
-            public InternalTarget(HangingSkeletonDeed banner, int itemID)
+            public HangingSkeletonDeedTarget(HangingSkeletonDeed banner, int itemID)
                 : base(-1, true, TargetFlags.None)
             {
                 m_Skeleton = banner;
@@ -309,10 +303,9 @@ namespace Server.Items
 
                     if (house != null && house.IsOwner(from))
                     {
-                        IPoint3D p = targeted as IPoint3D;
                         Map map = from.Map;
 
-                        if (p == null || map == null)
+                        if (!(targeted is IPoint3D p) || map == null)
                         {
                             return;
                         }

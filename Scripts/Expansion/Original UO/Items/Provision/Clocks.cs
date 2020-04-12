@@ -71,9 +71,7 @@ namespace Server.Items
 
         public static MoonPhase GetMoonPhase(Map map, int x, int y)
         {
-            int hours, minutes, totalMinutes;
-
-            GetTime(map, x, y, out hours, out minutes, out totalMinutes);
+            GetTime(map, x, y, out _, out _, out int totalMinutes);
 
             if (map != null)
 			{
@@ -85,9 +83,12 @@ namespace Server.Items
 
         public static void GetTime(Map map, int x, int y, out int hours, out int minutes)
         {
-            int totalMinutes;
+            GetTime(map, x, y, out hours, out minutes, out _);
+        }
 
-            GetTime(map, x, y, out hours, out minutes, out totalMinutes);
+        public static void GetTime(Map map, int x, int y, out int hours)
+        {
+            GetTime(map, x, y, out hours, out int _);
         }
 
         public static void GetTime(Map map, int x, int y, out int hours, out int minutes, out int totalMinutes)
@@ -104,15 +105,13 @@ namespace Server.Items
             // Really on OSI this must be by subserver
             totalMinutes += x / 16;
 
-            hours = (totalMinutes / 60) % 24;
+            hours = totalMinutes / 60 % 24;
             minutes = totalMinutes % 60;
         }
-
         public static void GetTime(out int generalNumber, out string exactTime)
         {
             GetTime(null, 0, 0, out generalNumber, out exactTime);
         }
-
         public static void GetTime(Mobile from, out int generalNumber, out string exactTime)
         {
             GetTime(from.Map, from.X, from.Y, out generalNumber, out exactTime);
@@ -120,9 +119,7 @@ namespace Server.Items
 
         public static void GetTime(Map map, int x, int y, out int generalNumber, out string exactTime)
         {
-            int hours, minutes;
-
-            GetTime(map, x, y, out hours, out minutes);
+            GetTime(map, x, y, out int hours, out int minutes);
 
             // 00:00 AM - 00:59 AM : Witching hour
             // 01:00 AM - 03:59 AM : Middle of night
@@ -173,15 +170,12 @@ namespace Server.Items
                 hours = 12;
 			}
 
-            exactTime = String.Format("{0}:{1:D2}", hours, minutes);
+            exactTime = $"{hours}:{minutes:D2}";
         }
 
         public override void OnDoubleClick(Mobile from)
         {
-            int genericNumber;
-            string exactTime;
-
-            GetTime(from, out genericNumber, out exactTime);
+            GetTime(from, out int genericNumber, out string exactTime);
 
             SendLocalizedMessageTo(from, genericNumber);
             SendLocalizedMessageTo(from, 1042958, exactTime); // ~1_TIME~ to be exact
@@ -190,8 +184,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)1); // version
-
+            writer.Write(1);
             writer.Write((int)Level);
         }
 
@@ -213,7 +206,7 @@ namespace Server.Items
 
     public class ClockTime : Clock
     {
-        private static List<ClockTime> _Instances = new List<ClockTime>();        
+        private static readonly List<ClockTime> Instances = new List<ClockTime>();        
 
         [Constructable]
         public ClockTime()
@@ -227,7 +220,7 @@ namespace Server.Items
         {
             Weight = 10.0;
             LootType = LootType.Blessed;            
-            _Instances.Add(this);
+            Instances.Add(this);
         }
 
         public ClockTime(Serial serial)
@@ -239,12 +232,12 @@ namespace Server.Items
         {
             base.Delete();
 
-            _Instances.Remove(this);
+            Instances.Remove(this);
         }
 
         public static void Tick_Callback()
         {
-            foreach (var clock in _Instances.Where(p => p != null && !p.Deleted && p.IsLockedDown))
+            foreach (var clock in Instances.Where(p => p != null && !p.Deleted && p.IsLockedDown))
             {
                 IPooledEnumerable ie = clock.GetMobilesInRange(10);
 
@@ -252,14 +245,17 @@ namespace Server.Items
                 {
                     if (m.Player)
                     {
-                        int hours, minutes;
 
-                        GetTime(m.Map, m.X, m.Y, out hours, out minutes);
+                        GetTime(m.Map, m.X, m.Y, out int hours, out int minutes);
 
                         if (minutes == 00 && (hours == 12 || hours == 00 || hours == 06 || hours == 18))
+                        {
                             m.PlaySound(1634);
+                        }
                         else if (minutes == 00)
+                        {
                             m.PlaySound(1635);
+                        }
                     }
                 }
 
@@ -270,17 +266,14 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            reader.ReadInt();
-            
-            _Instances.Add(this);
+            reader.ReadInt();        
+            Instances.Add(this);
         }
     }
 
@@ -301,13 +294,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -328,13 +321,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -357,13 +350,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -386,13 +379,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -415,13 +408,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

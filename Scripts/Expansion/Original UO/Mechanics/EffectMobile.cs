@@ -30,11 +30,15 @@ namespace Server.Mobiles
                 m_Free.RemoveAt(i);
 
                 if (!free.Deleted && free.Map == Map.Internal)
+                {
                     mobile = free;
+                }
             }
 
             if (mobile == null)
+            {
                 mobile = new EffectMobile();
+            }
 
             mobile.MoveToWorld(p, map);
             mobile.BeginFree(duration);
@@ -50,16 +54,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
+            _ = reader.ReadInt();
             Delete();
         }
 

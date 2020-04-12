@@ -39,15 +39,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -57,13 +55,12 @@ namespace Server.Items
         {
             0x36B0, 0x3728, 0x3709, 0x36FE
         };
-        private CannonDirection m_CannonDirection;
         private int m_Charges;
         private bool m_IsRewardItem;
         [Constructable]
         public CannonAddon(CannonDirection direction)
         {
-            m_CannonDirection = direction;
+            CannonDirection = direction;
 
             switch (direction)
             {
@@ -121,7 +118,7 @@ namespace Server.Items
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
-        public CannonDirection CannonDirection => m_CannonDirection;
+        public CannonDirection CannonDirection { get; private set; }
         [CommandProperty(AccessLevel.GameMaster)]
         public int Charges
         {
@@ -245,7 +242,7 @@ namespace Server.Items
 
             writer.WriteEncodedInt(0); // version
 
-            writer.Write((int)m_CannonDirection);
+            writer.Write((int)CannonDirection);
             writer.Write(m_Charges);
             writer.Write(m_IsRewardItem);
         }
@@ -253,10 +250,9 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            _ = reader.ReadEncodedInt();
 
-            int version = reader.ReadEncodedInt();
-
-            m_CannonDirection = (CannonDirection)reader.ReadInt();
+            CannonDirection = (CannonDirection)reader.ReadInt();
             m_Charges = reader.ReadInt();
             m_IsRewardItem = reader.ReadBool();
         }
@@ -277,9 +273,8 @@ namespace Server.Items
                     return;
                 }
 
-                IPoint3D p = targeted as IPoint3D;
 
-                if (p == null)
+                if (!(targeted is IPoint3D p))
                 {
                     return;
                 }
@@ -485,7 +480,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
 
             writer.Write(m_Charges);
             writer.Write(m_IsRewardItem);
@@ -494,8 +489,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_Charges = reader.ReadInt();
             m_IsRewardItem = reader.ReadBool();

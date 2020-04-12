@@ -1,7 +1,5 @@
-#region References
 using Server.ContextMenus;
 using System.Collections.Generic;
-#endregion
 
 namespace Server.Items
 {
