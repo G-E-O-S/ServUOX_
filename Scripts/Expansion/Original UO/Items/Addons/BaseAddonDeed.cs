@@ -2,6 +2,7 @@ using Server.Engines.Craft;
 using Server.Multis;
 using Server.Targeting;
 using System;
+using Server.Spells;
 
 namespace Server.Items
 {
@@ -75,12 +76,8 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(2); // version
-
-            // Version 2
+            writer.Write(2);
             writer.Write(m_ReDeed);
-
-            // Version 1
             writer.Write((int)m_Resource);
         }
 
@@ -175,10 +172,9 @@ namespace Server.Items
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                IPoint3D p = targeted as IPoint3D;
                 Map map = from.Map;
 
-                if (p == null || map == null || m_Deed.Deleted)
+                if (!(targeted is IPoint3D p) || map == null || m_Deed.Deleted)
                 {
                     return;
                 }
@@ -187,7 +183,7 @@ namespace Server.Items
                 {
                     BaseAddon addon = m_Deed.Addon;
 
-                    Server.Spells.SpellHelper.GetSurfaceTop(ref p);
+                    SpellHelper.GetSurfaceTop(ref p);
 
                     BaseHouse house = null;
                     BaseGalleon galleon = CheckGalleonPlacement(from, addon, new Point3D(p), map);

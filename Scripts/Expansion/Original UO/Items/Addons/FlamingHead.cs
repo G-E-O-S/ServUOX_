@@ -93,17 +93,14 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
-
+            writer.WriteEncodedInt(0);
             writer.Write(m_IsRewardItem);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_IsRewardItem = reader.ReadBool();
         }
@@ -199,17 +196,14 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.WriteEncodedInt(0); // version
-
+            writer.WriteEncodedInt(0);
             writer.Write(m_IsRewardItem);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_IsRewardItem = reader.ReadBool();
         }
@@ -236,10 +230,9 @@ namespace Server.Items
 
                     if (house != null && house.IsOwner(from))
                     {
-                        IPoint3D p = targeted as IPoint3D;
                         Map map = from.Map;
 
-                        if (p == null || map == null)
+                        if (!(targeted is IPoint3D p) || map == null)
                         {
                             return;
                         }

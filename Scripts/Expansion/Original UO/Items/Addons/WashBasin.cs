@@ -10,10 +10,10 @@ namespace Server.Items
         public int MaxQuantity { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual bool IsEmpty => (m_Quantity <= 0);
+        public virtual bool IsEmpty => m_Quantity <= 0;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual bool IsFull => (m_Quantity >= MaxQuantity);
+        public virtual bool IsFull => m_Quantity >= MaxQuantity;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual int Quantity
@@ -25,7 +25,7 @@ namespace Server.Items
                 {
                     m_Quantity = (value < 1) ? 0 : (value > MaxQuantity) ? MaxQuantity : value;
 
-                    ItemID = (IsEmpty) ? Item_ID : FullItem_ID;
+                    ItemID = IsEmpty ? Item_ID : FullItem_ID;
                 }
             }
         }
@@ -53,7 +53,6 @@ namespace Server.Items
         {
             base.Serialize(writer);
             writer.Write(0);
-
             writer.Write(m_Quantity);
             writer.Write(Item_ID);
             writer.Write(FullItem_ID);
@@ -63,7 +62,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_Quantity = reader.ReadInt();
             Item_ID = reader.ReadInt();
@@ -108,7 +107,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -178,7 +177,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

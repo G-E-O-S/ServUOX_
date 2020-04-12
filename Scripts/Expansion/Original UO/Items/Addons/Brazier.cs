@@ -134,8 +134,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_IsRewardItem = reader.ReadBool();
             m_Fire = reader.ReadItem();
@@ -201,7 +200,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.WriteEncodedInt(0); // version
+            writer.WriteEncodedInt(0);
 
             writer.Write(m_IsRewardItem);
         }
@@ -209,8 +208,7 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
 
             m_IsRewardItem = reader.ReadBool();
         }

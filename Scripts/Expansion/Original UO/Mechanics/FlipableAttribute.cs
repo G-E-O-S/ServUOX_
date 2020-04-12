@@ -1,7 +1,7 @@
-using System;
-using System.Reflection;
 using Server.Commands;
 using Server.Targeting;
+using System;
+using System.Reflection;
 
 namespace Server.Items
 {
@@ -28,12 +28,12 @@ namespace Server.Items
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                if (targeted is Item)
+                if (targeted is Item item)
                 {
-                    Item item = (Item)targeted;
-
                     if (item.Movable == false && from.IsPlayer())
+                    {
                         return;
+                    }
 
                     Type type = targeted.GetType();
 
@@ -63,7 +63,6 @@ namespace Server.Items
     [AttributeUsage(AttributeTargets.Class)]
     public class FlipableAttribute : Attribute
     {
-        private readonly int[] m_ItemIDs;
         public FlipableAttribute()
             : this(null)
         {
@@ -71,25 +70,21 @@ namespace Server.Items
 
         public FlipableAttribute(params int[] itemIDs)
         {
-            this.m_ItemIDs = itemIDs;
+            ItemIDs = itemIDs;
         }
 
-        public int[] ItemIDs
-        {
-            get
-            {
-                return this.m_ItemIDs;
-            }
-        }
+        public int[] ItemIDs { get; }
         public virtual void Flip(Item item)
         {
-            if (this.m_ItemIDs == null)
+            if (ItemIDs == null)
             {
                 try
                 {
                     MethodInfo flipMethod = item.GetType().GetMethod("Flip", Type.EmptyTypes);
                     if (flipMethod != null)
+                    {
                         flipMethod.Invoke(item, new object[0]);
+                    }
                 }
                 catch
                 {
@@ -98,19 +93,21 @@ namespace Server.Items
             else
             {
                 int index = 0;
-                for (int i = 0; i < this.m_ItemIDs.Length; i++)
+                for (int i = 0; i < ItemIDs.Length; i++)
                 {
-                    if (item.ItemID == this.m_ItemIDs[i])
+                    if (item.ItemID == ItemIDs[i])
                     {
                         index = i + 1;
                         break;
                     }
                 }
 
-                if (index > this.m_ItemIDs.Length - 1)
+                if (index > ItemIDs.Length - 1)
+                {
                     index = 0;
+                }
 
-                item.ItemID = this.m_ItemIDs[index];
+                item.ItemID = ItemIDs[index];
             }
         }
     }

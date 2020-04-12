@@ -2,6 +2,7 @@ using Server.Engines.Craft;
 using Server.Multis;
 using Server.Targeting;
 using System;
+using Server.Spells;
 
 namespace Server.Items
 {
@@ -47,10 +48,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write(1); // version
-
-            // version 1
+            writer.Write(1);
             writer.Write((int)m_Resource);
         }
 
@@ -128,10 +126,9 @@ namespace Server.Items
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                IPoint3D p = targeted as IPoint3D;
                 Map map = from.Map;
 
-                if (p == null || map == null || m_Deed.Deleted)
+                if (!(targeted is IPoint3D p) || map == null || m_Deed.Deleted)
                 {
                     return;
                 }
@@ -141,7 +138,7 @@ namespace Server.Items
                     BaseAddonContainer addon = m_Deed.Addon;
                     addon.Resource = m_Deed.Resource;
 
-                    Server.Spells.SpellHelper.GetSurfaceTop(ref p);
+                    SpellHelper.GetSurfaceTop(ref p);
 
                     BaseHouse house = null;
 

@@ -1,14 +1,11 @@
-#region References
 using Server.Multis;
 using System.Collections.Generic;
-#endregion
 
 namespace Server.Items
 {
     public abstract class BaseAddonContainer : BaseContainer, IChopable, IAddon
     {
         private CraftResource m_Resource;
-        private List<AddonContainerComponent> m_Components;
 
         public BaseAddonContainer(int itemID)
             : base(itemID)
@@ -17,7 +14,7 @@ namespace Server.Items
 
             AddonComponent.ApplyLightTo(this);
 
-            m_Components = new List<AddonContainerComponent>();
+            Components = new List<AddonContainerComponent>();
         }
 
         public BaseAddonContainer(Serial serial)
@@ -36,11 +33,11 @@ namespace Server.Items
                 {
                     base.Hue = value;
 
-                    if (!Deleted && ShareHue && m_Components != null)
+                    if (!Deleted && ShareHue && Components != null)
                     {
                         Hue = value;
 
-                        foreach (var c in m_Components)
+                        foreach (var c in Components)
                         {
                             c.Hue = value;
                         }
@@ -70,7 +67,7 @@ namespace Server.Items
         public virtual bool ShareHue => true;
         public virtual Point3D WallPosition => Point3D.Zero;
         public virtual BaseAddonContainerDeed Deed => null;
-        public List<AddonContainerComponent> Components => m_Components;
+        public List<AddonContainerComponent> Components { get; private set; }
         Item IAddon.Deed => Deed;
 
         public override void OnLocationChange(Point3D oldLoc)
@@ -82,7 +79,7 @@ namespace Server.Items
                 return;
             }
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 c.Location = new Point3D(X + c.Offset.X, Y + c.Offset.Y, Z + c.Offset.Z);
             }
@@ -97,7 +94,7 @@ namespace Server.Items
                 return;
             }
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 c.Map = Map;
             }
@@ -112,7 +109,7 @@ namespace Server.Items
                 house.Addons.Remove(this);
             }
 
-            var components = new List<AddonContainerComponent>(m_Components);
+            var components = new List<AddonContainerComponent>(Components);
 
             foreach (var component in components)
             {
@@ -154,7 +151,7 @@ namespace Server.Items
         {
             base.OnAfterDelete();
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 c.Delete();
             }
@@ -166,17 +163,16 @@ namespace Server.Items
 
             writer.Write(0); // version
 
-            writer.WriteItemList(m_Components);
+            writer.WriteItemList(Components);
             writer.Write((int)m_Resource);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            _ = reader.ReadInt();
 
-            var version = reader.ReadInt();
-
-            m_Components = reader.ReadStrongItemList<AddonContainerComponent>();
+            Components = reader.ReadStrongItemList<AddonContainerComponent>();
             m_Resource = (CraftResource)reader.ReadInt();
 
             AddonComponent.ApplyLightTo(this);
@@ -197,7 +193,7 @@ namespace Server.Items
                 return;
             }
 
-            m_Components.Add(c);
+            Components.Add(c);
 
             c.Addon = this;
             c.Offset = new Point3D(x, y, z);
@@ -211,7 +207,7 @@ namespace Server.Items
                 return AddonFitResult.Blocked;
             }
 
-            foreach (var c in m_Components)
+            foreach (var c in Components)
             {
                 var p3D = new Point3D(p.X + c.Offset.X, p.Y + c.Offset.Y, p.Z + c.Offset.Z);
 
@@ -274,7 +270,7 @@ namespace Server.Items
                     var doorLoc = door.GetWorldLocation();
                     var doorHeight = door.ItemData.CalcHeight;
 
-                    foreach (var c in m_Components)
+                    foreach (var c in Components)
                     {
                         var addonLoc = new Point3D(p.X + c.Offset.X, p.Y + c.Offset.Y, p.Z + c.Offset.Z);
                         var addonHeight = c.ItemData.CalcHeight;
@@ -304,7 +300,7 @@ namespace Server.Items
         {
             BaseHouse house = null;
 
-            return (CouldFit(p, map, null, ref house) == AddonFitResult.Valid);
+            return CouldFit(p, map, null, ref house) == AddonFitResult.Valid;
         }
 
         public virtual void OnChop(Mobile from)
@@ -322,9 +318,9 @@ namespace Server.Items
 
                     if (RetainDeedHue)
                     {
-                        for (var i = 0; hue == 0 && i < m_Components.Count; ++i)
+                        for (var i = 0; hue == 0 && i < Components.Count; ++i)
                         {
-                            var c = m_Components[i];
+                            var c = Components[i];
 
                             if (c.Hue != 0)
                             {

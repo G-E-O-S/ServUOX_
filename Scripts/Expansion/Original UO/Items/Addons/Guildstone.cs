@@ -9,7 +9,6 @@ namespace Server.Items
 {
     public class Guildstone : Item, IAddon, IChopable
     {
-        private Guild m_Guild;
         private string m_GuildName;
         private string m_GuildAbbrev;
 
@@ -36,7 +35,7 @@ namespace Server.Items
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Guild Guild => m_Guild;
+        public Guild Guild { get; private set; }
 
         public override int LabelNumber => 1041429;// a guildstone
 
@@ -48,7 +47,7 @@ namespace Server.Items
         public Guildstone(Guild g, string guildName, string abbrev)
             : base(Guild.NewGuildSystem ? 0xED6 : 0xED4)
         {
-            m_Guild = g;
+            Guild = g;
             m_GuildName = guildName;
             m_GuildAbbrev = abbrev;
 
@@ -64,20 +63,20 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            if (m_Guild != null && !m_Guild.Disbanded)
+            if (Guild != null && !Guild.Disbanded)
             {
-                m_GuildName = m_Guild.Name;
-                m_GuildAbbrev = m_Guild.Abbreviation;
+                m_GuildName = Guild.Name;
+                m_GuildAbbrev = Guild.Abbreviation;
             }
 
-            writer.Write(3); // version
+            writer.Write(3);
 
             writer.Write(m_BeforeChangeover);
 
             writer.Write(m_GuildName);
             writer.Write(m_GuildAbbrev);
 
-            writer.Write(m_Guild);
+            writer.Write(Guild);
         }
 
         private bool m_BeforeChangeover;
@@ -103,7 +102,7 @@ namespace Server.Items
                     }
                 case 1:
                     {
-                        m_Guild = reader.ReadGuild() as Guild;
+                        Guild = reader.ReadGuild() as Guild;
 
                         goto case 0;
                     }
@@ -128,7 +127,7 @@ namespace Server.Items
                 Timer.DelayCall(TimeSpan.Zero, new TimerCallback(AddToHouse));
             }
 
-            if (!Guild.NewGuildSystem && m_Guild == null)
+            if (!Guild.NewGuildSystem && Guild == null)
             {
                 Delete();
             }
@@ -149,27 +148,27 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if (m_Guild != null && !m_Guild.Disbanded)
+            if (Guild != null && !Guild.Disbanded)
             {
                 string name;
                 string abbr;
 
-                if ((name = m_Guild.Name) == null || (name = name.Trim()).Length <= 0)
+                if ((name = Guild.Name) == null || (name = name.Trim()).Length <= 0)
                 {
                     name = "(unnamed)";
                 }
 
-                if ((abbr = m_Guild.Abbreviation) == null || (abbr = abbr.Trim()).Length <= 0)
+                if ((abbr = Guild.Abbreviation) == null || (abbr = abbr.Trim()).Length <= 0)
                 {
                     abbr = "";
                 }
 
                 //list.Add( 1060802, Utility.FixHtml( name ) ); // Guild name: ~1_val~
-                list.Add(1060802, String.Format("{0} [{1}]", Utility.FixHtml(name), Utility.FixHtml(abbr)));
+                list.Add(1060802, $"{Utility.FixHtml(name)} [{Utility.FixHtml(abbr)}]");
             }
             else if (m_GuildName != null && m_GuildAbbrev != null)
             {
-                list.Add(1060802, String.Format("{0} [{1}]", Utility.FixHtml(m_GuildName), Utility.FixHtml(m_GuildAbbrev)));
+                list.Add(1060802, $"{Utility.FixHtml(m_GuildName)} [{Utility.FixHtml(m_GuildAbbrev)}]");
             }
         }
 
@@ -177,11 +176,11 @@ namespace Server.Items
         {
             base.OnSingleClick(from);
 
-            if (m_Guild != null && !m_Guild.Disbanded)
+            if (Guild != null && !Guild.Disbanded)
             {
                 string name;
 
-                if ((name = m_Guild.Name) == null || (name = name.Trim()).Length <= 0)
+                if ((name = Guild.Name) == null || (name = name.Trim()).Length <= 0)
                 {
                     name = "(unnamed)";
                 }
@@ -196,9 +195,9 @@ namespace Server.Items
 
         public override void OnAfterDelete()
         {
-            if (!Guild.NewGuildSystem && m_Guild != null && !m_Guild.Disbanded)
+            if (!Guild.NewGuildSystem && Guild != null && !Guild.Disbanded)
             {
-                m_Guild.Disband();
+                Guild.Disband();
             }
         }
 
@@ -209,7 +208,7 @@ namespace Server.Items
                 return;
             }
 
-            if (m_Guild == null || m_Guild.Disbanded)
+            if (Guild == null || Guild.Disbanded)
             {
                 Delete();
             }
@@ -217,14 +216,14 @@ namespace Server.Items
             {
                 from.SendLocalizedMessage(500446); // That is too far away.
             }
-            else if (m_Guild.Accepted.Contains(from))
+            else if (Guild.Accepted.Contains(from))
             {
                 #region Factions
-                PlayerState guildState = PlayerState.Find(m_Guild.Leader);
+                PlayerState guildState = PlayerState.Find(Guild.Leader);
                 PlayerState targetState = PlayerState.Find(from);
 
-                Faction guildFaction = (guildState == null ? null : guildState.Faction);
-                Faction targetFaction = (targetState == null ? null : targetState.Faction);
+                Faction guildFaction = guildState?.Faction;
+                Faction targetFaction = targetState?.Faction;
 
                 if (guildFaction != targetFaction || (targetState != null && targetState.IsLeaving))
                 {
@@ -237,25 +236,25 @@ namespace Server.Items
                 }
                 #endregion
 
-                m_Guild.Accepted.Remove(from);
-                m_Guild.AddMember(from);
+                Guild.Accepted.Remove(from);
+                Guild.AddMember(from);
 
                 GuildGump.EnsureClosed(from);
-                from.SendGump(new GuildGump(from, m_Guild));
+                from.SendGump(new GuildGump(from, Guild));
             }
-            else if (from.AccessLevel < AccessLevel.GameMaster && !m_Guild.IsMember(from))
+            else if (from.AccessLevel < AccessLevel.GameMaster && !Guild.IsMember(from))
             {
                 from.Send(new MessageLocalized(Serial, ItemID, MessageType.Regular, 0x3B2, 3, 501158, "", "")); // You are not a member ...
             }
             else
             {
                 GuildGump.EnsureClosed(from);
-                from.SendGump(new GuildGump(from, m_Guild));
+                from.SendGump(new GuildGump(from, Guild));
             }
         }
 
         #region IAddon Members
-        public Item Deed => new GuildstoneDeed(m_Guild, m_GuildName, m_GuildAbbrev);
+        public Item Deed => new GuildstoneDeed(Guild, m_GuildName, m_GuildAbbrev);
 
         public bool CouldFit(IPoint3D p, Map map)
         {
@@ -303,7 +302,6 @@ namespace Server.Items
     {
         public override int LabelNumber => 1041233;// deed to a guildstone
 
-        private Guild m_Guild;
         private string m_GuildName;
         private string m_GuildAbbrev;
 
@@ -330,7 +328,7 @@ namespace Server.Items
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Guild Guild => m_Guild;
+        public Guild Guild { get; private set; }
 
         [Constructable]
         public GuildstoneDeed()
@@ -347,7 +345,7 @@ namespace Server.Items
         public GuildstoneDeed(Guild g, string guildName, string abbrev)
             : base(0x14F0)
         {
-            m_Guild = g;
+            Guild = g;
             m_GuildName = guildName;
             m_GuildAbbrev = abbrev;
 
@@ -363,10 +361,10 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            if (m_Guild != null && !m_Guild.Disbanded)
+            if (Guild != null && !Guild.Disbanded)
             {
-                m_GuildName = m_Guild.Name;
-                m_GuildAbbrev = m_Guild.Abbreviation;
+                m_GuildName = Guild.Name;
+                m_GuildAbbrev = Guild.Abbreviation;
             }
 
             writer.Write(1); // version
@@ -374,7 +372,7 @@ namespace Server.Items
             writer.Write(m_GuildName);
             writer.Write(m_GuildAbbrev);
 
-            writer.Write(m_Guild);
+            writer.Write(Guild);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -390,7 +388,7 @@ namespace Server.Items
                         m_GuildName = reader.ReadString();
                         m_GuildAbbrev = reader.ReadString();
 
-                        m_Guild = reader.ReadGuild() as Guild;
+                        Guild = reader.ReadGuild() as Guild;
 
                         break;
                     }
@@ -401,27 +399,27 @@ namespace Server.Items
         {
             base.GetProperties(list);
 
-            if (m_Guild != null && !m_Guild.Disbanded)
+            if (Guild != null && !Guild.Disbanded)
             {
                 string name;
                 string abbr;
 
-                if ((name = m_Guild.Name) == null || (name = name.Trim()).Length <= 0)
+                if ((name = Guild.Name) == null || (name = name.Trim()).Length <= 0)
                 {
                     name = "(unnamed)";
                 }
 
-                if ((abbr = m_Guild.Abbreviation) == null || (abbr = abbr.Trim()).Length <= 0)
+                if ((abbr = Guild.Abbreviation) == null || (abbr = abbr.Trim()).Length <= 0)
                 {
                     abbr = "";
                 }
 
                 //list.Add( 1060802, Utility.FixHtml( name ) ); // Guild name: ~1_val~
-                list.Add(1060802, String.Format("{0} [{1}]", Utility.FixHtml(name), Utility.FixHtml(abbr)));
+                list.Add(1060802, $"{Utility.FixHtml(name)} [{Utility.FixHtml(abbr)}]");
             }
             else if (m_GuildName != null && m_GuildAbbrev != null)
             {
-                list.Add(1060802, String.Format("{0} [{1}]", Utility.FixHtml(m_GuildName), Utility.FixHtml(m_GuildAbbrev)));
+                list.Add(1060802, $"{Utility.FixHtml(m_GuildName)} [{Utility.FixHtml(m_GuildAbbrev)}]");
             }
         }
 
@@ -449,9 +447,7 @@ namespace Server.Items
 
         public void Placement_OnTarget(Mobile from, object targeted, object state)
         {
-            IPoint3D p = targeted as IPoint3D;
-
-            if (p == null || Deleted)
+            if (!(targeted is IPoint3D p) || Deleted)
             {
                 return;
             }
@@ -464,7 +460,7 @@ namespace Server.Items
             {
                 if (house != null && house.IsOwner(from))
                 {
-                    Item addon = new Guildstone(m_Guild, m_GuildName, m_GuildAbbrev);
+                    Item addon = new Guildstone(Guild, m_GuildName, m_GuildAbbrev);
 
                     addon.MoveToWorld(loc, from.Map);
 

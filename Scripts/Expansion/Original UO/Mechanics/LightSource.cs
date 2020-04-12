@@ -1,20 +1,18 @@
 namespace Server.Items
 {
-    public class BlankMap : MapItem
+    public class LightSource : Item
     {
         [Constructable]
-        public BlankMap()
+        public LightSource()
+            : base(0x1647)
         {
+            Layer = Layer.TwoHanded;
+            Movable = false;
         }
 
-        public BlankMap(Serial serial)
+        public LightSource(Serial serial)
             : base(serial)
         {
-        }
-
-        public override void OnDoubleClick(Mobile from)
-        {
-            SendLocalizedMessageTo(from, 500208); // It appears to be blank.
         }
 
         public override void Serialize(GenericWriter writer)

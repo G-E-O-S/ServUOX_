@@ -15,16 +15,10 @@ namespace Server.Items
         private EffectItem()
             : base(1)// nodraw
         {
-            this.Movable = false;
+            Movable = false;
         }
 
-        public override bool Decays
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool Decays => true;
         public static EffectItem Create(Point3D p, Map map, TimeSpan duration)
         {
             EffectItem item = null;
@@ -36,13 +30,19 @@ namespace Server.Items
                 m_Free.RemoveAt(i);
 
                 if (!free.Deleted && free.Map == Map.Internal)
+                {
                     item = free;
+                }
             }
 
             if (item == null)
+            {
                 item = new EffectItem();
+            }
             else
+            {
                 item.ItemID = 1;
+            }
 
             item.MoveToWorld(p, map);
             item.BeginFree(duration);
@@ -58,17 +58,15 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            _ = reader.ReadInt();
 
-            int version = reader.ReadInt();
-
-            this.Delete();
+            Delete();
         }
 
         private class FreeTimer : Timer
@@ -77,15 +75,15 @@ namespace Server.Items
             public FreeTimer(EffectItem item, TimeSpan delay)
                 : base(delay)
             {
-                this.m_Item = item;
-                this.Priority = TimerPriority.OneSecond;
+                m_Item = item;
+                Priority = TimerPriority.OneSecond;
             }
 
             protected override void OnTick()
             {
-                this.m_Item.Internalize();
+                m_Item.Internalize();
 
-                m_Free.Add(this.m_Item);
+                m_Free.Add(m_Item);
             }
         }
     }

@@ -1,8 +1,3 @@
-#region References
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using Server.ContextMenus;
 using Server.Engines.PartySystem;
 using Server.Engines.Quests;
@@ -13,7 +8,9 @@ using Server.Guilds;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Network;
-#endregion
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Server.Items
 {
@@ -80,19 +77,7 @@ namespace Server.Items
 
     public class Corpse : Container, ICarvable
     {
-        private Mobile m_Owner; // Whos corpse is this?
-        private Mobile m_Killer; // Who killed the owner?
-        private CorpseFlag m_Flags; // @see CorpseFlag
-
-        private List<Mobile> m_Looters; // Who's looted this corpse?
-
-        private List<Item> m_EquipItems;
-        // List of dropped equipment when the owner died. Ingame, these items display /on/ the corpse, not just inside
-
-        private List<Item> m_RestoreEquip; // List of items equipped when the owner died. Includes insured and blessed items.
-
-        private List<Mobile> m_Aggressors;
-        // Anyone from this list will be able to loot this corpse; we attacked them, or they attacked us when we were freely attackable
+        private CorpseFlag m_Flags; // @see CorpseFlag                              
 
         private List<Item> m_HasLooted;
         // Keeps a list of items that have been dragged from corpse. This prevents Loot Event Handler from triggering from the same item more than once.
@@ -101,16 +86,6 @@ namespace Server.Items
         // Value of the CorpseNameAttribute attached to the owner when he died -or- null if the owner had no CorpseNameAttribute; use "the remains of ~name~"
 
         private IDevourer m_Devourer; // The creature that devoured this corpse
-
-        // For notoriety:
-        private AccessLevel m_AccessLevel; // Which AccessLevel the owner had when he died
-        private readonly Guild m_Guild; // Which Guild the owner was in when he died
-        private int m_Kills; // How many kills the owner had when he died
-
-        private DateTime m_TimeOfDeath; // What time was this corpse created?
-
-        private readonly HairInfo m_Hair; // This contains the hair of the owner
-        private readonly FacialHairInfo m_FacialHair; // This contains the facial hair of the owner
 
         // For Forensics Evaluation
         public string m_Forensicist; // Name of the first PlayerMobile who used Forensic Evaluation on the corpse
@@ -129,7 +104,7 @@ namespace Server.Items
                     return false;
                 }
 
-                return (DateTime.UtcNow < (m_TimeOfDeath + InstancedCorpseTime));
+                return DateTime.UtcNow < (TimeOfDeath + InstancedCorpseTime);
             }
         }
 
@@ -182,9 +157,8 @@ namespace Server.Items
 
             if (m_InstancedItems != null)
             {
-                InstancedItemInfo info;
 
-                if (m_InstancedItems.TryGetValue(child, out info) && (InstancedCorpse || info.Perpetual))
+                if (m_InstancedItems.TryGetValue(child, out InstancedItemInfo info) && (InstancedCorpse || info.Perpetual))
                 {
                     return info.IsOwner(m); //IsOwner checks Party stuff.
                 }
@@ -202,7 +176,9 @@ namespace Server.Items
                 if (item.GetBounce() != null)
                 {
                     if (m_HasLooted == null)
+                    {
                         m_HasLooted = new List<Item>();
+                    }
 
                     m_HasLooted.Add(item);
                 }
@@ -213,7 +189,7 @@ namespace Server.Items
 
         private void AssignInstancedLoot()
         {
-            AssignInstancedLoot(this.Items);
+            AssignInstancedLoot(Items);
         }
 
         public void AssignInstancedLoot(Item item)
@@ -223,7 +199,7 @@ namespace Server.Items
 
         private void AssignInstancedLoot(IEnumerable<Item> items)
         {
-            if (m_Aggressors.Count == 0 || Items.Count == 0)
+            if (Aggressors.Count == 0 || Items.Count == 0)
             {
                 return;
             }
@@ -251,7 +227,7 @@ namespace Server.Items
                 }
             }
 
-            var attackers = new List<Mobile>(m_Aggressors);
+            var attackers = new List<Mobile>(Aggressors);
 
             for (int i = 1; i < attackers.Count - 1; i++) //randomize
             {
@@ -337,67 +313,67 @@ namespace Server.Items
             }
         }
 
-        public override bool IsDecoContainer { get { return false; } }
+        public override bool IsDecoContainer => false;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public DateTime TimeOfDeath { get { return m_TimeOfDeath; } set { m_TimeOfDeath = value; } }
+        public DateTime TimeOfDeath { get; set; }// What time was this corpse created?
 
-        public override bool DisplayWeight { get { return false; } }
+        public override bool DisplayWeight => false;
 
-        public HairInfo Hair { get { return m_Hair; } }
-        public FacialHairInfo FacialHair { get { return m_FacialHair; } }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public bool IsBones { get { return GetFlag(CorpseFlag.IsBones); } }
+        public HairInfo Hair { get; }// This contains the hair of the owner
+        public FacialHairInfo FacialHair { get; }// This contains the facial hair of the owner
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Devoured { get { return (m_Devourer != null); } }
+        public bool IsBones => GetFlag(CorpseFlag.IsBones);
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Carved { get { return GetFlag(CorpseFlag.Carved); } set { SetFlag(CorpseFlag.Carved, value); } }
+        public bool Devoured => (m_Devourer != null);
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool VisitedByTaxidermist { get { return GetFlag(CorpseFlag.VisitedByTaxidermist); } set { SetFlag(CorpseFlag.VisitedByTaxidermist, value); } }
+        public bool Carved { get => GetFlag(CorpseFlag.Carved); set => SetFlag(CorpseFlag.Carved, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Channeled { get { return GetFlag(CorpseFlag.Channeled); } set { SetFlag(CorpseFlag.Channeled, value); } }
+        public bool VisitedByTaxidermist { get => GetFlag(CorpseFlag.VisitedByTaxidermist); set => SetFlag(CorpseFlag.VisitedByTaxidermist, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Animated { get { return GetFlag(CorpseFlag.Animated); } set { SetFlag(CorpseFlag.Animated, value); } }
+        public bool Channeled { get => GetFlag(CorpseFlag.Channeled); set => SetFlag(CorpseFlag.Channeled, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool SelfLooted { get { return GetFlag(CorpseFlag.SelfLooted); } set { SetFlag(CorpseFlag.SelfLooted, value); } }
+        public bool Animated { get => GetFlag(CorpseFlag.Animated); set => SetFlag(CorpseFlag.Animated, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool LootCriminal { get { return GetFlag(CorpseFlag.LootCriminal); } set { SetFlag(CorpseFlag.LootCriminal, value); } }
+        public bool SelfLooted { get => GetFlag(CorpseFlag.SelfLooted); set => SetFlag(CorpseFlag.SelfLooted, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public AccessLevel AccessLevel { get { return m_AccessLevel; } }
-
-        public List<Mobile> Aggressors { get { return m_Aggressors; } }
-
-        public List<Mobile> Looters { get { return m_Looters; } }
+        public bool LootCriminal { get => GetFlag(CorpseFlag.LootCriminal); set => SetFlag(CorpseFlag.LootCriminal, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Killer { get { return m_Killer; } }
+        public AccessLevel AccessLevel { get; private set; }// Which AccessLevel the owner had when he died
 
-        public List<Item> EquipItems { get { return m_EquipItems; } }
-
-        public List<Item> RestoreEquip { get { return m_RestoreEquip; } set { m_RestoreEquip = value; } }
-
-        public Guild Guild { get { return m_Guild; } }
+        public List<Mobile> Aggressors { get; private set; }
+        // Anyone from this list will be able to loot this corpse; we attacked them, or they attacked us when we were freely attackable
+        public List<Mobile> Looters { get; private set; }// Who's looted this corpse?
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Kills { get { return m_Kills; } set { m_Kills = value; } }
+        public Mobile Killer { get; private set; }// Who killed the owner?
+
+        public List<Item> EquipItems { get; private set; }// List of dropped equipment when the owner died. Ingame, these items display /on/ the corpse, not just inside
+
+        public List<Item> RestoreEquip { get; set; }// List of items equipped when the owner died. Includes insured and blessed items.
+
+        public Guild Guild { get; }// Which Guild the owner was in when he died
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Criminal { get { return GetFlag(CorpseFlag.Criminal); } set { SetFlag(CorpseFlag.Criminal, value); } }
+        public int Kills { get; set; }// How many kills the owner had when he died
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Murderer { get { return GetFlag(CorpseFlag.Murderer); } set { SetFlag(CorpseFlag.Murderer, value); } }
+        public bool Criminal { get => GetFlag(CorpseFlag.Criminal); set => SetFlag(CorpseFlag.Criminal, value); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Owner { get { return m_Owner; } }
+        public bool Murderer { get => GetFlag(CorpseFlag.Murderer); set => SetFlag(CorpseFlag.Murderer, value); }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public Mobile Owner { get; private set; }// Whos corpse is this?
 
         public void TurnToBones()
         {
@@ -480,10 +456,8 @@ namespace Server.Items
                 return x.Data;
             }
 
-            if (m is BaseCreature)
+            if (m is BaseCreature bc)
             {
-                BaseCreature bc = (BaseCreature)m;
-
                 if (bc.CorpseNameOverride != null)
                 {
                     return bc.CorpseNameOverride;
@@ -496,9 +470,7 @@ namespace Server.Items
 
             if (attrs != null && attrs.Length > 0)
             {
-                CorpseNameAttribute attr = attrs[0] as CorpseNameAttribute;
-
-                if (attr != null)
+                if (attrs[0] is CorpseNameAttribute attr)
                 {
                     return attr.Name;
                 }
@@ -560,9 +532,7 @@ namespace Server.Items
                 }
                 else if (Core.AOS)
                 {
-                    PlayerMobile pm = owner as PlayerMobile;
-
-                    if (pm != null)
+                    if (owner is PlayerMobile pm)
                     {
                         c.RestoreEquip = pm.EquipSnapshot;
                     }
@@ -587,7 +557,7 @@ namespace Server.Items
             return c;
         }
 
-        public override bool IsPublicContainer { get { return false; } }
+        public override bool IsPublicContainer => false;
 
         public Corpse(Mobile owner, List<Item> equipItems)
             : this(owner, null, null, equipItems)
@@ -608,21 +578,21 @@ namespace Server.Items
             Direction = owner.Direction;
             Light = (LightType)Direction;
 
-            m_Owner = owner;
+            Owner = owner;
 
             m_CorpseName = GetCorpseName(owner);
 
-            m_TimeOfDeath = DateTime.UtcNow;
+            TimeOfDeath = DateTime.UtcNow;
 
-            m_AccessLevel = owner.AccessLevel;
-            m_Guild = owner.Guild as Guild;
-            m_Kills = owner.Kills;
+            AccessLevel = owner.AccessLevel;
+            Guild = owner.Guild as Guild;
+            Kills = owner.Kills;
 
             SetFlag(CorpseFlag.Criminal, owner.Criminal);
             SetFlag(CorpseFlag.Murderer, owner.Murderer);
 
-            m_Hair = hair;
-            m_FacialHair = facialhair;
+            Hair = hair;
+            FacialHair = facialhair;
 
             // This corpse does not turn to bones if: the owner is not a player
             SetFlag(CorpseFlag.NoBones, !owner.Player);
@@ -630,10 +600,10 @@ namespace Server.Items
             // Flagging looters as criminal can happen by default
             SetFlag(CorpseFlag.LootCriminal, true);
 
-            m_Looters = new List<Mobile>();
-            m_EquipItems = equipItems;
+            Looters = new List<Mobile>();
+            EquipItems = equipItems;
 
-            m_Aggressors = new List<Mobile>(owner.Aggressors.Count + owner.Aggressed.Count);
+            Aggressors = new List<Mobile>(owner.Aggressors.Count + owner.Aggressed.Count);
             //bool addToAggressors = !( owner is BaseCreature );
 
             bool isBaseCreature = (owner is BaseCreature);
@@ -646,13 +616,13 @@ namespace Server.Items
 
                 if ((DateTime.UtcNow - info.LastCombatTime) < lastTime)
                 {
-                    m_Killer = info.Attacker;
+                    Killer = info.Attacker;
                     lastTime = (DateTime.UtcNow - info.LastCombatTime);
                 }
 
                 if (!isBaseCreature && !info.CriminalAggression)
                 {
-                    m_Aggressors.Add(info.Attacker);
+                    Aggressors.Add(info.Attacker);
                 }
             }
 
@@ -662,13 +632,13 @@ namespace Server.Items
 
                 if ((DateTime.UtcNow - info.LastCombatTime) < lastTime)
                 {
-                    m_Killer = info.Defender;
+                    Killer = info.Defender;
                     lastTime = (DateTime.UtcNow - info.LastCombatTime);
                 }
 
                 if (!isBaseCreature)
                 {
-                    m_Aggressors.Add(info.Defender);
+                    Aggressors.Add(info.Defender);
                 }
             }
 
@@ -679,7 +649,7 @@ namespace Server.Items
                 Mobile master = bc.GetMaster();
                 if (master != null)
                 {
-                    m_Aggressors.Add(master);
+                    Aggressors.Add(master);
                 }
 
                 var rights = bc.GetLootingRights();
@@ -689,7 +659,7 @@ namespace Server.Items
 
                     if (ds.m_HasRight)
                     {
-                        m_Aggressors.Add(ds.m_Mobile);
+                        Aggressors.Add(ds.m_Mobile);
                     }
                 }
             }
@@ -701,7 +671,9 @@ namespace Server.Items
             if (owner is PlayerMobile)
             {
                 if (PlayerCorpses == null)
+                {
                     PlayerCorpses = new Dictionary<Corpse, int>();
+                }
 
                 PlayerCorpses[this] = 0;
             }
@@ -727,19 +699,19 @@ namespace Server.Items
 
             writer.Write(12); // version
 
-            if (m_RestoreEquip == null)
+            if (RestoreEquip == null)
             {
                 writer.Write(false);
             }
             else
             {
                 writer.Write(true);
-                writer.Write(m_RestoreEquip);
+                writer.Write(RestoreEquip);
             }
 
             writer.Write((int)m_Flags);
 
-            writer.WriteDeltaTime(m_TimeOfDeath);
+            writer.WriteDeltaTime(TimeOfDeath);
 
             var list = (m_RestoreTable == null ? null : new List<KeyValuePair<Item, Point3D>>(m_RestoreTable));
             int count = (list == null ? 0 : list.Count);
@@ -772,20 +744,20 @@ namespace Server.Items
                 writer.WriteDeltaTime(m_DecayTime);
             }
 
-            writer.Write(m_Looters);
-            writer.Write(m_Killer);
+            writer.Write(Looters);
+            writer.Write(Killer);
 
-            writer.Write(m_Aggressors);
+            writer.Write(Aggressors);
 
-            writer.Write(m_Owner);
+            writer.Write(Owner);
 
             writer.Write(m_CorpseName);
 
-            writer.Write((int)m_AccessLevel);
-            writer.Write(m_Guild);
-            writer.Write(m_Kills);
+            writer.Write((int)AccessLevel);
+            writer.Write(Guild);
+            writer.Write(Kills);
 
-            writer.Write(m_EquipItems);
+            writer.Write(EquipItems);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -800,7 +772,7 @@ namespace Server.Items
                     {
                         if (reader.ReadBool())
                         {
-                            m_RestoreEquip = reader.ReadStrongItemList();
+                            RestoreEquip = reader.ReadStrongItemList();
                         }
 
                         goto case 11;
@@ -810,7 +782,7 @@ namespace Server.Items
                         // Version 11, we move all bools to a CorpseFlag
                         m_Flags = (CorpseFlag)reader.ReadInt();
 
-                        m_TimeOfDeath = reader.ReadDeltaTime();
+                        TimeOfDeath = reader.ReadDeltaTime();
 
                         int count = reader.ReadInt();
 
@@ -833,24 +805,24 @@ namespace Server.Items
                             BeginDecay(reader.ReadDeltaTime() - DateTime.UtcNow);
                         }
 
-                        m_Looters = reader.ReadStrongMobileList();
-                        m_Killer = reader.ReadMobile();
+                        Looters = reader.ReadStrongMobileList();
+                        Killer = reader.ReadMobile();
 
-                        m_Aggressors = reader.ReadStrongMobileList();
-                        m_Owner = reader.ReadMobile();
+                        Aggressors = reader.ReadStrongMobileList();
+                        Owner = reader.ReadMobile();
 
                         m_CorpseName = reader.ReadString();
 
-                        m_AccessLevel = (AccessLevel)reader.ReadInt();
+                        AccessLevel = (AccessLevel)reader.ReadInt();
                         reader.ReadInt(); // guild reserve
-                        m_Kills = reader.ReadInt();
+                        Kills = reader.ReadInt();
 
-                        m_EquipItems = reader.ReadStrongItemList();
+                        EquipItems = reader.ReadStrongItemList();
                         break;
                     }
                 case 10:
                     {
-                        m_TimeOfDeath = reader.ReadDeltaTime();
+                        TimeOfDeath = reader.ReadDeltaTime();
 
                         goto case 9;
                     }
@@ -891,8 +863,8 @@ namespace Server.Items
                     }
                 case 6:
                     {
-                        m_Looters = reader.ReadStrongMobileList();
-                        m_Killer = reader.ReadMobile();
+                        Looters = reader.ReadStrongMobileList();
+                        Killer = reader.ReadMobile();
 
                         goto case 5;
                     }
@@ -904,13 +876,13 @@ namespace Server.Items
                     }
                 case 4:
                     {
-                        m_Aggressors = reader.ReadStrongMobileList();
+                        Aggressors = reader.ReadStrongMobileList();
 
                         goto case 3;
                     }
                 case 3:
                     {
-                        m_Owner = reader.ReadMobile();
+                        Owner = reader.ReadMobile();
 
                         goto case 2;
                     }
@@ -930,7 +902,7 @@ namespace Server.Items
                     {
                         if (version < 10)
                         {
-                            m_TimeOfDeath = DateTime.UtcNow;
+                            TimeOfDeath = DateTime.UtcNow;
                         }
 
                         if (version < 7)
@@ -940,29 +912,31 @@ namespace Server.Items
 
                         if (version < 6)
                         {
-                            m_Looters = new List<Mobile>();
+                            Looters = new List<Mobile>();
                         }
 
                         if (version < 4)
                         {
-                            m_Aggressors = new List<Mobile>();
+                            Aggressors = new List<Mobile>();
                         }
 
-                        m_AccessLevel = (AccessLevel)reader.ReadInt();
+                        AccessLevel = (AccessLevel)reader.ReadInt();
                         reader.ReadInt(); // guild reserve
-                        m_Kills = reader.ReadInt();
+                        Kills = reader.ReadInt();
                         SetFlag(CorpseFlag.Criminal, reader.ReadBool());
 
-                        m_EquipItems = reader.ReadStrongItemList();
+                        EquipItems = reader.ReadStrongItemList();
 
                         break;
                     }
             }
 
-            if (m_Owner is PlayerMobile)
+            if (Owner is PlayerMobile)
             {
                 if (PlayerCorpses == null)
+                {
                     PlayerCorpses = new Dictionary<Corpse, int>();
+                }
 
                 PlayerCorpses[this] = 0;
             }
@@ -970,13 +944,13 @@ namespace Server.Items
 
         public bool DevourCorpse()
         {
-            if (Devoured || Deleted || m_Killer == null || m_Killer.Deleted || !m_Killer.Alive || !(m_Killer is IDevourer) ||
-                m_Owner == null || m_Owner.Deleted)
+            if (Devoured || Deleted || Killer == null || Killer.Deleted || !Killer.Alive || !(Killer is IDevourer) ||
+                Owner == null || Owner.Deleted)
             {
                 return false;
             }
 
-            m_Devourer = (IDevourer)m_Killer; // Set the devourer the killer
+            m_Devourer = (IDevourer)Killer; // Set the devourer the killer
             return m_Devourer.Devour(this); // Devour the corpse if it hasn't
         }
 
@@ -1001,19 +975,21 @@ namespace Server.Items
 
         public bool IsCriminalAction(Mobile from)
         {
-            if (from == m_Owner || from.AccessLevel >= AccessLevel.GameMaster)
+            if (from == Owner || from.AccessLevel >= AccessLevel.GameMaster)
             {
                 return false;
             }
 
             if (!GetFlag(CorpseFlag.LootCriminal))
+            {
                 return false;
+            }
 
-            Party p = Party.Get(m_Owner);
+            Party p = Party.Get(Owner);
 
             if (p != null && p.Contains(from))
             {
-                PartyMemberInfo pmi = p[m_Owner];
+                PartyMemberInfo pmi = p[Owner];
 
                 if (pmi != null && pmi.CanLoot)
                 {
@@ -1021,7 +997,7 @@ namespace Server.Items
                 }
             }
 
-            return (NotorietyHandlers.CorpseNotoriety(from, this) == Notoriety.Innocent);
+            return NotorietyHandlers.CorpseNotoriety(from, this) == Notoriety.Innocent;
         }
 
         public override bool CheckItemUse(Mobile from, Item item)
@@ -1049,7 +1025,9 @@ namespace Server.Items
             var canLoot = CanLoot(from, item);
 
             if (m_HasLooted == null)
+            {
                 m_HasLooted = new List<Item>();
+            }
 
             if (canLoot && !m_HasLooted.Contains(item))
             {
@@ -1074,9 +1052,9 @@ namespace Server.Items
                 from.CriminalAction(true);
             }
 
-            if (!m_Looters.Contains(from))
+            if (!Looters.Contains(from))
             {
-                m_Looters.Add(from);
+                Looters.Add(from);
             }
 
             //if (m_InstancedItems != null && m_InstancedItems.ContainsKey(item))
@@ -1089,7 +1067,7 @@ namespace Server.Items
         {
             base.OnItemLifted(from, item);
 
-            if (item != this && from != m_Owner)
+            if (item != this && from != Owner)
             {
                 from.RevealingAction();
             }
@@ -1099,9 +1077,9 @@ namespace Server.Items
                 from.CriminalAction(true);
             }
 
-            if (!m_Looters.Contains(from))
+            if (!Looters.Contains(from))
             {
-                m_Looters.Add(from);
+                Looters.Add(from);
             }
 
             //if (m_InstancedItems != null && m_InstancedItems.ContainsKey(item))
@@ -1118,9 +1096,7 @@ namespace Server.Items
 
             public override void OnClick()
             {
-                Corpse corpse = Owner.Target as Corpse;
-
-                if (corpse != null && Owner.From.CheckAlive())
+                if (Owner.Target is Corpse corpse && Owner.From.CheckAlive())
                 {
                     corpse.Open(Owner.From, false);
                 }
@@ -1131,7 +1107,7 @@ namespace Server.Items
         {
             base.GetContextMenuEntries(from, list);
 
-            if (Core.AOS && m_Owner == from && from.Alive)
+            if (Core.AOS && Owner == from && from.Alive)
             {
                 list.Add(new OpenCorpseEntry());
             }
@@ -1200,7 +1176,7 @@ namespace Server.Items
         {
             if (!CanLoot(from, item))
             {
-                if (m_Owner == null || !m_Owner.Player)
+                if (Owner == null || !Owner.Player)
                 {
                     from.SendLocalizedMessage(1005035); // You did not earn the right to loot this creature!
                 }
@@ -1213,7 +1189,7 @@ namespace Server.Items
             }
             else if (IsCriminalAction(from))
             {
-                if (m_Owner == null || !m_Owner.Player)
+                if (Owner == null || !Owner.Player)
                 {
                     from.SendLocalizedMessage(1005036); // Looting this monster corpse will be a criminal act!
                 }
@@ -1231,7 +1207,7 @@ namespace Server.Items
             if (from.IsStaff() || from.InRange(GetWorldLocation(), 2))
             {
                 #region Self Looting
-                bool selfLoot = (checkSelfLoot && (from == m_Owner));
+                bool selfLoot = (checkSelfLoot && (from == Owner));
 
                 if (selfLoot)
                 {
@@ -1270,9 +1246,7 @@ namespace Server.Items
 
                         if (checkRobe)
                         {
-                            DeathRobe robe = from.FindItemOnLayer(Layer.OuterTorso) as DeathRobe;
-
-                            if (robe != null)
+                            if (from.FindItemOnLayer(Layer.OuterTorso) is DeathRobe robe)
                             {
                                 if (Core.SA)
                                 {
@@ -1290,7 +1264,7 @@ namespace Server.Items
                             }
                         }
 
-                        if (m_EquipItems.Contains(item) && from.EquipItem(item))
+                        if (EquipItems.Contains(item) && from.EquipItem(item))
                         {
                             gathered = true;
                         }
@@ -1322,7 +1296,7 @@ namespace Server.Items
                         from.PlaySound(0x3E3);
                         from.SendLocalizedMessage(1062471); // You quickly gather all of your belongings.
                         items.Clear();
-                        m_EquipItems.Clear();
+                        EquipItems.Clear();
                         return;
                     }
 
@@ -1339,17 +1313,14 @@ namespace Server.Items
                 }
 
                 #region Quests
-                PlayerMobile player = from as PlayerMobile;
 
-                if (player != null)
+                if (from is PlayerMobile player)
                 {
                     QuestSystem qs = player.Quest;
 
                     if (qs is UzeraanTurmoilQuest)
                     {
-                        GetDaemonBoneObjective obj = qs.FindObjective(typeof(GetDaemonBoneObjective)) as GetDaemonBoneObjective;
-
-                        if (obj != null && obj.CorpseWithBone == this && (!obj.Completed || UzeraanTurmoilQuest.HasLostDaemonBone(player)))
+                        if (qs.FindObjective(typeof(GetDaemonBoneObjective)) is GetDaemonBoneObjective obj && obj.CorpseWithBone == this && (!obj.Completed || UzeraanTurmoilQuest.HasLostDaemonBone(player)))
                         {
                             Item bone = new QuestDaemonBone();
 
@@ -1376,9 +1347,7 @@ namespace Server.Items
                     }
                     else if (qs is TheSummoningQuest)
                     {
-                        VanquishDaemonObjective obj = qs.FindObjective(typeof(VanquishDaemonObjective)) as VanquishDaemonObjective;
-
-                        if (obj != null && obj.Completed && obj.CorpseWithSkull == this)
+                        if (qs.FindObjective(typeof(VanquishDaemonObjective)) is VanquishDaemonObjective obj && obj.Completed && obj.CorpseWithSkull == this)
                         {
                             GoldenSkull sk = new GoldenSkull();
 
@@ -1412,10 +1381,12 @@ namespace Server.Items
         {
             Open(from, Core.AOS);
 
-            if (m_Owner == from)
+            if (Owner == from)
             {
                 if (from.Corpse != null)
+                {
                     from.NetState.Send(new RemoveWaypoint(from.Corpse.Serial));
+                }
             }
         }
 
@@ -1424,7 +1395,7 @@ namespace Server.Items
             return false;
         }
 
-        public override bool DisplaysContent { get { return false; } }
+        public override bool DisplaysContent => false;
 
         public override void AddNameProperty(ObjectPropertyList list)
         {
@@ -1481,7 +1452,7 @@ namespace Server.Items
         {
             if (IsCriminalAction(from) && Map != null && (Map.Rules & MapRules.HarmfulRestrictions) != 0)
             {
-                if (m_Owner == null || !m_Owner.Player)
+                if (Owner == null || !Owner.Player)
                 {
                     from.SendLocalizedMessage(1005035); // You did not earn the right to loot this creature!
                 }
@@ -1493,7 +1464,7 @@ namespace Server.Items
                 return false;
             }
 
-            Mobile dead = m_Owner;
+            Mobile dead = Owner;
 
             if (GetFlag(CorpseFlag.Carved) || dead == null)
             {
@@ -1542,7 +1513,9 @@ namespace Server.Items
             if (PlayerCorpses != null && PlayerCorpses.Remove(this))
             {
                 if (PlayerCorpses.Count == 0)
+                {
                     PlayerCorpses = null;
+                }
             }
 
             if (m_HasLooted != null)

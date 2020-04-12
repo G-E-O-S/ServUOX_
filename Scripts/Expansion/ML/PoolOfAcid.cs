@@ -58,7 +58,11 @@ namespace Server.Items
 
         public void Damage(Mobile m)
         {
-            m.Damage(Utility.RandomMinMax(this.m_MinDamage, this.m_MaxDamage));
+            int damage = Utility.RandomMinMax(this.m_MinDamage, this.m_MaxDamage);
+            if (Core.AOS)
+                AOS.Damage(m, damage, 0, 0, 0, 100, 0);
+            else
+                m.Damage(damage);
         }
 
         public override void Serialize(GenericWriter writer)

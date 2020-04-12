@@ -1,6 +1,6 @@
-﻿using System;
-using System.Reflection;
 using Server.Multis;
+using System;
+using System.Reflection;
 
 namespace Server.Items
 {
@@ -12,22 +12,16 @@ namespace Server.Items
         {
             typeof(Mobile), typeof(Direction)
         };
-        private readonly Direction[] m_Directions;
+
         public FlipableAddonAttribute(params Direction[] directions)
         {
-            this.m_Directions = directions;
+            Directions = directions;
         }
 
-        public Direction[] Directions
-        {
-            get
-            {
-                return this.m_Directions;
-            }
-        }
+        public Direction[] Directions { get; }
         public virtual void Flip(Mobile from, Item addon)
         {
-            if (this.m_Directions != null && this.m_Directions.Length > 1)
+            if (Directions != null && Directions.Length > 1)
             {
                 try
                 {
@@ -37,21 +31,23 @@ namespace Server.Items
                     {
                         int index = 0;
 
-                        for (int i = 0; i < this.m_Directions.Length; i++)
+                        for (int i = 0; i < Directions.Length; i++)
                         {
-                            if (addon.Direction == this.m_Directions[i])
+                            if (addon.Direction == Directions[i])
                             {
                                 index = i + 1;
                                 break;
                             }
                         }
 
-                        if (index >= this.m_Directions.Length)
+                        if (index >= Directions.Length)
+                        {
                             index = 0;
+                        }
 
-                        this.ClearComponents(addon);
+                        ClearComponents(addon);
 
-                        flipMethod.Invoke(addon, new object[2] { from, this.m_Directions[index] });
+                        flipMethod.Invoke(addon, new object[2] { from, Directions[index] });
 
                         BaseHouse house = null;
                         AddonFitResult result = AddonFitResult.Valid;
@@ -59,36 +55,54 @@ namespace Server.Items
                         addon.Map = Map.Internal;
 
                         if (addon is BaseAddon)
+                        {
                             result = ((BaseAddon)addon).CouldFit(addon.Location, from.Map, from, ref house);
+                        }
                         else if (addon is BaseAddonContainer)
+                        {
                             result = ((BaseAddonContainer)addon).CouldFit(addon.Location, from.Map, from, ref house);
+                        }
 
                         addon.Map = from.Map;
 
                         if (result != AddonFitResult.Valid)
                         {
                             if (index == 0)
-                                index = this.m_Directions.Length - 1;
+                            {
+                                index = Directions.Length - 1;
+                            }
                             else
+                            {
                                 index -= 1;
+                            }
 
-                            this.ClearComponents(addon);
+                            ClearComponents(addon);
 
-                            flipMethod.Invoke(addon, new object[2] { from, this.m_Directions[index] });
+                            flipMethod.Invoke(addon, new object[2] { from, Directions[index] });
 
                             if (result == AddonFitResult.Blocked)
+                            {
                                 from.SendLocalizedMessage(500269); // You cannot build that there.
+                            }
                             else if (result == AddonFitResult.NotInHouse)
+                            {
                                 from.SendLocalizedMessage(500274); // You can only place this in a house that you own!
+                            }
                             else if (result == AddonFitResult.DoorsNotClosed)
+                            {
                                 from.SendMessage("You must close all house doors before placing this.");
+                            }
                             else if (result == AddonFitResult.DoorTooClose)
+                            {
                                 from.SendLocalizedMessage(500271); // You cannot build near the door.
+                            }
                             else if (result == AddonFitResult.NoWall)
+                            {
                                 from.SendLocalizedMessage(500268); // This object needs to be mounted on something.
+                            }
                         }
 
-                        addon.Direction = this.m_Directions[index];
+                        addon.Direction = Directions[index];
                     }
                 }
                 catch
@@ -99,29 +113,25 @@ namespace Server.Items
 
         private void ClearComponents(Item item)
         {
-            if (item is BaseAddon)
+            if (item is BaseAddon baseaddon)
             {
-                BaseAddon addon = (BaseAddon)item;
-
-                foreach (AddonComponent c in addon.Components)
+                foreach (AddonComponent c in baseaddon.Components)
                 {
                     c.Addon = null;
                     c.Delete();
                 }
 
-                addon.Components.Clear();
+                baseaddon.Components.Clear();
             }
-            else if (item is BaseAddonContainer)
+            else if (item is BaseAddonContainer baseaddoncontainer)
             {
-                BaseAddonContainer addon = (BaseAddonContainer)item;
-
-                foreach (AddonContainerComponent c in addon.Components)
+                foreach (AddonContainerComponent c in baseaddoncontainer.Components)
                 {
                     c.Addon = null;
                     c.Delete();
                 }
 
-                addon.Components.Clear();
+                baseaddoncontainer.Components.Clear();
             }
         }
     }

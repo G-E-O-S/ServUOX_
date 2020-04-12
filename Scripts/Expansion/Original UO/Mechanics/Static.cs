@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class Static : Item
@@ -7,14 +5,14 @@ namespace Server.Items
         public Static()
             : base(0x80)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         [Constructable]
         public Static(int itemID)
             : base(itemID)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         [Constructable]
@@ -32,7 +30,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1); // version
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -41,8 +39,10 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            if (version == 0 && this.Weight == 0)
-                this.Weight = -1;
+            if (version == 0 && Weight == 0)
+            {
+                Weight = -1;
+            }
         }
     }
 
@@ -59,7 +59,7 @@ namespace Server.Items
         public LocalizedStatic(int itemID, int labelNumber)
             : base(itemID)
         {
-            this.m_LabelNumber = labelNumber;
+            m_LabelNumber = labelNumber;
         }
 
         public LocalizedStatic(Serial serial)
@@ -70,29 +70,20 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int Number
         {
-            get
-            {
-                return this.m_LabelNumber;
-            }
+            get => m_LabelNumber;
             set
             {
-                this.m_LabelNumber = value;
-                this.InvalidateProperties();
+                m_LabelNumber = value;
+                InvalidateProperties();
             }
         }
-        public override int LabelNumber
-        {
-            get
-            {
-                return this.m_LabelNumber;
-            }
-        }
+        public override int LabelNumber => m_LabelNumber;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
             writer.Write((byte)0); // version
-            writer.WriteEncodedInt((int)this.m_LabelNumber);
+            writer.WriteEncodedInt(m_LabelNumber);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -101,11 +92,11 @@ namespace Server.Items
 
             int version = reader.ReadByte();
 
-            switch ( version )
+            switch (version)
             {
                 case 0:
                     {
-                        this.m_LabelNumber = reader.ReadEncodedInt();
+                        m_LabelNumber = reader.ReadEncodedInt();
                         break;
                     }
             }
