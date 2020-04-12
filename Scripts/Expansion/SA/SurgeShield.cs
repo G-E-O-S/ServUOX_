@@ -1,4 +1,4 @@
-﻿using Server;
+using Server;
 using System;
 using Server.Mobiles;
 using System.Collections.Generic;
@@ -76,8 +76,7 @@ namespace Server.Items
 				Attributes.CastSpeed = 1;
 		}
 
-        public static Dictionary<Mobile, SurgeType> Table { get { return m_Table; } }
-        private static Dictionary<Mobile, SurgeType> m_Table = new Dictionary<Mobile, SurgeType>();
+        public static Dictionary<Mobile, SurgeType> Table { get; } = new Dictionary<Mobile, SurgeType>();
 
         public override void OnDoubleClick(Mobile from)
         {
@@ -89,7 +88,7 @@ namespace Server.Items
             {
                 Charges--;
 
-                m_Table[from] = m_Surge;
+                Table[from] = m_Surge;
                 Timer.DelayCall(TimeSpan.FromSeconds(20.0), new TimerStateCallback(RemoveEffects), from);
 
                 from.PlaySound(0x0F5);
@@ -111,8 +110,8 @@ namespace Server.Items
         {
             Mobile from = (Mobile)obj;
 
-            if (m_Table.ContainsKey(from))
-                m_Table.Remove(from);
+            if (Table.ContainsKey(from))
+                Table.Remove(from);
 
             BuffInfo.RemoveBuff(from, BuffIcon.Surge);
             //TODO: Message?
@@ -120,7 +119,7 @@ namespace Server.Items
 
         public static bool IsUnderEffects(Mobile from, SurgeType type)
         {
-            return m_Table.ContainsKey(from) && m_Table[from] == type;
+            return Table.ContainsKey(from) && Table[from] == type;
         }
 				
 		public SurgeShield(Serial serial) : base(serial)
