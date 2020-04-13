@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Server.Items;
 using Server.Spells.Sixth;
@@ -8,15 +7,13 @@ namespace Server.Regions
 {
     public class HouseRaffleRegion : BaseRegion
     {
-        private readonly HouseRaffleStone m_Stone;
-
         [CommandProperty(AccessLevel.GameMaster)]
-        public HouseRaffleStone Stone { get { return m_Stone; } }
+        public HouseRaffleStone Stone { get; }
 
         public HouseRaffleRegion(HouseRaffleStone stone)
-            : base(null, stone.PlotFacet, Region.DefaultPriority, stone.PlotBounds)
+            : base(null, stone.PlotFacet, DefaultPriority, stone.PlotBounds)
         {
-            m_Stone = stone;
+            Stone = stone;
         }
 
         public override bool AllowHousing(Mobile from, Point3D p)
@@ -32,12 +29,12 @@ namespace Server.Regions
 
             Container pack = from.Backpack;
 
-            if (pack != null && this.ContainsDeed(pack))
+            if (pack != null && ContainsDeed(pack))
                 return true;
 
             BankBox bank = from.FindBankNoCreate();
 
-            if (bank != null && this.ContainsDeed(bank))
+            if (bank != null && ContainsDeed(bank))
                 return true;
 
             return false;
@@ -63,7 +60,6 @@ namespace Server.Regions
                 if (deeds[i] == Stone.Deed)
                     return true;
             }
-
             return false;
         }
     }

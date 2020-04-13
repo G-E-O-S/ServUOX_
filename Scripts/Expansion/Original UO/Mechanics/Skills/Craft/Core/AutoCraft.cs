@@ -1,5 +1,4 @@
 using System;
-using Server;
 using Server.Prompts;
 using System.Collections.Generic;
 using Server.Items;
@@ -56,20 +55,18 @@ namespace Server.Engines.Craft
 
     public class AutoCraftTimer : Timer
     {
-        private static Dictionary<Mobile, AutoCraftTimer> m_AutoCraftTable = new Dictionary<Mobile, AutoCraftTimer>();
-        public static Dictionary<Mobile, AutoCraftTimer> AutoCraftTable { get { return m_AutoCraftTable; } }
+        public static Dictionary<Mobile, AutoCraftTimer> AutoCraftTable { get; } = new Dictionary<Mobile, AutoCraftTimer>();
 
         private Mobile m_From;
         private CraftSystem m_CraftSystem;
         private CraftItem m_CraftItem;
+
         private ITool m_Tool;
-        private int m_Amount;
-        private int m_Attempts;
         private int m_Ticks;
         private Type m_TypeRes;
 
-        public int Amount { get { return m_Amount; } }
-        public int Attempts { get { return m_Attempts; } }
+        public int Amount { get; }
+        public int Attempts { get; private set; }
 
         public AutoCraftTimer(Mobile from, CraftSystem system, CraftItem item, ITool tool, int amount, TimeSpan delay, TimeSpan interval)
             : base(delay, interval)
@@ -78,9 +75,9 @@ namespace Server.Engines.Craft
             m_CraftSystem = system;
             m_CraftItem = item;
             m_Tool = tool;
-            m_Amount = amount;
+            Amount = amount;
             m_Ticks = 0;
-            m_Attempts = 0;
+            Attempts = 0;
 
             CraftContext context = m_CraftSystem.GetContext(m_From);
 
@@ -93,9 +90,9 @@ namespace Server.Engines.Craft
                     m_TypeRes = res.GetAt(resIndex).ItemType;
             }
 
-            m_AutoCraftTable[from] = this;
+            AutoCraftTable[from] = this;
 
-            this.Start();
+            Start();
         }
 
         public AutoCraftTimer(Mobile from, CraftSystem system, CraftItem item, ITool tool, int amount)
@@ -115,7 +112,7 @@ namespace Server.Engines.Craft
 
             CraftItem();
 
-            if (m_Ticks >= m_Amount)
+            if (m_Ticks >= Amount)
                 EndTimer(m_From);
         }
 
@@ -127,7 +124,7 @@ namespace Server.Engines.Craft
             if (m_From.HasGump(typeof(CraftGumpItem)))
                 m_From.CloseGump(typeof(CraftGumpItem));
 
-            m_Attempts++;
+            Attempts++;
 
             if (m_CraftItem.TryCraft != null)
             {
@@ -141,16 +138,16 @@ namespace Server.Engines.Craft
 
         public static void EndTimer(Mobile from)
         {
-            if (m_AutoCraftTable.ContainsKey(from))
+            if (AutoCraftTable.ContainsKey(from))
             {
-                m_AutoCraftTable[from].Stop();
-                m_AutoCraftTable.Remove(from);
+                AutoCraftTable[from].Stop();
+                AutoCraftTable.Remove(from);
             }
         }
 
         public static bool HasTimer(Mobile from)
         {
-            return from != null && m_AutoCraftTable.ContainsKey(from);
+            return from != null && AutoCraftTable.ContainsKey(from);
         }
     }
 }

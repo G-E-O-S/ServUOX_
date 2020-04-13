@@ -1,4 +1,3 @@
-﻿using System;
 
 namespace Server.Mobiles
 {
@@ -9,37 +8,37 @@ namespace Server.Mobiles
         public SeaSnake()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            this.Body = 92;
-            this.Name = "a sea snake";
-            this.BaseSoundID = 219;
-            this.Hue = 2041;
+            Body = 92;
+            Name = "a sea snake";
+            BaseSoundID = 219;
+            Hue = 2041;
 
-            this.SetStr(261);
-            this.SetDex(193);
-            this.SetInt(39);
+            SetStr(261);
+            SetDex(193);
+            SetInt(39);
 
-            this.SetHits(194);
+            SetHits(194);
 
-            this.SetDamage(5, 21);
+            SetDamage(5, 21);
 
-            this.SetDamageType(ResistanceType.Physical, 50);
-            this.SetDamageType(ResistanceType.Poison, 50);
+            SetDamageType(ResistanceType.Physical, 50);
+            SetDamageType(ResistanceType.Poison, 50);
 
-            this.SetResistance(ResistanceType.Physical, 35, 45);
-            this.SetResistance(ResistanceType.Fire, 5, 10);
-            this.SetResistance(ResistanceType.Cold, 5, 10);
-            this.SetResistance(ResistanceType.Poison, 100);
-            this.SetResistance(ResistanceType.Energy, 5, 10);
+            SetResistance(ResistanceType.Physical, 35, 45);
+            SetResistance(ResistanceType.Fire, 5, 10);
+            SetResistance(ResistanceType.Cold, 5, 10);
+            SetResistance(ResistanceType.Poison, 100);
+            SetResistance(ResistanceType.Energy, 5, 10);
 
-            this.SetSkill(SkillName.Poisoning, 90.1, 100.0);
-            this.SetSkill(SkillName.MagicResist, 95.1, 100.0);
-            this.SetSkill(SkillName.Tactics, 80.1, 95.0);
-            this.SetSkill(SkillName.Wrestling, 85.1, 100.0);
+            SetSkill(SkillName.Poisoning, 90.1, 100.0);
+            SetSkill(SkillName.MagicResist, 95.1, 100.0);
+            SetSkill(SkillName.Tactics, 80.1, 95.0);
+            SetSkill(SkillName.Wrestling, 85.1, 100.0);
 
-            this.Fame = 7000;
-            this.Karma = -7000;
+            Fame = 7000;
+            Karma = -7000;
 
-            this.VirtualArmor = 40;
+            VirtualArmor = 40;
         }
 
         public override void GenerateLoot()
@@ -61,7 +60,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
 
         }
 

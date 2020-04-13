@@ -1,4 +1,3 @@
-#region References
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +7,6 @@ using Server.Factions;
 using Server.Items;
 using Server.Mobiles;
 using Server.Engines.Quests;
-#endregion
 
 namespace Server.Engines.Craft
 {
@@ -34,19 +32,11 @@ namespace Server.Engines.Craft
 
     public class CraftItem
     {
-        /// <summary>
-        /// this delegate will handle all crafting functions, 
-        /// such as resource check, actual crafting, etc. 
-        /// For use for abnormal crafting, ie combine cloth, etc.
-        /// </summary>
         public Action<Mobile, CraftItem, ITool> TryCraft { get; set; }
 
-        /// <summary>
         /// this func will create complex items that may require args, or other
         /// things to create that Activator may not be able to accomidate.
-        /// </summary>
         public Func<Mobile, CraftItem, ITool, Item> CreateItem { get; set; }
-
         public Func<Mobile, ConsumeType, int> ConsumeResCallback { get; set; }
 
         public Type ItemType { get; private set; }

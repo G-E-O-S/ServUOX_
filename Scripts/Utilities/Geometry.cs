@@ -204,19 +204,16 @@ namespace Server.Misc
 
         public class CirclePoint
         {
-            private readonly Point2D point;
-            private readonly int angle;
-            private readonly int quadrant;
             public CirclePoint(Point2D _point, int _angle, int _quadrant)
             {
-                point = _point;
-                angle = _angle;
-                quadrant = _quadrant;
+                Point = _point;
+                Angle = _angle;
+                Quadrant = _quadrant;
             }
 
-            public Point2D Point => point;
-            public int Angle => angle;
-            public int Quadrant => quadrant;
+            public Point2D Point { get; }
+            public int Angle { get; }
+            public int Quadrant { get; }
         }
     }
 }

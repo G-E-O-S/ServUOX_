@@ -1,25 +1,20 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.Xml;
-
 using Server.Commands;
 using Server.Mobiles;
-#endregion
 
 namespace Server.Regions
 {
 	public class GuardedRegion : BaseRegion
 	{
-		private static readonly object[] m_GuardParams = new object[1];
+        private static readonly object[] m_GuardParams = new object[1];
 
-		private readonly Dictionary<Mobile, GuardTimer> m_GuardCandidates = new Dictionary<Mobile, GuardTimer>();
+        private readonly Dictionary<Mobile, GuardTimer> m_GuardCandidates = new Dictionary<Mobile, GuardTimer>();
 
 		private readonly Type m_GuardType;
 
-		private bool m_Disabled;
-
-		public GuardedRegion(string name, Map map, int priority, params Rectangle3D[] area)
+        public GuardedRegion(string name, Map map, int priority, params Rectangle3D[] area)
 			: base(name, map, priority, area)
 		{
 			m_GuardType = DefaultGuardType;
@@ -56,13 +51,13 @@ namespace Server.Regions
 			}
 		}
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public bool Disabled { get { return m_Disabled; } set { m_Disabled = value; } }
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool Disabled { get; set; }
 
-		[CommandProperty(AccessLevel.GameMaster)]
-		public virtual bool AllowReds { get { return Core.AOS; } }
+        [CommandProperty(AccessLevel.GameMaster)]
+        public virtual bool AllowReds => Core.AOS;
 
-		public virtual Type DefaultGuardType
+        public virtual Type DefaultGuardType
 		{
 			get
 			{
@@ -90,12 +85,9 @@ namespace Server.Regions
 			return reg;
 		}
 
-		public virtual bool IsDisabled()
-		{
-			return m_Disabled;
-		}
+        public virtual bool IsDisabled() => Disabled;
 
-		public virtual bool CheckVendorAccess(BaseVendor vendor, Mobile from)
+        public virtual bool CheckVendorAccess(BaseVendor vendor, Mobile from)
 		{
 			if (from.AccessLevel >= AccessLevel.GameMaster || IsDisabled())
 			{

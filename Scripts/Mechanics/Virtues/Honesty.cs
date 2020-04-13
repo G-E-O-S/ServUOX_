@@ -365,19 +365,19 @@ namespace Server.Services.Virtues
             {
                 socket.HonestyRegion = _Regions[Utility.Random(_Regions.Length)];
 
-                if (!String.IsNullOrWhiteSpace(socket.HonestyRegion) && BaseVendor.AllVendors.Count >= 10)
+                if (!string.IsNullOrWhiteSpace(socket.HonestyRegion) && BaseVendor.AllVendors.Count >= 10)
                 {
-                    var attempts = BaseVendor.AllVendors.Count / 10;
+                    var matchedVendors = BaseVendor.AllVendors.Where(vendor => (vendor.Map == socket.Owner.Map && vendor.Region.IsPartOf(socket.HonestyRegion))).ToList();
 
-                    BaseVendor m;
-
-                    do
+                    if (matchedVendors != null && matchedVendors.Count > 0)
                     {
-                        m = BaseVendor.AllVendors[Utility.Random(BaseVendor.AllVendors.Count)];
+                        socket.HonestyOwner = matchedVendors[Utility.Random(matchedVendors.Count)];
                     }
-                    while ((m == null || m.Map != socket.Owner.Map || !m.Region.IsPartOf(socket.HonestyRegion)) && --attempts >= 0);
-
-                    socket.HonestyOwner = m;
+                    else
+                    {
+                        // fallback in case there are no vendors generated in the specific region
+                        socket.HonestyOwner = BaseVendor.AllVendors[Utility.Random(BaseVendor.AllVendors.Count)];
+                    }
                 }
             }
 		}

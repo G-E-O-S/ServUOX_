@@ -178,7 +178,8 @@ namespace Server.Misc
             keg.Type = type;
             keg.Hue = hue;
 
-            return MakeNewbie(keg);
+            //   return MakeNewbie(keg);
+            return(keg);
         }
 
         private static Item MakeNewbie(Item item)
@@ -552,7 +553,7 @@ namespace Server.Misc
             // Full spellbook
             Spellbook book = new Spellbook();
 
-            book.Content = UInt64.MaxValue;
+            book.Content = ulong.MaxValue;
 
             bank.DropItem(book);
 

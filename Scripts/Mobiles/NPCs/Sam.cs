@@ -1,4 +1,3 @@
-using System;
 using Server.Mobiles;
 
 namespace Server.Items
@@ -20,20 +19,9 @@ namespace Server.Items
         { 
         }
 
-        public override Collection CollectionID
-        {
-            get
-            {
-                return Collection.BritanniaWaters;
-            }
-        }
-        public override int MaxTier
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        public override Collection CollectionID => Collection.BritanniaWaters;
+        public override int MaxTier => 1;
+
         public override void InitBody()
         {
             InitStats(100, 100, 25);
@@ -135,15 +123,13 @@ namespace Server.Items
         }*/
         public override void Serialize(GenericWriter writer)
         {
-            base.Serialize(writer);
-			
-            writer.Write((int)0); // version
+            base.Serialize(writer);			
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
-            base.Deserialize(reader);
-			
+            base.Deserialize(reader);			
             int version = reader.ReadInt();
         }
     }

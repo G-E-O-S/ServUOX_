@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -7,10 +5,10 @@ namespace Server.Mobiles
 	[CorpseName( "a plant corpse" )]
 	public class Vasanord : BaseVoidCreature
 	{
-        public override VoidEvolution Evolution { get { return VoidEvolution.Survival; } }
-        public override int Stage { get { return 3; } }
+        public override VoidEvolution Evolution => VoidEvolution.Survival;
+        public override int Stage => 3;
 
-		[Constructable]
+        [Constructable]
 		public Vasanord() : base( AIType.AI_Mage, FightMode.Closest, 10, 1, 0.6, 1.2 )
 		{
 			Name = "vasanord";
@@ -65,17 +63,17 @@ namespace Server.Mobiles
 			AddLoot( LootPack.UltraRich, 2 );
 		}
 
-		public override bool BardImmune{ get{ return !Core.AOS; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lethal; } }
+        public override bool BardImmune => !Core.AOS;
+        public override Poison PoisonImmune => Poison.Lethal;
 
-		public Vasanord( Serial serial ) : base( serial )
+        public Vasanord( Serial serial ) : base( serial )
 		{
 		}
 
 		public override void Serialize( GenericWriter writer )
 		{
 			base.Serialize( writer );
-			writer.Write( (int) 0 );
+			writer.Write(0);
 		}
 
 		public override void Deserialize( GenericReader reader )

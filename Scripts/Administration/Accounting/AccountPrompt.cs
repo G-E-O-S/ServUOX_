@@ -1,5 +1,5 @@
-using System;
 using Server.Accounting;
+using static System.Console;
 
 namespace Server.Misc
 {
@@ -9,31 +9,31 @@ namespace Server.Misc
         {
             if (Accounts.Count == 0 && !Core.Service)
             {
-                Console.WriteLine("This server has no accounts.");
-                Console.Write("Do you want to create the owner account now? (y/n)");
+                WriteLine("This server has no accounts.");
+                Write("Do you want to create the owner account now? (y/n)");
 
-                string key = Console.ReadLine();
+                string key = ReadLine();
  
                 if (key.ToUpper() == "Y")
                 {
-                    Console.WriteLine();
+                    WriteLine();
 
-                    Console.Write("Username: ");
-                    string username = Console.ReadLine();
+                    Write("Username: ");
+                    string username = ReadLine();
 
-                    Console.Write("Password: ");
-                    string password = Console.ReadLine();
+                    Write("Password: ");
+                    string password = ReadLine();
 
                     Account a = new Account(username, password);
                     a.AccessLevel = AccessLevel.Owner;
 
-                    Console.WriteLine("Account created.");
+                    WriteLine("Account created.");
                 }
                 else
                 {
-                    Console.WriteLine();
+                    WriteLine();
 
-                    Console.WriteLine("Account not created.");
+                    WriteLine("Account not created.");
                 }
             }
         }

@@ -18,7 +18,7 @@ namespace Server.Engines.Craft
         private const int LabelColor = 0x7FFF;
         private const int FontColor = 0xFFFFFF;
 
-        public bool Locked { get { return AutoCraftTimer.HasTimer(m_From); } }
+        public bool Locked => AutoCraftTimer.HasTimer(m_From);
 
         private enum CraftPage
         {
@@ -75,29 +75,23 @@ namespace Server.Engines.Craft
             AddButton(115, 442, 4017, 4019, GetButtonID(6, 11), GumpButtonType.Reply, 0);
             AddHtmlLocalized(150, 445, 150, 18, 1112698, LabelColor, false, false); // CANCEL MAKE
 
-            // Repair option
             if (m_CraftSystem.Repair)
             {
                 AddButton(270, 342, 4005, 4007, GetButtonID(6, 5), GumpButtonType.Reply, 0);
                 AddHtmlLocalized(305, 345, 150, 18, 1044260, LabelColor, false, false); // REPAIR ITEM
             }
-            // ****************************************
 
-            // Mark option
             if (m_CraftSystem.MarkOption)
             {
                 AddButton(270, 362, 4005, 4007, GetButtonID(6, 6), GumpButtonType.Reply, 0);
                 AddHtmlLocalized(305, 365, 150, 18, 1044017 + (context == null ? 0 : (int)context.MarkOption), LabelColor, false, false); // MARK ITEM
             }
-            // ****************************************
 
-            // Enhance option
             if (m_CraftSystem.CanEnhance)
             {
                 AddButton(270, 382, 4005, 4007, GetButtonID(6, 8), GumpButtonType.Reply, 0);
                 AddHtmlLocalized(305, 385, 150, 18, 1061001, LabelColor, false, false); // ENHANCE ITEM
             }
-            // ****************************************
 
             #region SA
             // Alter option
@@ -151,7 +145,6 @@ namespace Server.Engines.Craft
                 AddButton(15, 342, 4005, 4007, GetButtonID(6, 1), GumpButtonType.Reply, 0);
                 AddHtmlLocalized(50, 345, 150, 18, 1044259, LabelColor, false, false); // SMELT ITEM
             }
-            // ****************************************
 
             if (notice is int && (int)notice > 0)
                 AddHtmlLocalized(170, 295, 350, 40, (int)notice, LabelColor, false, false);
@@ -208,7 +201,6 @@ namespace Server.Engines.Craft
                 else
                     AddLabel(50, 362, LabelHue, (context.DoNotColor ? "*" : "") + String.Format("{0} ({1} Available)", nameString, resourceCount));
             }
-            // ****************************************
 
             // For dragon scales
             if (craftSystem.CraftSubRes2.Init)
@@ -246,7 +238,6 @@ namespace Server.Engines.Craft
                 else
                     AddLabel(50, 385, LabelHue, String.Format("{0} ({1} Available)", nameString, resourceCount));
             }
-            // ****************************************
 
             CreateGroupList();
 

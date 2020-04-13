@@ -27,39 +27,31 @@ namespace Server.Engines.Chat
         {
             AddChannel(name).AlwaysAvailable = true;
         }
-
-        private string m_Name;
-        private bool m_AlwaysAvailable;
-        private List<ChatUser> m_Users;
-
+               
         public Channel(string name)
         {
-            m_Name = name;
-
+            Name = name;
             m_Users = new List<ChatUser>();
         }
 
-        public string Name { get { return m_Name; } }
+        public string Name { get; }
+        private List<ChatUser> m_Users;
+        public IEnumerable<ChatUser> Users => new ReadOnlyCollection<ChatUser>(m_Users);
 
-        public IEnumerable<ChatUser> Users { get { return new ReadOnlyCollection<ChatUser>(m_Users); } }
-
-        public bool Contains(ChatUser user)
-        {
-            return m_Users.Contains(user);
-        }
+        public bool Contains(ChatUser user) => m_Users.Contains(user);
 
         public void AddUser(ChatUser user)
         {
             if (Contains(user))
             {
-                user.SendMessage(46, m_Name); // You are already in the conference '%1'.
+                user.SendMessage(46, Name); // You are already in the conference '%1'.
             }
             else
             {
                 if (user.CurrentChannel != null)
                     user.CurrentChannel.RemoveUser(user); // Remove them from their current channel first
 
-                ChatSystem.SendCommandTo(user.Mobile, ChatCommand.JoinedChannel, m_Name);
+                ChatSystem.SendCommandTo(user.Mobile, ChatCommand.JoinedChannel, Name);
 
                 SendCommand(ChatCommand.AddUserToChannel, user.GetColorCharacter() + user.Username);
 
@@ -80,17 +72,17 @@ namespace Server.Engines.Chat
                 user.CurrentChannel = null;
 
                 SendCommand(ChatCommand.RemoveUserFromChannel, user, user.Username);
-                ChatSystem.SendCommandTo(user.Mobile, ChatCommand.LeaveChannel, string.Format("{{{0}}}", m_Name));
-                ChatSystem.SendCommandTo(user.Mobile, ChatCommand.LeftChannel, m_Name);
+                ChatSystem.SendCommandTo(user.Mobile, ChatCommand.LeaveChannel, string.Format("{{{0}}}", Name));
+                ChatSystem.SendCommandTo(user.Mobile, ChatCommand.LeftChannel, Name);
 
                 ChatLogging.LogLeave(Name, user.Username);
 
-                if (m_Users.Count == 0 && !m_AlwaysAvailable)
+                if (m_Users.Count == 0 && !AlwaysAvailable)
                     RemoveChannel(this);
             }
         }
 
-        public bool AlwaysAvailable { get { return m_AlwaysAvailable; } set { m_AlwaysAvailable = value; } }
+        public bool AlwaysAvailable { get; set; }
 
         public void SendMessage(int number, ChatUser from, string param1, string param2)
         {
@@ -122,17 +114,15 @@ namespace Server.Engines.Chat
         {
             foreach (var user in m_Users)
             {
-                ChatSystem.SendCommandTo(to.Mobile, ChatCommand.AddUserToChannel, user.GetColorCharacter() + user.Username, String.Format("{{{0}}}", m_Name));
+                ChatSystem.SendCommandTo(to.Mobile, ChatCommand.AddUserToChannel, user.GetColorCharacter() + user.Username, String.Format("{{{0}}}", Name));
             }
         }
 
-        private static List<Channel> m_Channels = new List<Channel>();
-
-        public static List<Channel> Channels { get { return m_Channels; } }
+        public static List<Channel> Channels { get; } = new List<Channel>();
 
         public static void SendChannelsTo(ChatUser user)
         {
-            foreach (var channel in m_Channels)
+            foreach (var channel in Channels)
             {
                 ChatSystem.SendCommandTo(user.Mobile, ChatCommand.AddChannel, channel.Name, "0");
             }
@@ -145,7 +135,7 @@ namespace Server.Engines.Chat
             if (channel == null)
             {
                 channel = new Channel(name);
-                m_Channels.Add(channel);
+                Channels.Add(channel);
             }
 
             ChatUser.GlobalSendCommand(ChatCommand.AddChannel, name, "0");
@@ -165,21 +155,19 @@ namespace Server.Engines.Chat
             if (channel == null)
                 return;
 
-            if (m_Channels.Contains(channel) && channel.m_Users.Count == 0)
+            if (Channels.Contains(channel) && channel.m_Users.Count == 0)
             {
                 ChatUser.GlobalSendCommand(ChatCommand.RemoveChannel, channel.Name);
-
-                m_Channels.Remove(channel);
-
+                Channels.Remove(channel);
                 ChatLogging.LogRemoveChannel(channel.Name);
             }
         }
 
         public static Channel FindChannelByName(string name)
         {
-            return m_Channels.FirstOrDefault(channel => channel.Name == name);
+            return Channels.FirstOrDefault(channel => channel.Name == name);
         }
 
-        public static Channel Default { get { return FindChannelByName(ChatSystem.DefaultChannel); } }
+        public static Channel Default => FindChannelByName(ChatSystem.DefaultChannel);
     }
 }

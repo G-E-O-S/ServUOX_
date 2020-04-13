@@ -1,4 +1,3 @@
-using System;
 
 namespace Server.Items
 {
@@ -15,24 +14,17 @@ namespace Server.Items
         { 
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1074592;
-            }
-        }// Albino Courtesan Fish
+        public override int LabelNumber => 1074592; // Albino Courtesan Fish
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
         }
     }

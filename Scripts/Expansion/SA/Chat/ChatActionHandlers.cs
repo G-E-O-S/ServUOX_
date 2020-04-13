@@ -1,4 +1,3 @@
-using System;
 
 namespace Server.Engines.Chat
 {
@@ -76,7 +75,6 @@ namespace Server.Engines.Chat
                     name = param;
                 }
             }
-
             CreateAndJoin(from, name);
         }
 
@@ -102,7 +100,6 @@ namespace Server.Engines.Chat
                     joined = Channel.Default;
                 }
             }
-
             joined.AddUser(from);
         }
     }

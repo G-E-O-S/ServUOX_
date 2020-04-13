@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-
 using System.Collections.Generic;
 using Server.Network;
 using Server.Mobiles;
@@ -9,12 +8,11 @@ namespace Server.Misc
 {
     public class Aggression
     {
-        private static readonly TimeSpan Delay = TimeSpan.FromMinutes(2.0);
         private const string AggressorFormat = "You are attacking {0}!";
         private const string AggressedFormat = "{0} is attacking you!";
         private const int Hue = 0x22;
 
-        public static TimeSpan CombatHeatDelay { get { return Delay; } }
+        public static TimeSpan CombatHeatDelay { get; } = TimeSpan.FromMinutes(2.0);
 
         public static void Initialize()
         {
@@ -37,8 +35,8 @@ namespace Server.Misc
                 aggressed.LocalOverheadMessage(MessageType.Regular, Hue, true, String.Format(AggressedFormat, aggressor.Name));
             }
 
-            BuffInfo.AddBuff(aggressor, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, Delay, aggressor, true));
-            BuffInfo.AddBuff(aggressed, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, Delay, aggressed, true));
+            BuffInfo.AddBuff(aggressor, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, CombatHeatDelay, aggressor, true));
+            BuffInfo.AddBuff(aggressed, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, CombatHeatDelay, aggressed, true));
         }
 
         public static void EventSink_PlayerDeath(PlayerDeathEventArgs e)
@@ -89,7 +87,7 @@ namespace Server.Misc
             {
                 AggressorInfo info = list[i];
 
-                if (info.Attacker == m2 && DateTime.UtcNow < (info.LastCombatTime + Delay))
+                if (info.Attacker == m2 && DateTime.UtcNow < (info.LastCombatTime + CombatHeatDelay))
                     return true;
             }
 
@@ -99,7 +97,7 @@ namespace Server.Misc
             {
                 AggressorInfo info = list[i];
 
-                if (info.Attacker == m1 && DateTime.UtcNow < (info.LastCombatTime + Delay))
+                if (info.Attacker == m1 && DateTime.UtcNow < (info.LastCombatTime + CombatHeatDelay))
                     return true;
             }
 
@@ -121,7 +119,7 @@ namespace Server.Misc
                 var defender = info.Defender;
 
                 if ((defender is PlayerMobile || (defender is BaseCreature && !((BaseCreature)defender).IsMonster)) &&
-                    (DateTime.UtcNow < info.LastCombatTime + Delay && defender.LastKilled < info.LastCombatTime))
+                    (DateTime.UtcNow < info.LastCombatTime + CombatHeatDelay && defender.LastKilled < info.LastCombatTime))
                 {
                     return true;
                 }
@@ -140,7 +138,7 @@ namespace Server.Misc
                 var attacker = info.Attacker;
 
                 if ((attacker is PlayerMobile || (attacker is BaseCreature && !((BaseCreature)attacker).IsMonster)) &&
-                    (DateTime.UtcNow < info.LastCombatTime + Delay && attacker.LastKilled < info.LastCombatTime))
+                    (DateTime.UtcNow < info.LastCombatTime + CombatHeatDelay && attacker.LastKilled < info.LastCombatTime))
                 {
                     return true;
                 }

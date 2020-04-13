@@ -1,4 +1,3 @@
-using System;
 
 namespace Server.Engines.Chat
 {
@@ -6,16 +5,13 @@ namespace Server.Engines.Chat
 
     public class ChatActionHandler
     {
-        private bool m_RequireConference;
-        private OnChatAction m_Callback;
-
-        public bool RequireConference { get { return m_RequireConference; } }
-        public OnChatAction Callback { get { return m_Callback; } }
+        public bool RequireConference { get; }
+        public OnChatAction Callback { get; }
 
         public ChatActionHandler(bool requireConference, OnChatAction callback)
         {
-            m_RequireConference = requireConference;
-            m_Callback = callback;
+            RequireConference = requireConference;
+            Callback = callback;
         }
     }
 }

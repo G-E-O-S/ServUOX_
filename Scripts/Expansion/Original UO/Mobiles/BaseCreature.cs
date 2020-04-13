@@ -3241,6 +3241,7 @@ namespace Server.Mobiles
 	        if (!from.InRange(Location, 2))
                 return base.OnDragDrop(from, dropped);
 
+            /*
 	        bool gainedPath = false;
 
             var honestySocket = dropped.GetSocket<HonestyItemSocket>();
@@ -3257,7 +3258,9 @@ namespace Server.Mobiles
 	        from.SendMessage(gainedPath ? "You have gained a path in Honesty!" : "You have gained in Honesty.");
 	        SayTo(from, 1074582); //Ah!  You found my property.  Thank you for your honesty in returning it to me.
 	        dropped.Delete();
-	        return true;
+            return true;
+            */
+            return false;
         }
 
         protected virtual BaseAI ForcedAI => null;

@@ -28,7 +28,6 @@ namespace Server.Mobiles
             /*new SpawnEntry(new Point3D(5499, 2003, 0), new Point3D(2499, 919, 0)), // Covetous*/
             new SpawnEntry(new Point3D(5579, 1858, 0), new Point3D(2499, 919, 0))// Covetous
         };
-        private static readonly ArrayList m_Instances = new ArrayList();
         private static readonly double[] m_Offsets = new double[]
         {
             Math.Cos(000.0 / 180.0 * Math.PI), Math.Sin(000.0 / 180.0 * Math.PI),
@@ -88,91 +87,25 @@ namespace Server.Mobiles
         {
         }
 
-        public static ArrayList Instances
-        {
-            get
-            {
-                return m_Instances;
-            }
-        }
-        public static bool CanSpawn
-        {
-            get
-            {
-                return (m_Instances.Count == 0);
-            }
-        }
-        public Type[] UniqueList
-        {
-            get
-            {
-                return new Type[] { typeof(AcidProofRobe) };
-            }
-        }
-        public Type[] SharedList
-        {
-            get
-            {
-                return new Type[] { typeof(TheRobeOfBritanniaAri) };
-            }
-        }
-        public Type[] DecorativeList
-        {
-            get
-            {
-                return new Type[] { typeof(EvilIdolSkull), typeof(SkullPole) };
-            }
-        }
-        public override bool AutoDispel
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool Unprovokable
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
+        public static ArrayList Instances { get; } = new ArrayList();
+        public static bool CanSpawn => (Instances.Count == 0);
+        public Type[] UniqueList => new Type[] { typeof(AcidProofRobe) };
+        public Type[] SharedList => new Type[] { typeof(TheRobeOfBritanniaAri) };
+        public Type[] DecorativeList => new Type[] { typeof(EvilIdolSkull), typeof(SkullPole) };
+        public override bool AutoDispel => true;
+        public override bool Unprovokable => true;
+        public override Poison PoisonImmune => Poison.Lethal;
         [CommandProperty(AccessLevel.GameMaster)]
-        public override int HitsMax
-        {
-            get
-            {
-                return m_TrueForm ? 65000 : 30000;
-            }
-        }
+        public override int HitsMax => m_TrueForm ? 65000 : 30000;
         [CommandProperty(AccessLevel.GameMaster)]
-        public override int ManaMax
-        {
-            get
-            {
-                return 5000;
-            }
-        }
-        public override bool DisallowAllMoves
-        {
-            get
-            {
-                return m_TrueForm;
-            }
-        }
+        public override int ManaMax => 5000;
+        public override bool DisallowAllMoves => m_TrueForm;
 
-        public override bool TeleportsTo { get { return true; } }
+        public override bool TeleportsTo => true;
 
         public static Harrower Spawn(Point3D platLoc, Map platMap)
         {
-            if (m_Instances.Count > 0)
+            if (Instances.Count > 0)
                 return null;
 
             SpawnEntry entry = m_Entries[Utility.Random(m_Entries.Length)];
@@ -180,7 +113,7 @@ namespace Server.Mobiles
             Harrower harrower = new Harrower();
             harrower.m_IsSpawned = true;
 
-            m_Instances.Add(harrower);
+            Instances.Add(harrower);
 
             harrower.MoveToWorld(entry.m_Location, Map.Felucca);
 
@@ -260,21 +193,19 @@ namespace Server.Mobiles
 
         public override void OnAfterDelete()
         {
-            m_Instances.Remove(this);
-
+            Instances.Remove(this);
             base.OnAfterDelete();
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
 
             writer.Write(m_IsSpawned);
             writer.Write(m_TrueForm);
             writer.Write(m_GateItem);
-            writer.WriteMobileList<HarrowerTentacles>(m_Tentacles);
+            writer.WriteMobileList(m_Tentacles);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -301,7 +232,7 @@ namespace Server.Mobiles
             }
 
             if (m_IsSpawned)
-                m_Instances.Add(this);
+                Instances.Add(this);
         }
 
         public void GivePowerScrolls()
@@ -342,7 +273,7 @@ namespace Server.Mobiles
 
                     for (int j = 0; j < pm.JusticeProtectors.Count; ++j)
                     {
-                        Mobile prot = (Mobile)pm.JusticeProtectors[j];
+                        Mobile prot = pm.JusticeProtectors[j];
 
                         if (prot.Map != m.Map || prot.Murderer || prot.Criminal || !JusticeVirtue.CheckMapRegion(m, prot))
                             continue;
@@ -467,7 +398,7 @@ namespace Server.Mobiles
             else
                 m_DamageEntries.Add(from, amount);
 
-            from.SendMessage(String.Format("Total Damage: {0}", m_DamageEntries[from]));
+            from.SendMessage(string.Format("Total Damage: {0}", m_DamageEntries[from]));
         }
 
         public void AwardArtifact(Item artifact)

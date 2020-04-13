@@ -1,4 +1,3 @@
-using System;
 
 namespace Server
 {
@@ -6,6 +5,6 @@ namespace Server
     {
         string Value { get; set; }
         string[] Values { get; }
-        Boolean IsValid { get; }
+        bool IsValid { get; }
     }
 }

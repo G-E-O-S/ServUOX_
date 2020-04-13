@@ -7,76 +7,36 @@ namespace Server.Engines.Craft
 {
     public class Recipe
     {
-        private static readonly Dictionary<int, Recipe> m_Recipes = new Dictionary<int, Recipe>();
         private static int m_LargestRecipeID;
-        private readonly int m_ID;
-        private CraftSystem m_System;
-        private CraftItem m_CraftItem;
+
         private TextDefinition m_TD;
+
         public Recipe(int id, CraftSystem system, CraftItem item)
         {
-            this.m_ID = id;
-            this.m_System = system;
-            this.m_CraftItem = item;
+            ID = id;
+            CraftSystem = system;
+            CraftItem = item;
 
-            if (m_Recipes.ContainsKey(id))
+            if (Recipes.ContainsKey(id))
                 throw new Exception("Attempting to create recipe with preexisting ID.");
 
-            m_Recipes.Add(id, this);
+            Recipes.Add(id, this);
             m_LargestRecipeID = Math.Max(id, m_LargestRecipeID);
         }
 
-        public static Dictionary<int, Recipe> Recipes
-        {
-            get
-            {
-                return m_Recipes;
-            }
-        }
-        public static int LargestRecipeID
-        {
-            get
-            {
-                return m_LargestRecipeID;
-            }
-        }
-        public CraftSystem CraftSystem
-        {
-            get
-            {
-                return this.m_System;
-            }
-            set
-            {
-                this.m_System = value;
-            }
-        }
-        public CraftItem CraftItem
-        {
-            get
-            {
-                return this.m_CraftItem;
-            }
-            set
-            {
-                this.m_CraftItem = value;
-            }
-        }
-        public int ID
-        {
-            get
-            {
-                return this.m_ID;
-            }
-        }
+        public static Dictionary<int, Recipe> Recipes { get; } = new Dictionary<int, Recipe>();
+        public static int LargestRecipeID => m_LargestRecipeID;
+        public CraftSystem CraftSystem { get; set; }
+        public CraftItem CraftItem { get; set; }
+        public int ID { get; }
         public TextDefinition TextDefinition
         {
             get
             {
-                if (this.m_TD == null)
-                    this.m_TD = new TextDefinition(this.m_CraftItem.NameNumber, this.m_CraftItem.NameString);
+                if (m_TD == null)
+                    m_TD = new TextDefinition(CraftItem.NameNumber, CraftItem.NameString);
 
-                return this.m_TD;
+                return m_TD;
             }
         }
         public static void Initialize()
@@ -97,7 +57,7 @@ namespace Server.Engines.Craft
                 {
                     if (targeted is PlayerMobile)
                     {
-                        foreach (KeyValuePair<int, Recipe> kvp in m_Recipes)
+                        foreach (KeyValuePair<int, Recipe> kvp in Recipes)
                             ((PlayerMobile)targeted).AcquireRecipe(kvp.Key);
 
                         m.SendMessage("You teach them all of the recipies.");
@@ -116,7 +76,7 @@ namespace Server.Engines.Craft
             Mobile m = e.Mobile;
             m.SendMessage("Target a player to have them forget all of the recipies they've learned.");
 
-            m.BeginTarget(-1, false, Server.Targeting.TargetFlags.None, new TargetCallback(
+            m.BeginTarget(-1, false, Targeting.TargetFlags.None, new TargetCallback(
                 delegate(Mobile from, object targeted)
                 {
                     if (targeted is PlayerMobile)

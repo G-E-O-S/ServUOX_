@@ -99,21 +99,9 @@ namespace Server.Misc
         {
             '<', '>', ':', '"', '/', '\\', '|', '?', '*', ' '
         };
-
-        private static AccessLevel m_LockdownLevel;
         private static Dictionary<IPAddress, Int32> m_IPTable;
 
-        public static AccessLevel LockdownLevel
-        {
-            get
-            {
-                return m_LockdownLevel;
-            }
-            set
-            {
-                m_LockdownLevel = value;
-            }
-        }
+        public static AccessLevel LockdownLevel { get; set; }
 
         public static Dictionary<IPAddress, Int32> IPTable
         {
@@ -299,7 +287,7 @@ namespace Server.Misc
                 Utility.PushColor(ConsoleColor.Red);
                 Console.WriteLine("Login: {0}: Access denied for '{1}'", e.State, un);
                 Utility.PopColor();
-                e.RejectReason = (m_LockdownLevel > AccessLevel.VIP ? ALRReason.BadComm : ALRReason.BadPass);
+                e.RejectReason = (LockdownLevel > AccessLevel.VIP ? ALRReason.BadComm : ALRReason.BadPass);
             }
             else if (!acct.CheckPassword(pw))
             {

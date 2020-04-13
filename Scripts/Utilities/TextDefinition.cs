@@ -7,8 +7,6 @@ namespace Server
     [Parsable]
     public class TextDefinition
     {
-        private readonly int m_Number;
-        private readonly string m_String;
         public TextDefinition()
             : this(0, null)
         {
@@ -26,39 +24,28 @@ namespace Server
 
         public TextDefinition(int number, string text)
         {
-            m_Number = number;
-            m_String = text;
+            Number = number;
+            String = text;
         }
 
-        public int Number
-        {
-            get
-            {
-                return m_Number;
-            }
-        }
-        public string String
-        {
-            get
-            {
-                return m_String;
-            }
-        }
+        public int Number { get; }
+        public string String { get; }
+
         public static void Serialize(GenericWriter writer, TextDefinition def)
         {
             if (def == null)
             {
                 writer.WriteEncodedInt(3);
             }
-            else if (def.m_Number > 0)
+            else if (def.Number > 0)
             {
                 writer.WriteEncodedInt(1);
-                writer.WriteEncodedInt(def.m_Number);
+                writer.WriteEncodedInt(def.Number);
             }
-            else if (def.m_String != null)
+            else if (def.String != null)
             {
                 writer.WriteEncodedInt(2);
-                writer.Write(def.m_String);
+                writer.Write(def.String);
             }
             else
             {
@@ -88,10 +75,10 @@ namespace Server
             if (def == null)
                 return;
 
-            if (def.m_Number > 0)
-                list.Add(def.m_Number);
-            else if (def.m_String != null)
-                list.Add(def.m_String);
+            if (def.Number > 0)
+                list.Add(def.Number);
+            else if (def.String != null)
+                list.Add(def.String);
         }
 
         public static void AddHtmlText(Gump g, int x, int y, int width, int height, TextDefinition def, bool back, bool scroll, int numberColor, int stringColor)
@@ -99,19 +86,19 @@ namespace Server
             if (def == null)
                 return;
 
-            if (def.m_Number > 0)
+            if (def.Number > 0)
             {
                 if (numberColor >= 0)
-                    g.AddHtmlLocalized(x, y, width, height, def.m_Number, numberColor, back, scroll);
+                    g.AddHtmlLocalized(x, y, width, height, def.Number, numberColor, back, scroll);
                 else
-                    g.AddHtmlLocalized(x, y, width, height, def.m_Number, back, scroll);
+                    g.AddHtmlLocalized(x, y, width, height, def.Number, back, scroll);
             }
-            else if (def.m_String != null)
+            else if (def.String != null)
             {
                 if (stringColor >= 0)
-                    g.AddHtml(x, y, width, height, String.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", stringColor, def.m_String), back, scroll);
+                    g.AddHtml(x, y, width, height, String.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", stringColor, def.String), back, scroll);
                 else
-                    g.AddHtml(x, y, width, height, def.m_String, back, scroll);
+                    g.AddHtml(x, y, width, height, def.String, back, scroll);
             }
         }
 
@@ -125,10 +112,10 @@ namespace Server
             if (def == null)
                 return;
 
-            if (def.m_Number > 0)
-                m.SendLocalizedMessage(def.m_Number);
-            else if (def.m_String != null)
-                m.SendMessage(def.m_String);
+            if (def.Number > 0)
+                m.SendLocalizedMessage(def.Number);
+            else if (def.String != null)
+                m.SendMessage(def.String);
         }
 
         public static TextDefinition Parse(string value)
@@ -152,50 +139,43 @@ namespace Server
 
         public override string ToString()
         {
-            if (m_Number > 0)
-                return string.Concat("#", m_Number.ToString());
-            else if (m_String != null)
-                return m_String;
+            if (Number > 0)
+                return string.Concat("#", Number.ToString());
+            else if (String != null)
+                return String;
 
             return "";
         }
 
         public string Format(bool propsGump)
         {
-            if (m_Number > 0)
-                return string.Format("{0} (0x{0:X})", m_Number);
-            else if (m_String != null)
-                return string.Format("\"{0}\"", m_String);
+            if (Number > 0)
+                return string.Format("{0} (0x{0:X})", Number);
+            else if (String != null)
+                return string.Format("\"{0}\"", String);
 
             return propsGump ? "-empty-" : "empty";
         }
 
         public string GetValue()
         {
-            if (m_Number > 0)
-                return m_Number.ToString();
-            else if (m_String != null)
-                return m_String;
+            if (Number > 0)
+                return Number.ToString();
+            else if (String != null)
+                return String;
 
             return "";
         }
-        
-        public static implicit operator TextDefinition(int v)
-        {
-            return new TextDefinition(v);
-        }
 
-        public static implicit operator TextDefinition(string s)
-        {
-            return new TextDefinition(s);
-        }
+        public static implicit operator TextDefinition(int v) => new TextDefinition(v);
+        public static implicit operator TextDefinition(string s) => new TextDefinition(s);
 
         public static implicit operator int(TextDefinition m)
         {
             if (m == null)
                 return 0;
 
-            return m.m_Number;
+            return m.Number;
         }
 
         public static implicit operator string(TextDefinition m)
@@ -203,7 +183,7 @@ namespace Server
             if (m == null)
                 return null;
 
-            return m.m_String;
+            return m.String;
         }
     }
 }

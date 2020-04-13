@@ -1,15 +1,14 @@
-using System;
 
 namespace Server.Mobiles
 {
-    [CorpseName("a Cave Troll corpse")]
+    [CorpseName("a cave troll corpse")]
     public class CaveTrollWrong : BaseCreature
     {
         [Constructable]
         public CaveTrollWrong()
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "a Cave Troll";
+            Name = "cave troll";
             Body = Utility.RandomList(53, 54);
             BaseSoundID = 461;
             this.Hue = 674;
@@ -45,27 +44,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 2;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 2;
-            }
-        }
+        public override bool CanRummageCorpses => true;
+        public override int TreasureMapLevel => 2;
+        public override int Meat => 2;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Average);
@@ -74,7 +56,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
