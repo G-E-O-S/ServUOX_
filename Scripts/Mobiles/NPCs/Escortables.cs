@@ -798,11 +798,6 @@ namespace Server.Engines.Quests
         }
         public override void InitOutfit()
         {
-            if (Female)
-                AddItem(new PlainDress());
-            else
-                AddItem(new Shirt(GetRandomHue()));
-
             int lowHue = GetRandomHue();
 
             AddItem(new ThighBoots());
@@ -811,6 +806,7 @@ namespace Server.Engines.Quests
                 AddItem(new FancyDress(lowHue));
             else
                 AddItem(new FancyShirt(lowHue));
+
             AddItem(new LongPants(lowHue));
 
             if (!Female)

@@ -113,8 +113,8 @@
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Wolves.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Elementals.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Undead.cs" />
-    <Compile Include="Expansion\SE\Abilities\ColdWind.cs" />
-    <Compile Include="Expansion\SE\Abilities\Focus.cs" />
+    <Compile Include="Expansion\XSORTINGX\Abilities\ColdWind.cs" />
+    <Compile Include="Expansion\XSORTINGX\Abilities\Focus.cs" />
     <Compile Include="Administration\Accounting\AccessRestrictions.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -7815,106 +7815,106 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Wands\WeaknessWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ArmorIgnore.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ArmorIgnore.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ArmorPierce.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ArmorPierce.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\BattleLust.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\BattleLust.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Bladeweave.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Bladeweave.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\BleedAttack.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\BleedAttack.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Block.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Block.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ConcussionBlow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ConcussionBlow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\CrushingBlow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\CrushingBlow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\DefenseMastery.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\DefenseMastery.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Disarm.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Disarm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Dismount.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Dismount.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Disrobe.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Disrobe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\DoubleShot.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\DoubleShot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\DoubleStrike.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\DoubleStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\DualWield.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\DualWield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Feint.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Feint.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ForceArrow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ForceArrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ForceofNature.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ForceofNature.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\FrenziedWhirlwind.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\FrenziedWhirlwind.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\InfectiousStrike.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\InfectiousStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\InfusedThrow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\InfusedThrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\LightningArrow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\LightningArrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\MortalStrike.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\MortalStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\MovingShot.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\MovingShot.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\MysticArc.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\MysticArc.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\NerveStrike.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\NerveStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ParalyzingBlow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ParalyzingBlow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\PsychicAttack.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\PsychicAttack.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\RidingSwipe.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\RidingSwipe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\SerpentArrow.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\SerpentArrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\ShadowStrike.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\ShadowStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\TalonStrike.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\TalonStrike.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\WeaponAbility.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\WeaponAbility.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\WhirlwindAttack.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\WhirlwindAttack.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\AxeOfAbandon.cs">
@@ -8298,7 +8298,7 @@
     <Compile Include="Expansion\SA\Weapons\SlayerLongbow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\SAPropEffects.cs" />
+    <Compile Include="Expansion\XSORTINGX\Abilities\SAPropEffects.cs" />
     <Compile Include="Expansion\SE\Bokuto.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -8335,13 +8335,13 @@
     <Compile Include="Expansion\SE\Yumi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\SlayerEntry.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\SlayerEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\SlayerGroup.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\SlayerGroup.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\SlayerName.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\SlayerName.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\BladedStaff.cs">
@@ -8816,16 +8816,16 @@
     <Compile Include="Administration\World\WelcomeTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\BaseSummoned.cs">
+    <Compile Include="Peoharen SE\BaseSummoned.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\Enhancement.cs">
+    <Compile Include="Expansion\XSORTINGX\Abilities\Enhancement.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\EnhancementTimer.cs">
+    <Compile Include="Peoharen SE\EnhancementTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Abilities\TimedResistanceMod.cs">
+    <Compile Include="Peoharen SE\TimedResistanceMod.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Mechanics\AI\AIControlMobileTarget.cs">
