@@ -1,9 +1,7 @@
+using Server.Engines.Points;
+using Server.Multis;
 using System;
 using System.Collections.Generic;
-using Server.Multis;
-using Server.ContextMenus;
-using Server.Mobiles;
-using Server.Engines.Points;
 using System.Linq;
 
 namespace Server.Items
@@ -26,39 +24,20 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1041064;
-            }
-        }// a trash barrel
-        public override int DefaultMaxWeight
-        {
-            get
-            {
-                return 0;
-            }
-        }// A value of 0 signals unlimited weight
-        public override bool IsDecoContainer
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public override int LabelNumber => 1041064;// a trash barrel
+        public override int DefaultMaxWeight => 0;// A value of 0 signals unlimited weight
+        public override bool IsDecoContainer => false;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             if (Items.Count > 0)
             {
@@ -72,7 +51,9 @@ namespace Server.Items
         public override bool OnDragDrop(Mobile from, Item dropped)
         {
             if (!base.OnDragDrop(from, dropped))
+            {
                 return false;
+            }
 
             AddCleanupItem(from, dropped);
 
@@ -85,9 +66,13 @@ namespace Server.Items
                 SendLocalizedMessageTo(from, 1010442); // The item will be deleted in three minutes
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
                 else
+                {
                     m_Timer = new EmptyTimer(this);
+                }
 
                 m_Timer.Start();
             }
@@ -98,7 +83,9 @@ namespace Server.Items
         public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
         {
             if (!base.OnDragDropInto(from, item, p))
+            {
                 return false;
+            }
 
             AddCleanupItem(from, item);
 
@@ -111,9 +98,13 @@ namespace Server.Items
                 SendLocalizedMessageTo(from, 1010442); // The item will be deleted in three minutes
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
                 else
+                {
                     m_Timer = new EmptyTimer(this);
+                }
 
                 m_Timer.Start();
             }
@@ -144,15 +135,24 @@ namespace Server.Items
                 for (int i = items.Count - 1; i >= 0; --i)
                 {
                     if (i >= items.Count)
+                    {
                         continue;
+                    }
 
                     ConfirmCleanupItem(items[i]);
 
                     #region SA
-                    if (.01 > Utility.RandomDouble())
-                        DropToCavernOfDiscarded(items[i]);
-                    else
-                        items[i].Delete();
+                    if (Core.SA)
+                    {
+                        if (.01 > Utility.RandomDouble())
+                        {
+                            DropToCavernOfDiscarded(items[i]);
+                        }
+                        else
+                        {
+                            items[i].Delete();
+                        }
+                    }
                     #endregion
                 }
 
@@ -163,7 +163,7 @@ namespace Server.Items
                         if (m_Cleanup.Find(x => x.mobiles == m && x.confirm) != null)
                         {
                             double point = m_Cleanup.Where(x => x.mobiles == m && x.confirm).Sum(x => x.points);
-                            m.SendLocalizedMessage(1151280, String.Format("{0}\t{1}", point.ToString(), m_Cleanup.Count(r => r.mobiles == m))); // You have received approximately ~1_VALUE~points for turning in ~2_COUNT~items for Clean Up Britannia.
+                            m.SendLocalizedMessage(1151280, $"{point.ToString()}\t{m_Cleanup.Count(r => r.mobiles == m)}"); // You have received approximately ~1_VALUE~points for turning in ~2_COUNT~items for Clean Up Britannia.
                             PointsSystem.CleanUpBritannia.AwardPoints(m, point);
                         }
                     }
@@ -172,7 +172,9 @@ namespace Server.Items
             }
 
             if (m_Timer != null)
-                m_Timer.Stop();            
+            {
+                m_Timer.Stop();
+            }
 
             m_Timer = null;
         }
@@ -197,7 +199,9 @@ namespace Server.Items
         public static void DropToCavernOfDiscarded(Item item)
         {
             if (item == null || item.Deleted)
+            {
                 return;
+            }
 
             Rectangle2D rec = new Rectangle2D(901, 482, 40, 27);
             Map map = Map.TerMur;
