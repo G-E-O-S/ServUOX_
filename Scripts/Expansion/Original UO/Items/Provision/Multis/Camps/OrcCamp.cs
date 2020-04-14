@@ -17,16 +17,10 @@ namespace Server.Multis
         {
         }
 
-        public virtual Mobile Orcs
-        {
-            get
-            {
-                return new Orc();
-            }
-        }
+        public virtual Mobile Orcs => new Orc();
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public override TimeSpan DecayDelay { get { return TimeSpan.FromMinutes(5.0); } }
+        public override TimeSpan DecayDelay => TimeSpan.FromMinutes(5.0);
 
         public override void AddComponents()
         {
@@ -134,8 +128,7 @@ namespace Server.Multis
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)2); // version
+            writer.Write(2);
         }
 
         public override void Deserialize(GenericReader reader)

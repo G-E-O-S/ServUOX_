@@ -37,7 +37,6 @@ namespace Server.Items
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
-
             list.Add(1063449, m_Name);
         }
 
@@ -63,18 +62,14 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
-
+            writer.Write(0);
             writer.Write(m_Name);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
-
             m_Name = Utility.Intern(reader.ReadString());
         }
 

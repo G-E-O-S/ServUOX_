@@ -109,7 +109,7 @@ namespace Server.Commands
                 {
                     Type type = m.GetType();
 
-                    object o = (object)table[type];
+                    object o = table[type];
 
                     if (o == null)
                         table[type] = 1;
@@ -296,7 +296,7 @@ namespace Server.Commands
             {
                 ArrayList types = new ArrayList();
 
-                using (BinaryReader bin = new BinaryReader(new FileStream(String.Format("Saves/{0}/{0}.tdb", type), FileMode.Open, FileAccess.Read, FileShare.Read)))
+                using (BinaryReader bin = new BinaryReader(new FileStream(string.Format("Saves/{0}/{0}.tdb", type), FileMode.Open, FileAccess.Read, FileShare.Read)))
                 {
                     int count = bin.ReadInt32();
 
@@ -308,7 +308,7 @@ namespace Server.Commands
 
                 Hashtable table = new Hashtable();
 
-                using (BinaryReader bin = new BinaryReader(new FileStream(String.Format("Saves/{0}/{0}.idx", type), FileMode.Open, FileAccess.Read, FileShare.Read)))
+                using (BinaryReader bin = new BinaryReader(new FileStream(string.Format("Saves/{0}/{0}.idx", type), FileMode.Open, FileAccess.Read, FileShare.Read)))
                 {
                     int count = bin.ReadInt32();
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Server.Items;
 
@@ -52,34 +51,11 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BardImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool Unprovokable
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool Uncalmable
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool BardImmune => true;
+        public override bool Unprovokable => true;
+        public override bool Uncalmable => true;
+        public override bool AlwaysMurderer => true;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 3);
@@ -121,7 +97,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer) 
         { 
             base.Serialize(writer); 
-            writer.Write((int)0);  
+            writer.Write(0);  
         }
 
         public override void Deserialize(GenericReader reader) 

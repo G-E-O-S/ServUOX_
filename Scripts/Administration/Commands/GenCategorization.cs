@@ -270,57 +270,38 @@ namespace Server.Commands
 
     public class CategoryTypeEntry
     {
-        private readonly Type m_Type;
-        private readonly object m_Object;
         public CategoryTypeEntry(Type type)
         {
-            this.m_Type = type;
-            this.m_Object = Activator.CreateInstance(type);
+            Type = type;
+            Object = Activator.CreateInstance(type);
         }
 
-        public Type Type
-        {
-            get
-            {
-                return this.m_Type;
-            }
-        }
-        public object Object
-        {
-            get
-            {
-                return this.m_Object;
-            }
-        }
+        public Type Type { get; }
+        public object Object { get; }
     }
 
     public class CategoryEntry
     {
-        private readonly string m_Title;
-        private readonly Type[] m_Matches;
-        private readonly CategoryEntry[] m_SubCategories;
-        private readonly CategoryEntry m_Parent;
-        private readonly ArrayList m_Matched;
         public CategoryEntry()
         {
-            this.m_Title = "(empty)";
-            this.m_Matches = new Type[0];
-            this.m_SubCategories = new CategoryEntry[0];
-            this.m_Matched = new ArrayList();
+            Title = "(empty)";
+            Matches = new Type[0];
+            SubCategories = new CategoryEntry[0];
+            Matched = new ArrayList();
         }
 
         public CategoryEntry(CategoryEntry parent, string title, CategoryEntry[] subCats)
         {
-            this.m_Parent = parent;
-            this.m_Title = title;
-            this.m_SubCategories = subCats;
-            this.m_Matches = new Type[0];
-            this.m_Matched = new ArrayList();
+            Parent = parent;
+            Title = title;
+            SubCategories = subCats;
+            Matches = new Type[0];
+            Matched = new ArrayList();
         }
 
         public CategoryEntry(CategoryEntry parent, CategoryLine[] lines, ref int index)
         {
-            this.m_Parent = parent;
+            Parent = parent;
 
             string text = lines[index].Text;
 
@@ -329,7 +310,7 @@ namespace Server.Commands
             if (start < 0)
                 throw new FormatException(String.Format("Input string not correctly formatted ('{0}')", text));
 
-            this.m_Title = text.Substring(0, start).Trim();
+            Title = text.Substring(0, start).Trim();
 
             int end = text.IndexOf(')', ++start);
 
@@ -351,7 +332,7 @@ namespace Server.Commands
                     list.Add(type);
             }
 
-            this.m_Matches = (Type[])list.ToArray(typeof(Type));
+            Matches = (Type[])list.ToArray(typeof(Type));
             list.Clear();
 
             int ourIndentation = lines[index].Indentation;
@@ -361,53 +342,24 @@ namespace Server.Commands
             while (index < lines.Length && lines[index].Indentation > ourIndentation)
                 list.Add(new CategoryEntry(this, lines, ref index));
 
-            this.m_SubCategories = (CategoryEntry[])list.ToArray(typeof(CategoryEntry));
+            SubCategories = (CategoryEntry[])list.ToArray(typeof(CategoryEntry));
             list.Clear();
 
-            this.m_Matched = list;
+            Matched = list;
         }
 
-        public string Title
-        {
-            get
-            {
-                return this.m_Title;
-            }
-        }
-        public Type[] Matches
-        {
-            get
-            {
-                return this.m_Matches;
-            }
-        }
-        public CategoryEntry Parent
-        {
-            get
-            {
-                return this.m_Parent;
-            }
-        }
-        public CategoryEntry[] SubCategories
-        {
-            get
-            {
-                return this.m_SubCategories;
-            }
-        }
-        public ArrayList Matched
-        {
-            get
-            {
-                return this.m_Matched;
-            }
-        }
+        public string Title { get; }
+        public Type[] Matches { get; }
+        public CategoryEntry Parent { get; }
+        public CategoryEntry[] SubCategories { get; }
+        public ArrayList Matched { get; }
+
         public bool IsMatch(Type type)
         {
             bool isMatch = false;
 
-            for (int i = 0; !isMatch && i < this.m_Matches.Length; ++i)
-                isMatch = (type == this.m_Matches[i] || type.IsSubclassOf(this.m_Matches[i]));
+            for (int i = 0; !isMatch && i < Matches.Length; ++i)
+                isMatch = (type == Matches[i] || type.IsSubclassOf(Matches[i]));
 
             return isMatch;
         }
@@ -415,39 +367,26 @@ namespace Server.Commands
 
     public class CategoryLine
     {
-        private readonly int m_Indentation;
-        private readonly string m_Text;
         public CategoryLine(string input)
         {
             int index;
 
             for (index = 0; index < input.Length; ++index)
             {
-                if (Char.IsLetter(input, index))
+                if (char.IsLetter(input, index))
                     break;
             }
 
             if (index >= input.Length)
                 throw new FormatException(String.Format("Input string not correctly formatted ('{0}')", input));
 
-            this.m_Indentation = index;
-            this.m_Text = input.Substring(index);
+            Indentation = index;
+            Text = input.Substring(index);
         }
 
-        public int Indentation
-        {
-            get
-            {
-                return this.m_Indentation;
-            }
-        }
-        public string Text
-        {
-            get
-            {
-                return this.m_Text;
-            }
-        }
+        public int Indentation { get; }
+        public string Text { get; }
+
         public static CategoryLine[] Load(string path)
         {
             ArrayList list = new ArrayList();

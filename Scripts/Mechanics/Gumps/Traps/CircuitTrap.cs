@@ -34,10 +34,9 @@ namespace Server.Gumps
     public class CircuitTrapGump : BaseGump
     {
         public ICircuitTrap Trap { get; set; }
-        public List<int> Path { get { return Trap != null ? Trap.Path : null; } }
-        public List<int> Progress { get { return Trap != null ? Trap.Progress : null; } }
-
-        public CircuitCount Count { get { return Trap != null ? Trap.Count : CircuitCount.Nine; } }
+        public List<int> Path => Trap != null ? Trap.Path : null;
+        public List<int> Progress => Trap != null ? Trap.Progress : null;
+        public CircuitCount Count => Trap != null ? Trap.Count : CircuitCount.Nine;
         public bool ShowNext { get; set; }
 
         public CircuitTrapGump(PlayerMobile from, ICircuitTrap item)

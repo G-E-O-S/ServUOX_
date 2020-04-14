@@ -1,8 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Runtime;
 using System.IO;
 using System.Reflection;
 
@@ -91,7 +89,7 @@ namespace Server.Commands
 			if (creature == null)
 				return;
 
-			Server.Items.BambooFlute flute = new Items.BambooFlute();
+			Items.BambooFlute flute = new Items.BambooFlute();
 
 			csv.AddRow();
 			csv.AddValue("Type", creature.GetType().Name);
@@ -142,10 +140,10 @@ namespace Server.Commands
 
 		private class CsvFile
 		{
-			private List<Dictionary<String, String>> rows = new List<Dictionary<string, string>>();
-			private Dictionary<String, String> currentRow = null;
-			private HashSet<String> headerSet = new HashSet<string>();
-			private List<String> allHeaders = new List<string>();
+			private List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+			private Dictionary<string, string> currentRow = null;
+			private HashSet<string> headerSet = new HashSet<string>();
+			private List<string> allHeaders = new List<string>();
 
 			public CsvFile()
 			{
@@ -153,16 +151,16 @@ namespace Server.Commands
 
 			public void AddRow()
 			{
-				currentRow = new Dictionary<String, String>();
+				currentRow = new Dictionary<string, string>();
 				rows.Add(currentRow);
 			}
 
-			public void AddValue(String name, object value)
+			public void AddValue(string name, object value)
 			{
 				if (name == null)
 					return;
 
-				String v = "";
+				string v = "";
 				if (value != null)
 					v = value.ToString();
 
@@ -173,41 +171,41 @@ namespace Server.Commands
 				allHeaders.Add(name);
 			}
 
-			public void Write(String path)
+			public void Write(string path)
 			{
 				StreamWriter outf = new StreamWriter(path);
 				bool first;
 
 				first = true;
-				foreach(String header in allHeaders)
+				foreach(string header in allHeaders)
 				{
 					if (first)
 					{
-						outf.Write(String.Format("\"{0}\"", header));
+						outf.Write(string.Format("\"{0}\"", header));
 						first = false;
 					}
 					else
 					{
-						outf.Write(String.Format(",\"{0}\"", header));
+						outf.Write(string.Format(",\"{0}\"", header));
 					}
 				}
 				outf.WriteLine("");
 
-				foreach(Dictionary<String, String> row in rows)
+				foreach(Dictionary<string, string> row in rows)
 				{
 					first = true;
-					foreach (String header in allHeaders)
+					foreach (string header in allHeaders)
 					{
-						String value = "";
+						string value = "";
 						row.TryGetValue(header, out value);
 						if (first)
 						{
-							outf.Write(String.Format("\"{0}\"", value));
+							outf.Write(string.Format("\"{0}\"", value));
 							first = false;
 						}
 						else
 						{
-							outf.Write(String.Format(",\"{0}\"", value));
+							outf.Write(string.Format(",\"{0}\"", value));
 						}
 					}
 					outf.WriteLine("");

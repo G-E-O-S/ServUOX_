@@ -1,10 +1,7 @@
-#region References
 using System;
 using System.Linq;
-
 using Server.Items;
 using Server.Targeting;
-#endregion
 
 namespace Server.Commands
 {

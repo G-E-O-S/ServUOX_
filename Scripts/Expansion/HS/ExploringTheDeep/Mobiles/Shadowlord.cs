@@ -16,11 +16,10 @@ namespace Server.Mobiles
     [CorpseName("a shadowlord corpse")]
     public class Shadowlord : BaseCreature
     {
-        private static readonly ArrayList m_Instances = new ArrayList();
-        public static ArrayList Instances { get { return m_Instances; } }
+        public static ArrayList Instances { get; } = new ArrayList();
 
         private ShadowlordType m_Type;
-        public virtual Type[] ArtifactDrops { get { return _ArtifactTypes; } }
+        public virtual Type[] ArtifactDrops => _ArtifactTypes;
 
         private Type[] _ArtifactTypes = new Type[]
         {
@@ -32,10 +31,7 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public ShadowlordType Type
         {
-            get
-            {
-                return m_Type;
-            }
+            get => m_Type;
             set
             {
                 m_Type = value;
@@ -47,7 +43,7 @@ namespace Server.Mobiles
         public Shadowlord()
             : base(AIType.AI_NecroMage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            m_Instances.Add(this);
+            Instances.Add(this);
 
             m_Type = (ShadowlordType)Utility.Random(3);
             Name = m_Type.ToString();
@@ -100,24 +96,22 @@ namespace Server.Mobiles
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
-
             list.Add("#{0}", 1154453 + (int)m_Type); // Shadowlord of ..
         }
 
         public Shadowlord(Serial serial)
             : base(serial)
         {
-            m_Instances.Add(this);
+            Instances.Add(this);
         }
 
         public override void OnAfterDelete()
         {
-            m_Instances.Remove(this);
-
+            Instances.Remove(this);
             base.OnAfterDelete();
         }
 
-        public override bool AlwaysMurderer { get { return true; } }
+        public override bool AlwaysMurderer => true;
 
         public override int GetAngerSound() { return 1550; }
         public override int GetHurtSound() { return 1552; }
@@ -144,7 +138,7 @@ namespace Server.Mobiles
 
         public static Shadowlord Spawn(Point3D platLoc, Map platMap)
         {
-            if (m_Instances.Count > 0)
+            if (Instances.Count > 0)
                 return null;
 
             Shadowlord creature = new Shadowlord();
@@ -155,7 +149,7 @@ namespace Server.Mobiles
             return creature;
         }
 
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmune => Poison.Lethal;
 
         public override void GenerateLoot()
         {
@@ -256,10 +250,8 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
-
+            writer.Write(0);
             writer.Write((int)m_Type);
-
         }
 
         public override void Deserialize(GenericReader reader)

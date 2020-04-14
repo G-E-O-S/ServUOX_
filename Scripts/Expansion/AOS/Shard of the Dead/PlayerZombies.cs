@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Server.Events.Halloween;
 using Server.Items;
@@ -34,19 +34,9 @@ namespace Server.Engines.Events
         private static int m_DeathQueueLimit;
         private static int m_QueueDelaySeconds;
         private static int m_QueueClearIntervalSeconds;
-        private static Dictionary<PlayerMobile, ZombieSkeleton> m_ReAnimated;
         private static List<PlayerMobile> m_DeathQueue;
-        public static Dictionary<PlayerMobile, ZombieSkeleton> ReAnimated
-        {
-            get
-            {
-                return m_ReAnimated;
-            }
-            set
-            {
-                m_ReAnimated = value;
-            }
-        }
+        public static Dictionary<PlayerMobile, ZombieSkeleton> ReAnimated { get; set; }
+
         public static void Initialize()
         {
             m_TotalZombieLimit = 200;
@@ -58,7 +48,7 @@ namespace Server.Engines.Events
             TimeSpan tick = TimeSpan.FromSeconds(m_QueueDelaySeconds);
             TimeSpan clear = TimeSpan.FromSeconds(m_QueueClearIntervalSeconds);
 
-            m_ReAnimated = new Dictionary<PlayerMobile, ZombieSkeleton>();
+            ReAnimated = new Dictionary<PlayerMobile, ZombieSkeleton>();
             m_DeathQueue = new List<PlayerMobile>();
 
             if (today >= HolidaySettings.StartHalloween && today <= HolidaySettings.FinishHalloween)
@@ -89,7 +79,7 @@ namespace Server.Engines.Events
 
         private static void Clear_Callback()
         {
-            m_ReAnimated.Clear();
+            ReAnimated.Clear();
 
             m_DeathQueue.Clear();
 
@@ -107,7 +97,7 @@ namespace Server.Engines.Events
             {
                 for (int index = 0; m_DeathQueue.Count > 0 && index < m_DeathQueue.Count; index++)
                 {
-                    if (!m_ReAnimated.ContainsKey(m_DeathQueue[index]))
+                    if (!ReAnimated.ContainsKey(m_DeathQueue[index]))
                     {
                         player = m_DeathQueue[index];
 
@@ -115,7 +105,7 @@ namespace Server.Engines.Events
                     }
                 }
 
-                if (player != null && !player.Deleted && m_ReAnimated.Count < m_TotalZombieLimit)
+                if (player != null && !player.Deleted && ReAnimated.Count < m_TotalZombieLimit)
                 {
                     Map map = Utility.RandomBool() ? Map.Trammel : Map.Felucca;
                     Point3D home = (GetRandomPointInRect(m_Cemetaries[Utility.Random(m_Cemetaries.Length)], map));
@@ -124,7 +114,7 @@ namespace Server.Engines.Events
                     {
                         ZombieSkeleton zombieskel = new ZombieSkeleton(player);
 
-                        m_ReAnimated.Add(player, zombieskel);
+                        ReAnimated.Add(player, zombieskel);
                         zombieskel.Home = home;
                         zombieskel.RangeHome = 10;
 
@@ -152,21 +142,21 @@ namespace Server.Engines.Events
     public class PlayerBones : BaseContainer
     {
         [Constructable]
-        public PlayerBones(String name)
+        public PlayerBones(string name)
             : base(Utility.RandomMinMax(0x0ECA, 0x0ED2))
         {
-            this.Name = String.Format("{0}'s bones", name);
+            this.Name = string.Format("{0}'s bones", name);
 
             switch( Utility.Random(10) )
             {
                 case 0:
-                    this.Hue = 0xa09;
+                    Hue = 0xa09;
                     break;
                 case 1:
-                    this.Hue = 0xa93;
+                    Hue = 0xa93;
                     break;
                 case 2:
-                    this.Hue = 0xa47;
+                    Hue = 0xa47;
                     break;
                 default:
                     break;
@@ -181,7 +171,7 @@ namespace Server.Engines.Events
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -194,7 +184,7 @@ namespace Server.Engines.Events
     [CorpseName("a rotting corpse")]
     public class ZombieSkeleton : BaseCreature
     {
-        private static readonly string m_Name = "Zombie Skeleton";
+        private static readonly string m_Name = "zombie skeleton";
         private PlayerMobile m_DeadPlayer;
         public ZombieSkeleton()
             : this(null)
@@ -204,40 +194,40 @@ namespace Server.Engines.Events
         public ZombieSkeleton(PlayerMobile player)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            this.m_DeadPlayer = player;
+            m_DeadPlayer = player;
 
-            this.Name = (player != null) ? String.Format("{0}'s {1}", player.Name, m_Name) : m_Name;
+            Name = (player != null) ? string.Format("{0}'s {1}", player.Name, m_Name) : m_Name;
 
-            this.Body = 0x93;
-            this.BaseSoundID = 0x1c3;
+            Body = 0x93;
+            BaseSoundID = 0x1c3;
 
-            this.SetStr(500);
-            this.SetDex(500);
-            this.SetInt(500);
+            SetStr(500);
+            SetDex(500);
+            SetInt(500);
 
-            this.SetHits(2500);
-            this.SetMana(500);
-            this.SetStam(500);
+            SetHits(2500);
+            SetMana(500);
+            SetStam(500);
 
-            this.SetDamage(8, 18);
+            SetDamage(8, 18);
 
-            this.SetDamageType(ResistanceType.Physical, 40);
-            this.SetDamageType(ResistanceType.Cold, 60);
+            SetDamageType(ResistanceType.Physical, 40);
+            SetDamageType(ResistanceType.Cold, 60);
 
-            this.SetResistance(ResistanceType.Fire, 50);
-            this.SetResistance(ResistanceType.Energy, 50);
-            this.SetResistance(ResistanceType.Physical, 50);
-            this.SetResistance(ResistanceType.Cold, 50);
-            this.SetResistance(ResistanceType.Poison, 50);
+            SetResistance(ResistanceType.Fire, 50);
+            SetResistance(ResistanceType.Energy, 50);
+            SetResistance(ResistanceType.Physical, 50);
+            SetResistance(ResistanceType.Cold, 50);
+            SetResistance(ResistanceType.Poison, 50);
 
-            this.SetSkill(SkillName.MagicResist, 65.1, 80.0);
-            this.SetSkill(SkillName.Tactics, 95.1, 100);
-            this.SetSkill(SkillName.Wrestling, 85.1, 95);
+            SetSkill(SkillName.MagicResist, 65.1, 80.0);
+            SetSkill(SkillName.Tactics, 95.1, 100);
+            SetSkill(SkillName.Wrestling, 85.1, 95);
 
-            this.Fame = 1000;
-            this.Karma = -1000;
+            Fame = 1000;
+            Karma = -1000;
 
-            this.VirtualArmor = 18;
+            VirtualArmor = 18;
         }
 
         public ZombieSkeleton(Serial serial)
@@ -245,62 +235,50 @@ namespace Server.Engines.Events
         {
         }
 
-        public override bool BleedImmune
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }
+        public override bool BleedImmune => true;
+        public override Poison PoisonImmune => Poison.Regular;
 
         public override void GenerateLoot()
         {
             switch( Utility.Random(10) )
             {
                 case 0:
-                    this.PackItem(new LeftArm());
+                    PackItem(new LeftArm());
                     break;
                 case 1:
-                    this.PackItem(new RightArm());
+                    PackItem(new RightArm());
                     break;
                 case 2:
-                    this.PackItem(new Torso());
+                    PackItem(new Torso());
                     break;
                 case 3:
-                    this.PackItem(new Bone());
+                    PackItem(new Bone());
                     break;
                 case 4:
-                    this.PackItem(new RibCage());
+                    PackItem(new RibCage());
                     break;
                 case 5:
-                    if (this.m_DeadPlayer != null && !this.m_DeadPlayer.Deleted)
+                    if (m_DeadPlayer != null && !m_DeadPlayer.Deleted)
                     {
-                        this.PackItem(new PlayerBones(this.m_DeadPlayer.Name));
+                        PackItem(new PlayerBones(m_DeadPlayer.Name));
                     }
                     break;
                 default:
                     break;
             }
 
-            this.AddLoot(LootPack.Meager);
+            AddLoot(LootPack.Meager);
         }
 
         public override void OnDelete()
         {
             if (HalloweenHauntings.ReAnimated != null)
             {
-                if (this.m_DeadPlayer != null && !this.m_DeadPlayer.Deleted)
+                if (m_DeadPlayer != null && !m_DeadPlayer.Deleted)
                 {
-                    if (HalloweenHauntings.ReAnimated.Count > 0 && HalloweenHauntings.ReAnimated.ContainsKey(this.m_DeadPlayer))
+                    if (HalloweenHauntings.ReAnimated.Count > 0 && HalloweenHauntings.ReAnimated.ContainsKey(m_DeadPlayer))
                     {
-                        HalloweenHauntings.ReAnimated.Remove(this.m_DeadPlayer);
+                        HalloweenHauntings.ReAnimated.Remove(m_DeadPlayer);
                     }
                 }
             }
@@ -309,17 +287,15 @@ namespace Server.Engines.Events
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
-
-            writer.WriteMobile(this.m_DeadPlayer);
+            writer.Write(0);
+            writer.WriteMobile(m_DeadPlayer);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
             int version = reader.ReadInt();
-
-            this.m_DeadPlayer = (PlayerMobile)reader.ReadMobile();
+            m_DeadPlayer = (PlayerMobile)reader.ReadMobile();
         }
     }
 }

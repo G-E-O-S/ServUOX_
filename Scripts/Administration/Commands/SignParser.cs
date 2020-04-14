@@ -134,10 +134,10 @@ namespace Server.Commands
 
 			public SignEntry(string text, Point3D pt, int itemID, int mapLoc)
 			{
-				this.m_Text = text;
-				this.m_Location = pt;
-				this.m_ItemID = itemID;
-				this.m_Map = mapLoc;
+				m_Text = text;
+				m_Location = pt;
+				m_ItemID = itemID;
+				m_Map = mapLoc;
 			}
 
 			public static int GetIdForMap(Map map)
@@ -148,10 +148,10 @@ namespace Server.Commands
 				if (map == Map.Malas) return 4;
 				if (map == Map.Tokuno) return 5;
 				if (map == Map.TerMur) return 6;
-				throw new ArgumentException(String.Format("Unhandled map {0}", map.Name));
+				throw new ArgumentException(string.Format("Unhandled map {0}", map.Name));
 			}
 
-			public static List<SignEntry> LoadConfig(String path)
+			public static List<SignEntry> LoadConfig(string path)
 			{
 				List<SignEntry> list = new List<SignEntry>();
 				string cfg = Path.Combine(Core.BaseDirectory, path);
@@ -179,14 +179,14 @@ namespace Server.Commands
 				return list;
 			}
 
-			public static void WriteConfig(List<SignEntry> signs, String path)
+			public static void WriteConfig(List<SignEntry> signs, string path)
 			{
 				string cfg = Path.Combine(Core.BaseDirectory, path);
 				using (StreamWriter op = new StreamWriter(cfg))
 				{
 					foreach(SignEntry sign in signs)
 					{
-						string line = String.Format("{0} {1} {2} {3} {4} {5}", sign.m_Map,
+						string line = string.Format("{0} {1} {2} {3} {4} {5}", sign.m_Map,
 							sign.m_ItemID, sign.m_Location.X, sign.m_Location.Y,
 							sign.m_Location.Z, sign.m_Text);
 						op.WriteLine(line);
@@ -322,18 +322,18 @@ namespace Server.Commands
 			public BritGump(SignSaveTarget target)
 				: base(30, 20)
 			{
-				this.m_Target = target;
-				this.Dragable = false;
-				this.Resizable = false;
-				this.Closable = false;
+				m_Target = target;
+				Dragable = false;
+				Resizable = false;
+				Closable = false;
 
-				this.AddPage(0);
-				this.AddBackground(0, 0, 550, 440, 5054);
-				this.AddBackground(10, 10, 530, 420, 3000);
+				AddPage(0);
+				AddBackground(0, 0, 550, 440, 5054);
+				AddBackground(10, 10, 530, 420, 3000);
 
-				this.AddLabel(20, 20, 0, "Add this sign to both facets?");
-				this.AddButton(20, 40, 2453, 2454, 0, GumpButtonType.Reply, 0);
-				this.AddButton(450, 40, 2450, 2451, 1, GumpButtonType.Reply, 0);
+				AddLabel(20, 20, 0, "Add this sign to both facets?");
+				AddButton(20, 40, 2453, 2454, 0, GumpButtonType.Reply, 0);
+				AddButton(450, 40, 2450, 2451, 1, GumpButtonType.Reply, 0);
 			}
 
 			public override void OnResponse(NetState sender, RelayInfo info)

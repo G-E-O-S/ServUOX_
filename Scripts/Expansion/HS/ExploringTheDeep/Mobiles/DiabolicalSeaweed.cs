@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Server.Items;
 using System.Collections;
 
@@ -151,10 +151,9 @@ namespace Server.Mobiles
                 ReagentLoot.Amount = Utility.Random(4, 5);
                 c.DropItem(ReagentLoot);
             }
-
         }
 
-        public override bool CanRummageCorpses { get { return true; } }
+        public override bool CanRummageCorpses => true;
 
         public override void GenerateLoot()
         {
@@ -164,20 +163,16 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
-
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             m_Timer = new PullTimer(this);
             m_Timer.Start();
-
         }
     }
 }

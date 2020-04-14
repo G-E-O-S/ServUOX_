@@ -1,11 +1,9 @@
 using System;
 using System.Linq;
 using System.Threading;
-
 using Server.Accounting;
 using Server.Engines.Help;
 using Server.Network;
-
 using static System.Console;
 
 namespace Server.Misc
@@ -16,7 +14,7 @@ namespace Server.Misc
 
 		private static string _Command;
 
-		private static Timer _PollTimer;
+        private static Timer _PollTimer;
 
 		private static bool _HearConsole;
 

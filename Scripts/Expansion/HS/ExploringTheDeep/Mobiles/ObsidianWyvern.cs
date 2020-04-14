@@ -15,7 +15,7 @@ namespace Server.Mobiles
         public ObsidianWyvern()
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            Name = "Obsidian Wyvern";
+            Name = "obsidian wyvern";
             Body = 0x2E;
             Hue = 1910;
             BaseSoundID = 362;
@@ -97,7 +97,6 @@ namespace Server.Mobiles
         public override void OnAfterDelete()
         {
             Instances.Remove(this);
-
             base.OnAfterDelete();
         }
 
@@ -131,12 +130,12 @@ namespace Server.Mobiles
             base.OnDeath(c);
         }
 
-        public override bool ReacquireOnMovement { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Deadly; } }
-        public override Poison HitPoison { get { return Poison.Deadly; } }
-        public override bool AutoDispel { get { return true; } }
-        public override bool BardImmune { get { return true; } }
-		public override FoodType FavoriteFood { get { return FoodType.Meat; } }
+        public override bool ReacquireOnMovement => true;
+        public override Poison PoisonImmune => Poison.Deadly;
+        public override Poison HitPoison => Poison.Deadly;
+        public override bool AutoDispel => true;
+        public override bool BardImmune => true;
+        public override FoodType FavoriteFood => FoodType.Meat;
 
         public override void GenerateLoot()
         {
@@ -155,8 +154,7 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
-
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)

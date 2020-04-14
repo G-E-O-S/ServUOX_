@@ -17,24 +17,11 @@ namespace Server.Multis
         {
         }
 
-        public virtual Mobile Brigands
-        {
-            get
-            {
-                return new Brigand();
-            }
-        }
-
-        public virtual Mobile Executioners
-        {
-            get
-            {
-                return new Executioner();
-            }
-        }
+        public virtual Mobile Brigands => new Brigand();
+        public virtual Mobile Executioners => new Executioner();
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public override TimeSpan DecayDelay { get { return TimeSpan.FromMinutes(5.0); } }
+        public override TimeSpan DecayDelay => TimeSpan.FromMinutes(5.0);
 
         public override void AddComponents()
         {
@@ -136,14 +123,12 @@ namespace Server.Multis
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             switch ( version )

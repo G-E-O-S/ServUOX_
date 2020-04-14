@@ -1,5 +1,3 @@
-using System;
- using Server;
  using Server.Items;
  using Server.Mobiles;
 
@@ -114,17 +112,14 @@ namespace Server.Multis
 
          public override void Serialize( GenericWriter writer )
          {
-             base.Serialize( writer );
-
-             writer.Write( (int) 1 ); // version
-
-             writer.Write( m_Gate );
+             base.Serialize(writer);
+             writer.Write(1);
+             writer.Write(m_Gate);
          }
 
          public override void Deserialize( GenericReader reader )
          {
              base.Deserialize( reader );
-
              int version = reader.ReadInt();
 
              switch ( version )

@@ -22,55 +22,35 @@ namespace Server.Commands
             CommandSystem.Prefix = "[";
 
             Register("Go", AccessLevel.Counselor, new CommandEventHandler(Go_OnCommand));
-
             Register("DropHolding", AccessLevel.Counselor, new CommandEventHandler(DropHolding_OnCommand));
-
             Register("GetFollowers", AccessLevel.GameMaster, new CommandEventHandler(GetFollowers_OnCommand));
-
             Register("ClearFacet", AccessLevel.Administrator, new CommandEventHandler(ClearFacet_OnCommand));
-
             Register("Where", AccessLevel.Counselor, new CommandEventHandler(Where_OnCommand));
-
             Register("AutoPageNotify", AccessLevel.Counselor, new CommandEventHandler(APN_OnCommand));
             Register("APN", AccessLevel.Counselor, new CommandEventHandler(APN_OnCommand));
-
             Register("Animate", AccessLevel.GameMaster, new CommandEventHandler(Animate_OnCommand));
-
             Register("Cast", AccessLevel.Counselor, new CommandEventHandler(Cast_OnCommand));
-
             Register("Stuck", AccessLevel.Counselor, new CommandEventHandler(Stuck_OnCommand));
-
             Register("Help", AccessLevel.Player, new CommandEventHandler(Help_OnCommand));
-
             Register("Save", AccessLevel.Administrator, new CommandEventHandler(Save_OnCommand));
             Register("BackgroundSave", AccessLevel.Administrator, new CommandEventHandler(BackgroundSave_OnCommand));
             Register("BGSave", AccessLevel.Administrator, new CommandEventHandler(BackgroundSave_OnCommand));
             Register("SaveBG", AccessLevel.Administrator, new CommandEventHandler(BackgroundSave_OnCommand));
-
             Register("Move", AccessLevel.GameMaster, new CommandEventHandler(Move_OnCommand));
             Register("Client", AccessLevel.Counselor, new CommandEventHandler(Client_OnCommand));
-
             Register("SMsg", AccessLevel.Counselor, new CommandEventHandler(StaffMessage_OnCommand));
             Register("SM", AccessLevel.Counselor, new CommandEventHandler(StaffMessage_OnCommand));
             Register("S", AccessLevel.Counselor, new CommandEventHandler(StaffMessage_OnCommand));
-
             Register("BCast", AccessLevel.GameMaster, new CommandEventHandler(BroadcastMessage_OnCommand));
             Register("BC", AccessLevel.GameMaster, new CommandEventHandler(BroadcastMessage_OnCommand));
             Register("B", AccessLevel.GameMaster, new CommandEventHandler(BroadcastMessage_OnCommand));
-
             Register("Bank", AccessLevel.GameMaster, new CommandEventHandler(Bank_OnCommand));
-
             Register("Echo", AccessLevel.Counselor, new CommandEventHandler(Echo_OnCommand));
-
             Register("Sound", AccessLevel.GameMaster, new CommandEventHandler(Sound_OnCommand));
-
             Register("ViewEquip", AccessLevel.GameMaster, new CommandEventHandler(ViewEquip_OnCommand));
-
             Register("Light", AccessLevel.Counselor, new CommandEventHandler(Light_OnCommand));
             Register("Stats", AccessLevel.Counselor, new CommandEventHandler(Stats_OnCommand));
-
             Register("ReplaceBankers", AccessLevel.Administrator, new CommandEventHandler(ReplaceBankers_OnCommand));
-
             Register("SpeedBoost", AccessLevel.Counselor, new CommandEventHandler(SpeedBoost_OnCommand));
         }
 
@@ -214,7 +194,7 @@ namespace Server.Commands
 
                 e.Mobile.SendGump(
                     new WarningGump(1060635, 30720,
-                        String.Format("You are about to delete {0} object{1} from this facet.  Do you really wish to continue?",
+                        string.Format("You are about to delete {0} object{1} from this facet.  Do you really wish to continue?",
                             list.Count, list.Count == 1 ? "" : "s"),
                         0xFFC000, 360, 260, new WarningGumpCallback(DeleteList_Callback), list));
             }
@@ -247,7 +227,7 @@ namespace Server.Commands
 
                     for (int i = 0; i < pets.Count; ++i)
                     {
-                        Mobile pet = (Mobile)pets[i];
+                        Mobile pet = pets[i];
 
                         if (pet is IMount)
                             ((IMount)pet).Rider = null; // make sure it's dismounted
@@ -510,7 +490,7 @@ namespace Server.Commands
         [Description("View some stats about the server.")]
         public static void Stats_OnCommand(CommandEventArgs e)
         {
-            e.Mobile.SendMessage("Open Connections: {0}", Network.NetState.Instances.Count);
+            e.Mobile.SendMessage("Open Connections: {0}", NetState.Instances.Count);
             e.Mobile.SendMessage("Mobiles: {0}", World.Mobiles.Count);
             e.Mobile.SendMessage("Items: {0}", World.Items.Count);
         }
@@ -838,18 +818,16 @@ namespace Server.Commands
                 public EquipMenu(Mobile from, Mobile m, ItemListEntry[] entries)
                     : base("Equipment", entries)
                 {
-                    this.m_Mobile = m;
-
+                    m_Mobile = m;
                     CommandLogging.WriteLine(from, "{0} {1} viewing equipment of {2}", from.AccessLevel, CommandLogging.Format(from), CommandLogging.Format(m));
                 }
 
                 public override void OnResponse(NetState state, int index)
                 {
-                    if (index >= 0 && index < this.m_Mobile.Items.Count)
+                    if (index >= 0 && index < m_Mobile.Items.Count)
                     {
-                        Item item = this.m_Mobile.Items[index];
-
-                        state.Mobile.SendMenu(new EquipDetailsMenu(this.m_Mobile, item));
+                        Item item = m_Mobile.Items[index];
+                        state.Mobile.SendMenu(new EquipDetailsMenu(m_Mobile, item));
                     }
                 }
 
@@ -858,33 +836,33 @@ namespace Server.Commands
                     private readonly Mobile m_Mobile;
                     private readonly Item m_Item;
                     public EquipDetailsMenu(Mobile m, Item item)
-                        : base(String.Format("{0}: {1}", item.Layer, item.GetType().Name), new string[] { "Move", "Delete", "Props" })
+                        : base(string.Format("{0}: {1}", item.Layer, item.GetType().Name), new string[] { "Move", "Delete", "Props" })
                     {
-                        this.m_Mobile = m;
-                        this.m_Item = item;
+                        m_Mobile = m;
+                        m_Item = item;
                     }
 
                     public override void OnCancel(NetState state)
                     {
-                        state.Mobile.SendMenu(new EquipMenu(state.Mobile, this.m_Mobile, ViewEqTarget.GetEquip(this.m_Mobile)));
+                        state.Mobile.SendMenu(new EquipMenu(state.Mobile, this.m_Mobile, ViewEqTarget.GetEquip(m_Mobile)));
                     }
 
                     public override void OnResponse(NetState state, int index)
                     {
                         if (index == 0)
                         {
-                            CommandLogging.WriteLine(state.Mobile, "{0} {1} moving equipment item {2} of {3}", state.Mobile.AccessLevel, CommandLogging.Format(state.Mobile), CommandLogging.Format(this.m_Item), CommandLogging.Format(this.m_Mobile));
-                            state.Mobile.Target = new MoveTarget(this.m_Item);
+                            CommandLogging.WriteLine(state.Mobile, "{0} {1} moving equipment item {2} of {3}", state.Mobile.AccessLevel, CommandLogging.Format(state.Mobile), CommandLogging.Format(m_Item), CommandLogging.Format(m_Mobile));
+                            state.Mobile.Target = new MoveTarget(m_Item);
                         }
                         else if (index == 1)
                         {
-                            CommandLogging.WriteLine(state.Mobile, "{0} {1} deleting equipment item {2} of {3}", state.Mobile.AccessLevel, CommandLogging.Format(state.Mobile), CommandLogging.Format(this.m_Item), CommandLogging.Format(this.m_Mobile));
-                            this.m_Item.Delete();
+                            CommandLogging.WriteLine(state.Mobile, "{0} {1} deleting equipment item {2} of {3}", state.Mobile.AccessLevel, CommandLogging.Format(state.Mobile), CommandLogging.Format(m_Item), CommandLogging.Format(m_Mobile));
+                            m_Item.Delete();
                         }
                         else if (index == 2)
                         {
-                            CommandLogging.WriteLine(state.Mobile, "{0} {1} opening properties for equipment item {2} of {3}", state.Mobile.AccessLevel, CommandLogging.Format(state.Mobile), CommandLogging.Format(this.m_Item), CommandLogging.Format(this.m_Mobile));
-                            state.Mobile.SendGump(new PropertiesGump(state.Mobile, this.m_Item));
+                            CommandLogging.WriteLine(state.Mobile, "{0} {1} opening properties for equipment item {2} of {3}", state.Mobile.AccessLevel, CommandLogging.Format(state.Mobile), CommandLogging.Format(m_Item), CommandLogging.Format(m_Mobile));
+                            state.Mobile.SendGump(new PropertiesGump(state.Mobile, m_Item));
                         }
                     }
                 }

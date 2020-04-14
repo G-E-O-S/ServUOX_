@@ -1,10 +1,7 @@
 using System;
-using Server;
-using Server.Mobiles;
 using Server.Commands;
 using System.Linq;
 using System.Collections.Generic;
-using Server.SkillHandlers;
 using Server.Accounting;
 using System.IO;
 
@@ -31,7 +28,7 @@ namespace Server.Items
                         foreach (var kvp in table.OrderBy(k => -k.Value))
                         {
                             op.WriteLine(
-                                String.Format("{0} currency: {1}", kvp.Key, kvp.Value.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("en-US"))));
+                                string.Format("{0} currency: {1}", kvp.Key, kvp.Value.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("en-US"))));
                         }
 
                         op.WriteLine("");
