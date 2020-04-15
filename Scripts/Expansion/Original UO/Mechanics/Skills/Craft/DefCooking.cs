@@ -150,7 +150,7 @@ namespace Server.Engines.Craft
                 SetNeedOven(index, true);
             }
 
-            index = AddCraft(typeof(WheatWort), 1044495, 1150275, 30.0, 100.0, typeof(Bottle), 1023854, 1, 1044253);
+            index = AddCraft(typeof(WheatWort), 1044495, 1150275, 30.0, 100.0, typeof(EmptyBottle), 1023854, 1, 1044253);
             AddRes(index, typeof(BaseBeverage), 1046458, 1, 1044253);
             AddRes(index, typeof(SackFlourOpen), 1044468, 1, 1151092);
             SetItemHue(index, 1281);
@@ -220,7 +220,7 @@ namespace Server.Engines.Craft
             if (Core.SA)
             {
                 index = AddCraft(typeof(PlantPigment), 1044496, 1112132, 75.0, 100.0, typeof(PlantClippings), 1112131, 1, 1044253);
-                AddRes(index, typeof(Bottle), 1023854, 1, 1044253);
+                AddRes(index, typeof(EmptyBottle), 1023854, 1, 1044253);
                 SetRequireResTarget(index);
 
                 index = AddCraft(typeof(NaturalDye), 1044496, 1112136, 65.0, 115.0, typeof(PlantPigment), 1112132, 1, 1044253);

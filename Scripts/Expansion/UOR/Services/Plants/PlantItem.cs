@@ -475,7 +475,7 @@ namespace Server.Engines.Plants
 				{
 					potion.Consume();
 					from.PlaySound( 0x240 );
-					from.AddToBackpack( new Bottle() );
+					from.AddToBackpack( new EmptyBottle() );
 
                     m_PlantSystem.NextGrowth = DateTime.UtcNow + PlantSystem.CheckDelay;
 				}

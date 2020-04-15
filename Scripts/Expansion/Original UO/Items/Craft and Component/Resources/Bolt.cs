@@ -1,14 +1,12 @@
-using System;
-
 namespace Server.Items
 {
     public class Bolt : Item, ICommodity
-    {		
-        TextDefinition ICommodity.Description { get { return LabelNumber; } }
-        bool ICommodity.IsDeedable { get { return true; } }
-		
-		public override double DefaultWeight { get { return 0.1; } }
-		
+    {
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
+
+        public override double DefaultWeight => 0.1;
+
         [Constructable]
         public Bolt()
             : this(1)
@@ -26,18 +24,18 @@ namespace Server.Items
         public Bolt(Serial serial)
             : base(serial)
         {
-        }      
-		
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

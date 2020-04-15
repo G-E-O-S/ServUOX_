@@ -142,7 +142,7 @@ namespace Server.Engines.Quests
         public MessageInBottleQuest()
             : base()
         { 
-            AddObjective(new ObtainObjective(typeof(Bottle), "empty bottles", 50, 0xF0E));
+            AddObjective(new ObtainObjective(typeof(EmptyBottle), "empty bottles", 50, 0xF0E));
 			
             AddReward(new BaseReward(typeof(TinkersCraftsmanSatchel), 1074282));
         }

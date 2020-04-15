@@ -79,7 +79,7 @@ namespace Server.Mobiles
                 Add(new GenericBuyInfo(typeof(Garlic), 3, 20, 0xF84, 0));
                 Add(new GenericBuyInfo(typeof(Ginseng), 3, 20, 0xF85, 0));
 
-                Add(new GenericBuyInfo(typeof(Bottle), 5, 20, 0xF0E, 0, true));
+                Add(new GenericBuyInfo(typeof(EmptyBottle), 5, 20, 0xF0E, 0, true));
 
                 Add(new GenericBuyInfo(typeof(RedBook), 15, 20, 0xFF1, 0));
                 Add(new GenericBuyInfo(typeof(BlueBook), 15, 20, 0xFF2, 0));
@@ -143,7 +143,7 @@ namespace Server.Mobiles
                 Add(typeof(TricorneHat), 4);
                 Add(typeof(Bandana), 3);
                 Add(typeof(SkullCap), 3);
-                Add(typeof(Bottle), 3);
+                Add(typeof(EmptyBottle), 3);
                 Add(typeof(RedBook), 7);
                 Add(typeof(BlueBook), 7);
                 Add(typeof(TanBook), 7);

@@ -107,7 +107,7 @@ namespace Server.Engines.Craft
 
         public override void InitCraftList()
         {
-            int index = AddCraft(typeof(Bottle), 1044050, 1023854, 52.5, 102.5, typeof(Sand), 1044625, 1, 1044627);
+            int index = AddCraft(typeof(EmptyBottle), 1044050, 1023854, 52.5, 102.5, typeof(Sand), 1044625, 1, 1044627);
             SetUseAllRes(index, true);
 
             AddCraft(typeof(SmallFlask), 1044050, 1044610, 52.5, 102.5, typeof(Sand), 1044625, 2, 1044627);

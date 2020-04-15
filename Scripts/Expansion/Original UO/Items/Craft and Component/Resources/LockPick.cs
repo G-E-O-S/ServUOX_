@@ -1,7 +1,6 @@
+using Server.Targeting;
 using System;
 using System.Linq;
-
-using Server.Targeting;
 
 namespace Server.Items
 {
@@ -15,11 +14,11 @@ namespace Server.Items
         void LockPick(Mobile from);
     }
 
-    [FlipableAttribute(0x14fc, 0x14fb)]
+    [Flipable(0x14fc, 0x14fb)]
     public class Lockpick : Item
     {
-        public virtual bool IsSkeletonKey { get { return false; } }
-        public virtual int SkillBonus { get { return 0; } }
+        public virtual bool IsSkeletonKey => false;
+        public virtual int SkillBonus => 0;
 
         [Constructable]
         public Lockpick()
@@ -43,8 +42,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -54,13 +52,15 @@ namespace Server.Items
             int version = reader.ReadInt();
 
             if (version == 0 && Weight == 0.1)
+            {
                 Weight = -1;
+            }
         }
 
         public override void OnDoubleClick(Mobile from)
         {
             from.SendLocalizedMessage(502068); // What do you want to pick?
-            from.Target = new InternalTarget(this);
+            from.Target = new LockpickTarget(this);
         }
 
         public virtual void OnUse()
@@ -110,7 +110,9 @@ namespace Server.Items
             Item item = (Item)lockpickable;
 
             if (!from.InRange(item.GetWorldLocation(), 1))
+            {
                 return;
+            }
 
             if (lockpickable.LockLevel == 0 || lockpickable.LockLevel == -255)
             {
@@ -154,10 +156,8 @@ namespace Server.Items
                 BrokeLockPickTest(from);
                 item.SendLocalizedMessageTo(from, 502075); // You are unable to pick the lock.
 
-                if (item is TreasureMapChest)
+                if (item is TreasureMapChest chest)
                 {
-                    var chest = (TreasureMapChest)item;
-
                     if (TreasureMapInfo.NewSystem)
                     {
                         if (!chest.FailedLockpick)
@@ -180,11 +180,11 @@ namespace Server.Items
             }
         }
 
-        private class InternalTarget : Target
+        private class LockpickTarget : Target
         {
-            private Lockpick m_Item;
+            private readonly Lockpick m_Item;
 
-            public InternalTarget(Lockpick item)
+            public LockpickTarget(Lockpick item)
                 : base(1, false, TargetFlags.None)
             {
                 m_Item = item;
@@ -193,7 +193,9 @@ namespace Server.Items
             protected override void OnTarget(Mobile from, object targeted)
             {
                 if (m_Item.Deleted)
+                {
                     return;
+                }
 
                 if (targeted is ILockpickable)
                 {

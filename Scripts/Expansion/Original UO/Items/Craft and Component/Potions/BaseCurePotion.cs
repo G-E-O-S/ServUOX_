@@ -1,32 +1,17 @@
-using System;
 using Server.Spells;
 
 namespace Server.Items
 {
     public class CureLevelInfo
     {
-        private readonly Poison m_Poison;
-        private readonly double m_Chance;
         public CureLevelInfo(Poison poison, double chance)
         {
-            this.m_Poison = poison;
-            this.m_Chance = chance;
+            Poison = poison;
+            Chance = chance;
         }
 
-        public Poison Poison
-        {
-            get
-            {
-                return this.m_Poison;
-            }
-        }
-        public double Chance
-        {
-            get
-            {
-                return this.m_Chance;
-            }
-        }
+        public Poison Poison { get; }
+        public double Chance { get; }
     }
 
     public abstract class BaseCurePotion : BasePotion
@@ -45,29 +30,27 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public void DoCure(Mobile from)
         {
             bool cure = false;
 
-            CureLevelInfo[] info = this.LevelInfo;
+            CureLevelInfo[] info = LevelInfo;
 
             for (int i = 0; i < info.Length; ++i)
             {
                 CureLevelInfo li = info[i];
 
                 if (li.Poison.RealLevel == from.Poison.RealLevel &&
-					Scale(from, li.Chance) > Utility.RandomDouble())
+                    Scale(from, li.Chance) > Utility.RandomDouble())
                 {
                     cure = true;
                     break;

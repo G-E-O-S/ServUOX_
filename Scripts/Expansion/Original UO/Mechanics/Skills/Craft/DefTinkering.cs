@@ -575,7 +575,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(Leather), 1044462, 3, 1044463);
 
             index = AddCraft(typeof(PotionKeg), 1044051, 1044258, 75.0, 100.0, typeof(Keg), 1044255, 1, 1044253);
-            AddRes(index, typeof(Bottle), 1044250, 10, 1044253);
+            AddRes(index, typeof(EmptyBottle), 1044250, 10, 1044253);
             AddRes(index, typeof(BarrelLid), 1044251, 1, 1044253);
             AddRes(index, typeof(BarrelTap), 1044252, 1, 1044253);
             

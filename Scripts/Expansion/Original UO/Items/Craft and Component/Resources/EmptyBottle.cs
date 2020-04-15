@@ -1,28 +1,29 @@
 namespace Server.Items
 {
-    [Flipable(0x1053, 0x1054)]
-    public class Gears : Item
+    public class EmptyBottle : Item, ICommodity
     {
         [Constructable]
-        public Gears()
+        public EmptyBottle()
             : this(1)
         {
         }
 
         [Constructable]
-        public Gears(int amount)
-            : base(0x1053)
+        public EmptyBottle(int amount)
+            : base(0xF0E)
         {
             Stackable = true;
-            Amount = amount;
             Weight = 1.0;
+            Amount = amount;
         }
 
-        public Gears(Serial serial)
+        public EmptyBottle(Serial serial)
             : base(serial)
         {
         }
 
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => (Core.ML);
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

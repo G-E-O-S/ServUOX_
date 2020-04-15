@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class HealPotion : BaseHealPotion
@@ -15,39 +13,19 @@ namespace Server.Items
         {
         }
 
-        public override int MinHeal
-        {
-            get
-            {
-                return (Core.AOS ? 13 : 6);
-            }
-        }
-        public override int MaxHeal
-        {
-            get
-            {
-                return (Core.AOS ? 16 : 20);
-            }
-        }
-        public override double Delay
-        {
-            get
-            {
-                return (Core.AOS ? 8.0 : 10.0);
-            }
-        }
+        public override int MinHeal => (Core.AOS ? 13 : 6);
+        public override int MaxHeal => (Core.AOS ? 16 : 20);
+        public override double Delay => (Core.AOS ? 8.0 : 10.0);
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

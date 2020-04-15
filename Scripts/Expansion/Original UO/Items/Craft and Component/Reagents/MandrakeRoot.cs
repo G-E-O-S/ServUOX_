@@ -1,19 +1,14 @@
-using System;
-
 namespace Server.Items
 {
-    public class MandrakeRoot : BaseReagent, ICommodity
+    public class MandrakeRoot : Item, ICommodity
     {
-        [Constructable]
-        public MandrakeRoot()
-            : this(1)
-        {
-        }
 
         [Constructable]
-        public MandrakeRoot(int amount)
-            : base(0xF86, amount)
+        public MandrakeRoot()
+            : base(0xF86)
         {
+            Stackable = true;
+            Weight = 1.0;
         }
 
         public MandrakeRoot(Serial serial)
@@ -21,32 +16,18 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return true;
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

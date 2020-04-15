@@ -147,7 +147,7 @@ namespace Server.Spells.SkillMasteries
             Caster.PlaySound(0x246);
 
             potion.Consume();
-            Caster.Backpack.DropItem(new Bottle());
+            Caster.Backpack.DropItem(new EmptyBottle());
 
             OnCast();
 

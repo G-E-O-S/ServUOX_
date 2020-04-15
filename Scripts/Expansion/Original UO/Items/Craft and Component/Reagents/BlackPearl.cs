@@ -1,19 +1,14 @@
-using System;
-
 namespace Server.Items
 {
-    public class BlackPearl : BaseReagent, ICommodity
+    public class BlackPearl : Item, ICommodity
     {
-        [Constructable]
-        public BlackPearl()
-            : this(1)
-        {
-        }
 
         [Constructable]
-        public BlackPearl(int amount)
-            : base(0xF7A, amount)
+        public BlackPearl()
+            : base(0xF7A)
         {
+            Stackable = true;
+            Weight = 1.0;
         }
 
         public BlackPearl(Serial serial)
@@ -21,32 +16,18 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return true;
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

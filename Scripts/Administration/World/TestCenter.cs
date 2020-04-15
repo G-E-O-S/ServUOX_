@@ -230,7 +230,7 @@ namespace Server.Misc
             PlaceItemIn(cont, 117, 149, MakePotionKeg(PotionEffect.RefreshTotal, 0x21));
             PlaceItemIn(cont, 141, 149, MakePotionKeg(PotionEffect.ExplosionGreater, 0x74));
 
-            PlaceItemIn(cont, 93, 82, new Bottle(1000));
+            PlaceItemIn(cont, 93, 82, new EmptyBottle(1000));
 
             PlaceItemIn(bank, 53, 169, cont);
             // End bag of potion kegs
@@ -615,7 +615,7 @@ namespace Server.Misc
             bank.DropItem(MakeNewbie(new BlankScroll(1000)));
             bank.DropItem(MakeNewbie(new Hides(1000)));
             bank.DropItem(MakeNewbie(new Bandage(1000)));
-            bank.DropItem(MakeNewbie(new Bottle(1000)));
+            bank.DropItem(MakeNewbie(new EmptyBottle(1000)));
             bank.DropItem(MakeNewbie(new Log(1000)));
 
             bank.DropItem(MakeNewbie(new IronIngot(5000)));

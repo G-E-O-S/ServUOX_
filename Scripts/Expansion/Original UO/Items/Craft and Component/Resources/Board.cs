@@ -1,167 +1,175 @@
-using System;
-
 namespace Server.Items
 {
-    [FlipableAttribute( 0x1BD7, 0x1BDA )]
-	public class BaseWoodBoard : Item, ICommodity, IResource
-	{
-		private CraftResource m_Resource;
+    [Flipable(0x1BD7, 0x1BDA)]
+    public class BaseWoodBoard : Item, ICommodity, IResource
+    {
+        private CraftResource m_Resource;
 
-		[CommandProperty( AccessLevel.GameMaster )]
-		public CraftResource Resource
-		{
-			get { return m_Resource; }
-			set { m_Resource = value; InvalidateProperties(); }
-		}
-
-        TextDefinition ICommodity.Description
+        [CommandProperty(AccessLevel.GameMaster)]
+        public CraftResource Resource
         {
-            get
-            {
-                return LabelNumber;
-            }
+            get => m_Resource;
+            set { m_Resource = value; InvalidateProperties(); }
         }
+
+        TextDefinition ICommodity.Description => LabelNumber;
 
         public override int LabelNumber
         {
             get
             {
-                if (m_Resource >= CraftResource.OakWood && m_Resource <= CraftResource.YewWood)
-                    return 1075052 + ((int)m_Resource - (int)CraftResource.OakWood);
-
-                switch (m_Resource)
+                if (Core.ML)
                 {
-                    case CraftResource.Bloodwood: return 1075055;
-                    case CraftResource.Frostwood: return 1075056;
-                    case CraftResource.Heartwood: return 1075062;   //WHY Osi.  Why?
+                    if (m_Resource >= CraftResource.OakWood && m_Resource <= CraftResource.YewWood)
+                    {
+                        return 1075052 + ((int)m_Resource - (int)CraftResource.OakWood);
+                    }
+
+                    switch (m_Resource)
+                    {
+                        case CraftResource.Bloodwood: return 1075055;
+                        case CraftResource.Frostwood: return 1075056;
+                        case CraftResource.Heartwood: return 1075062;
+                    }
                 }
 
                 return 1015101;
             }
         }
 
-        bool ICommodity.IsDeedable { get { return true; } }
+        bool ICommodity.IsDeedable => true;
 
-		[Constructable]
-		public BaseWoodBoard()
-			: this( 1 )
-		{
-		}
+        [Constructable]
+        public BaseWoodBoard()
+            : this(1)
+        {
+        }
 
-		[Constructable]
-		public BaseWoodBoard( int amount )
-			: this( CraftResource.RegularWood, amount )
-		{
-		}
+        [Constructable]
+        public BaseWoodBoard(int amount)
+            : this(CraftResource.RegularWood, amount)
+        {
+        }
 
-		public BaseWoodBoard( Serial serial )
-			: base( serial )
-		{
-		}
+        public BaseWoodBoard(Serial serial)
+            : base(serial)
+        {
+        }
 
-		[Constructable]
-		public BaseWoodBoard( CraftResource resource ) : this( resource, 1 )
-		{
-		}
+        [Constructable]
+        public BaseWoodBoard(CraftResource resource) : this(resource, 1)
+        {
+        }
 
-		[Constructable]
-		public BaseWoodBoard( CraftResource resource, int amount )
-			: base( 0x1BD7 )
-		{
-			Stackable = true;
-			Amount = amount;
+        [Constructable]
+        public BaseWoodBoard(CraftResource resource, int amount)
+            : base(0x1BD7)
+        {
+            Stackable = true;
+            Amount = amount;
 
-			m_Resource = resource;
-			Hue = CraftResources.GetHue( resource );
-		}
+            m_Resource = resource;
+            Hue = CraftResources.GetHue(resource);
+        }
 
-		public override void GetProperties( ObjectPropertyList list )
-		{
-			base.GetProperties( list );
+        public override void GetProperties(ObjectPropertyList list)
+        {
+            base.GetProperties(list);
 
-			if ( !CraftResources.IsStandard( m_Resource ) )
-			{
-				int num = CraftResources.GetLocalizationNumber( m_Resource );
+            if (!CraftResources.IsStandard(m_Resource))
+            {
+                int num = CraftResources.GetLocalizationNumber(m_Resource);
 
-				if ( num > 0 )
-					list.Add( num );
-				else
-					list.Add( CraftResources.GetName( m_Resource ) );
-			}
-		}
+                if (num > 0)
+                {
+                    list.Add(num);
+                }
+                else
+                {
+                    list.Add(CraftResources.GetName(m_Resource));
+                }
+            }
+        }
 
-		
 
-		public override void Serialize( GenericWriter writer )
-		{
-			base.Serialize( writer );
 
-			writer.Write( (int) 4 );
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write(4);
+            writer.Write((int)m_Resource);
+        }
 
-			writer.Write( (int)m_Resource );
-		}
+        public static bool UpdatingBaseClass;
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-		public static bool UpdatingBaseClass;
-		public override void Deserialize( GenericReader reader )
-		{
-			base.Deserialize( reader );
+            int version = reader.ReadInt();
+            if (version == 3)
+            {
+                UpdatingBaseClass = true;
+            }
 
-			int version = reader.ReadInt();
-			if ( version == 3 )
-				UpdatingBaseClass = true;
-			switch ( version )
-			{
-				case 4:
-				case 3:
-				case 2:
-					{
-						m_Resource = (CraftResource)reader.ReadInt();
-						break;
-					}
-			}
+            switch (version)
+            {
+                case 4:
+                case 3:
+                case 2:
+                    {
+                        m_Resource = (CraftResource)reader.ReadInt();
+                        break;
+                    }
+            }
 
-			if ( (version == 0 && Weight == 0.1) || ( version <= 2 && Weight == 2 ) )
-				Weight = -1;
+            if ((version == 0 && Weight == 0.1) || (version <= 2 && Weight == 2))
+            {
+                Weight = -1;
+            }
 
-			if ( version <= 1 )
-				m_Resource = CraftResource.RegularWood;
-		}
-	}
-	
-	public class Board : BaseWoodBoard
-	{
-		[Constructable]
-		public Board()
-			: this(1)
-		{
-		}
+            if (version <= 1)
+            {
+                m_Resource = CraftResource.RegularWood;
+            }
+        }
+    }
 
-		[Constructable]
-		public Board(int amount)
-			: base(CraftResource.RegularWood, amount)
-		{
-		}
+    public class Board : BaseWoodBoard
+    {
+        [Constructable]
+        public Board()
+            : this(1)
+        {
+        }
 
-		public Board(Serial serial)
-			: base(serial)
-		{
-		}
+        [Constructable]
+        public Board(int amount)
+            : base(CraftResource.RegularWood, amount)
+        {
+        }
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
+        public Board(Serial serial)
+            : base(serial)
+        {
+        }
 
-			writer.Write((int)0); // version
-		}
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write(0);
+        }
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
-			if (BaseWoodBoard.UpdatingBaseClass)
-				return;
-			int version = reader.ReadInt();
-		}
-	}
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            if (UpdatingBaseClass)
+            {
+                return;
+            }
+
+            _ = reader.ReadInt();
+        }
+    }
 
     public class HeartwoodBoard : BaseWoodBoard
     {
@@ -185,15 +193,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -219,15 +225,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -253,15 +257,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -287,15 +289,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -321,15 +321,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -355,15 +353,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

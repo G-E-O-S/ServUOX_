@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class LesserPoisonPotion : BasePoisonPotion
@@ -15,39 +13,19 @@ namespace Server.Items
         {
         }
 
-        public override Poison Poison
-        {
-            get
-            {
-                return Poison.Lesser;
-            }
-        }
-        public override double MinPoisoningSkill
-        {
-            get
-            {
-                return 0.0;
-            }
-        }
-        public override double MaxPoisoningSkill
-        {
-            get
-            {
-                return 60.0;
-            }
-        }
+        public override Poison Poison => Poison.Lesser;
+        public override double MinPoisoningSkill => 0.0;
+        public override double MaxPoisoningSkill => 60.0;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

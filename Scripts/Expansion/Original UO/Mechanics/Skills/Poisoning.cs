@@ -81,7 +81,7 @@ namespace Server.SkillHandlers
 
                         from.PlaySound(0x4F);
                         m_Potion.Consume();
-                        from.AddToBackpack(new Bottle());
+                        from.AddToBackpack(new EmptyBottle());
                     }
                     else // Target can't be poisoned
                     {

@@ -173,7 +173,7 @@ namespace Server.Items
                     else
                     {
                         pigment.PigmentHue = newHue;
-                        Bottle bottle = new Bottle();
+                        EmptyBottle bottle = new EmptyBottle();
                         bottle.MoveToWorld(m_Item.Location, m_Item.Map);
                         m_Item.Delete();
                         from.PlaySound(0x240);

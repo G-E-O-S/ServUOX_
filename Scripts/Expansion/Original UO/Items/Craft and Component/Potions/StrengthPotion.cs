@@ -15,32 +15,18 @@ namespace Server.Items
         {
         }
 
-        public override int StrOffset
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override TimeSpan Duration
-        {
-            get
-            {
-                return TimeSpan.FromMinutes(2.0);
-            }
-        }
+        public override int StrOffset => 10;
+        public override TimeSpan Duration => TimeSpan.FromMinutes(2.0);
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

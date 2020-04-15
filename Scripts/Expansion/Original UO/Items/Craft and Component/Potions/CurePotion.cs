@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class CurePotion : BaseCurePotion
@@ -30,25 +28,17 @@ namespace Server.Items
         {
         }
 
-        public override CureLevelInfo[] LevelInfo
-        {
-            get
-            {
-                return Core.AOS ? m_AosLevelInfo : m_OldLevelInfo;
-            }
-        }
+        public override CureLevelInfo[] LevelInfo => Core.AOS ? m_AosLevelInfo : m_OldLevelInfo;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

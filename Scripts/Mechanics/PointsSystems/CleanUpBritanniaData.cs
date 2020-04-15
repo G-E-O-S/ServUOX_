@@ -674,7 +674,7 @@ namespace Server.Engines.Points
             Entries[typeof(GreenScales)] = 0.10;
             Entries[typeof(WhiteScales)] = 0.10;
             Entries[typeof(BlueScales)] = 0.10;
-            Entries[typeof(Bottle)] = 0.25;
+            Entries[typeof(EmptyBottle)] = 0.25;
             Entries[typeof(OrcishKinMask)] = 100.0;
             Entries[typeof(PottedPlantDeed)] = 15000.0;
             Entries[typeof(BagOfSending)] = 250.0;

@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public abstract class BaseRefreshPotion : BasePotion
@@ -18,22 +16,20 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void Drink(Mobile from)
         {
             if (from.Stam < from.StamMax)
             {
-                from.Stam += Scale(from, (int)(this.Refresh * from.StamMax));
+                from.Stam += Scale(from, (int)(Refresh * from.StamMax));
 
                 PlayDrinkEffect(from);
                 Consume();

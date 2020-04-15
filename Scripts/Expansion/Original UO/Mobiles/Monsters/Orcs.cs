@@ -348,7 +348,7 @@ namespace Server.Mobiles
                     CorpseLoot.DropItem(new MortarPestle());
                     break;
                 case 2:
-                    CorpseLoot.DropItem(new Bottle());
+                    CorpseLoot.DropItem(new EmptyBottle());
                     break;
                 case 3:
                     CorpseLoot.DropItem(new RawRibs());

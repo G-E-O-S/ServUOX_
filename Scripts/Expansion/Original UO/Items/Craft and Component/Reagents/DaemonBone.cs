@@ -1,20 +1,13 @@
-using System;
-
 namespace Server.Items
 {
-    // TODO: Commodity?
-    public class DaemonBone : BaseReagent
+    public class DaemonBone : Item, ICommodity
     {
         [Constructable]
         public DaemonBone()
-            : this(1)
+            : base(0xF80)
         {
-        }
-
-        [Constructable]
-        public DaemonBone(int amount)
-            : base(0xF80, amount)
-        {
+            Stackable = true;
+            Weight = 1.0;
         }
 
         public DaemonBone(Serial serial)
@@ -22,18 +15,19 @@ namespace Server.Items
         {
         }
 
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 using Server.Mobiles;
 using Server.Targeting;
@@ -7,17 +6,14 @@ namespace Server.Items
 {
     public abstract class BaseOre : Item
     {
-        protected virtual CraftResource DefaultResource { get { return CraftResource.Iron; } }
+        protected virtual CraftResource DefaultResource => CraftResource.Iron;
 
         private CraftResource m_Resource;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get
-            {
-                return m_Resource;
-            }
+            get => m_Resource;
             set
             {
                 m_Resource = value;
@@ -30,9 +26,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
-
+            writer.Write(1);
             writer.Write((int)m_Resource);
         }
 
@@ -42,7 +36,7 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 2: // Reset from Resource System
                     m_Resource = DefaultResource;
@@ -57,7 +51,7 @@ namespace Server.Items
                     {
                         OreInfo info;
 
-                        switch ( reader.ReadInt() )
+                        switch (reader.ReadInt())
                         {
                             case 0:
                                 info = OreInfo.Iron;
@@ -102,13 +96,21 @@ namespace Server.Items
             double rand = Utility.RandomDouble();
 
             if (rand < 0.12)
+            {
                 return 0x19B7;
+            }
             else if (rand < 0.18)
+            {
                 return 0x19B8;
+            }
             else if (rand < 0.25)
+            {
                 return 0x19BA;
+            }
             else
+            {
                 return 0x19B9;
+            }
         }
 
         public BaseOre(CraftResource resource)
@@ -134,9 +136,13 @@ namespace Server.Items
         public override void AddNameProperty(ObjectPropertyList list)
         {
             if (Amount > 1)
+            {
                 list.Add(1050039, "{0}\t#{1}", Amount, 1026583); // ~1_NUMBER~ ~2_ITEMNAME~
+            }
             else
+            {
                 list.Add(1026583); // ore
+            }
         }
 
         public override void GetProperties(ObjectPropertyList list)
@@ -148,9 +154,13 @@ namespace Server.Items
                 int num = CraftResources.GetLocalizationNumber(m_Resource);
 
                 if (num > 0)
+                {
                     list.Add(num);
+                }
                 else
+                {
                     list.Add(CraftResources.GetName(m_Resource));
+                }
             }
         }
 
@@ -159,7 +169,9 @@ namespace Server.Items
             get
             {
                 if (m_Resource >= CraftResource.DullCopper && m_Resource <= CraftResource.Valorite)
-                    return 1042845 + (int)(m_Resource - CraftResource.DullCopper);
+                {
+                    return 1042845 + (m_Resource - CraftResource.DullCopper);
+                }
 
                 return 1042853; // iron ore;
             }
@@ -168,7 +180,9 @@ namespace Server.Items
         public override void OnDoubleClick(Mobile from)
         {
             if (!Movable)
+            {
                 return;
+            }
 
             if (RootParent is BaseCreature)
             {
@@ -177,7 +191,7 @@ namespace Server.Items
             else if (from.InRange(GetWorldLocation(), 2))
             {
                 from.SendLocalizedMessage(501971); // Select the forge on which to smelt the ore, or another pile of ore with which to combine it.
-                from.Target = new InternalTarget(this);
+                from.Target = new BaseOreTarget(this);
             }
             else
             {
@@ -185,11 +199,11 @@ namespace Server.Items
             }
         }
 
-        private class InternalTarget : Target
+        private class BaseOreTarget : Target
         {
             private readonly BaseOre m_Ore;
 
-            public InternalTarget(BaseOre ore)
+            public BaseOreTarget(BaseOre ore)
                 : base(2, false, TargetFlags.None)
             {
                 m_Ore = ore;
@@ -198,37 +212,34 @@ namespace Server.Items
             private bool IsForge(object obj)
             {
                 if (Core.ML && obj is Mobile && ((Mobile)obj).IsDeadBondedPet)
+                {
                     return false;
+                }
 
                 if (obj.GetType().IsDefined(typeof(ForgeAttribute), false))
+                {
                     return true;
+                }
 
                 int itemID = 0;
 
                 if (obj is Item)
-                    itemID = ((Item)obj).ItemID;
-                else if (obj is StaticTarget)
-                    itemID = ((StaticTarget)obj).ItemID;
-
-                return (itemID == 4017 || (itemID >= 6522 && itemID <= 6569));
-            }
-
-            protected override void OnTarget(Mobile from, object targeted)
-            {
-                if (m_Ore.Deleted)
-                    return;
-
-                if (!from.InRange(m_Ore.GetWorldLocation(), 2))
                 {
-                    from.SendLocalizedMessage(501976); // The ore is too far away.
-                    return;
+                    itemID = ((Item)obj).ItemID;
+                }
+                else if (obj is StaticTarget)
+                {
+                    itemID = ((StaticTarget)obj).ItemID;
                 }
 
-                #region Combine Ore
-                if (targeted is BaseOre)
-                {
-                    BaseOre ore = (BaseOre)targeted;
+                return itemID == 4017 || (itemID >= 6522 && itemID <= 6569);
+            }
 
+            private void CombineOre(Mobile from, object targeted)
+            {
+                #region Combine Ore
+                if (targeted is BaseOre ore)
+                {
                     if (!ore.Movable)
                     {
                         return;
@@ -236,7 +247,7 @@ namespace Server.Items
                     else if (m_Ore == ore)
                     {
                         from.SendLocalizedMessage(501972); // Select another pile or ore with which to combine 
-                        from.Target = new InternalTarget(ore);
+                        from.Target = new BaseOreTarget(ore);
                         return;
                     }
                     else if (ore.Resource != m_Ore.Resource)
@@ -248,20 +259,32 @@ namespace Server.Items
                     int worth = ore.Amount;
 
                     if (ore.ItemID == 0x19B9)
+                    {
                         worth *= 8;
+                    }
                     else if (ore.ItemID == 0x19B7)
+                    {
                         worth *= 2;
+                    }
                     else
+                    {
                         worth *= 4;
+                    }
 
                     int sourceWorth = m_Ore.Amount;
 
                     if (m_Ore.ItemID == 0x19B9)
+                    {
                         sourceWorth *= 8;
+                    }
                     else if (m_Ore.ItemID == 0x19B7)
+                    {
                         sourceWorth *= 2;
+                    }
                     else
+                    {
                         sourceWorth *= 4;
+                    }
 
                     worth += sourceWorth;
 
@@ -299,29 +322,54 @@ namespace Server.Items
                     ore.ItemID = newID;
 
                     if (ore.ItemID == 0x19B9)
+                    {
                         ore.Amount = worth / 8;
+                    }
                     else if (ore.ItemID == 0x19B7)
+                    {
                         ore.Amount = worth / 2;
+                    }
                     else
+                    {
                         ore.Amount = worth / 4;
+                    }
 
                     m_Ore.Delete();
                     return;
                 }
                 #endregion
+            }
+
+            protected override void OnTarget(Mobile from, object targeted)
+            {
+                if (m_Ore.Deleted)
+                {
+                    return;
+                }
+
+                if (!from.InRange(m_Ore.GetWorldLocation(), 2))
+                {
+                    from.SendLocalizedMessage(501976); // The ore is too far away.
+                    return;
+                }
+
+                CombineOre(from, targeted);
 
                 if (IsForge(targeted))
                 {
                     double difficulty;
 
                     #region Void Pool Rewards
+
                     bool talisman = false;
                     SmeltersTalisman t = from.FindItemOnLayer(Layer.Talisman) as SmeltersTalisman;
                     if (t != null && t.Resource == m_Ore.Resource)
+                    {
                         talisman = true;
+                    }
                     #endregion
 
-                    switch ( m_Ore.Resource )
+                    switch (m_Ore.Resource)
                     {
                         default:
                             difficulty = 50.0;
@@ -378,7 +426,9 @@ namespace Server.Items
                         else
                         {
                             if (toConsume > 30000)
+                            {
                                 toConsume = 30000;
+                            }
 
                             int ingotAmount;
 
@@ -387,7 +437,9 @@ namespace Server.Items
                                 ingotAmount = toConsume / 2;
 
                                 if (toConsume % 2 != 0)
+                                {
                                     --toConsume;
+                                }
                             }
                             else if (m_Ore.ItemID == 0x19B9)
                             {
@@ -416,7 +468,9 @@ namespace Server.Items
                                 from.SendLocalizedMessage(1152620); // The magic of your talisman guides your hands as you purify the metal. Success is ensured!
                             }
                             else
+                            {
                                 from.SendLocalizedMessage(501988); // You smelt the ore removing the impurities and put the metal in your backpack.
+                            }
                         }
                     }
                     else
@@ -424,9 +478,13 @@ namespace Server.Items
                         if (m_Ore.Amount < 2)
                         {
                             if (m_Ore.ItemID == 0x19B9)
+                            {
                                 m_Ore.ItemID = 0x19B8;
+                            }
                             else
+                            {
                                 m_Ore.ItemID = 0x19B7;
+                            }
                         }
                         else
                         {
@@ -458,7 +516,9 @@ namespace Server.Items
             : this(1)
         {
             if (fixedSize)
+            {
                 ItemID = 0x19B8;
+            }
         }
 
         public IronOre(Serial serial)
@@ -469,15 +529,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -488,7 +546,7 @@ namespace Server.Items
 
     public class DullCopperOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.DullCopper; } }
+        protected override CraftResource DefaultResource => CraftResource.DullCopper;
 
         [Constructable]
         public DullCopperOre()
@@ -510,15 +568,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -529,7 +585,7 @@ namespace Server.Items
 
     public class ShadowIronOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.ShadowIron; } }
+        protected override CraftResource DefaultResource => CraftResource.ShadowIron;
 
         [Constructable]
         public ShadowIronOre()
@@ -551,15 +607,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -570,7 +624,7 @@ namespace Server.Items
 
     public class CopperOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.Copper; } }
+        protected override CraftResource DefaultResource => CraftResource.Copper;
 
         [Constructable]
         public CopperOre()
@@ -592,15 +646,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -611,7 +663,7 @@ namespace Server.Items
 
     public class BronzeOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.Bronze; } }
+        protected override CraftResource DefaultResource => CraftResource.Bronze;
 
         [Constructable]
         public BronzeOre()
@@ -633,15 +685,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -652,7 +702,7 @@ namespace Server.Items
 
     public class GoldOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.Gold; } }
+        protected override CraftResource DefaultResource => CraftResource.Gold;
 
         [Constructable]
         public GoldOre()
@@ -674,15 +724,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -693,7 +741,7 @@ namespace Server.Items
 
     public class AgapiteOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.Agapite; } }
+        protected override CraftResource DefaultResource => CraftResource.Agapite;
 
         [Constructable]
         public AgapiteOre()
@@ -715,15 +763,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -734,7 +780,7 @@ namespace Server.Items
 
     public class VeriteOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.Verite; } }
+        protected override CraftResource DefaultResource => CraftResource.Verite;
 
         [Constructable]
         public VeriteOre()
@@ -756,15 +802,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()
@@ -775,7 +819,7 @@ namespace Server.Items
 
     public class ValoriteOre : BaseOre
     {
-        protected override CraftResource DefaultResource { get { return CraftResource.Valorite; } }
+        protected override CraftResource DefaultResource => CraftResource.Valorite;
 
         [Constructable]
         public ValoriteOre()
@@ -797,15 +841,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override BaseIngot GetIngot()

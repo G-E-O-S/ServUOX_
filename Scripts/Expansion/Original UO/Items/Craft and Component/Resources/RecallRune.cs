@@ -1,4 +1,3 @@
-using System;
 using Server.Multis;
 using Server.Prompts;
 using Server.Regions;
@@ -15,7 +14,7 @@ namespace Server.Items
     [Flipable(0x1f14, 0x1f15, 0x1f16, 0x1f17)]
     public class RecallRune : Item
     {
-        public override int LabelNumber { get { return Type == RecallRuneType.Normal ? 1060577 : Type == RecallRuneType.Shop ? 1151508 : 1149570; } } // Recall Rune - Shop Recall Rune - Ship Recall Rune
+        public override int LabelNumber => Type == RecallRuneType.Normal ? 1060577 : Type == RecallRuneType.Shop ? 1151508 : 1149570;  // Recall Rune - Shop Recall Rune - Ship Recall Rune
 
         private const string RuneFormat = "a recall rune for {0}";
         private string m_Description;
@@ -47,7 +46,9 @@ namespace Server.Items
             get
             {
                 if (m_House != null && m_House.Deleted)
+                {
                     House = null;
+                }
 
                 return m_House;
             }
@@ -71,7 +72,9 @@ namespace Server.Items
             get
             {
                 if (m_Galleon != null && m_Galleon.Deleted)
+                {
                     Galleon = null;
+                }
 
                 return m_Galleon;
             }
@@ -92,7 +95,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
         public string Description
         {
-            get { return m_Description; }
+            get => m_Description;
             set
             {
                 m_Description = value;
@@ -103,7 +106,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
         public bool Marked
         {
-            get { return m_Marked; }
+            get => m_Marked;
             set
             {
                 if (m_Marked != value)
@@ -121,7 +124,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
         public Map TargetMap
         {
-            get { return m_TargetMap; }
+            get => m_TargetMap;
             set
             {
                 if (m_TargetMap != value)
@@ -136,15 +139,15 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)2); // version
+            writer.Write(2);
 
             writer.Write((int)Type);
-            writer.Write((Item)m_Galleon);
-            writer.Write((Item)m_House);
-            writer.Write((string)m_Description);
-            writer.Write((bool)m_Marked);
-            writer.Write((Point3D)Target);
-            writer.Write((Map)m_TargetMap);
+            writer.Write(m_Galleon);
+            writer.Write(m_House);
+            writer.Write(m_Description);
+            writer.Write(m_Marked);
+            writer.Write(Target);
+            writer.Write(m_TargetMap);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -221,12 +224,18 @@ namespace Server.Items
                         HouseSign sign = m_House.Sign;
 
                         if (sign != null)
+                        {
                             m_Description = sign.Name;
+                        }
                         else
+                        {
                             m_Description = null;
+                        }
 
                         if (m_Description == null || (m_Description = m_Description.Trim()).Length == 0)
+                        {
                             m_Description = "an unnamed house";
+                        }
 
                         setDesc = true;
 
@@ -237,7 +246,9 @@ namespace Server.Items
                         Map map = m_House.Map;
 
                         if (map != null && !map.CanFit(x, y, z, 16, false, false))
+                        {
                             z = map.GetAverageZ(x, y);
+                        }
 
                         Target = new Point3D(x, y, z);
                         m_TargetMap = map;
@@ -256,7 +267,9 @@ namespace Server.Items
             }
 
             if (!setDesc)
+            {
                 m_Description = BaseRegion.GetRuneNameFor(Region.Find(Target, m_TargetMap));
+            }
 
             CalculateHue();
             InvalidateProperties();
@@ -311,20 +324,34 @@ namespace Server.Items
                     string desc;
 
                     if ((desc = m_Description) == null || (desc = desc.Trim()).Length == 0)
+                    {
                         desc = "an unknown location";
+                    }
 
                     if (m_TargetMap == Map.Tokuno)
-                        list.Add((House != null ? 1063260 : 1063259), RuneFormat, desc); // ~1_val~ (Tokuno Islands)[(House)]
+                    {
+                        list.Add(House != null ? 1063260 : 1063259, RuneFormat, desc); // ~1_val~ (Tokuno Islands)[(House)]
+                    }
                     else if (m_TargetMap == Map.Malas)
-                        list.Add((House != null ? 1062454 : 1060804), RuneFormat, desc); // ~1_val~ (Malas)[(House)]
+                    {
+                        list.Add(House != null ? 1062454 : 1060804, RuneFormat, desc); // ~1_val~ (Malas)[(House)]
+                    }
                     else if (m_TargetMap == Map.Felucca)
-                        list.Add((House != null ? 1062452 : 1060805), RuneFormat, desc); // ~1_val~ (Felucca)[(House)]
+                    {
+                        list.Add(House != null ? 1062452 : 1060805, RuneFormat, desc); // ~1_val~ (Felucca)[(House)]
+                    }
                     else if (m_TargetMap == Map.Trammel)
-                        list.Add((House != null ? 1062453 : 1060806), RuneFormat, desc); // ~1_val~ (Trammel)[(House)]
+                    {
+                        list.Add(House != null ? 1062453 : 1060806, RuneFormat, desc); // ~1_val~ (Trammel)[(House)]
+                    }
                     else if (m_TargetMap == Map.TerMur)
-                        list.Add((House != null ? 1113206 : 1113205), RuneFormat, desc); // ~1_val~ (Ter Mur)(House)
+                    {
+                        list.Add(House != null ? 1113206 : 1113205, RuneFormat, desc); // ~1_val~ (Ter Mur)(House)
+                    }
                     else
+                    {
                         list.Add((House != null ? "{0} ({1})(House)" : "{0} ({1})"), string.Format(RuneFormat, desc), m_TargetMap);
+                    }
                 }
             }
         }
@@ -376,13 +403,14 @@ namespace Server.Items
             }
 
             if (number > 0)
+            {
                 from.SendLocalizedMessage(number);
+            }
         }
 
         private void CalculateHue()
         {
-            int hue = 0;
-
+            int hue;
             if (Type == RecallRuneType.Ship)
             {
                 hue = 1151;
@@ -402,17 +430,29 @@ namespace Server.Items
             if (mark)
             {
                 if (map == Map.Trammel)
+                {
                     hue = (house != null ? 0x47F : 50);
+                }
                 else if (map == Map.Felucca)
+                {
                     hue = (house != null ? 0x66D : 0);
+                }
                 else if (map == Map.Ilshenar)
+                {
                     hue = (house != null ? 0x55F : 1102);
+                }
                 else if (map == Map.Malas)
+                {
                     hue = (house != null ? 0x55F : 1102);
+                }
                 else if (map == Map.Tokuno)
+                {
                     hue = (house != null ? 0x1F14 : 1154);
+                }
                 else if (map == Map.TerMur)
+                {
                     hue = 1162;
+                }
             }
 
             return hue;
@@ -420,7 +460,7 @@ namespace Server.Items
 
         private class RenamePrompt : Prompt
         {
-            public override int MessageCliloc { get { return 501804; } }
+            public override int MessageCliloc => 501804;
             private readonly RecallRune m_Rune;
 
             public RenamePrompt(RecallRune rune)

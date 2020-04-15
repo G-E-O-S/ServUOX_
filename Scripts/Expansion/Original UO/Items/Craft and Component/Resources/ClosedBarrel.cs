@@ -1,7 +1,7 @@
-﻿namespace Server.Items
+namespace Server.Items
 {
     class ClosedBarrel : TrapableContainer
-    { 
+    {
         [Constructable]
         public ClosedBarrel()
             : base(0x0FAE)
@@ -13,25 +13,17 @@
         {
         }
 
-        public override int DefaultGumpID
-        {
-            get
-            {
-                return 0x3e;
-            }
-        }
+        public override int DefaultGumpID => 0x3e;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

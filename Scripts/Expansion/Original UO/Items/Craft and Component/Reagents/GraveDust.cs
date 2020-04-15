@@ -1,19 +1,14 @@
-using System;
-
 namespace Server.Items
 {
-    public class GraveDust : BaseReagent, ICommodity
+    public class GraveDust : Item, ICommodity
     {
-        [Constructable]
-        public GraveDust()
-            : this(1)
-        {
-        }
 
         [Constructable]
-        public GraveDust(int amount)
-            : base(0xF8F, amount)
+        public GraveDust()
+            : base(0xF8F)
         {
+            Stackable = true;
+            Weight = 1.0;
         }
 
         public GraveDust(Serial serial)
@@ -21,32 +16,18 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return true;
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

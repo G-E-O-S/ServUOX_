@@ -1,48 +1,31 @@
-using System;
-
 namespace Server.Items
 {
-    public class FertileDirt : Item
+    public class FertileDirt : Item, ICommodity
     {
         [Constructable]
         public FertileDirt()
-            : this(1)
-        {
-        }
-
-        public override double DefaultWeight
-        {
-            get
-            {
-                return 0.1;
-            }
-        }
-
-        [Constructable]
-        public FertileDirt(int amount)
             : base(0xF81)
         {
             Stackable = true;
-            Amount = amount;
+            Weight = 1.0;
         }
 
         public FertileDirt(Serial serial)
             : base(serial)
         {
         }
-
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

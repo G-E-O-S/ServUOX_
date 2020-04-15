@@ -1359,9 +1359,6 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseRanged.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\BaseReagent.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseRefreshPotion.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -5832,7 +5829,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\NoxCrystal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SA\Resource\PigIron.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\PigIron.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\SpidersSilk.cs">
@@ -6108,7 +6105,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Scrolls\BlankScroll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Craft and Component\Resources\Bottle.cs">
+    <Compile Include="Expansion\Original UO\Items\Craft and Component\Resources\EmptyBottle.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\World\Moongate.cs">

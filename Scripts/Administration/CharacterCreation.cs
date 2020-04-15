@@ -899,7 +899,7 @@ namespace Server.Misc
 			{
 				case SkillName.Alchemy:
 				{
-					PackItem(new Bottle(4));
+					PackItem(new EmptyBottle(4));
 					PackItem(new MortarPestle());
 
 					var hue = Utility.RandomPinkHue();

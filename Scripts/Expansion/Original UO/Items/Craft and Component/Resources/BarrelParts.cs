@@ -1,5 +1,5 @@
-using System;
 using Server.Engines.Craft;
+using System;
 
 namespace Server.Items
 {
@@ -9,13 +9,13 @@ namespace Server.Items
         private ItemQuality _Quality;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public CraftResource Resource { get { return _Resource; } set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
+        public CraftResource Resource { get => _Resource; set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality { get { return _Quality; } set { _Quality = value; InvalidateProperties(); } }
+        public ItemQuality Quality { get => _Quality; set { _Quality = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool PlayerConstructed { get { return _Resource != CraftResource.None; } }
+        public bool PlayerConstructed => _Resource != CraftResource.None;
 
         [Constructable]
         public BarrelLid()
@@ -39,7 +39,9 @@ namespace Server.Items
             if (!craftItem.ForceNonExceptional)
             {
                 if (typeRes == null)
+                {
                     typeRes = craftItem.Resources.GetAt(0).ItemType;
+                }
 
                 Resource = CraftResources.GetFromType(typeRes);
             }
@@ -56,7 +58,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1);
+            writer.Write(1);
 
             writer.Write((int)_Resource);
             writer.Write((int)_Quality);
@@ -81,20 +83,20 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x1EB1, 0x1EB2, 0x1EB3, 0x1EB4)]
+    [Flipable(0x1EB1, 0x1EB2, 0x1EB3, 0x1EB4)]
     public class BarrelStaves : Item, IResource, IQuality
     {
         private CraftResource _Resource;
         private ItemQuality _Quality;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public CraftResource Resource { get { return _Resource; } set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
+        public CraftResource Resource { get => _Resource; set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality { get { return _Quality; } set { _Quality = value; InvalidateProperties(); } }
+        public ItemQuality Quality { get => _Quality; set { _Quality = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool PlayerConstructed { get { return _Resource != CraftResource.None; } }
+        public bool PlayerConstructed => _Resource != CraftResource.None;
 
         [Constructable]
         public BarrelStaves()
@@ -118,7 +120,9 @@ namespace Server.Items
             if (!craftItem.ForceNonExceptional)
             {
                 if (typeRes == null)
+                {
                     typeRes = craftItem.Resources.GetAt(0).ItemType;
+                }
 
                 Resource = CraftResources.GetFromType(typeRes);
             }
@@ -135,7 +139,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1);
+            writer.Write(1);
 
             writer.Write((int)_Resource);
             writer.Write((int)_Quality);
@@ -166,13 +170,13 @@ namespace Server.Items
         private ItemQuality _Quality;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public CraftResource Resource { get { return _Resource; } set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
+        public CraftResource Resource { get => _Resource; set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality { get { return _Quality; } set { _Quality = value; InvalidateProperties(); } }
+        public ItemQuality Quality { get => _Quality; set { _Quality = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool PlayerConstructed { get { return _Resource != CraftResource.None; } }
+        public bool PlayerConstructed => _Resource != CraftResource.None;
 
         [Constructable]
         public BarrelHoops()
@@ -196,7 +200,9 @@ namespace Server.Items
             if (!craftItem.ForceNonExceptional)
             {
                 if (typeRes == null)
+                {
                     typeRes = craftItem.Resources.GetAt(0).ItemType;
+                }
 
                 Resource = CraftResources.GetFromType(typeRes);
             }
@@ -209,18 +215,12 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1011228;
-            }
-        }// Barrel hoops
+        public override int LabelNumber => 1011228;// Barrel hoops
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)2);
+            writer.Write(2);
 
             writer.Write((int)_Resource);
             writer.Write((int)_Quality);
@@ -255,13 +255,13 @@ namespace Server.Items
         private ItemQuality _Quality;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public CraftResource Resource { get { return _Resource; } set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
+        public CraftResource Resource { get => _Resource; set { _Resource = value; Hue = CraftResources.GetHue(_Resource); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality { get { return _Quality; } set { _Quality = value; InvalidateProperties(); } }
+        public ItemQuality Quality { get => _Quality; set { _Quality = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool PlayerConstructed { get { return _Resource != CraftResource.None; } }
+        public bool PlayerConstructed => _Resource != CraftResource.None;
 
         [Constructable]
         public BarrelTap()
@@ -285,7 +285,9 @@ namespace Server.Items
             if (!craftItem.ForceNonExceptional)
             {
                 if (typeRes == null)
+                {
                     typeRes = craftItem.Resources.GetAt(0).ItemType;
+                }
 
                 Resource = CraftResources.GetFromType(typeRes);
             }
@@ -302,7 +304,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)2);
+            writer.Write(2);
 
             writer.Write((int)_Resource);
             writer.Write((int)_Quality);

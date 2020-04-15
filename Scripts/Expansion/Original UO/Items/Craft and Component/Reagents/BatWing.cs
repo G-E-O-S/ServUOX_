@@ -1,19 +1,13 @@
-using System;
-
 namespace Server.Items
 {
-    public class BatWing : BaseReagent, ICommodity
+    public class BatWing : Item, ICommodity
     {
         [Constructable]
         public BatWing()
-            : this(1)
+            : base(0xF78)
         {
-        }
-
-        [Constructable]
-        public BatWing(int amount)
-            : base(0xF78, amount)
-        {
+            Stackable = true;
+            Weight = 1.0;
         }
 
         public BatWing(Serial serial)
@@ -21,32 +15,18 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return true;
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

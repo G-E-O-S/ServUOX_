@@ -141,7 +141,7 @@ namespace Server.Engines.Quests
         public WaitingToBeFilledQuest()
             : base()
         { 
-            AddObjective(new ObtainObjective(typeof(Bottle), "empty bottles", 20, 0xF0E));
+            AddObjective(new ObtainObjective(typeof(EmptyBottle), "empty bottles", 20, 0xF0E));
 			
             AddReward(new BaseReward(typeof(TinkersCraftsmanSatchel), 1074282));
         }

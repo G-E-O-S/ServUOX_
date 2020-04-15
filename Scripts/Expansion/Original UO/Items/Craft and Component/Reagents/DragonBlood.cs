@@ -1,19 +1,13 @@
-using System;
-
 namespace Server.Items
 {
-    public class DragonBlood : BaseReagent, ICommodity
+    public class DragonBlood : Item, ICommodity
     {
         [Constructable]
         public DragonBlood()
-            : this(1)
+            : base(0x4077)
         {
-        }
-
-        [Constructable]
-        public DragonBlood(int amount)
-            : base(0x4077, amount)
-        {
+            Stackable = true;
+            Weight = 1.0;
         }
 
         public DragonBlood(Serial serial)
@@ -21,30 +15,18 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return (Core.ML);
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => (Core.ML);
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }
