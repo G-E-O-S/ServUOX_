@@ -1,8 +1,6 @@
-using System;
 using Server.Engines.Craft;
 using Server.Network;
-using Server.ContextMenus;
-using System.Collections.Generic;
+using System;
 
 namespace Server.Items
 {
@@ -20,14 +18,13 @@ namespace Server.Items
         private Mobile m_Crafter;
         private ItemQuality m_Quality;
         private int m_UsesRemaining;
-        private bool m_RepairMode;
         private CraftResource _Resource;
         private bool _PlayerConstructed;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get { return _Resource; }
+            get => _Resource;
             set
             {
                 _Resource = value;
@@ -39,14 +36,14 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile Crafter
         {
-            get { return m_Crafter; }
+            get => m_Crafter;
             set { m_Crafter = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public ItemQuality Quality
         {
-            get { return m_Quality; }
+            get => m_Quality;
             set
             {
                 UnscaleUses();
@@ -59,7 +56,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public bool PlayerConstructed
         {
-            get { return _PlayerConstructed; }
+            get => _PlayerConstructed;
             set
             {
                 _PlayerConstructed = value; InvalidateProperties();
@@ -69,16 +66,12 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int UsesRemaining
         {
-            get { return m_UsesRemaining; }
+            get => m_UsesRemaining;
             set { m_UsesRemaining = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool RepairMode
-        {
-            get { return m_RepairMode; }
-            set { m_RepairMode = value; }
-        }
+        public bool RepairMode { get; set; }
 
         public void ScaleUses()
         {
@@ -88,24 +81,26 @@ namespace Server.Items
 
         public void UnscaleUses()
         {
-            m_UsesRemaining = (m_UsesRemaining * 100) / GetUsesScalar();
+            m_UsesRemaining = m_UsesRemaining * 100 / GetUsesScalar();
         }
 
         public int GetUsesScalar()
         {
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 return 200;
+            }
 
             return 100;
         }
 
         public bool ShowUsesRemaining
         {
-            get { return true; }
+            get => true;
             set { }
         }
 
-        public virtual bool BreakOnDepletion { get { return true; } }
+        public virtual bool BreakOnDepletion => true;
 
         public abstract CraftSystem CraftSystem { get; }
 
@@ -129,10 +124,14 @@ namespace Server.Items
         public override void AddCraftedProperties(ObjectPropertyList list)
         {
             if (m_Crafter != null)
+            {
                 list.Add(1050043, m_Crafter.TitleName); // crafted by ~1_NAME~
+            }
 
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 list.Add(1060636); // exceptional
+            }
         }
 
         public override void AddUsesRemainingProperties(ObjectPropertyList list)
@@ -199,12 +198,16 @@ namespace Server.Items
             Item check = m.FindItemOnLayer(Layer.OneHanded);
 
             if (check is ITool && check != tool && !(check is AncientSmithyHammer))
+            {
                 return false;
+            }
 
             check = m.FindItemOnLayer(Layer.TwoHanded);
 
             if (check is ITool && check != tool && !(check is AncientSmithyHammer))
+            {
                 return false;
+            }
 
             return true;
         }
@@ -222,7 +225,7 @@ namespace Server.Items
             {
                 CraftSystem system = CraftSystem;
 
-                if (Core.TOL && m_RepairMode)
+                if (Core.TOL && RepairMode)
                 {
                     Repair.Do(from, system, this);
                 }
@@ -250,15 +253,15 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)4); // version
+            writer.Write(4);
 
             writer.Write(_PlayerConstructed);
 
             writer.Write((int)_Resource);
-            writer.Write(m_RepairMode);
-            writer.Write((Mobile)m_Crafter);
+            writer.Write(RepairMode);
+            writer.Write(m_Crafter);
             writer.Write((int)m_Quality);
-            writer.Write((int)m_UsesRemaining);
+            writer.Write(m_UsesRemaining);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -281,7 +284,7 @@ namespace Server.Items
                     }
                 case 2:
                     {
-                        m_RepairMode = reader.ReadBool();
+                        RepairMode = reader.ReadBool();
                         goto case 1;
                     }
                 case 1:
@@ -306,7 +309,9 @@ namespace Server.Items
             Quality = (ItemQuality)quality;
 
             if (makersMark)
+            {
                 Crafter = from;
+            }
 
             return quality;
         }

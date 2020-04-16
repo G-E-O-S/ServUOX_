@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -10,14 +9,14 @@ namespace Server.Items
         public JointingPlane()
             : base(0x1030)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         [Constructable]
         public JointingPlane(int uses)
             : base(uses, 0x1030)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public JointingPlane(Serial serial)
@@ -25,28 +24,17 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefCarpentry.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefCarpentry.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (this.Weight == 1.0)
-                this.Weight = 2.0;
+            _ = reader.ReadInt();
         }
     }
 }

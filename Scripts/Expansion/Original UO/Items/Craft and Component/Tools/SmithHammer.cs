@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -16,8 +15,8 @@ namespace Server.Items
         public SmithHammer(int uses)
             : base(uses, 0x13E3)
         {
-            this.Weight = 8.0;
-            this.Layer = Layer.OneHanded;
+            Weight = 8.0;
+            Layer = Layer.OneHanded;
         }
 
         public SmithHammer(Serial serial)
@@ -25,25 +24,17 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefBlacksmithy.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -58,8 +49,8 @@ namespace Server.Items
         }
 
         #region ITool Members
-        public CraftSystem CraftSystem { get { return DefBlacksmithy.CraftSystem; } }
-        public bool BreakOnDepletion { get { return true; } }
+        public CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
+        public bool BreakOnDepletion => true;
 
         public bool CheckAccessible(Mobile m, ref int num)
         {
@@ -78,82 +69,22 @@ namespace Server.Items
         {
         }
 
-        public override WeaponAbility PrimaryAbility
-        {
-            get
-            {
-                return WeaponAbility.CrushingBlow;
-            }
-        }
-        public override WeaponAbility SecondaryAbility
-        {
-            get
-            {
-                return WeaponAbility.ParalyzingBlow;
-            }
-        }
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 5;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 13;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 17;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 40;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 3.25f;
-            }
-        }
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 5;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 70;
-            }
-        }
+        public override WeaponAbility PrimaryAbility => WeaponAbility.CrushingBlow;
+        public override WeaponAbility SecondaryAbility => WeaponAbility.ParalyzingBlow;
+        public override int AosStrengthReq => 5;
+        public override int AosMinDamage => 13;
+        public override int AosMaxDamage => 17;
+        public override int AosSpeed => 40;
+        public override float MlSpeed => 3.25f;
+        public override int OldStrengthReq => 5;
+        public override int InitMinHits => 31;
+        public override int InitMaxHits => 70;
 
         public override void OnDoubleClick(Mobile from)
         {
-            if (this.CraftSystem != null && (IsChildOf(from.Backpack) || Parent == from))
+            if (CraftSystem != null && (IsChildOf(from.Backpack) || Parent == from))
             {
-                int num = this.CraftSystem.CanCraft(from, this, null);
+                int num = CraftSystem.CanCraft(from, this, null);
 
                 if (num > 0 && (num != 1044267 || !Core.SE)) // Blacksmithing shows the gump regardless of proximity of an anvil and forge after SE
                 {
@@ -161,9 +92,9 @@ namespace Server.Items
                 }
                 else
                 {
-                    CraftContext context = this.CraftSystem.GetContext(from);
+                    CraftContext context = CraftSystem.GetContext(from);
 
-                    from.SendGump(new CraftGump(from, this.CraftSystem, this, null));
+                    from.SendGump(new CraftGump(from, CraftSystem, this, null));
                 }
             }
             else
@@ -175,15 +106,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

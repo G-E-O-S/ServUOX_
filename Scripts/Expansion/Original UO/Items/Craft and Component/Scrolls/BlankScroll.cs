@@ -15,9 +15,9 @@ namespace Server.Items
         public BlankScroll(int amount)
             : base(0xEF3)
         {
-            this.Stackable = true;
-            this.Weight = 1.0;
-            this.Amount = amount;
+            Stackable = true;
+            Weight = 1.0;
+            Amount = amount;
         }
 
         public BlankScroll(Serial serial)
@@ -25,32 +25,18 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return (Core.ML);
-            }
-        }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => Core.ML;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)

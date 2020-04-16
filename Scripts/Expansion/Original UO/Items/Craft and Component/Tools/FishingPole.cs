@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using Server.Targeting;
-using Server.Items;
-using Server.Engines.Harvest;
-using System.Collections.Generic;
 using Server.ContextMenus;
-using Server.Misc;
 using Server.Engines.Craft;
+using Server.Engines.Harvest;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -17,8 +13,6 @@ namespace Server.Items
         private HookType m_HookType;
         private int m_HookUses;
         private int m_BaitUses;
-        private int m_OriginalHue;
-
         private Mobile m_Crafter;
         private ItemQuality m_Quality;
 
@@ -26,7 +20,7 @@ namespace Server.Items
         private AosSkillBonuses m_AosSkillBonuses;
         private CraftResource m_Resource;
         private bool m_PlayerConstructed;
-        
+
         private int m_UsesRemaining;
         private bool m_ShowUsesRemaining;
 
@@ -35,13 +29,15 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public Type BaitType
         {
-            get { return m_BaitType; }
+            get => m_BaitType;
             set
             {
                 m_BaitType = value;
 
                 if (m_BaitType == null)
+                {
                     m_EnhancedBait = false;
+                }
 
                 InvalidateProperties();
             }
@@ -50,20 +46,22 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public bool EnhancedBait
         {
-            get { return m_EnhancedBait; }
+            get => m_EnhancedBait;
             set { m_EnhancedBait = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public HookType HookType
         {
-            get { return m_HookType; }
+            get => m_HookType;
             set
             {
                 m_HookType = value;
 
                 if (m_HookType == HookType.None)
-                    Hue = m_OriginalHue;
+                {
+                    Hue = OriginalHue;
+                }
 
                 InvalidateProperties();
             }
@@ -72,10 +70,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int HookUses
         {
-            get
-            {
-                return m_HookUses;
-            }
+            get => m_HookUses;
             set
             {
                 m_HookUses = value;
@@ -93,10 +88,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int BaitUses
         {
-            get
-            {
-                return m_BaitUses;
-            }
+            get => m_BaitUses;
             set
             {
                 m_BaitUses = value;
@@ -114,75 +106,71 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public AosAttributes Attributes
         {
-            get { return m_AosAttributes; }
+            get => m_AosAttributes;
             set { }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public AosSkillBonuses SkillBonuses
         {
-            get { return m_AosSkillBonuses; }
+            get => m_AosSkillBonuses;
             set { }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get { return m_Resource; }
+            get => m_Resource;
             set { m_Resource = value; Hue = CraftResources.GetHue(m_Resource); InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool PlayerConstructed
         {
-            get { return m_PlayerConstructed; }
+            get => m_PlayerConstructed;
             set { m_PlayerConstructed = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int OriginalHue
-        {
-            get { return m_OriginalHue; }
-            set { m_OriginalHue = value; }
-        }
+        public int OriginalHue { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile Crafter
         {
-            get { return m_Crafter; }
+            get => m_Crafter;
             set { m_Crafter = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public ItemQuality Quality
         {
-            get { return m_Quality; }
-            set 
-            { 
+            get => m_Quality;
+            set
+            {
                 UnscaleUses();
                 m_Quality = value;
                 ScaleUses();
             }
         }
-        
+
         [CommandProperty(AccessLevel.GameMaster)]
         public int UsesRemaining
         {
-            get { return m_UsesRemaining; }
+            get => m_UsesRemaining;
             set { m_UsesRemaining = value; InvalidateProperties(); }
         }
-        
+
         [CommandProperty(AccessLevel.GameMaster)]
         public bool ShowUsesRemaining
         {
-            get { return m_ShowUsesRemaining; }
+            get => m_ShowUsesRemaining;
             set { m_ShowUsesRemaining = value; InvalidateProperties(); }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int LowerStatReq
         {
-            get { return m_LowerStatReq; }
+            get => m_LowerStatReq;
             set { m_LowerStatReq = value; InvalidateProperties(); }
         }
 
@@ -199,7 +187,7 @@ namespace Server.Items
 
             m_AosAttributes = new AosAttributes(this);
             m_AosSkillBonuses = new AosSkillBonuses(this);
-            
+
             UsesRemaining = 150;
         }
 
@@ -211,13 +199,15 @@ namespace Server.Items
 
         public void UnscaleUses()
         {
-            m_UsesRemaining = (m_UsesRemaining * 100) / GetUsesScalar();
+            m_UsesRemaining = m_UsesRemaining * 100 / GetUsesScalar();
         }
 
         public int GetUsesScalar()
         {
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 return 200;
+            }
 
             return 100;
         }
@@ -234,17 +224,23 @@ namespace Server.Items
                 HookUses--;
 
                 if (m_HookType == HookType.None)
+                {
                     from.SendLocalizedMessage(1149854); //As the magic of the hook fades, it transforms to a normal fishhook.  The fishing pole returns to normal.
+                }
             }
 
             if (caughtAnything && m_BaitType != null)
+            {
                 BaitUses--;
+            }
         }
 
         public override bool AllowEquipedCast(Mobile from)
         {
             if (base.AllowEquipedCast(from))
+            {
                 return true;
+            }
 
             return (m_AosAttributes.SpellChanneling != 0);
         }
@@ -252,17 +248,23 @@ namespace Server.Items
         public virtual int GetLuckBonus()
         {
             if (m_Resource == CraftResource.Heartwood)
+            {
                 return 0;
+            }
 
             CraftResourceInfo resInfo = CraftResources.GetInfo(m_Resource);
 
             if (resInfo == null)
+            {
                 return 0;
+            }
 
             CraftAttributeInfo attrInfo = resInfo.AttributeInfo;
 
             if (attrInfo == null)
+            {
                 return 0;
+            }
 
             return attrInfo.WeaponLuck;
         }
@@ -300,16 +302,22 @@ namespace Server.Items
             {
                 Mobile m = from;
 
-                string modName = this.Serial.ToString();
+                string modName = Serial.ToString();
 
                 if (strBonus != 0)
+                {
                     m.AddStatMod(new StatMod(StatType.Str, modName + "Str", strBonus, TimeSpan.Zero));
+                }
 
                 if (dexBonus != 0)
+                {
                     m.AddStatMod(new StatMod(StatType.Dex, modName + "Dex", dexBonus, TimeSpan.Zero));
+                }
 
                 if (intBonus != 0)
+                {
                     m.AddStatMod(new StatMod(StatType.Int, modName + "Int", intBonus, TimeSpan.Zero));
+                }
             }
 
             return true;
@@ -317,12 +325,12 @@ namespace Server.Items
 
         public override void OnAdded(object parent)
         {
-            if (parent is Mobile)
+            if (parent is Mobile from)
             {
-                Mobile from = (Mobile)parent;
-
                 if (Core.AOS)
+                {
                     m_AosSkillBonuses.AddTo(from);
+                }
 
                 from.CheckStatTimers();
             }
@@ -330,18 +338,18 @@ namespace Server.Items
 
         public override void OnRemoved(object parent)
         {
-            if (parent is Mobile)
+            if (parent is Mobile m)
             {
-                Mobile m = (Mobile)parent;
-
-                string modName = this.Serial.ToString();
+                string modName = Serial.ToString();
 
                 m.RemoveStatMod(modName + "Str");
                 m.RemoveStatMod(modName + "Dex");
                 m.RemoveStatMod(modName + "Int");
 
                 if (Core.AOS)
+                {
                     m_AosSkillBonuses.Remove();
+                }
 
                 m.CheckStatTimers();
             }
@@ -350,10 +358,14 @@ namespace Server.Items
         public override void AddCraftedProperties(ObjectPropertyList list)
         {
             if (m_Crafter != null)
+            {
                 list.Add(1050043, m_Crafter.Name); // crafted by ~1_NAME~
+            }
 
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 list.Add(1060636); // exceptional
+            }
         }
 
         public override void AddUsesRemainingProperties(ObjectPropertyList list)
@@ -369,86 +381,137 @@ namespace Server.Items
             base.GetProperties(list);
 
             if (m_AosAttributes.Brittle != 0)
+            {
                 list.Add(1116209); // Brittle
+            }
 
             if (m_AosSkillBonuses != null)
+            {
                 m_AosSkillBonuses.GetProperties(list);
+            }
 
             base.AddResistanceProperties(list);
 
-            int prop = 0;
-
-            if ((prop = (m_AosAttributes.WeaponDamage)) != 0)
+            int prop;
+            if ((prop = m_AosAttributes.WeaponDamage) != 0)
+            {
                 list.Add(1060401, prop.ToString()); // damage increase ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.DefendChance) != 0)
+            {
                 list.Add(1060408, prop.ToString()); // defense chance increase ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.EnhancePotions) != 0)
+            {
                 list.Add(1060411, prop.ToString()); // enhance potions ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.CastRecovery) != 0)
+            {
                 list.Add(1060412, prop.ToString()); // faster cast recovery ~1_val~
+            }
 
             if ((prop = m_AosAttributes.CastSpeed) != 0)
+            {
                 list.Add(1060413, prop.ToString()); // faster casting ~1_val~
+            }
 
-            if ((prop = (m_AosAttributes.AttackChance)) != 0)
+            if ((prop = m_AosAttributes.AttackChance) != 0)
+            {
                 list.Add(1060415, prop.ToString()); // hit chance increase ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.BonusDex) != 0)
+            {
                 list.Add(1060409, prop.ToString()); // dexterity bonus ~1_val~
+            }
 
             if ((prop = m_AosAttributes.BonusHits) != 0)
+            {
                 list.Add(1060431, prop.ToString()); // hit point increase ~1_val~
+            }
 
             if ((prop = m_AosAttributes.BonusInt) != 0)
+            {
                 list.Add(1060432, prop.ToString()); // intelligence bonus ~1_val~
+            }
 
             if ((prop = m_AosAttributes.LowerManaCost) != 0)
+            {
                 list.Add(1060433, prop.ToString()); // lower mana cost ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.LowerRegCost) != 0)
+            {
                 list.Add(1060434, prop.ToString()); // lower reagent cost ~1_val~%
+            }
 
-            if ((prop = m_LowerStatReq) != 0)
+            if (m_LowerStatReq != 0)
+            {
                 list.Add(1060435, m_LowerStatReq.ToString()); // lower requirements ~1_val~%
+            }
 
-            if ((prop = m_AosAttributes.SpellChanneling) != 0)
+            if ((m_AosAttributes.SpellChanneling) != 0)
+            {
                 list.Add(1060482); // spell channeling	
+            }
 
             if (!CraftResources.IsStandard(m_Resource))
+            {
                 list.Add(CraftResources.GetName(m_Resource));
+            }
 
-            if ((prop = (GetLuckBonus() + m_AosAttributes.Luck)) != 0)
+            if ((prop = GetLuckBonus() + m_AosAttributes.Luck) != 0)
+            {
                 list.Add(1060436, prop.ToString()); // luck ~1_val~
+            }
 
             if ((prop = m_AosAttributes.BonusMana) != 0)
+            {
                 list.Add(1060439, prop.ToString()); // mana increase ~1_val~
+            }
 
             if ((prop = m_AosAttributes.RegenMana) != 0)
+            {
                 list.Add(1060440, prop.ToString()); // mana regeneration ~1_val~
+            }
 
-            if ((prop = m_AosAttributes.NightSight) != 0)
+            if (m_AosAttributes.NightSight != 0)
+            {
                 list.Add(1060441); // night sight
+            }
 
             if ((prop = m_AosAttributes.ReflectPhysical) != 0)
+            {
                 list.Add(1060442, prop.ToString()); // reflect physical damage ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.RegenStam) != 0)
+            {
                 list.Add(1060443, prop.ToString()); // stamina regeneration ~1_val~
+            }
 
             if ((prop = m_AosAttributes.RegenHits) != 0)
+            {
                 list.Add(1060444, prop.ToString()); // hit point regeneration ~1_val~
+            }
 
             if ((prop = m_AosAttributes.SpellDamage) != 0)
+            {
                 list.Add(1060483, prop.ToString()); // spell damage increase ~1_val~%
+            }
 
             if ((prop = m_AosAttributes.BonusStam) != 0)
+            {
                 list.Add(1060484, prop.ToString()); // stamina increase ~1_val~
+            }
 
             if ((prop = m_AosAttributes.BonusStr) != 0)
+            {
                 list.Add(1060485, prop.ToString()); // strength bonus ~1_val~
+            }
 
             //if ( (prop = m_AosAttributes.WeaponSpeed) != 0 )
             //	list.Add( 1060486, prop.ToString() ); // swing speed increase ~1_val~%
@@ -457,17 +520,21 @@ namespace Server.Items
 
             if (m_HookType > HookType.None && hookCliloc > 0)
             {
-                list.Add(1150885, String.Format("#{0}", hookCliloc)); //special hook: ~1_token~
-                list.Add(1150889, String.Format("#{0}", BaseFishingHook.GetCondition(m_HookUses))); //Hook condition: ~1_val~
+                list.Add(1150885, $"#{hookCliloc}"); //special hook: ~1_token~
+                list.Add(1150889, $"#{BaseFishingHook.GetCondition(m_HookUses)}"); //Hook condition: ~1_val~
             }
 
             if (m_BaitType != null)
             {
                 object label = FishInfo.GetFishLabel(m_BaitType);
                 if (label is int)
-                    list.Add(1116468, String.Format("#{0}", (int)label)); //baited to attract: ~1_val~
+                {
+                    list.Add(1116468, $"#{(int)label}"); //baited to attract: ~1_val~
+                }
                 else if (label is string)
+                {
                     list.Add(1116468, (string)label);
+                }
 
                 list.Add(1116466, m_BaitUses.ToString()); // amount: ~1_val~
             }
@@ -483,19 +550,21 @@ namespace Server.Items
         private static void SetSaveFlag(ref SaveFlag flags, SaveFlag toSet, bool setIf)
         {
             if (setIf)
+            {
                 flags |= toSet;
+            }
         }
 
         private static bool GetSaveFlag(SaveFlag flags, SaveFlag toGet)
         {
-            return ((flags & toGet) != 0);
+            return (flags & toGet) != 0;
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)4); // version
+            writer.Write(4);
 
             writer.Write(m_PlayerConstructed);
             writer.Write(m_LowerStatReq);
@@ -503,7 +572,7 @@ namespace Server.Items
             writer.Write(m_UsesRemaining);
             writer.Write(m_ShowUsesRemaining);
 
-            writer.Write(m_OriginalHue);
+            writer.Write(OriginalHue);
 
             writer.Write(FishInfo.GetIndexFromType(m_BaitType));
             writer.Write((int)m_HookType);
@@ -519,10 +588,14 @@ namespace Server.Items
             writer.Write((int)flags);
 
             if (GetSaveFlag(flags, SaveFlag.xAttributes))
+            {
                 m_AosAttributes.Serialize(writer);
+            }
 
             if (GetSaveFlag(flags, SaveFlag.SkillBonuses))
+            {
                 m_AosSkillBonuses.Serialize(writer);
+            }
         }
 
         public override void Deserialize(GenericReader reader)
@@ -542,7 +615,7 @@ namespace Server.Items
                     m_ShowUsesRemaining = reader.ReadBool();
                     goto case 2;
                 case 2:
-                    m_OriginalHue = reader.ReadInt();
+                    OriginalHue = reader.ReadInt();
                     int idx = reader.ReadInt();
                     m_BaitType = FishInfo.GetTypeFromIndex(idx);
                     m_HookType = (HookType)reader.ReadInt();
@@ -553,14 +626,23 @@ namespace Server.Items
                     SaveFlag flags = (SaveFlag)reader.ReadInt();
 
                     if (GetSaveFlag(flags, SaveFlag.xAttributes))
+                    {
                         m_AosAttributes = new AosAttributes(this, reader);
+                    }
                     else
+                    {
                         m_AosAttributes = new AosAttributes(this);
+                    }
 
                     if (GetSaveFlag(flags, SaveFlag.SkillBonuses))
+                    {
                         m_AosSkillBonuses = new AosSkillBonuses(this, reader);
+                    }
                     else
+                    {
                         m_AosSkillBonuses = new AosSkillBonuses(this);
+                    }
+
                     break;
                 case 1:
                     m_AosAttributes = new AosAttributes(this);
@@ -569,43 +651,59 @@ namespace Server.Items
             }
 
             if (Core.AOS && Parent is Mobile)
+            {
                 m_AosSkillBonuses.AddTo((Mobile)Parent);
+            }
 
             int strBonus = m_AosAttributes.BonusStr;
             int dexBonus = m_AosAttributes.BonusDex;
             int intBonus = m_AosAttributes.BonusInt;
 
-            if (this.Parent is Mobile && (strBonus != 0 || dexBonus != 0 || intBonus != 0))
+            if (Parent is Mobile && (strBonus != 0 || dexBonus != 0 || intBonus != 0))
             {
-                Mobile m = (Mobile)this.Parent;
+                Mobile m = (Mobile)Parent;
 
-                string modName = this.Serial.ToString();
+                string modName = Serial.ToString();
 
                 if (strBonus != 0)
+                {
                     m.AddStatMod(new StatMod(StatType.Str, modName + "Str", strBonus, TimeSpan.Zero));
+                }
 
                 if (dexBonus != 0)
+                {
                     m.AddStatMod(new StatMod(StatType.Dex, modName + "Dex", dexBonus, TimeSpan.Zero));
+                }
 
                 if (intBonus != 0)
+                {
                     m.AddStatMod(new StatMod(StatType.Int, modName + "Int", intBonus, TimeSpan.Zero));
+                }
             }
 
             if (Parent is Mobile)
+            {
                 ((Mobile)Parent).CheckStatTimers();
+            }
 
             if (m_BaitType != null && m_BaitUses <= 0)
+            {
                 BaitType = null;
+            }
 
             if (m_HookType != HookType.None && m_HookUses <= 0)
+            {
                 HookType = HookType.None;
+            }
 
             if (version < 3 && m_Crafter != null)
             {
                 m_PlayerConstructed = true;
 
                 if (m_Resource == CraftResource.None)
+                {
                     Resource = CraftResource.RegularWood;
+                }
                 else
                 {
                     DistributeMaterialBonus();
@@ -626,13 +724,17 @@ namespace Server.Items
 
             PlayerConstructed = true;
 
-            if (makersMark) // Add to CraftItem.cs mark table
+            if (makersMark)
+            {
                 Crafter = from;
+            }
 
             Type resourceType = typeRes;
 
             if (resourceType == null)
+            {
                 resourceType = craftItem.Resources.GetAt(0).ItemType;
+            }
 
             Resource = CraftResources.GetFromType(resourceType);
             DistributeMaterialBonus();
@@ -645,12 +747,16 @@ namespace Server.Items
             CraftResourceInfo resInfo = CraftResources.GetInfo(m_Resource);
 
             if (resInfo == null)
+            {
                 return;
+            }
 
             CraftAttributeInfo attrInfo = resInfo.AttributeInfo;
 
             if (attrInfo != null)
+            {
                 DistributeMaterialBonus(attrInfo);
+            }
         }
 
         public void DistributeMaterialBonus(CraftAttributeInfo attrInfo)

@@ -16,6 +16,7 @@ namespace Server.Targets
             : base(2, false, TargetFlags.None)
         {
             m_Item = item;
+            Range = 3;
         }
 
         protected override void OnTargetOutOfRange(Mobile from, object targeted)

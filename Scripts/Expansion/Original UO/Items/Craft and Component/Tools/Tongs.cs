@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -10,14 +9,14 @@ namespace Server.Items
         public Tongs()
             : base(0xFBB)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         [Constructable]
         public Tongs(int uses)
             : base(uses, 0xFBB)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public Tongs(Serial serial)
@@ -25,25 +24,17 @@ namespace Server.Items
         {
         }
 
-        public override CraftSystem CraftSystem
-        {
-            get
-            {
-                return DefBlacksmithy.CraftSystem;
-            }
-        }
+        public override CraftSystem CraftSystem => DefBlacksmithy.CraftSystem;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

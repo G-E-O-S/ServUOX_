@@ -1,9 +1,8 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Multis;
 using Server.Targeting;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -14,16 +13,14 @@ namespace Server.Items
 
     public class DyeTub : Item, ISecurable
     {
-        private bool m_Redyable;
         private int m_DyedHue;
-        private SecureLevel m_SecureLevel;
 
-        [Constructable] 
+        [Constructable]
         public DyeTub()
             : base(0xFAB)
         {
             Weight = 10.0;
-            m_Redyable = true;
+            Redyable = true;
         }
 
         public DyeTub(Serial serial)
@@ -31,28 +28,24 @@ namespace Server.Items
         {
         }
 
-        public virtual CustomHuePicker CustomHuePicker { get { return null; } }
-        public virtual bool AllowRunebooks { get { return false; } }
-        public virtual bool AllowFurniture { get { return false; } }
-        public virtual bool AllowStatuettes { get { return false; } }
-        public virtual bool AllowLeather { get { return false; } }
-        public virtual bool AllowDyables { get { return true; } }
-        public virtual bool AllowMetal { get { return false; } }
+        public virtual CustomHuePicker CustomHuePicker => null;
+        public virtual bool AllowRunebooks => false;
+        public virtual bool AllowFurniture => false;
+        public virtual bool AllowStatuettes => false;
+        public virtual bool AllowLeather => false;
+        public virtual bool AllowDyables => true;
+        public virtual bool AllowMetal => false;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool Redyable
-        {
-            get { return m_Redyable; }
-            set { m_Redyable = value; }
-        }
+        public bool Redyable { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int DyedHue
         {
-            get { return m_DyedHue; }
+            get => m_DyedHue;
             set
             {
-                if (m_Redyable)
+                if (Redyable)
                 {
                     m_DyedHue = value;
                     Hue = value;
@@ -61,23 +54,18 @@ namespace Server.Items
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public SecureLevel Level
-        {
-            get { return m_SecureLevel; }
-            set { m_SecureLevel = value; }
-        }
+        public SecureLevel Level { get; set; }
 
-        public virtual int TargetMessage { get { return 500859; } } // Select the clothing to dye.        
-        public virtual int FailMessage { get { return 1042083; } } // You can not dye that.
+        public virtual int TargetMessage => 500859;  // Select the clothing to dye.        
+        public virtual int FailMessage => 1042083;  // You can not dye that.
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)1); // version
-			
-            writer.Write((int)m_SecureLevel);
-            writer.Write((bool)m_Redyable);
-            writer.Write((int)m_DyedHue);
+            writer.Write(1);
+            writer.Write((int)Level);
+            writer.Write(Redyable);
+            writer.Write(m_DyedHue);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -85,16 +73,16 @@ namespace Server.Items
             base.Deserialize(reader);
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 1:
                     {
-                        m_SecureLevel = (SecureLevel)reader.ReadInt();
+                        Level = (SecureLevel)reader.ReadInt();
                         goto case 0;
                     }
                 case 0:
                     {
-                        m_Redyable = reader.ReadBool();
+                        Redyable = reader.ReadBool();
                         m_DyedHue = reader.ReadInt();
 
                         break;
@@ -113,7 +101,7 @@ namespace Server.Items
             if (from.InRange(GetWorldLocation(), 1))
             {
                 from.SendLocalizedMessage(TargetMessage);
-                from.Target = new InternalTarget(this);
+                from.Target = new DyeTubTarget(this);
             }
             else
             {
@@ -121,11 +109,11 @@ namespace Server.Items
             }
         }
 
-        private class InternalTarget : Target
+        private class DyeTubTarget : Target
         {
             private readonly DyeTub m_Tub;
 
-            public InternalTarget(DyeTub tub)
+            public DyeTubTarget(DyeTub tub)
                 : base(1, false, TargetFlags.None)
             {
                 m_Tub = tub;
@@ -133,18 +121,22 @@ namespace Server.Items
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                if (targeted is Item)
+                if (targeted is Item item)
                 {
-                    Item item = (Item)targeted;
-
                     if (item is IDyable && m_Tub.AllowDyables)
                     {
                         if (!from.InRange(m_Tub.GetWorldLocation(), 1) || !from.InRange(item.GetWorldLocation(), 1))
+                        {
                             from.SendLocalizedMessage(500446); // That is too far away.
+                        }
                         else if (item.Parent is Mobile)
+                        {
                             from.SendLocalizedMessage(500861); // Can't Dye clothing that is being worn.
+                        }
                         else if (((IDyable)item).Dye(from, m_Tub))
+                        {
                             from.PlaySound(0x23E);
+                        }
                     }
                     else if ((FurnitureAttribute.Check(item) || (item is PotionKeg)) && m_Tub.AllowFurniture)
                     {
@@ -163,11 +155,17 @@ namespace Server.Items
                                     BaseHouse house = BaseHouse.FindHouseAt(item);
 
                                     if (!house.IsCoOwner(from))
+                                    {
                                         from.SendLocalizedMessage(501023); // You must be the owner to use this item.
+                                    }
                                     else if (house == null || (!house.IsLockedDown(item) && !house.IsSecure(item)) && (!(item is AddonComponent) || !house.Addons.ContainsKey(((AddonComponent)item).Addon)))
+                                    {
                                         from.SendLocalizedMessage(501022); // Furniture must be locked down to paint it.
+                                    }
                                     else
+                                    {
                                         okay = true;
+                                    }
                                 }
                                 else
                                 {
@@ -217,8 +215,8 @@ namespace Server.Items
                     else if (m_Tub.AllowLeather)
                     {
                         if ((item is BaseArmor && (((BaseArmor)item).MaterialType == ArmorMaterialType.Leather || ((BaseArmor)item).MaterialType == ArmorMaterialType.Studded)) ||
-                            (item is BaseClothing && (((BaseClothing)item).DefaultResource == CraftResource.RegularLeather) || item is WoodlandBelt || item is BarbedWhip 
-							|| item is BladedWhip || item is SpikedWhip))
+                            (item is BaseClothing && (((BaseClothing)item).DefaultResource == CraftResource.RegularLeather) || item is WoodlandBelt || item is BarbedWhip
+                            || item is BladedWhip || item is SpikedWhip))
                         {
                             if (!from.InRange(m_Tub.GetWorldLocation(), 1) || !from.InRange(item.GetWorldLocation(), 1))
                             {

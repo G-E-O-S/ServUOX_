@@ -1,66 +1,70 @@
-#region References
-using System;
-using Server.Targeting;
 using Server.Engines.Craft;
-#endregion
+using Server.Targeting;
+using System;
 
 namespace Server.Items
 {
-	public interface IScissorable
-	{
-		bool Scissor(Mobile from, Scissors scissors);
-	}
+    public interface IScissorable
+    {
+        bool Scissor(Mobile from, Scissors scissors);
+    }
 
-	[Flipable(0xf9f, 0xf9e)]
-	public class Scissors : Item, ICraftable, IQuality, IUsesRemaining
-	{
+    [Flipable(0xf9f, 0xf9e)]
+    public class Scissors : Item, ICraftable, IQuality, IUsesRemaining
+    {
         private int m_UsesRemaining;
         private Mobile m_Crafter;
         private ItemQuality m_Quality;
         private bool m_ShowUsesRemaining;
-        
-        [CommandProperty(AccessLevel.GameMaster)]
-        public int UsesRemaining { get { return m_UsesRemaining; } set { m_UsesRemaining = value; InvalidateProperties(); } }
-    
-        [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Crafter { get { return m_Crafter; } set { m_Crafter = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool ShowUsesRemaining { get { return m_ShowUsesRemaining; } set { m_ShowUsesRemaining = value; InvalidateProperties(); } }
+        public int UsesRemaining { get => m_UsesRemaining; set { m_UsesRemaining = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality 
-        { 
-            get { return m_Quality; } 
+        public Mobile Crafter { get => m_Crafter; set { m_Crafter = value; InvalidateProperties(); } }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool ShowUsesRemaining { get => m_ShowUsesRemaining; set { m_ShowUsesRemaining = value; InvalidateProperties(); } }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public ItemQuality Quality
+        {
+            get => m_Quality;
             set
-            { 
+            {
                 UnscaleUses();
-                m_Quality = value; 
+                m_Quality = value;
                 ScaleUses();
-            } 
+            }
         }
 
-        public bool PlayerConstructed { get { return false; } }
-    
-		[Constructable]
-		public Scissors()
-			: base(0xF9F)
-		{
-			Weight = 1.0;
-            
+        public bool PlayerConstructed => false;
+
+        [Constructable]
+        public Scissors()
+            : base(0xF9F)
+        {
+            Weight = 1.0;
+
             m_UsesRemaining = 50;
 
             if (Siege.SiegeShard)
+            {
                 m_ShowUsesRemaining = true;
-		}
+            }
+        }
 
         public override void AddCraftedProperties(ObjectPropertyList list)
         {
             if (m_Crafter != null)
+            {
                 list.Add(1050043, m_Crafter.TitleName); // crafted by ~1_NAME~
+            }
 
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 list.Add(1060636); // exceptional
+            }
         }
 
         public override void AddUsesRemainingProperties(ObjectPropertyList list)
@@ -72,29 +76,29 @@ namespace Server.Items
         }
 
         public Scissors(Serial serial)
-			: base(serial)
-		{ }
+            : base(serial)
+        { }
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-			writer.Write(2); // version
+            writer.Write(2);
 
             writer.Write(m_ShowUsesRemaining);
 
             writer.Write(m_UsesRemaining);
             writer.Write(m_Crafter);
             writer.Write((int)m_Quality);
-		}
+        }
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-			int version = reader.ReadInt();
-            
-            switch(version)
+            int version = reader.ReadInt();
+
+            switch (version)
             {
                 case 2:
                     m_ShowUsesRemaining = reader.ReadBool();
@@ -104,11 +108,11 @@ namespace Server.Items
                     m_Crafter = reader.ReadMobile();
                     m_Quality = (ItemQuality)reader.ReadInt();
                     break;
-                case 0: 
+                case 0:
                     break;
             }
-                
-		}
+
+        }
 
         public void ScaleUses()
         {
@@ -124,115 +128,117 @@ namespace Server.Items
         public int GetUsesScalar()
         {
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 return 200;
+            }
 
             return 100;
         }
 
-		public override void OnDoubleClick(Mobile from)
-		{
-			from.SendLocalizedMessage(502434); // What should I use these scissors on?
+        public override void OnDoubleClick(Mobile from)
+        {
+            from.SendLocalizedMessage(502434); // What should I use these scissors on?
 
-			from.Target = new InternalTarget(this);
-		}
-        
+            from.Target = new ScissorsTarget(this);
+        }
+
         #region ICraftable Members
         public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
         {
             Quality = (ItemQuality)quality;
 
             if (makersMark)
+            {
                 Crafter = from;
+            }
 
             return quality;
         }
         #endregion
 
-		private class InternalTarget : Target
-		{
-			private readonly Scissors m_Item;
+        private class ScissorsTarget : Target
+        {
+            private readonly Scissors m_Item;
 
-			public InternalTarget(Scissors item)
-				: base(2, false, TargetFlags.None)
-			{
-				m_Item = item;
-			}
+            public ScissorsTarget(Scissors item)
+                : base(2, false, TargetFlags.None)
+            {
+                m_Item = item;
+            }
 
-			protected override void OnTarget(Mobile from, object targeted)
-			{
-				if (m_Item.Deleted)
-				{
-					return;
-				}
+            protected override void OnTarget(Mobile from, object targeted)
+            {
+                if (m_Item.Deleted)
+                {
+                    return;
+                }
 
-				/*if ( targeted is Item && !((Item)targeted).IsStandardLoot() )
+                /*if ( targeted is Item && !((Item)targeted).IsStandardLoot() )
                 {
                 from.SendLocalizedMessage( 502440 ); // Scissors can not be used on that to produce anything.
                 }
                 else */
-				if (Core.AOS && targeted == from)
-				{
-					from.SendLocalizedMessage(1062845 + Utility.Random(3));
-						//"That doesn't seem like the smartest thing to do." / "That was an encounter you don't wish to repeat." / "Ha! You missed!"
-				}
-				else if (Core.SE && Utility.RandomDouble() > .20 && (from.Direction & Direction.Running) != 0 &&
-						 (Core.TickCount - from.LastMoveTime) < from.ComputeMovementSpeed(from.Direction))
-				{
-					from.SendLocalizedMessage(1063305); // Didn't your parents ever tell you not to run with scissors in your hand?!
-				}
-				else if (targeted is Item && !((Item)targeted).Movable)
-				{
-					if (targeted is IScissorable && (targeted is PlagueBeastInnard || targeted is PlagueBeastMutationCore))
-					{
-						IScissorable obj = (IScissorable)targeted;
+                if (Core.AOS && targeted == from)
+                {
+                    from.SendLocalizedMessage(1062845 + Utility.Random(3));
+                    //"That doesn't seem like the smartest thing to do." / "That was an encounter you don't wish to repeat." / "Ha! You missed!"
+                }
+                else if (Core.SE && Utility.RandomDouble() > .20 && (from.Direction & Direction.Running) != 0 &&
+                         (Core.TickCount - from.LastMoveTime) < from.ComputeMovementSpeed(from.Direction))
+                {
+                    from.SendLocalizedMessage(1063305); // Didn't your parents ever tell you not to run with scissors in your hand?!
+                }
+                else if (targeted is Item && !((Item)targeted).Movable)
+                {
+                    if (targeted is IScissorable && (targeted is PlagueBeastInnard || targeted is PlagueBeastMutationCore))
+                    {
+                        IScissorable obj = (IScissorable)targeted;
 
-						if (obj.Scissor(from, m_Item))
-						{
-							from.PlaySound(0x248);
+                        if (obj.Scissor(from, m_Item))
+                        {
+                            from.PlaySound(0x248);
 
                             if (Siege.SiegeShard)
                             {
                                 Siege.CheckUsesRemaining(from, m_Item);
                             }
-						}
-					}
-				}
-				else if (targeted is IScissorable)
-				{
-					IScissorable obj = (IScissorable)targeted;
-
-					if (obj.Scissor(from, m_Item))
-					{
-						from.PlaySound(0x248);
+                        }
+                    }
+                }
+                else if (targeted is IScissorable obj)
+                {
+                    if (obj.Scissor(from, m_Item))
+                    {
+                        from.PlaySound(0x248);
 
                         if (Siege.SiegeShard)
                         {
                             Siege.CheckUsesRemaining(from, m_Item);
                         }
-					}
-				}
-				else
-				{
-					from.SendLocalizedMessage(502440); // Scissors can not be used on that to produce anything.
-				}
-			}
+                    }
+                }
+                else
+                {
+                    from.SendLocalizedMessage(502440); // Scissors can not be used on that to produce anything.
+                }
+            }
 
-			protected override void OnNonlocalTarget(Mobile from, object targeted)
-			{
-				if (targeted is IScissorable && (targeted is PlagueBeastInnard || targeted is PlagueBeastMutationCore))
-				{
-					IScissorable obj = (IScissorable)targeted;
+            protected override void OnNonlocalTarget(Mobile from, object targeted)
+            {
+                if (targeted is IScissorable && (targeted is PlagueBeastInnard || targeted is PlagueBeastMutationCore))
+                {
+                    IScissorable obj = (IScissorable)targeted;
 
-					if (obj.Scissor(from, m_Item))
-					{
-						from.PlaySound(0x248);
-					}
-				}
-				else
-				{
-					base.OnNonlocalTarget(from, targeted);
-				}
-			}
-		}
-	}
+                    if (obj.Scissor(from, m_Item))
+                    {
+                        from.PlaySound(0x248);
+                    }
+                }
+                else
+                {
+                    base.OnNonlocalTarget(from, targeted);
+                }
+            }
+        }
+    }
 }

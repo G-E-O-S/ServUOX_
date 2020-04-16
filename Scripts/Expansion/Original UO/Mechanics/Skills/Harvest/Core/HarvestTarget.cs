@@ -17,6 +17,7 @@ namespace Server.Engines.Harvest
         {
             m_Tool = tool;
             m_System = system;
+            Range = 3;
 
             DisallowMultis = true;
         }

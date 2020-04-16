@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
-using Server.Spells;
 using Server.Mobiles;
+using Server.Spells;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -24,41 +23,21 @@ namespace Server.Items
         public SpellScroll(int spellID, int itemID, int amount)
             : base(itemID)
         {
-            this.Stackable = true;
-            this.Weight = 1.0;
-            this.Amount = amount;
+            Stackable = true;
+            Weight = 1.0;
+            Amount = amount;
 
-            this.m_SpellID = spellID;
+            m_SpellID = spellID;
         }
 
-        public int SpellID
-        {
-            get
-            {
-                return this.m_SpellID;
-            }
-        }
-        TextDefinition ICommodity.Description
-        {
-            get
-            {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return (Core.ML);
-            }
-        }
+        public int SpellID => m_SpellID;
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => Core.ML;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
-
-            writer.Write((int)this.m_SpellID);
+            writer.Write(0);
+            writer.Write(m_SpellID);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -67,11 +46,11 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 0:
                     {
-                        this.m_SpellID = reader.ReadInt();
+                        m_SpellID = reader.ReadInt();
 
                         break;
                     }
@@ -82,35 +61,40 @@ namespace Server.Items
         {
             base.GetContextMenuEntries(from, list);
 
-            if (from.Alive && this.Movable)
-                list.Add(new ContextMenus.AddToSpellbookEntry());
+            if (from.Alive && Movable)
+            {
+                list.Add(new AddToSpellbookEntry());
+            }
         }
 
         public override void OnDoubleClick(Mobile from)
         {
             if (!Multis.DesignContext.Check(from))
+            {
                 return; // They are customizing
+            }
 
-            if (!this.IsChildOf(from.Backpack))
+            if (!IsChildOf(from.Backpack))
             {
                 from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
                 return;
             }
-
-            #region SA
-            else if (from.Flying && from is PlayerMobile && BaseMount.OnFlightPath(from))
+            else if (Core.SA && from.Flying && from is PlayerMobile && BaseMount.OnFlightPath(from))
             {
                 from.SendLocalizedMessage(1113749); // You may not use that while flying over such precarious terrain.
                 return;
             }
-            #endregion
 
-            Spell spell = SpellRegistry.NewSpell(this.m_SpellID, from, this);
+            Spell spell = SpellRegistry.NewSpell(m_SpellID, from, this);
 
             if (spell != null)
+            {
                 spell.Cast();
+            }
             else
+            {
                 from.SendLocalizedMessage(502345); // This spell has been temporarily disabled.
+            }
         }
     }
 }

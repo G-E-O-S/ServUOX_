@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -6,9 +5,9 @@ namespace Server.Items
     [FlipableAttribute(0x0FBF, 0x0FC0)]
     public class ScribesPen : BaseTool
     {
-		public override CraftSystem CraftSystem { get { return DefInscription.CraftSystem; } }
-        public override int LabelNumber { get { return 1044168; } }// scribe's pen
-		
+        public override CraftSystem CraftSystem => DefInscription.CraftSystem;
+        public override int LabelNumber => 1044168; // scribe's pen
+
         [Constructable]
         public ScribesPen()
             : base(0x0FBF)
@@ -27,17 +26,16 @@ namespace Server.Items
         {
         }
 
-        
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

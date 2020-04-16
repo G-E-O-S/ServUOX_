@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Engines.Craft;
 using Server.Engines.Harvest;
 using Server.Mobiles;
 using Server.Network;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -25,10 +25,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile Crafter
         {
-            get
-            {
-                return m_Crafter;
-            }
+            get => m_Crafter;
             set
             {
                 m_Crafter = value;
@@ -39,10 +36,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public ItemQuality Quality
         {
-            get
-            {
-                return m_Quality;
-            }
+            get => m_Quality;
             set
             {
                 UnscaleUses();
@@ -55,10 +49,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int UsesRemaining
         {
-            get
-            {
-                return m_UsesRemaining;
-            }
+            get => m_UsesRemaining;
             set
             {
                 m_UsesRemaining = value;
@@ -68,35 +59,34 @@ namespace Server.Items
 
         public void ScaleUses()
         {
-            m_UsesRemaining = (m_UsesRemaining * GetUsesScalar()) / 100;
+            m_UsesRemaining = m_UsesRemaining * GetUsesScalar() / 100;
             InvalidateProperties();
         }
 
         public void UnscaleUses()
         {
-            m_UsesRemaining = (m_UsesRemaining * 100) / GetUsesScalar();
+            m_UsesRemaining = m_UsesRemaining * 100 / GetUsesScalar();
         }
 
         public int GetUsesScalar()
         {
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 return 200;
+            }
 
             return 100;
         }
 
         public bool ShowUsesRemaining
         {
-            get
-            {
-                return true;
-            }
+            get => true;
             set
             {
             }
         }
 
-        public virtual bool BreakOnDepletion { get { return true; } }
+        public virtual bool BreakOnDepletion => true;
 
         public abstract HarvestSystem HarvestSystem { get; }
 
@@ -115,7 +105,9 @@ namespace Server.Items
         public override void AddCraftedProperties(ObjectPropertyList list)
         {
             if (m_Quality == ItemQuality.Exceptional)
+            {
                 list.Add(1060636); // exceptional
+            }
         }
 
         public override void AddUsesRemainingProperties(ObjectPropertyList list)
@@ -134,18 +126,22 @@ namespace Server.Items
 
             base.OnSingleClick(from);
 
-			if (m_Crafter != null)
-			{
-				LabelTo(from, 1050043, m_Crafter.TitleName); // crafted by ~1_NAME~
-			}
+            if (m_Crafter != null)
+            {
+                LabelTo(from, 1050043, m_Crafter.TitleName); // crafted by ~1_NAME~
+            }
         }
 
         public override void OnDoubleClick(Mobile from)
         {
             if (IsChildOf(from.Backpack) || Parent == from)
+            {
                 HarvestSystem.BeginHarvesting(from, this);
+            }
             else
+            {
                 from.SendLocalizedMessage(1042001); // That must be in your pack for you to use it.
+            }
         }
 
         public override void GetContextMenuEntries(Mobile from, List<ContextMenuEntry> list)
@@ -158,29 +154,47 @@ namespace Server.Items
         public static void AddContextMenuEntries(Mobile from, Item item, List<ContextMenuEntry> list, HarvestSystem system)
         {
             if (system != Mining.System)
+            {
                 return;
+            }
 
             if (!item.IsChildOf(from.Backpack) && item.Parent != from)
+            {
                 return;
+            }
 
-            PlayerMobile pm = from as PlayerMobile;
 
-            if (pm == null)
+            if (!(from is PlayerMobile pm))
+            {
                 return;
+            }
 
             int typeentry = 0;
 
             if (pm.ToggleMiningStone)
+            {
                 typeentry = 6179;
-            if (pm.ToggleMiningGem)
-                typeentry = 1112239;
-            if (pm.ToggleStoneOnly)
-                typeentry = 1156865;
-            if (!pm.ToggleMiningStone && !pm.ToggleMiningGem && !pm.ToggleStoneOnly)
-                typeentry = 6178;
+            }
 
-            ContextMenuEntry miningEntry = new ContextMenuEntry(typeentry);
-            miningEntry.Color = 0x421F;
+            if (pm.ToggleMiningGem)
+            {
+                typeentry = 1112239;
+            }
+
+            if (pm.ToggleStoneOnly)
+            {
+                typeentry = 1156865;
+            }
+
+            if (!pm.ToggleMiningStone && !pm.ToggleMiningGem && !pm.ToggleStoneOnly)
+            {
+                typeentry = 6178;
+            }
+
+            ContextMenuEntry miningEntry = new ContextMenuEntry(typeentry)
+            {
+                Color = 0x421F
+            };
             list.Add(miningEntry);
 
             list.Add(new ToggleMiningStoneEntry(pm, MiningType.OreOnly, 6176));         // Set To Ore
@@ -192,17 +206,13 @@ namespace Server.Items
         public class ToggleMiningStoneEntry : ContextMenuEntry
         {
             private readonly PlayerMobile m_Mobile;
-            private MiningType MiningType;
-            //private bool m_Valuestone;
-            //private bool m_Valuegem;
+            private readonly MiningType MiningType;
 
             public ToggleMiningStoneEntry(PlayerMobile mobile, MiningType type, int number)
                 : base(number)
             {
                 m_Mobile = mobile;
                 MiningType = type;
-                //m_Valuestone = valuestone;
-                //m_Valuegem = valuegem;
 
                 bool canMineStone = (mobile.StoneMining && mobile.Skills[SkillName.Mining].Base >= 100.0);
                 bool canMineGems = (mobile.GemMining && mobile.Skills[SkillName.Mining].Base >= 100.0);
@@ -210,29 +220,34 @@ namespace Server.Items
                 switch (type)
                 {
                     case MiningType.OreOnly:
-                        if(!mobile.ToggleMiningStone && !mobile.ToggleMiningGem && !mobile.ToggleStoneOnly)
+                        if (!mobile.ToggleMiningStone && !mobile.ToggleMiningGem && !mobile.ToggleStoneOnly)
+                        {
                             Flags |= CMEFlags.Disabled;
+                        }
+
                         break;
                     case MiningType.OreAndStone:
                         if (mobile.ToggleMiningStone || !canMineStone)
+                        {
                             Flags |= CMEFlags.Disabled;
+                        }
+
                         break;
                     case MiningType.OreAndGems:
-                        if(mobile.ToggleMiningGem || !canMineGems)
+                        if (mobile.ToggleMiningGem || !canMineGems)
+                        {
                             Flags |= CMEFlags.Disabled;
+                        }
+
                         break;
                     case MiningType.StoneOnly:
-                        if(mobile.ToggleStoneOnly || !canMineStone)
+                        if (mobile.ToggleStoneOnly || !canMineStone)
+                        {
                             Flags |= CMEFlags.Disabled;
+                        }
+
                         break;
                 }
-
-                /*if (valuestone && mobile.ToggleMiningStone == valuestone || (valuestone && !stoneMining))
-                    Flags |= CMEFlags.Disabled;
-                else if (valuegem && mobile.ToggleMiningGem == valuegem || (valuegem && !gemMining))
-                    Flags |= CMEFlags.Disabled;
-                else if (!valuestone && !valuegem && !mobile.ToggleMiningStone && !mobile.ToggleMiningGem)
-                    Flags |= CMEFlags.Disabled;*/
             }
 
             public override void OnClick()
@@ -328,12 +343,12 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1); // version
+            writer.Write(1);
 
-            writer.Write((Mobile)m_Crafter);
+            writer.Write(m_Crafter);
             writer.Write((int)m_Quality);
 
-            writer.Write((int)m_UsesRemaining);
+            writer.Write(m_UsesRemaining);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -342,7 +357,7 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 1:
                     {
@@ -364,7 +379,9 @@ namespace Server.Items
             Quality = (ItemQuality)quality;
 
             if (makersMark)
+            {
                 Crafter = from;
+            }
 
             return quality;
         }
