@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x48BC, 0x48BD)]
+    [Flipable(0x48BC, 0x48BD)]
     public class GargishKryss : BaseSword
     {
         [Constructable]

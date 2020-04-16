@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13dc, 0x13d4)]
+    [Flipable(0x13dc, 0x13d4)]
     public class StuddedArms : BaseArmor
     {
         [Constructable]

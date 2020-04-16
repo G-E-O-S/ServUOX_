@@ -9,7 +9,7 @@ using Server.ContextMenus;
 
 namespace Server.Items
 {
-	[FlipableAttribute( 0x3BB6, 0x3BB7 )]
+	[Flipable( 0x3BB6, 0x3BB7 )]
 	public class MapOfTheKnownWorld : Item, ISecurable
 	{
 		private SecureLevel m_Level;

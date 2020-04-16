@@ -3,7 +3,7 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13db, 0x13e2)]
+    [Flipable(0x13db, 0x13e2)]
     public class RangerChest : BaseArmor, IRepairable
     {
         public CraftSystem RepairSystem { get { return DefTailoring.CraftSystem; } }

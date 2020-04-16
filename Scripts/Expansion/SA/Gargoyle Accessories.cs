@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x450D, 0x450D)]
+    [Flipable(0x450D, 0x450D)]
     public class GargoyleTailMale : BaseWaist
     {
         [Constructable]
@@ -52,7 +52,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x44C1, 0x44C2)]
+    [Flipable(0x44C1, 0x44C2)]
     public class GargoyleTailFemale : BaseWaist
     {
         [Constructable]

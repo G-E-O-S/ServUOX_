@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based Off War Fork
-    [FlipableAttribute(0x48BE, 0x48BF)]
+    [Flipable(0x48BE, 0x48BF)]
     public class GargishWarFork : BaseSpear
     {
         [Constructable]

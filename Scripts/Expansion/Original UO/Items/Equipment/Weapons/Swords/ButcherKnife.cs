@@ -4,7 +4,7 @@ using Server.Engines.Craft;
 namespace Server.Items
 {
     [Alterable(typeof(DefBlacksmithy), typeof(GargishButcherKnife))]
-    [FlipableAttribute(0x13F6, 0x13F7)]
+    [Flipable(0x13F6, 0x13F7)]
     public class ButcherKnife : BaseKnife
     {
         [Constructable]

@@ -11,7 +11,7 @@ using Server.Mobiles;
 
 namespace Server.Engines.Plants
 {
-    [FlipableAttribute(19288, 19290)]
+    [Flipable(19288, 19290)]
     public class SeedBox : Container, IRewardItem, ISecurable
     {
         public static readonly int MaxSeeds = 5000;

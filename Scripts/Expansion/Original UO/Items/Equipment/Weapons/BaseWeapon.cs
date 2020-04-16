@@ -2498,7 +2498,7 @@ namespace Server.Items
 				percentageBonus += 25;
 			}
 
-			if (attacker is PlayerMobile && !(Core.ML && defender is PlayerMobile))
+			if (attacker is PlayerMobile && !(Core.ML && !(defender is PlayerMobile)))
 			{
 				PlayerMobile pmAttacker = (PlayerMobile)attacker;
 

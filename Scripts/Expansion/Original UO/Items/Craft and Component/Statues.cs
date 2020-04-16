@@ -354,7 +354,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x493C, 0x493B)]
+    [Flipable(0x493C, 0x493B)]
     public class StatueGryphonEast : Item
     {
         [Constructable]
@@ -384,7 +384,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x493B, 0x493C)]
+    [Flipable(0x493B, 0x493C)]
     public class StatueGryphonSouth : Item
     {
         [Constructable]

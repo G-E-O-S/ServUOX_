@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x2FB7, 0x3171)]
+    [Flipable(0x2FB7, 0x3171)]
     public class ElvenQuiver : BaseQuiver
     {
         [Constructable]

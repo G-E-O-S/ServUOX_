@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13BB, 0x13C0)]
+    [Flipable(0x13BB, 0x13C0)]
     public class ChainCoif : BaseArmor
     {
         [Constructable]

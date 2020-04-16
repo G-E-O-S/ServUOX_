@@ -8,11 +8,11 @@ using Server.Spells.Chivalry;
 
 namespace Server.Items
 {
-    [FlipableAttribute(39958, 39959)]
+    [Flipable(39958, 39959)]
     public class RunicAtlas : Runebook
     {
-        public override int MaxEntries { get { return 48; } }
-        public override int LabelNumber { get { return 1156443; } } // a runic atlas
+        public override int MaxEntries => 48;
+        public override int LabelNumber => 1156443;  // a runic atlas
 
         public int Selected { get; set; }
 
@@ -34,6 +34,7 @@ namespace Server.Items
                         return;
                     }
 
+                    from.CloseGump(typeof(RunicAtlasGump));
                     BaseGump.SendGump(new RunicAtlasGump((PlayerMobile)from, this));
                     Openers.Add(from);
                 }
@@ -80,8 +81,10 @@ namespace Server.Items
                     if (g != null)
                         from.CloseGump(typeof(RunicAtlasGump));
 
-                    g = new RunicAtlasGump((PlayerMobile)from, this);
-                    g.Page = newPage;
+                    g = new RunicAtlasGump((PlayerMobile)from, this)
+                    {
+                        Page = newPage
+                    };
                     BaseGump.SendGump(g);
                 }
             }
@@ -115,16 +118,15 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
             writer.Write(Selected);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
+
             Selected = reader.ReadInt();
 
             if (MaxCharges != 100)
@@ -145,7 +147,7 @@ namespace Server.Items
         }
 
         public RunicAtlas Atlas { get; set; }
-        public int Selected { get { return Atlas == null ? -1 : Atlas.Selected; } }
+        public int Selected => Atlas == null ? -1 : Atlas.Selected;
         public int Page { get; set; }
 
         public RunicAtlasGump(PlayerMobile pm, RunicAtlas atlas)
@@ -525,7 +527,7 @@ namespace Server.Items
 
         private class InternalPrompt : Prompt
         {
-            public override int MessageCliloc { get { return 502414; } } // Please enter a title for the runebook:
+            public override int MessageCliloc => 502414;  // Please enter a title for the runebook:
             public RunicAtlas Atlas { get; private set; }
 
             public InternalPrompt(RunicAtlas atlas)

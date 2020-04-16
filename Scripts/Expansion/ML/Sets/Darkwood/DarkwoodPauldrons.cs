@@ -3,7 +3,7 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x2B6C, 0x3163)]
+    [Flipable(0x2B6C, 0x3163)]
     public class DarkwoodPauldrons : WoodlandArms
     {
 		public override bool IsArtifact { get { return true; } }

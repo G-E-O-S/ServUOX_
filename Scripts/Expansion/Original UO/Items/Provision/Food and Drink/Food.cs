@@ -1386,7 +1386,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0xC74, 0xC75)]
+    [Flipable(0xC74, 0xC75)]
     public class HoneydewMelon : Food
     {
         [Constructable]
@@ -1423,7 +1423,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0xC64, 0xC65)]
+    [Flipable(0xC64, 0xC65)]
     public class YellowGourd : Food
     {
         [Constructable]
@@ -1460,7 +1460,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0xC66, 0xC67)]
+    [Flipable(0xC66, 0xC67)]
     public class GreenGourd : Food
     {
         [Constructable]
@@ -1497,7 +1497,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0xC7F, 0xC81)]
+    [Flipable(0xC7F, 0xC81)]
     public class EarOfCorn : Food
     {
         [Constructable]

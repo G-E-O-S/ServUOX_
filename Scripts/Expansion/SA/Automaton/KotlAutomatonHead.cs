@@ -4,7 +4,7 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x9DB1, 0x9DB2)]
+    [Flipable(0x9DB1, 0x9DB2)]
     public class KotlAutomatonHead : Item, ICraftable
     {
         private bool _Activated;

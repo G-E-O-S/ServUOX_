@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x1515, 0x1530)] 
+    [Flipable(0x1515, 0x1530)] 
     public class ObiDiEnse : Obi
 	{
 		public override bool IsArtifact { get { return true; } }

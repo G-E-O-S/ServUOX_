@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a Warfork
-    [FlipableAttribute(0x907, 0x4076)]
+    [Flipable(0x907, 0x4076)]
     public class Shortblade : BaseSword
     {
         [Constructable]

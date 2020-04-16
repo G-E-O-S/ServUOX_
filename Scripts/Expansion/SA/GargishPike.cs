@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based Off Pike
-    [FlipableAttribute(0x48C8, 0x48C9)]
+    [Flipable(0x48C8, 0x48C9)]
     public class GargishPike : BaseSpear
     {
         [Constructable]

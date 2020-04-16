@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a BlackStaff
-    [FlipableAttribute(0x905, 0x4070)]
+    [Flipable(0x905, 0x4070)]
     public class InfusedGlassStave : BaseStaff
 	{
 		public override int LabelNumber { get { return 1112909; } } // infused glass stave

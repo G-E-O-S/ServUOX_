@@ -319,7 +319,7 @@ namespace Server.Items
         }
     }
 
-    // [FlipableAttribute( 0x4B1E, 0x4B1F )]
+    // [Flipable( 0x4B1E, 0x4B1F )]
     public class OrigamiBunny : Item
     {
         //public override int LabelNumber{ get{ return 1030296; } } // a delicate origami butterfly

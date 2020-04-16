@@ -7,7 +7,7 @@ using Server.Gumps;
 
 namespace Server.Engines.VvV
 {
-    [FlipableAttribute(39349, 39350)]
+    [Flipable(39349, 39350)]
     public class WrongBanner : Item
     {
         public override int LabelNumber

@@ -3,7 +3,7 @@ using Server.Misc;
 
 namespace Server.Items
 {
-	[FlipableAttribute( 0x1541, 0x1542 )] 
+	[Flipable( 0x1541, 0x1542 )] 
 	public class SashOfMight : BodySash 
 	{
 

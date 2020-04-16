@@ -4,7 +4,7 @@ using Server.Engines.Craft;
 namespace Server.Items
 {
     [Alterable(typeof(DefBlacksmithy), typeof(DualShortAxes))]
-    [FlipableAttribute(0xf45, 0xf46)]
+    [Flipable(0xf45, 0xf46)]
     public class ExecutionersAxe : BaseAxe
     {
         [Constructable]

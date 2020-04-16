@@ -203,7 +203,7 @@ namespace Server.Items
     }
 
     [Alterable(typeof(DefTailoring), typeof(LeatherTalons), true)]
-    [FlipableAttribute(0x2FC4, 0x317A)]
+    [Flipable(0x2FC4, 0x317A)]
     public class ElvenBoots : BaseShoes
     {
         public override CraftResource DefaultResource

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Server.Accounting;
 using Server.ContextMenus;
 using Server.Guilds;
@@ -21,11 +20,8 @@ namespace Server.Multis
     public abstract class BaseHouse : BaseMulti
     {
         public static int AccountHouseLimit { get; } = Config.Get("Housing.AccountHouseLimit", 1);
-
         public static bool NewVendorSystem => Core.AOS; // Is new player vendor system enabled?
-
         public static double GlobalBonusStorageScalar => Core.ML ? Core.SA ? 1.4 : 1.2 : 1.0;
-
         public const int MaxCoOwners = 15;
         public static int MaxFriends => !Core.AOS ? 50 : 140;
         public static int MaxBans => !Core.AOS ? 50 : 140;
@@ -421,7 +417,7 @@ namespace Server.Multis
             {
                 for (int i = 0; i < list.Count; ++i)
                 {
-                    SecureInfo si = (SecureInfo)list[i];
+                    SecureInfo si = list[i];
 
                     if (CheckCounts(si.Item) && !LockDowns.ContainsKey(si.Item))
                     {
@@ -1365,9 +1361,7 @@ namespace Server.Multis
 
             if (owner != null)
             {
-                List<BaseHouse> list = null;
-                m_Table.TryGetValue(owner, out list);
-
+                _ = m_Table.TryGetValue(owner, out List<BaseHouse> list);
                 if (list == null)
                     m_Table[owner] = list = new List<BaseHouse>();
 
@@ -2352,6 +2346,11 @@ namespace Server.Multis
             {
                 vendor.RenterRenew = false;
                 vendor.LandlordRenew = false;
+            }
+
+            foreach (var barkeep in PlayerBarkeepers.OfType<PlayerBarkeeper>())
+            {
+                barkeep.Owner = Owner;
             }
         }
 

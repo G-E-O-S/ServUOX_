@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x48C2, 0x48C3)]
+    [Flipable(0x48C2, 0x48C3)]
     public class GargishMaul : BaseBashing
     {
         [Constructable]

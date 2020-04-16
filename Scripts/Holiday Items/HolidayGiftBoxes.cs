@@ -53,7 +53,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x46A5, 0x46A6)]
+    [Flipable(0x46A5, 0x46A6)]
     public class GiftBoxRectangle : BaseContainer
     {
         [Constructable]

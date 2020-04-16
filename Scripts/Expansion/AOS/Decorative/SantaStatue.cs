@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x4A9A, 0x4A9B)]
+    [Flipable(0x4A9A, 0x4A9B)]
     public class SantaStatue : MonsterStatuette
     {
         public override int LabelNumber { get { return 1097968; } } // santa statue

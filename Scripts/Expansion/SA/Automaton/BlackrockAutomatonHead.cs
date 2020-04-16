@@ -3,7 +3,7 @@ using Server.Mobiles;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x9DB1, 0x9DB2)]
+    [Flipable(0x9DB1, 0x9DB2)]
     public class BlackrockAutomatonHead : KotlAutomatonHead
     {
         public override int LabelNumber { get { return 1157220; } } // Blackrock Automaton Head

@@ -9,7 +9,7 @@ using Server.Targeting;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x14E7, 0x14E8)]
+    [Flipable(0x14E7, 0x14E8)]
     public class DungeonHitchingPost : Item
     {
         public override int LabelNumber { get { return 1025351; } }// hitching post

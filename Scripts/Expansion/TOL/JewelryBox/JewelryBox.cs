@@ -7,7 +7,7 @@ using Server.Network;
 namespace Server.Items
 {
     [Furniture]
-    [FlipableAttribute(0x9F1C, 0x9F1D)]
+    [Flipable(0x9F1C, 0x9F1D)]
     public class JewelryBox : Container, IDyable
     {
 		public override int LabelNumber { get { return 1157694; } } // Jewelry Box

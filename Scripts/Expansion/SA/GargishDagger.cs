@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a Dagger
-    [FlipableAttribute(0x902, 0x406A)]
+    [Flipable(0x902, 0x406A)]
     public class GargishDagger : BaseKnife
     {
         [Constructable]

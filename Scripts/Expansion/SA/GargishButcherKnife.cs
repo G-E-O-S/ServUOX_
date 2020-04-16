@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based Off Butcher Knife
-    [FlipableAttribute(0x48B6, 0x48B7)]
+    [Flipable(0x48B6, 0x48B7)]
     public class GargishButcherKnife : BaseKnife
     {
         [Constructable]

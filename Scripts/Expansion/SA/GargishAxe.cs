@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based off Axe
-    [FlipableAttribute(0x48B2, 0x48B3)]
+    [Flipable(0x48B2, 0x48B3)]
     public class GargishAxe : BaseAxe
     {
         [Constructable]

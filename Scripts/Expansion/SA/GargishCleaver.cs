@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based off Cleaver
-    [FlipableAttribute(0x48AE, 0x48AF)]
+    [Flipable(0x48AE, 0x48AF)]
     public class GargishCleaver : BaseKnife
     {
         [Constructable]

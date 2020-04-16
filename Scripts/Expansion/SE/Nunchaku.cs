@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x27AE, 0x27F9)]
+    [Flipable(0x27AE, 0x27F9)]
     public class Nunchaku : BaseBashing
     {
         [Constructable]

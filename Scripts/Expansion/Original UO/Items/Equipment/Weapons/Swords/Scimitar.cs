@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13B6, 0x13B5)]
+    [Flipable(0x13B6, 0x13B5)]
     public class Scimitar : BaseSword
     {
         [Constructable]

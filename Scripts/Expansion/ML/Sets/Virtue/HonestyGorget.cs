@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x2B0E, 0x2B0F)]
+    [Flipable(0x2B0E, 0x2B0F)]
     public class HonestyGorget : BaseArmor
     {
 		public override bool IsArtifact { get { return true; } }

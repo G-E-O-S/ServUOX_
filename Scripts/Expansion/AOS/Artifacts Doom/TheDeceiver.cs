@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x1443, 0x1442)]
+    [Flipable(0x1443, 0x1442)]
     public class TheDeceiver : TwoHandedAxe
     {
         public override int LabelNumber { get { return 1157344; } } // the deceiver

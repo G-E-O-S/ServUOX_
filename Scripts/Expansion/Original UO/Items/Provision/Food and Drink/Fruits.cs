@@ -116,7 +116,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x171f, 0x1720)]
+    [Flipable(0x171f, 0x1720)]
     public class Banana : Food
     {
         [Constructable]
@@ -703,7 +703,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0xc72, 0xc73)]
+    [Flipable(0xc72, 0xc73)]
     public class Squash : Food
     {
         [Constructable]
@@ -740,7 +740,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0xc79, 0xc7a)]
+    [Flipable(0xc79, 0xc7a)]
     public class Cantaloupe : Food
     {
         [Constructable]

@@ -1,7 +1,7 @@
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x50D8, 0x50D9)]
+    [Flipable(0x50D8, 0x50D9)]
     public class GargoyleHalfApron : BaseWaist
     {
         [Constructable]

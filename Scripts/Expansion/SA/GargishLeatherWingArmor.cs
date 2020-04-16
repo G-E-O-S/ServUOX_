@@ -3,7 +3,7 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x457E, 0x457F)]
+    [Flipable(0x457E, 0x457F)]
     public class GargishLeatherWingArmor : BaseArmor, IRangeDamage
     {
         private AosElementAttributes m_AosElementDamages;

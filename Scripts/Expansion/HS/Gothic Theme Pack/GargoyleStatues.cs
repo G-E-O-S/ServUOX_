@@ -1,6 +1,6 @@
 namespace Server.Items
 {
-    [FlipableAttribute(0x494E, 0x494D)]
+    [Flipable(0x494E, 0x494D)]
     public class StatueGargoyleEast : Item
     {
         [Constructable]
@@ -30,7 +30,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x494D, 0x494E)]
+    [Flipable(0x494D, 0x494E)]
     public class StatueGargoyleSouth : Item
     {
         [Constructable]

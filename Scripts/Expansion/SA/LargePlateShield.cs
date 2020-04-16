@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a HeaterShield
-    [FlipableAttribute(0x4204, 0x4208)]
+    [Flipable(0x4204, 0x4208)]
     public class LargePlateShield : BaseShield
     {
         [Constructable]

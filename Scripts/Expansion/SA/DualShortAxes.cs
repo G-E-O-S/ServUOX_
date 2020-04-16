@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a DoubleAxe
-    [FlipableAttribute(0x8FD, 0x4068)]
+    [Flipable(0x8FD, 0x4068)]
     public class DualShortAxes : BaseAxe
     {
         [Constructable]

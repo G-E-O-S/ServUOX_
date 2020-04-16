@@ -1,6 +1,6 @@
+
 namespace Server.Items
 {
-    [Flipable(0x1079, 0x1078)]
     public abstract class BaseHides : Item, ICommodity
     {
         protected virtual CraftResource DefaultResource => CraftResource.RegularLeather;
@@ -18,7 +18,6 @@ namespace Server.Items
             Weight = 5.0;
             Amount = amount;
             Hue = CraftResources.GetHue(resource);
-
             m_Resource = resource;
         }
 
@@ -30,7 +29,10 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get => m_Resource;
+            get
+            {
+                return m_Resource;
+            }
             set
             {
                 m_Resource = value;
@@ -41,13 +43,8 @@ namespace Server.Items
         {
             get
             {
-                if (Core.ML)
-                {
-                    if (m_Resource >= CraftResource.SpinedLeather && m_Resource <= CraftResource.BarbedLeather)
-                    {
-                        return 1049687 + (m_Resource - CraftResource.SpinedLeather);
-                    }
-                }
+                if (m_Resource >= CraftResource.SpinedLeather && m_Resource <= CraftResource.BarbedLeather)
+                    return 1049687 + (m_Resource - CraftResource.SpinedLeather);
 
                 return 1047023;
             }
@@ -64,10 +61,9 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
-            switch (version)
+            switch ( version )
             {
                 case 2: // Reset from Resource System
                     m_Resource = DefaultResource;
@@ -91,13 +87,9 @@ namespace Server.Items
         public override void AddNameProperty(ObjectPropertyList list)
         {
             if (Amount > 1)
-            {
                 list.Add(1050039, "{0}\t#{1}", Amount, 1024216); // ~1_NUMBER~ ~2_ITEMNAME~
-            }
             else
-            {
                 list.Add(1024216); // pile of hides
-            }
         }
 
         public override void GetProperties(ObjectPropertyList list)
@@ -109,17 +101,14 @@ namespace Server.Items
                 int num = CraftResources.GetLocalizationNumber(m_Resource);
 
                 if (num > 0)
-                {
                     list.Add(num);
-                }
                 else
-                {
                     list.Add(CraftResources.GetName(m_Resource));
-                }
             }
         }
     }
 
+    [Flipable(0x1079, 0x1078)]
     public class Hides : BaseHides, IScissorable
     {
         [Constructable]
@@ -154,9 +143,7 @@ namespace Server.Items
         public bool Scissor(Mobile from, Scissors scissors)
         {
             if (Deleted || !from.CanSee(this))
-            {
                 return false;
-            }
 
             if (Core.AOS && !IsChildOf(from.Backpack))
             {
@@ -169,6 +156,7 @@ namespace Server.Items
         }
     }
 
+    [Flipable(0x1079, 0x1078)]
     public class SpinedHides : BaseHides, IScissorable
     {
         protected override CraftResource DefaultResource => CraftResource.SpinedLeather;
@@ -205,20 +193,21 @@ namespace Server.Items
         public bool Scissor(Mobile from, Scissors scissors)
         {
             if (Deleted || !from.CanSee(this))
-            {
                 return false;
-            }
 
             if (Core.AOS && !IsChildOf(from.Backpack))
             {
                 from.SendLocalizedMessage(502437); // Items you wish to cut must be in your backpack
                 return false;
             }
-            base.ScissorHelper(from, new Leather(), 1);
+
+            base.ScissorHelper(from, new SpinedLeather(), 1);
 
             return true;
         }
     }
+
+    [Flipable(0x1079, 0x1078)]
     public class HornedHides : BaseHides, IScissorable
     {
         protected override CraftResource DefaultResource => CraftResource.HornedLeather;
@@ -255,20 +244,21 @@ namespace Server.Items
         public bool Scissor(Mobile from, Scissors scissors)
         {
             if (Deleted || !from.CanSee(this))
-            {
                 return false;
-            }
 
             if (Core.AOS && !IsChildOf(from.Backpack))
             {
                 from.SendLocalizedMessage(502437); // Items you wish to cut must be in your backpack
                 return false;
             }
-            base.ScissorHelper(from, new Leather(), 1);
+			
+            base.ScissorHelper(from, new HornedLeather(), 1);
 
             return true;
         }
     }
+
+    [Flipable(0x1079, 0x1078)]
     public class BarbedHides : BaseHides, IScissorable
     {
         protected override CraftResource DefaultResource => CraftResource.BarbedLeather;
@@ -305,16 +295,15 @@ namespace Server.Items
         public bool Scissor(Mobile from, Scissors scissors)
         {
             if (Deleted || !from.CanSee(this))
-            {
                 return false;
-            }
 
             if (Core.AOS && !IsChildOf(from.Backpack))
             {
                 from.SendLocalizedMessage(502437); // Items you wish to cut must be in your backpack
                 return false;
             }
-            base.ScissorHelper(from, new Leather(), 1);
+
+            base.ScissorHelper(from, new BarbedLeather(), 1);
 
             return true;
         }

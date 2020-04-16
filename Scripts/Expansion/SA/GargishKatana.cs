@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based Off Katana
-    [FlipableAttribute(0x48BA, 0x48BB)]
+    [Flipable(0x48BA, 0x48BB)]
     public class GargishKatana : BaseSword
     {
         [Constructable]

@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a Spear
-    [FlipableAttribute(0x904, 0x406D)]
+    [Flipable(0x904, 0x406D)]
     public class DualPointedSpear : BaseSpear
     {
         [Constructable]

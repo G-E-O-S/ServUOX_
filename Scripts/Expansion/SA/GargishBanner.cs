@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x4037, 0x4038)]
+    [Flipable(0x4037, 0x4038)]
     public class GargishBanner : Item
     {
         [Constructable]

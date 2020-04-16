@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Bassed Off Daisho
-    [FlipableAttribute(0x48D0, 0x48D1)]
+    [Flipable(0x48D0, 0x48D1)]
     public class GargishDaisho : BaseSword
     {
         [Constructable]

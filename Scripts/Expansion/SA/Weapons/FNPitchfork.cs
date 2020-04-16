@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0xE87, 0xE88)]
+    [Flipable(0xE87, 0xE88)]
     public class FNPitchfork : BaseSpear
 	{
 		public override bool IsArtifact { get { return true; } }

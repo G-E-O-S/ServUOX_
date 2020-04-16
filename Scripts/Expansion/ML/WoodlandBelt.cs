@@ -1,7 +1,7 @@
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x2B68, 0x315F)]
+    [Flipable(0x2B68, 0x315F)]
     public class WoodlandBelt : BaseWaist
     {
         [Constructable]

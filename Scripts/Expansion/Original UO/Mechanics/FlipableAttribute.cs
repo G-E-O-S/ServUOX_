@@ -37,14 +37,14 @@ namespace Server.Items
 
                     Type type = targeted.GetType();
 
-                    FlipableAttribute[] AttributeArray = (FlipableAttribute[])type.GetCustomAttributes(typeof(FlipableAttribute), false);
+                    Flipable[] AttributeArray = (Flipable[])type.GetCustomAttributes(typeof(Flipable), false);
 
                     if (AttributeArray.Length == 0)
                     {
                         return;
                     }
 
-                    FlipableAttribute fa = AttributeArray[0];
+                    Flipable fa = AttributeArray[0];
 
                     fa.Flip((Item)targeted);
                 }
@@ -61,14 +61,14 @@ namespace Server.Items
     }
 
     [AttributeUsage(AttributeTargets.Class)]
-    public class FlipableAttribute : Attribute
+    public class Flipable : Attribute
     {
-        public FlipableAttribute()
+        public Flipable()
             : this(null)
         {
         }
 
-        public FlipableAttribute(params int[] itemIDs)
+        public Flipable(params int[] itemIDs)
         {
             ItemIDs = itemIDs;
         }

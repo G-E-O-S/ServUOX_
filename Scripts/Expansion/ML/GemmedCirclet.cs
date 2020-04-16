@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x2B70, 0x3167)]
+    [Flipable(0x2B70, 0x3167)]
     public class GemmedCirclet : BaseArmor
     {
         [Constructable]

@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Bassed Off Tekagi
-    [FlipableAttribute(0x48CE, 0x48Cf)]
+    [Flipable(0x48CE, 0x48Cf)]
     public class GargishTekagi : BaseKnife
     {
         [Constructable]

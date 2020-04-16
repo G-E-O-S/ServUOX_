@@ -144,7 +144,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x2FC3, 0x3179)]
+    [Flipable(0x2FC3, 0x3179)]
     public class ElvenPants : BasePants
     {
         public override Race RequiredRace

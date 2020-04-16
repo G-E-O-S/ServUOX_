@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a MetalShield
-    [FlipableAttribute(0x4203, 0x4209)]
+    [Flipable(0x4203, 0x4209)]
     public class MediumPlateShield : BaseShield
     {
         [Constructable]

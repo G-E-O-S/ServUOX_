@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x9A1E, 0x9A1F)]
+    [Flipable(0x9A1E, 0x9A1F)]
     public class ObsidianSkull : Item
     {
         public override int LabelNumber { get { return 1123478; } } // Obsidian Skull

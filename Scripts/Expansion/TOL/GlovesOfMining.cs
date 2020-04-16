@@ -3,7 +3,7 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13c6, 0x13ce)]
+    [Flipable(0x13c6, 0x13ce)]
     public class LeatherGlovesOfMining : BaseGlovesOfMining
 	{
 		public override bool IsArtifact { get { return true; } }
@@ -130,7 +130,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x13d5, 0x13dd)]
+    [Flipable(0x13d5, 0x13dd)]
     public class StuddedGlovesOfMining : BaseGlovesOfMining
     {
         [Constructable]
@@ -250,7 +250,7 @@ namespace Server.Items
     }
 
     [Alterable(typeof(DefBlacksmithy), typeof(GargishKiltOfMining))]
-    [FlipableAttribute(0x13eb, 0x13f2)]
+    [Flipable(0x13eb, 0x13f2)]
     public class RingmailGlovesOfMining : BaseGlovesOfMining
     {
         [Constructable]
@@ -369,7 +369,7 @@ namespace Server.Items
         }
     }
 
-    [FlipableAttribute(0x13eb, 0x13f2)]
+    [Flipable(0x13eb, 0x13f2)]
     public class GargishKiltOfMining : BaseGlovesOfMining
     {
         public override Race RequiredRace

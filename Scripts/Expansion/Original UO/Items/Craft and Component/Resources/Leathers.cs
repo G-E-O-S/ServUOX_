@@ -1,6 +1,6 @@
+
 namespace Server.Items
 {
-    [Flipable(0x1081, 0x1082)]
     public abstract class BaseLeather : Item, ICommodity
     {
         protected virtual CraftResource DefaultResource => CraftResource.RegularLeather;
@@ -18,7 +18,6 @@ namespace Server.Items
             Weight = 1.0;
             Amount = amount;
             Hue = CraftResources.GetHue(resource);
-
             m_Resource = resource;
         }
 
@@ -30,7 +29,10 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get => m_Resource;
+            get
+            {
+                return m_Resource;
+            }
             set
             {
                 m_Resource = value;
@@ -41,19 +43,15 @@ namespace Server.Items
         {
             get
             {
-                if (Core.ML)
-                {
-                    if (m_Resource >= CraftResource.SpinedLeather && m_Resource <= CraftResource.BarbedLeather)
-                    {
-                        return 1049684 + (m_Resource - CraftResource.SpinedLeather);
-                    }
-                }
+                if (m_Resource >= CraftResource.SpinedLeather && m_Resource <= CraftResource.BarbedLeather)
+                    return 1049684 + (m_Resource - CraftResource.SpinedLeather);
 
                 return 1047022;
             }
         }
         TextDefinition ICommodity.Description => LabelNumber;
         bool ICommodity.IsDeedable => true;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
@@ -64,7 +62,6 @@ namespace Server.Items
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             switch (version)
@@ -81,7 +78,6 @@ namespace Server.Items
                 case 0:
                     {
                         OreInfo info = new OreInfo(reader.ReadInt(), reader.ReadInt(), reader.ReadString());
-
                         m_Resource = CraftResources.GetFromOreInfo(info);
                         break;
                     }
@@ -91,13 +87,9 @@ namespace Server.Items
         public override void AddNameProperty(ObjectPropertyList list)
         {
             if (Amount > 1)
-            {
                 list.Add(1050039, "{0}\t#{1}", Amount, 1024199); // ~1_NUMBER~ ~2_ITEMNAME~
-            }
             else
-            {
                 list.Add(1024199); // cut leather
-            }
         }
 
         public override void GetProperties(ObjectPropertyList list)
@@ -109,16 +101,14 @@ namespace Server.Items
                 int num = CraftResources.GetLocalizationNumber(m_Resource);
 
                 if (num > 0)
-                {
                     list.Add(num);
-                }
                 else
-                {
                     list.Add(CraftResources.GetName(m_Resource));
-                }
             }
         }
     }
+
+    [Flipable(0x1081, 0x1082)]
     public class Leather : BaseLeather
     {
         [Constructable]
@@ -150,6 +140,8 @@ namespace Server.Items
             _ = reader.ReadInt();
         }
     }
+
+    [Flipable(0x1081, 0x1082)]
     public class SpinedLeather : BaseLeather
     {
         protected override CraftResource DefaultResource => CraftResource.SpinedLeather;
@@ -183,6 +175,8 @@ namespace Server.Items
             _ = reader.ReadInt();
         }
     }
+
+    [Flipable(0x1081, 0x1082)]
     public class HornedLeather : BaseLeather
     {
         protected override CraftResource DefaultResource => CraftResource.HornedLeather;
@@ -216,6 +210,8 @@ namespace Server.Items
             _ = reader.ReadInt();
         }
     }
+
+    [Flipable(0x1081, 0x1082)]
     public class BarbedLeather : BaseLeather
     {
         protected override CraftResource DefaultResource => CraftResource.BarbedLeather;

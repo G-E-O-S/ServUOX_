@@ -338,7 +338,7 @@ namespace Server.Items
                     }
                 }
 
-                FlipableAttribute[] attributes = (FlipableAttribute[])item.GetType().GetCustomAttributes(typeof(FlipableAttribute), false);
+                Flipable[] attributes = (Flipable[])item.GetType().GetCustomAttributes(typeof(Flipable), false);
 
                 if (attributes.Length > 0)
                     attributes[0].Flip(item);

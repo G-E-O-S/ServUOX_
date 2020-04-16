@@ -7,7 +7,7 @@ using Server.Multis;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x0FBF, 0x0FC0)]
+    [Flipable(0x0FBF, 0x0FC0)]
     public class PenOfWisdom : Item, IUsesRemaining
     {
         public override int LabelNumber { get { return 1115358; } } // Pen of Wisdom		

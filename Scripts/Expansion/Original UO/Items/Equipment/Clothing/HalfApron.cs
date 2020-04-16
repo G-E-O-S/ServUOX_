@@ -4,7 +4,7 @@ using System;
 namespace Server.Items
 {
     [Alterable(typeof(DefTailoring), typeof(GargishApron), true)]
-    [FlipableAttribute(0x153b, 0x153c)]
+    [Flipable(0x153b, 0x153c)]
     public class HalfApron : BaseWaist
     {
         [Constructable]

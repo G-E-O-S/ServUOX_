@@ -10,7 +10,7 @@ using Server.Engines.HuntsmasterChallenge;
 
 namespace Server.Items
 {
-	[FlipableAttribute( 0x1EBA, 0x1EBB )]
+	[Flipable( 0x1EBA, 0x1EBB )]
 	public class TaxidermyKit : Item
 	{
 		public override int LabelNumber{ get{ return 1041279; } } // a taxidermy kit

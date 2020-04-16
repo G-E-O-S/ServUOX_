@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x42DE, 0x42DF)]
+    [Flipable(0x42DE, 0x42DF)]
     public class PlateTalons : BaseShoes
     {
         [Constructable]

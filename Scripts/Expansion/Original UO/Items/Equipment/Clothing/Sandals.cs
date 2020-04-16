@@ -4,7 +4,7 @@ using Server.Engines.Craft;
 namespace Server.Items
 {
     [Alterable(typeof(DefTailoring), typeof(LeatherTalons), true)]
-    [FlipableAttribute(0x170d, 0x170e)]
+    [Flipable(0x170d, 0x170e)]
     public class Sandals : BaseShoes
     {
         public override CraftResource DefaultResource

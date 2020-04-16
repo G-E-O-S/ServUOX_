@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a MetalKiteShield
-    [FlipableAttribute(0x4201, 0x4206)]
+    [Flipable(0x4201, 0x4206)]
     public class GargishKiteShield : BaseShield, IDyable
     {
         [Constructable]

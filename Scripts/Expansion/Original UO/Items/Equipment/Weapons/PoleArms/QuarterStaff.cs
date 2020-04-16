@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0xE89, 0xE8a)]
+    [Flipable(0xE89, 0xE8a)]
     public class QuarterStaff : BaseStaff
     {
         [Constructable]

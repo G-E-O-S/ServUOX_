@@ -4,7 +4,7 @@ using Server.Engines.Craft;
 namespace Server.Items
 {
     [Alterable(typeof(DefBlacksmithy), typeof(DualPointedSpear))]
-    [FlipableAttribute(0x26BD, 0x26C7)]
+    [Flipable(0x26BD, 0x26C7)]
     public class BladedStaff : BaseSpear
     {
         [Constructable]

@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     // Based off a WarMace
-    [FlipableAttribute(0x903, 0x406E)]
+    [Flipable(0x903, 0x406E)]
     public class DiscMace : BaseBashing
     {
         [Constructable]

@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x152e, 0x152f)]
+    [Flipable(0x152e, 0x152f)]
     public class ShortPants : BasePants
     {
         [Constructable]

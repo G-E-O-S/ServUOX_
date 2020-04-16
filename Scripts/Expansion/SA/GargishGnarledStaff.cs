@@ -3,7 +3,7 @@ using System;
 namespace Server.Items
 {
     //Based Off Gnarled Staff
-    [FlipableAttribute(0x48B8, 0x48B9)]
+    [Flipable(0x48B8, 0x48B9)]
     public class GargishGnarledStaff : BaseStaff
     {
         [Constructable]

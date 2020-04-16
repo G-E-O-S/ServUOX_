@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x1f81, 0x1f82, 0x1f83, 0x1f84)]
+    [Flipable(0x1f81, 0x1f82, 0x1f83, 0x1f84)]
     public class Glass : Item
     {
         [Constructable]

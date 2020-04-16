@@ -731,11 +731,11 @@ namespace Server.Mobiles
 
 				if (type.IsDefined(typeof(FurnitureAttribute), true) || type.IsDefined(typeof(DynamicFlipingAttribute), true))
 				{
-					var objs = type.GetCustomAttributes(typeof(FlipableAttribute), true);
+					var objs = type.GetCustomAttributes(typeof(Flipable), true);
 
 					if (objs != null && objs.Length > 0)
 					{
-						FlipableAttribute fp = objs[0] as FlipableAttribute;
+						Flipable fp = objs[0] as Flipable;
 
 						if (fp != null)
 						{

@@ -2,7 +2,7 @@ using System;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x13b4, 0x13b3)]
+    [Flipable(0x13b4, 0x13b3)]
     public class Club : BaseBashing
     {
         [Constructable]

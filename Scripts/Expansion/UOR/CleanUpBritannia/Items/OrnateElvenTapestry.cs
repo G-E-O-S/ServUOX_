@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Server.Items
 {
-    [FlipableAttribute(0x2D71, 0x2D72)]
+    [Flipable(0x2D71, 0x2D72)]
     public class OrnateElvenTapestry : Item
     {
         [Constructable]

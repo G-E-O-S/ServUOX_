@@ -30,7 +30,7 @@ namespace Server
             {
                 activeSpeed = min;
             }
-
+                       
             passiveSpeed = activeSpeed * 2;
 
             return true;

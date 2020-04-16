@@ -50,6 +50,7 @@
     <Compile Include="Administration\World\Regions\Spawning\SpawnEntry.cs" />
     <Compile Include="Administration\World\Regions\Spawning\SpawnPersistence.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\LootBags.cs" />
+    <Compile Include="Expansion\EJ\StoreBought\MetalLadder2.cs" />
     <Compile Include="Expansion\HS\Gothic Theme Pack\GargoyleStatues.cs" />
     <Compile Include="Expansion\Original UO\Items\Equipment\Clothing\BaseCloak.cs" />
     <Compile Include="Expansion\Original UO\Items\Equipment\Clothing\BaseHat.cs" />
@@ -2213,7 +2214,7 @@
     <Compile Include="Mobiles\Hunters Guide\G\Grobu.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\Guile.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\Ilhenir.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\Irk.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Irk.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadyJennifyr.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadyLissith.cs" />
     <Compile Include="Mobiles\Hunters Guide\L\LadyMarai.cs" />
@@ -2373,7 +2374,7 @@
     <Compile Include="Expansion\UOR\Mobiles\Executioner.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\ExodusMinion.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\ExodusOverseer.cs" />
-    <Compile Include="Mobiles\Hunters Guide\F\FairyDragon.cs" />
+    <Compile Include="Expansion\SA\Mobiles\StygianDragonLair\FairyDragon.cs" />
     <Compile Include="Expansion\SE\Mobiles\FanDancer.cs" />
     <Compile Include="Expansion\AOS\Living Forest\Mobiles\FeralTreefellow.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\Ferret.cs" />
@@ -2390,7 +2391,7 @@
     <Compile Include="Mobiles\Hunters Guide\F\ForgottenServant.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FrostDragon.cs" />
     <Compile Include="Expansion\T2A\Mobiles\FrostOoze.cs" />
-    <Compile Include="Mobiles\Hunters Guide\G\Gaman.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Gaman.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Gargoyle.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleDestroyer.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GargoyleEnforcer.cs" />
@@ -2431,11 +2432,11 @@
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Horses.cs" />
     <Compile Include="Expansion\ML\Mobiles\Hydra.cs" />
     <Compile Include="Customs\Icehound.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\Impaler.cs" />
+    <Compile Include="Expansion\AOS\Doom\Mobiles\Impaler.cs" />
     <Compile Include="Mobiles\Hunters Guide\I\InjuredWolf.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\InsaneDryad.cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\InterredGrizzle .cs" />
-    <Compile Include="Mobiles\Hunters Guide\I\IronBeetle.cs" />
+    <Compile Include="Expansion\ML\Mobiles\BlightedGrove\InsaneDryad.cs" />
+    <Compile Include="Expansion\ML\Mobiles\InterredGrizzle .cs" />
+    <Compile Include="Expansion\SA\Underworld\Mobiles\IronBeetle.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Juggernaut.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\JukaLord.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\JukaMage.cs" />
@@ -8813,16 +8814,16 @@
     <Compile Include="Administration\World\WelcomeTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Peoharen SE\BaseSummoned.cs">
+    <Compile Include="Customs\Peoharen SE\BaseSummoned.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\XSORTINGX\Abilities\Enhancement.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Peoharen SE\EnhancementTimer.cs">
+    <Compile Include="Customs\Peoharen SE\EnhancementTimer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Peoharen SE\TimedResistanceMod.cs">
+    <Compile Include="Customs\Peoharen SE\TimedResistanceMod.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Mechanics\AI\AIControlMobileTarget.cs">
