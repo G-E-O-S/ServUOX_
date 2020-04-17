@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class Vines : Item
@@ -15,10 +13,12 @@ namespace Server.Items
             : base(0xCEB)
         {
             if (v < 0 || v > 7)
+            {
                 v = 0;
+            }
 
-            this.ItemID += v;
-            this.Weight = 1.0;
+            ItemID += v;
+            Weight = 1.0;
         }
 
         public Vines(Serial serial)
@@ -26,25 +26,18 @@ namespace Server.Items
         {
         }
 
-        public override bool ForceShowProperties
-        {
-            get
-            {
-                return ObjectPropertyList.Enabled;
-            }
-        }
+        public override bool ForceShowProperties => ObjectPropertyList.Enabled;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

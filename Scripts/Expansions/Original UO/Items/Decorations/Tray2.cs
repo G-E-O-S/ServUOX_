@@ -1,18 +1,16 @@
-using System;
-
 namespace Server.Items
 {
-    public class ToolKit : Item
+    public class DecoTray2 : Item
     {
         [Constructable]
-        public ToolKit()
-            : base(Utility.Random(2) + 0x1EBA)
+        public DecoTray2()
+            : base(0x991)
         {
-            this.Movable = true;
-            this.Stackable = false;
+            Movable = true;
+            Stackable = false;
         }
 
-        public ToolKit(Serial serial)
+        public DecoTray2(Serial serial)
             : base(serial)
         {
         }
@@ -20,15 +18,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

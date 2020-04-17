@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Furniture]
@@ -10,7 +8,7 @@ namespace Server.Items
         public WritingTable()
             : base(0xB4A)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public WritingTable(Serial serial)
@@ -22,7 +20,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -31,8 +29,10 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            if (this.Weight == 4.0)
-                this.Weight = 1.0;
+            if (Weight == 4.0)
+            {
+                Weight = 1.0;
+            }
         }
     }
 }

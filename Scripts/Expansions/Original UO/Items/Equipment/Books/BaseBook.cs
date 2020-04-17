@@ -153,7 +153,20 @@ namespace Server.Items
                 return;
             }
 
-            const int cpl = 22; //characters per line
+            //const int cpl = 22; //characters per line
+            //const int cplEj = 25; //characters per line EJ Client
+            int cpl;
+            if (Core.EJ)
+                cpl = 26; //characters per line EJ Client
+            else
+                cpl = 22; //characters per line
+
+            int lns;
+            if (Core.EJ)
+                lns = 10; //line per page EJ Client
+            else
+                lns = 8; //line per page
+
             int pos = 0, nextpos;
             List<string[]> newpages = new List<string[]>();
 
@@ -161,7 +174,7 @@ namespace Server.Items
             {
                 List<string> lines = new List<string>();
 
-                for (int i = 0; i < 8; ++i)
+                for (int i = 0; i < lns; ++i)
                 {
                     if (content.Length - pos < cpl)
                     {
@@ -173,7 +186,7 @@ namespace Server.Items
                     {
                         if ((nextpos = content.LastIndexOfAny(" /|\\.!@#$%^&*()_+=-".ToCharArray(), pos + cpl, cpl)) > 0)
                         {
-                            lines.Add(content.Substring(pos, (nextpos - pos) + 1));
+                            lines.Add(content.Substring(pos, nextpos - pos + 1));
                             pos = nextpos + 1;
                         }
                         else
@@ -229,12 +242,12 @@ namespace Server.Items
 
             SaveFlags flags = SaveFlags.None;
 
-            if (m_Title != (content?.Title))
+            if (m_Title != content?.Title)
             {
                 flags |= SaveFlags.Title;
             }
 
-            if (m_Author != (content?.Author))
+            if (m_Author != content?.Author)
             {
                 flags |= SaveFlags.Author;
             }
@@ -565,8 +578,12 @@ namespace Server.Items
                     --index;
 
                     int lineCount = pvSrc.ReadUInt16();
-
-                    if (lineCount <= 8)
+                    int lns;
+                    if (Core.EJ)
+                        lns = 10; //line per page EJ Client
+                    else
+                        lns = 8; //line per page
+                    if (lineCount <= lns)
                     {
                         string[] lines = new string[lineCount];
 

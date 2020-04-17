@@ -1,18 +1,15 @@
-﻿using System;
-
 namespace Server.Items
 {
-    public class DecoFullJar : Item
+    public class Vase : Item
     {
         [Constructable]
-        public DecoFullJar()
-            : base(0x1006)
+        public Vase()
+            : base(0xB46)
         {
-            this.Movable = true;
-            this.Stackable = false;
+            Weight = 1.0;
         }
 
-        public DecoFullJar(Serial serial)
+        public Vase(Serial serial)
             : base(serial)
         {
         }
@@ -20,29 +17,26 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    public class DecoFullJars3 : Item
+    public class LargeVase : Item
     {
         [Constructable]
-        public DecoFullJars3()
-            : base(0xE4a)
+        public LargeVase()
+            : base(0xB45)
         {
-            this.Movable = true;
-            this.Stackable = false;
+            Weight = 1.0;
         }
 
-        public DecoFullJars3(Serial serial)
+        public LargeVase(Serial serial)
             : base(serial)
         {
         }
@@ -50,29 +44,26 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    public class DecoFullJars4 : Item
+    public class SmallUrn : Item
     {
         [Constructable]
-        public DecoFullJars4()
-            : base(0xE4b)
+        public SmallUrn()
+            : base(0x241C)
         {
-            this.Movable = true;
-            this.Stackable = false;
+            Weight = 1.0;
         }
 
-        public DecoFullJars4(Serial serial)
+        public SmallUrn(Serial serial)
             : base(serial)
         {
         }
@@ -80,15 +71,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -1,11 +1,11 @@
 using Server.ContextMenus;
 using Server.Engines.Craft;
+using Server.Engines.XmlSpawner2;
 using Server.Factions;
 using Server.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Server.Engines.XmlSpawner2;
 using AMA = Server.Items.ArmorMeditationAllowance;
 using AMT = Server.Items.ArmorMaterialType;
 
@@ -1001,17 +1001,11 @@ namespace Server.Items
         public virtual int BaseColdResistance => 0;
         public virtual int BasePoisonResistance => 0;
         public virtual int BaseEnergyResistance => 0;
-
         public override int PhysicalResistance => BasePhysicalResistance + GetProtOffset() + m_PhysicalBonus;
-
         public override int FireResistance => BaseFireResistance + GetProtOffset() + m_FireBonus;
-
         public override int ColdResistance => BaseColdResistance + GetProtOffset() + m_ColdBonus;
-
         public override int PoisonResistance => BasePoisonResistance + GetProtOffset() + m_PoisonBonus;
-
         public override int EnergyResistance => BaseEnergyResistance + GetProtOffset() + m_EnergyBonus;
-
         public virtual int InitMinHits => 0;
         public virtual int InitMaxHits => 0;
 
@@ -1440,9 +1434,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write(15); // version
-
-            // Version 14 - removed VvV Item (handled in VvV System) and BlockRepair (Handled as negative attribute)
+            writer.Write(15);
 
             writer.Write(_Owner);
             writer.Write(_OwnerName);

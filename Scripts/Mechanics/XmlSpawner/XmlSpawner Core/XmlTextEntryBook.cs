@@ -39,8 +39,13 @@ namespace Server.Items
 			// break up the text into single line length pieces
 			while(text != null && current < text.Length)
 			{
-				int lineCount = 8;
-				string[] lines = new string[lineCount];
+				//int lineCount = 10;//8
+                int lineCount;
+                if (Core.EJ)
+                    lineCount = 10; //line per page EJ Client
+                else
+                    lineCount = 8; //line per page
+                string[] lines = new string[lineCount];
 
 				// place the line on the page
 				for(int i=0;i<lineCount;i++)
@@ -216,8 +221,13 @@ namespace Server.Items
 					--index;
 
 					int lineCount = pvSrc.ReadUInt16();
+                    int lns;
+                    if (Core.EJ)
+                        lns = 10; //line per page EJ Client
+                    else
+                        lns = 8; //line per page
 
-					if ( lineCount <= 8 )
+                    if ( lineCount <= lns)//8
 					{
 						string[] lines = new string[lineCount];
 
@@ -287,8 +297,13 @@ namespace Server.Items
                         --index;
 
                         int lineCount = pvSrc.ReadUInt16();
+                        int lns;
+                        if (Core.EJ)
+                            lns = 10; //line per page EJ Client
+                        else
+                            lns = 8; //line per page
 
-                        if (lineCount <= 8)
+                        if (lineCount <= lns)//8
                         {
                             string[] lines = new string[lineCount];
 
