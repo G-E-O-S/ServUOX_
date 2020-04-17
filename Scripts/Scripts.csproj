@@ -1062,7 +1062,7 @@
     <Compile Include="Expansions\SA\OrderChaosBanners.cs" />
     <Compile Include="Expansions\EJ\StoreBought\SingingBall.cs" />
     <Compile Include="Expansions\SA\TatteredWallMap.cs" />
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone Armor\BoneArms.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone\BoneArms.cs" />
     <Compile Include="Expansions\SA\Weapons\Craven.cs" />
     <Compile Include="Expansions\SA\Weapons\CaptainJohnesBlade.cs" />
     <Compile Include="Expansions\SA\Weapons\Abhorrence.cs" />
@@ -1116,7 +1116,7 @@
     <Compile Include="Holiday Items\PlagueMask.cs" />
     <Compile Include="Holiday Items\PorcelainMask.cs" />
     <Compile Include="Holiday Items\PumpkinScarecrow.cs" />
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\RuinedTapestry.cs" />
+    <Compile Include="Expansions\Original UO\Items\Decorations\RuinedTapestry.cs" />
     <Compile Include="Holiday Items\SkullsOnPike.cs" />
     <Compile Include="Customs\StainedGlassLamp.cs" />
     <Compile Include="Customs\TallDoubleLamp.cs" />
@@ -1154,7 +1154,7 @@
     <Compile Include="Expansions\Original UO\Items\Craft and Component\Resources\BaseBoard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\BaseBook.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\BaseBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Equipment\Clothing\BaseClothing.cs">
@@ -1366,7 +1366,7 @@
     <Compile Include="Expansions\UOR\BaseRunicTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\BaseShield.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Shields\BaseShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Decorations\BaseSign.cs">
@@ -1628,7 +1628,7 @@
     <Compile Include="Expansions\Original UO\Mechanics\FlipableAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Fur.cs">
+    <Compile Include="Expansions\SA\Fur.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\GargoyleBook100.cs">
@@ -1683,7 +1683,7 @@
     <Compile Include="Expansions\ML\Quest\MinotaurArtifact.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Lever.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Lever.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\Lodestone.cs">
@@ -3951,25 +3951,25 @@
     <Compile Include="Expansions\ML\Sets\Assassin\AssassinLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone Armor\BoneChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone\BoneChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone Armor\BoneGloves.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone\BoneGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone Armor\BoneLegs.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone\BoneLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Helmets\EvilOrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\ChainChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Chain\ChainChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\ChainHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\ChainLegs.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Chain\ChainLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\T2A\Items\Equipment\Armor\Sets\DaemonBone\DaemonHelm.cs">
@@ -4140,10 +4140,10 @@
     <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Helmets\Bascinet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone Armor\BoneHelm.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Bone\BoneHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\ChainCoif.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Chain\ChainCoif.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\Circlet.cs">
@@ -4158,7 +4158,7 @@
     <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Helmets\Helmet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherCap.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherCap.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Helmets\NorseHelm.cs">
@@ -4167,7 +4167,7 @@
     <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Helmets\OrcHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\PlateHelm.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateHelm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\RavenHelm.cs">
@@ -4233,7 +4233,7 @@
     <Compile Include="Expansions\ML\FemaleLeafChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\FemaleLeatherChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\FemaleLeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\LeafArms.cs">
@@ -4254,22 +4254,22 @@
     <Compile Include="Expansions\ML\LeafTonlet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherArms.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherBustierArms.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherBustierArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\LeatherDo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherGloves.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherGorget.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherGorget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\LeatherHaidate.cs">
@@ -4281,7 +4281,7 @@
     <Compile Include="Expansions\SE\Items\LeatherJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherLegs.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\LeatherMempo.cs">
@@ -4299,10 +4299,10 @@
     <Compile Include="Expansions\SE\Items\LeatherNinjaPants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherShorts.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherShorts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\LeatherSkirt.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\LeatherSuneate.cs">
@@ -4401,7 +4401,7 @@
     <Compile Include="Expansions\SE\Items\DecorativePlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\FemalePlateChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\FemalePlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\FemaleWoodlandChest.cs">
@@ -4413,22 +4413,22 @@
     <Compile Include="Expansions\SE\Items\LightPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\PlateArms.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\PlateBattleKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\PlateChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\PlateDo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\PlateGloves.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\PlateGorget.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateGorget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\PlateHaidate.cs">
@@ -4440,7 +4440,7 @@
     <Compile Include="Expansions\SE\Items\PlateHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\PlateLegs.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\PlateMempo.cs">
@@ -4506,16 +4506,16 @@
     <Compile Include="Expansions\T2A\Items\Equipment\Armor\Sets\Ranger\RangerLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\RingmailArms.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Ringmail\RingmailArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\RingmailChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Ringmail\RingmailChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\RingmailGloves.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Ringmail\RingmailGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\RingmailLegs.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Ringmail\RingmailLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Sets\Scout\ScoutArms.cs">
@@ -4569,13 +4569,13 @@
     <Compile Include="Expansions\ML\Sets\Sorcerers\SorcererSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\FemaleStuddedChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\FemaleStuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\HideChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\HideFemaleChest.cs">
+    <Compile Include="Expansions\ML\HideFemaleChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\HideGloves.cs">
@@ -4590,22 +4590,22 @@
     <Compile Include="Expansions\ML\HidePauldrons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\StuddedArms.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\StuddedBustierArms.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedBustierArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\StuddedChest.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\StuddedDo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\StuddedGloves.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedGloves.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\StuddedGorget.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedGorget.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\StuddedHaidate.cs">
@@ -4614,7 +4614,7 @@
     <Compile Include="Expansions\SE\Items\StuddedHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\StuddedLegs.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedLegs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SE\Items\StuddedMempo.cs">
@@ -4653,17 +4653,17 @@
     <Compile Include="Expansions\SA\Resource\UndyingFlesh.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\BaseLocalizedBook.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\BlueBook.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\BaseLocalizedBook.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\BlueBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\BrownBook.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\BrownBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\Books\BlackthornWelcomeBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\BookContent.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\BookContent.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\UOR\Services\Khaldun\Journals\DrakovsJournal.cs">
@@ -4675,7 +4675,7 @@
     <Compile Include="Expansions\UOR\Services\Khaldun\Journals\KaburJournal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\LibraryBooks.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\LibraryBooks.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Aquarium\NewAquariumBook.cs">
@@ -4685,10 +4685,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\Books\Note.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\RedBook.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\RedBook.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Books\TanBook.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Books\TanBook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\AOS\Decorative\ArtifactLargeVase.cs">
@@ -4907,10 +4907,10 @@
     <Compile Include="Expansions\Original UO\Items\Decorations\DecorativeWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\PaintingPortraits.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\PaintingPortraits.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Tapestry.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Tapestry.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\World\Doors.cs">
@@ -4952,10 +4952,10 @@
     <Compile Include="Expansions\Original UO\Items\Craft and Component\Statues.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Vase.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Vase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Vines.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Vines.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Craft and Component\RuinedItemSingle.cs">
@@ -5716,13 +5716,13 @@
     <Compile Include="Expansions\Original UO\Items\Decorations\EmptyPots.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\PottedCactus.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\PottedCactus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\PottedPlants.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\PottedPlants.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\PottedTrees.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\PottedTrees.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Quivers\ElvenQuiver.cs">
@@ -6667,7 +6667,7 @@
     <Compile Include="Expansions\Original UO\Items\Provision\Spyglass.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Utensils.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Utensils.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\UOTD\Blowpipe.cs">
@@ -7144,7 +7144,7 @@
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\WaterBarrel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\WaterTub.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\WaterTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Decorations\DecoRock.cs">
@@ -7177,10 +7177,10 @@
     <Compile Include="Expansions\Original UO\Items\Decorations\BottlesOfLiquor.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Tray2.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Tray2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\Trays.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Trays.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Decorations\BrokenChair.cs">
@@ -7267,10 +7267,10 @@
     <Compile Include="Expansions\Original UO\Items\Decorations\EmptyJars.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\FullJars.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\FullJars.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\HalfEmptyJars.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\HalfEmptyJars.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Decorations\DecoCrystalBall.cs">
@@ -7372,10 +7372,10 @@
     <Compile Include="Expansions\Original UO\Items\Decorations\Cards5.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\PlayingCards.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\PlayingCards.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\PlayingCards2.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\PlayingCards2.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\TerMurStyleCandelabra.cs">
@@ -7432,7 +7432,7 @@
     <Compile Include="Expansions\Original UO\Items\Provision\Lockpicks.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\ToolKit.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\ToolKit.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Holiday Items\RewardCake.cs">
@@ -7483,7 +7483,7 @@
     <Compile Include="Holiday Items\RedVelvetGiftBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Craft and Component\RoseInAVase.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\RoseInAVase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Holiday Items\ValentinesCard.cs">

@@ -16,17 +16,19 @@ namespace Server.Items
         {
             m_IsBarnacleItem = barnacle;
 
-            int weight = this.ItemData.Weight;
+            int weight = ItemData.Weight;
 
             if (weight >= 255 || weight <= 0)
+            {
                 weight = 1;
+            }
 
-            this.Weight = weight;
+            Weight = weight;
         }
 
         public override void OnSingleClick(Mobile from)
         {
-            this.LabelTo(from, 1050039, String.Format("#{0}\t#1041645", this.LabelNumber));
+            LabelTo(from, 1050039, $"#{LabelNumber}\t#1041645");
         }
 
         public override void AddNameProperties(ObjectPropertyList list)
@@ -34,9 +36,13 @@ namespace Server.Items
             if (m_IsBarnacleItem)
             {
                 if (LabelNumber > 0)
-                    list.Add(1151075, String.Format("#{0}", LabelNumber)); //barnacle covered ~1_token~
+                {
+                    list.Add(1151075, $"#{LabelNumber}"); //barnacle covered ~1_token~
+                }
                 else
-                    list.Add(1151075, this.ItemData.Name); //barnacle covered ~1_token~
+                {
+                    list.Add(1151075, ItemData.Name); //barnacle covered ~1_token~
+                }
 
                 list.Add(1041645); // recovered from a shipwreck
             }
@@ -74,8 +80,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
             writer.Write(m_IsBarnacleItem);
         }
 
@@ -97,12 +102,14 @@ namespace Server.Items
 
         public bool Dye(Mobile from, DyeTub sender)
         {
-            if (this.Deleted)
-                return false;
-
-            if (this.ItemID >= 0x13A4 && this.ItemID <= 0x13AE)
+            if (Deleted)
             {
-                this.Hue = sender.DyedHue;
+                return false;
+            }
+
+            if (ItemID >= 0x13A4 && ItemID <= 0x13AE)
+            {
+                Hue = sender.DyedHue;
                 return true;
             }
 
@@ -110,18 +117,12 @@ namespace Server.Items
             return false;
         }
 
-        #region IShipwreckedItem Members
-
         public bool IsShipwreckedItem
         {
-            get
-            {
-                return true;	//It's a ShipwreckedItem item.  'Course it's gonna be a Shipwreckeditem
-            }
+            get => true;	//It's a ShipwreckedItem item.
             set
             {
             }
         }
-        #endregion
     }
 }

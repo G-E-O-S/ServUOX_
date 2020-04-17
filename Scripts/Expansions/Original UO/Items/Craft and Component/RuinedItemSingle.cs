@@ -1,15 +1,13 @@
-using System;
-
 namespace Server.Items
 {
-    [Flipable(0xC10, 0xC11)] 
+    [Flipable(0xC10, 0xC11)]
     public class RuinedFallenChairA : Item
     {
         [Constructable]
         public RuinedFallenChairA()
             : base(0xC10)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedFallenChairA(Serial serial)
@@ -20,26 +18,24 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    [Flipable(0xC13, 0xC12)] 
+    [Flipable(0xC13, 0xC12)]
     public class RuinedArmoire : Item
     {
         [Constructable]
         public RuinedArmoire()
             : base(0xC13)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedArmoire(Serial serial)
@@ -50,26 +46,24 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    [Flipable(0xC14, 0xC15)] 
+    [Flipable(0xC14, 0xC15)]
     public class RuinedBookcase : Item
     {
         [Constructable]
         public RuinedBookcase()
             : base(0xC14)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedBookcase(Serial serial)
@@ -80,15 +74,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -98,7 +90,7 @@ namespace Server.Items
         public RuinedBooks()
             : base(0xC16)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedBooks(Serial serial)
@@ -109,26 +101,24 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    [Flipable(0xC17, 0xC18)] 
+    [Flipable(0xC17, 0xC18)]
     public class CoveredChair : Item
     {
         [Constructable]
         public CoveredChair()
             : base(0xC17)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public CoveredChair(Serial serial)
@@ -139,26 +129,24 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    [Flipable(0xC19, 0xC1A)] 
+    [Flipable(0xC19, 0xC1A)]
     public class RuinedFallenChairB : Item
     {
         [Constructable]
         public RuinedFallenChairB()
             : base(0xC19)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedFallenChairB(Serial serial)
@@ -169,15 +157,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -188,7 +174,7 @@ namespace Server.Items
         public RuinedChair()
             : base(0xC1B)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedChair(Serial serial)
@@ -199,15 +185,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -217,7 +201,7 @@ namespace Server.Items
         public RuinedClock()
             : base(0xC1F)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedClock(Serial serial)
@@ -228,15 +212,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -247,7 +229,7 @@ namespace Server.Items
         public RuinedDrawers()
             : base(0xC24)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedDrawers(Serial serial)
@@ -258,15 +240,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -276,7 +256,7 @@ namespace Server.Items
         public RuinedPainting()
             : base(0xC2C)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public RuinedPainting(Serial serial)
@@ -287,15 +267,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -306,7 +284,7 @@ namespace Server.Items
         public WoodDebris()
             : base(0xC2D)
         {
-            this.Movable = false;
+            Movable = false;
         }
 
         public WoodDebris(Serial serial)
@@ -317,15 +295,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

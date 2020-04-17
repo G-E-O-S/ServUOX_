@@ -1,18 +1,16 @@
-using System;
-
 namespace Server.Items
 {
-    public class PlayingCards2 : Item
+    public class ToolKit : Item
     {
         [Constructable]
-        public PlayingCards2()
-            : base(0xFA2)
+        public ToolKit()
+            : base(Utility.Random(2) + 0x1EBA)
         {
-            this.Movable = true;
-            this.Stackable = false;
+            Movable = true;
+            Stackable = false;
         }
 
-        public PlayingCards2(Serial serial)
+        public ToolKit(Serial serial)
             : base(serial)
         {
         }
@@ -20,15 +18,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }
