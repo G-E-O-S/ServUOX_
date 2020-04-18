@@ -1,14 +1,19 @@
+using System;
+
 namespace Server.Items
 {
-    public class SulfurousAsh : Item, ICommodity
+    public class SulfurousAsh : BaseReagent, ICommodity
     {
-
         [Constructable]
         public SulfurousAsh()
-            : base(0xF8C)
+            : this(1)
         {
-            Stackable = true;
-            Weight = 1.0;
+        }
+
+        [Constructable]
+        public SulfurousAsh(int amount)
+            : base(0xF8C, amount)
+        {
         }
 
         public SulfurousAsh(Serial serial)
@@ -16,18 +21,32 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description => LabelNumber;
-        bool ICommodity.IsDeedable => true;
+        TextDefinition ICommodity.Description
+        {
+            get
+            {
+                return this.LabelNumber;
+            }
+        }
+        bool ICommodity.IsDeedable
+        {
+            get
+            {
+                return true;
+            }
+        }
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0);
+
+            writer.Write((int)0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            _ = reader.ReadInt();
+
+            int version = reader.ReadInt();
         }
     }
 }

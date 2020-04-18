@@ -2,37 +2,30 @@ using System;
 
 namespace Server.Items
 {
-    public class DeadWood : BaseReagent, ICommodity
+    public abstract class BaseReagent : Item
     {
-        [Constructable]
-        public DeadWood()
-            : this(1)
+        public BaseReagent(int itemID)
+            : this(itemID, 1)
         {
         }
 
-        [Constructable]
-        public DeadWood(int amount)
-            : base(0xF90, amount)
+        public BaseReagent(int itemID, int amount)
+            : base(itemID)
         {
+            this.Stackable = true;
+            this.Amount = amount;
         }
 
-        public DeadWood(Serial serial)
+        public BaseReagent(Serial serial)
             : base(serial)
         {
         }
 
-        TextDefinition ICommodity.Description
+        public override double DefaultWeight
         {
             get
             {
-                return this.LabelNumber;
-            }
-        }
-        bool ICommodity.IsDeedable
-        {
-            get
-            {
-                return true;
+                return 0.1;
             }
         }
         public override void Serialize(GenericWriter writer)

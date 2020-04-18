@@ -52,6 +52,7 @@
     <Compile Include="Expansions\EJ\Forgotten Treasures\LootBags.cs" />
     <Compile Include="Expansions\EJ\StoreBought\MetalLadder2.cs" />
     <Compile Include="Expansions\HS\Gothic Theme Pack\GargoyleStatues.cs" />
+    <Compile Include="Expansions\Original UO\Items\Craft and Component\Reagents\BaseReagent.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Clothing\BaseCloak.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Clothing\BaseHat.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Clothing\BaseMiddleTorso.cs" />
@@ -933,7 +934,7 @@
     <Compile Include="Expansions\HS\Multis\GalleonItem.cs" />
     <Compile Include="Expansions\EJ\Forsaken Foes\Mobile\MiningCooperativeMerchant.cs" />
     <Compile Include="Mobiles\NPCs\CommissionPlayerVendor.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\ContestHouses.cs" />
+    <Compile Include="Expansions\AOS\AOS Multis\ContestHouses.cs" />
     <Compile Include="Mobiles\Quests\The Ritual\Items.cs" />
     <Compile Include="Mobiles\Quests\The Ritual\Mobiles.cs" />
     <Compile Include="Mobiles\Quests\The Ritual\Puzzle.cs" />
@@ -2917,7 +2918,7 @@
     <Compile Include="Expansions\SA\TerMur\Relanord.cs" />
     <Compile Include="Expansions\SA\TerMur\UsagralemBallem.cs" />
     <Compile Include="Expansions\SA\TerMur\Vasanord.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\HouseTeleporterTile.cs" />
+    <Compile Include="Expansions\AOS\AOS Multis\HouseTeleporterTile.cs" />
     <Compile Include="Mobiles\Quests\ALittleSomething.cs" />
     <Compile Include="Mobiles\Quests\AmbitiousSolenQueen\AmbitiousQueenQuest.cs" />
     <Compile Include="Mobiles\Quests\AmbitiousSolenQueen\Conversations.cs" />
@@ -8865,119 +8866,119 @@
     <Compile Include="Expansions\Original UO\Mechanics\AI\VendorAI.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\BaseHouse.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\BaseHouse.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\BaseBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\BaseBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\BaseBoatDeed.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\BaseBoatDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\BaseDockedBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\BaseDockedBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\ConfirmDryDockGump.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\ConfirmDryDockGump.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\Hold.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\Hold.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\LargeBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\LargeBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\LargeDragonBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\LargeDragonBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\MediumBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\MediumBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\MediumDragonBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\MediumDragonBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\Plank.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\Plank.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\RenameBoatPrompt.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\RenameBoatPrompt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\SmallBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\SmallBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\SmallDragonBoat.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\SmallDragonBoat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\Strandedness.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\Strandedness.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Boats\TillerMan.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Boats\TillerMan.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\BankerCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\BankerCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\BaseCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\BaseCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\BrigandCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\BrigandCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\ElfBrigandCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\ElfBrigandCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\HealerCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\HealerCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\HumanBrigandCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\HumanBrigandCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\LizardmenCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\LizardmenCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\MageCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\MageCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\OrcCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\OrcCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\PrisonerCamp.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Camps\RatCamp.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\PrisonerCamp.cs" />
+    <Compile Include="Expansions\AOS\AOS Multis\Camps\RatCamp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\ComponentVerification.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\ComponentVerification.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Deeds.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Deeds.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\DynamicDecay.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\DynamicDecay.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\HouseFoundation.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\HouseFoundation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\HousePlacement.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\HousePlacement.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\HousePlacementTool.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\HousePlacementTool.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\Houses.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\Houses.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\HouseSign.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\HouseSign.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\HouseTeleporter.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\HouseTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\MovingCrate.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\MovingCrate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\NoHousingItem.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\NoHousingItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Multis\PreviewHouse.cs">
+    <Compile Include="Expansions\AOS\AOS Multis\PreviewHouse.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Mobiles\Quests\Collector\CollectorQuest.cs">

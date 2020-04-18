@@ -1,14 +1,19 @@
+using System;
+
 namespace Server.Items
 {
-    public class Garlic : Item, ICommodity
+    public class Garlic : BaseReagent, ICommodity
     {
-
         [Constructable]
         public Garlic()
-            : base(0xF84)
+            : this(1)
         {
-            Stackable = true;
-            Weight = 1.0;
+        }
+
+        [Constructable]
+        public Garlic(int amount)
+            : base(0xF84, amount)
+        {
         }
 
         public Garlic(Serial serial)
@@ -16,18 +21,32 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description => LabelNumber;
-        bool ICommodity.IsDeedable => true;
+        TextDefinition ICommodity.Description
+        {
+            get
+            {
+                return this.LabelNumber;
+            }
+        }
+        bool ICommodity.IsDeedable
+        {
+            get
+            {
+                return true;
+            }
+        }
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0);
+
+            writer.Write((int)0); // version
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            _ = reader.ReadInt();
+
+            int version = reader.ReadInt();
         }
     }
 }
