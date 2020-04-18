@@ -1,113 +1,105 @@
-#region References
 using Server.Network;
-#endregion
 
 namespace Server
 {
-	public class QuestArrow
-	{
-		private readonly Mobile m_Mobile;
-		private readonly IPoint3D m_Target;
-		private bool m_Running;
+    public class QuestArrow
+    {
+        public Mobile Mobile { get; }
+        public IPoint3D Target { get; }
+        public bool Running { get; private set; }
 
-		public Mobile Mobile { get { return m_Mobile; } }
+        public void Update()
+        {
+            Update(Target.X, Target.Y);
+        }
 
-		public IPoint3D Target { get { return m_Target; } }
+        public void Update(int x, int y)
+        {
+            if (!Running)
+            {
+                return;
+            }
 
-		public bool Running { get { return m_Running; } }
+            NetState ns = Mobile.NetState;
 
-		public void Update()
-		{
-			Update(m_Target.X, m_Target.Y);
-		}
+            if (ns == null)
+            {
+                return;
+            }
 
-		public void Update(int x, int y)
-		{
-			if (!m_Running)
-			{
-				return;
-			}
+            if (ns.HighSeas)
+            {
+                if (Target is IEntity)
+                {
+                    ns.Send(new SetArrowHS(x, y, ((IEntity)Target).Serial));
+                }
+                else
+                {
+                    ns.Send(new SetArrowHS(x, y, Serial.MinusOne));
+                }
+            }
+            else
+            {
+                ns.Send(new SetArrow(x, y));
+            }
+        }
 
-			NetState ns = m_Mobile.NetState;
+        public void Stop()
+        {
+            Stop(Target.X, Target.Y);
+        }
 
-			if (ns == null)
-			{
-				return;
-			}
+        public void Stop(int x, int y)
+        {
+            if (!Running)
+            {
+                return;
+            }
 
-			if (ns.HighSeas)
-			{
-				if (m_Target is IEntity)
-				{
-					ns.Send(new SetArrowHS(x, y, ((IEntity)m_Target).Serial));
-				}
-				else
-				{
-					ns.Send(new SetArrowHS(x, y, Serial.MinusOne));
-				}
-			}
-			else
-			{
-				ns.Send(new SetArrow(x, y));
-			}
-		}
+            Mobile.ClearQuestArrow();
 
-		public void Stop()
-		{
-			Stop(m_Target.X, m_Target.Y);
-		}
+            NetState ns = Mobile.NetState;
 
-		public void Stop(int x, int y)
-		{
-			if (!m_Running)
-			{
-				return;
-			}
+            if (ns != null)
+            {
+                if (ns.HighSeas)
+                {
+                    if (Target is IEntity)
+                    {
+                        ns.Send(new CancelArrowHS(x, y, ((IEntity)Target).Serial));
+                    }
+                    else
+                    {
+                        ns.Send(new CancelArrowHS(x, y, Serial.MinusOne));
+                    }
+                }
+                else
+                {
+                    ns.Send(new CancelArrow());
+                }
+            }
 
-			m_Mobile.ClearQuestArrow();
+            Running = false;
+            OnStop();
+        }
 
-			NetState ns = m_Mobile.NetState;
+        public virtual void OnStop()
+        { }
 
-			if (ns != null)
-			{
-				if (ns.HighSeas)
-				{
-					if (m_Target is IEntity)
-					{
-						ns.Send(new CancelArrowHS(x, y, ((IEntity)m_Target).Serial));
-					}
-					else
-					{
-						ns.Send(new CancelArrowHS(x, y, Serial.MinusOne));
-					}
-				}
-				else
-				{
-					ns.Send(new CancelArrow());
-				}
-			}
+        public virtual void OnClick(bool rightClick)
+        { }
 
-			m_Running = false;
-			OnStop();
-		}
+        public QuestArrow(Mobile m, IPoint3D t)
+        {
+            Running = true;
+            Mobile = m;
+            Target = t;
+        }
 
-		public virtual void OnStop()
-		{ }
-
-		public virtual void OnClick(bool rightClick)
-		{ }
-
-		public QuestArrow(Mobile m, IPoint3D t)
-		{
-			m_Running = true;
-			m_Mobile = m;
-			m_Target = t;
-		}
-
-		public QuestArrow(Mobile m, IPoint3D t, int x, int y)
-			: this(m, t)
-		{
-			Update(x, y);
-		}
-	}
+        public QuestArrow(Mobile m, IPoint3D t, int x, int y)
+            : this(m, t)
+        {
+            Update(x, y);
+        }
+    }
 }

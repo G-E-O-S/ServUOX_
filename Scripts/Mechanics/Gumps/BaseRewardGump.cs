@@ -150,7 +150,8 @@ namespace Server.Gumps
 				
 				if(item != null && item.Points <= points)
 				{
-					from.SendGump(new aConfirmRewardGump(Owner, item, info.ButtonID - 200, OnConfirmed));
+                    from.CloseGump(typeof(aConfirmRewardGump));
+                    from.SendGump(new aConfirmRewardGump(Owner, item, info.ButtonID - 200, OnConfirmed));
 				}
 				else
 					from.SendLocalizedMessage(1073122); // You don't have enough points for that!

@@ -7,7 +7,14 @@ namespace Server.Items
     {
         private static readonly string[] m_Staff =
         {
-            "Ryan", "Mark", "Eos", "Athena", "Xavier", "Krrios", "Zippy", "Dexter", "Argalep"
+            "Fraz",
+            "Geos",
+            "Dragon Slayer",
+            "Malroth",
+            "Demo",
+            "Evad",
+            "Willie",
+            "Markas"
         };
         [Constructable]
         public HalloweenPumpkin()

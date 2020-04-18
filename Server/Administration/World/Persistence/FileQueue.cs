@@ -18,7 +18,7 @@ namespace Server
         private readonly FileCommitCallback callback;
         private int activeCount;
         private ManualResetEvent idle;
-        private long position;
+
         public FileQueue(int concurrentWrites, FileCommitCallback _callback)
         {
             if (concurrentWrites < 1)
@@ -50,7 +50,7 @@ namespace Server
             bufferPool = new BufferPool("File Buffers", 64, bufferSize);
         }
 
-        public long Position => position;
+        public long Position { get; private set; }
 
         public void Dispose()
         {
@@ -111,7 +111,7 @@ namespace Server
                 throw new ArgumentException();
             }
 
-            position += size;
+            Position += size;
 
             while (size > 0)
             {

@@ -148,7 +148,7 @@ namespace Server.Items
 
         private static string[] _Names =
         {
-            "Adranath", "Aeluva the Arcanist", "Aesthyron", "Anon", "Balaki", "Clanin", "Dexter", "Doctor Spector", "Dryus Doost",
+            "Adranath", "Aeluva the Arcanist", "Aesthyron", "Anon", "Balaki", "Clanin", "Fraz", "Doctor Spector", "Dryus Doost",
             "Gilform", "Grizelda the Hag", "Hawkwind", "Heigel of Moonglow", "Intanya", "Juo'Nar", "King Blackthorn", "Koole the Arcanist",
             "Kronos", "Kyrnia", "Lathiari", "Leoric Gathenwale", "Lysander Gathenwale", "Malabelle", "Mariah", "Melissa", "Minax",
             "Mondain", "Mordra", "Mythran", "Neira the Necromancer", "Nystul", "Queen Zhah", "Relvinian", "Selsius the Astronomer",

@@ -1,13 +1,9 @@
-#region References
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
-using Server.ContextMenus;
 using Server.Network;
-#endregion
 
 namespace Server.Items
 {
@@ -21,7 +17,7 @@ namespace Server.Items
         #region Enhanced Client Support
         public virtual void ValidateGridLocation(Item item)
         {
-			var pos = item.GridLocation;
+            var pos = item.GridLocation;
 
             if (!IsFreePosition(pos))
             {
@@ -36,7 +32,7 @@ namespace Server.Items
                 return false;
             }
 
-			return Items.All(i => i.GridLocation != pos);
+            return Items.All(i => i.GridLocation != pos);
         }
 
         public virtual byte GetNewPosition(byte current)
@@ -81,9 +77,7 @@ namespace Server.Items
         }
         #endregion
 
-        private static ContainerSnoopHandler m_SnoopHandler;
-
-        public static ContainerSnoopHandler SnoopHandler { get => m_SnoopHandler; set => m_SnoopHandler = value; }
+        public static ContainerSnoopHandler SnoopHandler { get; set; }
 
         private ContainerData m_ContainerData;
 
@@ -171,28 +165,24 @@ namespace Server.Items
             ContainerData = ContainerData.GetData(ItemID);
         }
 
-        public virtual Rectangle2D Bounds { get { return ContainerData.Bounds; } }
-        public virtual int DefaultGumpID { get { return ContainerData.GumpID; } }
-        public virtual int DefaultDropSound { get { return ContainerData.DropSound; } }
+        public virtual Rectangle2D Bounds => ContainerData.Bounds;
+        public virtual int DefaultGumpID => ContainerData.GumpID;
+        public virtual int DefaultDropSound => ContainerData.DropSound;
 
-        public virtual int DefaultMaxItems { get { return m_GlobalMaxItems; } }
-        public virtual int DefaultMaxWeight { get { return m_GlobalMaxWeight; } }
+        public virtual int DefaultMaxItems => m_GlobalMaxItems;
+        public virtual int DefaultMaxWeight => m_GlobalMaxWeight;
 
-        public virtual bool IsDecoContainer { get { return !Movable && !IsLockedDown && !IsSecure && Parent == null && !m_LiftOverride; } }
+        public virtual bool IsDecoContainer => !Movable && !IsLockedDown && !IsSecure && Parent == null && !m_LiftOverride;
 
         public virtual int GetDroppedSound(Item item)
         {
             int dropSound = item.GetDropSound();
-
             return dropSound != -1 ? dropSound : DropSound;
         }
 
         public override void OnSnoop(Mobile from)
         {
-            if (m_SnoopHandler != null)
-            {
-                m_SnoopHandler(this, from);
-            }
+            SnoopHandler?.Invoke(this, from);
         }
 
         public override bool CheckLift(Mobile from, Item item, ref LRReason reject)
@@ -269,7 +259,7 @@ namespace Server.Items
                 }
             }
 
-			var parent = Parent;
+            var parent = Parent;
 
             while (parent != null)
             {
@@ -305,16 +295,17 @@ namespace Server.Items
 
         public virtual void SendFullItemsMessage(Mobile to, Item item)
         {
-            to.SendMessage("That container cannot hold more items.");
+            to.SendLocalizedMessage(1080017); // That container cannot hold more items.
         }
 
         public virtual void SendFullWeightMessage(Mobile to, Item item)
         {
-            to.SendMessage("That container cannot hold more weight.");
+            to.SendLocalizedMessage(1080016); // That container cannot hold more weight.
         }
 
         public virtual void SendCantStoreMessage(Mobile to, Item item)
         {
+
             to.SendLocalizedMessage(500176); // That is not your container, you can't store things here.
         }
 
@@ -530,7 +521,7 @@ namespace Server.Items
 
                         ++idx;
                     }
-                    
+
                     groups.Add(group);
                 }
 
@@ -1787,7 +1778,7 @@ namespace Server.Items
 
         public virtual bool TryDropItem(Mobile from, Item dropped, bool sendFullMessage)
         {
-			if (!CheckStack(from, dropped) && !CheckHold(from, dropped, sendFullMessage, true))
+            if (!CheckStack(from, dropped) && !CheckHold(from, dropped, sendFullMessage, true))
             {
                 return false;
             }
@@ -1902,7 +1893,7 @@ namespace Server.Items
             }
         }
 
-        public virtual bool DisplaysContent { get { return true; } }
+        public virtual bool DisplaysContent => true;
 
         public virtual bool CheckContentDisplay(Mobile from)
         {
@@ -1911,7 +1902,7 @@ namespace Server.Items
                 return false;
             }
 
-			var root = RootParent;
+            var root = RootParent;
 
             if (root == null || root is Item || root == from || from.IsStaff())
             {
@@ -1931,20 +1922,20 @@ namespace Server.Items
             }
         }
 
-		public List<Mobile> Openers { get; set; }
+        public List<Mobile> Openers { get; set; }
 
-        public virtual bool IsPublicContainer { get { return false; } }
+        public virtual bool IsPublicContainer => false;
 
         public override void OnDelete()
         {
             base.OnDelete();
 
-			Openers = null;
+            Openers = null;
         }
 
         public virtual void DisplayTo(Mobile to)
         {
-			ProcessOpeners(to);
+            ProcessOpeners(to);
 
             NetState ns = to.NetState;
 
@@ -1973,13 +1964,13 @@ namespace Server.Items
                 to.Send(new ContainerContent(to, this));
             }
 
-			if (to.ViewOPL)
+            if (to.ViewOPL)
             {
                 var items = Items;
 
-				foreach (var o in items)
+                foreach (var o in items)
                 {
-					to.Send(o.OPLPacket);
+                    to.Send(o.OPLPacket);
                 }
             }
         }
@@ -1990,14 +1981,14 @@ namespace Server.Items
             {
                 bool contains = false;
 
-				if (Openers != null)
+                if (Openers != null)
                 {
                     Point3D worldLoc = GetWorldLocation();
                     Map map = Map;
 
-					for (int i = 0; i < Openers.Count; ++i)
+                    for (int i = 0; i < Openers.Count; ++i)
                     {
-						Mobile mob = Openers[i];
+                        Mobile mob = Openers[i];
 
                         if (mob == opener)
                         {
@@ -2009,7 +2000,7 @@ namespace Server.Items
 
                             if (mob.Map != map || !mob.InRange(worldLoc, range))
                             {
-								Openers.RemoveAt(i--);
+                                Openers.RemoveAt(i--);
                             }
                         }
                     }
@@ -2017,16 +2008,16 @@ namespace Server.Items
 
                 if (!contains)
                 {
-					if (Openers == null)
+                    if (Openers == null)
                     {
-						Openers = new List<Mobile>();
+                        Openers = new List<Mobile>();
                     }
 
-					Openers.Add(opener);
+                    Openers.Add(opener);
                 }
-				else if (Openers != null && Openers.Count == 0)
+                else if (Openers != null && Openers.Count == 0)
                 {
-					Openers = null;
+                    Openers = null;
                 }
             }
         }
@@ -2082,7 +2073,7 @@ namespace Server.Items
 
             if (!File.Exists(path))
             {
-                m_Default = new ContainerData(0x3C, new Rectangle2D(44, 65, 142, 94), 0x48);
+                Default = new ContainerData(0x3C, new Rectangle2D(44, 65, 142, 94), 0x48);
                 return;
             }
 
@@ -2124,9 +2115,9 @@ namespace Server.Items
 
                             ContainerData data = new ContainerData(gumpID, bounds, dropSound);
 
-                            if (m_Default == null)
+                            if (Default == null)
                             {
-                                m_Default = data;
+                                Default = data;
                             }
 
                             if (split.Length >= 4)
@@ -2154,17 +2145,14 @@ namespace Server.Items
                 }
             }
 
-            if (m_Default == null)
+            if (Default == null)
             {
-                m_Default = new ContainerData(0x3C, new Rectangle2D(44, 65, 142, 94), 0x48);
+                Default = new ContainerData(0x3C, new Rectangle2D(44, 65, 142, 94), 0x48);
             }
         }
 
-        private static ContainerData m_Default;
         private static readonly Dictionary<int, ContainerData> m_Table;
-
-        public static ContainerData Default { get => m_Default; set => m_Default = value; }
-
+        public static ContainerData Default { get; set; }
         public static ContainerData GetData(int itemID)
         {
             ContainerData data = null;
@@ -2176,23 +2164,19 @@ namespace Server.Items
             }
             else
             {
-                return m_Default;
+                return Default;
             }
         }
 
-        private readonly int m_GumpID;
-        private readonly Rectangle2D m_Bounds;
-        private readonly int m_DropSound;
-
-        public int GumpID { get { return m_GumpID; } }
-        public Rectangle2D Bounds { get { return m_Bounds; } }
-        public int DropSound { get { return m_DropSound; } }
+        public int GumpID { get; }
+        public Rectangle2D Bounds { get; }
+        public int DropSound { get; }
 
         public ContainerData(int gumpID, Rectangle2D bounds, int dropSound)
         {
-            m_GumpID = gumpID;
-            m_Bounds = bounds;
-            m_DropSound = dropSound;
+            GumpID = gumpID;
+            Bounds = bounds;
+            DropSound = dropSound;
         }
     }
 }

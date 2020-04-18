@@ -1,20 +1,18 @@
-#region References
 using System;
-#endregion
 
 namespace Server
 {
-	internal class Decompressor
-	{
-		#region Decompression Tree
-		private static readonly int[,] _huffmanTree = new int[256,2]
-		{
+    internal class Decompressor
+    {
+        #region Decompression Tree
+        private static readonly int[,] _huffmanTree = new int[256, 2]
+        {
 			/*node*/ /*leaf0 leaf1*/
 			/* 0*/ {2, 1}, /* 1*/ {4, 3}, /* 2*/ {0, 5}, /* 3*/ {7, 6}, /* 4*/ {9, 8}, /* 5*/ {11, 10}, /* 6*/ {13, 12}, /* 7*/
 			{14, -256}, /* 8*/ {16, 15}, /* 9*/ {18, 17}, /* 10*/ {20, 19}, /* 11*/ {22, 21}, /* 12*/ {23, -1}, /* 13*/ {25, 24},
 			/* 14*/ {27, 26}, /* 15*/ {29, 28}, /* 16*/ {31, 30}, /* 17*/ {33, 32}, /* 18*/ {35, 34}, /* 19*/ {37, 36}, /* 20*/
 			{39, 38}, /* 21*/ {-64, 40}, /* 22*/ {42, 41}, /* 23*/ {44, 43}, /* 24*/ {45, -6}, /* 25*/ {47, 46}, /* 26*/ {49, 48}
-			, /* 27*/ {51, 50}, /* 28*/ {52, -119}, /* 29*/ {53, -32}, /* 30*/ {-14, 54}, /* 31*/ {-5, 55}, /* 32*/ {57, 56},
+            , /* 27*/ {51, 50}, /* 28*/ {52, -119}, /* 29*/ {53, -32}, /* 30*/ {-14, 54}, /* 31*/ {-5, 55}, /* 32*/ {57, 56},
 			/* 33*/ {59, 58}, /* 34*/ {-2, 60}, /* 35*/ {62, 61}, /* 36*/ {64, 63}, /* 37*/ {66, 65}, /* 38*/ {68, 67}, /* 39*/
 			{70, 69}, /* 40*/ {72, 71}, /* 41*/ {73, -51}, /* 42*/ {75, 74}, /* 43*/ {77, 76}, /* 44*/ {-111, -101}, /* 45*/
 			{-97, -4}, /* 46*/ {79, 78}, /* 47*/ {80, -110}, /* 48*/ {-116, 81}, /* 49*/ {83, 82}, /* 50*/ {-255, 84}, /* 51*/
@@ -29,7 +27,7 @@ namespace Server
 			{152, 151}, /* 97*/ {154, 153}, /* 98*/ {155, -30}, /* 99*/ {157, 156}, /* 100*/ {158, -99}, /* 101*/ {160, 159},
 			/* 102*/ {162, 161}, /* 103*/ {163, -23}, /* 104*/ {164, -29}, /* 105*/ {165, -11}, /* 106*/ {-115, 166}, /* 107*/
 			{168, 167}, /* 108*/ {170, 169}, /* 109*/ {171, -16}, /* 110*/ {172, -34}, /* 111*/ {-132, 173}, /* 112*/ {-108, 174}
-			, /* 113*/ {-22, 175}, /* 114*/ {-9, 176}, /* 115*/ {-84, 177}, /* 116*/ {-37, -17}, /* 117*/ {178, -28}, /* 118*/
+            , /* 113*/ {-22, 175}, /* 114*/ {-9, 176}, /* 115*/ {-84, 177}, /* 116*/ {-37, -17}, /* 117*/ {178, -28}, /* 118*/
 			{180, 179}, /* 119*/ {182, 181}, /* 120*/ {184, 183}, /* 121*/ {186, 185}, /* 122*/ {-104, 187}, /* 123*/ {-78, 188},
 			/* 124*/ {-61, 189}, /* 125*/ {-178, -79}, /* 126*/ {-134, -59}, /* 127*/ {-25, 190}, /* 128*/ {-18, -83}, /* 129*/
 			{-57, 191}, /* 130*/ {192, -67}, /* 131*/ {193, -98}, /* 132*/ {-68, -12}, /* 133*/ {195, 194}, /* 134*/ {-128, -55},
@@ -38,10 +36,10 @@ namespace Server
 			{-123, -52}, /* 146*/ {-113, 202}, /* 147*/ {-41, -48}, /* 148*/ {-40, -122}, /* 149*/ {-90, 203}, /* 150*/
 			{204, -54}, /* 151*/ {-192, -86}, /* 152*/ {206, 205}, /* 153*/ {-130, 207}, /* 154*/ {208, -53}, /* 155*/
 			{-45, -133}, /* 156*/ {210, 209}, /* 157*/ {-91, 211}, /* 158*/ {213, 212}, /* 159*/ {-88, -106}, /* 160*/ {215, 214}
-			, /* 161*/ {217, 216}, /* 162*/ {-49, 218}, /* 163*/ {220, 219}, /* 164*/ {222, 221}, /* 165*/ {224, 223}, /* 166*/
+            , /* 161*/ {217, 216}, /* 162*/ {-49, 218}, /* 163*/ {220, 219}, /* 164*/ {222, 221}, /* 165*/ {224, 223}, /* 166*/
 			{226, 225}, /* 167*/ {-102, 227}, /* 168*/ {228, -160}, /* 169*/ {229, -46}, /* 170*/ {230, -127}, /* 171*/
 			{231, -103}, /* 172*/ {233, 232}, /* 173*/ {234, -60}, /* 174*/ {-76, 235}, /* 175*/ {-121, 236}, /* 176*/ {-73, 237}
-			, /* 177*/ {238, -149}, /* 178*/ {-107, 239}, /* 179*/ {240, -35}, /* 180*/ {-27, -71}, /* 181*/ {241, -69}, /* 182*/
+            , /* 177*/ {238, -149}, /* 178*/ {-107, 239}, /* 179*/ {240, -35}, /* 180*/ {-27, -71}, /* 181*/ {241, -69}, /* 182*/
 			{-77, -89}, /* 183*/ {-118, -62}, /* 184*/ {-85, -75}, /* 185*/ {-58, -72}, /* 186*/ {-80, -63}, /* 187*/ {-42, 242},
 			/* 188*/ {-157, -150}, /* 189*/ {-236, -139}, /* 190*/ {-243, -126}, /* 191*/ {-214, -142}, /* 192*/ {-206, -138},
 			/* 193*/ {-146, -240}, /* 194*/ {-147, -204}, /* 195*/ {-201, -152}, /* 196*/ {-207, -227}, /* 197*/ {-209, -154},
@@ -57,153 +55,153 @@ namespace Server
 			{-229, -228}, /* 244*/ {-168, -213}, /* 245*/ {-194, -224}, /* 246*/ {-226, -196}, /* 247*/ {-233, -183}, /* 248*/
 			{-167, -231}, /* 249*/ {-189, -174}, /* 250*/ {-166, -252}, /* 251*/ {-222, -198}, /* 252*/ {-179, -188}, /* 253*/
 			{-182, -223}, /* 254*/ {-186, -180}, /* 255*/ {-247, -245}
-		};
-		#endregion
+        };
+        #endregion
 
-		private static int GetBit(int buf, int bit)
-		{
-			return (buf >> (bit - 1)) & 1;
-		}
+        private static int GetBit(int buf, int bit)
+        {
+            return (buf >> (bit - 1)) & 1;
+        }
 
-		public static bool Decompress(byte[] source, int sourceLength, byte[] destination, ref int destinationLength)
-		{
-			Array.Clear(destination, 0, destination.Length);
-			destinationLength = 0;
-			int node = 0, leaf = 0, leaf_value = 0, dest_pos = 0, bit_num = 8, src_pos = 0;
+        public static bool Decompress(byte[] source, int sourceLength, byte[] destination, ref int destinationLength)
+        {
+            Array.Clear(destination, 0, destination.Length);
+            destinationLength = 0;
+            int node = 0, leaf = 0, leaf_value = 0, dest_pos = 0, bit_num = 8, src_pos = 0;
 
-			while (src_pos < sourceLength)
-			{
-				leaf = GetBit(source[src_pos], bit_num);
-				leaf_value = _huffmanTree[node, leaf];
+            while (src_pos < sourceLength)
+            {
+                leaf = GetBit(source[src_pos], bit_num);
+                leaf_value = _huffmanTree[node, leaf];
 
-				// all numbers below 1 (0..-256) are codewords
-				// if the halt codeword has been found, skip this byte
-				if (leaf_value == -256)
-				{
-					bit_num = 8;
-					node = 0;
-					src_pos++;
-					var newsource = new byte[sourceLength - src_pos];
-					Array.Copy(source, src_pos, newsource, 0, sourceLength - src_pos);
-					source = newsource;
-					destinationLength = dest_pos;
-					return true;
-				}
-				else if (leaf_value < 1)
-				{
-					destination[dest_pos] = (byte)-leaf_value;
-					leaf_value = 0;
-					dest_pos++;
-				}
+                // all numbers below 1 (0..-256) are codewords
+                // if the halt codeword has been found, skip this byte
+                if (leaf_value == -256)
+                {
+                    bit_num = 8;
+                    node = 0;
+                    src_pos++;
+                    var newsource = new byte[sourceLength - src_pos];
+                    Array.Copy(source, src_pos, newsource, 0, sourceLength - src_pos);
+                    source = newsource;
+                    destinationLength = dest_pos;
+                    return true;
+                }
+                else if (leaf_value < 1)
+                {
+                    destination[dest_pos] = (byte)-leaf_value;
+                    leaf_value = 0;
+                    dest_pos++;
+                }
 
-				bit_num--;
-				node = leaf_value;
-				/* if its the end of the byte, go to the next byte */
-				if (bit_num < 1)
-				{
-					bit_num = 8;
-					src_pos++;
-				}
+                bit_num--;
+                node = leaf_value;
+                /* if its the end of the byte, go to the next byte */
+                if (bit_num < 1)
+                {
+                    bit_num = 8;
+                    src_pos++;
+                }
 
-				// check to see if the current codeword has no end
-				// if not, make it an incomplete byte
-				if (src_pos == sourceLength)
-				{
-					if (node != 0)
-					{
-						return false;
-					}
-				}
-				/*if(obj != NULL && src_pos == *src_size && node)
+                // check to see if the current codeword has no end
+                // if not, make it an incomplete byte
+                if (src_pos == sourceLength)
+                {
+                    if (node != 0)
+                    {
+                        return false;
+                    }
+                }
+                /*if(obj != NULL && src_pos == *src_size && node)
                 {
                 obj->incomplete_byte = src[src_pos-1];
                 obj->has_incomplete = 1;
                 }*/
-			}
+            }
 
-			destinationLength = dest_pos;
-			return false;
-		}
+            destinationLength = dest_pos;
+            return false;
+        }
 
-		public static byte? DecompressFirstByte(byte[] source, int sourceLength)
-		{
-			int node = 0, leaf = 0, value = 0, bit = 8, index = 0;
+        public static byte? DecompressFirstByte(byte[] source, int sourceLength)
+        {
+            int node = 0, leaf = 0, value = 0, bit = 8, index = 0;
 
-			while (index < sourceLength)
-			{
-				leaf = GetBit(source[index], bit);
-				value = _huffmanTree[node, leaf];
+            while (index < sourceLength)
+            {
+                leaf = GetBit(source[index], bit);
+                value = _huffmanTree[node, leaf];
 
-				if (value == -256)
-				{
-					bit = 8;
-					node = 0;
-					index++;
+                if (value == -256)
+                {
+                    bit = 8;
+                    node = 0;
+                    index++;
 
-					continue;
-				}
-				else if (value < 1)
-				{
-					return (byte)-value;
-				}
+                    continue;
+                }
+                else if (value < 1)
+                {
+                    return (byte)-value;
+                }
 
-				bit--;
-				node = value;
+                bit--;
+                node = value;
 
-				if (bit < 1)
-				{
-					bit = 8;
-					index++;
-				}
-			}
+                if (bit < 1)
+                {
+                    bit = 8;
+                    index++;
+                }
+            }
 
-			return null;
-		}
+            return null;
+        }
 
-		public static void DecompressAll(byte[] src, int src_size, byte[] dest, ref int dest_size)
-		{
-			int node = 0, leaf = 0, leaf_value = 0, dest_pos = 0, bit_num = 8, src_pos = 0;
+        public static void DecompressAll(byte[] src, int src_size, byte[] dest, ref int dest_size)
+        {
+            int node = 0, leaf = 0, leaf_value = 0, dest_pos = 0, bit_num = 8, src_pos = 0;
 
-			while (src_pos < src_size)
-			{
-				leaf = GetBit(src[src_pos], bit_num);
-				leaf_value = _huffmanTree[node, leaf];
+            while (src_pos < src_size)
+            {
+                leaf = GetBit(src[src_pos], bit_num);
+                leaf_value = _huffmanTree[node, leaf];
 
-				// all numbers below 1 (0..-256) are codewords
-				// if the halt codeword has been found, skip this byte
-				if (leaf_value == -256)
-				{
-					bit_num = 8;
-					node = 0;
-					src_pos++;
-					continue;
-				}
-				else if (leaf_value < 1)
-				{
-					dest[dest_pos] = (byte)-leaf_value;
-					leaf_value = 0;
-					dest_pos++;
-				}
+                // all numbers below 1 (0..-256) are codewords
+                // if the halt codeword has been found, skip this byte
+                if (leaf_value == -256)
+                {
+                    bit_num = 8;
+                    node = 0;
+                    src_pos++;
+                    continue;
+                }
+                else if (leaf_value < 1)
+                {
+                    dest[dest_pos] = (byte)-leaf_value;
+                    leaf_value = 0;
+                    dest_pos++;
+                }
 
-				bit_num--;
-				node = leaf_value;
-				/* if its the end of the byte, go to the next byte */
-				if (bit_num < 1)
-				{
-					bit_num = 8;
-					src_pos++;
-				}
-				// check to see if the current codeword has no end
-				// if not, make it an incomplete byte
-				/*if(obj != NULL && src_pos == *src_size && node)
+                bit_num--;
+                node = leaf_value;
+                /* if its the end of the byte, go to the next byte */
+                if (bit_num < 1)
+                {
+                    bit_num = 8;
+                    src_pos++;
+                }
+                // check to see if the current codeword has no end
+                // if not, make it an incomplete byte
+                /*if(obj != NULL && src_pos == *src_size && node)
                 {
                 obj->incomplete_byte = src[src_pos-1];
                 obj->has_incomplete = 1;
                 }*/
-			}
+            }
 
-			dest_size = dest_pos;
-			return;
-		}
-	}
+            dest_size = dest_pos;
+            return;
+        }
+    }
 }

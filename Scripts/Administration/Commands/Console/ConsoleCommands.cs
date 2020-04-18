@@ -232,7 +232,7 @@ namespace Server.Misc
 				case "save":
 					AutoSave.Save();
 					break;
-				case "hear": // Credit to Zippy for the HearAll script!
+				case "hear":
 					{
 						_HearConsole = !_HearConsole;
 

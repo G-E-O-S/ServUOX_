@@ -1,14 +1,12 @@
-#region References
 using Server.Network;
-#endregion
 
 namespace Server.Gumps
 {
-	public abstract class GumpEntry
-	{
-		private Gump _Parent;
+    public abstract class GumpEntry
+    {
+        private Gump _Parent;
 
-		public Gump Parent
+        public Gump Parent
         {
             get => _Parent;
             set
@@ -33,51 +31,51 @@ namespace Server.Gumps
         }
 
         protected void Delta(ref int var, int val)
-		{
-			if (var == val)
-			{
-				return;
-			}
+        {
+            if (var == val)
+            {
+                return;
+            }
 
-			var = val;
+            var = val;
 
-			if (_Parent != null)
-			{
-				_Parent.Invalidate();
-			}
-		}
+            if (_Parent != null)
+            {
+                _Parent.Invalidate();
+            }
+        }
 
-		protected void Delta(ref bool var, bool val)
-		{
-			if (var == val)
-			{
-				return;
-			}
+        protected void Delta(ref bool var, bool val)
+        {
+            if (var == val)
+            {
+                return;
+            }
 
-			var = val;
+            var = val;
 
-			if (_Parent != null)
-			{
-				_Parent.Invalidate();
-			}
-		}
+            if (_Parent != null)
+            {
+                _Parent.Invalidate();
+            }
+        }
 
-		protected void Delta(ref string var, string val)
-		{
-			if (var == val)
-			{
-				return;
-			}
+        protected void Delta(ref string var, string val)
+        {
+            if (var == val)
+            {
+                return;
+            }
 
-			var = val;
+            var = val;
 
-			if (_Parent != null)
-			{
-				_Parent.Invalidate();
-			}
-		}
+            if (_Parent != null)
+            {
+                _Parent.Invalidate();
+            }
+        }
 
-		public abstract string Compile();
-		public abstract void AppendTo(IGumpWriter disp);
-	}
+        public abstract string Compile();
+        public abstract void AppendTo(IGumpWriter disp);
+    }
 }

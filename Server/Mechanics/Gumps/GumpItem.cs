@@ -1,27 +1,26 @@
-using System;
 using Server.Network;
 
 namespace Server.Gumps
 {
-	public class GumpItem : GumpEntry
-	{
-		private int m_X, m_Y;
-		private int m_ItemID;
-		private int m_Hue;
+    public class GumpItem : GumpEntry
+    {
+        private int m_X, m_Y;
+        private int m_ItemID;
+        private int m_Hue;
 
-		public GumpItem( int x, int y, int itemID ) : this( x, y, itemID, 0 )
-		{
-		}
+        public GumpItem(int x, int y, int itemID) : this(x, y, itemID, 0)
+        {
+        }
 
-		public GumpItem( int x, int y, int itemID, int hue )
-		{
-			m_X = x;
-			m_Y = y;
-			m_ItemID = itemID;
-			m_Hue = hue;
-		}
+        public GumpItem(int x, int y, int itemID, int hue)
+        {
+            m_X = x;
+            m_Y = y;
+            m_ItemID = itemID;
+            m_Hue = hue;
+        }
 
-		public int X
+        public int X
         {
             get => m_X;
             set => Delta(ref m_X, value);
@@ -46,25 +45,25 @@ namespace Server.Gumps
         }
 
         public override string Compile()
-		{
-			if ( m_Hue == 0 )
-				return String.Format( "{{ tilepic {0} {1} {2} }}", m_X, m_Y, m_ItemID );
-			else
-				return String.Format( "{{ tilepichue {0} {1} {2} {3} }}", m_X, m_Y, m_ItemID, m_Hue );
-		}
+        {
+            if (m_Hue == 0)
+                return string.Format("{{ tilepic {0} {1} {2} }}", m_X, m_Y, m_ItemID);
+            else
+                return string.Format("{{ tilepichue {0} {1} {2} {3} }}", m_X, m_Y, m_ItemID, m_Hue);
+        }
 
-		private static byte[] m_LayoutName = Gump.StringToBuffer( "tilepic" );
-		private static byte[] m_LayoutNameHue = Gump.StringToBuffer( "tilepichue" );
+        private static byte[] m_LayoutName = Gump.StringToBuffer("tilepic");
+        private static byte[] m_LayoutNameHue = Gump.StringToBuffer("tilepichue");
 
-		public override void AppendTo( IGumpWriter disp )
-		{
-			disp.AppendLayout( m_Hue == 0 ? m_LayoutName : m_LayoutNameHue );
-			disp.AppendLayout( m_X );
-			disp.AppendLayout( m_Y );
-			disp.AppendLayout( m_ItemID );
+        public override void AppendTo(IGumpWriter disp)
+        {
+            disp.AppendLayout(m_Hue == 0 ? m_LayoutName : m_LayoutNameHue);
+            disp.AppendLayout(m_X);
+            disp.AppendLayout(m_Y);
+            disp.AppendLayout(m_ItemID);
 
-			if ( m_Hue != 0 )
-				disp.AppendLayout( m_Hue );
-		}
-	}
+            if (m_Hue != 0)
+                disp.AppendLayout(m_Hue);
+        }
+    }
 }

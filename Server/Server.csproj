@@ -129,7 +129,7 @@
     <Compile Include="Mechanics\Guild.cs" />
     <Compile Include="Mobiles\HuePicker.cs" />
     <Compile Include="Administration\Account\IAccount.cs" />
-    <Compile Include="Administration\IEntity.cs" />
+    <Compile Include="Utilities\IEntity.cs" />
     <Compile Include="Utilities\Insensitive.cs" />
     <Compile Include="Mobiles\Interfaces.cs" />
     <Compile Include="Items\Item.cs" />

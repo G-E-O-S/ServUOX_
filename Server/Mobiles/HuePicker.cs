@@ -1,38 +1,32 @@
-#region References
 using Server.Network;
-#endregion
 
 namespace Server.HuePickers
 {
-	public class HuePicker
-	{
-		private static int m_NextSerial = 1;
+    public class HuePicker
+    {
+        private static int m_NextSerial = 1;
 
-		private readonly int m_Serial;
-		private readonly int m_ItemID;
+        public int Serial { get; }
+        public int ItemID { get; }
 
-		public int Serial { get { return m_Serial; } }
+        public HuePicker(int itemID)
+        {
+            do
+            {
+                Serial = m_NextSerial++;
+            }
+            while (Serial == 0);
 
-		public int ItemID { get { return m_ItemID; } }
+            ItemID = itemID;
+        }
 
-		public HuePicker(int itemID)
-		{
-			do
-			{
-				m_Serial = m_NextSerial++;
-			}
-			while (m_Serial == 0);
+        public virtual void OnResponse(int hue)
+        { }
 
-			m_ItemID = itemID;
-		}
-
-		public virtual void OnResponse(int hue)
-		{ }
-
-		public void SendTo(NetState state)
-		{
-			state.Send(new DisplayHuePicker(this));
-			state.AddHuePicker(this);
-		}
-	}
+        public void SendTo(NetState state)
+        {
+            state.Send(new DisplayHuePicker(this));
+            state.AddHuePicker(this);
+        }
+    }
 }

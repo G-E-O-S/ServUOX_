@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 //using System.Collections.Generic;
 namespace Server.Items.Holiday
@@ -8,13 +8,14 @@ namespace Server.Items.Holiday
     {
         private static readonly string[] m_Staffers =
         {
-            "Ryan",
-            "Mark",
-            "Krrios",
-            "Zippy",
-            "Athena",
-            "Eos",
-            "Xavier"
+            "Fraz",
+            "Geos",
+            "Dragon Slayer",
+            "Malroth",
+            "Demo",
+            "Evad",
+            "Willie",
+            "Markas"
         };
         private string m_Staffer;
         public BasePaintedMask(int itemid)

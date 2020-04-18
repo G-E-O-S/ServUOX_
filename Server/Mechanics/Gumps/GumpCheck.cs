@@ -3,14 +3,14 @@ using Server.Network;
 
 namespace Server.Gumps
 {
-	public class GumpCheck : GumpEntry
-	{
-		private int m_X, m_Y;
-		private int m_ID1, m_ID2;
-		private bool m_InitialState;
-		private int m_SwitchID;
+    public class GumpCheck : GumpEntry
+    {
+        private int m_X, m_Y;
+        private int m_ID1, m_ID2;
+        private bool m_InitialState;
+        private int m_SwitchID;
 
-		public int X
+        public int X
         {
             get => m_X;
             set => Delta(ref m_X, value);
@@ -46,34 +46,34 @@ namespace Server.Gumps
             set => Delta(ref m_SwitchID, value);
         }
 
-        public GumpCheck( int x, int y, int inactiveID, int activeID, bool initialState, int switchID )
-		{
-			m_X = x;
-			m_Y = y;
-			m_ID1 = inactiveID;
-			m_ID2 = activeID;
-			m_InitialState = initialState;
-			m_SwitchID = switchID;
-		}
+        public GumpCheck(int x, int y, int inactiveID, int activeID, bool initialState, int switchID)
+        {
+            m_X = x;
+            m_Y = y;
+            m_ID1 = inactiveID;
+            m_ID2 = activeID;
+            m_InitialState = initialState;
+            m_SwitchID = switchID;
+        }
 
-		public override string Compile()
-		{
-			return String.Format( "{{ checkbox {0} {1} {2} {3} {4} {5} }}", m_X, m_Y, m_ID1, m_ID2, m_InitialState ? 1 : 0, m_SwitchID );
-		}
+        public override string Compile()
+        {
+            return string.Format("{{ checkbox {0} {1} {2} {3} {4} {5} }}", m_X, m_Y, m_ID1, m_ID2, m_InitialState ? 1 : 0, m_SwitchID);
+        }
 
-		private static byte[] m_LayoutName = Gump.StringToBuffer( "checkbox" );
+        private static byte[] m_LayoutName = Gump.StringToBuffer("checkbox");
 
-		public override void AppendTo( IGumpWriter disp )
-		{
-			disp.AppendLayout( m_LayoutName );
-			disp.AppendLayout( m_X );
-			disp.AppendLayout( m_Y );
-			disp.AppendLayout( m_ID1 );
-			disp.AppendLayout( m_ID2 );
-			disp.AppendLayout( m_InitialState );
-			disp.AppendLayout( m_SwitchID );
+        public override void AppendTo(IGumpWriter disp)
+        {
+            disp.AppendLayout(m_LayoutName);
+            disp.AppendLayout(m_X);
+            disp.AppendLayout(m_Y);
+            disp.AppendLayout(m_ID1);
+            disp.AppendLayout(m_ID2);
+            disp.AppendLayout(m_InitialState);
+            disp.AppendLayout(m_SwitchID);
 
-			disp.Switches++;
-		}
-	}
+            disp.Switches++;
+        }
+    }
 }

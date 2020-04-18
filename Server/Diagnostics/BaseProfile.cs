@@ -1,88 +1,82 @@
-#region References
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-#endregion
 
 namespace Server.Diagnostics
 {
-	public abstract class BaseProfile
-	{
-		public static void WriteAll<T>(TextWriter op, IEnumerable<T> profiles) where T : BaseProfile
-		{
-			var list = new List<T>(profiles);
+    public abstract class BaseProfile
+    {
+        public static void WriteAll<T>(TextWriter op, IEnumerable<T> profiles) where T : BaseProfile
+        {
+            var list = new List<T>(profiles);
 
-			list.Sort(delegate(T a, T b) { return -a.TotalTime.CompareTo(b.TotalTime); });
+            list.Sort(delegate (T a, T b) { return -a.TotalTime.CompareTo(b.TotalTime); });
 
-			foreach (T prof in list)
-			{
-				prof.WriteTo(op);
-				op.WriteLine();
-			}
-		}
+            foreach (T prof in list)
+            {
+                prof.WriteTo(op);
+                op.WriteLine();
+            }
+        }
 
-		private readonly string _name;
+        private TimeSpan _totalTime;
+        private TimeSpan _peakTime;
 
-		private long _count;
+        private readonly Stopwatch _stopwatch;
 
-		private TimeSpan _totalTime;
-		private TimeSpan _peakTime;
+        public string Name { get; }
 
-		private readonly Stopwatch _stopwatch;
+        public long Count { get; private set; }
 
-		public string Name { get { return _name; } }
+        public TimeSpan AverageTime => TimeSpan.FromTicks(_totalTime.Ticks / Math.Max(1, Count));
 
-		public long Count { get { return _count; } }
+        public TimeSpan PeakTime => _peakTime;
 
-		public TimeSpan AverageTime { get { return TimeSpan.FromTicks(_totalTime.Ticks / Math.Max(1, _count)); } }
+        public TimeSpan TotalTime => _totalTime;
 
-		public TimeSpan PeakTime { get { return _peakTime; } }
+        protected BaseProfile(string name)
+        {
+            Name = name;
 
-		public TimeSpan TotalTime { get { return _totalTime; } }
+            _stopwatch = new Stopwatch();
+        }
 
-		protected BaseProfile(string name)
-		{
-			_name = name;
+        public virtual void Start()
+        {
+            if (_stopwatch.IsRunning)
+            {
+                _stopwatch.Reset();
+            }
 
-			_stopwatch = new Stopwatch();
-		}
+            _stopwatch.Start();
+        }
 
-		public virtual void Start()
-		{
-			if (_stopwatch.IsRunning)
-			{
-				_stopwatch.Reset();
-			}
+        public virtual void Finish()
+        {
+            TimeSpan elapsed = _stopwatch.Elapsed;
 
-			_stopwatch.Start();
-		}
+            _totalTime += elapsed;
 
-		public virtual void Finish()
-		{
-			TimeSpan elapsed = _stopwatch.Elapsed;
+            if (elapsed > _peakTime)
+            {
+                _peakTime = elapsed;
+            }
 
-			_totalTime += elapsed;
+            Count++;
 
-			if (elapsed > _peakTime)
-			{
-				_peakTime = elapsed;
-			}
+            _stopwatch.Reset();
+        }
 
-			_count++;
-
-			_stopwatch.Reset();
-		}
-
-		public virtual void WriteTo(TextWriter op)
-		{
-			op.Write(
-				"{0,-100} {1,12:N0} {2,12:F5} {3,-12:F5} {4,12:F5}",
-				Name,
-				Count,
-				AverageTime.TotalSeconds,
-				PeakTime.TotalSeconds,
-				TotalTime.TotalSeconds);
-		}
-	}
+        public virtual void WriteTo(TextWriter op)
+        {
+            op.Write(
+                "{0,-100} {1,12:N0} {2,12:F5} {3,-12:F5} {4,12:F5}",
+                Name,
+                Count,
+                AverageTime.TotalSeconds,
+                PeakTime.TotalSeconds,
+                TotalTime.TotalSeconds);
+        }
+    }
 }

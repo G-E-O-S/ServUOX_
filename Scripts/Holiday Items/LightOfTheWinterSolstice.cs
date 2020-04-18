@@ -7,22 +7,14 @@ namespace Server.Items
     {
         private static readonly string[] m_StaffNames = new string[]
         {
-            "Aenima",
-            "Alkiser",
-            "ASayre",
-            "David",
-            "Krrios",
-            "Mark",
-            "Merlin",
-            "Merlix", //LordMerlix
-            "Phantom",
-            "Phenos",
-            "psz",
-            "Ryan",
-            "Quantos",
-            "Outkast", //TheOutkastDev
-            "V", //Admin_V
-            "Zippy"
+            "Fraz",
+            "Geos",
+            "Dragon Slayer",
+            "Malroth",
+            "Demo",
+            "Evad",
+            "Willie",
+            "Markas"
         };
         private string m_Dipper;
         [Constructable]

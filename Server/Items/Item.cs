@@ -437,7 +437,7 @@ namespace Server
                 }
             }
         }
-        
+
         private byte m_GridLocation = 0;
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -842,7 +842,7 @@ namespace Server
         public virtual void AddLootTypeProperty(ObjectPropertyList list)
         {
             if (DisplayLootType)
-            {               
+            {
                 if (m_LootType == LootType.Blessed)
                 {
                     list.Add(1038021); // blessed
@@ -1236,12 +1236,10 @@ namespace Server
             {
                 if (message)
                 {
-                    m.SendMessage("You do not own that item.");
+                    m.SendLocalizedMessage(1153882); // You do not own that.
                 }
-
                 return false;
             }
-
             return true;
         }
 
@@ -1565,7 +1563,7 @@ namespace Server
         /// <summary>
         ///     Has the item been deleted?
         /// </summary>
-        public bool Deleted { get { return GetFlag(ImplFlag.Deleted); } }
+        public bool Deleted => GetFlag(ImplFlag.Deleted);
 
         [CommandProperty(AccessLevel.GameMaster)]
         public LootType LootType
@@ -1589,42 +1587,28 @@ namespace Server
         ///		If true the item should be considered an artifact
         /// </summary>
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual bool IsArtifact
-        {
-            get { return this is IArtifact && ((IArtifact)this).ArtifactRarity > 0; }
-        }
+        public virtual bool IsArtifact => this is IArtifact && ((IArtifact)this).ArtifactRarity > 0;
 
         private static TimeSpan m_DDT = TimeSpan.FromMinutes(Initialization.Get("ServUOX.DefaultItemDecayTime", 60));
 
         public static TimeSpan DefaultDecayTime { get => m_DDT; set => m_DDT = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual int DecayMultiplier { get { return 1; } }
+        public virtual int DecayMultiplier => 1;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual bool DefaultDecaySetting { get { return true; } }
+        public virtual bool DefaultDecaySetting => true;
 
         [CommandProperty(AccessLevel.Decorator)]
-        public virtual TimeSpan DecayTime { get { return TimeSpan.FromMinutes(m_DDT.TotalMinutes * DecayMultiplier); } }
+        public virtual TimeSpan DecayTime => TimeSpan.FromMinutes(m_DDT.TotalMinutes * DecayMultiplier);
 
         [CommandProperty(AccessLevel.Decorator)]
-        public virtual bool Decays
-        {
-            get
-            {
+        public virtual bool Decays =>
                 // TODO: Make item decay an option on the spawner
-                return DefaultDecaySetting && Movable && Visible && !HonestyItem/* && Spawner == null*/;
-            }
-        }
+                DefaultDecaySetting && Movable && Visible && !HonestyItem/* && Spawner == null*/;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public TimeSpan TimeToDecay
-        {
-            get
-            {
-                return TimeSpan.FromMinutes((DecayTime - (DateTime.UtcNow - LastMoved)).TotalMinutes);
-            }
-        }
+        public TimeSpan TimeToDecay => TimeSpan.FromMinutes((DecayTime - (DateTime.UtcNow - LastMoved)).TotalMinutes);
 
         public virtual bool OnDecay()
         {
@@ -1638,9 +1622,9 @@ namespace Server
 
         public DateTime LastMoved { get => m_LastMovedTime; set => m_LastMovedTime = value; }
 
-        public virtual bool StackIgnoreItemID { get { return false; } }
-        public virtual bool StackIgnoreHue { get { return false; } }
-        public virtual bool StackIgnoreName { get { return false; } }
+        public virtual bool StackIgnoreItemID => false;
+        public virtual bool StackIgnoreHue => false;
+        public virtual bool StackIgnoreName => false;
 
         public bool StackWith(Mobile from, Item dropped)
         {
@@ -1718,7 +1702,7 @@ namespace Server
             {
                 return false;
             }
-            else  if (Sockets != null && item.Sockets != null)
+            else if (Sockets != null && item.Sockets != null)
             {
                 if (Sockets.Any(s => !item.HasSocket(s.GetType())))
                 {
@@ -2050,7 +2034,7 @@ namespace Server
             }
         }
 
-        public virtual bool ForceShowProperties { get { return IsLockedDown || IsSecure; } }
+        public virtual bool ForceShowProperties => IsLockedDown || IsSecure;
 
         public virtual int GetPacketFlags()
         {
@@ -2079,7 +2063,7 @@ namespace Server
             return true;
         }
 
-        public virtual bool HandlesOnMovement { get { return false; } }
+        public virtual bool HandlesOnMovement => false;
 
         public virtual void OnMovement(Mobile m, Point3D oldLocation)
         { }
@@ -2190,9 +2174,9 @@ namespace Server
             return ((flags & toGet) != 0);
         }
 
-        int ISerializable.TypeReference { get { return m_TypeRef; } }
+        int ISerializable.TypeReference => m_TypeRef;
 
-        int ISerializable.SerialIdentity { get { return m_Serial; } }
+        int ISerializable.SerialIdentity => m_Serial;
 
         public virtual void Serialize(GenericWriter writer)
         {
@@ -2200,16 +2184,16 @@ namespace Server
 
             // 14
             writer.Write(Sockets != null ? Sockets.Count : 0);
-			
-			if(Sockets != null)
-			{
-				foreach(var socket in Sockets)
-				{
-					ItemSocket.Save(socket, writer);
-				}
-			}
 
-			// 13: Merge sync
+            if (Sockets != null)
+            {
+                foreach (var socket in Sockets)
+                {
+                    ItemSocket.Save(socket, writer);
+                }
+            }
+
+            // 13: Merge sync
             // 12: Light no longer backed by Direction
 
             // 11
@@ -2706,13 +2690,13 @@ namespace Server
                 case 14:
                     var socketCount = reader.ReadInt();
 
-                    for(int i = 0; i < socketCount; i++)
+                    for (int i = 0; i < socketCount; i++)
                     {
                         ItemSocket.Load(this, reader);
                     }
 
                     goto case 13;
-				case 13:
+                case 13:
                 case 12:
                 case 11:
                     m_GridLocation = reader.ReadByte();
@@ -2766,7 +2750,7 @@ namespace Server
                         {
                             m_Light = (LightType)reader.ReadByte();
                         }
-                        else if(version < 12)
+                        else if (version < 12)
                         {
                             m_Light = (LightType)m_Direction;
                         }
@@ -3302,7 +3286,7 @@ namespace Server
                 state.Send(OPLPacket);
             }
         }
-        
+
         protected virtual Packet GetWorldPacketFor(NetState state)
         {
             if (state.HighSeas)
@@ -3319,7 +3303,7 @@ namespace Server
             }
         }
 
-        public virtual bool IsVirtualItem { get { return false; } }
+        public virtual bool IsVirtualItem => false;
 
         public virtual int GetTotal(TotalType type)
         {
@@ -3364,13 +3348,13 @@ namespace Server
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int TotalGold { get { return GetTotal(TotalType.Gold); } }
+        public int TotalGold => GetTotal(TotalType.Gold);
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int TotalItems { get { return GetTotal(TotalType.Items); } }
+        public int TotalItems => GetTotal(TotalType.Items);
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int TotalWeight { get { return GetTotal(TotalType.Weight); } }
+        public int TotalWeight => GetTotal(TotalType.Weight);
 
         public virtual double DefaultWeight
         {
@@ -3431,9 +3415,9 @@ namespace Server
         }
 
         [CommandProperty(AccessLevel.Counselor, AccessLevel.GameMaster)]
-        public int PileWeight { get { return (int)Math.Ceiling(Weight * Amount); } }
+        public int PileWeight => (int)Math.Ceiling(Weight * Amount);
 
-        public virtual int HuedItemID { get { return m_ItemID; } }
+        public virtual int HuedItemID => m_ItemID;
 
         [Hue, CommandProperty(AccessLevel.GameMaster)]
         public virtual int Hue
@@ -3453,9 +3437,9 @@ namespace Server
 
         public virtual bool HiddenQuestItemHue { get; set; }
 
-        public int QuestItemHue { get { return (HiddenQuestItemHue ? Hue : 0x04EA); } }
+        public int QuestItemHue => (HiddenQuestItemHue ? Hue : 0x04EA);
 
-        public virtual bool Nontransferable { get { return QuestItem; } }
+        public virtual bool Nontransferable => QuestItem;
 
         public virtual void HandleInvalidTransfer(Mobile from)
         {
@@ -4202,7 +4186,7 @@ namespace Server
             }
             */
 
-            if(Sockets != null)
+            if (Sockets != null)
             {
                 Sockets.IterateReverse(socket =>
                 {
@@ -4288,24 +4272,24 @@ namespace Server
         public virtual void OnAfterSpawn()
         { }
 
-        public virtual int PhysicalResistance { get { return 0; } }
-        public virtual int FireResistance { get { return 0; } }
-        public virtual int ColdResistance { get { return 0; } }
-        public virtual int PoisonResistance { get { return 0; } }
-        public virtual int EnergyResistance { get { return 0; } }
+        public virtual int PhysicalResistance => 0;
+        public virtual int FireResistance => 0;
+        public virtual int ColdResistance => 0;
+        public virtual int PoisonResistance => 0;
+        public virtual int EnergyResistance => 0;
 
         [CommandProperty(AccessLevel.Counselor)]
-        public Serial Serial { get { return m_Serial; } }
+        public Serial Serial => m_Serial;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public IEntity ParentEntity { get { return Parent as IEntity; } }
+        public IEntity ParentEntity => Parent as IEntity;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public IEntity RootParentEntity { get { return RootParent as IEntity; } }
+        public IEntity RootParentEntity => RootParent as IEntity;
 
         #region Location Location Location!
         public virtual void OnLocationChange(Point3D oldLocation)
-        { 
+        {
             var items = Items;
 
             if (items == null)
@@ -4329,7 +4313,7 @@ namespace Server
                     o.OnParentLocationChange(oldLocation);
                 }
             }
-		}
+        }
 
         public virtual void OnParentLocationChange(Point3D oldLocation)
         { }
@@ -4456,7 +4440,7 @@ namespace Server
             }
         }
 
-        public virtual string DefaultName { get { return null; } }
+        public virtual string DefaultName => null;
 
         [CommandProperty(AccessLevel.Decorator)]
         public string Name
@@ -4611,7 +4595,7 @@ namespace Server
         protected virtual void OnAmountChange(int oldValue)
         { }
 
-        public virtual bool HandlesOnSpeech { get { return false; } }
+        public virtual bool HandlesOnSpeech => false;
 
         public virtual void OnSpeech(SpeechEventArgs e)
         { }
@@ -5128,7 +5112,7 @@ namespace Server
             //return root == null ? m_Location : new Point3D( (IPoint3D) root );
         }
 
-        public virtual bool BlocksFit { get { return false; } }
+        public virtual bool BlocksFit => false;
 
         public Point3D GetSurfaceTop()
         {
@@ -5250,7 +5234,7 @@ namespace Server
         public virtual void OnSnoop(Mobile from)
         { }
 
-        public bool InSecureTrade { get { return (GetSecureTradeCont() != null); } }
+        public bool InSecureTrade => (GetSecureTradeCont() != null);
 
         public SecureTradeContainer GetSecureTradeCont()
         {
@@ -5446,7 +5430,7 @@ namespace Server
             return false;
         }
 
-        public ItemData ItemData { get { return TileData.ItemTable[m_ItemID & TileData.MaxItemValue]; } }
+        public ItemData ItemData => TileData.ItemTable[m_ItemID & TileData.MaxItemValue];
 
         public virtual void OnItemUsed(Mobile from, Item item)
         {
@@ -5516,8 +5500,8 @@ namespace Server
             }
         }
 
-        public virtual bool CanTarget { get { return true; } }
-        public virtual bool DisplayLootType { get { return true; } }
+        public virtual bool CanTarget => true;
+        public virtual bool DisplayLootType => true;
 
         public virtual void OnSingleClickContained(Mobile from, Item item)
         {
@@ -5789,17 +5773,17 @@ namespace Server
         public List<ItemSocket> Sockets { get; private set; }
 
         public void AttachSocket(ItemSocket socket)
-		{
-			if(Sockets == null)
-			{
-				Sockets = new List<ItemSocket>();
-			}
+        {
+            if (Sockets == null)
+            {
+                Sockets = new List<ItemSocket>();
+            }
 
-			Sockets.Add(socket);
-			socket.Owner = this;
-			
-			InvalidateProperties();
-		}
+            Sockets.Add(socket);
+            socket.Owner = this;
+
+            InvalidateProperties();
+        }
 
         public bool RemoveSocket<T>()
         {
@@ -5831,26 +5815,26 @@ namespace Server
 
             InvalidateProperties();
         }
-		
-		public T GetSocket<T>() where T : ItemSocket
-		{
+
+        public T GetSocket<T>() where T : ItemSocket
+        {
             if (Sockets == null)
             {
                 return null;
             }
 
-			return Sockets.FirstOrDefault(s => s.GetType() == typeof(T)) as T;
-		}
-		
-		public T GetSocket<T>(Func<T, bool> predicate) where T : ItemSocket
-		{
+            return Sockets.FirstOrDefault(s => s.GetType() == typeof(T)) as T;
+        }
+
+        public T GetSocket<T>(Func<T, bool> predicate) where T : ItemSocket
+        {
             if (Sockets == null)
             {
                 return null;
             }
 
-			return Sockets.FirstOrDefault(s => s.GetType() == typeof(T) && (predicate == null || predicate(s as T))) as T;
-		}
+            return Sockets.FirstOrDefault(s => s.GetType() == typeof(T) && (predicate == null || predicate(s as T))) as T;
+        }
 
         public ItemSocket GetSocket(Type type)
         {
@@ -5863,14 +5847,14 @@ namespace Server
         }
 
         public bool HasSocket<T>()
-		{
+        {
             if (Sockets == null)
             {
                 return false;
             }
 
             return Sockets.Any(s => s.GetType() == typeof(T));
-		}
+        }
 
         public bool HasSocket(Type t)
         {
@@ -5885,71 +5869,71 @@ namespace Server
     }
 
     public class ItemSocket
-	{
-		[CommandProperty(AccessLevel.GameMaster)]
-		public Item Owner { get; set; }
-		
-		[CommandProperty(AccessLevel.GameMaster)]
-		public DateTime Expires { get; set; }
-		
-		public virtual TimeSpan TickDuration { get { return TimeSpan.FromMinutes(1); } }
-		
-		public Timer Timer { get; set; }
+    {
+        [CommandProperty(AccessLevel.GameMaster)]
+        public Item Owner { get; set; }
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public DateTime Expires { get; set; }
+
+        public virtual TimeSpan TickDuration => TimeSpan.FromMinutes(1);
+
+        public Timer Timer { get; set; }
 
         public ItemSocket()
             : this(TimeSpan.Zero)
         {
         }
-		
-		public ItemSocket(TimeSpan duration)
-		{
-			if(duration != TimeSpan.Zero)
-			{
-				Expires = DateTime.UtcNow + duration;
-				
-				BeginTimer();
-			}
-		}
-		
-		protected void BeginTimer()
-		{
-			EndTimer();
-			
-			Timer = Timer.DelayCall(TickDuration, TickDuration, OnTick);
+
+        public ItemSocket(TimeSpan duration)
+        {
+            if (duration != TimeSpan.Zero)
+            {
+                Expires = DateTime.UtcNow + duration;
+
+                BeginTimer();
+            }
+        }
+
+        protected void BeginTimer()
+        {
+            EndTimer();
+
+            Timer = Timer.DelayCall(TickDuration, TickDuration, OnTick);
             Timer.Start();
-		}
-		
-		protected void EndTimer()
-		{
-			if(Timer != null)
-			{
-				Timer.Stop();
-				Timer = null;
-			}
-		}
-		
-		protected virtual void OnTick()
-		{
-			if(Expires < DateTime.UtcNow || Owner.Deleted)
-			{
-				Remove();
-			}
-		}
-		
-		public virtual void Remove()
-		{
-			EndTimer();
-			
-			Owner.RemoveItemSocket(this);
-		}
-		
-		public virtual void OnRemoved()
-		{
-		}
-		
-		public virtual void GetProperties(ObjectPropertyList list)
-		{
-		}
+        }
+
+        protected void EndTimer()
+        {
+            if (Timer != null)
+            {
+                Timer.Stop();
+                Timer = null;
+            }
+        }
+
+        protected virtual void OnTick()
+        {
+            if (Expires < DateTime.UtcNow || Owner.Deleted)
+            {
+                Remove();
+            }
+        }
+
+        public virtual void Remove()
+        {
+            EndTimer();
+
+            Owner.RemoveItemSocket(this);
+        }
+
+        public virtual void OnRemoved()
+        {
+        }
+
+        public virtual void GetProperties(ObjectPropertyList list)
+        {
+        }
 
         public virtual void OnOwnerDuped(Item newItem)
         {
@@ -5985,43 +5969,42 @@ namespace Server
         {
         }
 
-		public virtual void Serialize(GenericWriter writer)
-		{
-			writer.Write(0);
-			
-			writer.Write(Expires);
-		}
-		
-		public virtual void Deserialize(Item owner, GenericReader reader)
-		{
-			reader.ReadInt(); // version
-			
-			Expires = reader.ReadDateTime();
-			
-			if(Expires != DateTime.MinValue)
-			{
-				if(Expires < DateTime.UtcNow)
-				{
-					return;
-				}
-				else
-				{
-					BeginTimer();
-				}
-			}
-			
-			owner.AttachSocket(this);
-		}
-		
-		public static void Save(ItemSocket socket, GenericWriter writer)
-		{
-			writer.Write(socket.GetType().Name);
-			socket.Serialize(writer);
-		}
-		
-		public static void Load(Item item, GenericReader reader)
-		{
-			var typeName = ScriptCompiler.FindTypeByName(reader.ReadString());
+        public virtual void Serialize(GenericWriter writer)
+        {
+            writer.Write(0);
+            writer.Write(Expires);
+        }
+
+        public virtual void Deserialize(Item owner, GenericReader reader)
+        {
+            reader.ReadInt(); // version
+
+            Expires = reader.ReadDateTime();
+
+            if (Expires != DateTime.MinValue)
+            {
+                if (Expires < DateTime.UtcNow)
+                {
+                    return;
+                }
+                else
+                {
+                    BeginTimer();
+                }
+            }
+
+            owner.AttachSocket(this);
+        }
+
+        public static void Save(ItemSocket socket, GenericWriter writer)
+        {
+            writer.Write(socket.GetType().Name);
+            socket.Serialize(writer);
+        }
+
+        public static void Load(Item item, GenericReader reader)
+        {
+            var typeName = ScriptCompiler.FindTypeByName(reader.ReadString());
             var socket = Activator.CreateInstance(typeName) as ItemSocket;
 
             socket.Deserialize(item, reader);

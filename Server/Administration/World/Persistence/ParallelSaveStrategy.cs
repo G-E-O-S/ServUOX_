@@ -59,7 +59,7 @@ namespace Server
             WaitHandle.WaitAll(
                 Array.ConvertAll<Consumer, WaitHandle>(
                     consumers,
-                    delegate(Consumer input)
+                    delegate (Consumer input)
                     {
                         return input.completionEvent;
                     }));

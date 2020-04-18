@@ -1,15 +1,14 @@
-using System;
 using Server.Network;
 
 namespace Server.Gumps
 {
-	public class GumpTooltip : GumpEntry
-	{
-		private int m_Number;
-        public GumpTooltip( int number )
-		{
-			m_Number = number;
-		}
+    public class GumpTooltip : GumpEntry
+    {
+        private int m_Number;
+        public GumpTooltip(int number)
+        {
+            m_Number = number;
+        }
 
         public int Number
         {
@@ -18,16 +17,16 @@ namespace Server.Gumps
         }
 
         public override string Compile()
-		{
+        {
             return string.Format("{{ tooltip {0} }}", m_Number);
         }
 
-		private static byte[] m_LayoutName = Gump.StringToBuffer( "tooltip" );
+        private static byte[] m_LayoutName = Gump.StringToBuffer("tooltip");
 
-		public override void AppendTo( IGumpWriter disp )
-		{
-			disp.AppendLayout( m_LayoutName );
-			disp.AppendLayout( m_Number );
+        public override void AppendTo(IGumpWriter disp)
+        {
+            disp.AppendLayout(m_LayoutName);
+            disp.AppendLayout(m_Number);
         }
-	}
+    }
 }

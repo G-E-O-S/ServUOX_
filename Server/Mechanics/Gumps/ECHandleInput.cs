@@ -1,4 +1,3 @@
-using System;
 using Server.Network;
 
 namespace Server.Gumps
@@ -11,7 +10,7 @@ namespace Server.Gumps
 
         public override string Compile()
         {
-            return String.Format("{{ echandleinput }}");
+            return string.Format("{{ echandleinput }}");
         }
 
         private static byte[] m_LayoutName = Gump.StringToBuffer("echandleinput");

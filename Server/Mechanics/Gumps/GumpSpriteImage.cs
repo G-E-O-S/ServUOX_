@@ -1,4 +1,3 @@
-using System;
 using Server.Network;
 
 namespace Server.Gumps
@@ -64,7 +63,7 @@ namespace Server.Gumps
 
         public override string Compile()
         {
-            return String.Format("{{ picinpic {0} {1} {2} {3} {4} {5} {6} }}", m_X, m_Y, m_GumpID, m_Width, m_Height, m_SX, m_SY);
+            return string.Format("{{ picinpic {0} {1} {2} {3} {4} {5} {6} }}", m_X, m_Y, m_GumpID, m_Width, m_Height, m_SX, m_SY);
         }
 
         private static byte[] m_LayoutName = Gump.StringToBuffer("picinpic");

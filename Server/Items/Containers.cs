@@ -1,163 +1,157 @@
-#region References
 using System;
-
 using Server.Accounting;
 using Server.Network;
-#endregion
 
 namespace Server.Items
 {
-	public class BankBox : Container
-	{
-		private static readonly Type _GoldType = ScriptCompiler.FindTypeByFullName("Server.Items.Gold");
-		private static readonly Type _CheckType = ScriptCompiler.FindTypeByFullName("Server.Items.BankCheck");
+    public class BankBox : Container
+    {
+        private static readonly Type _GoldType = ScriptCompiler.FindTypeByFullName("Server.Items.Gold");
+        private static readonly Type _CheckType = ScriptCompiler.FindTypeByFullName("Server.Items.BankCheck");
 
-		public static bool SendDeleteOnClose { get; set; }
+        public static bool SendDeleteOnClose { get; set; }
 
-		private Mobile m_Owner;
-		private bool m_Open;
+        public override int DefaultMaxWeight => 0;
 
-		public override int DefaultMaxWeight { get { return 0; } }
+        public override bool IsVirtualItem => true;
 
-		public override bool IsVirtualItem { get { return true; } }
+        public Mobile Owner { get; private set; }
 
-		public Mobile Owner { get { return m_Owner; } }
+        public bool Opened { get; private set; }
 
-		public bool Opened { get { return m_Open; } }
+        public BankBox(Mobile owner)
+            : base(0xE7C)
+        {
+            Owner = owner;
 
-		public BankBox(Mobile owner)
-			: base(0xE7C)
-		{
-			m_Owner = owner;
+            Movable = false;
+            Layer = Layer.Bank;
+        }
 
-			Movable = false;
-			Layer = Layer.Bank;
-		}
+        public BankBox(Serial serial)
+            : base(serial)
+        { }
 
-		public BankBox(Serial serial)
-			: base(serial)
-		{ }
-		
-		public void Open()
-		{
-			if (m_Owner != null && m_Owner.NetState != null)
-			{
-			m_Open = true;
+        public void Open()
+        {
+            if (Owner != null && Owner.NetState != null)
+            {
+                Opened = true;
 
-				m_Owner.PrivateOverheadMessage(
-					MessageType.Regular,
-					0x3B2,
-					true,
-					String.Format("Bank container has {0} items, {1} stones", TotalItems, TotalWeight),
-					m_Owner.NetState);
+                Owner.PrivateOverheadMessage(
+                    MessageType.Regular,
+                    0x3B2,
+                    true,
+                    String.Format("Bank container has {0} items, {1} stones", TotalItems, TotalWeight),
+                    Owner.NetState);
 
-				m_Owner.Send(new EquipUpdate(this));
+                Owner.Send(new EquipUpdate(this));
 
-				DisplayTo(m_Owner);
-			}
-		}
+                DisplayTo(Owner);
+            }
+        }
 
-		public void Close()
-		{
-			m_Open = false;
+        public void Close()
+        {
+            Opened = false;
 
-			if (m_Owner != null && SendDeleteOnClose)
-			{
-				m_Owner.Send(RemovePacket);
-			}
-		}
+            if (Owner != null && SendDeleteOnClose)
+            {
+                Owner.Send(RemovePacket);
+            }
+        }
 
-		public override void OnSingleClick(Mobile from)
-		{ }
+        public override void OnSingleClick(Mobile from)
+        { }
 
-		public override void OnDoubleClick(Mobile from)
-		{ }
+        public override void OnDoubleClick(Mobile from)
+        { }
 
-		public override DeathMoveResult OnParentDeath(Mobile parent)
-		{
-			return DeathMoveResult.RemainEquiped;
-		}
+        public override DeathMoveResult OnParentDeath(Mobile parent)
+        {
+            return DeathMoveResult.RemainEquiped;
+        }
 
-		public override bool IsAccessibleTo(Mobile check)
-		{
-			if ((check == m_Owner && m_Open) || check.AccessLevel >= AccessLevel.GameMaster)
-			{
-				return base.IsAccessibleTo(check);
-			}
+        public override bool IsAccessibleTo(Mobile check)
+        {
+            if ((check == Owner && Opened) || check.AccessLevel >= AccessLevel.GameMaster)
+            {
+                return base.IsAccessibleTo(check);
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		public override bool OnDragDrop(Mobile from, Item dropped)
-		{
-			if ((from == m_Owner && m_Open) || from.AccessLevel >= AccessLevel.GameMaster)
-			{
-				return base.OnDragDrop(from, dropped);
-			}
+        public override bool OnDragDrop(Mobile from, Item dropped)
+        {
+            if ((from == Owner && Opened) || from.AccessLevel >= AccessLevel.GameMaster)
+            {
+                return base.OnDragDrop(from, dropped);
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
-		{
-			if ((from == m_Owner && m_Open) || from.AccessLevel >= AccessLevel.GameMaster)
-			{
-				return base.OnDragDropInto(from, item, p);
-			}
+        public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
+        {
+            if ((from == Owner && Opened) || from.AccessLevel >= AccessLevel.GameMaster)
+            {
+                return base.OnDragDropInto(from, item, p);
+            }
 
-			return false;
-		}
+            return false;
+        }
 
-		public override int GetTotal(TotalType type)
-		{
-			if (AccountGold.Enabled && Owner != null && Owner.Account != null && type == TotalType.Gold)
-			{
-				return Owner.Account.TotalGold;
-			}
+        public override int GetTotal(TotalType type)
+        {
+            if (AccountGold.Enabled && Owner != null && Owner.Account != null && type == TotalType.Gold)
+            {
+                return Owner.Account.TotalGold;
+            }
 
-			return base.GetTotal(type);
-		}
+            return base.GetTotal(type);
+        }
 
-		public override bool CheckHold(Mobile m, Item item, bool message, bool checkItems, int plusItems, int plusWeight)
-		{
-			Type type = item.GetType();
+        public override bool CheckHold(Mobile m, Item item, bool message, bool checkItems, int plusItems, int plusWeight)
+        {
+            Type type = item.GetType();
 
-			if (AccountGold.Enabled && Owner != null && Owner.Account != null && (type.IsAssignableFrom(_GoldType) || type.IsAssignableFrom(_CheckType)))
-			{
-				return true;
-			}
+            if (AccountGold.Enabled && Owner != null && Owner.Account != null && (type.IsAssignableFrom(_GoldType) || type.IsAssignableFrom(_CheckType)))
+            {
+                return true;
+            }
 
-			return base.CheckHold(m, item, message, checkItems, plusItems, plusWeight);
-		}
+            return base.CheckHold(m, item, message, checkItems, plusItems, plusWeight);
+        }
 
-		public override void Serialize(GenericWriter writer)
-		{
-			base.Serialize(writer);
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
 
-			writer.Write(0); // version
+            writer.Write(0); // version
 
-			writer.Write(m_Owner);
-			writer.Write(m_Open);
-		}
+            writer.Write(Owner);
+            writer.Write(Opened);
+        }
 
-		public override void Deserialize(GenericReader reader)
-		{
-			base.Deserialize(reader);
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
 
-			reader.ReadInt();
+            reader.ReadInt();
 
-			m_Owner = reader.ReadMobile();
-			m_Open = reader.ReadBool();
+            Owner = reader.ReadMobile();
+            Opened = reader.ReadBool();
 
-			if (ItemID == 0xE41)
-			{
-				ItemID = 0xE7C;
-			}
+            if (ItemID == 0xE41)
+            {
+                ItemID = 0xE7C;
+            }
 
-			if (m_Owner == null)
-			{
-				Delete();
-			}
-		}
-	}
+            if (Owner == null)
+            {
+                Delete();
+            }
+        }
+    }
 }

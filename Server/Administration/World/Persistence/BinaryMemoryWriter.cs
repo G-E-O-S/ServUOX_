@@ -13,13 +13,7 @@ namespace Server
             stream = UnderlyingStream as MemoryStream;
         }
 
-        protected override int BufferSize
-        {
-            get
-            {
-                return 512;
-            }
-        }
+        protected override int BufferSize => 512;
         public int CommitTo(SequentialFileWriter dataFile, SequentialFileWriter indexFile, int typeCode, int serial)
         {
             Flush();

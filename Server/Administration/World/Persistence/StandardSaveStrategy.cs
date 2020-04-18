@@ -8,7 +8,7 @@ namespace Server
     {
         public static SaveOption SaveType = SaveOption.Normal;
         private readonly Queue<Item> _decayQueue;
-        private bool _permitBackgroundWrite;
+
         public StandardSaveStrategy()
         {
             _decayQueue = new Queue<Item>();
@@ -21,16 +21,12 @@ namespace Server
         }
         public override string Name => "Standard";
 
-        protected bool PermitBackgroundWrite
-        {
-            get => _permitBackgroundWrite;
-            set => _permitBackgroundWrite = value;
-        }
-        protected bool UseSequentialWriters => (SaveType == SaveOption.Normal || !_permitBackgroundWrite);
+        protected bool PermitBackgroundWrite { get; set; }
+        protected bool UseSequentialWriters => (SaveType == SaveOption.Normal || !PermitBackgroundWrite);
 
         public override void Save(SaveMetrics metrics, bool permitBackgroundWrite)
         {
-            _permitBackgroundWrite = permitBackgroundWrite;
+            PermitBackgroundWrite = permitBackgroundWrite;
 
             SaveMobiles(metrics);
             SaveItems(metrics);
