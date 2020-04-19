@@ -1,6 +1,4 @@
-#region References
 using System;
-
 using Server.Engines.Quests;
 using Server.Factions;
 using Server.Items;
@@ -8,7 +6,6 @@ using Server.Mobiles;
 using Server.Multis;
 using Server.Regions;
 using Server.Spells.SkillMasteries;
-#endregion
 
 namespace Server.Misc
 {

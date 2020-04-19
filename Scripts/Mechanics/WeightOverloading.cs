@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-
 using Server.Mobiles;
 using Server.Items;
 
@@ -47,7 +45,7 @@ namespace Server.Misc
                 // On EA, if follows this special rule to reduce the chances of your stamina being dropped to 0
                 if (m.Stam - fatigue <= 10)
                 {
-                    m.Stam -= (int)(fatigue * ((double)m.Hits / (double)m.HitsMax));
+                    m.Stam -= (int)(fatigue * (m.Hits / m.HitsMax));
                 }
                 else
                 {
@@ -95,9 +93,7 @@ namespace Server.Misc
                 return;
             }
 
-            var pm = from as PlayerMobile;
-
-            if (pm != null)
+            if (from is PlayerMobile pm)
             {
                 int amt = Core.SA ? 10 : (from.Mounted ? 48 : 16);
 

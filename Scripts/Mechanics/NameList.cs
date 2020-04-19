@@ -8,15 +8,14 @@ namespace Server
     public class NameList
     {
         private static Dictionary<string, NameList> m_Table;
-        private readonly string m_Type;
-        private readonly string[] m_List;
+
         public NameList(string type, XmlElement xml)
         {
-            this.m_Type = type;
-            this.m_List = xml.InnerText.Split(',');
+            Type = type;
+            List = xml.InnerText.Split(',');
 
-            for (int i = 0; i < this.m_List.Length; ++i)
-                this.m_List[i] = Utility.Intern(this.m_List[i].Trim());
+            for (int i = 0; i < List.Length; ++i)
+                List[i] = Utility.Intern(List[i].Trim());
         }
 
         static NameList()
@@ -39,24 +38,11 @@ namespace Server
             }
         }
 
-        public string Type
-        {
-            get
-            {
-                return this.m_Type;
-            }
-        }
-        public string[] List
-        {
-            get
-            {
-                return this.m_List;
-            }
-        }
+        public string Type { get; }
+        public string[] List { get; }
         public static NameList GetNameList(string type)
         {
-            NameList n = null;
-            m_Table.TryGetValue(type, out n);
+            m_Table.TryGetValue(type, out NameList n);
             return n;
         }
 
@@ -72,8 +58,8 @@ namespace Server
 
         public bool ContainsName(string name)
         {
-            for (int i = 0; i < this.m_List.Length; i++)
-                if (name == this.m_List[i])
+            for (int i = 0; i < List.Length; i++)
+                if (name == List[i])
                     return true;
 
             return false;
@@ -81,8 +67,8 @@ namespace Server
 
         public string GetRandomName()
         {
-            if (this.m_List.Length > 0)
-                return this.m_List[Utility.Random(this.m_List.Length)];
+            if (List.Length > 0)
+                return List[Utility.Random(List.Length)];
 
             return "";
         }
@@ -98,7 +84,7 @@ namespace Server
             {
                 string type = element.GetAttribute("type");
 
-                if (String.IsNullOrEmpty(type))
+                if (string.IsNullOrEmpty(type))
                     continue;
 
                 try

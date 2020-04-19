@@ -150,16 +150,15 @@ namespace Server
         {
             private readonly PoisonImpl m_Poison;
             private readonly Mobile m_Mobile;
-            private Mobile m_From;
             private int m_LastDamage;
             private int m_Index;
 
-            public Mobile From { get { return m_From; } set { m_From = value; } }
+            public Mobile From { get; set; }
 
             public PoisonTimer(Mobile m, PoisonImpl p)
                 : base(p.m_Delay, p.m_Interval)
             {
-                m_From = m;
+                From = m;
                 m_Mobile = m;
                 m_Poison = p;
 
@@ -225,15 +224,15 @@ namespace Server
                     m_LastDamage = damage;
                 }
 
-                if (m_From != null)
+                if (From != null)
                 {
-                    if (m_From is BaseCreature && ((BaseCreature)m_From).RecentSetControl && ((BaseCreature)m_From).GetMaster() == m_Mobile)
+                    if (From is BaseCreature && ((BaseCreature)From).RecentSetControl && ((BaseCreature)From).GetMaster() == m_Mobile)
                     {
-                        m_From = null;
+                        From = null;
                     }
                     else
                     {
-                        m_From.DoHarmful(m_Mobile, true);
+                        From.DoHarmful(m_Mobile, true);
                     }
                 }
 
@@ -245,26 +244,26 @@ namespace Server
                 #region Mondain's Legacy
                 if (Core.ML)
                 {
-                    if (m_From != null && m_Mobile != m_From && !m_From.InRange(m_Mobile.Location, 1) && m_Poison.m_Level >= 10 && m_Poison.m_Level <= 13) // darkglow
+                    if (From != null && m_Mobile != From && !From.InRange(m_Mobile.Location, 1) && m_Poison.m_Level >= 10 && m_Poison.m_Level <= 13) // darkglow
                     {
-                        m_From.SendLocalizedMessage(1072850); // Darkglow poison increases your damage!
+                        From.SendLocalizedMessage(1072850); // Darkglow poison increases your damage!
                         damage = (int)Math.Floor(damage * 1.1);
                     }
 
-                    if (m_From != null && m_Mobile != m_From && m_From.InRange(m_Mobile.Location, 1) && m_Poison.m_Level >= 14 && m_Poison.m_Level <= 18) // parasitic
+                    if (From != null && m_Mobile != From && From.InRange(m_Mobile.Location, 1) && m_Poison.m_Level >= 14 && m_Poison.m_Level <= 18) // parasitic
                     {
-                        int toHeal = Math.Min(m_From.HitsMax - m_From.Hits, damage);
+                        int toHeal = Math.Min(From.HitsMax - From.Hits, damage);
 
                         if (toHeal > 0)
                         {
-                            m_From.SendLocalizedMessage(1060203, toHeal.ToString()); // You have had ~1_HEALED_AMOUNT~ hit points of damage healed.
-                            m_From.Heal(toHeal, m_Mobile, false);
+                            From.SendLocalizedMessage(1060203, toHeal.ToString()); // You have had ~1_HEALED_AMOUNT~ hit points of damage healed.
+                            From.Heal(toHeal, m_Mobile, false);
                         }
                     }
                 }
                 #endregion
 
-                AOS.Damage(m_Mobile, m_From, damage, 0, 0, 0, 100, 0);
+                AOS.Damage(m_Mobile, From, damage, 0, 0, 0, 100, 0);
 
                 if (damage > 0)
                 {
@@ -272,7 +271,7 @@ namespace Server
                 }
 
                 if ((m_Index % m_Poison.m_MessageInterval) == 0)
-                    m_Mobile.OnPoisoned(m_From, m_Poison, m_Poison);
+                    m_Mobile.OnPoisoned(From, m_Poison, m_Poison);
             }
         }
     }

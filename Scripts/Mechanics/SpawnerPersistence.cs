@@ -4,9 +4,7 @@ using Server.Mobiles;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Server.Engines.Quests;
-using System.Xml;
 using System.Data;
 using Server.Commands;
 using Server.Gumps;
@@ -45,13 +43,10 @@ namespace Server
 
         private static bool _FirstRun = true;
 
-        private static int _Version;
-        public static int Version { get { return _Version; } }
+        public static int Version { get; private set; }
 
         public static SpawnerVersion VersionFlag { get; set; }
-
-        private static bool _SpawnsConverted;
-        public static bool SpawnsConverted { get { return _SpawnsConverted; } }
+        public static bool SpawnsConverted { get; private set; }
 
         public static void Configure()
         {
@@ -65,7 +60,7 @@ namespace Server
             {
                 CheckVersion();
             }
-            else if (_Version == 0) // new server, no need to run the new stuff.
+            else if (Version == 0) // new server, no need to run the new stuff.
             {
                 // This way, fresh servers won't duplicate any spawners that should have already been adjusted for a fresh server
                 foreach (int i in Enum.GetValues(typeof(SpawnerVersion)))
@@ -84,7 +79,7 @@ namespace Server
                              "with standard spawners. Any existing spawner with special symbols, such as , <> / will not be converted. " +
                              "Be advised, this process will take several minutes to complete.";
 
-                if (_SpawnsConverted)
+                if (SpawnsConverted)
                     str += "<br><br>You have already ran this conversion. Run Again?";
 
                 e.Mobile.SendGump(new WarningGump(1019005, 30720, str, 0xFFFFFF, 400, 300, (from, ok, state) =>
@@ -126,12 +121,12 @@ namespace Server
                 FilePath,
                 writer =>
                 {
-                    writer.Write((int)12);
+                    writer.Write(12);
 
                     writer.Write((int)VersionFlag);
 
                     writer.Write(false);
-                    writer.Write(_SpawnsConverted);
+                    writer.Write(SpawnsConverted);
                 });
         }
 
@@ -141,15 +136,15 @@ namespace Server
                     FilePath,
                     reader =>
                     {
-                        _Version = reader.ReadInt();
+                        Version = reader.ReadInt();
 
-                        if (_Version > 10)
+                        if (Version > 10)
                             VersionFlag = (SpawnerVersion)reader.ReadInt();
 
-                        if (_Version > 2)
+                        if (Version > 2)
                         {
                             _FirstRun = reader.ReadBool();
-                            _SpawnsConverted = reader.ReadBool();
+                            SpawnsConverted = reader.ReadBool();
                         }
                     });
         }
@@ -160,7 +155,7 @@ namespace Server
         /// </summary>
         public static void CheckVersion()
         {
-            switch (_Version)
+            switch (Version)
             {
                 case 12:
                 case 11:
@@ -261,7 +256,7 @@ namespace Server
         public static void ToConsole(string str, ConsoleColor color = ConsoleColor.Green)
         {
             Utility.PushColor(color);
-            Console.WriteLine("[Spawner Persistence v{0}] {1}", _Version.ToString(), str);
+            Console.WriteLine("[Spawner Persistence v{0}] {1}", Version.ToString(), str);
             Utility.PopColor();
         }
 
@@ -687,7 +682,7 @@ namespace Server
                     count++;
             }
 
-            ToConsole(String.Format("Spawn Replacement: {0} spawners named {1} replaced [{2} replaced with {3}].", count.ToString(), name, current, replace));
+            ToConsole(string.Format("Spawn Replacement: {0} spawners named {1} replaced [{2} replaced with {3}].", count.ToString(), name, current, replace));
         }
 
         public static bool Replace(ISpawner spwner, string current, string replace, string check)
@@ -708,7 +703,7 @@ namespace Server
 
                     if (typeName != null && typeName.IndexOf(lookingFor) >= 0)
                     {
-                        if (String.IsNullOrEmpty(check) || typeName.IndexOf(check) < 0)
+                        if (string.IsNullOrEmpty(check) || typeName.IndexOf(check) < 0)
                         {
                             obj.TypeName = typeName.Replace(lookingFor, replace);
 
@@ -731,7 +726,7 @@ namespace Server
 
                     if (typeName != null && typeName.IndexOf(lookingFor) >= 0)
                     {
-                        if (String.IsNullOrEmpty(check) || typeName.IndexOf(check) < 0)
+                        if (string.IsNullOrEmpty(check) || typeName.IndexOf(check) < 0)
                         {
                             so.SpawnName = typeName.Replace(lookingFor, replace);
 
@@ -765,7 +760,7 @@ namespace Server
             }
 
             ColUtility.Free(list);
-            ToConsole(String.Format("Spawn Removal: {0} spawn lines removed containing -{1}-. [{2} deleted].", count.ToString(), toRemove, deleted));
+            ToConsole(string.Format("Spawn Removal: {0} spawn lines removed containing -{1}-. [{2} deleted].", count.ToString(), toRemove, deleted));
         }
 
         public static int Remove(XmlSpawner spawner, string toRemove, ref int deleted)
@@ -895,7 +890,7 @@ namespace Server
                 ColUtility.Free(list);
             }
 
-            ToConsole(String.Format("Spawner Action: Performed action to {0} spawners{1}", 
+            ToConsole(string.Format("Spawner Action: Performed action to {0} spawners{1}", 
                 count.ToString(), lineCheck != null ? " containing " + lineCheck + "." : typeCheck != null ? " containing " + typeCheck.Name + "." : "."));
         }
 
@@ -980,7 +975,7 @@ namespace Server
 
                 if (!File.Exists(path))
                 {
-                    ToConsole(String.Format("Cannot proceed. {0} does not exist.", file), ConsoleColor.Red);
+                    ToConsole(string.Format("Cannot proceed. {0} does not exist.", file), ConsoleColor.Red);
                     return;
                 }
             }
@@ -994,7 +989,7 @@ namespace Server
                     item.Delete();
                 }
 
-                ToConsole(String.Format("Deleted {0} Spawners in {1}.", list.Count, region));
+                ToConsole(string.Format("Deleted {0} Spawners in {1}.", list.Count, region));
                 ColUtility.Free(list);
             }
 
@@ -1014,7 +1009,7 @@ namespace Server
 
                 if (!File.Exists(path))
                 {
-                    ToConsole(String.Format("Cannot proceed. {0} does not exist.", file), ConsoleColor.Red);
+                    ToConsole(string.Format("Cannot proceed. {0} does not exist.", file), ConsoleColor.Red);
                     return;
                 }
             }
@@ -1033,7 +1028,7 @@ namespace Server
             foreach (var item in list)
                 item.Delete();
 
-            ToConsole(String.Format("Deleted {0} Spawners in {1}.", list.Count, map.ToString()));
+            ToConsole(string.Format("Deleted {0} Spawners in {1}.", list.Count, map.ToString()));
 
             ColUtility.Free(list);
             eable.Free();
@@ -1181,7 +1176,7 @@ namespace Server
                     if (failed > 0)
                         ToConsole(String.Format("Failed to convert {0} XmlSpawners to standard spawners. {1} kept due to XmlSpawner Functionality", failed, keep), ConsoleColor.Red);
 
-                    _SpawnsConverted = true;
+                    SpawnsConverted = true;
                 }
                 else
                 {
@@ -1407,7 +1402,7 @@ namespace Server
                 }
                 catch { }
 
-                ToConsole(String.Format("Found {0} Xmlspawner files for removal.", files == null ? "0" : files.Count.ToString()), files != null && files.Count > 0 ? ConsoleColor.Green : ConsoleColor.Red);
+                ToConsole(string.Format("Found {0} Xmlspawner files for removal.", files == null ? "0" : files.Count.ToString()), files != null && files.Count > 0 ? ConsoleColor.Green : ConsoleColor.Red);
                 ToConsole("Deleting spawners...", ConsoleColor.Cyan);
 
                 if (files != null && files.Count > 0)
@@ -1426,7 +1421,7 @@ namespace Server
 
                         if (fs == null)
                         {
-                            ToConsole(String.Format("Unable to open {0} for loading", filename), ConsoleColor.Red);
+                            ToConsole(string.Format("Unable to open {0} for loading", filename), ConsoleColor.Red);
                             continue;
                         }
 
@@ -1439,7 +1434,7 @@ namespace Server
                         catch
                         {
                             fs.Close();
-                            ToConsole(String.Format("Error reading xml file {0}", filename), ConsoleColor.Red);
+                            ToConsole(string.Format("Error reading xml file {0}", filename), ConsoleColor.Red);
                             continue;
                         }
 
@@ -1468,11 +1463,11 @@ namespace Server
                         fs.Close();
                     }
 
-                    ToConsole(String.Format("Deleted {0} XmlSpawners from {1}/{2}.xml.", deletedxml, directory, filename), ConsoleColor.Cyan);
+                    ToConsole(string.Format("Deleted {0} XmlSpawners from {1}/{2}.xml.", deletedxml, directory, filename), ConsoleColor.Cyan);
                 }
                 else
                 {
-                    ToConsole(String.Format("File Not Found: {0}", filename), ConsoleColor.Red);
+                    ToConsole(string.Format("File Not Found: {0}", filename), ConsoleColor.Red);
                 }
             }
         }
@@ -1486,7 +1481,7 @@ namespace Server
         {
             string filename = "Spawns";
 
-            if (System.IO.Directory.Exists(filename) == true)
+            if (Directory.Exists(filename) == true)
             {
                 List<string> files = null;
                 string[] dirs = null;
@@ -1511,7 +1506,7 @@ namespace Server
                     }
                 }
 
-                ToConsole(String.Format("Found {0} Xmlspawner files for conversion.", files.Count), files != null && files.Count > 0 ? ConsoleColor.Green : ConsoleColor.Red);
+                ToConsole(string.Format("Found {0} Xmlspawner files for conversion.", files.Count), files != null && files.Count > 0 ? ConsoleColor.Green : ConsoleColor.Red);
                 ToConsole("Deleting spawners...", ConsoleColor.Cyan);
                 long start = Core.TickCount;
 
@@ -1532,7 +1527,7 @@ namespace Server
 
                         if (fs == null)
                         {
-                            ToConsole(String.Format("Unable to open {0} for loading", filename), ConsoleColor.Red);
+                            ToConsole(string.Format("Unable to open {0} for loading", filename), ConsoleColor.Red);
                             continue;
                         }
 
@@ -1545,7 +1540,7 @@ namespace Server
                         catch
                         {
                             fs.Close();
-                            ToConsole(String.Format("Error reading xml file {0}", filename), ConsoleColor.Red);
+                            ToConsole(string.Format("Error reading xml file {0}", filename), ConsoleColor.Red);
                             continue;
                         }
 
@@ -1601,7 +1596,7 @@ namespace Server
                                         {
                                             nodelelete++;
 
-                                            ToConsole(String.Format("Failed to Delete: {0} in {1}", (string)dr["Name"], file));
+                                            ToConsole(string.Format("Failed to Delete: {0} in {1}", (string)dr["Name"], file));
                                         }
                                     }
                                 }
@@ -1611,11 +1606,11 @@ namespace Server
                         fs.Close();
                     }
 
-                    ToConsole(String.Format("Deleted {0} XmlSpawners [{1} failed] in {2} seconds.", deletedxml, nodelelete, ((Core.TickCount - start) / 1000).ToString()), ConsoleColor.Cyan);
+                    ToConsole(string.Format("Deleted {0} XmlSpawners [{1} failed] in {2} seconds.", deletedxml, nodelelete, ((Core.TickCount - start) / 1000).ToString()), ConsoleColor.Cyan);
                 }
                 else
                 {
-                    ToConsole(String.Format("Directory Not Found: {0}", filename), ConsoleColor.Red);
+                    ToConsole(string.Format("Directory Not Found: {0}", filename), ConsoleColor.Red);
                 }
             }
         }

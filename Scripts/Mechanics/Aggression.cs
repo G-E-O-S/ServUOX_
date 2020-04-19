@@ -31,8 +31,8 @@ namespace Server.Misc
 
             if (!CheckAggressions(aggressor, aggressed))
             {
-                aggressor.LocalOverheadMessage(MessageType.Regular, Hue, true, String.Format(AggressorFormat, aggressed.Name));
-                aggressed.LocalOverheadMessage(MessageType.Regular, Hue, true, String.Format(AggressedFormat, aggressor.Name));
+                aggressor.LocalOverheadMessage(MessageType.Regular, Hue, true, string.Format(AggressorFormat, aggressed.Name));
+                aggressed.LocalOverheadMessage(MessageType.Regular, Hue, true, string.Format(AggressedFormat, aggressor.Name));
             }
 
             BuffInfo.AddBuff(aggressor, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, CombatHeatDelay, aggressor, true));
@@ -106,7 +106,7 @@ namespace Server.Misc
 
         public static bool CheckHasAggression(Mobile m, bool aggressedOnly = false)
         {
-            if (Server.Engines.VvV.ViceVsVirtueSystem.HasBattleAggression(m))
+            if (Engines.VvV.ViceVsVirtueSystem.HasBattleAggression(m))
             {
                 return true;
             }

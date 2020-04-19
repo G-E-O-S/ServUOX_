@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Server.Commands;
 using Server.Gumps;
@@ -102,7 +101,7 @@ namespace Server.Commands
 		[Description("Generates the world with a menu. If nogump argument is given, no gump will be displayed, all options will be assumed true, and the action will proceed immediately.")]
 		private static void Create_OnCommand(CommandEventArgs e)
 		{
-			if (String.IsNullOrEmpty(e.ArgString))
+			if (string.IsNullOrEmpty(e.ArgString))
 			{
                 if (e.Mobile is PlayerMobile)
                     BaseGump.SendGump(new NewCreateWorldGump((PlayerMobile)e.Mobile, GumpType.Create));
@@ -124,7 +123,7 @@ namespace Server.Commands
 		[Description("Undoes world generation with a menu. If nogump argument is given, no gump will be displayed, all options will be assumed true, and the action will proceed immediately.")]
 		private static void Delete_OnCommand(CommandEventArgs e)
 		{
-			if (String.IsNullOrEmpty(e.ArgString))
+			if (string.IsNullOrEmpty(e.ArgString))
 			{
                 if (e.Mobile is PlayerMobile)
                     BaseGump.SendGump(new NewCreateWorldGump((PlayerMobile)e.Mobile, GumpType.Delete));
@@ -146,7 +145,7 @@ namespace Server.Commands
 		[Description("Re-generates the world with a menu. If nogump argument is given, no gump will be displayed, all options will be assumed true, and the action will proceed immediately.")]
 		private static void Recreate_OnCommand(CommandEventArgs e)
 		{
-			if (String.IsNullOrEmpty(e.ArgString))
+			if (string.IsNullOrEmpty(e.ArgString))
 			{
 				e.Mobile.SendGump(new CreateWorldGump(e, GumpType.Recreate));
 			}
@@ -175,20 +174,20 @@ namespace Server.Commands
 		public static void DoCommands(int[] selections, GumpType type, Mobile from)
 		{
 			World.Broadcast(0x35, false, "The world is generating. This may take some time...");
-			string prefix = Server.Commands.CommandSystem.Prefix;
+			string prefix = CommandSystem.Prefix;
 
             string error = null;
             WorldCreating = true;
 
 			foreach (int sel in selections)
 			{
-				foreach (CreateWorld.CommandEntry entry in CreateWorld.Commands)
+				foreach (CommandEntry entry in Commands)
 				{
 					if (entry.CheckID == sel)
 					{
 						switch (type)
 						{
-							case CreateWorld.GumpType.Create:
+							case GumpType.Create:
 								from.Say("Generating " + entry.Name);
 
                                 if (CanGenerate(entry, ref error))
@@ -207,8 +206,8 @@ namespace Server.Commands
                                 }
 
 								break;
-							case CreateWorld.GumpType.Delete:
-								if (!String.IsNullOrEmpty(entry.DeleteCommand))
+							case GumpType.Delete:
+								if (!string.IsNullOrEmpty(entry.DeleteCommand))
 								{
 									from.Say("Deleting " + entry.Name);
 									CommandSystem.Handle(from, prefix + entry.DeleteCommand);
@@ -235,7 +234,7 @@ namespace Server.Commands
         {
             if (CreateWorldData.CreateTable.ContainsKey(entry.CheckID) && CreateWorldData.CreateTable[entry.CheckID])
             {
-                string er = String.Format("<br>- {0} have been generated already.", entry.Name);
+                string er = string.Format("<br>- {0} have been generated already.", entry.Name);
                 Console.WriteLine(er);
 
                 error += er;
@@ -250,7 +249,7 @@ namespace Server.Commands
                     return true;
                 }
 
-                string er = String.Format("<br>- Cannot generate {0}. You need to generate Decorations and Spawners first.", entry.Name);
+                string er = string.Format("<br>- Cannot generate {0}. You need to generate Decorations and Spawners first.", entry.Name);
                 Console.WriteLine(er);
 
                 error += er;
@@ -266,7 +265,7 @@ namespace Server.Commands
                 }
                 else
                 {
-                    string er = String.Format("<br>- Cannot generate {0}. You need to generate Spawners first.", entry.Name);
+                    string er = string.Format("<br>- Cannot generate {0}. You need to generate Spawners first.", entry.Name);
                     Console.WriteLine(er);
 
                     error += er;
@@ -295,14 +294,13 @@ namespace Server.Gumps
 {
     public class CreateWorldGump : Gump
     {
-        private readonly CommandEventArgs m_CommandEventArgs;
-		private CreateWorld.GumpType m_Type;
+        private CreateWorld.GumpType m_Type;
 
         public CreateWorldGump(CommandEventArgs e, CreateWorld.GumpType type)
             : base(50,50)
         {
 			m_Type = type;
-            m_CommandEventArgs = e;
+            CommandEventArgs = e;
             Closable = true;
             Dragable = true;
 
@@ -348,6 +346,8 @@ namespace Server.Gumps
 			AddButton(60, y + 15, 247, 249, 1, GumpButtonType.Reply, 0);
 			AddButton(130, y + 15, 241, 243, 0, GumpButtonType.Reply, 0);
         }
+
+        public CommandEventArgs CommandEventArgs { get; }
 
         public override void OnResponse(NetState state, RelayInfo info) 
         { 
@@ -401,7 +401,7 @@ namespace Server.Gumps
             }
 
             AddHtml(152, 15, 450, 20, ColorAndCenter("#00FFFF", label), false, false);
-            AddHtml(12, 15, 140, 20, ColorAndCenter("#696969", String.Format("Your Expansion: {0}", Core.Expansion.ToString())), false, false);
+            AddHtml(12, 15, 140, 20, ColorAndCenter("#696969", string.Format("Your Expansion: {0}", Core.Expansion.ToString())), false, false);
 
             for (int i = 0; i < 6; i++)
             {
@@ -436,12 +436,12 @@ namespace Server.Gumps
 
                 if (meetsExpansion)
                 {
-                    AddLabel(x + 21, y, created ? 200 : 338, String.Format("{0} {1}", entry.Name, created ? "[created]" : "[not created]"));
+                    AddLabel(x + 21, y, created ? 200 : 338, string.Format("{0} {1}", entry.Name, created ? "[created]" : "[not created]"));
                     AddCheck(x, y - 2, 210, 211, check, entry.CheckID);
                 }
                 else
                 {
-                    AddLabel(x + 21, y, created ? 200 : 33, String.Format("{0} {1}", entry.Name, "[Wrong Expansion]"));
+                    AddLabel(x + 21, y, created ? 200 : 33, string.Format("{0} {1}", entry.Name, "[Wrong Expansion]"));
                     AddImage(x, y - 2, 210);
                 }
 
@@ -546,7 +546,7 @@ namespace Server.Gumps
                 case 121:
                     return WeakEntityCollection.HasCollection("highseas") || CharydbisSpawner.SpawnInstance != null;
                 case 122:
-                    return Server.Engines.CityLoyalty.CityLoyaltySystem.Cities != null && Server.Engines.CityLoyalty.CityLoyaltySystem.Cities.Count > 0 && Server.Engines.CityLoyalty.CityLoyaltySystem.Cities[0].Stone != null;
+                    return Server.Engines.CityLoyalty.CityLoyaltySystem.Cities != null && Engines.CityLoyalty.CityLoyaltySystem.Cities.Count > 0 && Server.Engines.CityLoyalty.CityLoyaltySystem.Cities[0].Stone != null;
                 case 123:
                     return HasItem(typeof(DungeonHitchingPost), new Point3D(6428, 2677, 0), Map.Trammel) &&
                            HasItem(typeof(DungeonHitchingPost), new Point3D(6428, 2677, 0), Map.Felucca);
@@ -555,9 +555,9 @@ namespace Server.Gumps
                 case 125:
                     return BedrollSpawner.Instances != null && BedrollSpawner.Instances.Count > 0;
                 case 126:
-                    return Server.Engines.TreasuresOfKotlCity.KotlBattleSimulator.Instance != null;
+                    return Engines.TreasuresOfKotlCity.KotlBattleSimulator.Instance != null;
                 case 128:
-                    return Server.Engines.CannedEvil.ChampionSystem.AllSpawns.Count > 0;
+                    return Engines.CannedEvil.ChampionSystem.AllSpawns.Count > 0;
             }
 
             return false;

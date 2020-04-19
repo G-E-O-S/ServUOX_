@@ -1,5 +1,3 @@
-using System;
-using Server;
 using Server.Mobiles;
 using Server.Items;
 
@@ -14,9 +12,7 @@ namespace Server.Network
 
         public static void EquipLastWeaponRequest(NetState state, IEntity e, EncodedReader reader)
         {
-            PlayerMobile from = state.Mobile as PlayerMobile;
-
-            if (from == null || from.Backpack == null)
+            if (!(state.Mobile is PlayerMobile from) || from.Backpack == null)
                 return;
 
             if (from.IsStaff() || Core.TickCount - from.NextActionTime >= 0)

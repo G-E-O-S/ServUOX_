@@ -8,8 +8,6 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 
-using Microsoft.CSharp;
-
 namespace Server
 {
     public static class ScriptCompiler
