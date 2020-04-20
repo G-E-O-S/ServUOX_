@@ -1,16 +1,20 @@
 namespace Server.Items
 {
-    [Furniture]
-    public class ElegantLowTable : CraftableFurniture
+    public class HeartwoodBoard : BaseWoodBoard
     {
         [Constructable]
-        public ElegantLowTable()
-            : base(0x2819)
+        public HeartwoodBoard()
+            : this(1)
         {
-            Weight = 1.0;
         }
 
-        public ElegantLowTable(Serial serial)
+        [Constructable]
+        public HeartwoodBoard(int amount)
+            : base(CraftResource.Heartwood, amount)
+        {
+        }
+
+        public HeartwoodBoard(Serial serial)
             : base(serial)
         {
         }
@@ -28,17 +32,21 @@ namespace Server.Items
         }
     }
 
-    [Furniture]
-    public class PlainLowTable : CraftableFurniture
+    public class BloodwoodBoard : BaseWoodBoard
     {
         [Constructable]
-        public PlainLowTable()
-            : base(0x281A)
+        public BloodwoodBoard()
+            : this(1)
         {
-            Weight = 1.0;
         }
 
-        public PlainLowTable(Serial serial)
+        [Constructable]
+        public BloodwoodBoard(int amount)
+            : base(CraftResource.Bloodwood, amount)
+        {
+        }
+
+        public BloodwoodBoard(Serial serial)
             : base(serial)
         {
         }
@@ -56,18 +64,21 @@ namespace Server.Items
         }
     }
 
-    [Furniture]
-    [Flipable(0xB90, 0xB7D)]
-    public class LargeTable : CraftableFurniture
+    public class FrostwoodBoard : BaseWoodBoard
     {
         [Constructable]
-        public LargeTable()
-            : base(0xB90)
+        public FrostwoodBoard()
+            : this(1)
         {
-            Weight = 1.0;
         }
 
-        public LargeTable(Serial serial)
+        [Constructable]
+        public FrostwoodBoard(int amount)
+            : base(CraftResource.Frostwood, amount)
+        {
+        }
+
+        public FrostwoodBoard(Serial serial)
             : base(serial)
         {
         }
@@ -85,18 +96,21 @@ namespace Server.Items
         }
     }
 
-    [Furniture]
-    [Flipable(0xB35, 0xB34)]
-    public class Nightstand : CraftableFurniture
+    public class OakBoard : BaseWoodBoard
     {
         [Constructable]
-        public Nightstand()
-            : base(0xB35)
+        public OakBoard()
+            : this(1)
         {
-            Weight = 1.0;
         }
 
-        public Nightstand(Serial serial)
+        [Constructable]
+        public OakBoard(int amount)
+            : base(CraftResource.OakWood, amount)
+        {
+        }
+
+        public OakBoard(Serial serial)
             : base(serial)
         {
         }
@@ -114,18 +128,53 @@ namespace Server.Items
         }
     }
 
-    [Furniture]
-    [Flipable(0xB8F, 0xB7C)]
-    public class YewWoodTable : CraftableFurniture
+    public class AshBoard : BaseWoodBoard
     {
         [Constructable]
-        public YewWoodTable()
-            : base(0xB8F)
+        public AshBoard()
+            : this(1)
         {
-            Weight = 1.0;
         }
 
-        public YewWoodTable(Serial serial)
+        [Constructable]
+        public AshBoard(int amount)
+            : base(CraftResource.AshWood, amount)
+        {
+        }
+
+        public AshBoard(Serial serial)
+            : base(serial)
+        {
+        }
+
+        public override void Serialize(GenericWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Write(0);
+        }
+
+        public override void Deserialize(GenericReader reader)
+        {
+            base.Deserialize(reader);
+            _ = reader.ReadInt();
+        }
+    }
+
+    public class YewBoard : BaseWoodBoard
+    {
+        [Constructable]
+        public YewBoard()
+            : this(1)
+        {
+        }
+
+        [Constructable]
+        public YewBoard(int amount)
+            : base(CraftResource.YewWood, amount)
+        {
+        }
+
+        public YewBoard(Serial serial)
             : base(serial)
         {
         }

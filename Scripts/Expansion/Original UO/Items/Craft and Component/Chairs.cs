@@ -1,16 +1,17 @@
 namespace Server.Items
 {
     [Furniture]
-    public class ElegantLowTable : CraftableFurniture
+    [Flipable(0xB4F, 0xB4E, 0xB50, 0xB51)]
+    public class FancyWoodenChairCushion : CraftableFurniture
     {
         [Constructable]
-        public ElegantLowTable()
-            : base(0x2819)
+        public FancyWoodenChairCushion()
+            : base(0xB4F)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
-        public ElegantLowTable(Serial serial)
+        public FancyWoodenChairCushion(Serial serial)
             : base(serial)
         {
         }
@@ -29,16 +30,17 @@ namespace Server.Items
     }
 
     [Furniture]
-    public class PlainLowTable : CraftableFurniture
+    [Flipable(0xB53, 0xB52, 0xB54, 0xB55)]
+    public class WoodenChairCushion : CraftableFurniture
     {
         [Constructable]
-        public PlainLowTable()
-            : base(0x281A)
+        public WoodenChairCushion()
+            : base(0xB53)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
-        public PlainLowTable(Serial serial)
+        public WoodenChairCushion(Serial serial)
             : base(serial)
         {
         }
@@ -57,17 +59,17 @@ namespace Server.Items
     }
 
     [Furniture]
-    [Flipable(0xB90, 0xB7D)]
-    public class LargeTable : CraftableFurniture
+    [Flipable(0xB57, 0xB56, 0xB59, 0xB58)]
+    public class WoodenChair : CraftableFurniture
     {
         [Constructable]
-        public LargeTable()
-            : base(0xB90)
+        public WoodenChair()
+            : base(0xB57)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
-        public LargeTable(Serial serial)
+        public WoodenChair(Serial serial)
             : base(serial)
         {
         }
@@ -86,17 +88,17 @@ namespace Server.Items
     }
 
     [Furniture]
-    [Flipable(0xB35, 0xB34)]
-    public class Nightstand : CraftableFurniture
+    [Flipable(0xB5B, 0xB5A, 0xB5C, 0xB5D)]
+    public class BambooChair : CraftableFurniture
     {
         [Constructable]
-        public Nightstand()
-            : base(0xB35)
+        public BambooChair()
+            : base(0xB5B)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
-        public Nightstand(Serial serial)
+        public BambooChair(Serial serial)
             : base(serial)
         {
         }
@@ -115,17 +117,18 @@ namespace Server.Items
     }
 
     [Furniture]
-    [Flipable(0xB8F, 0xB7C)]
-    public class YewWoodTable : CraftableFurniture
+    [DynamicFliping]
+    [Flipable(0x1218, 0x1219, 0x121A, 0x121B)]
+    public class StoneChair : Item
     {
         [Constructable]
-        public YewWoodTable()
-            : base(0xB8F)
+        public StoneChair()
+            : base(0x1218)
         {
             Weight = 1.0;
         }
 
-        public YewWoodTable(Serial serial)
+        public StoneChair(Serial serial)
             : base(serial)
         {
         }

@@ -1,17 +1,19 @@
 namespace Server.Items
 {
     [Furniture]
-    [Flipable(0xB4A, 0xB49, 0xB4B, 0xB4C)]
-    public class WritingTable : CraftableFurniture
+    [Flipable(0x4023, 0x4024)]
+    public class TerMurStyleChair : CraftableFurniture
     {
+        public override int LabelNumber => 1095291;  // Ter-Mur style chair
+
         [Constructable]
-        public WritingTable()
-            : base(0xB4A)
+        public TerMurStyleChair()
+            : base(0x4023)
         {
-            Weight = 1.0;
+            Weight = 20.0;
         }
 
-        public WritingTable(Serial serial)
+        public TerMurStyleChair(Serial serial)
             : base(serial)
         {
         }
