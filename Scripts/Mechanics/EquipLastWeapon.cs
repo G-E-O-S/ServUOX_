@@ -18,9 +18,8 @@ namespace Server.Network
             if (from.IsStaff() || Core.TickCount - from.NextActionTime >= 0)
             {
                 BaseWeapon toEquip = from.LastWeapon;
-                BaseWeapon toDisarm = from.FindItemOnLayer(Layer.OneHanded) as BaseWeapon;
 
-                if (toDisarm == null)
+                if (!(from.FindItemOnLayer(Layer.OneHanded) is BaseWeapon toDisarm))
                     toDisarm = from.FindItemOnLayer(Layer.TwoHanded) as BaseWeapon;
 
                 if (toDisarm != null)

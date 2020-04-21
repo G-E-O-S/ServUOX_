@@ -1,4 +1,3 @@
-using System;
 using Server.Guilds;
 using Server.Gumps;
 using Server.Mobiles;
@@ -9,7 +8,6 @@ namespace Server.Misc
     {
         public static void Initialize()
         {
-            // Register our speech handler
             EventSink.Speech += EventSink_Speech;
         }
 

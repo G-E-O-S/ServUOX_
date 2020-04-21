@@ -315,6 +315,12 @@ namespace Server.Mobiles
 
         public virtual void OnAggressiveAction(Mobile aggressor)
         {
+            // FRAZ NEW SERVUO CHECK needs checked
+            if (m_Mobile.Controlled && m_Mobile.ControlOrder == OrderType.Attack)
+            {
+                return;
+            }
+
             if (m_Mobile.Combatant is Mobile currentCombat && !aggressor.Hidden && currentCombat != aggressor &&
                 m_Mobile.GetDistanceToSqrt(currentCombat) > m_Mobile.GetDistanceToSqrt(aggressor))
             {

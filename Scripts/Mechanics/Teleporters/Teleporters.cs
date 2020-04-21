@@ -408,189 +408,49 @@ namespace Server
 
     public class Teleport
     {
-        private bool m_Active;
-        private bool m_Creatures;
-        private bool m_CombatCheck;
-        private bool m_CriminalCheck;
-        private bool m_Oneway;
-        private bool m_Bonded;
         private Point3D m_PointLoc;
-        private Map m_MapLoc;
         private Point3D m_PointDest;
-        private Map m_MapDest;
-        private int m_SourceEffect;
-        private int m_DestEffect;
-        private int m_SoundID;
         private TimeSpan m_Delay;
         private static readonly TimeSpan CombatHeatDelay = TimeSpan.FromSeconds(30.0);
-
-        public int SourceEffect
-        {
-            get
-            {
-                return m_SourceEffect;
-            }
-            set
-            {
-                m_SourceEffect = value;
-            }
-        }
-        public int DestEffect
-        {
-            get
-            {
-                return m_DestEffect;
-            }
-            set
-            {
-                m_DestEffect = value;
-            }
-        }
-        public int SoundID
-        {
-            get
-            {
-                return m_SoundID;
-            }
-            set
-            {
-                m_SoundID = value;
-            }
-        }
+        public int SourceEffect { get; set; }
+        public int DestEffect { get; set; }
+        public int SoundID { get; set; }
         public TimeSpan Delay
         {
-            get
-            {
-                return m_Delay;
-            }
-            set
-            {
-                m_Delay = value;
-            }
+            get => m_Delay;
+            set => m_Delay = value;
         }
-        public bool Active
-        {
-            get
-            {
-                return m_Active;
-            }
-            set
-            {
-                m_Active = value;
-            }
-        }
+        public bool Active { get; set; }
         public Point3D PointLoc
         {
-            get
-            {
-                return m_PointLoc;
-            }
-            set
-            {
-                m_PointLoc = value;
-            }
+            get => m_PointLoc;
+            set => m_PointLoc = value;
         }
-        public Map MapLoc
-        {
-            get
-            {
-                return m_MapLoc;
-            }
-            set
-            {
-                m_MapLoc = value;
-            }
-        }
+        public Map MapLoc { get; set; }
         public Point3D PointDest
         {
-            get
-            {
-                return m_PointDest;
-            }
-            set
-            {
-                m_PointDest = value;
-            }
+            get => m_PointDest;
+            set => m_PointDest = value;
         }
-        public Map MapDest
-        {
-            get
-            {
-                return m_MapDest;
-            }
-            set
-            {
-                m_MapDest = value;
-            }
-        }
-        public bool Creatures
-        {
-            get
-            {
-                return m_Creatures;
-            }
-            set
-            {
-                m_Creatures = value;
-            }
-        }
-        public bool CombatCheck
-        {
-            get
-            {
-                return m_CombatCheck;
-            }
-            set
-            {
-                m_CombatCheck = value;
-            }
-        }
-        public bool CriminalCheck
-        {
-            get
-            {
-                return m_CriminalCheck;
-            }
-            set
-            {
-                m_CriminalCheck = value;
-            }
-        }
-        public bool Oneway
-        {
-            get
-            {
-                return m_Oneway;
-            }
-            set
-            {
-                m_Oneway = value;
-            }
-        }
-        public bool Bonded
-        {
-            get
-            {
-                return m_Bonded;
-            }
-            set
-            {
-                m_Bonded = value;
-            }
-        }
+        public Map MapDest { get; set; }
+        public bool Creatures { get; set; }
+        public bool CombatCheck { get; set; }
+        public bool CriminalCheck { get; set; }
+        public bool Oneway { get; set; }
+        public bool Bonded { get; set; }
 
         public Teleport(Point3D pointLoc, Map mapLoc, Point3D pointDest, Map mapDest)
         {
-            m_Active = true;
+            Active = true;
             m_PointLoc = pointLoc;
-            m_MapLoc = mapLoc;
+            MapLoc = mapLoc;
             m_PointDest = pointDest;
-            m_MapDest = mapDest;
-            m_Creatures = false;
-            m_CombatCheck = false;
-            m_CriminalCheck = false;
-            m_Oneway = false;
-            m_Bonded = false;
+            MapDest = mapDest;
+            Creatures = false;
+            CombatCheck = false;
+            CriminalCheck = false;
+            Oneway = false;
+            Bonded = false;
         }
 
         public static bool CheckCombat(Mobile m)
@@ -619,16 +479,16 @@ namespace Server
 
         public virtual bool CanTeleport(Mobile m)
         {
-            if (!m_Creatures && !m.Player)
+            if (!Creatures && !m.Player)
             {
                 return false;
             }
-            if (m_CriminalCheck && m.Criminal)
+            if (CriminalCheck && m.Criminal)
             {
                 m.SendLocalizedMessage(1005561, "", 34);
                 return false;
             }
-            if (m_CombatCheck && CheckCombat(m))
+            if (CombatCheck && CheckCombat(m))
             {
                 m.SendLocalizedMessage(1005564, "", 34);
                 return false;
@@ -638,12 +498,12 @@ namespace Server
 
         public virtual void DoTeleport(Mobile m)
         {
-            Map map = m_MapLoc;
+            Map map = MapLoc;
             if (map == null || map == Map.Internal)
             {
                 map = m.Map;
             }
-            Map map2 = m_MapDest;
+            Map map2 = MapDest;
             if (map2 == null || map2 == Map.Internal)
             {
                 map2 = m.Map;
@@ -655,7 +515,7 @@ namespace Server
                 point3D = m.Location;
             }
 
-            TeleportPets(m, point3D, map2, m_Bonded);
+            TeleportPets(m, point3D, map2, Bonded);
             bool flag = !m.Hidden || m.IsPlayer();
             if (SourceEffect > 0 && flag)
             {
@@ -678,12 +538,12 @@ namespace Server
 
         public virtual void DoTeleportReturn(Mobile m)
         {
-            Map map = m_MapDest;
+            Map map = MapDest;
             if (map == null || map == Map.Internal)
             {
                 map = m.Map;
             }
-            Map map2 = m_MapLoc;
+            Map map2 = MapLoc;
             if (map2 == null || map2 == Map.Internal)
             {
                 map2 = m.Map;
@@ -694,7 +554,7 @@ namespace Server
                 point3D = m.Location;
             }
 
-            TeleportPets(m, point3D, map2, m_Bonded);
+            TeleportPets(m, point3D, map2, Bonded);
             bool flag = !m.Hidden || m.IsPlayer();
             if (SourceEffect > 0 && flag)
             {
@@ -724,7 +584,7 @@ namespace Server
                 m.SendLocalizedMessage(1071955);
                 return false;
             }
-            if (!m_Active || !CanTeleport(m))
+            if (!Active || !CanTeleport(m))
             {
                 return false;
             }
@@ -741,7 +601,7 @@ namespace Server
 
         public bool OnMoveOverReturn(Mobile m)
         {
-            if (m_Oneway)
+            if (Oneway)
             {
                 return false;
             }
@@ -750,7 +610,7 @@ namespace Server
                 m.SendLocalizedMessage(1071955);
                 return false;
             }
-            if (!m_Active || !CanTeleport(m))
+            if (!Active || !CanTeleport(m))
             {
                 return false;
             }
@@ -789,6 +649,5 @@ namespace Server
         {
             return (pet.ControlOrder == OrderType.Guard || pet.ControlOrder == OrderType.Follow || pet.ControlOrder == OrderType.Come);
         }
-
     }
 }

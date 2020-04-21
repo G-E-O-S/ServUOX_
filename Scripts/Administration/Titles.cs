@@ -73,10 +73,8 @@ namespace Server.Misc
         {
             var karma = m.Karma;
 
-            if (m.Talisman is BaseTalisman)
+            if (m.Talisman is BaseTalisman talisman)
             {
-                BaseTalisman talisman = (BaseTalisman)m.Talisman;
-
                 if (talisman.KarmaLoss > 0)
                     offset *= (1 + (int)(((double)talisman.KarmaLoss) / 100));
                 else if (talisman.KarmaLoss < 0)
@@ -201,14 +199,14 @@ namespace Server.Misc
 
                         if (karma <= ke.m_Karma || j == (karmaEntries.Length - 1))
                         {
-                            return String.Format(ke.m_Title, beheld.Name, beheld.Female ? "Lady" : "Lord");
+                            return string.Format(ke.m_Title, beheld.Name, beheld.Female ? "Lady" : "Lord");
                         }
                     }
 
-                    return String.Empty;
+                    return string.Empty;
                 }
             }
-            return String.Empty;
+            return string.Empty;
         }
 
         public static string ComputeTitle(Mobile beholder, Mobile beheld)
@@ -259,7 +257,7 @@ namespace Server.Misc
                     if (highestValue > 800)
                         offset = 3;
                     else if (highestValue > 300)
-                        offset = (int)(highestValue / 300);
+                        offset = highestValue / 300;
 
                     if (offset > 0)
                     {
@@ -307,7 +305,7 @@ namespace Server.Misc
                 if (mob.Female && skillTitle.EndsWith("man"))
                     skillTitle = skillTitle.Substring(0, skillTitle.Length - 3) + "woman";
 
-                return String.Concat(skillLevel, " ", skillTitle);
+                return string.Concat(skillLevel, " ", skillTitle);
             }
 
             return null;
@@ -323,7 +321,7 @@ namespace Server.Misc
                 if (mob.Female && skillTitle.EndsWith("man"))
                     skillTitle = skillTitle.Substring(0, skillTitle.Length - 3) + "woman";
 
-                return String.Concat(skillLevel, " ", skillTitle);
+                return string.Concat(skillLevel, " ", skillTitle);
             }
 
             return null;
@@ -480,9 +478,7 @@ namespace Server.Misc
 
         public static List<VeteranTitle> GetVeteranTitles(Mobile m)
         {
-            Account a = m.Account as Account;
-
-            if (a == null)
+            if (!(m.Account is Account a))
                 return null;
 
             int years = (int)(DateTime.UtcNow - a.Created).TotalDays;
@@ -510,8 +506,8 @@ namespace Server.Misc
 
         public FameEntry(int fame, KarmaEntry[] karma)
         {
-            this.m_Fame = fame;
-            this.m_Karma = karma;
+            m_Fame = fame;
+            m_Karma = karma;
         }
     }
 
@@ -522,8 +518,8 @@ namespace Server.Misc
 
         public KarmaEntry(int karma, string title)
         {
-            this.m_Karma = karma;
-            this.m_Title = title;
+            m_Karma = karma;
+            m_Title = title;
         }
     }
 

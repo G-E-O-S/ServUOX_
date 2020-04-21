@@ -17,12 +17,13 @@ namespace Server.Misc
     {
         private static readonly bool Enabled = false;
         private static readonly ProfanityAction Action = ProfanityAction.Disallow;// change here what to do when profanity is detected
-        private static readonly char[] m_Exceptions = new char[]
+
+        public static char[] Exceptions { get; } = new char[]
         {
             ' ', '-', '.', '\'', '"', ',', '_', '+', '=', '~', '`', '!', '^', '*', '\\', '/', ';', ':', '<', '>', '[', ']', '{', '}', '?', '|', '(', ')', '%', '$', '&', '#', '@'
         };
-        private static readonly string[] m_StartDisallowed = new string[] { };
-        private static readonly string[] m_Disallowed = new string[]
+        public static string[] StartDisallowed { get; } = new string[] { };
+        public static string[] Disallowed { get; } = new string[]
         {
             "jigaboo",
             "chigaboo",
@@ -70,27 +71,6 @@ namespace Server.Misc
             "shit",
             "fuck"
         };
-        public static char[]	Exceptions
-        {
-            get
-            {
-                return m_Exceptions;
-            }
-        }
-        public static string[]	StartDisallowed
-        {
-            get
-            {
-                return m_StartDisallowed;
-            }
-        }
-        public static string[]	Disallowed
-        {
-            get
-            {
-                return m_Disallowed;
-            }
-        }
         public static void Initialize()
         {
             if (Enabled)
@@ -135,7 +115,7 @@ namespace Server.Misc
             if (from.IsStaff())
                 return;
 
-            if (!NameVerification.Validate(e.Speech, 0, int.MaxValue, true, true, false, int.MaxValue, m_Exceptions, m_Disallowed, m_StartDisallowed))
+            if (!NameVerification.Validate(e.Speech, 0, int.MaxValue, true, true, false, int.MaxValue, Exceptions, Disallowed, StartDisallowed))
                 e.Blocked = !OnProfanityDetected(from, e.Speech);
         }
     }

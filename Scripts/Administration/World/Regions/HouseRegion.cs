@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Server.Gumps;
 using Server.Items;
 using Server.Mobiles;
 using Server.Multis;
 using Server.ContextMenus;
-using Server.Network;
 
 namespace Server.Regions
 {
     public class HouseRegion : BaseRegion
     {
-        public static readonly int HousePriority = Region.DefaultPriority + 1;
+        public static readonly int HousePriority = DefaultPriority + 1;
         public static TimeSpan CombatHeatDelay = TimeSpan.FromSeconds(30.0);
         private bool m_Recursion;
 
@@ -21,9 +19,7 @@ namespace Server.Regions
             : base(null, house.Map, HousePriority, GetArea(house))
         {
             House = house;
-
             Point3D ban = house.RelativeBanLocation;
-
             GoLocation = new Point3D(house.X + ban.X, house.Y + ban.Y, house.Z + ban.Z);
         }
 
@@ -57,7 +53,6 @@ namespace Server.Regions
                     House.RefreshDecay();
                 }
             }
-
             m.SendEverything();
         }
 
@@ -65,7 +60,7 @@ namespace Server.Regions
         {
             Item item = e as Item;
 
-            if ((m.PublicHouseContent && House.Public) ||
+            if (item != null && (m.PublicHouseContent && House.Public) ||
                     House.IsInside(m) ||
                     ExcludeItem(item) ||
                     (item.RootParent != null && m.CanSee(item.RootParent)))
@@ -488,7 +483,7 @@ namespace Server.Regions
             for (int i = 0; i < area.Length; i++)
             {
                 Rectangle2D rect = houseArea[i];
-                area[i] = Region.ConvertTo3D(new Rectangle2D(x + rect.Start.X, y + rect.Start.Y, rect.Width, rect.Height));
+                area[i] = ConvertTo3D(new Rectangle2D(x + rect.Start.X, y + rect.Start.Y, rect.Width, rect.Height));
             }
 
             return area;

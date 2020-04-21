@@ -1,11 +1,8 @@
-#region References
 using System;
-
 using Server.Accounting;
 using Server.Items;
 using Server.Mobiles;
 using Server.Network;
-#endregion
 
 namespace Server.Misc
 {

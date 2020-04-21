@@ -1,10 +1,7 @@
-#region References
 using System;
-
 using Server.Accounting;
 using Server.Network;
 using Server.Services.TownCryer;
-#endregion
 
 namespace Server
 {
@@ -12,7 +9,7 @@ namespace Server
 	{
 		public static readonly Expansion Expansion = Config.GetEnum("Expansion.CurrentExpansion", Expansion.EJ);
 
-		[CallPriority(Int32.MinValue)]
+		[CallPriority(int.MinValue)]
 		public static void Configure()
 		{
 			Core.Expansion = Expansion;
@@ -23,7 +20,6 @@ namespace Server
 			VirtualCheck.UseEditGump = true;
             
 			TownCryerSystem.Enabled = Core.TOL;
-
 			ObjectPropertyList.Enabled = Core.AOS;
 
             Mobile.InsuranceEnabled = Core.AOS && !Siege.SiegeShard;

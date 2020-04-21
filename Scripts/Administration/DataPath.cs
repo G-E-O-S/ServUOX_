@@ -1,11 +1,7 @@
-#region References
 using System;
 using System.IO;
-
 using Microsoft.Win32;
-
 using Ultima;
-#endregion
 
 namespace Server.Misc
 {
@@ -36,7 +32,7 @@ namespace Server.Misc
 				path = null;
 			}
 
-			if (!String.IsNullOrWhiteSpace(path))
+			if (!string.IsNullOrWhiteSpace(path))
 			{
 				Core.DataDirectories.Add(path);
 			}
@@ -88,14 +84,14 @@ namespace Server.Misc
                 else
                     keyString = @"SOFTWARE\{0}";
 
-                using (var key = Registry.LocalMachine.OpenSubKey(String.Format(keyString, subName)))
+                using (var key = Registry.LocalMachine.OpenSubKey(string.Format(keyString, subName)))
                 {
                     if (key == null)
                         return null;
 
                     var v = key.GetValue(keyName) as string;
 
-                    if (String.IsNullOrEmpty(v))
+                    if (string.IsNullOrEmpty(v))
                         return null;
 
                     if (keyName == "InstallDir")
@@ -103,7 +99,7 @@ namespace Server.Misc
 
                     v = Path.GetDirectoryName(v);
 
-                    if (String.IsNullOrEmpty(v))
+                    if (string.IsNullOrEmpty(v))
                         return null;
 
                     return v;

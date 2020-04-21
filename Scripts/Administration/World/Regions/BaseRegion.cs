@@ -120,14 +120,8 @@ namespace Server.Regions
         [CommandProperty(AccessLevel.GameMaster)]
         public string RuneName
         {
-            get
-            {
-                return m_RuneName;
-            }
-            set
-            {
-                m_RuneName = value;
-            }
+            get => m_RuneName;
+            set => m_RuneName = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -136,10 +130,7 @@ namespace Server.Regions
         [CommandProperty(AccessLevel.GameMaster)]
         public SpawnEntry[] Spawns
         {
-            get
-            {
-                return m_Spawns;
-            }
+            get => m_Spawns;
             set
             {
                 if (m_Spawns != null)
@@ -158,14 +149,8 @@ namespace Server.Regions
         [CommandProperty(AccessLevel.GameMaster)]
         public bool ExcludeFromParentSpawns
         {
-            get
-            {
-                return m_ExcludeFromParentSpawns;
-            }
-            set
-            {
-                m_ExcludeFromParentSpawns = value;
-            }
+            get => m_ExcludeFromParentSpawns;
+            set => m_ExcludeFromParentSpawns = value;
         }
 
         public static void Configure()

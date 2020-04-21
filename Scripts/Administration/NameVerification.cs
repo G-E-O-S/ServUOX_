@@ -1,4 +1,3 @@
-using System;
 using Server.Commands;
 
 namespace Server.Misc
@@ -10,7 +9,8 @@ namespace Server.Misc
             ' ', '-', '.', '\''
         };
         public static readonly char[] Empty = new char[0];
-        private static readonly string[] m_StartDisallowed = new string[]
+
+        public static string[] StartDisallowed { get; } = new string[]
         {
             "seer",
             "counselor",
@@ -19,7 +19,8 @@ namespace Server.Misc
             "lady",
             "lord"
         };
-        private static readonly string[] m_Disallowed = new string[]
+
+        public static string[] Disallowed { get; } = new string[]
         {
             "jigaboo",
             "chigaboo",
@@ -97,20 +98,7 @@ namespace Server.Misc
             "osi",
             "origin"
         };
-        public static string[] StartDisallowed
-        {
-            get
-            {
-                return m_StartDisallowed;
-            }
-        }
-        public static string[] Disallowed
-        {
-            get
-            {
-                return m_Disallowed;
-            }
-        }
+
         public static void Initialize()
         {
             CommandSystem.Register("ValidateName", AccessLevel.Administrator, new CommandEventHandler(ValidateName_OnCommand));
@@ -128,7 +116,7 @@ namespace Server.Misc
 
         public static bool Validate(string name, int minLength, int maxLength, bool allowLetters, bool allowDigits, bool noExceptionsAtStart, int maxExceptions, char[] exceptions)
         {
-            return Validate(name, minLength, maxLength, allowLetters, allowDigits, noExceptionsAtStart, maxExceptions, exceptions, m_Disallowed, m_StartDisallowed);
+            return Validate(name, minLength, maxLength, allowLetters, allowDigits, noExceptionsAtStart, maxExceptions, exceptions, Disallowed, StartDisallowed);
         }
 
         public static bool Validate(string name, int minLength, int maxLength, bool allowLetters, bool allowDigits, bool noExceptionsAtStart, int maxExceptions, char[] exceptions, string[] disallowed, string[] startDisallowed)

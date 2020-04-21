@@ -9,12 +9,6 @@ namespace Server
 {
     public sealed class MovementPath
     {
-        private static PathAlgorithm m_OverrideAlgorithm;
-        private readonly Map m_Map;
-        private readonly Point3D m_Start;
-        private readonly Point3D m_Goal;
-        private readonly Direction[] m_Directions;
-
         public MovementPath(Mobile m, Point3D goal) 
             : this(m, goal, m.Map)
         {
@@ -24,9 +18,9 @@ namespace Server
         {
             Point3D start = new Point3D(p);
 
-            this.m_Map = map;
-            this.m_Start = start;
-            this.m_Goal = goal;
+            Map = map;
+            Start = start;
+            Goal = goal;
 
             if (map == null || map == Map.Internal)
                 return;
@@ -36,7 +30,7 @@ namespace Server
 
             try
             {
-                PathAlgorithm alg = m_OverrideAlgorithm;
+                PathAlgorithm alg = OverrideAlgorithm;
 
                 if (alg == null)
                 {
@@ -46,7 +40,7 @@ namespace Server
                 }
 
                 if (alg != null && alg.CheckCondition(p, map, start, goal))
-                    this.m_Directions = alg.Find(p, map, start, goal);
+                    Directions = alg.Find(p, map, start, goal);
             }
             catch (Exception e)
             {
@@ -55,52 +49,13 @@ namespace Server
             }
         }
 
-        public static PathAlgorithm OverrideAlgorithm
-        {
-            get
-            {
-                return m_OverrideAlgorithm;
-            }
-            set
-            {
-                m_OverrideAlgorithm = value;
-            }
-        }
-        public Map Map
-        {
-            get
-            {
-                return this.m_Map;
-            }
-        }
-        public Point3D Start
-        {
-            get
-            {
-                return this.m_Start;
-            }
-        }
-        public Point3D Goal
-        {
-            get
-            {
-                return this.m_Goal;
-            }
-        }
-        public Direction[] Directions
-        {
-            get
-            {
-                return this.m_Directions;
-            }
-        }
-        public bool Success
-        {
-            get
-            {
-                return (this.m_Directions != null && this.m_Directions.Length > 0);
-            }
-        }
+        public static PathAlgorithm OverrideAlgorithm { get; set; }
+        public Map Map { get; }
+        public Point3D Start { get; }
+        public Point3D Goal { get; }
+        public Direction[] Directions { get; }
+        public bool Success => (Directions != null && Directions.Length > 0);
+
         public static void Initialize()
         {
             CommandSystem.Register("Path", AccessLevel.GameMaster, new CommandEventHandler(Path_OnCommand));
@@ -114,16 +69,15 @@ namespace Server
 
         public static void Path_OnTarget(Mobile from, object obj)
         {
-            IPoint3D p = obj as IPoint3D;
-
-            if (p == null)
+            if (!(obj is IPoint3D p))
                 return;
 
             Spells.SpellHelper.GetSurfaceTop(ref p);
 
             Path(from, p, FastAStarAlgorithm.Instance, "Fast", 0);
             Path(from, p, SlowAStarAlgorithm.Instance, "Slow", 2);
-            m_OverrideAlgorithm = null;
+            OverrideAlgorithm = null;
+
             /*MovementPath path = new MovementPath( from, new Point3D( p ) );
             if ( !path.Success )
             {
@@ -165,7 +119,7 @@ namespace Server
 
         private static void Path(Mobile from, IPoint3D p, PathAlgorithm alg, string name, int zOffset)
         {
-            m_OverrideAlgorithm = alg;
+            OverrideAlgorithm = alg;
 
             long start = DateTime.UtcNow.Ticks;
             MovementPath path = new MovementPath(from, new Point3D(p));

@@ -6,4 +6,9 @@ namespace Server.Misc
     public class DispellableAttribute : Attribute
     {
     }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public class DispellableFieldAttribute : Attribute
+    {
+    }
 }

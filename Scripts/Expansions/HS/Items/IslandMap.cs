@@ -1,4 +1,3 @@
-﻿using Server;
 using System;
 
 namespace Server.Items
@@ -8,15 +7,30 @@ namespace Server.Items
         private Point3D m_DestinationPoint;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Point3D DestinationPoint { get { return m_DestinationPoint; } }
+        public Point3D DestinationPoint => m_DestinationPoint;
+
+        [CommandProperty(AccessLevel.GameMaster)]
+        public CorgulAltar Altar { get; set; }
 
         [Constructable]
-        public CorgulIslandMap(Point3D pnt)
+        public CorgulIslandMap(Point3D pnt, CorgulAltar altar)
         {
             Name = "Island Map";
             m_DestinationPoint = pnt;
             AddWorldPin(pnt.X, pnt.Y);
             Protected = true;
+
+            Altar = altar;
+        }
+
+        public override void GetProperties(ObjectPropertyList list)
+        {
+            base.GetProperties(list);
+
+            if (Altar != null && Altar.DeadLine != DateTime.MinValue && Altar.DeadLine > DateTime.UtcNow)
+            {
+                list.Add(1072516, string.Format("map of the world\t{0}", (int)(Altar.DeadLine - DateTime.UtcNow).TotalSeconds)); // ~1_name~ will expire in ~2_val~ seconds!
+            }
         }
 
         public CorgulIslandMap(Serial serial)
@@ -27,7 +41,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
             writer.Write(m_DestinationPoint);
         }
 

@@ -1,13 +1,9 @@
-#region References
 using System;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
-using System.Threading;
-#endregion
 
 namespace Server.Misc
 {
@@ -42,9 +38,7 @@ namespace Server.Misc
         */
 
 		public static readonly string Address = Config.Get("Server.Address", default(string));
-
 		public static readonly bool AutoDetect = Config.Get("Server.AutoDetect", true);
-
 		public static string ServerName = Config.Get("Server.Name", "My Shard");
 
 		private static IPAddress _PublicAddress;

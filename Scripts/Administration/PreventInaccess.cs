@@ -1,21 +1,7 @@
-using System;
 using System.Collections.Generic;
 
 namespace Server.Misc
 {
-    /*
-    * This system prevents the inability for server staff to
-    * access their server due to data overflows during login.
-    *
-    * Whenever a staff character's NetState is disposed right after
-    * the login process, the character is moved to and logged out
-    * at a "safe" alternative.
-    *
-    * The location the character was moved from will be reported
-    * to the player upon the next successful login.
-    *
-    * This system does not affect non-staff players.
-    */
     public static class PreventInaccess
     {
         public static readonly bool Enabled = true;
@@ -73,28 +59,14 @@ namespace Server.Misc
 
         private class LocationInfo
         {
-            private readonly Point3D m_Location;
-            private readonly Map m_Map;
             public LocationInfo(Point3D loc, Map map)
             {
-                this.m_Location = loc;
-                this.m_Map = map;
+                Location = loc;
+                Map = map;
             }
 
-            public Point3D Location
-            {
-                get
-                {
-                    return this.m_Location;
-                }
-            }
-            public Map Map
-            {
-                get
-                {
-                    return this.m_Map;
-                }
-            }
+            public Point3D Location { get; }
+            public Map Map { get; }
         }
     }
 }

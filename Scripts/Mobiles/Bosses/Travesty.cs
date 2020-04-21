@@ -216,7 +216,7 @@ namespace Server.Mobiles
                 {
                     if (FindItemOnLayer(item.Layer) == null)
                     {
-                        if (item is BaseRanged)
+                        if (item is BaseWeapon)
                         {
                             Item i = FindItemOnLayer(Layer.TwoHanded);
 
@@ -298,11 +298,11 @@ namespace Server.Mobiles
 
         public void DeleteItems()
         {
-            ColUtility.SafeDelete(Items, item => item is ClonedItem || item is BaseRanged);
+            ColUtility.SafeDelete(Items, item => item is ClonedItem || item is BaseWeapon);
 
             if (Backpack != null)
             {
-                ColUtility.SafeDelete(Backpack.Items, item => item is ClonedItem || item is BaseRanged);
+                ColUtility.SafeDelete(Backpack.Items, item => item is ClonedItem || item is BaseWeapon);
             }
         }
 

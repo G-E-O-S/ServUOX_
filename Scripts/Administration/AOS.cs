@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Server.Engines.SphynxFortune;
 using Server.Engines.XmlSpawner2;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Spells;
-using Server.Spells.Second;
 using Server.Spells.Fifth;
 using Server.Spells.Bushido;
 using Server.Spells.Ninjitsu;
@@ -104,7 +102,7 @@ namespace Server
                 return 0;
 
             if (m != null && phys == 0 && fire == 100 && cold == 0 && pois == 0 && nrgy == 0)
-                Mobiles.MeerMage.StopEffect(m, true);
+                MeerMage.StopEffect(m, true);
 
             if (!Core.AOS)
             {
@@ -189,7 +187,7 @@ namespace Server
 
                 if (Core.HS && ArmorPierce.IsUnderEffects(m))
                 {
-                    totalDamage += (int)((double)totalDamage * .1);
+                    totalDamage += (int)(totalDamage * .1);
                 }
 
                 if (totalDamage < 1)
@@ -295,7 +293,7 @@ namespace Server
             #endregion
 
             if (type == DamageType.Spell && m != null && Feint.Registry.ContainsKey(m) && Feint.Registry[m].Enemy == from)
-                totalDamage -= (int)((double)damage * ((double)Feint.Registry[m].DamageReduction / 100));
+                totalDamage -= (int)(damage * ((double)Feint.Registry[m].DamageReduction / 100));
 
             if (m.Hidden && Core.ML && type >= DamageType.Spell)
             {
@@ -450,7 +448,7 @@ namespace Server
                     #endregion
                     else
                     {
-                        from.Hits += AOS.Scale(damageGiven, 20);
+                        from.Hits += Scale(damageGiven, 20);
                         from.PlaySound(0x44D);
                     }
                 }
@@ -914,14 +912,8 @@ namespace Server
 
         public int this[AosAttribute attribute]
         {
-            get
-            {
-                return ExtendedGetValue((int)attribute);
-            }
-            set
-            {
-                SetValue((int)attribute, value);
-            }
+            get => ExtendedGetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public int ExtendedGetValue(int bitmask)
@@ -980,352 +972,190 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int RegenHits
         {
-            get
-            {
-                return this[AosAttribute.RegenHits];
-            }
-            set
-            {
-                this[AosAttribute.RegenHits] = value;
-            }
+            get => this[AosAttribute.RegenHits];
+            set => this[AosAttribute.RegenHits] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int RegenStam
         {
-            get
-            {
-                return this[AosAttribute.RegenStam];
-            }
-            set
-            {
-                this[AosAttribute.RegenStam] = value;
-            }
+            get => this[AosAttribute.RegenStam];
+            set => this[AosAttribute.RegenStam] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int RegenMana
         {
-            get
-            {
-                return this[AosAttribute.RegenMana];
-            }
-            set
-            {
-                this[AosAttribute.RegenMana] = value;
-            }
+            get => this[AosAttribute.RegenMana];
+            set => this[AosAttribute.RegenMana] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int DefendChance
         {
-            get
-            {
-                return this[AosAttribute.DefendChance];
-            }
-            set
-            {
-                this[AosAttribute.DefendChance] = value;
-            }
+            get => this[AosAttribute.DefendChance];
+            set => this[AosAttribute.DefendChance] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int AttackChance
         {
-            get
-            {
-                return this[AosAttribute.AttackChance];
-            }
-            set
-            {
-                this[AosAttribute.AttackChance] = value;
-            }
+            get => this[AosAttribute.AttackChance];
+            set => this[AosAttribute.AttackChance] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BonusStr
         {
-            get
-            {
-                return this[AosAttribute.BonusStr];
-            }
-            set
-            {
-                this[AosAttribute.BonusStr] = value;
-            }
+            get => this[AosAttribute.BonusStr];
+            set => this[AosAttribute.BonusStr] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BonusDex
         {
-            get
-            {
-                return this[AosAttribute.BonusDex];
-            }
-            set
-            {
-                this[AosAttribute.BonusDex] = value;
-            }
+            get => this[AosAttribute.BonusDex];
+            set => this[AosAttribute.BonusDex] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BonusInt
         {
-            get
-            {
-                return this[AosAttribute.BonusInt];
-            }
-            set
-            {
-                this[AosAttribute.BonusInt] = value;
-            }
+            get => this[AosAttribute.BonusInt];
+            set => this[AosAttribute.BonusInt] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BonusHits
         {
-            get
-            {
-                return this[AosAttribute.BonusHits];
-            }
-            set
-            {
-                this[AosAttribute.BonusHits] = value;
-            }
+            get => this[AosAttribute.BonusHits];
+            set => this[AosAttribute.BonusHits] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BonusStam
         {
-            get
-            {
-                return this[AosAttribute.BonusStam];
-            }
-            set
-            {
-                this[AosAttribute.BonusStam] = value;
-            }
+            get => this[AosAttribute.BonusStam];
+            set => this[AosAttribute.BonusStam] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BonusMana
         {
-            get
-            {
-                return this[AosAttribute.BonusMana];
-            }
-            set
-            {
-                this[AosAttribute.BonusMana] = value;
-            }
+            get => this[AosAttribute.BonusMana];
+            set => this[AosAttribute.BonusMana] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int WeaponDamage
         {
-            get
-            {
-                return this[AosAttribute.WeaponDamage];
-            }
-            set
-            {
-                this[AosAttribute.WeaponDamage] = value;
-            }
+            get => this[AosAttribute.WeaponDamage];
+            set => this[AosAttribute.WeaponDamage] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int WeaponSpeed
         {
-            get
-            {
-                return this[AosAttribute.WeaponSpeed];
-            }
-            set
-            {
-                this[AosAttribute.WeaponSpeed] = value;
-            }
+            get => this[AosAttribute.WeaponSpeed];
+            set => this[AosAttribute.WeaponSpeed] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int SpellDamage
         {
-            get
-            {
-                return this[AosAttribute.SpellDamage];
-            }
-            set
-            {
-                this[AosAttribute.SpellDamage] = value;
-            }
+            get => this[AosAttribute.SpellDamage];
+            set => this[AosAttribute.SpellDamage] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int CastRecovery
         {
-            get
-            {
-                return this[AosAttribute.CastRecovery];
-            }
-            set
-            {
-                this[AosAttribute.CastRecovery] = value;
-            }
+            get => this[AosAttribute.CastRecovery];
+            set => this[AosAttribute.CastRecovery] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int CastSpeed
         {
-            get
-            {
-                return this[AosAttribute.CastSpeed];
-            }
-            set
-            {
-                this[AosAttribute.CastSpeed] = value;
-            }
+            get => this[AosAttribute.CastSpeed];
+            set => this[AosAttribute.CastSpeed] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int LowerManaCost
         {
-            get
-            {
-                return this[AosAttribute.LowerManaCost];
-            }
-            set
-            {
-                this[AosAttribute.LowerManaCost] = value;
-            }
+            get => this[AosAttribute.LowerManaCost];
+            set => this[AosAttribute.LowerManaCost] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int LowerRegCost
         {
-            get
-            {
-                return this[AosAttribute.LowerRegCost];
-            }
-            set
-            {
-                this[AosAttribute.LowerRegCost] = value;
-            }
+            get => this[AosAttribute.LowerRegCost];
+            set => this[AosAttribute.LowerRegCost] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ReflectPhysical
         {
-            get
-            {
-                return this[AosAttribute.ReflectPhysical];
-            }
-            set
-            {
-                this[AosAttribute.ReflectPhysical] = value;
-            }
+            get => this[AosAttribute.ReflectPhysical];
+            set => this[AosAttribute.ReflectPhysical] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int EnhancePotions
         {
-            get
-            {
-                return this[AosAttribute.EnhancePotions];
-            }
-            set
-            {
-                this[AosAttribute.EnhancePotions] = value;
-            }
+            get => this[AosAttribute.EnhancePotions];
+            set => this[AosAttribute.EnhancePotions] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Luck
         {
-            get
-            {
-                return this[AosAttribute.Luck];
-            }
-            set
-            {
-                this[AosAttribute.Luck] = value;
-            }
+            get => this[AosAttribute.Luck];
+            set => this[AosAttribute.Luck] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int SpellChanneling
         {
-            get
-            {
-                return this[AosAttribute.SpellChanneling];
-            }
-            set
-            {
-                this[AosAttribute.SpellChanneling] = value;
-            }
+            get => this[AosAttribute.SpellChanneling];
+            set => this[AosAttribute.SpellChanneling] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int NightSight
         {
-            get
-            {
-                return this[AosAttribute.NightSight];
-            }
-            set
-            {
-                this[AosAttribute.NightSight] = value;
-            }
+            get => this[AosAttribute.NightSight];
+            set => this[AosAttribute.NightSight] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int IncreasedKarmaLoss
         {
-            get
-            {
-                return this[AosAttribute.IncreasedKarmaLoss];
-            }
-            set
-            {
-                this[AosAttribute.IncreasedKarmaLoss] = value;
-            }
+            get => this[AosAttribute.IncreasedKarmaLoss];
+            set => this[AosAttribute.IncreasedKarmaLoss] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Brittle
         {
-            get
-            {
-                return this[AosAttribute.Brittle];
-            }
-            set
-            {
-                this[AosAttribute.Brittle] = value;
-            }
+            get => this[AosAttribute.Brittle];
+            set => this[AosAttribute.Brittle] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int LowerAmmoCost
         {
-            get
-            {
-                return this[AosAttribute.LowerAmmoCost];
-            }
-            set
-            {
-                this[AosAttribute.LowerAmmoCost] = value;
-            }
+            get => this[AosAttribute.LowerAmmoCost];
+            set => this[AosAttribute.LowerAmmoCost] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BalancedWeapon
         {
-            get
-            {
-                return this[AosAttribute.BalancedWeapon];
-            }
-            set
-            {
-                this[AosAttribute.BalancedWeapon] = value;
-            }
+            get => this[AosAttribute.BalancedWeapon];
+            set => this[AosAttribute.BalancedWeapon] = value;
         }
     }
 
@@ -1454,14 +1284,8 @@ namespace Server
 
         public int this[AosWeaponAttribute attribute]
         {
-            get
-            {
-                return ExtendedGetValue((int)attribute);
-            }
-            set
-            {
-                SetValue((int)attribute, value);
-            }
+            get => ExtendedGetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public int ExtendedGetValue(int bitmask)
@@ -1522,418 +1346,226 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int LowerStatReq
         {
-            get
-            {
-                return this[AosWeaponAttribute.LowerStatReq];
-            }
-            set
-            {
-                this[AosWeaponAttribute.LowerStatReq] = value;
-            }
+            get => this[AosWeaponAttribute.LowerStatReq];
+            set => this[AosWeaponAttribute.LowerStatReq] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int SelfRepair
         {
-            get
-            {
-                return this[AosWeaponAttribute.SelfRepair];
-            }
-            set
-            {
-                this[AosWeaponAttribute.SelfRepair] = value;
-            }
+            get => this[AosWeaponAttribute.SelfRepair];
+            set => this[AosWeaponAttribute.SelfRepair] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitLeechHits
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitLeechHits];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitLeechHits] = value;
-            }
+            get => this[AosWeaponAttribute.HitLeechHits];
+            set => this[AosWeaponAttribute.HitLeechHits] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitLeechStam
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitLeechStam];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitLeechStam] = value;
-            }
+            get => this[AosWeaponAttribute.HitLeechStam];
+            set => this[AosWeaponAttribute.HitLeechStam] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitLeechMana
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitLeechMana];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitLeechMana] = value;
-            }
+            get => this[AosWeaponAttribute.HitLeechMana];
+            set => this[AosWeaponAttribute.HitLeechMana] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitLowerAttack
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitLowerAttack];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitLowerAttack] = value;
-            }
+            get => this[AosWeaponAttribute.HitLowerAttack];
+            set => this[AosWeaponAttribute.HitLowerAttack] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitLowerDefend
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitLowerDefend];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitLowerDefend] = value;
-            }
+            get => this[AosWeaponAttribute.HitLowerDefend];
+            set => this[AosWeaponAttribute.HitLowerDefend] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitMagicArrow
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitMagicArrow];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitMagicArrow] = value;
-            }
+            get => this[AosWeaponAttribute.HitMagicArrow];
+            set => this[AosWeaponAttribute.HitMagicArrow] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitHarm
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitHarm];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitHarm] = value;
-            }
+            get => this[AosWeaponAttribute.HitHarm];
+            set => this[AosWeaponAttribute.HitHarm] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitFireball
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitFireball];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitFireball] = value;
-            }
+            get => this[AosWeaponAttribute.HitFireball];
+            set => this[AosWeaponAttribute.HitFireball] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitLightning
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitLightning];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitLightning] = value;
-            }
+            get => this[AosWeaponAttribute.HitLightning];
+            set => this[AosWeaponAttribute.HitLightning] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitDispel
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitDispel];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitDispel] = value;
-            }
+            get => this[AosWeaponAttribute.HitDispel];
+            set => this[AosWeaponAttribute.HitDispel] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitColdArea
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitColdArea];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitColdArea] = value;
-            }
+            get => this[AosWeaponAttribute.HitColdArea];
+            set => this[AosWeaponAttribute.HitColdArea] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitFireArea
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitFireArea];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitFireArea] = value;
-            }
+            get => this[AosWeaponAttribute.HitFireArea];
+            set => this[AosWeaponAttribute.HitFireArea] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitPoisonArea
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitPoisonArea];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitPoisonArea] = value;
-            }
+            get => this[AosWeaponAttribute.HitPoisonArea];
+            set => this[AosWeaponAttribute.HitPoisonArea] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitEnergyArea
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitEnergyArea];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitEnergyArea] = value;
-            }
+            get => this[AosWeaponAttribute.HitEnergyArea];
+            set => this[AosWeaponAttribute.HitEnergyArea] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitPhysicalArea
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitPhysicalArea];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitPhysicalArea] = value;
-            }
+            get => this[AosWeaponAttribute.HitPhysicalArea];
+            set => this[AosWeaponAttribute.HitPhysicalArea] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResistPhysicalBonus
         {
-            get
-            {
-                return this[AosWeaponAttribute.ResistPhysicalBonus];
-            }
-            set
-            {
-                this[AosWeaponAttribute.ResistPhysicalBonus] = value;
-            }
+            get => this[AosWeaponAttribute.ResistPhysicalBonus];
+            set => this[AosWeaponAttribute.ResistPhysicalBonus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResistFireBonus
         {
-            get
-            {
-                return this[AosWeaponAttribute.ResistFireBonus];
-            }
-            set
-            {
-                this[AosWeaponAttribute.ResistFireBonus] = value;
-            }
+            get => this[AosWeaponAttribute.ResistFireBonus];
+            set => this[AosWeaponAttribute.ResistFireBonus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResistColdBonus
         {
-            get
-            {
-                return this[AosWeaponAttribute.ResistColdBonus];
-            }
-            set
-            {
-                this[AosWeaponAttribute.ResistColdBonus] = value;
-            }
+            get => this[AosWeaponAttribute.ResistColdBonus];
+            set => this[AosWeaponAttribute.ResistColdBonus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResistPoisonBonus
         {
-            get
-            {
-                return this[AosWeaponAttribute.ResistPoisonBonus];
-            }
-            set
-            {
-                this[AosWeaponAttribute.ResistPoisonBonus] = value;
-            }
+            get => this[AosWeaponAttribute.ResistPoisonBonus];
+            set => this[AosWeaponAttribute.ResistPoisonBonus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResistEnergyBonus
         {
-            get
-            {
-                return this[AosWeaponAttribute.ResistEnergyBonus];
-            }
-            set
-            {
-                this[AosWeaponAttribute.ResistEnergyBonus] = value;
-            }
+            get => this[AosWeaponAttribute.ResistEnergyBonus];
+            set => this[AosWeaponAttribute.ResistEnergyBonus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int UseBestSkill
         {
-            get
-            {
-                return this[AosWeaponAttribute.UseBestSkill];
-            }
-            set
-            {
-                this[AosWeaponAttribute.UseBestSkill] = value;
-            }
+            get => this[AosWeaponAttribute.UseBestSkill];
+            set => this[AosWeaponAttribute.UseBestSkill] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int MageWeapon
         {
-            get
-            {
-                return this[AosWeaponAttribute.MageWeapon];
-            }
-            set
-            {
-                this[AosWeaponAttribute.MageWeapon] = value;
-            }
+            get => this[AosWeaponAttribute.MageWeapon];
+            set => this[AosWeaponAttribute.MageWeapon] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int DurabilityBonus
         {
-            get
-            {
-                return this[AosWeaponAttribute.DurabilityBonus];
-            }
-            set
-            {
-                this[AosWeaponAttribute.DurabilityBonus] = value;
-            }
+            get => this[AosWeaponAttribute.DurabilityBonus];
+            set => this[AosWeaponAttribute.DurabilityBonus] = value;
         }
 
         #region SA
         [CommandProperty(AccessLevel.GameMaster)]
         public int BloodDrinker
         {
-            get
-            {
-                return this[AosWeaponAttribute.BloodDrinker];
-            }
-            set
-            {
-                this[AosWeaponAttribute.BloodDrinker] = value;
-            }
+            get => this[AosWeaponAttribute.BloodDrinker];
+            set => this[AosWeaponAttribute.BloodDrinker] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int BattleLust
         {
-            get
-            {
-                return this[AosWeaponAttribute.BattleLust];
-            }
-            set
-            {
-                this[AosWeaponAttribute.BattleLust] = value;
-            }
+            get => this[AosWeaponAttribute.BattleLust];
+            set => this[AosWeaponAttribute.BattleLust] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitCurse
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitCurse];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitCurse] = value;
-            }
+            get => this[AosWeaponAttribute.HitCurse];
+            set => this[AosWeaponAttribute.HitCurse] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitFatigue
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitFatigue];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitFatigue] = value;
-            }
+            get => this[AosWeaponAttribute.HitFatigue];
+            set => this[AosWeaponAttribute.HitFatigue] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitManaDrain
         {
-            get
-            {
-                return this[AosWeaponAttribute.HitManaDrain];
-            }
-            set
-            {
-                this[AosWeaponAttribute.HitManaDrain] = value;
-            }
+            get => this[AosWeaponAttribute.HitManaDrain];
+            set => this[AosWeaponAttribute.HitManaDrain] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int SplinteringWeapon
         {
-            get
-            {
-                return this[AosWeaponAttribute.SplinteringWeapon];
-            }
-            set
-            {
-                this[AosWeaponAttribute.SplinteringWeapon] = value;
-            }
+            get => this[AosWeaponAttribute.SplinteringWeapon];
+            set => this[AosWeaponAttribute.SplinteringWeapon] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ReactiveParalyze
         {
-            get
-            {
-                return this[AosWeaponAttribute.ReactiveParalyze];
-            }
-            set
-            {
-                this[AosWeaponAttribute.ReactiveParalyze] = value;
-            }
+            get => this[AosWeaponAttribute.ReactiveParalyze];
+            set => this[AosWeaponAttribute.ReactiveParalyze] = value;
         }
         #endregion
     }
@@ -1997,14 +1629,8 @@ namespace Server
 
         public int this[ExtendedWeaponAttribute attribute]
         {
-            get
-            {
-                return GetValue((int)attribute);
-            }
-            set
-            {
-                SetValue((int)attribute, value);
-            }
+            get => GetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public override string ToString()
@@ -2015,105 +1641,57 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int BoneBreaker
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.BoneBreaker];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.BoneBreaker] = value;
-            }
+            get => this[ExtendedWeaponAttribute.BoneBreaker];
+            set => this[ExtendedWeaponAttribute.BoneBreaker] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitSwarm
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.HitSwarm];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.HitSwarm] = value;
-            }
+            get => this[ExtendedWeaponAttribute.HitSwarm];
+            set => this[ExtendedWeaponAttribute.HitSwarm] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitSparks
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.HitSparks];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.HitSparks] = value;
-            }
+            get => this[ExtendedWeaponAttribute.HitSparks];
+            set => this[ExtendedWeaponAttribute.HitSparks] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Bane
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.Bane];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.Bane] = value;
-            }
+            get => this[ExtendedWeaponAttribute.Bane];
+            set => this[ExtendedWeaponAttribute.Bane] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int MysticWeapon
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.MysticWeapon];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.MysticWeapon] = value;
-            }
+            get => this[ExtendedWeaponAttribute.MysticWeapon];
+            set => this[ExtendedWeaponAttribute.MysticWeapon] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int AssassinHoned
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.AssassinHoned];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.AssassinHoned] = value;
-            }
+            get => this[ExtendedWeaponAttribute.AssassinHoned];
+            set => this[ExtendedWeaponAttribute.AssassinHoned] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Focus
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.Focus];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.Focus] = value;
-            }
+            get => this[ExtendedWeaponAttribute.Focus];
+            set => this[ExtendedWeaponAttribute.Focus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int HitExplosion
         {
-            get
-            {
-                return this[ExtendedWeaponAttribute.HitExplosion];
-            }
-            set
-            {
-                this[ExtendedWeaponAttribute.HitExplosion] = value;
-            }
+            get => this[ExtendedWeaponAttribute.HitExplosion];
+            set => this[ExtendedWeaponAttribute.HitExplosion] = value;
         }
     }
 
@@ -2228,14 +1806,8 @@ namespace Server
 
         public int this[AosArmorAttribute attribute]
         {
-            get
-            {
-                return ExtendedGetValue((int)attribute);
-            }
-            set
-            {
-                SetValue((int)attribute, value);
-            }
+            get => ExtendedGetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public int ExtendedGetValue(int bitmask)
@@ -2260,79 +1832,43 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int LowerStatReq
         {
-            get
-            {
-                return this[AosArmorAttribute.LowerStatReq];
-            }
-            set
-            {
-                this[AosArmorAttribute.LowerStatReq] = value;
-            }
+            get => this[AosArmorAttribute.LowerStatReq];
+            set => this[AosArmorAttribute.LowerStatReq] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int SelfRepair
         {
-            get
-            {
-                return this[AosArmorAttribute.SelfRepair];
-            }
-            set
-            {
-                this[AosArmorAttribute.SelfRepair] = value;
-            }
+            get => this[AosArmorAttribute.SelfRepair];
+            set => this[AosArmorAttribute.SelfRepair] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int MageArmor
         {
-            get
-            {
-                return this[AosArmorAttribute.MageArmor];
-            }
-            set
-            {
-                this[AosArmorAttribute.MageArmor] = value;
-            }
+            get => this[AosArmorAttribute.MageArmor];
+            set => this[AosArmorAttribute.MageArmor] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int DurabilityBonus
         {
-            get
-            {
-                return this[AosArmorAttribute.DurabilityBonus];
-            }
-            set
-            {
-                this[AosArmorAttribute.DurabilityBonus] = value;
-            }
+            get => this[AosArmorAttribute.DurabilityBonus];
+            set => this[AosArmorAttribute.DurabilityBonus] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ReactiveParalyze
         {
-            get
-            {
-                return this[AosArmorAttribute.ReactiveParalyze];
-            }
-            set
-            {
-                this[AosArmorAttribute.ReactiveParalyze] = value;
-            }
+            get => this[AosArmorAttribute.ReactiveParalyze];
+            set => this[AosArmorAttribute.ReactiveParalyze] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int SoulCharge
         {
-            get
-            {
-                return this[AosArmorAttribute.SoulCharge];
-            }
-            set
-            {
-                this[AosArmorAttribute.SoulCharge] = value;
-            }
+            get => this[AosArmorAttribute.SoulCharge];
+            set => this[AosArmorAttribute.SoulCharge] = value;
         }
     }
 
@@ -2586,131 +2122,71 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public double Skill_1_Value
         {
-            get
-            {
-                return GetBonus(0);
-            }
-            set
-            {
-                SetBonus(0, value);
-            }
+            get => GetBonus(0);
+            set => SetBonus(0, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public SkillName Skill_1_Name
         {
-            get
-            {
-                return GetSkill(0);
-            }
-            set
-            {
-                SetSkill(0, value);
-            }
+            get => GetSkill(0);
+            set => SetSkill(0, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public double Skill_2_Value
         {
-            get
-            {
-                return GetBonus(1);
-            }
-            set
-            {
-                SetBonus(1, value);
-            }
+            get => GetBonus(1);
+            set => SetBonus(1, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public SkillName Skill_2_Name
         {
-            get
-            {
-                return GetSkill(1);
-            }
-            set
-            {
-                SetSkill(1, value);
-            }
+            get => GetSkill(1);
+            set => SetSkill(1, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public double Skill_3_Value
         {
-            get
-            {
-                return GetBonus(2);
-            }
-            set
-            {
-                SetBonus(2, value);
-            }
+            get => GetBonus(2);
+            set => SetBonus(2, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public SkillName Skill_3_Name
         {
-            get
-            {
-                return GetSkill(2);
-            }
-            set
-            {
-                SetSkill(2, value);
-            }
+            get => GetSkill(2);
+            set => SetSkill(2, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public double Skill_4_Value
         {
-            get
-            {
-                return GetBonus(3);
-            }
-            set
-            {
-                SetBonus(3, value);
-            }
+            get => GetBonus(3);
+            set => SetBonus(3, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public SkillName Skill_4_Name
         {
-            get
-            {
-                return GetSkill(3);
-            }
-            set
-            {
-                SetSkill(3, value);
-            }
+            get => GetSkill(3);
+            set => SetSkill(3, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public double Skill_5_Value
         {
-            get
-            {
-                return GetBonus(4);
-            }
-            set
-            {
-                SetBonus(4, value);
-            }
+            get => GetBonus(4);
+            set => SetBonus(4, value);
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public SkillName Skill_5_Name
         {
-            get
-            {
-                return GetSkill(4);
-            }
-            set
-            {
-                SetSkill(4, value);
-            }
+            get => GetSkill(4);
+            set => SetSkill(4, value);
         }
     }
 
@@ -2811,14 +2287,8 @@ namespace Server
 
         public int this[SAAbsorptionAttribute attribute]
         {
-            get
-            {
-                return GetValue((int)attribute);
-            }
-            set
-            {
-                SetValue((int)attribute, value);
-            }
+            get => GetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public override string ToString()
@@ -2829,153 +2299,84 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int EaterFire
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.EaterFire];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.EaterFire] = value;
-            }
+            get => this[SAAbsorptionAttribute.EaterFire];
+            set => this[SAAbsorptionAttribute.EaterFire] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int EaterCold
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.EaterCold];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.EaterCold] = value;
-            }
+            get => this[SAAbsorptionAttribute.EaterCold];
+            set => this[SAAbsorptionAttribute.EaterCold] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int EaterPoison
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.EaterPoison];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.EaterPoison] = value;
-            }
+            get => this[SAAbsorptionAttribute.EaterPoison];
+            set => this[SAAbsorptionAttribute.EaterPoison] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int EaterEnergy
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.EaterEnergy];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.EaterEnergy] = value;
-            }
+            get => this[SAAbsorptionAttribute.EaterEnergy];
+            set => this[SAAbsorptionAttribute.EaterEnergy] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int EaterKinetic
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.EaterKinetic];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.EaterKinetic] = value;
-            }
+            get => this[SAAbsorptionAttribute.EaterKinetic];
+            set => this[SAAbsorptionAttribute.EaterKinetic] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int EaterDamage
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.EaterDamage];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.EaterDamage] = value;
-            }
+            get => this[SAAbsorptionAttribute.EaterDamage];
+            set => this[SAAbsorptionAttribute.EaterDamage] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResonanceFire
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.ResonanceFire];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.ResonanceFire] = value;
-            }
+            get => this[SAAbsorptionAttribute.ResonanceFire];
+            set => this[SAAbsorptionAttribute.ResonanceFire] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResonanceCold
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.ResonanceCold];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.ResonanceCold] = value;
-            }
+            get => this[SAAbsorptionAttribute.ResonanceCold];
+            set => this[SAAbsorptionAttribute.ResonanceCold] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResonancePoison
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.ResonancePoison];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.ResonancePoison] = value;
-            }
+            get => this[SAAbsorptionAttribute.ResonancePoison];
+            set => this[SAAbsorptionAttribute.ResonancePoison] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResonanceEnergy
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.ResonanceEnergy];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.ResonanceEnergy] = value;
-            }
+            get => this[SAAbsorptionAttribute.ResonanceEnergy];
+            set => this[SAAbsorptionAttribute.ResonanceEnergy] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ResonanceKinetic
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.ResonanceKinetic];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.ResonanceKinetic] = value;
-            }
+            get => this[SAAbsorptionAttribute.ResonanceKinetic];
+            set => this[SAAbsorptionAttribute.ResonanceKinetic] = value;
         }
 
         //[CommandProperty(AccessLevel.GameMaster)]
         public int SoulChargeFire
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.SoulChargeFire];
-            }
+            get => this[SAAbsorptionAttribute.SoulChargeFire];
             set
             {
                 //this[SAAbsorptionAttribute.SoulChargeFire] = value;
@@ -2985,10 +2386,7 @@ namespace Server
         //[CommandProperty(AccessLevel.GameMaster)]
         public int SoulChargeCold
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.SoulChargeCold];
-            }
+            get => this[SAAbsorptionAttribute.SoulChargeCold];
             set
             {
                 //this[SAAbsorptionAttribute.SoulChargeCold] = value;
@@ -2998,10 +2396,7 @@ namespace Server
         //[CommandProperty(AccessLevel.GameMaster)]
         public int SoulChargePoison
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.SoulChargePoison];
-            }
+            get => this[SAAbsorptionAttribute.SoulChargePoison];
             set
             {
                 //this[SAAbsorptionAttribute.SoulChargePoison] = value;
@@ -3011,10 +2406,7 @@ namespace Server
         //[CommandProperty(AccessLevel.GameMaster)]
         public int SoulChargeEnergy
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.SoulChargeEnergy];
-            }
+            get => this[SAAbsorptionAttribute.SoulChargeEnergy];
             set
             {
                 //this[SAAbsorptionAttribute.SoulChargeEnergy] = value;
@@ -3024,10 +2416,7 @@ namespace Server
         //[CommandProperty(AccessLevel.GameMaster)]
         public int SoulChargeKinetic
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.SoulChargeKinetic];
-            }
+            get => this[SAAbsorptionAttribute.SoulChargeKinetic];
             set
             {
                 //this[SAAbsorptionAttribute.SoulChargeKinetic] = value;
@@ -3037,14 +2426,8 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int CastingFocus
         {
-            get
-            {
-                return this[SAAbsorptionAttribute.CastingFocus];
-            }
-            set
-            {
-                this[SAAbsorptionAttribute.CastingFocus] = value;
-            }
+            get => this[SAAbsorptionAttribute.CastingFocus];
+            set => this[SAAbsorptionAttribute.CastingFocus] = value;
         }
     }
     #endregion
@@ -3080,14 +2463,8 @@ namespace Server
 
         public int this[AosElementAttribute attribute]
         {
-            get
-            {
-                return ExtendedGetValue((int)attribute);
-            }
-            set
-            {
-                SetValue((int)attribute, value);
-            }
+            get => ExtendedGetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public int ExtendedGetValue(int bitmask)
@@ -3112,92 +2489,50 @@ namespace Server
         [CommandProperty(AccessLevel.GameMaster)]
         public int Physical
         {
-            get
-            {
-                return this[AosElementAttribute.Physical];
-            }
-            set
-            {
-                this[AosElementAttribute.Physical] = value;
-            }
+            get => this[AosElementAttribute.Physical];
+            set => this[AosElementAttribute.Physical] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Fire
         {
-            get
-            {
-                return this[AosElementAttribute.Fire];
-            }
-            set
-            {
-                this[AosElementAttribute.Fire] = value;
-            }
+            get => this[AosElementAttribute.Fire];
+            set => this[AosElementAttribute.Fire] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Cold
         {
-            get
-            {
-                return this[AosElementAttribute.Cold];
-            }
-            set
-            {
-                this[AosElementAttribute.Cold] = value;
-            }
+            get => this[AosElementAttribute.Cold];
+            set => this[AosElementAttribute.Cold] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Poison
         {
-            get
-            {
-                return this[AosElementAttribute.Poison];
-            }
-            set
-            {
-                this[AosElementAttribute.Poison] = value;
-            }
+            get => this[AosElementAttribute.Poison];
+            set => this[AosElementAttribute.Poison] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Energy
         {
-            get
-            {
-                return this[AosElementAttribute.Energy];
-            }
-            set
-            {
-                this[AosElementAttribute.Energy] = value;
-            }
+            get => this[AosElementAttribute.Energy];
+            set => this[AosElementAttribute.Energy] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Chaos
         {
-            get
-            {
-                return this[AosElementAttribute.Chaos];
-            }
-            set
-            {
-                this[AosElementAttribute.Chaos] = value;
-            }
+            get => this[AosElementAttribute.Chaos];
+            set => this[AosElementAttribute.Chaos] = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Direct
         {
-            get
-            {
-                return this[AosElementAttribute.Direct];
-            }
-            set
-            {
-                this[AosElementAttribute.Direct] = value;
-            }
+            get => this[AosElementAttribute.Direct];
+            set => this[AosElementAttribute.Direct] = value;
         }
     }
 
@@ -3312,8 +2647,8 @@ namespace Server
 
         public int this[NegativeAttribute attribute]
         {
-            get { return GetValue((int)attribute); }
-            set { SetValue((int)attribute, value); }
+            get => GetValue((int)attribute);
+            set => SetValue((int)attribute, value);
         }
 
         public override string ToString()
@@ -3322,57 +2657,44 @@ namespace Server
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Brittle { get { return this[NegativeAttribute.Brittle]; } set { this[NegativeAttribute.Brittle] = value; } }
+        public int Brittle { get => this[NegativeAttribute.Brittle]; set => this[NegativeAttribute.Brittle] = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Prized { get { return this[NegativeAttribute.Prized]; } set { this[NegativeAttribute.Prized] = value; } }
+        public int Prized { get => this[NegativeAttribute.Prized]; set => this[NegativeAttribute.Prized] = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Massive { get { return this[NegativeAttribute.Massive]; } set { this[NegativeAttribute.Massive] = value; } }
+        public int Massive { get => this[NegativeAttribute.Massive]; set => this[NegativeAttribute.Massive] = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Unwieldly { get { return this[NegativeAttribute.Unwieldly]; } set { this[NegativeAttribute.Unwieldly] = value; } }
+        public int Unwieldly { get => this[NegativeAttribute.Unwieldly]; set => this[NegativeAttribute.Unwieldly] = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int Antique { get { return this[NegativeAttribute.Antique]; } set { this[NegativeAttribute.Antique] = value; } }
+        public int Antique { get => this[NegativeAttribute.Antique]; set => this[NegativeAttribute.Antique] = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int NoRepair { get { return this[NegativeAttribute.NoRepair]; } set { this[NegativeAttribute.NoRepair] = value; } }
+        public int NoRepair { get => this[NegativeAttribute.NoRepair]; set => this[NegativeAttribute.NoRepair] = value; }
     }
 
     [PropertyObject]
     public abstract class BaseAttributes
     {
-        private readonly Item m_Owner;
         private uint m_Names;
         private int[] m_Values;
 
         private static readonly int[] m_Empty = new int[0];
 
-        public bool IsEmpty
-        {
-            get
-            {
-                return (m_Names == 0);
-            }
-        }
-        public Item Owner
-        {
-            get
-            {
-                return m_Owner;
-            }
-        }
+        public bool IsEmpty => (m_Names == 0);
+        public Item Owner { get; }
 
         public BaseAttributes(Item owner)
         {
-            m_Owner = owner;
+            Owner = owner;
             m_Values = m_Empty;
         }
 
         public BaseAttributes(Item owner, BaseAttributes other)
         {
-            m_Owner = owner;
+            Owner = owner;
             m_Values = new int[other.m_Values.Length];
             other.m_Values.CopyTo(m_Values, 0);
             m_Names = other.m_Names;
@@ -3380,7 +2702,7 @@ namespace Server
 
         public BaseAttributes(Item owner, GenericReader reader)
         {
-            m_Owner = owner;
+            Owner = owner;
 
             int version = reader.ReadByte();
 
@@ -3413,11 +2735,11 @@ namespace Server
         {
             writer.Write((byte)1); // version;
 
-            writer.Write((uint)m_Names);
-            writer.WriteEncodedInt((int)m_Values.Length);
+            writer.Write(m_Names);
+            writer.WriteEncodedInt(m_Values.Length);
 
             for (int i = 0; i < m_Values.Length; ++i)
-                writer.WriteEncodedInt((int)m_Values[i]);
+                writer.WriteEncodedInt(m_Values[i]);
         }
 
         public int GetValue(int bitmask)
@@ -3498,17 +2820,17 @@ namespace Server
                 }
             }
 
-            if (m_Owner != null && m_Owner.Parent is Mobile)
+            if (Owner != null && Owner.Parent is Mobile)
             {
-                Mobile m = (Mobile)m_Owner.Parent;
+                Mobile m = (Mobile)Owner.Parent;
 
                 m.CheckStatTimers();
                 m.UpdateResistances();
                 m.Delta(MobileDelta.Stat | MobileDelta.WeaponDamage | MobileDelta.Hits | MobileDelta.Stam | MobileDelta.Mana);
             }
 
-            if (m_Owner != null)
-                m_Owner.InvalidateProperties();
+            if (Owner != null)
+                Owner.InvalidateProperties();
         }
 
         private int GetIndex(uint mask)

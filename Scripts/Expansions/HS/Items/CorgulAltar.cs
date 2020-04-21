@@ -1,4 +1,4 @@
-﻿using Server;
+using Server;
 using System;
 using Server.Mobiles;
 using System.Collections.Generic;
@@ -191,7 +191,8 @@ namespace Server.Items
                 if (!m_Activated)
                 {
                     SpawnBoss(from);
-                    m_DeadLineTimer = Timer.DelayCall(ExpireTime, new TimerCallback(OnDeadLine));
+                 // m_DeadLineTimer = Timer.DelayCall(ExpireTime, new TimerCallback(OnDeadLine));
+                    m_DeadLineTimer = Timer.DelayCall(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(10), OnTick);
                     m_DeadLine = DateTime.UtcNow + ExpireTime;
                 }
 
@@ -256,6 +257,24 @@ namespace Server.Items
             {
                 if (m is PlayerMobile)
                     m.SendLocalizedMessage(1072681); // The master of this realm has been slain! You may only stay here so long.
+            }
+        }
+
+        private void OnTick()
+        {
+            if (DateTime.UtcNow > m_DeadLine)
+            {
+                OnDeadLine();
+            }
+            else
+            {
+                for (int i = 0; i < m_IslandMaps.Count; i++)
+                {
+                    if (m_IslandMaps[i] != null)
+                    {
+                        m_IslandMaps[i].InvalidateProperties();
+                    }
+                }
             }
         }
 
@@ -351,7 +370,7 @@ namespace Server.Items
 
         private void GiveMap(Mobile from)
         {
-            CorgulIslandMap map = new CorgulIslandMap(m_WarpPoint);
+            CorgulIslandMap map = new CorgulIslandMap(m_WarpPoint, this);
             from.AddToBackpack(map);
 
             m_IslandMaps.Add(map);
@@ -416,7 +435,10 @@ namespace Server.Items
                             Item map = reader.ReadItem();
 
                             if (map != null && !map.Deleted && map is CorgulIslandMap)
+                            {
                                 m_IslandMaps.Add(map);
+                                ((CorgulIslandMap)map).Altar = this;
+                            }
                         }
 
                         break;
@@ -445,8 +467,12 @@ namespace Server.Items
                     Rectangle2D bounds = GetRectangle(m_WarpPoint);
                     m_WarpRegion = new CorgulWarpRegion(this, bounds);
                     m_WarpRegion.Register();
-                    TimeSpan ts = m_DeadLine - DateTime.UtcNow;
-                    m_DeadLineTimer = Timer.DelayCall(ts, new TimerCallback(OnDeadLine));
+
+
+                //    TimeSpan ts = m_DeadLine - DateTime.UtcNow;
+                //    m_DeadLineTimer = Timer.DelayCall(ts, new TimerCallback(OnDeadLine));
+
+                    m_DeadLineTimer = Timer.DelayCall(TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(10), OnTick);
                 }
             }
         }
