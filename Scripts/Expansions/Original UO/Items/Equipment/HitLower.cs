@@ -1,6 +1,6 @@
+using Server.Mobiles;
 using System;
 using System.Collections.Generic;
-using Server.Mobiles;
 
 namespace Server.Items
 {
@@ -19,7 +19,9 @@ namespace Server.Items
         public static bool ApplyAttack(Mobile m)
         {
             if (IsUnderAttackEffect(m))
+            {
                 return false;
+            }
 
             m_AttackTable[m] = new AttackTimer(m);
             BuffInfo.AddBuff(m, new BuffInfo(BuffIcon.HitLowerAttack, 1151315, 1151314, AttackEffectDuration, m, "25"));
@@ -40,7 +42,9 @@ namespace Server.Items
             if (!Core.HS)
             {
                 if (IsUnderDefenseEffect(m))
+                {
                     return false;
+                }
 
                 m_DefenseTable[m] = new DefenseTimer(m, 25);
                 BuffInfo.AddBuff(m, new BuffInfo(BuffIcon.HitLowerDefense, 1151313, 1151286, DefenseEffectDuration, m, "35"));
@@ -68,7 +72,7 @@ namespace Server.Items
                 if (m is PlayerMobile)
                 {
                     malus = 45 + BaseArmor.GetRefinedDefenseChance(m);
-                    malus = malus - (int)((double)malus * .35);
+                    malus = malus - (int)(malus * .35);
                 }
                 else
                 {

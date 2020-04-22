@@ -53,6 +53,129 @@
     <Compile Include="Expansions\EJ\StoreBought\MetalLadder2.cs" />
     <Compile Include="Expansions\HS\Gothic Theme Pack\GargoyleStatues.cs" />
     <Compile Include="Expansions\ML\MLChairs.cs" />
+    <Compile Include="Expansions\HS\HotCocoaMug.cs" />
+    <Compile Include="Expansions\HS\PulledPorkSandwich.cs" />
+    <Compile Include="Expansions\HS\PulledPorkPlatter.cs" />
+    <Compile Include="Expansions\HS\CookableSausage.cs" />
+    <Compile Include="Expansions\HS\HotDog.cs" />
+    <Compile Include="Expansions\HS\Hamburger.cs" />
+    <Compile Include="Expansions\SA\BowlOfBlackrockStew.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfTomatoSoup.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfStew.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\PewterBowlOfPeas.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\PewterBowlOfPotatos.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\EmptyWoodenTub.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\EmptyPewterTub.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\PewterBowlOfLettuce.cs" />
+    <Compile Include="Expansions\SA\BowlOfRotwormStew.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\PewterBowlOfCorn.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\PewterBowlOfCarrots.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfPeas.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfLettuce.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfCorn.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfCarrots.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\EmptyPewterBowl.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\EmptyWoodenBowl.cs" />
+    <Compile Include="Holiday Items\ThreeTieredCake.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\ChickenLeg.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\LambLeg.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Quiche.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\PeachCobbler.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\ApplePie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\PumpkinPie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\MeatPie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\FruitPie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\SausagePizza.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\CheesePizza.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Muffins.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Cookies.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Ribs.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Cake.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Ham.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Sausage.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\RoastPig.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\CookedBird.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\FriedEggs.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\FrenchBread.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\CheeseSlice.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\CheeseWedge.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\CheeseWheel.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\SlabOfBacon.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\FishSteak.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\Bacon.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\BreadLoaf.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\TrulyRareFish.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\PeculiarFish.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\WondrousFish.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\PrizedFish.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\SmallPumpkin.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Pumpkin.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Plum.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Cantaloupe.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Squash.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\SmallWatermelon.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Watermelon.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Apple.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Pear.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Peach.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Grapes.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Dates.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\OpenCoconut.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Coconut.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Limes.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Lime.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Lemons.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Lemon.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\SplitCoconut.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Bananas.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\Banana.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits\FruitBasket.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\SweetDough.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\Dough.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\RawRotwormMeat.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\RawFishSteak.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\CakeMix.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\CookieMix.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\SackFlourOpen.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\WoodenBowl.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\Eggshells.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\SackFlour.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\BowlFlour.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\JarHoney.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\WheatSheaf.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\SheafOfHay.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\Turnip.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\EarOfCorn.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\GreenGourd.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\YellowGourd.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\HoneydewMelon.cs" />
+    <Compile Include="Holiday Items\EasterEggs.cs" />
+    <Compile Include="Holiday Items\BrightlyColoredEggs.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\Eggs.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UnbakedQuiche.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\RawBird.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UnbakedPeachCobbler.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UnbakedFruitPie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UnbakedMeatPie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UnbakedPumpkinPie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UnbakedApplePie.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UncookedCheesePizza.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\RawChickenLeg.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\UncookedSausagePizza.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\RawLambLeg.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Raw\RawRibs.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\Onion.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\Cabbage.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\Lettuce.cs" />
+    <Compile Include="Expansions\SE\BasketOfGreenTeaMug.cs" />
+    <Compile Include="Expansions\HS\CoffeeMug.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\CeramicMug.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\Goblet.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\GlassMug.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\BeverageBottle.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\Pitcher.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\PewterMug.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\Jug.cs" />
     <Compile Include="Expansions\SA\TerMurStyleTable.cs" />
     <Compile Include="Expansions\SA\TerMurStyleChair.cs" />
     <Compile Include="Expansions\Original UO\Items\Craft and Component\Reagents\BaseReagent.cs" />
@@ -1100,7 +1223,7 @@
     <Compile Include="Holiday Items\Nutcrackers.cs" />
     <Compile Include="Expansions\ML\9th Anniversary Gifts\PersonalAttendantDeed.cs" />
     <Compile Include="Expansions\ML\9th Anniversary Gifts\PersonalAttendantToken.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\PumpkinPizza.cs" />
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\PumpkinPizza.cs" />
     <Compile Include="Holiday Items\Taffy.cs" />
     <Compile Include="Holiday Items\ThanksGivingFood.cs" />
     <Compile Include="Holiday Items\WrappedCandy.cs" />
@@ -1278,7 +1401,7 @@
     <Compile Include="Expansions\ML\Quest\UnicornRibs.cs" />
     <Compile Include="Expansions\ML\Quest\VaultOfSecretsBarrier.cs" />
     <Compile Include="Expansions\ML\Quest\YellowKey1.cs" />
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\BaseFish.cs">
+    <Compile Include="Expansions\ML\Aquarium\BaseFish.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\Resource\HotGoo.cs" />
@@ -5143,13 +5266,10 @@
     <Compile Include="Expansions\SA\BaseMagicalFood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverage.cs">
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Beverages\BaseBeverage.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\World\BeverageEmpty.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Chocolatiering.cs">
@@ -5158,7 +5278,7 @@
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\CookableFood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooking.cs">
+    <Compile Include="Needs Deleted Look Over First\UtilityItem Delete me I think.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\EnchantedApple.cs">
@@ -5170,13 +5290,10 @@
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Food.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\FruitBowl.cs">
+    <Compile Include="Expansions\ML\FruitBowl.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fruits.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables.cs">
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Vegetables\Carrot.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\WrathGrapes.cs">
@@ -5772,13 +5889,13 @@
     <Compile Include="Expansions\Original UO\Items\Craft and Component\Reagents\DragonBlood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\BigFish.cs">
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\BigFish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish.cs">
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\Fish.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\MagicFish.cs">
+    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish\BaseMagicFish.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\UOTD\Granite.cs">
@@ -5976,16 +6093,16 @@
     <Compile Include="Expansions\Original UO\Items\Equipment\Armor and Shields\Shields\WoodenShield.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\FrenchBread.cs">
+    <Compile Include="Expansions\HS\BegFrenchBread.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\WaterPitcher.cs">
+    <Compile Include="Expansions\HS\BegWaterPitcher.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cheese.cs">
+    <Compile Include="Expansions\HS\BegCheeseWedge.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Dates.cs">
+    <Compile Include="Expansions\HS\BegDates.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\XSORTINGX\BegLantern.cs">
@@ -5994,22 +6111,22 @@
     <Compile Include="Expansions\HS\LiquorPitcher.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Pizza.cs">
+    <Compile Include="Expansions\HS\BegPizza.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\XSORTINGX\BegShirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Stew.cs">
+    <Compile Include="Expansions\HS\BegStew.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\XSORTINGX\BegBedRoll.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cookies.cs">
+    <Compile Include="Expansions\HS\BegCookies.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Fish Steak.cs">
+    <Compile Include="Expansions\HS\BegFishSteak.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\HS\BegFishingPole.cs">
@@ -6021,13 +6138,13 @@
     <Compile Include="Expansions\HS\Consumables\BegSake.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Turnip.cs">
+    <Compile Include="Expansions\HS\BegTurnip.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Wine.cs">
+    <Compile Include="Expansions\HS\BegWine.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\WinePitcher.cs">
+    <Compile Include="Expansions\HS\BegWinePitcher.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Craft and Component\Carpentry Craftables\AnvilForge.cs">
@@ -7140,7 +7257,7 @@
     <Compile Include="Expansions\ML\Quest\PlagueBeastVein.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bucket.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\Bucket.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Craft and Component\Resources\ClosedBarrel.cs">
@@ -7149,7 +7266,7 @@
     <Compile Include="Expansions\Original UO\Items\Craft and Component\UnfinishedBarrel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\WaterBarrel.cs">
+    <Compile Include="Expansions\Original UO\Items\Decorations\WaterBarrel.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Decorations\Furinture\WaterTub.cs">
@@ -8118,7 +8235,7 @@
     <Compile Include="Expansions\SA\GargishTekagi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\SkinningKnife.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Swords\SkinningKnife.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\PoleArms\Club.cs">
@@ -8413,7 +8530,7 @@
     <Compile Include="Expansions\SA\SerpentStoneStaff.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\ShepherdsCrook.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\PoleArms\ShepherdsCrook.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\AbyssalBlade.cs">

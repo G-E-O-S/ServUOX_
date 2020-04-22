@@ -7,128 +7,34 @@ namespace Server.Items
         public static void Initialize()
         {
             if (Mobile.DefaultWeapon == null)
+            {
                 Mobile.DefaultWeapon = new Fists();
+            }
 
             EventSink.DisarmRequest += new DisarmRequestEventHandler(EventSink_DisarmRequest);
             EventSink.StunRequest += new StunRequestEventHandler(EventSink_StunRequest);
         }
 
-        public override WeaponAbility PrimaryAbility
-        {
-            get
-            {
-                return WeaponAbility.Disarm;
-            }
-        }
-        public override WeaponAbility SecondaryAbility
-        {
-            get
-            {
-                return WeaponAbility.ParalyzingBlow;
-            }
-        }
+        public override WeaponAbility PrimaryAbility => WeaponAbility.Disarm;
+        public override WeaponAbility SecondaryAbility => WeaponAbility.ParalyzingBlow;
 
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 0;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 6;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 50;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 2.50f;
-            }
-        }
+        public override int AosStrengthReq => 0;
+        public override int AosMinDamage => 1;
+        public override int AosMaxDamage => 6;
+        public override int AosSpeed => 50;
+        public override float MlSpeed => 2.50f;
 
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 0;
-            }
-        }
-        public override int OldMinDamage
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override int OldMaxDamage
-        {
-            get
-            {
-                return 8;
-            }
-        }
-        public override int OldSpeed
-        {
-            get
-            {
-                return 30;
-            }
-        }
+        public override int OldStrengthReq => 0;
+        public override int OldMinDamage => 1;
+        public override int OldMaxDamage => 8;
+        public override int OldSpeed => 30;
 
-        public override int DefHitSound
-        {
-            get
-            {
-                return -1;
-            }
-        }
-        public override int DefMissSound
-        {
-            get
-            {
-                return -1;
-            }
-        }
+        public override int DefHitSound => -1;
+        public override int DefMissSound => -1;
 
-        public override SkillName DefSkill
-        {
-            get
-            {
-                return SkillName.Wrestling;
-            }
-        }
-        public override WeaponType DefType
-        {
-            get
-            {
-                return WeaponType.Fists;
-            }
-        }
-        public override WeaponAnimation DefAnimation
-        {
-            get
-            {
-                return WeaponAnimation.Wrestle;
-            }
-        }
+        public override SkillName DefSkill => SkillName.Wrestling;
+        public override WeaponType DefType => WeaponType.Fists;
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Wrestle;
 
         public Fists()
             : base(0)
@@ -151,12 +57,18 @@ namespace Server.Items
             double incrValue = (anatValue + evalValue + 20.0) * 0.5;
 
             if (incrValue > 120.0)
+            {
                 incrValue = 120.0;
+            }
 
             if (wresValue > incrValue)
+            {
                 return wresValue;
+            }
             else
+            {
                 return incrValue;
+            }
         }
 
         private void CheckPreAOSMoves(Mobile attacker, Mobile defender)
@@ -213,7 +125,9 @@ namespace Server.Items
                                 Item toDisarm = defender.FindItemOnLayer(Layer.OneHanded);
 
                                 if (toDisarm == null || !toDisarm.Movable)
+                                {
                                     toDisarm = defender.FindItemOnLayer(Layer.TwoHanded);
+                                }
 
                                 Container pack = defender.Backpack;
 
@@ -263,7 +177,9 @@ namespace Server.Items
         public override TimeSpan OnSwing(Mobile attacker, IDamageable defender)
         {
             if (!Core.AOS && defender is Mobile)
-                this.CheckPreAOSMoves(attacker, (Mobile)defender);
+            {
+                CheckPreAOSMoves(attacker, (Mobile)defender);
+            }
 
             return base.OnSwing(attacker, defender);
         }
@@ -277,7 +193,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0); // version
         }
 
         public override void Deserialize(GenericReader reader)
@@ -287,9 +203,13 @@ namespace Server.Items
             int version = reader.ReadInt();
 
             if (Mobile.DefaultWeapon == null)
+            {
                 Mobile.DefaultWeapon = this;
+            }
             else
+            {
                 Delete();
+            }
         }
 
         /* Wrestling moves */
@@ -314,7 +234,9 @@ namespace Server.Items
             Item item = m.FindItemOnLayer(Layer.OneHanded);
 
             if (item != null && !(item is Spellbook))
+            {
                 return false;
+            }
 
             return m.FindItemOnLayer(Layer.TwoHanded) == null;
         }
@@ -322,7 +244,9 @@ namespace Server.Items
         private static void EventSink_DisarmRequest(DisarmRequestEventArgs e)
         {
             if (Core.AOS)
+            {
                 return;
+            }
 
             Mobile m = e.Mobile;
 
@@ -350,7 +274,9 @@ namespace Server.Items
         private static void EventSink_StunRequest(StunRequestEventArgs e)
         {
             if (Core.AOS)
+            {
                 return;
+            }
 
             Mobile m = e.Mobile;
 
@@ -382,16 +308,16 @@ namespace Server.Items
             public MoveDelayTimer(Mobile m)
                 : base(TimeSpan.FromSeconds(10.0))
             {
-                this.m_Mobile = m;
+                m_Mobile = m;
 
-                this.Priority = TimerPriority.TwoFiftyMS;
+                Priority = TimerPriority.TwoFiftyMS;
 
-                this.m_Mobile.BeginAction(typeof(Fists));
+                m_Mobile.BeginAction(typeof(Fists));
             }
 
             protected override void OnTick()
             {
-                this.m_Mobile.EndAction(typeof(Fists));
+                m_Mobile.EndAction(typeof(Fists));
             }
         }
 
