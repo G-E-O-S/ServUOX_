@@ -9,20 +9,14 @@ namespace Server.Items
 
         private static readonly TimeSpan m_DefaultDecayTime = TimeSpan.FromMinutes(1.0);
 
-        public override bool DisplayLootType
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public override bool DisplayLootType => false;
 
         [Constructable]
         public DeathRobe()
         {
-            this.LootType = LootType.Newbied;
-            this.Hue = 2301;
-            this.BeginDecay(m_DefaultDecayTime);
+            LootType = LootType.Newbied;
+            Hue = 2301;
+            BeginDecay(m_DefaultDecayTime);
         }
 
         public new bool Scissor(Mobile from, Scissors scissors)
@@ -33,33 +27,35 @@ namespace Server.Items
 
         public void BeginDecay()
         {
-            this.BeginDecay(m_DefaultDecayTime);
+            BeginDecay(m_DefaultDecayTime);
         }
 
         private void BeginDecay(TimeSpan delay)
         {
-            if (this.m_DecayTimer != null)
-                this.m_DecayTimer.Stop();
+            if (m_DecayTimer != null)
+            {
+                m_DecayTimer.Stop();
+            }
 
-            this.m_DecayTime = DateTime.UtcNow + delay;
+            m_DecayTime = DateTime.UtcNow + delay;
 
-            this.m_DecayTimer = new InternalTimer(this, delay);
-            this.m_DecayTimer.Start();
+            m_DecayTimer = new DeathRobeTimer(this, delay);
+            m_DecayTimer.Start();
         }
 
         public override bool OnDroppedToWorld(Mobile from, Point3D p)
         {
-            this.BeginDecay(m_DefaultDecayTime);
+            BeginDecay(m_DefaultDecayTime);
 
             return true;
         }
 
         public override bool OnDroppedToMobile(Mobile from, Mobile target)
         {
-            if (this.m_DecayTimer != null)
+            if (m_DecayTimer != null)
             {
-                this.m_DecayTimer.Stop();
-                this.m_DecayTimer = null;
+                m_DecayTimer.Stop();
+                m_DecayTimer = null;
             }
 
             return true;
@@ -67,29 +63,35 @@ namespace Server.Items
 
         public override void OnAfterDelete()
         {
-            if (this.m_DecayTimer != null)
-                this.m_DecayTimer.Stop();
+            if (m_DecayTimer != null)
+            {
+                m_DecayTimer.Stop();
+            }
 
-            this.m_DecayTimer = null;
+            m_DecayTimer = null;
         }
 
-        private class InternalTimer : Timer
+        private class DeathRobeTimer : Timer
         {
             private readonly DeathRobe m_Robe;
 
-            public InternalTimer(DeathRobe c, TimeSpan delay)
+            public DeathRobeTimer(DeathRobe c, TimeSpan delay)
                 : base(delay)
             {
-                this.m_Robe = c;
-                this.Priority = TimerPriority.FiveSeconds;
+                m_Robe = c;
+                Priority = TimerPriority.FiveSeconds;
             }
 
             protected override void OnTick()
             {
-                if (this.m_Robe.Parent != null || this.m_Robe.IsLockedDown)
-                    this.Stop();
+                if (m_Robe.Parent != null || m_Robe.IsLockedDown)
+                {
+                    Stop();
+                }
                 else
-                    this.m_Robe.Delete();
+                {
+                    m_Robe.Delete();
+                }
             }
         }
 
@@ -102,12 +104,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)2); // version
+            writer.Write(2);
 
-            writer.Write(this.m_DecayTimer != null);
+            writer.Write(m_DecayTimer != null);
 
-            if (this.m_DecayTimer != null)
-                writer.WriteDeltaTime(this.m_DecayTime);
+            if (m_DecayTimer != null)
+            {
+                writer.WriteDeltaTime(m_DecayTime);
+            }
         }
 
         public override void Deserialize(GenericReader reader)
@@ -122,22 +126,27 @@ namespace Server.Items
                     {
                         if (reader.ReadBool())
                         {
-                            this.m_DecayTime = reader.ReadDeltaTime();
-                            this.BeginDecay(this.m_DecayTime - DateTime.UtcNow);
+                            m_DecayTime = reader.ReadDeltaTime();
+                            BeginDecay(m_DecayTime - DateTime.UtcNow);
                         }
                         break;
                     }
                 case 1:
                 case 0:
                     {
-                        if (this.Parent == null)
-                            this.BeginDecay(m_DefaultDecayTime);
+                        if (Parent == null)
+                        {
+                            BeginDecay(m_DefaultDecayTime);
+                        }
+
                         break;
                     }
             }
 
-            if (version < 1 && this.Hue == 0)
-                this.Hue = 2301;
+            if (version < 1 && Hue == 0)
+            {
+                Hue = 2301;
+            }
         }
     }
 }

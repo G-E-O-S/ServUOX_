@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public abstract class BaseShoes : BaseClothing
@@ -21,8 +19,10 @@ namespace Server.Items
 
         public override bool Scissor(Mobile from, Scissors scissors)
         {
-            if (this.DefaultResource == CraftResource.None)
+            if (DefaultResource == CraftResource.None)
+            {
                 return base.Scissor(from, scissors);
+            }
 
             from.SendLocalizedMessage(502440); // Scissors can not be used on that to produce anything.
             return false;
@@ -31,8 +31,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)2); // version
+            writer.Write(2);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -47,12 +46,12 @@ namespace Server.Items
                     break; // empty, resource removed
                 case 1:
                     {
-                        this.m_Resource = (CraftResource)reader.ReadInt();
+                        m_Resource = (CraftResource)reader.ReadInt();
                         break;
                     }
                 case 0:
                     {
-                        this.m_Resource = this.DefaultResource;
+                        m_Resource = DefaultResource;
                         break;
                     }
             }

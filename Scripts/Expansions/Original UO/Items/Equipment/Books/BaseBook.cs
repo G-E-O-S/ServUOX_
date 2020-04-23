@@ -157,15 +157,23 @@ namespace Server.Items
             //const int cplEj = 25; //characters per line EJ Client
             int cpl;
             if (Core.EJ)
+            {
                 cpl = 26; //characters per line EJ Client
+            }
             else
+            {
                 cpl = 22; //characters per line
+            }
 
             int lns;
             if (Core.EJ)
+            {
                 lns = 10; //line per page EJ Client
+            }
             else
+            {
                 lns = 8; //line per page
+            }
 
             int pos = 0, nextpos;
             List<string[]> newpages = new List<string[]>();
@@ -580,9 +588,14 @@ namespace Server.Items
                     int lineCount = pvSrc.ReadUInt16();
                     int lns;
                     if (Core.EJ)
+                    {
                         lns = 10; //line per page EJ Client
+                    }
                     else
+                    {
                         lns = 8; //line per page
+                    }
+
                     if (lineCount <= lns)
                     {
                         string[] lines = new string[lineCount];

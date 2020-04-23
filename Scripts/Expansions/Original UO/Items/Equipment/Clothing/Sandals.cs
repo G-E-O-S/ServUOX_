@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -7,13 +6,7 @@ namespace Server.Items
     [Flipable(0x170d, 0x170e)]
     public class Sandals : BaseShoes
     {
-        public override CraftResource DefaultResource
-        {
-            get
-            {
-                return CraftResource.RegularLeather;
-            }
-        }
+        public override CraftResource DefaultResource => CraftResource.RegularLeather;
 
         [Constructable]
         public Sandals()
@@ -25,7 +18,7 @@ namespace Server.Items
         public Sandals(int hue)
             : base(0x170D, hue)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public Sandals(Serial serial)
@@ -41,15 +34,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

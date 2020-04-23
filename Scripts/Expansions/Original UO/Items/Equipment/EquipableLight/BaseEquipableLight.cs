@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public abstract class BaseEquipableLight : BaseLight
@@ -25,9 +23,13 @@ namespace Server.Items
                 if (holder.EquipItem(this))
                 {
                     if (this is Candle)
+                    {
                         holder.SendLocalizedMessage(502969); // You put the candle in your left hand.
+                    }
                     else if (this is Torch)
+                    {
                         holder.SendLocalizedMessage(502971); // You put the torch in your left hand.
+                    }
 
                     base.Ignite();
                 }
@@ -45,7 +47,9 @@ namespace Server.Items
         public override void OnAdded(object parent)
         {
             if (Burning && parent is Container)
+            {
                 Douse();
+            }
 
             base.OnAdded(parent);
         }
@@ -53,13 +57,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

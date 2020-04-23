@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable(0x1517, 0x1518)]
@@ -15,7 +13,7 @@ namespace Server.Items
         public Shirt(int hue)
             : base(0x1517, hue)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public Shirt(Serial serial)
@@ -26,18 +24,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (this.Weight == 2.0)
-                this.Weight = 1.0;
+            _ = reader.ReadInt();
         }
     }
 }

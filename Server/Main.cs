@@ -63,7 +63,7 @@ namespace Server
                     _ProfileTime += DateTime.UtcNow - _ProfileStart;
                 }
 
-                _ProfileStart = (_Profiling ? DateTime.UtcNow : DateTime.MinValue);
+                _ProfileStart = _Profiling ? DateTime.UtcNow : DateTime.MinValue;
             }
         }
 
@@ -581,12 +581,12 @@ namespace Server
 #if NETFX_472
             dotnet = "4.7.2";
 #endif
-            /*
-            #if NETFX_48
-                        dotnet = "4.8";
-            #endif
-            */
-            if (String.IsNullOrEmpty(dotnet))
+
+#if NETFX_48
+          dotnet = "4.8";
+#endif
+
+            if (string.IsNullOrEmpty(dotnet))
                 dotnet = "MONO/CSC/Unknown";
 
             Utility.PushColor(ConsoleColor.Green);
