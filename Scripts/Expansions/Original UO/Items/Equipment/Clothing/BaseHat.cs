@@ -1,26 +1,14 @@
-using System;
-using System.Collections.Generic;
 using Server.Engines.Craft;
 using Server.Network;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
     public abstract class BaseHat : BaseClothing, IShipwreckedItem
     {
-        private bool m_IsShipwreckedItem;
-
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool IsShipwreckedItem
-        {
-            get
-            {
-                return m_IsShipwreckedItem;
-            }
-            set
-            {
-                m_IsShipwreckedItem = value;
-            }
-        }
+        public bool IsShipwreckedItem { get; set; }
 
         public BaseHat(int itemID)
             : this(itemID, 0)
@@ -41,9 +29,9 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1); // version
+            writer.Write(1); // version
 
-            writer.Write(this.m_IsShipwreckedItem);
+            writer.Write(IsShipwreckedItem);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -56,7 +44,7 @@ namespace Server.Items
             {
                 case 1:
                     {
-                        m_IsShipwreckedItem = reader.ReadBool();
+                        IsShipwreckedItem = reader.ReadBool();
                         break;
                     }
             }
@@ -66,16 +54,20 @@ namespace Server.Items
         {
             base.AddEquipInfoAttributes(from, attrs);
 
-            if (m_IsShipwreckedItem)
-                attrs.Add(new EquipInfoAttribute(1041645));	// recovered from a shipwreck
+            if (IsShipwreckedItem)
+            {
+                attrs.Add(new EquipInfoAttribute(1041645));    // recovered from a shipwreck
+            }
         }
 
         public override void AddNameProperties(ObjectPropertyList list)
         {
             base.AddNameProperties(list);
 
-            if (m_IsShipwreckedItem)
+            if (IsShipwreckedItem)
+            {
                 list.Add(1041645); // recovered from a shipwreck
+            }
         }
 
         public override int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)

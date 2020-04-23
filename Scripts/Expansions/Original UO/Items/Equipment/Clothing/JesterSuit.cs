@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable(0x1f9f, 0x1fa0)]
@@ -15,7 +13,7 @@ namespace Server.Items
         public JesterSuit(int hue)
             : base(0x1F9F, hue)
         {
-            this.Weight = 4.0;
+            Weight = 4.0;
         }
 
         public JesterSuit(Serial serial)
@@ -26,15 +24,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

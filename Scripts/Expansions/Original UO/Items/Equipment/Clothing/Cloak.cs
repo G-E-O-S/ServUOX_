@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable]
@@ -11,10 +9,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int MaxArcaneCharges
         {
-            get
-            {
-                return m_MaxArcaneCharges;
-            }
+            get => m_MaxArcaneCharges;
             set
             {
                 m_MaxArcaneCharges = value;
@@ -26,10 +21,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int CurArcaneCharges
         {
-            get
-            {
-                return m_CurArcaneCharges;
-            }
+            get => m_CurArcaneCharges;
             set
             {
                 m_CurArcaneCharges = value;
@@ -41,20 +33,18 @@ namespace Server.Items
 
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool IsArcane
-        {
-            get
-            {
-                return (m_MaxArcaneCharges > 0 && m_CurArcaneCharges >= 0);
-            }
-        }
+        public bool IsArcane => (m_MaxArcaneCharges > 0 && m_CurArcaneCharges >= 0);
 
         public void Update()
         {
             if (IsArcane)
+            {
                 ItemID = 0x26AD;
+            }
             else if (ItemID == 0x26AD)
+            {
                 ItemID = 0x1515;
+            }
 
             if (IsArcane && CurArcaneCharges == 0)
             {
@@ -68,7 +58,9 @@ namespace Server.Items
             base.AddCraftedProperties(list);
 
             if (IsArcane)
+            {
                 list.Add(1061837, "{0}\t{1}", m_CurArcaneCharges, m_MaxArcaneCharges); // arcane charges: ~1_val~ / ~2_val~
+            }
         }
 
         public override void OnSingleClick(Mobile from)
@@ -76,15 +68,21 @@ namespace Server.Items
             base.OnSingleClick(from);
 
             if (IsArcane)
+            {
                 LabelTo(from, 1061837, string.Format("{0}\t{1}", m_CurArcaneCharges, m_MaxArcaneCharges));
+            }
         }
 
         public void Flip()
         {
             if (ItemID == 0x1515)
+            {
                 ItemID = 0x1530;
+            }
             else if (ItemID == 0x1530)
+            {
                 ItemID = 0x1515;
+            }
         }
 
         #endregion
@@ -111,13 +109,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1); // version
+            writer.Write(1);
 
-            if (this.IsArcane)
+            if (IsArcane)
             {
                 writer.Write(true);
-                writer.Write((int)m_CurArcaneCharges);
-                writer.Write((int)m_MaxArcaneCharges);
+                writer.Write(m_CurArcaneCharges);
+                writer.Write(m_MaxArcaneCharges);
             }
             else
             {
@@ -141,7 +139,9 @@ namespace Server.Items
                             m_MaxArcaneCharges = reader.ReadInt();
 
                             if (Hue == 2118)
+                            {
                                 Hue = ArcaneGem.DefaultArcaneHue;
+                            }
                         }
 
                         break;
@@ -149,7 +149,9 @@ namespace Server.Items
             }
 
             if (Weight == 4.0)
+            {
                 Weight = 5.0;
+            }
         }
     }
 }

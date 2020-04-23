@@ -1,44 +1,43 @@
-using System;
+using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    public abstract class BaseEarrings : BaseJewel
+    public abstract class BaseBracelet : BaseJewel
     {
-		public override int BaseGemTypeNumber { get { return 1044203; } }// star sapphire earrings
-		
-        public BaseEarrings(int itemID)
-            : base(itemID, Layer.Earrings)
+        public BaseBracelet(int itemID)
+            : base(itemID, Layer.Bracelet)
         {
         }
 
-        public BaseEarrings(Serial serial)
+        public BaseBracelet(Serial serial)
             : base(serial)
         {
         }
-       
+
+        public override int BaseGemTypeNumber => 1044221;// star sapphire bracelet
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(2);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    public class GoldEarrings : BaseEarrings
+    public class GoldBracelet : BaseBracelet
     {
         [Constructable]
-        public GoldEarrings()
-            : base(0x1087)
+        public GoldBracelet()
+            : base(0x1086)
         {
-            Weight = 0.1;
+            //Weight = 0.1;
         }
 
-        public GoldEarrings(Serial serial)
+        public GoldBracelet(Serial serial)
             : base(serial)
         {
         }
@@ -46,26 +45,28 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
-    public class SilverEarrings : BaseEarrings
+    public class SilverBracelet : BaseBracelet, IRepairable
     {
+        public CraftSystem RepairSystem => DefTinkering.CraftSystem;
+
         [Constructable]
-        public SilverEarrings()
-            : base(0x1F07)
+        public SilverBracelet()
+            : base(0x1F06)
         {
-            Weight = 0.1;
+            //Weight = 0.1;
         }
 
-        public SilverEarrings(Serial serial)
+        public SilverBracelet(Serial serial)
             : base(serial)
         {
         }
@@ -73,13 +74,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

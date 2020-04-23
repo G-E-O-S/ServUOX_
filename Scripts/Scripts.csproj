@@ -6,7 +6,7 @@
     <ProjectGuid>{308EA7C6-2873-4E47-AF3F-ABBA3F8AB63E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Scripts.CS</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Output\</OutputPath>
-    <DefineConstants>TRACE;NEWTIMERS;ServUO</DefineConstants>
+    <DefineConstants>TRACE;NEWTIMERS;ServUO;NETFX_48;NETFX_472;NETFX_471;NETFX_47;NETFX_462;NETFX_461;NETFX_46;NETFX_452;NETFX_451;NETFX_45;NETFX_40;NETFX_35;NETFX_30</DefineConstants>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
@@ -59,6 +59,14 @@
     <Compile Include="Expansions\HS\CookableSausage.cs" />
     <Compile Include="Expansions\HS\HotDog.cs" />
     <Compile Include="Expansions\HS\Hamburger.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\GoldBeadNecklace.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\SilverNecklace.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\OctopusNecklace.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\SilverBeadNecklace.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\GoldNecklace.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\Necklace.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Rings\SilverRing.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Rings\GoldRing.cs" />
     <Compile Include="Expansions\SA\BowlOfBlackrockStew.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfTomatoSoup.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfStew.cs" />
@@ -76,6 +84,7 @@
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfCarrots.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\EmptyPewterBowl.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Resources\EmptyWoodenBowl.cs" />
+    <Compile Include="Holiday Items\LanternOfSouls.cs" />
     <Compile Include="Holiday Items\ThreeTieredCake.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\ChickenLeg.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Cooked\LambLeg.cs" />
@@ -5470,13 +5479,13 @@
     <Compile Include="Expansions\SA\TorcOfTheGuardians.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Beads.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\Beads.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\BlueDiamondRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\Bracelet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\BrilliantAmberBracelet.cs">
@@ -5485,7 +5494,7 @@
     <Compile Include="Expansions\ML\Jewelry\DarkSapphireBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Earrings.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Earrings\Earrings.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\EcruCitrineRing.cs">
@@ -5494,13 +5503,13 @@
     <Compile Include="Expansions\ML\Jewelry\FireRubyBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklace.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\BaseNecklace.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\PerfectEmeraldRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Ring.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Rings\BaseRing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\TurqouiseRing.cs">
@@ -7203,7 +7212,7 @@
     <Compile Include="Holiday Items\WreathDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\WristWatch.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\WristWatch.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\HS\HouseRaffleDeed.cs">

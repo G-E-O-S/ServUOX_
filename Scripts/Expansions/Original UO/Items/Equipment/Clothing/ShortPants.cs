@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable(0x152e, 0x152f)]
@@ -15,7 +13,7 @@ namespace Server.Items
         public ShortPants(int hue)
             : base(0x152E, hue)
         {
-            this.Weight = 2.0;
+            Weight = 2.0;
         }
 
         public ShortPants(Serial serial)
@@ -26,15 +24,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

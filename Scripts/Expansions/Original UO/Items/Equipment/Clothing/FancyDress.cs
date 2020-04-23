@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable(0x1F00, 0x1EFF)]
@@ -15,7 +13,7 @@ namespace Server.Items
         public FancyDress(int hue)
             : base(0x1F00, hue)
         {
-            this.Weight = 3.0;
+            Weight = 3.0;
         }
 
         public FancyDress(Serial serial)
@@ -26,15 +24,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }
