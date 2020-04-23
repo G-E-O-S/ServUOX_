@@ -1,11 +1,8 @@
-#region References
 using System;
-using Server.Engines.XmlSpawner2;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
 using Server.Engines.Quests;
-#endregion
 
 namespace Server.SkillHandlers
 {
@@ -115,7 +112,7 @@ namespace Server.SkillHandlers
 								foreach (Mobile m in eable)
 								{
 									if ((m is BaseCreature && ((BaseCreature)m).Uncalmable) ||
-										(m is BaseCreature && ((BaseCreature)m).AreaPeaceImmune) || m == from || !from.CanBeHarmful(m, false))
+										(m is BaseCreature && ((BaseCreature)m).AreaPeaceImmune) || m == from || !from.CanBeHarmful(m, false, false, true))
 									{
 										continue;
 									}
@@ -149,7 +146,7 @@ namespace Server.SkillHandlers
 						// Target mode : pacify a single target for a longer duration
 						Mobile targ = (Mobile)targeted;
 
-						if (!from.CanBeHarmful(targ, false))
+						if (!from.CanBeHarmful(targ, false, false, true))
 						{
 							from.SendLocalizedMessage(1049528);
 							m_SetSkillTime = true;

@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-
-using Server.Factions;
 using Server.Mobiles;
 using Server.Multis;
 using Server.Targeting;
-using Server.Engines.VvV;
 using Server.Items;
-using Server.Spells;
 using Server.Network;
 
 namespace Server.Items
@@ -186,7 +181,7 @@ namespace Server.SkillHandlers
 
         public static bool CanDetect(Mobile src, Mobile target)
         {
-            if (src.Map == null || target.Map == null || !src.CanBeHarmful(target, false))
+            if (src.Map == null || target.Map == null || !src.CanBeHarmful(target, false, false, true))
                 return false;
 
             // No invulnerable NPC's

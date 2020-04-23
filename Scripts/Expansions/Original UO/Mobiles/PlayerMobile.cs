@@ -1,9 +1,7 @@
-#region References
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using Server.Accounting;
 using Server.ContextMenus;
 using Server.Engines.BulkOrders;
@@ -17,7 +15,6 @@ using Server.Engines.Quests;
 using Server.Engines.Shadowguard;
 using Server.Engines.VoidPool;
 using Server.Engines.VvV;
-using Server.Engines.XmlSpawner2;
 using Server.Ethics;
 using Server.Factions;
 using Server.Guilds;
@@ -46,12 +43,9 @@ using Server.Engines.VendorSearching;
 using Server.Targeting;
 
 using RankDefinition = Server.Guilds.RankDefinition;
-using Server.Engines.Fellowship;
-#endregion
 
 namespace Server.Mobiles
 {
-
 	#region Enums
 	[Flags]
 	public enum PlayerFlag
@@ -1885,7 +1879,7 @@ namespace Server.Mobiles
             }
         }
 
-		public override bool CanBeHarmful(IDamageable damageable, bool message, bool ignoreOurBlessedness)
+		public override bool CanBeHarmful(IDamageable damageable, bool message, bool ignoreOurBlessedness, bool ignorePeaceCheck)
 		{
             Mobile target = damageable as Mobile;
 
@@ -1895,7 +1889,7 @@ namespace Server.Mobiles
 			}
 
 			#region Mondain's Legacy
-			if (Peaced)
+			if (Peaced && !ignorePeaceCheck)
 			{
 				//!+ TODO: message
 				return false;
@@ -1927,7 +1921,7 @@ namespace Server.Mobiles
                 return false;
             }
 
-			return base.CanBeHarmful(damageable, message, ignoreOurBlessedness);
+			return base.CanBeHarmful(damageable, message, ignoreOurBlessedness, ignorePeaceCheck);
 		}
 
 		public override bool CanBeBeneficial(Mobile target, bool message, bool allowDead)

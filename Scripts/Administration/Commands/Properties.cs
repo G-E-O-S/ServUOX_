@@ -286,7 +286,7 @@ namespace Server.Commands
 				return string.Format("The property has been {0}.", positive ? "increased." : "decreased");
 			}
 
-			if (positive && negative)
+			if (positive || negative)
 			{
 				return "The properties have been changed.";
 			}

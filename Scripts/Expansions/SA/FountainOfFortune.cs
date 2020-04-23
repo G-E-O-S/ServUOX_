@@ -77,6 +77,7 @@ namespace Server.Items
 				Item item = null;
 				switch(Utility.Random(4))
 				{
+                    default: break;
 					case 0: item = new SolesOfProvidence(); break;
 					case 1: item = new GemologistsSatchel(); break;
 					case 2: item = new RelicFragment(5); break;

@@ -1,15 +1,11 @@
-#region References
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
-using Server.Engines.XmlSpawner2;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
 using Server.Engines.Quests;
-#endregion
 
 namespace Server.SkillHandlers
 {
@@ -158,7 +154,7 @@ namespace Server.SkillHandlers
 				{
 					Mobile targ = (Mobile)target;
 
-					if (targ == from || !from.CanBeHarmful(targ, false) || 
+					if (targ == from || !from.CanBeHarmful(targ, false, false, true) || 
                         (targ is BaseCreature && ((BaseCreature)targ).BardImmune && ((BaseCreature)targ).ControlMaster != from))
 					{
 						from.SendLocalizedMessage(1049535); // A song of discord would have no effect on that.

@@ -51,32 +51,56 @@ namespace Server.Gumps
                 if (id >= 0 && id < Skills.Length)
                 {
                     Selection = Skills[id];
-                    TextDefinition text;
 
-                    if (Item is BaseWeapon)
+                    if (Core.TOL) // ERA MAY NEED ADJUSTED FOR CLILOC
                     {
-                        text = 1155611; // Are you sure you wish to apply the selected skill bonus to this weapon?
+                        SendGump(new GenericConfirmCallbackGump<ApplySkillBonusGump>(User, User.Skills[Selection].Info.Name, 1155611, this, null,
+                        (m, gump) =>
+                        {
+                            if (gump.Item.IsChildOf(gump.User.Backpack) || gump.User.Items.Contains(gump.Item))
+                            {
+                                gump.User.SendLocalizedMessage(1155612); // A skill bonus has been applied to the item!
+                            Bonuses.SetValues(gump.Index, gump.Selection, gump.Value);
+
+                                gump.Item.InvalidateProperties();
+                            }
+                        },
+                        (m, gump) =>
+                        {
+                            gump.Refresh();
+                        }));
                     }
                     else
                     {
-                        text = 1155611; // Are you sure you wish to apply the selected skill bonus to this item?
-                    }
+                        TextDefinition text;
 
-                    BaseGump.SendGump(new GenericConfirmCallbackGump<ApplySkillBonusGump>(User, User.Skills[Selection].Info.Name, text, this, null,
-                    (m, gump) =>
-                    {
-                        if (gump.Item.IsChildOf(gump.User.Backpack) || gump.User.Items.Contains(gump.Item))
+                        if (Item is BaseWeapon)
                         {
-                            gump.User.SendLocalizedMessage(1155612); // A skill bonus has been applied to the item!
+                            text = 1155611; // Are you sure you wish to apply the selected skill bonus to this weapon?
+                        }
+                        else
+                        {
+                            text = 1155611; // Are you sure you wish to apply the selected skill bonus to this item?
+                        }
+
+                        SendGump(new GenericConfirmCallbackGump<ApplySkillBonusGump>(User, User.Skills[Selection].Info.Name, text, this, null,
+                        (m, gump) =>
+                        {
+                            if (gump.Item.IsChildOf(gump.User.Backpack) || gump.User.Items.Contains(gump.Item))
+                            {
+                                gump.User.SendLocalizedMessage(1155612); // A skill bonus has been applied to the item!
                             Bonuses.SetValues(gump.Index, gump.Selection, gump.Value);
 
-                            gump.Item.InvalidateProperties();
-                        }
-                    },
-                    (m, gump) =>
-                    {
-                        gump.Refresh();
-                    }));
+                                gump.Item.InvalidateProperties();
+                            }
+                        },
+                        (m, gump) =>
+                        {
+                            gump.Refresh();
+                        }));
+
+                    }
+
                 }
             }
         }

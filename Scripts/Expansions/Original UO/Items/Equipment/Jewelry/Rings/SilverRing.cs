@@ -4,8 +4,6 @@ namespace Server.Items
 {
     public class SilverRing : BaseRing, IRepairable
     {
-        public CraftSystem RepairSystem => DefTinkering.CraftSystem;
-
         [Constructable]
         public SilverRing()
             : base(0x1F09)

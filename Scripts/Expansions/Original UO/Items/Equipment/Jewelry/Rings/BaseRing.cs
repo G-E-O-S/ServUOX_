@@ -5,6 +5,7 @@ namespace Server.Items
     public abstract class BaseRing : BaseJewel, IRepairable
     {
         public CraftSystem RepairSystem => DefTinkering.CraftSystem;
+
         public BaseRing(int itemID)
             : base(itemID, Layer.Ring)
         {

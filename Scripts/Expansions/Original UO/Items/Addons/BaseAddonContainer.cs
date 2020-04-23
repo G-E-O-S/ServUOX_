@@ -257,38 +257,41 @@ namespace Server.Items
             if (house != null)
             {
                 var doors = house.Doors;
-
-                for (var i = 0; i < doors.Count; ++i)
+                if (doors != null)
                 {
-                    var door = doors[i] as BaseDoor;
-
-                    if (door != null && door.Open)
+                    for (var i = 0; i < doors.Count; ++i)
                     {
-                        return AddonFitResult.DoorsNotClosed;
-                    }
+                        var door = doors[i] as BaseDoor;
+                        if (door == null) continue;
 
-                    var doorLoc = door.GetWorldLocation();
-                    var doorHeight = door.ItemData.CalcHeight;
+                        if (door.Open)
+                        {
+                            return AddonFitResult.DoorsNotClosed;
+                        }
 
-                    foreach (var c in Components)
-                    {
-                        var addonLoc = new Point3D(p.X + c.Offset.X, p.Y + c.Offset.Y, p.Z + c.Offset.Z);
-                        var addonHeight = c.ItemData.CalcHeight;
+                        var doorLoc = door.GetWorldLocation();
+                        var doorHeight = door.ItemData.CalcHeight;
 
-                        if (Utility.InRange(doorLoc, addonLoc, 1) && (addonLoc.Z == doorLoc.Z ||
-                                                                      ((addonLoc.Z + addonHeight) > doorLoc.Z && (doorLoc.Z + doorHeight) > addonLoc.Z)))
+                        foreach (var c in Components)
+                        {
+                            var addonLoc = new Point3D(p.X + c.Offset.X, p.Y + c.Offset.Y, p.Z + c.Offset.Z);
+                            var addonHeight = c.ItemData.CalcHeight;
+
+                            if (Utility.InRange(doorLoc, addonLoc, 1) && (addonLoc.Z == doorLoc.Z ||
+                                                                          ((addonLoc.Z + addonHeight) > doorLoc.Z && (doorLoc.Z + doorHeight) > addonLoc.Z)))
+                            {
+                                return AddonFitResult.DoorTooClose;
+                            }
+                        }
+
+                        var addonLo = new Point3D(p.X, p.Y, p.Z);
+                        var addonHeigh = ItemData.CalcHeight;
+
+                        if (Utility.InRange(doorLoc, addonLo, 1) && (addonLo.Z == doorLoc.Z ||
+                                                                     ((addonLo.Z + addonHeigh) > doorLoc.Z && (doorLoc.Z + doorHeight) > addonLo.Z)))
                         {
                             return AddonFitResult.DoorTooClose;
                         }
-                    }
-
-                    var addonLo = new Point3D(p.X, p.Y, p.Z);
-                    var addonHeigh = ItemData.CalcHeight;
-
-                    if (Utility.InRange(doorLoc, addonLo, 1) && (addonLo.Z == doorLoc.Z ||
-                                                                 ((addonLo.Z + addonHeigh) > doorLoc.Z && (doorLoc.Z + doorHeight) > addonLo.Z)))
-                    {
-                        return AddonFitResult.DoorTooClose;
                     }
                 }
             }

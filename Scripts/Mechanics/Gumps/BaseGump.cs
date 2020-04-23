@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-
-using Server;
 using Server.Network;
 using Server.Mobiles;
 
@@ -20,25 +17,41 @@ namespace Server.Gumps
         public PlayerMobile User { get; private set; }
         public bool Open { get; set; }
 
-        public virtual bool CloseOnMapChange { get { return false; } }
+        public virtual bool CloseOnMapChange => false;
 
-        public Gump Parent 
+        public Gump Parent
         {
-            get { return _Parent; }
+            get => _Parent;
             set
             {
                 _Parent = value;
 
                 if (_Parent != null)
                 {
-                    if(_Parent is BaseGump && !((BaseGump)_Parent).Children.Contains(this))
-                        ((BaseGump)_Parent).Children.Add(this);
+                    if (_Parent is BaseGump)
+                    {
+                        if (((BaseGump)_Parent).Children.Contains(this))
+                        {
+                            ((BaseGump)_Parent).Children.Remove(this);
+                        }
+                        else
+                        {
+                            ((BaseGump)_Parent).Children.Add(this);
+                        }
+                    }
                 }
-                else if (_Parent is BaseGump && ((BaseGump)_Parent).Children.Contains(this))
-                {
-                    ((BaseGump)_Parent).Children.Remove(this);
+                    /*
+                    if (_Parent != null)
+                    {
+                        if (_Parent is BaseGump && !((BaseGump)_Parent).Children.Contains(this))
+                            ((BaseGump)_Parent).Children.Add(this);
+                    }
+                    else if (_Parent is BaseGump && ((BaseGump)_Parent).Children.Contains(this))
+                    {
+                        ((BaseGump)_Parent).Children.Remove(this);
+                    }
+                    */
                 }
-            }
         }
 
         public List<BaseGump> Children { get; set; }
@@ -62,7 +75,7 @@ namespace Server.Gumps
 
         public static BaseGump SendGump(BaseGump gump)
         {
-            if(gump == null)
+            if (gump == null)
                 return null;
 
             BaseGump g = gump.User.FindGump(gump.GetType()) as BaseGump;
@@ -171,7 +184,7 @@ namespace Server.Gumps
 
             if (Parent != null)
             {
-                if(Parent is BaseGump)
+                if (Parent is BaseGump)
                     ((BaseGump)Parent).OnChildClosed(this);
 
                 Parent = null;
@@ -209,7 +222,7 @@ namespace Server.Gumps
             User.Send(new CloseGump(TypeID, 0));
             User.NetState.RemoveGump(this);
         }
-        
+
         public static T GetGump<T>(PlayerMobile pm, Func<T, bool> predicate) where T : Gump
         {
             return EnumerateGumps<T>(pm).FirstOrDefault(x => predicate == null || predicate(x));
@@ -222,7 +235,7 @@ namespace Server.Gumps
             if (ns == null)
                 yield break;
 
-            foreach (BaseGump gump in ns.Gumps.OfType<BaseGump>().Where(g => g.GetType() == typeof(T) && 
+            foreach (BaseGump gump in ns.Gumps.OfType<BaseGump>().Where(g => g.GetType() == typeof(T) &&
                 (predicate == null || predicate(g as T))))
             {
                 yield return gump as T;
@@ -329,72 +342,72 @@ namespace Server.Gumps
 
         protected string Color(string color, string str)
         {
-            return String.Format("<basefont color={0}>{1}", color, str);
+            return string.Format("<basefont color={0}>{1}", color, str);
         }
 
         protected string ColorAndCenter(string color, string str)
         {
-            return String.Format("<center><basefont color={0}>{1}</center>", color, str);
+            return string.Format("<center><basefont color={0}>{1}</center>", color, str);
         }
 
         protected string ColorAndSize(string color, int size, string str)
         {
-            return String.Format("<basefont color={0} size={1}>{2}", color, size.ToString(), str);
+            return string.Format("<basefont color={0} size={1}>{2}", color, size.ToString(), str);
         }
 
         protected string ColorAndCenterAndSize(string color, int size, string str)
         {
-            return String.Format("<basefont color={0} size={1}><center>{2}</center>", color, size.ToString(), str);
+            return string.Format("<basefont color={0} size={1}><center>{2}</center>", color, size.ToString(), str);
         }
 
         protected string Color(int color, string str)
         {
-            return String.Format("<basefont color=#{0:X6}>{1}", color, str);
+            return string.Format("<basefont color=#{0:X6}>{1}", color, str);
         }
 
         protected string ColorAndCenter(int color, string str)
         {
-            return String.Format("<basefont color=#{0:X6}><center>{1}</center>", color, str);
+            return string.Format("<basefont color=#{0:X6}><center>{1}</center>", color, str);
         }
 
         protected string Center(string str)
         {
-            return String.Format("<CENTER>{0}</CENTER>", str);
+            return string.Format("<CENTER>{0}</CENTER>", str);
         }
 
         protected string ColorAndAlignRight(int color, string str)
         {
-            return String.Format("<DIV ALIGN=RIGHT><basefont color=#{0:X6}>{1}</DIV>", color, str);
+            return string.Format("<DIV ALIGN=RIGHT><basefont color=#{0:X6}>{1}</DIV>", color, str);
         }
 
         protected string ColorAndAlignRight(string color, string str)
         {
-            return String.Format("<DIV ALIGN=RIGHT><basefont color={0}>{1}</DIV>", color, str);
+            return string.Format("<DIV ALIGN=RIGHT><basefont color={0}>{1}</DIV>", color, str);
         }
 
         protected string AlignRight(string str)
         {
-            return String.Format("<DIV ALIGN=RIGHT>{0}</DIV>", str);
+            return string.Format("<DIV ALIGN=RIGHT>{0}</DIV>", str);
         }
 
         public void AddHtmlLocalizedCentered(int x, int y, int length, int height, int localization, bool background, bool scrollbar)
         {
-            AddHtmlLocalized(x, y, length, height, 1113302, String.Format("#{0}", localization), 0, background, scrollbar);
+            AddHtmlLocalized(x, y, length, height, 1113302, string.Format("#{0}", localization), 0, background, scrollbar);
         }
 
         public void AddHtmlLocalizedCentered(int x, int y, int length, int height, int localization, int hue, bool background, bool scrollbar)
         {
-            AddHtmlLocalized(x, y, length, height, 1113302, String.Format("#{0}", localization), hue, background, scrollbar);
+            AddHtmlLocalized(x, y, length, height, 1113302, string.Format("#{0}", localization), hue, background, scrollbar);
         }
 
         public void AddHtmlLocalizedAlignRight(int x, int y, int length, int height, int localization, bool background, bool scrollbar)
         {
-            AddHtmlLocalized(x, y, length, height, 1114514, String.Format("#{0}", localization), 0, background, scrollbar);
+            AddHtmlLocalized(x, y, length, height, 1114514, string.Format("#{0}", localization), 0, background, scrollbar);
         }
 
         public void AddHtmlLocalizedAlignRight(int x, int y, int length, int height, int localization, int hue, bool background, bool scrollbar)
         {
-            AddHtmlLocalized(x, y, length, height, 1114514, String.Format("#{0}", localization), hue, background, scrollbar);
+            AddHtmlLocalized(x, y, length, height, 1114514, string.Format("#{0}", localization), hue, background, scrollbar);
         }
         #endregion
 
@@ -409,7 +422,7 @@ namespace Server.Gumps
 
         public void AddTooltip(string text, System.Drawing.Color color)
         {
-            AddTooltip(String.Empty, text, System.Drawing.Color.Empty, color);
+            AddTooltip(string.Empty, text, System.Drawing.Color.Empty, color);
         }
 
         public void AddTooltip(string title, string text)
@@ -419,12 +432,12 @@ namespace Server.Gumps
 
         public void AddTooltip(int cliloc, string args)
         {
-            AddTooltip(new int[] { cliloc }, new string[] { args ?? String.Empty });
+            AddTooltip(new int[] { cliloc }, new string[] { args ?? string.Empty });
         }
 
         public void AddTooltip(int cliloc, string format, params string[] args)
         {
-            AddTooltip(cliloc, String.Format(format, args));
+            AddTooltip(cliloc, string.Format(format, args));
         }
 
         public void AddTooltip(int[] clilocs)
@@ -452,13 +465,13 @@ namespace Server.Gumps
             var dictionary = new Dictionary<int, string>();
             int emptyIndex = 0;
 
-            for(int i = 0; i < clilocs.Length; i++)
+            for (int i = 0; i < clilocs.Length; i++)
             {
-                var str = String.Empty;
+                var str = string.Empty;
 
                 if (i < args.Length)
                 {
-                    str = args[i] ?? String.Empty;
+                    str = args[i] ?? string.Empty;
                 }
 
                 var cliloc = clilocs[i];
@@ -478,9 +491,8 @@ namespace Server.Gumps
                 }
             }
 
-            Spoof spoof;
 
-            if (!_ClilocTooltips.TryGetValue(dictionary, out spoof) || spoof == null || spoof.Deleted)
+            if (!_ClilocTooltips.TryGetValue(dictionary, out Spoof spoof) || spoof == null || spoof.Deleted)
             {
                 spoof = Spoof.Acquire();
             }
@@ -493,8 +505,8 @@ namespace Server.Gumps
 
         public void AddTooltip(string title, string text, System.Drawing.Color titleColor, System.Drawing.Color textColor)
         {
-            title = title ?? String.Empty;
-            text = text ?? String.Empty;
+            title = title ?? string.Empty;
+            text = text ?? string.Empty;
 
             if (titleColor.IsEmpty || titleColor == System.Drawing.Color.Transparent)
             {
@@ -506,22 +518,21 @@ namespace Server.Gumps
                 textColor = System.Drawing.Color.White;
             }
 
-            Spoof spoof;
 
-            if (!_TextTooltips.TryGetValue(text, out spoof) || spoof == null || spoof.Deleted)
+            if (!_TextTooltips.TryGetValue(text, out Spoof spoof) || spoof == null || spoof.Deleted)
             {
                 spoof = Spoof.Acquire();
             }
 
-            if (!String.IsNullOrWhiteSpace(title))
+            if (!string.IsNullOrWhiteSpace(title))
             {
-                spoof.Text = String.Concat(String.Format("<basefont color=#{0:X}>{1}", titleColor.ToArgb(), title), 
+                spoof.Text = string.Concat(string.Format("<basefont color=#{0:X}>{1}", titleColor.ToArgb(), title),
                             '\n',
-                            String.Format("<basefont color=#{0:X}>{1}", textColor.ToArgb(), text));
+                            string.Format("<basefont color=#{0:X}>{1}", textColor.ToArgb(), text));
             }
             else
             {
-                spoof.Text = String.Format("<basefont color=#{0:X}>{1}", textColor.ToArgb(), text); //  text.WrapUOHtmlColor(textColor, false);
+                spoof.Text = string.Format("<basefont color=#{0:X}>{1}", textColor.ToArgb(), text); //  text.WrapUOHtmlColor(textColor, false);
             }
 
             _TextTooltips[text] = spoof;
@@ -537,7 +548,7 @@ namespace Server.Gumps
             {
                 get
                 {
-                    if (_UID == Int32.MinValue)
+                    if (_UID == int.MinValue)
                     {
                         _UID = -1;
                     }
@@ -575,13 +586,13 @@ namespace Server.Gumps
             {
                 Packet.Release(ref _PropertyList);
 
-                _Text = String.Empty;
+                _Text = string.Empty;  
                 _ClilocTable = null;
 
                 _SpoofPool.Add(this);
             }
 
-            public int UID { get { return Serial.Value; } private set { } }
+            // public int UID { get => Serial.Value; private set { } }
 
             private ObjectPropertyList _PropertyList;
 
@@ -593,7 +604,7 @@ namespace Server.Gumps
                     {
                         _PropertyList = new ObjectPropertyList(this);
 
-                        if (!String.IsNullOrEmpty(Text))
+                        if (!string.IsNullOrEmpty(Text))
                         {
                             var text = StripHtmlBreaks(Text, true);
 
@@ -618,11 +629,11 @@ namespace Server.Gumps
                                 var cliloc = kvp.Key;
                                 var args = kvp.Value;
 
-                                if (cliloc <= 0 && !String.IsNullOrEmpty(args))
+                                if (cliloc <= 0 && !string.IsNullOrEmpty(args))
                                 {
                                     _PropertyList.Add(args);
                                 }
-                                else if (String.IsNullOrEmpty(args))
+                                else if (string.IsNullOrEmpty(args))
                                 {
                                     _PropertyList.Add(cliloc);
                                 }
@@ -641,10 +652,10 @@ namespace Server.Gumps
                 }
             }
 
-            private string _Text = String.Empty;
+            private string _Text = string.Empty;
             public string Text
             {
-                get { return _Text ?? String.Empty; }
+                get => _Text ?? string.Empty;
                 set
                 {
                     if (_Text != value)
@@ -657,10 +668,10 @@ namespace Server.Gumps
             }
 
             private Dictionary<int, string> _ClilocTable;
-            public Dictionary<int, string> ClilocTable 
+            public Dictionary<int, string> ClilocTable
             {
-                get { return _ClilocTable; }
-                set 
+                get => _ClilocTable;
+                set
                 {
                     if (_ClilocTable != value)
                     {

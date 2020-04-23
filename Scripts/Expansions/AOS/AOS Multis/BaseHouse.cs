@@ -261,7 +261,10 @@ namespace Server.Multis
                 return;
 
             if (Core.ML)
-                new TempNoHousingRegion(this, null);
+            {
+                var region = new TempNoHousingRegion(this, null);
+                Timer.DelayCall(RestrictedPlacingTime, region.Unregister);
+            }
 
             if (Core.SA)
             {
@@ -5007,7 +5010,7 @@ namespace Server.Multis
 
             m_RegionOwner = regionowner;
 
-            Timer.DelayCall(house.RestrictedPlacingTime, Unregister);
+        //    Timer.DelayCall(house.RestrictedPlacingTime, Unregister);
         }
 
         public override bool AllowHousing(Mobile from, Point3D p)
