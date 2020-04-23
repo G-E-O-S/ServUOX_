@@ -215,9 +215,11 @@ namespace Server.Misc
 
             bool showSkillTitle = beheld.ShowFameTitle && ((beholder == beheld) || (beheld.Fame >= 5000));
 
-            if (Core.SA && beheld.ShowFameTitle && beheld is PlayerMobile && ((PlayerMobile)beheld).FameKarmaTitle != null)
+            PlayerMobile pm = beheld as PlayerMobile;
+
+            if (Core.SA && beheld.ShowFameTitle && pm != null && pm.FameKarmaTitle != null)
             {
-                title.AppendFormat(((PlayerMobile)beheld).FameKarmaTitle, beheld.Name, beheld.Female ? "Lady" : "Lord");
+                title.AppendFormat(pm.FameKarmaTitle, beheld.Name, beheld.Female ? "Lady" : "Lord");
             }
 			else if (beheld.ShowFameTitle || (beholder == beheld))
             {
@@ -228,14 +230,14 @@ namespace Server.Misc
                 title.Append(beheld.Name);
             }
 
-            if (beheld is PlayerMobile && ((PlayerMobile)beheld).DisplayChampionTitle)
+            if (pm != null && pm.DisplayChampionTitle)
             {
-                PlayerMobile.ChampionTitleInfo info = ((PlayerMobile)beheld).ChampionTitles;
+                PlayerMobile.ChampionTitleInfo info = pm.ChampionTitles;
 
                 if (Core.SA)
                 {
-                    if (((PlayerMobile)beheld).CurrentChampTitle != null)
-                        title.AppendFormat(((PlayerMobile)beheld).CurrentChampTitle);
+                    if (pm.CurrentChampTitle != null)
+                        title.AppendFormat(pm.CurrentChampTitle);
                 }
 				else if (info.Harrower > 0)
                     title.AppendFormat(": {0} of Evil", HarrowerTitles[Math.Min(HarrowerTitles.Length, info.Harrower) - 1]);
@@ -271,8 +273,8 @@ namespace Server.Misc
 
             if (Core.SA)
             {
-                if (beheld is PlayerMobile && ((PlayerMobile)beheld).PaperdollSkillTitle != null)
-                    title.Append(", ").Append(((PlayerMobile)beheld).PaperdollSkillTitle);
+                if (pm != null && pm.PaperdollSkillTitle != null)
+                    title.Append(", ").Append(pm.PaperdollSkillTitle);
                 else if (beheld is BaseVendor) 
 					title.AppendFormat(" {0}", customTitle);
             }

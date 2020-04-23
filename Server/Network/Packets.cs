@@ -953,6 +953,7 @@ namespace Server.Network
         }
     }
 
+    [Flags]
     public enum CMEFlags
     {
         None = 0x00,

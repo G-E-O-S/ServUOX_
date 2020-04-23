@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Server.ContextMenus;
 using Server.Engines.PartySystem;
 using Server.Engines.Points;
-using Server.Engines.Quests;
 using Server.Engines.Quests.Doom;
-using Server.Engines.Quests.Haven;
 using Server.Engines.VvV;
 using Server.Engines.XmlSpawner2;
 using Server.Ethics;
@@ -31,9 +29,6 @@ using Server.Targeting;
 namespace Server.Mobiles
 {
     #region Enums
-    /// <summary>
-    ///     Summary description for MobileAI.
-    /// </summary>
     public enum FightMode
     {
         None, // Never focus on others
@@ -168,14 +163,11 @@ namespace Server.Mobiles
     [AttributeUsage(AttributeTargets.Class)]
     public class FriendlyNameAttribute : Attribute
     {
-        //future use: Talisman 'Protection/Bonus vs. Specific Creature
-        private readonly TextDefinition m_FriendlyName;
-
-        public TextDefinition FriendlyName => m_FriendlyName;
+        public TextDefinition FriendlyName { get; }
 
         public FriendlyNameAttribute(TextDefinition friendlyName)
         {
-            m_FriendlyName = friendlyName;
+            FriendlyName = friendlyName;
         }
 
         public static TextDefinition GetFriendlyNameFor(Type t)
@@ -231,84 +223,52 @@ namespace Server.Mobiles
         public virtual bool CanCallGuards => !Deleted && Alive && !AlwaysMurderer && Kills < 5 && (Player || Body.IsHuman);
 
         #region Var declarations
-        private BaseAI m_AI; // THE AI
 
         private AIType m_CurrentAI; // The current AI
         private AIType m_DefaultAI; // The default AI
 
-        private FightMode m_FightMode; // The style the mob uses
-
         private int m_iRangePerception; // The view area
-        private int m_iRangeFight; // The fight distance
-
-        private bool m_bDebugAI; // Show debug AI messages
 
         private int m_iTeam; // Monster Team
-
-        private double m_ForceActiveSpeed;
-        private double m_ForcePassiveSpeed;
-
         private double m_dActiveSpeed; // Timer speed when active
         private double m_dPassiveSpeed; // Timer speed when not active
         private double m_dCurrentSpeed; // The current speed, lets say it could be changed by something;
 
         private Point3D m_pHome; // The home position of the creature, used by some AI
-        private int m_iRangeHome = 10; // The home range of the creature
 
         private readonly List<Type> m_arSpellAttack; // List of attack spell/power
         private readonly List<Type> m_arSpellDefense; // List of defensive spell/power
 
         private bool m_bControlled; // Is controlled
         private Mobile m_ControlMaster; // My master
-        private IDamageable m_ControlTarget; // My target mobile
         private Point3D m_ControlDest; // My target destination (patrol)
         private OrderType m_ControlOrder; // My order
 
         private int m_Loyalty;
 
         private double m_dMinTameSkill;
-        private double m_CurrentTameSkill;
         private bool m_bTamable;
 
         private bool m_bSummoned;
-        private DateTime m_SummonEnd;
         private int m_iControlSlots = 1;
-
-        private bool m_bBardProvoked;
-        private bool m_bBardPacified;
-        private Mobile m_bBardMaster;
         private Mobile m_bBardTarget;
-        private WayPoint m_CurrentWayPoint;
-        private IPoint2D m_TargetLocation;
-
         private int _CurrentNavPoint;
         private Dictionary<Map, List<Point2D>> _NavPoints;
 
         private Mobile m_SummonMaster;
-
-        private int m_HitsMax = -1;
-        private int m_StamMax = -1;
-        private int m_ManaMax = -1;
         private int m_DamageMin = -1;
         private int m_DamageMax = -1;
 
-        private int m_PhysicalResistance, m_PhysicalDamage = 100;
-        private int m_FireResistance, m_FireDamage;
-        private int m_ColdResistance, m_ColdDamage;
-        private int m_PoisonResistance, m_PoisonDamage;
-        private int m_EnergyResistance, m_EnergyDamage;
-
-        private List<Mobile> m_Owners;
-        private List<Mobile> m_Friends;
-
+        private int m_PhysicalResistance;
+        private int m_FireResistance;
+        private int m_ColdResistance;
+        private int m_PoisonResistance;
+        private int m_EnergyResistance;
         private bool m_IsStabled;
 
         private bool m_HasGeneratedLoot; // have we generated our loot yet?
 
         private bool m_Paragon;
-
-        private string m_CorpseNameOverride;
-
         private int m_FailedReturnHome; /* return to home failure counter */
 
         private bool m_IsChampionSpawn;
@@ -317,14 +277,9 @@ namespace Server.Mobiles
         #endregion
 
         #region Monster Stealables
-        private bool m_HasBeenStolen;
 
         [CommandProperty(AccessLevel.Administrator)]
-        public bool HasBeenStolen
-        {
-            get => m_HasBeenStolen;
-            set => m_HasBeenStolen = value;
-        }
+        public bool HasBeenStolen { get; set; }
         #endregion
 
         public virtual InhumanSpeech SpeechType => null;
@@ -335,15 +290,11 @@ namespace Server.Mobiles
 
         public virtual bool CanBeParagon => true;
 
-        /* Do not serialize this till the code is finalized */
-
-        private bool m_SeeksHome;
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool SeeksHome { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool SeeksHome { get => m_SeeksHome; set => m_SeeksHome = value; }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public string CorpseNameOverride { get => m_CorpseNameOverride; set => m_CorpseNameOverride = value; }
+        public string CorpseNameOverride { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster, AccessLevel.Administrator)]
         public bool IsStabled
@@ -365,7 +316,7 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public bool IsPrisoner { get; set; }
 
-        protected DateTime SummonEnd { get => m_SummonEnd; set => m_SummonEnd = value; }
+        protected DateTime SummonEnd { get; set; }
 
         public virtual Faction FactionAllegiance => null;
 
@@ -431,15 +382,13 @@ namespace Server.Mobiles
         public virtual TimeSpan BondingDelay => TimeSpan.FromDays(7.0);
         public virtual TimeSpan BondingAbandonDelay => TimeSpan.FromDays(1.0);
 
-        public override bool CanRegenHits => !m_IsDeadPet && !Summoned && base.CanRegenHits;
-        public override bool CanRegenStam => !IsParagon && !m_IsDeadPet && base.CanRegenStam;
-        public override bool CanRegenMana => !m_IsDeadPet && base.CanRegenMana;
+        public override bool CanRegenHits => !IsDeadPet && !Summoned && base.CanRegenHits;
+        public override bool CanRegenStam => !IsParagon && !IsDeadPet && base.CanRegenStam;
+        public override bool CanRegenMana => !IsDeadPet && base.CanRegenMana;
 
-        public override bool IsDeadBondedPet => m_IsDeadPet;
+        public override bool IsDeadBondedPet => IsDeadPet;
 
         private bool m_IsBonded;
-        private bool m_IsDeadPet;
-        private DateTime m_BondingBegin;
         private DateTime m_OwnerAbandonTime;
 
         [CommandProperty(AccessLevel.GameMaster)]
@@ -462,12 +411,12 @@ namespace Server.Mobiles
         {
             get
             {
-                if (m_Owners == null || m_Owners.Count == 0)
+                if (Owners == null || Owners.Count == 0)
                 {
                     return null;
                 }
 
-                return m_Owners[m_Owners.Count - 1];
+                return Owners[Owners.Count - 1];
             }
         }
 
@@ -484,10 +433,10 @@ namespace Server.Mobiles
             }
         }
 
-        public bool IsDeadPet { get => m_IsDeadPet; set => m_IsDeadPet = value; }
+        public bool IsDeadPet { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public DateTime BondingBegin { get => m_BondingBegin; set => m_BondingBegin = value; }
+        public DateTime BondingBegin { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime OwnerAbandonTime { get => m_OwnerAbandonTime; set => m_OwnerAbandonTime = value; }
@@ -565,23 +514,20 @@ namespace Server.Mobiles
         #region Pet Training
         public static double MaxTameRequirement = 108.0;
 
-        private AbilityProfile _Profile;
-        private TrainingProfile _TrainingProfile;
+        [CommandProperty(AccessLevel.GameMaster)]
+        public AbilityProfile AbilityProfile { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public AbilityProfile AbilityProfile { get => _Profile; set => _Profile = value; }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public TrainingProfile TrainingProfile { get => _TrainingProfile; set => _TrainingProfile = value; }
+        public TrainingProfile TrainingProfile { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public double BardingDifficulty => BaseInstrument.GetBaseDifficulty(this);
 
         public virtual WeaponAbility TryGetWeaponAbility()
         {
-            if (_Profile != null && _Profile.WeaponAbilities != null && _Profile.WeaponAbilities.Length > 0)
+            if (AbilityProfile != null && AbilityProfile.WeaponAbilities != null && AbilityProfile.WeaponAbilities.Length > 0)
             {
-                return _Profile.WeaponAbilities[Utility.Random(_Profile.WeaponAbilities.Length)];
+                return AbilityProfile.WeaponAbilities[Utility.Random(AbilityProfile.WeaponAbilities.Length)];
             }
             else
             {
@@ -680,9 +626,7 @@ namespace Server.Mobiles
             }
         }
 
-        public static Type[] SlotLowerables => _SlotLowerables;
-        private static Type[] _SlotLowerables =
-        {
+        public static Type[] SlotLowerables { get; } = {
             typeof(Nightmare), typeof(Najasaurus), typeof(RuneBeetle), typeof(GreaterDragon), typeof(FrostDragon),
             typeof(WhiteWyrm), typeof(Reptalon), typeof(DragonTurtleHatchling), typeof(Phoenix), typeof(FrostMite),
             typeof(DireWolf), typeof(Skree), typeof(HighPlainsBoura), typeof(LesserHiryu), typeof(DragonWolf),
@@ -691,7 +635,7 @@ namespace Server.Mobiles
 
         private bool CanLowerSlot()
         {
-            return _SlotLowerables.Any(t => t == GetType());
+            return SlotLowerables.Any(t => t == GetType());
         }
 
         public void CalculateSlots(int slots)
@@ -884,19 +828,19 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int PhysicalDamage { get => m_PhysicalDamage; set => m_PhysicalDamage = value; }
+        public int PhysicalDamage { get; set; } = 100;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int FireDamage { get => m_FireDamage; set => m_FireDamage = value; }
+        public int FireDamage { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int ColdDamage { get => m_ColdDamage; set => m_ColdDamage = value; }
+        public int ColdDamage { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int PoisonDamage { get => m_PoisonDamage; set => m_PoisonDamage = value; }
+        public int PoisonDamage { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int EnergyDamage { get => m_EnergyDamage; set => m_EnergyDamage = value; }
+        public int EnergyDamage { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int ChaosDamage { get; set; }
@@ -1007,7 +951,7 @@ namespace Server.Mobiles
         public virtual FoodType FavoriteFood => FoodType.Meat;
         public virtual PackInstinct PackInstinct => PackInstinct.None;
 
-        public List<Mobile> Owners => m_Owners;
+        public List<Mobile> Owners { get; private set; }
 
         public virtual bool AllowMaleTamer => true;
         public virtual bool AllowFemaleTamer => true;
@@ -1023,9 +967,9 @@ namespace Server.Mobiles
         public virtual Poison PoisonImmune => null;
 
         public virtual bool BardImmune => false;
-        public virtual bool Unprovokable => BardImmune || m_IsDeadPet;
-        public virtual bool Uncalmable => BardImmune || m_IsDeadPet;
-        public virtual bool AreaPeaceImmune => BardImmune || m_IsDeadPet;
+        public virtual bool Unprovokable => BardImmune || IsDeadPet;
+        public virtual bool Uncalmable => BardImmune || IsDeadPet;
+        public virtual bool AreaPeaceImmune => BardImmune || IsDeadPet;
 
         public virtual bool BleedImmune => false;
         public virtual double BonusPetDamageScalar => 1.0;
@@ -1118,13 +1062,11 @@ namespace Server.Mobiles
         #region Flee!!!
         public virtual bool CanFlee => !m_Paragon && !GivesMLMinorArtifact;
 
-        private DateTime m_EndFlee;
-
-        public DateTime EndFleeTime { get => m_EndFlee; set => m_EndFlee = value; }
+        public DateTime EndFleeTime { get; set; }
 
         public virtual void StopFlee()
         {
-            m_EndFlee = DateTime.MinValue;
+            EndFleeTime = DateTime.MinValue;
         }
 
         public virtual bool CheckFlee()
@@ -1134,12 +1076,12 @@ namespace Server.Mobiles
                 return false;
             }
 
-            if (m_EndFlee == DateTime.MinValue)
+            if (EndFleeTime == DateTime.MinValue)
             {
                 return false;
             }
 
-            if (DateTime.UtcNow >= m_EndFlee)
+            if (DateTime.UtcNow >= EndFleeTime)
             {
                 StopFlee();
                 return false;
@@ -1150,13 +1092,13 @@ namespace Server.Mobiles
 
         public virtual void BeginFlee(TimeSpan maxDuration)
         {
-            m_EndFlee = DateTime.UtcNow + maxDuration;
+            EndFleeTime = DateTime.UtcNow + maxDuration;
         }
         #endregion
 
         public virtual bool IsInvulnerable => false;
 
-        public BaseAI AIObject => m_AI;
+        public BaseAI AIObject { get; private set; }
 
         public const int MaxOwners = 5;
 
@@ -1190,30 +1132,30 @@ namespace Server.Mobiles
         }
 
         #region Friends
-        public List<Mobile> Friends => m_Friends;
+        public List<Mobile> Friends { get; private set; }
 
-        public virtual bool AllowNewPetFriend => (m_Friends == null || m_Friends.Count < 5);
+        public virtual bool AllowNewPetFriend => (Friends == null || Friends.Count < 5);
 
         public virtual bool IsPetFriend(Mobile m)
         {
-            return (m_Friends != null && m_Friends.Contains(m));
+            return (Friends != null && Friends.Contains(m));
         }
 
         public virtual void AddPetFriend(Mobile m)
         {
-            if (m_Friends == null)
+            if (Friends == null)
             {
-                m_Friends = new List<Mobile>();
+                Friends = new List<Mobile>();
             }
 
-            m_Friends.Add(m);
+            Friends.Add(m);
         }
 
         public virtual void RemovePetFriend(Mobile m)
         {
-            if (m_Friends != null)
+            if (Friends != null)
             {
-                m_Friends.Remove(m);
+                Friends.Remove(m);
             }
         }
 
@@ -1353,13 +1295,13 @@ namespace Server.Mobiles
                 (c != null && c.m_bSummoned && !c.m_bControlled && c.SummonMaster != null))
             {
                 // Faction Opposed Players/Pets are my enemies
-                if (GetFactionAllegiance(m) == BaseCreature.Allegiance.Enemy)
+                if (GetFactionAllegiance(m) == Allegiance.Enemy)
                 {
                     return true;
                 }
 
                 // Ethic Opposed Players/Pets are my enemies
-                if (GetEthicAllegiance(m) == BaseCreature.Allegiance.Enemy)
+                if (GetEthicAllegiance(m) == Allegiance.Enemy)
                 {
                     return true;
                 }
@@ -1503,12 +1445,12 @@ namespace Server.Mobiles
 
         public virtual double GetControlChance(Mobile m, bool useBaseSkill)
         {
-            if (m_CurrentTameSkill <= 29.1 || m_bSummoned || m.AccessLevel >= AccessLevel.GameMaster)
+            if (CurrentTameSkill <= 29.1 || m_bSummoned || m.AccessLevel >= AccessLevel.GameMaster)
             {
                 return 1.0;
             }
 
-            double dMinTameSkill = m_CurrentTameSkill;
+            double dMinTameSkill = CurrentTameSkill;
 
             if (dMinTameSkill > -24.9 && DarkWolfFamiliar.CheckMastery(m, this))
             {
@@ -1645,9 +1587,9 @@ namespace Server.Mobiles
         {
             base.SetLocation(newLocation, isTeleport);
 
-            if (isTeleport && m_AI != null)
+            if (isTeleport && AIObject != null)
             {
-                m_AI.OnTeleported();
+                AIObject.OnTeleported();
             }
         }
 
@@ -1706,7 +1648,7 @@ namespace Server.Mobiles
         public int Loyalty { get => m_Loyalty; set => m_Loyalty = Math.Min(Math.Max(value, 0), MaxLoyalty); }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public WayPoint CurrentWayPoint { get => m_CurrentWayPoint; set => m_CurrentWayPoint = value; }
+        public WayPoint CurrentWayPoint { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int CurrentNavPoint
@@ -1739,7 +1681,7 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public IPoint2D TargetLocation { get => m_TargetLocation; set => m_TargetLocation = value; }
+        public IPoint2D TargetLocation { get; set; }
 
         public virtual Mobile ConstantFocus => null;
 
@@ -1748,7 +1690,6 @@ namespace Server.Mobiles
             get
             {
                 XmlData x = (XmlData)XmlAttach.FindAttachment(this, typeof(XmlData), "NoSpecials");
-
                 return x != null && x.Data == "True";
             }
         }
@@ -1758,17 +1699,17 @@ namespace Server.Mobiles
             get
             {
                 XmlData x = (XmlData)XmlAttach.FindAttachment(this, typeof(XmlData), "Notoriety");
-
                 return x != null && x.Data == "blue";
             }
         }
+
+        public virtual bool AlwaysInnocent => false;
 
         public virtual bool AlwaysMurderer
         {
             get
             {
                 XmlData x = (XmlData)XmlAttach.FindAttachment(this, typeof(XmlData), "Notoriety");
-
                 return x != null && x.Data == "red";
             }
         }
@@ -1778,7 +1719,6 @@ namespace Server.Mobiles
             get
             {
                 XmlData x = (XmlData)XmlAttach.FindAttachment(this, typeof(XmlData), "Notoriety");
-
                 return x != null && x.Data == "gray";
             }
         }
@@ -1801,9 +1741,9 @@ namespace Server.Mobiles
             {
                 int value = Str;
 
-                if (m_HitsMax > 0)
+                if (HitsMaxSeed > 0)
                 {
-                    value = m_HitsMax + GetStatOffset(StatType.Str);
+                    value = HitsMaxSeed + GetStatOffset(StatType.Str);
 
                     if (value < 1)
                     {
@@ -1827,16 +1767,16 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int HitsMaxSeed { get => m_HitsMax; set => m_HitsMax = value; }
+        public int HitsMaxSeed { get; set; } = -1;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public override int StamMax
         {
             get
             {
-                if (m_StamMax > 0)
+                if (StamMaxSeed > 0)
                 {
-                    int value = m_StamMax + GetStatOffset(StatType.Dex);
+                    int value = StamMaxSeed + GetStatOffset(StatType.Dex);
 
                     if (value < 1)
                     {
@@ -1855,16 +1795,16 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int StamMaxSeed { get => m_StamMax; set => m_StamMax = value; }
+        public int StamMaxSeed { get; set; } = -1;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public override int ManaMax
         {
             get
             {
-                if (m_ManaMax > 0)
+                if (ManaMaxSeed > 0)
                 {
-                    int value = m_ManaMax + GetStatOffset(StatType.Int);
+                    int value = ManaMaxSeed + GetStatOffset(StatType.Int);
 
                     if (value < 1)
                     {
@@ -1883,7 +1823,7 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int ManaMaxSeed { get => m_ManaMax; set => m_ManaMax = value; }
+        public int ManaMaxSeed { get; set; } = -1;
 
         public virtual bool CanOpenDoors => !Body.IsAnimal && !Body.IsSea;
 
@@ -1899,9 +1839,7 @@ namespace Server.Mobiles
             BardPacified = false;
         }
 
-        private HonorContext m_ReceivedHonorContext;
-
-        public HonorContext ReceivedHonorContext { get => m_ReceivedHonorContext; set => m_ReceivedHonorContext = value; }
+        public HonorContext ReceivedHonorContext { get; set; }
 
         /*
 
@@ -1979,9 +1917,9 @@ namespace Server.Mobiles
                 speechType.OnDamage(this, amount);
             }
 
-            if (m_ReceivedHonorContext != null)
+            if (ReceivedHonorContext != null)
             {
-                m_ReceivedHonorContext.OnTargetDamaged(from, amount);
+                ReceivedHonorContext.OnTargetDamaged(from, amount);
             }
 
             if (!willKill)
@@ -2051,16 +1989,15 @@ namespace Server.Mobiles
 
         public virtual void AlterMeleeDamageTo(Mobile to, ref int damage)
         {
-            if (m_TempDamageBonus > 0 && TastyTreat.UnderInfluence(this))
-                damage += damage / m_TempDamageBonus;
+            if (TempDamageBonus > 0 && TastyTreat.UnderInfluence(this))
+                damage += damage / TempDamageBonus;
         }
         #endregion
 
         #region SA / High Seas Tasty Treats/Vial of Armor Essense
-        private int m_TempDamageBonus = 0;
         private int m_TempDamageAbsorb = 0;
 
-        public int TempDamageBonus { get => m_TempDamageBonus; set => m_TempDamageBonus = value; }
+        public int TempDamageBonus { get; set; } = 0;
         public int TempDamageAbsorb { get => m_TempDamageAbsorb; set => m_TempDamageAbsorb = value; }
         #endregion
 
@@ -2113,11 +2050,11 @@ namespace Server.Mobiles
 
                 if (special)
                 {
-                    feathers = (int)Math.Ceiling((double)feathers * 1.1);
-                    wool = (int)Math.Ceiling((double)wool * 1.1);
-                    hides = (int)Math.Ceiling((double)hides * 1.1);
-                    meat = (int)Math.Ceiling((double)meat * 1.1);
-                    scales = (int)Math.Ceiling((double)scales * 1.1);
+                    feathers = (int)Math.Ceiling(feathers * 1.1);
+                    wool = (int)Math.Ceiling(wool * 1.1);
+                    hides = (int)Math.Ceiling(hides * 1.1);
+                    meat = (int)Math.Ceiling(meat * 1.1);
+                    scales = (int)Math.Ceiling(scales * 1.1);
                 }
 
                 new Blood(0x122D).MoveToWorld(corpse.Location, corpse.Map);
@@ -2154,8 +2091,7 @@ namespace Server.Mobiles
 
                 if (meat != 0)
                 {
-                    Item m = null;
-
+                    Item m;
                     switch (MeatType)
                     {
                         default:
@@ -2178,9 +2114,9 @@ namespace Server.Mobiles
 
                 if (hides != 0)
                 {
-                    Item leather = null;
                     var cutHides = (with is SkinningKnife && from.FindItemOnLayer(Layer.OneHanded) == with) || special || with is ButchersWarCleaver;
 
+                    Item leather;
                     switch (HideType)
                     {
                         default:
@@ -2338,9 +2274,9 @@ namespace Server.Mobiles
             m_DefaultAI = ai;
 
             m_iRangePerception = iRangePerception;
-            m_iRangeFight = iRangeFight;
+            RangeFight = iRangeFight;
 
-            m_FightMode = mode;
+            FightMode = mode;
 
             m_iTeam = 0;
 
@@ -2350,21 +2286,21 @@ namespace Server.Mobiles
             m_dPassiveSpeed = dPassiveSpeed;
             m_dCurrentSpeed = dPassiveSpeed;
 
-            m_bDebugAI = false;
+            Debug = false;
 
             m_arSpellAttack = new List<Type>();
             m_arSpellDefense = new List<Type>();
 
             m_bControlled = false;
             m_ControlMaster = null;
-            m_ControlTarget = null;
+            ControlTarget = null;
             m_ControlOrder = OrderType.None;
 
             m_bTamable = false;
 
-            m_Owners = new List<Mobile>();
+            Owners = new List<Mobile>();
 
-            m_NextReacquireTime = Core.TickCount + (int)ReacquireDelay.TotalMilliseconds;
+            NextReacquireTime = Core.TickCount + (int)ReacquireDelay.TotalMilliseconds;
 
             ChangeAIType(AI);
 
@@ -2391,7 +2327,7 @@ namespace Server.Mobiles
             m_arSpellAttack = new List<Type>();
             m_arSpellDefense = new List<Type>();
 
-            m_bDebugAI = false;
+            Debug = false;
         }
 
         public override void Serialize(GenericWriter writer)
@@ -2402,8 +2338,8 @@ namespace Server.Mobiles
 
             writer.Write(IsSoulbound);
 
-            writer.Write(m_ForceActiveSpeed);
-            writer.Write(m_ForcePassiveSpeed);
+            writer.Write(ForceActiveSpeed);
+            writer.Write(ForcePassiveSpeed);
 
             writer.Write(CanMove);
             writer.Write(_LockDirection);
@@ -2414,7 +2350,7 @@ namespace Server.Mobiles
             writer.Write((int)m_DefaultAI);
 
             writer.Write(m_iRangePerception);
-            writer.Write(m_iRangeFight);
+            writer.Write(RangeFight);
 
             writer.Write(m_iTeam);
 
@@ -2427,7 +2363,7 @@ namespace Server.Mobiles
             writer.Write(m_pHome.Z);
 
             // Version 1
-            writer.Write(m_iRangeHome);
+            writer.Write(RangeHome);
 
             int i = 0;
 
@@ -2446,11 +2382,11 @@ namespace Server.Mobiles
             }
 
             // Version 2
-            writer.Write((int)m_FightMode);
+            writer.Write((int)FightMode);
 
             writer.Write(m_bControlled);
             writer.Write(m_ControlMaster);
-            writer.Write(m_ControlTarget is Mobile ? (Mobile)m_ControlTarget : null);
+            writer.Write(ControlTarget is Mobile ? (Mobile)ControlTarget : null);
             writer.Write(m_ControlDest);
             writer.Write((int)m_ControlOrder);
             writer.Write(m_dMinTameSkill);
@@ -2460,7 +2396,7 @@ namespace Server.Mobiles
 
             if (m_bSummoned)
             {
-                writer.WriteDeltaTime(m_SummonEnd);
+                writer.WriteDeltaTime(SummonEnd);
             }
 
             writer.Write(m_iControlSlots);
@@ -2469,41 +2405,41 @@ namespace Server.Mobiles
             writer.Write(m_Loyalty);
 
             // Version 4
-            writer.Write(m_CurrentWayPoint);
+            writer.Write(CurrentWayPoint);
 
             // Verison 5
             writer.Write(m_SummonMaster);
 
             // Version 6
-            writer.Write(m_HitsMax);
-            writer.Write(m_StamMax);
-            writer.Write(m_ManaMax);
+            writer.Write(HitsMaxSeed);
+            writer.Write(StamMaxSeed);
+            writer.Write(ManaMaxSeed);
             writer.Write(m_DamageMin);
             writer.Write(m_DamageMax);
 
             // Version 7
             writer.Write(m_PhysicalResistance);
-            writer.Write(m_PhysicalDamage);
+            writer.Write(PhysicalDamage);
 
             writer.Write(m_FireResistance);
-            writer.Write(m_FireDamage);
+            writer.Write(FireDamage);
 
             writer.Write(m_ColdResistance);
-            writer.Write(m_ColdDamage);
+            writer.Write(ColdDamage);
 
             writer.Write(m_PoisonResistance);
-            writer.Write(m_PoisonDamage);
+            writer.Write(PoisonDamage);
 
             writer.Write(m_EnergyResistance);
-            writer.Write(m_EnergyDamage);
+            writer.Write(EnergyDamage);
 
             // Version 8
-            writer.Write(m_Owners, true);
+            writer.Write(Owners, true);
 
             // Version 10
-            writer.Write(m_IsDeadPet);
+            writer.Write(IsDeadPet);
             writer.Write(m_IsBonded);
-            writer.Write(m_BondingBegin);
+            writer.Write(BondingBegin);
             writer.Write(m_OwnerAbandonTime);
 
             // Version 11
@@ -2513,16 +2449,16 @@ namespace Server.Mobiles
             writer.Write(m_Paragon);
 
             // Version 13
-            writer.Write((m_Friends != null && m_Friends.Count > 0));
+            writer.Write((Friends != null && Friends.Count > 0));
 
-            if (m_Friends != null && m_Friends.Count > 0)
+            if (Friends != null && Friends.Count > 0)
             {
-                writer.Write(m_Friends, true);
+                writer.Write(Friends, true);
             }
 
             // Version 14
-            writer.Write(m_RemoveIfUntamed);
-            writer.Write(m_RemoveStep);
+            writer.Write(RemoveIfUntamed);
+            writer.Write(RemoveStep);
 
             // Version 17
             if (IsStabled || (Controlled && ControlMaster != null))
@@ -2535,7 +2471,7 @@ namespace Server.Mobiles
             }
 
             // Version 18
-            writer.Write(m_CorpseNameOverride);
+            writer.Write(CorpseNameOverride);
 
             // Mondain's Legacy version 19
             writer.Write(m_Allured);
@@ -2549,20 +2485,20 @@ namespace Server.Mobiles
 
             writer.Write((int)Mastery);
 
-            if (_Profile != null)
+            if (AbilityProfile != null)
             {
                 writer.Write(1);
-                _Profile.Serialize(writer);
+                AbilityProfile.Serialize(writer);
             }
             else
             {
                 writer.Write(0);
             }
 
-            if (_TrainingProfile != null)
+            if (TrainingProfile != null)
             {
                 writer.Write(1);
-                _TrainingProfile.Serialize(writer);
+                TrainingProfile.Serialize(writer);
             }
             else
             {
@@ -2570,7 +2506,7 @@ namespace Server.Mobiles
             }
 
             // Version 25 Current Tame Skill
-            writer.Write(m_CurrentTameSkill);
+            writer.Write(CurrentTameSkill);
         }
 
         private static readonly double[] m_StandardActiveSpeeds = new[] { 0.175, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8 };
@@ -2589,8 +2525,8 @@ namespace Server.Mobiles
                     IsSoulbound = reader.ReadBool();
                     goto case 28;
                 case 28:
-                    m_ForceActiveSpeed = reader.ReadDouble();
-                    m_ForcePassiveSpeed = reader.ReadDouble();
+                    ForceActiveSpeed = reader.ReadDouble();
+                    ForcePassiveSpeed = reader.ReadDouble();
                     goto case 27;
                 case 27: // Pet Slot Fix
                 case 26:
@@ -2608,7 +2544,7 @@ namespace Server.Mobiles
             m_DefaultAI = (AIType)reader.ReadInt();
 
             m_iRangePerception = reader.ReadInt();
-            m_iRangeFight = reader.ReadInt();
+            RangeFight = reader.ReadInt();
 
             m_iTeam = reader.ReadInt();
 
@@ -2627,7 +2563,7 @@ namespace Server.Mobiles
 
             if (version >= 1)
             {
-                m_iRangeHome = reader.ReadInt();
+                RangeHome = reader.ReadInt();
 
                 int i, iCount;
 
@@ -2657,16 +2593,16 @@ namespace Server.Mobiles
             }
             else
             {
-                m_iRangeHome = 0;
+                RangeHome = 0;
             }
 
             if (version >= 2)
             {
-                m_FightMode = (FightMode)reader.ReadInt();
+                FightMode = (FightMode)reader.ReadInt();
 
                 m_bControlled = reader.ReadBool();
                 m_ControlMaster = reader.ReadMobile();
-                m_ControlTarget = reader.ReadMobile();
+                ControlTarget = reader.ReadMobile();
                 m_ControlDest = reader.ReadPoint3D();
                 m_ControlOrder = (OrderType)reader.ReadInt();
 
@@ -2682,19 +2618,19 @@ namespace Server.Mobiles
 
                 if (m_bSummoned)
                 {
-                    m_SummonEnd = reader.ReadDeltaTime();
-                    new UnsummonTimer(m_ControlMaster, this, m_SummonEnd - DateTime.UtcNow).Start();
+                    SummonEnd = reader.ReadDeltaTime();
+                    new UnsummonTimer(m_ControlMaster, this, SummonEnd - DateTime.UtcNow).Start();
                 }
 
                 m_iControlSlots = reader.ReadInt();
             }
             else
             {
-                m_FightMode = FightMode.Closest;
+                FightMode = FightMode.Closest;
 
                 m_bControlled = false;
                 m_ControlMaster = null;
-                m_ControlTarget = null;
+                ControlTarget = null;
                 m_ControlOrder = OrderType.None;
             }
 
@@ -2709,7 +2645,7 @@ namespace Server.Mobiles
 
             if (version >= 4)
             {
-                m_CurrentWayPoint = reader.ReadItem() as WayPoint;
+                CurrentWayPoint = reader.ReadItem() as WayPoint;
             }
 
             if (version >= 5)
@@ -2719,9 +2655,9 @@ namespace Server.Mobiles
 
             if (version >= 6)
             {
-                m_HitsMax = reader.ReadInt();
-                m_StamMax = reader.ReadInt();
-                m_ManaMax = reader.ReadInt();
+                HitsMaxSeed = reader.ReadInt();
+                StamMaxSeed = reader.ReadInt();
+                ManaMaxSeed = reader.ReadInt();
                 m_DamageMin = reader.ReadInt();
                 m_DamageMax = reader.ReadInt();
             }
@@ -2729,35 +2665,35 @@ namespace Server.Mobiles
             if (version >= 7)
             {
                 m_PhysicalResistance = reader.ReadInt();
-                m_PhysicalDamage = reader.ReadInt();
+                PhysicalDamage = reader.ReadInt();
 
                 m_FireResistance = reader.ReadInt();
-                m_FireDamage = reader.ReadInt();
+                FireDamage = reader.ReadInt();
 
                 m_ColdResistance = reader.ReadInt();
-                m_ColdDamage = reader.ReadInt();
+                ColdDamage = reader.ReadInt();
 
                 m_PoisonResistance = reader.ReadInt();
-                m_PoisonDamage = reader.ReadInt();
+                PoisonDamage = reader.ReadInt();
 
                 m_EnergyResistance = reader.ReadInt();
-                m_EnergyDamage = reader.ReadInt();
+                EnergyDamage = reader.ReadInt();
             }
 
             if (version >= 8)
             {
-                m_Owners = reader.ReadStrongMobileList();
+                Owners = reader.ReadStrongMobileList();
             }
             else
             {
-                m_Owners = new List<Mobile>();
+                Owners = new List<Mobile>();
             }
 
             if (version >= 10)
             {
-                m_IsDeadPet = reader.ReadBool();
+                IsDeadPet = reader.ReadBool();
                 m_IsBonded = reader.ReadBool();
-                m_BondingBegin = reader.ReadDateTime();
+                BondingBegin = reader.ReadDateTime();
                 m_OwnerAbandonTime = reader.ReadDateTime();
             }
 
@@ -2781,7 +2717,7 @@ namespace Server.Mobiles
 
             if (version >= 13 && reader.ReadBool())
             {
-                m_Friends = reader.ReadStrongMobileList();
+                Friends = reader.ReadStrongMobileList();
             }
             else if (version < 13 && m_ControlOrder >= OrderType.Unfriend)
             {
@@ -2802,8 +2738,8 @@ namespace Server.Mobiles
                         
             if (version >= 14)
             {
-                m_RemoveIfUntamed = reader.ReadBool();
-                m_RemoveStep = reader.ReadInt();
+                RemoveIfUntamed = reader.ReadBool();
+                RemoveStep = reader.ReadInt();
             }
 
             TimeSpan deleteTime = TimeSpan.Zero;
@@ -2826,7 +2762,7 @@ namespace Server.Mobiles
 
             if (version >= 18)
             {
-                m_CorpseNameOverride = reader.ReadString();
+                CorpseNameOverride = reader.ReadString();
             }
 
             if (version >= 19)
@@ -2866,12 +2802,12 @@ namespace Server.Mobiles
 
                 if (reader.ReadInt() == 1)
                 {
-                    _Profile = new AbilityProfile(this, reader);
+                    AbilityProfile = new AbilityProfile(this, reader);
                 }
 
                 if (reader.ReadInt() == 1)
                 {
-                    _TrainingProfile = new TrainingProfile(this, reader);
+                    TrainingProfile = new TrainingProfile(this, reader);
                 }
             }
             else
@@ -3167,8 +3103,8 @@ namespace Server.Mobiles
 
                             if (master != null && master == from) //So friends can't start the bonding process
                             {
-                                if (m_CurrentTameSkill <= 29.1 || master.Skills[SkillName.AnimalTaming].Base >= m_CurrentTameSkill ||
-                                    OverrideBondingReqs() || (Core.ML && master.Skills[SkillName.AnimalTaming].Value >= m_CurrentTameSkill))
+                                if (CurrentTameSkill <= 29.1 || master.Skills[SkillName.AnimalTaming].Base >= CurrentTameSkill ||
+                                    OverrideBondingReqs() || (Core.ML && master.Skills[SkillName.AnimalTaming].Value >= CurrentTameSkill))
                                 {
                                     if (BondingBegin == DateTime.MinValue)
                                     {
@@ -3266,75 +3202,75 @@ namespace Server.Mobiles
 
         public void ChangeAIType(AIType NewAI)
         {
-            if (m_AI != null)
+            if (AIObject != null)
             {
-                m_AI.m_Timer.Stop();
+                AIObject.m_Timer.Stop();
             }
 
             if (ForcedAI != null)
             {
-                m_AI = ForcedAI;
+                AIObject = ForcedAI;
                 return;
             }
 
-            m_AI = null;
+            AIObject = null;
 
             switch (NewAI)
             {
                 case AIType.AI_Melee:
-                    m_AI = new MeleeAI(this);
+                    AIObject = new MeleeAI(this);
                     break;
                 case AIType.AI_Animal:
-                    m_AI = new AnimalAI(this);
+                    AIObject = new AnimalAI(this);
                     break;
                 case AIType.AI_Berserk:
-                    m_AI = new BerserkAI(this);
+                    AIObject = new BerserkAI(this);
                     break;
                 case AIType.AI_Archer:
-                    m_AI = new ArcherAI(this);
+                    AIObject = new ArcherAI(this);
                     break;
                 case AIType.AI_Healer:
-                    m_AI = new HealerAI(this);
+                    AIObject = new HealerAI(this);
                     break;
                 case AIType.AI_Vendor:
-                    m_AI = new VendorAI(this);
+                    AIObject = new VendorAI(this);
                     break;
                 case AIType.AI_Mage:
-                    m_AI = new MageAI(this);
+                    AIObject = new MageAI(this);
                     break;
                 case AIType.AI_Predator:
                     //m_AI = new PredatorAI(this);
-                    m_AI = new MeleeAI(this);
+                    AIObject = new MeleeAI(this);
                     break;
                 case AIType.AI_Thief:
-                    m_AI = new ThiefAI(this);
+                    AIObject = new ThiefAI(this);
                     break;
                 case AIType.AI_NecroMage:
-                    m_AI = new NecroMageAI(this);
+                    AIObject = new NecroMageAI(this);
                     break;
                 case AIType.AI_OrcScout:
-                    m_AI = new OrcScoutAI(this);
+                    AIObject = new OrcScoutAI(this);
                     break;
                 case AIType.AI_Samurai:
-                    m_AI = new SamuraiAI(this);
+                    AIObject = new SamuraiAI(this);
                     break;
                 case AIType.AI_Ninja:
-                    m_AI = new NinjaAI(this);
+                    AIObject = new NinjaAI(this);
                     break;
                 case AIType.AI_Spellweaving:
-                    m_AI = new SpellweavingAI(this);
+                    AIObject = new SpellweavingAI(this);
                     break;
                 case AIType.AI_Mystic:
-                    m_AI = new MysticAI(this);
+                    AIObject = new MysticAI(this);
                     break;
                 case AIType.AI_Paladin:
-                    m_AI = new PaladinAI(this);
+                    AIObject = new PaladinAI(this);
                     break;
                 case AIType.AI_Spellbinder:
-                    m_AI = new SpellbinderAI(this);
+                    AIObject = new SpellbinderAI(this);
                     break;
                 case AIType.AI_Necro:
-                    m_AI = new NecroAI(this);
+                    AIObject = new NecroAI(this);
                     break;
             }
         }
@@ -3362,7 +3298,7 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.Administrator)]
-        public bool Debug { get => m_bDebugAI; set => m_bDebugAI = value; }
+        public bool Debug { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Team
@@ -3383,35 +3319,35 @@ namespace Server.Mobiles
         public IDamageable FocusMob { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public FightMode FightMode { get => m_FightMode; set => m_FightMode = value; }
+        public FightMode FightMode { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int RangePerception { get => m_iRangePerception; set => m_iRangePerception = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int RangeFight { get => m_iRangeFight; set => m_iRangeFight = value; }
+        public int RangeFight { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int RangeHome { get => m_iRangeHome; set => m_iRangeHome = value; }
+        public int RangeHome { get; set; } = 10;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public double ForceActiveSpeed { get => m_ForceActiveSpeed; set => m_ForceActiveSpeed = value; }
+        public double ForceActiveSpeed { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public double ForcePassiveSpeed { get => m_ForcePassiveSpeed; set => m_ForcePassiveSpeed = value; }
+        public double ForcePassiveSpeed { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public double ActiveSpeed { get => m_ForceActiveSpeed != 0.0 ? m_ForceActiveSpeed : m_dActiveSpeed; set => m_dActiveSpeed = value; }
+        public double ActiveSpeed { get => ForceActiveSpeed != 0.0 ? ForceActiveSpeed : m_dActiveSpeed; set => m_dActiveSpeed = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public double PassiveSpeed { get => m_ForcePassiveSpeed != 0.0 ? m_ForcePassiveSpeed : m_dPassiveSpeed; set => m_dPassiveSpeed = value; }
+        public double PassiveSpeed { get => ForcePassiveSpeed != 0.0 ? ForcePassiveSpeed : m_dPassiveSpeed; set => m_dPassiveSpeed = value; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public double CurrentSpeed
         {
             get
             {
-                if (m_TargetLocation != null)
+                if (TargetLocation != null)
                 {
                     return 0.3;
                 }
@@ -3424,9 +3360,9 @@ namespace Server.Mobiles
                 {
                     m_dCurrentSpeed = value;
 
-                    if (m_AI != null)
+                    if (AIObject != null)
                     {
-                        m_AI.OnCurrentSpeedChanged();
+                        AIObject.OnCurrentSpeedChanged();
                     }
                 }
             }
@@ -3454,13 +3390,12 @@ namespace Server.Mobiles
         }
 
         #region Snake Charming
-        private Mobile m_CharmMaster;
         private Point2D m_CharmTarget;
         private Timer m_CharmTimer;
 
         public void BeginCharm(Mobile master, Point2D target)
         {
-            m_CharmMaster = master;
+            CharmMaster = master;
             m_CharmTarget = target;
 
             m_CharmTimer = new CharmTimer(this);
@@ -3469,14 +3404,14 @@ namespace Server.Mobiles
 
         public void EndCharm()
         {
-            if (!Deleted && m_CharmMaster != null)
+            if (!Deleted && CharmMaster != null)
             {
                 // The charm seems to wear off.
-                PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1112181, m_CharmMaster.NetState);
+                PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1112181, CharmMaster.NetState);
 
                 Frozen = false;
 
-                m_CharmMaster = null;
+                CharmMaster = null;
                 m_CharmTarget = Point2D.Zero;
 
                 if (m_CharmTimer != null)
@@ -3488,7 +3423,7 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile CharmMaster => m_CharmMaster;
+        public Mobile CharmMaster { get; private set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public Point2D CharmTarget => m_CharmTarget;
@@ -3655,7 +3590,7 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public IDamageable ControlTarget { get => m_ControlTarget; set => m_ControlTarget = value; }
+        public IDamageable ControlTarget { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public Point3D ControlDest { get => m_ControlDest; set => m_ControlDest = value; }
@@ -3680,9 +3615,9 @@ namespace Server.Mobiles
                     }
                 }
 
-                if (m_AI != null)
+                if (AIObject != null)
                 {
-                    m_AI.OnCurrentOrderChanged();
+                    AIObject.OnCurrentOrderChanged();
                 }
 
                 InvalidateProperties();
@@ -3695,13 +3630,13 @@ namespace Server.Mobiles
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool BardProvoked { get => m_bBardProvoked; set => m_bBardProvoked = value; }
+        public bool BardProvoked { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool BardPacified { get => m_bBardPacified; set => m_bBardPacified = value; }
+        public bool BardPacified { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile BardMaster { get => m_bBardMaster; set => m_bBardMaster = value; }
+        public Mobile BardMaster { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile BardTarget { get => m_bBardTarget; set => m_bBardTarget = value; }
@@ -3724,18 +3659,18 @@ namespace Server.Mobiles
 
                     if (adjusted > 0)
                     {
-                        m_CurrentTameSkill = value + adjusted;
+                        CurrentTameSkill = value + adjusted;
                     }
                     else
                     {
-                        m_CurrentTameSkill = value;
+                        CurrentTameSkill = value;
                     }
                 }
             }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public double CurrentTameSkill { get => m_CurrentTameSkill; set => m_CurrentTameSkill = value; }
+        public double CurrentTameSkill { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool Tamable { get => m_bTamable && !m_Paragon; set => m_bTamable = value; }
@@ -3751,7 +3686,7 @@ namespace Server.Mobiles
                     return;
                 }
 
-                m_NextReacquireTime = Core.TickCount;
+                NextReacquireTime = Core.TickCount;
 
                 m_bSummoned = value;
                 Delta(MobileDelta.Noto);
@@ -3938,14 +3873,14 @@ namespace Server.Mobiles
 
         public override void OnAfterDelete()
         {
-            if (m_AI != null)
+            if (AIObject != null)
             {
-                if (m_AI.m_Timer != null)
+                if (AIObject.m_Timer != null)
                 {
-                    m_AI.m_Timer.Stop();
+                    AIObject.m_Timer.Stop();
                 }
 
-                m_AI = null;
+                AIObject = null;
             }
 
             if (m_DeleteTimer != null)
@@ -3966,7 +3901,7 @@ namespace Server.Mobiles
 
         public void DebugSay(string text)
         {
-            if (m_bDebugAI)
+            if (Debug)
             {
                 PublicOverheadMessage(MessageType.Regular, 41, false, text);
             }
@@ -3974,7 +3909,7 @@ namespace Server.Mobiles
 
         public void DebugSay(string format, params object[] args)
         {
-            if (m_bDebugAI)
+            if (Debug)
             {
                 PublicOverheadMessage(MessageType.Regular, 41, false, String.Format(format, args));
             }
@@ -4402,8 +4337,77 @@ namespace Server.Mobiles
 
         public override void AggressiveAction(Mobile aggressor, bool criminal)
         {
+            if (ControlMaster != null && ControlMaster != aggressor)
+            {
+                var master = ControlMaster;
+                AggressorInfo info = master.Aggressors.FirstOrDefault(i => i.Attacker == aggressor);
+
+                if (info != null)
+                {
+                    // already in the list, so we're refreshing it
+                    info.Refresh();
+                    info.CriminalAggression = criminal;
+                }
+                else
+                {
+                    // not in the list, so we're adding it
+                    master.Aggressors.Add(AggressorInfo.Create(aggressor, master, criminal));
+
+                    if (CanSee(aggressor) && NetState != null)
+                    {
+                        master.NetState.Send(MobileIncoming.Create(NetState, master, aggressor));
+                    }
+
+                    master.UpdateAggrExpire();
+                }
+
+                // Now, if the master is in the aggressor list, it needs to be refreshed
+                info = aggressor.Aggressors.FirstOrDefault(i => i.Attacker == master);
+
+                if (info != null)
+                {
+                    info.Refresh();
+                }
+
+                info = master.Aggressed.FirstOrDefault(i => i.Defender == aggressor);
+
+                if (info != null)
+                {
+                    info.Refresh();
+                }
+
+                // next lets find out if our master is on the aggressors aggressed list
+                info = aggressor.Aggressed.FirstOrDefault(i => i.Defender == master);
+
+                if (info != null)
+                {
+                    // already in the list, so we're refreshing it
+                    info.Refresh();
+                    info.CriminalAggression = criminal;
+                }
+                else
+                {
+                    // not in the list, so we're adding it
+                    aggressor.Aggressed.Add(AggressorInfo.Create(aggressor, master, criminal));
+
+                    if (CanSee(aggressor) && NetState != null)
+                    {
+                        master.NetState.Send(MobileIncoming.Create(NetState, master, aggressor));
+                    }
+
+                    master.UpdateAggrExpire();
+                }
+
+                if (aggressor is PlayerMobile || (aggressor is BaseCreature && !((BaseCreature)aggressor).IsMonster))
+                {
+                    BuffInfo.AddBuff(master, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, Aggression.CombatHeatDelay, master, true));
+                    BuffInfo.AddBuff(aggressor, new BuffInfo(BuffIcon.HeatOfBattleStatus, 1153801, 1153827, Aggression.CombatHeatDelay, aggressor, true));
+                }
+            }
+
             base.AggressiveAction(aggressor, criminal);
 
+            /*
             if (ControlMaster != null && ControlMaster != aggressor)
             {
                 if (NotorietyHandlers.CheckAggressor(Aggressors, aggressor))
@@ -4421,14 +4425,15 @@ namespace Server.Mobiles
                     }
                 }
             }
+            */
 
             OrderType ct = m_ControlOrder;
 
-            if (m_AI != null)
+            if (AIObject != null)
             {
                 if (!Core.ML || (ct != OrderType.Follow && ct != OrderType.Stop && ct != OrderType.Stay))
                 {
-                    m_AI.OnAggressiveAction(aggressor);
+                    AIObject.OnAggressiveAction(aggressor);
                 }
                 else
                 {
@@ -4459,7 +4464,7 @@ namespace Server.Mobiles
                 ControlTarget = aggressor;
                 ControlOrder = OrderType.Attack;
             }
-            else if (Combatant == null && !m_bBardPacified)
+            else if (Combatant == null && !BardPacified)
             {
                 Warmode = true;
                 Combatant = aggressor;
@@ -4488,9 +4493,9 @@ namespace Server.Mobiles
                 list.Add(new RenameEntry(from, this));
             }
 
-            if (m_AI != null && Commandable)
+            if (AIObject != null && Commandable)
             {
-                m_AI.GetContextMenuEntries(from, list);
+                AIObject.GetContextMenuEntries(from, list);
             }
 
             if (m_bTamable && !m_bControlled && from.Alive)
@@ -4534,7 +4539,7 @@ namespace Server.Mobiles
                 return true;
             }
 
-            return (m_AI != null && m_AI.HandlesOnSpeech(from) && from.InRange(this, m_iRangePerception));
+            return (AIObject != null && AIObject.HandlesOnSpeech(from) && from.InRange(this, m_iRangePerception));
         }
 
         public override void OnSpeech(SpeechEventArgs e)
@@ -4545,9 +4550,9 @@ namespace Server.Mobiles
             {
                 e.Handled = true;
             }
-            else if (!e.Handled && m_AI != null && e.Mobile.InRange(this, m_iRangePerception))
+            else if (!e.Handled && AIObject != null && e.Mobile.InRange(this, m_iRangePerception))
             {
-                m_AI.OnSpeech(e);
+                AIObject.OnSpeech(e);
             }
         }
 
@@ -4733,9 +4738,9 @@ namespace Server.Mobiles
         {
             Map map = Map;
 
-            if (PlayerRangeSensitive && m_AI != null && map != null && map.GetSector(Location).Active)
+            if (PlayerRangeSensitive && AIObject != null && map != null && map.GetSector(Location).Active)
             {
-                m_AI.Activate();
+                AIObject.Activate();
             }
         }
 
@@ -4775,7 +4780,7 @@ namespace Server.Mobiles
 
         public virtual void ForceReacquire()
         {
-            m_NextReacquireTime = Core.TickCount;
+            NextReacquireTime = Core.TickCount;
         }
 
         public virtual bool CanStealth => false;
@@ -4797,7 +4802,7 @@ namespace Server.Mobiles
                     }
                     else if (AllowedStealthSteps-- <= 0)
                     {
-                        Server.SkillHandlers.Stealth.OnUse(this);
+                        Stealth.OnUse(this);
                     }
                 }
                 else
@@ -4844,7 +4849,7 @@ namespace Server.Mobiles
             }
 
             /* Begin notice sound */
-            if ((!m.Hidden || m.IsPlayer()) && m.Player && m_FightMode != FightMode.Aggressor && m_FightMode != FightMode.None &&
+            if ((!m.Hidden || m.IsPlayer()) && m.Player && FightMode != FightMode.Aggressor && FightMode != FightMode.None &&
                 Combatant == null && !Controlled && !Summoned)
             {
                 // If this creature defends itself but doesn't actively attack (animal) or
@@ -4984,7 +4989,7 @@ namespace Server.Mobiles
                 val = (val * 100) / 60;
             }
 
-            m_HitsMax = val;
+            HitsMaxSeed = val;
             Hits = HitsMax;
         }
 
@@ -4996,35 +5001,35 @@ namespace Server.Mobiles
                 max = (max * 100) / 60;
             }
 
-            m_HitsMax = Utility.RandomMinMax(min, max);
+            HitsMaxSeed = Utility.RandomMinMax(min, max);
             Hits = HitsMax;
-            SetAverage(min, max, m_HitsMax);
+            SetAverage(min, max, HitsMaxSeed);
         }
 
         public void SetStam(int val)
         {
-            m_StamMax = val;
+            StamMaxSeed = val;
             Stam = StamMax;
         }
 
         public void SetStam(int min, int max)
         {
-            m_StamMax = Utility.RandomMinMax(min, max);
+            StamMaxSeed = Utility.RandomMinMax(min, max);
             Stam = StamMax;
-            SetAverage(min, max, m_StamMax);
+            SetAverage(min, max, StamMaxSeed);
         }
 
         public void SetMana(int val)
         {
-            m_ManaMax = val;
+            ManaMaxSeed = val;
             Mana = ManaMax;
         }
 
         public void SetMana(int min, int max)
         {
-            m_ManaMax = Utility.RandomMinMax(min, max);
+            ManaMaxSeed = Utility.RandomMinMax(min, max);
             Mana = ManaMax;
-            SetAverage(min, max, m_ManaMax);
+            SetAverage(min, max, ManaMaxSeed);
         }
 
         public void SetStr(int val)
@@ -5076,19 +5081,19 @@ namespace Server.Mobiles
             switch (type)
             {
                 case ResistanceType.Physical:
-                    m_PhysicalDamage = val;
+                    PhysicalDamage = val;
                     break;
                 case ResistanceType.Fire:
-                    m_FireDamage = val;
+                    FireDamage = val;
                     break;
                 case ResistanceType.Cold:
-                    m_ColdDamage = val;
+                    ColdDamage = val;
                     break;
                 case ResistanceType.Poison:
-                    m_PoisonDamage = val;
+                    PoisonDamage = val;
                     break;
                 case ResistanceType.Energy:
-                    m_EnergyDamage = val;
+                    EnergyDamage = val;
                     break;
             }
         }
@@ -5294,7 +5299,7 @@ namespace Server.Mobiles
 
         public virtual void GenerateLoot(bool spawning)
         {
-            if (m_NoLootOnDeath || m_Allured)
+            if (NoLootOnDeath || m_Allured)
                 return;
 
             m_Spawning = spawning;
@@ -5657,9 +5662,7 @@ namespace Server.Mobiles
 
             if (DeathAdderCharmable && from.CanBeHarmful(this, false))
             {
-                DeathAdder da = SummonFamiliarSpell.Table[from] as DeathAdder;
-
-                if (da != null && !da.Deleted)
+                if (SummonFamiliarSpell.Table[from] is DeathAdder da && !da.Deleted)
                 {
                     from.SendAsciiMessage("You charm the snake.  Select a target to attack.");
                     from.Target = new DeathAdderCharmTarget(this);
@@ -5714,7 +5717,7 @@ namespace Server.Mobiles
         {
             base.AddNameProperties(list);
 
-            if (Controlled && !String.IsNullOrEmpty(EngravedText))
+            if (Controlled && !string.IsNullOrEmpty(EngravedText))
             {
                 list.Add(1157315, EngravedText); // <BASEFONT COLOR=#668cff>Branded: ~1_VAL~<BASEFONT COLOR=#FFFFFF>
             }
@@ -5848,7 +5851,7 @@ namespace Server.Mobiles
                 {
 					if (m_Paragon && Paragon.ChestChance > Utility.RandomDouble())
 					{
-						PackItem( new ParagonChest( this.Name, treasureLevel ) );
+						PackItem( new ParagonChest( Name, treasureLevel ) );
 					}
                     else if (TreasureMapChance >= Utility.RandomDouble())
                     {
@@ -5881,7 +5884,7 @@ namespace Server.Mobiles
                 }
             }
 
-            if (!Summoned && !NoKillAwards && !m_HasGeneratedLoot && !m_NoLootOnDeath)
+            if (!Summoned && !NoKillAwards && !m_HasGeneratedLoot && !NoLootOnDeath)
             {
                 m_HasGeneratedLoot = true;
                 GenerateLoot(false);
@@ -5909,22 +5912,19 @@ namespace Server.Mobiles
                 speechType.OnDeath(this);
             }
 
-            if (m_ReceivedHonorContext != null)
+            if (ReceivedHonorContext != null)
             {
-                m_ReceivedHonorContext.OnTargetKilled();
+                ReceivedHonorContext.OnTargetKilled();
             }
 
             return base.OnBeforeDeath();
         }
 
-        private bool m_NoKillAwards;
-        private bool m_NoLootOnDeath;
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool NoKillAwards { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool NoKillAwards { get => m_NoKillAwards; set => m_NoKillAwards = value; }
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public bool NoLootOnDeath { get => m_NoLootOnDeath; set => m_NoLootOnDeath = value; }
+        public bool NoLootOnDeath { get; set; }
 
         public int ComputeBonusDamage(List<DamageEntry> list, Mobile m)
         {
@@ -5980,10 +5980,10 @@ namespace Server.Mobiles
             }
         }
 
-        public virtual bool IsAggressiveMonster => IsMonster && (m_FightMode == FightMode.Closest ||
-                                     m_FightMode == FightMode.Strongest ||
-                                     m_FightMode == FightMode.Weakest ||
-                                     m_FightMode == FightMode.Good);
+        public virtual bool IsAggressiveMonster => IsMonster && (FightMode == FightMode.Closest ||
+                                     FightMode == FightMode.Strongest ||
+                                     FightMode == FightMode.Weakest ||
+                                     FightMode == FightMode.Good);
 
         private class FKEntry
         {
@@ -6129,7 +6129,7 @@ namespace Server.Mobiles
 
                 if (Core.SA)
                 {
-                    minDamage = (int)((double)topDamage * 0.06);
+                    minDamage = (int)(topDamage * 0.06);
                 }
                 else
                 {
@@ -6286,7 +6286,7 @@ namespace Server.Mobiles
             {
                 LootingRights = null;
 
-                if (!Summoned && !m_NoKillAwards)
+                if (!Summoned && !NoKillAwards)
                 {
                     int totalFame = Fame / 100;
                     int totalKarma = -Karma / 100;
@@ -6466,17 +6466,7 @@ namespace Server.Mobiles
 
         public bool GivenSpecialArtifact { get; set; }
 
-        /* To save on cpu usage, ServUOX creatures only reacquire creatures under the following circumstances:
-        *  - 10 seconds have elapsed since the last time it tried
-        *  - The creature was attacked
-        *  - Some creatures, like dragons, will reacquire when they see someone move
-        *
-        * This functionality appears to be implemented on OSI as well
-        */
-
-        private long m_NextReacquireTime;
-
-        public long NextReacquireTime { get => m_NextReacquireTime; set => m_NextReacquireTime = value; }
+        public long NextReacquireTime { get; set; }
 
         public virtual TimeSpan ReacquireDelay => TimeSpan.FromSeconds(10.0);
         public virtual bool ReacquireOnMovement => false;
@@ -6497,9 +6487,9 @@ namespace Server.Mobiles
             SetControlMaster(null);
             SummonMaster = null;
 
-            if (m_ReceivedHonorContext != null)
+            if (ReceivedHonorContext != null)
             {
-                m_ReceivedHonorContext.Cancel();
+                ReceivedHonorContext.Cancel();
             }
 
             base.OnDelete();
@@ -6662,9 +6652,7 @@ namespace Server.Mobiles
             return dif;
         }
 
-        private static bool m_Summoning;
-
-        public static bool Summoning { get => m_Summoning; set => m_Summoning = value; }
+        public static bool Summoning { get; set; }
 
         public static bool Summon(BaseCreature creature, Mobile caster, Point3D p, int sound, TimeSpan duration)
         {
@@ -6681,7 +6669,7 @@ namespace Server.Mobiles
                 return false;
             }
 
-            m_Summoning = true;
+            Summoning = true;
 
             if (controlled)
             {
@@ -6712,13 +6700,13 @@ namespace Server.Mobiles
                 (int)Math.Floor(creature.HitsMax * (1 + ArcaneEmpowermentSpell.GetSpellBonus(caster, false) / 100.0)));
 
             new UnsummonTimer(caster, creature, duration).Start();
-            creature.m_SummonEnd = DateTime.UtcNow + duration;
+            creature.SummonEnd = DateTime.UtcNow + duration;
 
             creature.MoveToWorld(p, caster.Map);
 
             Effects.PlaySound(p, creature.Map, sound);
 
-            m_Summoning = false;
+            Summoning = false;
 
             // Skill Masteries
             creature.HitsMaxSeed += MasteryInfo.EnchantedSummoningBonus(creature);
@@ -7358,7 +7346,7 @@ namespace Server.Mobiles
                 return;
             }
 
-            if (!Summoned && _Profile != null)
+            if (!Summoned && AbilityProfile != null)
             {
                 SpecialAbility.CheckThinkTrigger(this);
                 AreaEffect.CheckThinkTrigger(this);
@@ -7516,9 +7504,9 @@ namespace Server.Mobiles
 
         public override Mobile GetDamageMaster(Mobile damagee)
         {
-            if (m_bBardProvoked && damagee == m_bBardTarget)
+            if (BardProvoked && damagee == m_bBardTarget)
             {
-                return m_bBardMaster;
+                return BardMaster;
             }
             else if (m_bControlled && m_ControlMaster != null)
             {
@@ -7550,10 +7538,8 @@ namespace Server.Mobiles
                 Combatant = target;
                 BardEndTime = DateTime.UtcNow + TimeSpan.FromSeconds(30.0);
 
-                if (target is BaseCreature)
+                if (target is BaseCreature t)
                 {
-                    BaseCreature t = (BaseCreature)target;
-
                     if (t.Unprovokable || (t.IsParagon && BaseInstrument.GetBaseDifficulty(t) >= 160.0))
                     {
                         return;
@@ -7748,7 +7734,7 @@ namespace Server.Mobiles
             return false;
         }
 
-        public virtual bool ReturnsToHome => (m_SeeksHome && (Home != Point3D.Zero) && !m_ReturnQueued && !Controlled && !Summoned);
+        public virtual bool ReturnsToHome => (SeeksHome && (Home != Point3D.Zero) && !m_ReturnQueued && !Controlled && !Summoned);
 
         public override void OnSectorDeactivate()
         {
@@ -7758,9 +7744,9 @@ namespace Server.Mobiles
 
                 m_ReturnQueued = true;
             }
-            else if (PlayerRangeSensitive && m_AI != null)
+            else if (PlayerRangeSensitive && AIObject != null)
             {
-                m_AI.Deactivate();
+                AIObject.Deactivate();
             }
 
             base.OnSectorDeactivate();
@@ -7774,9 +7760,9 @@ namespace Server.Mobiles
                 {
                     SetLocation(Home, true);
 
-                    if (!((Map.GetSector(X, Y)).Active) && m_AI != null)
+                    if (!((Map.GetSector(X, Y)).Active) && AIObject != null)
                     {
-                        m_AI.Deactivate();
+                        AIObject.Deactivate();
                     }
                 }
             }
@@ -7786,30 +7772,22 @@ namespace Server.Mobiles
 
         public override void OnSectorActivate()
         {
-            if (PlayerRangeSensitive && m_AI != null)
+            if (PlayerRangeSensitive && AIObject != null)
             {
-                m_AI.Activate();
+                AIObject.Activate();
             }
 
             base.OnSectorActivate();
         }
 
-        private bool m_RemoveIfUntamed;
-
-        // used for deleting untamed creatures [in houses]
-        private int m_RemoveStep;
+        [CommandProperty(AccessLevel.GameMaster)]
+        public bool RemoveIfUntamed { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool RemoveIfUntamed { get => m_RemoveIfUntamed; set => m_RemoveIfUntamed = value; }
+        public int RemoveStep { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int RemoveStep { get => m_RemoveStep; set => m_RemoveStep = value; }
-
-        // used for deleting untamed creatures [on save]
-        private bool m_RemoveOnSave;
-
-        [CommandProperty(AccessLevel.GameMaster)]
-        public bool RemoveOnSave { get => m_RemoveOnSave; set => m_RemoveOnSave = value; }
+        public bool RemoveOnSave { get; set; }
     }
 
     public class LoyaltyTimer : Timer

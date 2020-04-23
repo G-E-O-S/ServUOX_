@@ -150,11 +150,17 @@ namespace Server.Engines.HuntsmasterChallenge
 		public HuntMaster(Serial serial) : base(serial)
 		{
 		}
-		
-		public override void Serialize(GenericWriter writer)
+
+        public override void GetProperties(ObjectPropertyList list)
+        {
+            base.GetProperties(list);
+            list.Add(1155725); // Double Click to Join Huntmaster's Challenge
+        }
+
+        public override void Serialize(GenericWriter writer)
 		{
 			base.Serialize(writer);
-			writer.Write((int)0);
+			writer.Write(0);
 		}
 		
 		public override void Deserialize(GenericReader reader)

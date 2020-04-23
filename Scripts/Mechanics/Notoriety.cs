@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Server.Engines.ArenaSystem;
 using Server.Engines.PartySystem;
 using Server.Engines.Quests;
@@ -320,7 +321,8 @@ namespace Server.Misc
                 return Notoriety.Innocent;
             }
 
-            var target = damageable as Mobile;
+            if (!(damageable is Mobile target))
+                return Notoriety.CanBeAttacked;
 
             if (target == null)
                 return Notoriety.CanBeAttacked;
@@ -351,13 +353,17 @@ namespace Server.Misc
             if (target.IsStaff())
                 return Notoriety.CanBeAttacked;
 
-            if (source.Player && target is BaseCreature)
-            {
-                var bc = (BaseCreature)target;
 
+            var bc = (BaseCreature)target;
+
+            if (source.Player && bc != null)
+            {
                 var master = bc.GetMaster();
 
-                if (master != null && master.IsStaff())
+                if (master == null)
+                    return Notoriety.CanBeAttacked;
+
+                if (master.IsStaff())
                     return Notoriety.CanBeAttacked;
 
                 master = bc.ControlMaster;
@@ -383,10 +389,9 @@ namespace Server.Misc
                     return Notoriety.Murderer;
             }
 
-            if (target is BaseCreature)
+            if (bc != null && (bc.AlwaysMurderer || bc.IsAnimatedDead))
             {
-                if (((BaseCreature)target).AlwaysMurderer || ((BaseCreature)target).IsAnimatedDead)
-                    return Notoriety.Murderer;
+                return Notoriety.Murderer;
             }
 
             if (source.Player && target is BaseEscort)
@@ -453,17 +458,14 @@ namespace Server.Misc
             if (source is PlayerMobile && CheckPetAggressed((PlayerMobile)source, target))
                 return Notoriety.CanBeAttacked;
 
-            if (target is BaseCreature)
+            if (bc != null)
             {
-                var bc = (BaseCreature)target;
-
                 if (bc.Controlled && bc.ControlOrder == OrderType.Guard && bc.ControlTarget == source)
                     return Notoriety.CanBeAttacked;
             }
 
-            if (source is BaseCreature)
+            if (source is BaseCreature && bc != null)
             {
-                var bc = (BaseCreature)source;
                 var master = bc.GetMaster();
 
                 if (master != null)
@@ -518,46 +520,22 @@ namespace Server.Misc
 
         public static bool CheckAggressor(List<AggressorInfo> list, Mobile target)
         {
-            foreach (var o in list)
-            {
-                if (o.Attacker == target)
-                    return true;
-            }
-
-            return false;
+            return list != null && list.Any(info => info.Attacker == target);
         }
 
         public static bool CheckAggressed(List<AggressorInfo> list, Mobile target)
         {
-            foreach (var info in list)
-            {
-                if (!info.CriminalAggression && info.Defender == target)
-                    return true;
-            }
-
-            return false;
+            return list != null && list.Any(info => info.CriminalAggression && info.Defender == target);
         }
 
         public static bool CheckPetAggressor(PlayerMobile source, Mobile target)
         {
-            foreach (var bc in source.AllFollowers)
-            {
-                if (CheckAggressor(bc.Aggressors, target))
-                    return true;
-            }
-
-            return false;
+            return source.AllFollowers.Any(follower => CheckAggressor(follower.Aggressors, target));
         }
 
         public static bool CheckPetAggressed(PlayerMobile source, Mobile target)
         {
-            foreach (var bc in source.AllFollowers)
-            {
-                if (CheckAggressed(bc.Aggressed, target))
-                    return true;
-            }
-
-            return false;
+            return source.AllFollowers.Any(follower => CheckAggressed(follower.Aggressed, target));
         }
     }
 }

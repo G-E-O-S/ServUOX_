@@ -118,6 +118,13 @@ namespace Server.Engines.Plants
             }
         }
 
+        /*
+        public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
+        {
+            return false; // prevent thrid party program drop needs tested
+        }
+        */
+
         public bool TryAddSeed(Mobile from, Seed seed, int index = -1)
         {
             if (!from.Backpack.CheckHold(from, seed, true, true) || seed.Amount <= 0)

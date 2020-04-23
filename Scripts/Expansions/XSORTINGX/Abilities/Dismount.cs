@@ -5,6 +5,7 @@ namespace Server.Items
 {
     public class Dismount : WeaponAbility
     {
+        // Fraz currently not implimented in Dismount.cs?
         public static readonly TimeSpan DefenderRemountDelay = TimeSpan.FromSeconds(10.0);// TODO: Taken from bola script, needs to be verified
         public static readonly TimeSpan AttackerRemountDelay = TimeSpan.FromSeconds(3.0);
 

@@ -156,12 +156,12 @@ namespace Server.Engines.Blackthorn
             }
             while (newCity == this.CurrentInvasion);
 
-            this.CurrentInvasion = newCity;
-			this.InvasionType = newType;
+            CurrentInvasion = newCity;
+			InvasionType = newType;
 			SpawnZones = Defs[CurrentInvasion].SpawnRecs.ToList();
 
 			Beacon = new InvasionBeacon(this);
-            Beacon.MoveToWorld(Defs[CurrentInvasion].BeaconLoc, this.Map);
+            Beacon.MoveToWorld(Defs[CurrentInvasion].BeaconLoc, Map);
 
 			// Shuffle zones
 			for(int i = 0; i < 8; i++)
@@ -188,9 +188,16 @@ namespace Server.Engines.Blackthorn
 
 				for(int i = 0; i < count; i++)
 				{
-                    BaseCreature bc = Activator.CreateInstance(_SpawnTable[(int)this.InvasionType][Utility.Random(_SpawnTable[(int)this.InvasionType].Length)]) as BaseCreature;
+                    BaseCreature bc = Activator.CreateInstance(_SpawnTable[(int)InvasionType][Utility.Random(_SpawnTable[(int)InvasionType].Length)]) as BaseCreature;
 
-                    Server.Engines.XmlSpawner2.XmlAttach.AttachTo(bc, new Server.Engines.XmlSpawner2.XmlData("Notoriety", "red"));
+                    bc.Kills = 100;
+
+                    if (bc.FightMode == FightMode.Evil)
+                    {
+                        bc.FightMode = FightMode.Aggressor;
+                    }
+
+                    XmlSpawner2.XmlAttach.AttachTo(bc, new XmlSpawner2.XmlData("Notoriety", "red"));
 
                     if (SpawnMobile(bc, spawnrec))
                     {
@@ -204,7 +211,7 @@ namespace Server.Engines.Blackthorn
 
                 for (int i = 0; i < 3; i++)
                 {
-                    Invader invader = new Invader(this.InvasionType);
+                    Invader invader = new Invader(InvasionType);
 
                     if (SpawnMobile(invader, spawnrec))
                     {
@@ -214,7 +221,7 @@ namespace Server.Engines.Blackthorn
                         invader.Delete();
                 }
 
-                InvaderCaptain capt = new InvaderCaptain(this.InvasionType);
+                InvaderCaptain capt = new InvaderCaptain(InvasionType);
                 capt.Blessed = true;
 
                 if (SpawnMobile(capt, spawnrec) || SpawnMobile(capt, new Rectangle2D(Defs[CurrentInvasion].BeaconLoc.X - 10, Defs[CurrentInvasion].BeaconLoc.Y - 10, 20, 20)))

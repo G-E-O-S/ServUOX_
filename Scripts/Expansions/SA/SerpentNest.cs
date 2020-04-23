@@ -1,5 +1,4 @@
-﻿using System;
-using Server;
+using System;
 using Server.Mobiles;
 using Server.Network;
 
@@ -7,14 +6,14 @@ namespace Server.Items
 {
     public class SerpentNest : Item
     {
-        public override int LabelNumber { get { return 1112582; } } // a serpent's nest
+        public override int LabelNumber => 1112582;  // a serpent's nest
 
         [Constructable]
         public SerpentNest()
             : base(0x2233)
         {
-            this.Hue = 0x456;
-            this.Movable = false;
+            Hue = 0x456;
+            Movable = false;
         }
 
         public SerpentNest(Serial serial)
@@ -50,14 +49,14 @@ namespace Server.Items
                     case 1:
                         {
                             from.SendLocalizedMessage(1112579); // You reach in but clumsily destroy the eggs inside the nest.
-                            this.Collapse(from);
+                            Collapse(from);
 
                             break;
                         }
                     case 2:
                         {
                             from.SendLocalizedMessage(1112580); // Beware! You've hatched the eggs!!
-                            this.HatchEggs(from);
+                            HatchEggs(from);
 
                             from.PrivateOverheadMessage(MessageType.Regular, 33, 1112940, from.NetState); // Your hand remains stuck!!!
                             from.Frozen = true;
@@ -79,7 +78,7 @@ namespace Server.Items
         {
             from.SendLocalizedMessage(1112583); // The nest collapses.
 
-            this.Delete();
+            Delete();
         }
 
         public void HatchEggs(Mobile from)
@@ -93,14 +92,14 @@ namespace Server.Items
                     BaseCreature snake = (BaseCreature)Activator.CreateInstance(m_SnakeTypes[Utility.Random(m_SnakeTypes.Length)]);
 
                     snake.RemoveOnSave = true;
-                    snake.MoveToWorld(this.Map.GetSpawnPosition(this.Location, 1), this.Map);
+                    snake.MoveToWorld(Map.GetSpawnPosition(Location, 1), Map);
                 }
                 catch
                 {
                 }
             }
 
-            this.Collapse(from);
+            Collapse(from);
         }
 
         private static Type[] m_SnakeTypes = new Type[]
@@ -128,7 +127,7 @@ namespace Server.Items
 
                         Mobile from = snake.CharmMaster;
 
-                        if (from == null || this.Deleted)
+                        if (from == null || Deleted)
                             return;
 
                         if (0.1 > Utility.RandomDouble())
@@ -136,7 +135,7 @@ namespace Server.Items
                             from.SendLocalizedMessage(1112586); // The snake finds a rare egg and drags it out of the nest!
                             new RareSerpentEgg().MoveToWorld(Location, Map);
 
-                            this.Collapse(from);
+                            Collapse(from);
                         }
                         else
                         {
@@ -145,7 +144,7 @@ namespace Server.Items
                                 case 0:
                                     {
                                         from.SendLocalizedMessage(1112585); // Beware! The snake has hatched some of the eggs!!
-                                        this.HatchEggs(from);
+                                        HatchEggs(from);
 
                                         break;
                                     }
@@ -158,7 +157,7 @@ namespace Server.Items
                                 case 2:
                                     {
                                         from.SendLocalizedMessage(1112584); // The snake searches the nest and finds nothing.
-                                        this.Collapse(from);
+                                        Collapse(from);
 
                                         break;
                                     }
@@ -175,15 +174,12 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            /*int version = */
             reader.ReadInt();
         }
     }

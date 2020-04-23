@@ -35,7 +35,7 @@ namespace Server.Engines.Quests
         {
         }
 
-        public override bool InitialInnocent { get { return true; } }
+        // public override bool InitialInnocent { get { return true; } }
         public override bool IsInvulnerable { get { return false; } }
         public override bool Commandable { get { return false; } }
 

@@ -115,6 +115,13 @@ namespace Server.Items
             return false;
         }
 
+        /*
+        public override bool OnDragDropInto(Mobile from, Item item, Point3D p)
+        {
+            return false; // prevent thrid party program drop needs tested
+        }
+        */
+
         public virtual void Construct(Mobile m, SkillName sk, double value)
         {
             var scroll = Items.OfType<SpecialScroll>().FirstOrDefault(s => s.Skill == sk && s.Value == value);
