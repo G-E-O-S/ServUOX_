@@ -314,6 +314,7 @@ namespace Server.Misc
             }
         }
 
+
         public static int MobileNotoriety(Mobile source, IDamageable damageable)
         {
             if (damageable is PublicMoongate)
@@ -321,8 +322,7 @@ namespace Server.Misc
                 return Notoriety.Innocent;
             }
 
-            if (!(damageable is Mobile target))
-                return Notoriety.CanBeAttacked;
+            var target = damageable as Mobile;
 
             if (target == null)
                 return Notoriety.CanBeAttacked;
@@ -353,17 +353,13 @@ namespace Server.Misc
             if (target.IsStaff())
                 return Notoriety.CanBeAttacked;
 
-
-            var bc = (BaseCreature)target;
-
-            if (source.Player && bc != null)
+            if (source.Player && target is BaseCreature)
             {
+                var bc = (BaseCreature)target;
+
                 var master = bc.GetMaster();
 
-                if (master == null)
-                    return Notoriety.CanBeAttacked;
-
-                if (master.IsStaff())
+                if (master != null && master.IsStaff())
                     return Notoriety.CanBeAttacked;
 
                 master = bc.ControlMaster;
@@ -389,9 +385,10 @@ namespace Server.Misc
                     return Notoriety.Murderer;
             }
 
-            if (bc != null && (bc.AlwaysMurderer || bc.IsAnimatedDead))
+            if (target is BaseCreature)
             {
-                return Notoriety.Murderer;
+                if (((BaseCreature)target).AlwaysMurderer || ((BaseCreature)target).IsAnimatedDead)
+                    return Notoriety.Murderer;
             }
 
             if (source.Player && target is BaseEscort)
@@ -458,14 +455,17 @@ namespace Server.Misc
             if (source is PlayerMobile && CheckPetAggressed((PlayerMobile)source, target))
                 return Notoriety.CanBeAttacked;
 
-            if (bc != null)
+            if (target is BaseCreature)
             {
+                var bc = (BaseCreature)target;
+
                 if (bc.Controlled && bc.ControlOrder == OrderType.Guard && bc.ControlTarget == source)
                     return Notoriety.CanBeAttacked;
             }
 
-            if (source is BaseCreature && bc != null)
+            if (source is BaseCreature)
             {
+                var bc = (BaseCreature)source;
                 var master = bc.GetMaster();
 
                 if (master != null)
