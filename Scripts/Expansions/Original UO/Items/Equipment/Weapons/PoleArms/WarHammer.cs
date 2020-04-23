@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -11,8 +10,8 @@ namespace Server.Items
         public WarHammer()
             : base(0x1439)
         {
-            this.Weight = 10.0;
-            this.Layer = Layer.TwoHanded;
+            Weight = 10.0;
+            Layer = Layer.TwoHanded;
         }
 
         public WarHammer(Serial serial)
@@ -20,116 +19,30 @@ namespace Server.Items
         {
         }
 
-        public override WeaponAbility PrimaryAbility
-        {
-            get
-            {
-                return WeaponAbility.WhirlwindAttack;
-            }
-        }
-        public override WeaponAbility SecondaryAbility
-        {
-            get
-            {
-                return WeaponAbility.CrushingBlow;
-            }
-        }
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 95;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 17;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 20;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 28;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 3.75f;
-            }
-        }
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 40;
-            }
-        }
-        public override int OldMinDamage
-        {
-            get
-            {
-                return 8;
-            }
-        }
-        public override int OldMaxDamage
-        {
-            get
-            {
-                return 36;
-            }
-        }
-        public override int OldSpeed
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 110;
-            }
-        }
-        public override WeaponAnimation DefAnimation
-        {
-            get
-            {
-                return WeaponAnimation.Bash2H;
-            }
-        }
+        public override WeaponAbility PrimaryAbility => WeaponAbility.WhirlwindAttack;
+        public override WeaponAbility SecondaryAbility => WeaponAbility.CrushingBlow;
+        public override int AosStrengthReq => 95;
+        public override int AosMinDamage => 17;
+        public override int AosMaxDamage => 20;
+        public override int AosSpeed => 28;
+        public override float MlSpeed => 3.75f;
+        public override int OldStrengthReq => 40;
+        public override int OldMinDamage => 8;
+        public override int OldMaxDamage => 36;
+        public override int OldSpeed => 31;
+        public override int InitMinHits => 31;
+        public override int InitMaxHits => 110;
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Bash2H;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

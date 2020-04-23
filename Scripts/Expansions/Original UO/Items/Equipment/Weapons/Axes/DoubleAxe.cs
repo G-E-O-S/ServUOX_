@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -11,7 +10,7 @@ namespace Server.Items
         public DoubleAxe()
             : base(0xF4B)
         {
-            this.Weight = 8.0;
+            Weight = 8.0;
         }
 
         public DoubleAxe(Serial serial)
@@ -19,109 +18,29 @@ namespace Server.Items
         {
         }
 
-        public override WeaponAbility PrimaryAbility
-        {
-            get
-            {
-                return WeaponAbility.DoubleStrike;
-            }
-        }
-        public override WeaponAbility SecondaryAbility
-        {
-            get
-            {
-                return WeaponAbility.WhirlwindAttack;
-            }
-        }
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 45;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 15;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 18;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 33;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 3.25f;
-            }
-        }
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 45;
-            }
-        }
-        public override int OldMinDamage
-        {
-            get
-            {
-                return 5;
-            }
-        }
-        public override int OldMaxDamage
-        {
-            get
-            {
-                return 35;
-            }
-        }
-        public override int OldSpeed
-        {
-            get
-            {
-                return 37;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 110;
-            }
-        }
+        public override WeaponAbility PrimaryAbility => WeaponAbility.DoubleStrike;
+        public override WeaponAbility SecondaryAbility => WeaponAbility.WhirlwindAttack;
+        public override int AosStrengthReq => 45;
+        public override int AosMinDamage => 15;
+        public override int AosMaxDamage => 18;
+        public override int AosSpeed => 33;
+        public override float MlSpeed => 3.25f;
+        public override int OldStrengthReq => 45;
+        public override int OldMinDamage => 5;
+        public override int OldMaxDamage => 35;
+        public override int OldSpeed => 37;
+        public override int InitMinHits => 31;
+        public override int InitMaxHits => 110;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -10,7 +10,6 @@ namespace Server.Items
         public SilverRing()
             : base(0x1F09)
         {
-            //Weight = 0.1;
         }
 
         public SilverRing(Serial serial)

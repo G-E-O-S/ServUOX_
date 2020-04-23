@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Harvest;
 
 namespace Server.Items
@@ -20,124 +19,34 @@ namespace Server.Items
         {
         }
 
-        public override HarvestSystem HarvestSystem
-        {
-            get
-            {
-                return Mining.System;
-            }
-        }
-        public override WeaponAbility PrimaryAbility
-        {
-            get
-            {
-                return WeaponAbility.DoubleStrike;
-            }
-        }
-        public override WeaponAbility SecondaryAbility
-        {
-            get
-            {
-                return WeaponAbility.Disarm;
-            }
-        }
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 50;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 12;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 16;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 35;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 3.00f;
-            }
-        }
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 25;
-            }
-        }
-        public override int OldMinDamage
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override int OldMaxDamage
-        {
-            get
-            {
-                return 15;
-            }
-        }
-        public override int OldSpeed
-        {
-            get
-            {
-                return 35;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 60;
-            }
-        }
+        public override HarvestSystem HarvestSystem => Mining.System;
+        public override WeaponAbility PrimaryAbility => WeaponAbility.DoubleStrike;
+        public override WeaponAbility SecondaryAbility => WeaponAbility.Disarm;
+        public override int AosStrengthReq => 50;
+        public override int AosMinDamage => 12;
+        public override int AosMaxDamage => 16;
+        public override int AosSpeed => 35;
+        public override float MlSpeed => 3.00f;
+        public override int OldStrengthReq => 25;
+        public override int OldMinDamage => 1;
+        public override int OldMaxDamage => 15;
+        public override int OldSpeed => 35;
+        public override int InitMinHits => 31;
+        public override int InitMaxHits => 60;
 
-        public override bool CanBeWornByGargoyles { get { return true; } }
+        public override bool CanBeWornByGargoyles => true;
 
-        public override WeaponAnimation DefAnimation
-        {
-            get
-            {
-                return WeaponAnimation.Slash1H;
-            }
-        }
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Slash1H;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

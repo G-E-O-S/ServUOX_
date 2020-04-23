@@ -6,7 +6,6 @@ namespace Server.Items
         public GoldNecklace()
             : base(0x1088)
         {
-            Weight = 0.1;
         }
 
         public GoldNecklace(Serial serial)

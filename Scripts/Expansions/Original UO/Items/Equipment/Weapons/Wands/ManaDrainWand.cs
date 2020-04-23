@@ -1,17 +1,16 @@
-using System;
-using Server.Spells.Third;
+using Server.Spells.Fourth;
 
 namespace Server.Items
 {
-    public class FireballWand : BaseWand
+    public class ManaDrainWand : BaseWand
     {
         [Constructable]
-        public FireballWand()
-            : base(WandEffect.Fireball, 5, Core.ML ? 109 : 15)
+        public ManaDrainWand()
+            : base(WandEffect.ManaDraining, 5, 30)
         {
         }
 
-        public FireballWand(Serial serial)
+        public ManaDrainWand(Serial serial)
             : base(serial)
         {
         }
@@ -19,20 +18,18 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnWandUse(Mobile from)
         {
-            this.Cast(new FireballSpell(from, this));
+            Cast(new ManaDrainSpell(from, this));
         }
     }
 }

@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public abstract class BaseStaff : BaseMeleeWeapon
@@ -14,61 +12,31 @@ namespace Server.Items
         {
         }
 
-        public override int DefHitSound
-        {
-            get
-            {
-                return 0x233;
-            }
-        }
-        public override int DefMissSound
-        {
-            get
-            {
-                return 0x239;
-            }
-        }
-        public override SkillName DefSkill
-        {
-            get
-            {
-                return SkillName.Macing;
-            }
-        }
-        public override WeaponType DefType
-        {
-            get
-            {
-                return WeaponType.Staff;
-            }
-        }
-        public override WeaponAnimation DefAnimation
-        {
-            get
-            {
-                return WeaponAnimation.Bash2H;
-            }
-        }
+        public override int DefHitSound => 0x233;
+        public override int DefMissSound => 0x239;
+        public override SkillName DefSkill => SkillName.Macing;
+        public override WeaponType DefType => WeaponType.Staff;
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Bash2H;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnHit(Mobile attacker, IDamageable defender, double damageBonus)
         {
             base.OnHit(attacker, defender, damageBonus);
 
-            if(defender is Mobile)
+            if (defender is Mobile)
+            {
                 ((Mobile)defender).Stam -= Utility.Random(3, 3); // 3-5 points of stamina loss
+            }
         }
     }
 }

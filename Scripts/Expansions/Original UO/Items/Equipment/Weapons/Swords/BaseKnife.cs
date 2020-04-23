@@ -1,4 +1,3 @@
-using System;
 using Server.Targets;
 
 namespace Server.Items
@@ -15,53 +14,21 @@ namespace Server.Items
         {
         }
 
-        public override int DefHitSound
-        {
-            get
-            {
-                return 0x23B;
-            }
-        }
-        public override int DefMissSound
-        {
-            get
-            {
-                return 0x238;
-            }
-        }
-        public override SkillName DefSkill
-        {
-            get
-            {
-                return SkillName.Swords;
-            }
-        }
-        public override WeaponType DefType
-        {
-            get
-            {
-                return WeaponType.Slashing;
-            }
-        }
-        public override WeaponAnimation DefAnimation
-        {
-            get
-            {
-                return WeaponAnimation.Slash1H;
-            }
-        }
+        public override int DefHitSound => 0x23B;
+        public override int DefMissSound => 0x238;
+        public override SkillName DefSkill => SkillName.Swords;
+        public override WeaponType DefType => WeaponType.Slashing;
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Slash1H;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -75,12 +42,14 @@ namespace Server.Items
         {
             base.OnHit(attacker, defender, damageBonus);
 
-            if (!Core.AOS && defender is Mobile && this.Poison != null && this.PoisonCharges > 0)
+            if (!Core.AOS && defender is Mobile && Poison != null && PoisonCharges > 0)
             {
-                --this.PoisonCharges;
+                --PoisonCharges;
 
                 if (Utility.RandomDouble() >= 0.5) // 50% chance to poison
-                    ((Mobile)defender).ApplyPoison(attacker, this.Poison);
+                {
+                    ((Mobile)defender).ApplyPoison(attacker, Poison);
+                }
             }
         }
     }

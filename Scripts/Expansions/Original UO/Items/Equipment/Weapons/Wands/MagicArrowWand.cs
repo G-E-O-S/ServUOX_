@@ -1,17 +1,16 @@
-using System;
-using Server.Spells.Fourth;
+using Server.Spells.First;
 
 namespace Server.Items
 {
-    public class ManaDrainWand : BaseWand
+    public class MagicArrowWand : BaseWand
     {
         [Constructable]
-        public ManaDrainWand()
-            : base(WandEffect.ManaDraining, 5, 30)
+        public MagicArrowWand()
+            : base(WandEffect.MagicArrow, 5, Core.ML ? 109 : 30)
         {
         }
 
-        public ManaDrainWand(Serial serial)
+        public MagicArrowWand(Serial serial)
             : base(serial)
         {
         }
@@ -19,20 +18,18 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnWandUse(Mobile from)
         {
-            this.Cast(new ManaDrainSpell(from, this));
+            Cast(new MagicArrowSpell(from, this));
         }
     }
 }

@@ -305,6 +305,8 @@ namespace Server.Items
         public virtual WeaponType OldType => DefType;
         public virtual WeaponAnimation OldAnimation => DefAnimation;
 
+        public virtual int OldInitMinHits => 0;
+        public virtual int OldInitMaxHits => 0;
         public virtual int InitMinHits => 0;
         public virtual int InitMaxHits => 0;
 
@@ -606,7 +608,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int MinDamage
         {
-            get => (m_MinDamage == -1 ? Core.AOS ? AosMinDamage : OldMinDamage : m_MinDamage);
+            get => m_MinDamage == -1 ? Core.AOS ? AosMinDamage : OldMinDamage : m_MinDamage;
             set
             {
                 m_MinDamage = value;
@@ -617,7 +619,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public int MaxDamage
         {
-            get => (m_MaxDamage == -1 ? Core.AOS ? AosMaxDamage : OldMaxDamage : m_MaxDamage);
+            get => m_MaxDamage == -1 ? Core.AOS ? AosMaxDamage : OldMaxDamage : m_MaxDamage;
             set
             {
                 m_MaxDamage = value;
@@ -5244,7 +5246,14 @@ namespace Server.Items
 
             if (m_Hits <= 0 && m_MaxHits <= 0)
             {
-                m_Hits = m_MaxHits = Utility.RandomMinMax(InitMinHits, InitMaxHits);
+                if (Core.AOS)
+                {
+                    m_Hits = m_MaxHits = Utility.RandomMinMax(InitMinHits, InitMaxHits);
+                }
+                else
+                {
+                    m_Hits = m_MaxHits = Utility.RandomMinMax(OldInitMinHits, OldInitMaxHits);
+                }
             }
 
             if (version < 6)
@@ -5283,7 +5292,14 @@ namespace Server.Items
             m_Type = (WeaponType)(-1);
             m_Animation = (WeaponAnimation)(-1);
 
-            m_Hits = m_MaxHits = Utility.RandomMinMax(InitMinHits, InitMaxHits);
+            if (Core.AOS)
+            {
+                m_Hits = m_MaxHits = Utility.RandomMinMax(InitMinHits, InitMaxHits);
+            }
+            else
+            {
+                m_Hits = m_MaxHits = Utility.RandomMinMax(OldInitMinHits, OldInitMaxHits);
+            }
 
             m_Resource = CraftResource.Iron;
 

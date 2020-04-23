@@ -1,14 +1,19 @@
+using Server.Engines.Craft;
+
 namespace Server.Items
 {
-    public class Necklace : BaseNecklace
+    public abstract class BaseEarrings : BaseJewel, IRepairable
     {
-        [Constructable]
-        public Necklace()
-            : base(0x1085)
+        public CraftSystem RepairSystem => DefTinkering.CraftSystem;
+        public override int BaseGemTypeNumber => 1044203; // star sapphire earrings
+
+        public BaseEarrings(int itemID)
+            : base(itemID, Layer.Earrings)
         {
+            Weight = 1.0;
         }
 
-        public Necklace(Serial serial)
+        public BaseEarrings(Serial serial)
             : base(serial)
         {
         }

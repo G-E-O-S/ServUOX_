@@ -1,7 +1,8 @@
-using System;
-using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Engines.Harvest;
+using System;
+using System.Collections.Generic;
+using Server.Network;
 
 namespace Server.Items
 {
@@ -22,74 +23,42 @@ namespace Server.Items
         {
         }
 
-        public override int DefHitSound
-        {
-            get
-            {
-                return 0x232;
-            }
-        }
+        public override int DefHitSound => 0x232;
 
-        public override int DefMissSound
-        {
-            get
-            {
-                return 0x23A;
-            }
-        }
+        public override int DefMissSound => 0x23A;
 
-        public override SkillName DefSkill
-        {
-            get
-            {
-                return SkillName.Swords;
-            }
-        }
+        public override SkillName DefSkill => SkillName.Swords;
 
-        public override WeaponType DefType
-        {
-            get
-            {
-                return WeaponType.Axe;
-            }
-        }
+        public override WeaponType DefType => WeaponType.Axe;
 
-        public override WeaponAnimation DefAnimation
-        {
-            get
-            {
-                return WeaponAnimation.Slash2H;
-            }
-        }
+        public override WeaponAnimation DefAnimation => WeaponAnimation.Slash2H;
 
-        public virtual HarvestSystem HarvestSystem
-        {
-            get
-            {
-                return Lumberjacking.System;
-            }
-        }
+        public virtual HarvestSystem HarvestSystem => Lumberjacking.System;
 
         public override void OnDoubleClick(Mobile from)
         {
             if (HarvestSystem == null || Deleted)
+            {
                 return;
+            }
 
             Point3D loc = GetWorldLocation();
 
             if (!from.InLOS(loc) || !from.InRange(loc, 2))
             {
-                from.LocalOverheadMessage(Server.Network.MessageType.Regular, 0x3E9, 1019045); // I can't reach that
+                from.LocalOverheadMessage(MessageType.Regular, 0x3E9, 1019045); // I can't reach that
                 return;
             }
             else if (!IsAccessibleTo(from))
             {
-                PublicOverheadMessage(Server.Network.MessageType.Regular, 0x3E9, 1061637); // You are not allowed to access 
+                PublicOverheadMessage(MessageType.Regular, 0x3E9, 1061637); // You are not allowed to access 
                 return;
             }
 
             if (!(HarvestSystem is Mining))
+            {
                 from.SendLocalizedMessage(1010018); // What do you want to use this item on?
+            }
 
             HarvestSystem.BeginHarvesting(from, this);
         }
@@ -99,7 +68,9 @@ namespace Server.Items
             base.GetContextMenuEntries(from, list);
 
             if (HarvestSystem == null)
-            	return;
+            {
+                return;
+            }
 
             BaseHarvestTool.AddContextMenuEntries(from, this, list, HarvestSystem);
         }
@@ -107,8 +78,7 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)3); // version
+            writer.Write(3);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -117,20 +87,26 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 3:
                     break;
                 case 2:
                     {
-                        if(version == 2)
+                        if (version == 2)
+                        {
                             ShowUsesRemaining = reader.ReadBool();
+                        }
+
                         goto case 1;
                     }
                 case 1:
                     {
-                        if(version == 2)
+                        if (version == 2)
+                        {
                             UsesRemaining = reader.ReadInt();
+                        }
+
                         goto case 0;
                     }
                 case 0:

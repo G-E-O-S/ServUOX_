@@ -8,7 +8,6 @@ namespace Server.Items
         public GoldRing()
             : base(0x108a)
         {
-            //Weight = 0.1;
         }
 
         public GoldRing(Serial serial)

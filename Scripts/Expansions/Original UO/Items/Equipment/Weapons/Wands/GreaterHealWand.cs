@@ -1,17 +1,16 @@
-using System;
-using Server.Spells.First;
+using Server.Spells.Fourth;
 
 namespace Server.Items
 {
-    public class WeaknessWand : BaseWand
+    public class GreaterHealWand : BaseWand
     {
         [Constructable]
-        public WeaknessWand()
-            : base(WandEffect.Weakness, 5, 30)
+        public GreaterHealWand()
+            : base(WandEffect.GreaterHealing, 1, Core.ML ? 109 : 5)
         {
         }
 
-        public WeaknessWand(Serial serial)
+        public GreaterHealWand(Serial serial)
             : base(serial)
         {
         }
@@ -19,20 +18,18 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnWandUse(Mobile from)
         {
-            this.Cast(new WeakenSpell(from, this));
+            Cast(new GreaterHealSpell(from, this));
         }
     }
 }

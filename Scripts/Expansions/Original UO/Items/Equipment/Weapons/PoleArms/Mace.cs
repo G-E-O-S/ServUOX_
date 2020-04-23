@@ -1,4 +1,3 @@
-using System;
 using Server.Engines.Craft;
 
 namespace Server.Items
@@ -11,7 +10,7 @@ namespace Server.Items
         public Mace()
             : base(0xF5C)
         {
-            this.Weight = 14.0;
+            Weight = 14.0;
         }
 
         public Mace(Serial serial)
@@ -19,109 +18,29 @@ namespace Server.Items
         {
         }
 
-        public override WeaponAbility PrimaryAbility
-        {
-            get
-            {
-                return WeaponAbility.ConcussionBlow;
-            }
-        }
-        public override WeaponAbility SecondaryAbility
-        {
-            get
-            {
-                return WeaponAbility.Disarm;
-            }
-        }
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 45;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 11;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 15;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 40;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 2.75f;
-            }
-        }
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 20;
-            }
-        }
-        public override int OldMinDamage
-        {
-            get
-            {
-                return 8;
-            }
-        }
-        public override int OldMaxDamage
-        {
-            get
-            {
-                return 32;
-            }
-        }
-        public override int OldSpeed
-        {
-            get
-            {
-                return 30;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 70;
-            }
-        }
+        public override WeaponAbility PrimaryAbility => WeaponAbility.ConcussionBlow;
+        public override WeaponAbility SecondaryAbility => WeaponAbility.Disarm;
+        public override int AosStrengthReq => 45;
+        public override int AosMinDamage => 11;
+        public override int AosMaxDamage => 15;
+        public override int AosSpeed => 40;
+        public override float MlSpeed => 2.75f;
+        public override int OldStrengthReq => 20;
+        public override int OldMinDamage => 8;
+        public override int OldMaxDamage => 32;
+        public override int OldSpeed => 30;
+        public override int InitMinHits => 31;
+        public override int InitMaxHits => 70;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

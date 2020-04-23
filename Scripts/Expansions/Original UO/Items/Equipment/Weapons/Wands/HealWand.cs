@@ -1,17 +1,16 @@
-using System;
 using Server.Spells.First;
 
 namespace Server.Items
 {
-    public class MagicArrowWand : BaseWand
+    public class HealWand : BaseWand
     {
         [Constructable]
-        public MagicArrowWand()
-            : base(WandEffect.MagicArrow, 5, Core.ML ? 109 : 30)
+        public HealWand()
+            : base(WandEffect.Healing, 10, Core.ML ? 109 : 25)
         {
         }
 
-        public MagicArrowWand(Serial serial)
+        public HealWand(Serial serial)
             : base(serial)
         {
         }
@@ -19,20 +18,18 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnWandUse(Mobile from)
         {
-            this.Cast(new MagicArrowSpell(from, this));
+            Cast(new HealSpell(from, this));
         }
     }
 }

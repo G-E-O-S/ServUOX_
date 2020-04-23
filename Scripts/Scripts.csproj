@@ -59,14 +59,19 @@
     <Compile Include="Expansions\HS\CookableSausage.cs" />
     <Compile Include="Expansions\HS\HotDog.cs" />
     <Compile Include="Expansions\HS\Hamburger.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\GoldBracelet.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\SilverBracelet.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Earrings\GoldEarrings.cs" />
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Earrings\SilverEarrings.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\GoldBeadNecklace.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\SilverNecklace.cs" />
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\OctopusNecklace.cs" />
+    <Compile Include="Expansions\EJ\Forgotten Treasures\OctopusNecklace.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\SilverBeadNecklace.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\GoldNecklace.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Necklaces\Necklace.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Rings\SilverRing.cs" />
     <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Rings\GoldRing.cs" />
+    <Compile Include="Expansions\Original UO\Mechanics\Skills\Herding.cs" />
     <Compile Include="Expansions\SA\BowlOfBlackrockStew.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfTomatoSoup.cs" />
     <Compile Include="Expansions\Original UO\Items\Provision\Food and Drink\Bowls\WoodenBowlOfStew.cs" />
@@ -1548,7 +1553,7 @@
     <Compile Include="Expansions\Original UO\Items\Decorations\Walls\BaseWall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\PoleArms\BaseWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\BaseWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\World\BaseWaterContainer.cs">
@@ -5485,7 +5490,7 @@
     <Compile Include="Expansions\ML\Jewelry\BlueDiamondRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\Bracelet.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\BaseBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\BrilliantAmberBracelet.cs">
@@ -5494,7 +5499,7 @@
     <Compile Include="Expansions\ML\Jewelry\DarkSapphireBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Earrings\Earrings.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Earrings\BaseEarrings.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\ML\Jewelry\EcruCitrineRing.cs">
@@ -7212,7 +7217,7 @@
     <Compile Include="Holiday Items\WreathDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Jewelry\Bracelet\WristWatch.cs">
+    <Compile Include="Holiday Items\WristWatch.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\HS\HouseRaffleDeed.cs">
@@ -7908,43 +7913,37 @@
     <Compile Include="Expansions\SA\SkeletonKey.cs" />
     <Compile Include="Expansions\SA\SurgeShield.cs" />
     <Compile Include="Expansions\SA\ValkryieArmor.cs" />
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\ClumsyWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\ClumsyWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\FeebleWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\FeebleWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\FireballWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\FireballWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\GreaterHealWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\GreaterHealWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\HarmWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\HarmWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\HealWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\HealWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\PoleArms\IDWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\IDWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\LightningWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\LightningWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\MagicArrowWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\MagicArrowWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\ManaDrainWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\ManaDrainWand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\RandomWand.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\WandTarget.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\WeaknessWand.cs">
+    <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\Wands\WeaknessWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\XSORTINGX\Abilities\ArmorIgnore.cs">
@@ -8259,7 +8258,7 @@
     <Compile Include="Expansions\SA\EmeraldMace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\FireworksWand.cs">
+    <Compile Include="Holiday Items\FireworksWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\SA\GargishMaul.cs">
@@ -8277,7 +8276,7 @@
     <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\PoleArms\Mace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansions\Original UO\Items\Equipment\Wands\MagicWand.cs">
+    <Compile Include="Customs\MagicWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansions\Original UO\Items\Equipment\Weapons\PoleArms\Maul.cs">

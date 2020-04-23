@@ -6,7 +6,6 @@ namespace Server.Items
         public SilverBeadNecklace()
             : base(0x1F05)
         {
-            Weight = 0.1;
         }
 
         public SilverBeadNecklace(Serial serial)

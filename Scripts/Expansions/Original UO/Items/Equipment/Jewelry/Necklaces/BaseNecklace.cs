@@ -1,12 +1,14 @@
-using System;
+using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    public abstract class BaseNecklace : BaseJewel
+    public abstract class BaseNecklace : BaseJewel, IRepairable
     {
+        public CraftSystem RepairSystem => DefTinkering.CraftSystem;
         public BaseNecklace(int itemID)
             : base(itemID, Layer.Neck)
         {
+            Weight = 1.0;
         }
 
         public BaseNecklace(Serial serial)

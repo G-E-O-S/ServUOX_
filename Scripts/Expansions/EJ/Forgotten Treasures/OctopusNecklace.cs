@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public class OctopusNecklace : BaseNecklace
@@ -44,7 +42,7 @@ namespace Server.Items
         {
             if (GemType != GemType.None)
             {
-                list.Add(1159018, String.Format("#{0}", GemLocalization())); // ~1_type~ octopus necklace
+                list.Add(1159018, $"#{GemLocalization()}"); // ~1_type~ octopus necklace
             }
             else
             {

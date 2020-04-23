@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     [Flipable(0x13B8, 0x13B7)]
@@ -9,7 +7,7 @@ namespace Server.Items
         public ThinLongsword()
             : base(0x13B8)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public ThinLongsword(Serial serial)
@@ -17,109 +15,29 @@ namespace Server.Items
         {
         }
 
-        public override int AosStrengthReq
-        {
-            get
-            {
-                return 35;
-            }
-        }
-        public override int AosMinDamage
-        {
-            get
-            {
-                return 15;
-            }
-        }
-        public override int AosMaxDamage
-        {
-            get
-            {
-                return 16;
-            }
-        }
-        public override int AosSpeed
-        {
-            get
-            {
-                return 30;
-            }
-        }
-        public override float MlSpeed
-        {
-            get
-            {
-                return 3.50f;
-            }
-        }
-        public override int OldStrengthReq
-        {
-            get
-            {
-                return 25;
-            }
-        }
-        public override int OldMinDamage
-        {
-            get
-            {
-                return 5;
-            }
-        }
-        public override int OldMaxDamage
-        {
-            get
-            {
-                return 33;
-            }
-        }
-        public override int OldSpeed
-        {
-            get
-            {
-                return 35;
-            }
-        }
-        public override int DefHitSound
-        {
-            get
-            {
-                return 0x237;
-            }
-        }
-        public override int DefMissSound
-        {
-            get
-            {
-                return 0x23A;
-            }
-        }
-        public override int InitMinHits
-        {
-            get
-            {
-                return 31;
-            }
-        }
-        public override int InitMaxHits
-        {
-            get
-            {
-                return 110;
-            }
-        }
+        public override int AosStrengthReq => 35;
+        public override int AosMinDamage => 15;
+        public override int AosMaxDamage => 16;
+        public override int AosSpeed => 30;
+        public override float MlSpeed => 3.50f;
+        public override int OldStrengthReq => 25;
+        public override int OldMinDamage => 5;
+        public override int OldMaxDamage => 33;
+        public override int OldSpeed => 35;
+        public override int DefHitSound => 0x237;
+        public override int DefMissSound => 0x23A;
+        public override int InitMinHits => 31;
+        public override int InitMaxHits => 110;
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

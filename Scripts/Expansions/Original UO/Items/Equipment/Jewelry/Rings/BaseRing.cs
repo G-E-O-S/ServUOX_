@@ -2,11 +2,13 @@ using Server.Engines.Craft;
 
 namespace Server.Items
 {
-    public abstract class BaseRing : BaseJewel
+    public abstract class BaseRing : BaseJewel, IRepairable
     {
+        public CraftSystem RepairSystem => DefTinkering.CraftSystem;
         public BaseRing(int itemID)
             : base(itemID, Layer.Ring)
         {
+            Weight = 1.0;
         }
 
         public BaseRing(Serial serial)

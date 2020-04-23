@@ -1,12 +1,11 @@
 namespace Server.Items
 {
-    public class Beads : Item
+    public class Beads : BaseNecklace
     {
         [Constructable]
         public Beads()
             : base(0x108B)
         {
-            Weight = 1.0;
         }
 
         public Beads(Serial serial)

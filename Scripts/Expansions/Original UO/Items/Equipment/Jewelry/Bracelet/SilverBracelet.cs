@@ -1,14 +1,15 @@
 namespace Server.Items
 {
-    public class Necklace : BaseNecklace
+    public class SilverBracelet : BaseBracelet
     {
+
         [Constructable]
-        public Necklace()
-            : base(0x1085)
+        public SilverBracelet()
+            : base(0x1F06)
         {
         }
 
-        public Necklace(Serial serial)
+        public SilverBracelet(Serial serial)
             : base(serial)
         {
         }

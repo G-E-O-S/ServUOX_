@@ -1,17 +1,16 @@
-using System;
-using Server.Spells.Fourth;
+using Server.Spells.First;
 
 namespace Server.Items
 {
-    public class LightningWand : BaseWand
+    public class FeebleWand : BaseWand
     {
         [Constructable]
-        public LightningWand()
-            : base(WandEffect.Lightning, 5, Core.ML ? 109 : 20)
+        public FeebleWand()
+            : base(WandEffect.Feeblemindedness, 5, 30)
         {
         }
 
-        public LightningWand(Serial serial)
+        public FeebleWand(Serial serial)
             : base(serial)
         {
         }
@@ -19,20 +18,18 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnWandUse(Mobile from)
         {
-            this.Cast(new LightningSpell(from, this));
+            Cast(new FeeblemindSpell(from, this));
         }
     }
 }
