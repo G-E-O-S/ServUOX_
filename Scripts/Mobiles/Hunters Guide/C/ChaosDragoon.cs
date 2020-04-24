@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -77,44 +76,39 @@ namespace Server.Mobiles
                     break;
             }
 
-            melee.Movable = false;
             AddItem(melee);
 
             DragonHelm helm = new DragonHelm();
             helm.Resource = res;
-            helm.Movable = false;
             AddItem(helm);
 
             DragonChest chest = new DragonChest();
             chest.Resource = res;
-            chest.Movable = false;
             AddItem(chest);
 
             DragonArms arms = new DragonArms();
             arms.Resource = res;
-            arms.Movable = false;
             AddItem(arms);
 
             DragonGloves gloves = new DragonGloves();
             gloves.Resource = res;
-            gloves.Movable = false;
             AddItem(gloves);
 
             DragonLegs legs = new DragonLegs();
             legs.Resource = res;
-            legs.Movable = false;
             AddItem(legs);
 
             ChaosShield shield = new ChaosShield();
-            shield.Movable = false;
             AddItem(shield);
 
             AddItem(new Shirt());
             AddItem(new Boots());
+            //AddItem(new Boots(0x455));
+            //AddItem(new Shirt(Utility.RandomMetalHue()));
 
             int amount = Utility.RandomMinMax(1, 3);
 
-            switch ( res )
+            switch (res)
             {
                 case CraftResource.BlackScales:
                     AddItem(new BlackScales(amount));
@@ -146,60 +140,16 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool BardImmune
-        {
-            get
-            {
-                return !Core.AOS;
-            }
-        }
-        public override bool CanRummageCorpses
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool ShowFameTitle
-        {
-            get
-            {
-                return false;
-            }
-        }
-        public override int GetIdleSound()
-        {
-            return 0x2CE;
-        }
+        public override bool AutoDispel => true;
+        public override bool BardImmune => !Core.AOS;
+        public override bool CanRummageCorpses => true;
+        public override bool AlwaysMurderer => true;
+        public override bool ShowFameTitle => false;
 
-        public override int GetDeathSound()
-        {
-            return 0x2CC;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x2D1;
-        }
-
-        public override int GetAttackSound()
-        {
-            return 0x2C8;
-        }
+        public override int GetIdleSound() { return 0x2CE; }
+        public override int GetDeathSound() { return 0x2CC; }
+        public override int GetHurtSound() { return 0x2D1; }
+        public override int GetAttackSound() { return 0x2C8; }
 
         public override void GenerateLoot()
         {
@@ -225,13 +175,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }
