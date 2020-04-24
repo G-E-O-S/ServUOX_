@@ -1,4 +1,3 @@
-
 namespace Server.Mobiles
 {
     [CorpseName("a goat corpse")]
@@ -57,7 +56,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -108,22 +107,20 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 2; } }
-        public override int Hides { get { return 12; } }
-        public override FoodType FavoriteFood { get { return FoodType.GrainsAndHay | FoodType.FruitsAndVegies; } }
+        public override int Meat => 2;
+        public override int Hides => 12;
+        public override FoodType FavoriteFood => FoodType.GrainsAndHay | FoodType.FruitsAndVegies;
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
             writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

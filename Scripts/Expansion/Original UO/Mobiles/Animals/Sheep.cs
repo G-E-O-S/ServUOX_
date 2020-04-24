@@ -52,10 +52,7 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public DateTime NextWoolTime
         {
-            get
-            {
-                return m_NextWoolTime;
-            }
+            get => m_NextWoolTime;
             set
             {
                 m_NextWoolTime = value;

@@ -84,7 +84,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -152,7 +152,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -229,7 +229,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -307,7 +307,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -389,17 +389,15 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
     [CorpseName("a water elemental corpse")]
     public class WaterElemental : BaseCreature
     {
-        private bool m_HasDecanter = true;
-
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool HasDecanter { get { return m_HasDecanter; } set { m_HasDecanter = value; } }
+        public bool HasDecanter { get; set; } = true;
 
         [Constructable]
         public WaterElemental()
@@ -466,7 +464,7 @@ namespace Server.Mobiles
             base.Serialize(writer);
             writer.Write(1);
 
-            writer.Write(m_HasDecanter);
+            writer.Write(HasDecanter);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -479,7 +477,7 @@ namespace Server.Mobiles
                 case 0:
                     break;
                 case 1:
-                    m_HasDecanter = reader.ReadBool();
+                    HasDecanter = reader.ReadBool();
                     break;
             }
         }
