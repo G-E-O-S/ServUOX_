@@ -23,8 +23,6 @@ namespace Server.Mobiles
             "Cove", "Serpent's Hold", "Jhelom", //ML List
             "Nujel'm"
         };
-
-        private static readonly Hashtable m_EscortTable = new Hashtable();
         private static readonly TimeSpan m_EscortDelay = TimeSpan.FromMinutes(5.0);
         private EDI m_Destination;
         private string m_DestinationString;
@@ -45,7 +43,7 @@ namespace Server.Mobiles
         {
         }
 
-        public static Hashtable EscortTable => m_EscortTable;
+        public static Hashtable EscortTable { get; } = new Hashtable();
 
         public override bool UseSmartAI => true;
         public override bool CanAutoStable => false;
@@ -130,7 +128,7 @@ namespace Server.Mobiles
             if (escorter != null || !m.Alive)
                 return false;
 
-            BaseEscortable escortable = (BaseEscortable)m_EscortTable[m];
+            BaseEscortable escortable = (BaseEscortable)EscortTable[m];
 
             if (escortable != null && !escortable.Deleted && escortable.GetEscorter() == m)
             {
@@ -152,7 +150,7 @@ namespace Server.Mobiles
                     ((PlayerMobile)m).LastEscortTime = DateTime.UtcNow;
 
                 Say("Lead on! Payment will be made when we arrive in {0}.", (dest.Name == "Ocllo" && m.Map == Map.Trammel) ? "Haven" : dest.Name);
-                m_EscortTable[m] = this;
+                EscortTable[m] = this;
                 StartFollow();
                 return true;
             }
@@ -256,7 +254,7 @@ namespace Server.Mobiles
                     Say(1005653); // Hmmm. I seem to have lost my master.
 
                     SetControlMaster(null);
-                    m_EscortTable.Remove(master);
+                    EscortTable.Remove(master);
 
                     Timer.DelayCall(TimeSpan.FromSeconds(5.0), new TimerCallback(Delete));
                     return null;
@@ -327,7 +325,7 @@ namespace Server.Mobiles
 
                 StopFollow();
                 SetControlMaster(null);
-                m_EscortTable.Remove(escorter);
+                EscortTable.Remove(escorter);
                 BeginDelete();
 
                 Misc.Titles.AwardFame(escorter, 10, true);
@@ -592,13 +590,9 @@ namespace Server.Mobiles
     public class AbandonEscortEntry : ContextMenuEntry
     {
         private readonly BaseEscortable m_Mobile;
-        private readonly Mobile m_From;
-        public AbandonEscortEntry(BaseEscortable m, Mobile from)
-            : base(6102, 3)
-        {
-            m_Mobile = m;
-            m_From = from;
-        }
+
+        public AbandonEscortEntry(BaseEscortable m, Mobile from = null)
+            : base(6102, 3) => m_Mobile = m;
 
         public override void OnClick()
         {
