@@ -1403,7 +1403,7 @@ namespace Server.Mobiles
                 }
                 else
                 {
-                    suffix = String.Concat( suffix, " (Paragon)" );
+                    suffix = string.Concat( suffix, " (Paragon)" );
                 }
             }
 
@@ -1459,8 +1459,8 @@ namespace Server.Mobiles
 
             int taming = (int)((useBaseSkill ? m.Skills[SkillName.AnimalTaming].Base : m.Skills[SkillName.AnimalTaming].Value) * 10);
             int lore =   (int)((useBaseSkill ? m.Skills[SkillName.AnimalLore].Base : m.Skills[SkillName.AnimalLore].Value) * 10);
-            int bonus = 0, chance = 700;
-
+            int chance = 700;
+            int bonus;
             if (Core.ML)
             {
                 int SkillBonus = taming - (int)(dMinTameSkill * 10);
@@ -3911,7 +3911,7 @@ namespace Server.Mobiles
         {
             if (Debug)
             {
-                PublicOverheadMessage(MessageType.Regular, 41, false, String.Format(format, args));
+                PublicOverheadMessage(MessageType.Regular, 41, false, string.Format(format, args));
             }
         }
 
@@ -4316,7 +4316,7 @@ namespace Server.Mobiles
                         else
                         {
                             // I will teach thee all I know, if paid the amount in full.  The price is:
-                            Say(1019077, AffixType.Append, String.Format(" {0}", pointsToLearn), "");
+                            Say(1019077, AffixType.Append, string.Format(" {0}", pointsToLearn), "");
                             Say(1043108); // For less I shall teach thee less.
 
                             m_Teaching = skill;

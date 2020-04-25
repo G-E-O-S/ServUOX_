@@ -13,9 +13,9 @@ namespace Server.Mobiles
         private int m_HoldGold = 8;
         private Timer m_PayTimer;
 
-        public override bool IsBondable { get { return false; } }
-        public override bool CanAutoStable { get { return false; } }
-        public override bool CanDetectHidden { get { return false; } }
+        public override bool IsBondable => false;
+        public override bool CanAutoStable => false;
+        public override bool CanDetectHidden => false;
 
         public BaseHire(AIType AI)
             : base(AI, FightMode.Aggressor, 10, 1, 0.1, 4.0)
@@ -37,18 +37,16 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
+            writer.Write(0);
 
-            writer.Write((int)0);// version
-
-            writer.Write((bool)m_IsHired);
-            writer.Write((int)m_HoldGold);
+            writer.Write(m_IsHired);
+            writer.Write(m_HoldGold);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             m_IsHired = reader.ReadBool();
             m_HoldGold = reader.ReadInt();
@@ -57,13 +55,7 @@ namespace Server.Mobiles
             m_PayTimer.Start();
         }
 
-        public override bool KeepsItemsOnDeath
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool KeepsItemsOnDeath => true;
 
         private int m_GoldOnDeath = 0;
 

@@ -22,7 +22,7 @@ namespace Server.Mobiles
                 AI = AIType.AI_Mage;
                 ActiveSpeed = 0.2;
                 PassiveSpeed = 0.8;
-                RangePerception = BaseCreature.DefaultRangePerception;
+                RangePerception = DefaultRangePerception;
                 FightMode = FightMode.Aggressor;
             }
 
@@ -62,41 +62,12 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool IsActiveVendor
-        {
-            get
-            {
-                return false;
-            }
-        }
-        public override bool IsInvulnerable
-        {
-            get
-            {
-                return false;
-            }
-        }
-        public override VendorShoeType ShoeType
-        {
-            get
-            {
-                return VendorShoeType.Sandals;
-            }
-        }
-        public virtual bool HealsYoungPlayers
-        {
-            get
-            {
-                return true;
-            }
-        }
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return this.m_SBInfos;
-            }
-        }
+        public override bool IsActiveVendor => false;
+        public override bool IsInvulnerable => false;
+        public override VendorShoeType ShoeType => VendorShoeType.Sandals;
+        public virtual bool HealsYoungPlayers => true;
+        protected override List<SBInfo> SBInfos => this.m_SBInfos;
+
         public override void InitSBInfo()
         {
         }
@@ -109,8 +80,7 @@ namespace Server.Mobiles
         public override void InitOutfit()
         {
             base.InitOutfit();
-
-            AddItem(new Robe(this.GetRobeColor()));
+            AddItem(new Robe(GetRobeColor()));
         }
 
         public virtual bool CheckResurrect(Mobile m)
