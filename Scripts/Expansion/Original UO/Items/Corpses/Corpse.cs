@@ -12,6 +12,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+namespace Server
+{
+    [AttributeUsage(AttributeTargets.Class)]
+    public class CorpseNameAttribute : Attribute
+    {
+        public CorpseNameAttribute(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; }
+    }
+}
+
 namespace Server.Items
 {
     public interface IDevourer
@@ -23,56 +37,16 @@ namespace Server.Items
     public enum CorpseFlag
     {
         None = 0x00000000,
-
-        /// <summary>
-        ///     Has this corpse been carved?
-        /// </summary>
         Carved = 0x00000001,
-
-        /// <summary>
-        ///     If true, this corpse will not turn into bones
-        /// </summary>
         NoBones = 0x00000002,
-
-        /// <summary>
-        ///     If true, the corpse has turned into bones
-        /// </summary>
         IsBones = 0x00000004,
-
-        /// <summary>
-        ///     Has this corpse yet been visited by a taxidermist?
-        /// </summary>
         VisitedByTaxidermist = 0x00000008,
-
-        /// <summary>
-        ///     Has this corpse yet been used to channel spiritual energy? (AOS Spirit Speak)
-        /// </summary>
         Channeled = 0x00000010,
-
-        /// <summary>
-        ///     Was the owner criminal when he died?
-        /// </summary>
         Criminal = 0x00000020,
-
-        /// <summary>
-        ///     Has this corpse been animated?
-        /// </summary>
         Animated = 0x00000040,
-
-        /// <summary>
-        ///     Has this corpse been self looted?
-        /// </summary>
         SelfLooted = 0x00000080,
-
-        /// <summary>
-        /// Does this corpse flag looters as criminal?
-        /// </summary>
         LootCriminal = 0x00000100,
-
-        /// <summary>
-        ///     Was the owner a murderer when he died?
-        /// </summary>
-        Murderer = 0x00000200,
+        Murderer = 0x00000200
     }
 
     public class Corpse : Container, ICarvable

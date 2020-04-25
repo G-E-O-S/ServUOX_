@@ -1019,7 +1019,6 @@
     <Compile Include="Expansion\AOS\XxUnsortedxX\PromotionalToken.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\BonePile.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\Corpse.cs" />
-    <Compile Include="Expansion\Original UO\Mechanics\CorpseNameAttribute.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\DecayedCorpse.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\Head.cs" />
     <Compile Include="Expansion\Original UO\Items\Corpses\LeftArm.cs" />
@@ -1294,7 +1293,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Axes\BaseAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\PoleArms\BaseBashing.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseBashing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Resources\BaseBoard.cs">
@@ -1355,9 +1354,9 @@
     <Compile Include="Expansion\ML\XxSortingxX\BlightedGroveTeleporters.cs" />
     <Compile Include="Expansion\SE\XxUnsortedxX\BlueNinjaQuestTeleporter.cs" />
     <Compile Include="Expansion\AOS\XxUnsortedxX\CrystalTeleporter.cs" />
-    <Compile Include="Expansion\Original UO\Mechanics\EffectMobile.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\EffectMobile.cs" />
     <Compile Include="Expansion\SE\XxUnsortedxX\GreenNinjaQuestTeleporter.cs" />
-    <Compile Include="Expansion\Original UO\Mechanics\ItemInterfaces.cs" />
+    <Compile Include="Expansion\Original UO\Items\ItemInterfaces.cs" />
     <Compile Include="Expansion\SA\XxUnsortedxX\MacawSpawner.cs" />
     <Compile Include="Expansion\ML\XxSortingxX\PrismOfLightTeleporters.cs" />
     <Compile Include="Expansion\Original UO\Items\World\PvPWarnTeleporter.cs" />
@@ -1479,13 +1478,13 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\BaseJewel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Swords\BaseKnife.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseKnife.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Decorations\Lights\BaseLight.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Swords\BaseMeleeWeapon.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseMeleeWeapon.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Decorations\GameBoards\BasePiece.cs">
@@ -1494,7 +1493,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BasePoisonPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\PoleArms\BasePoleArm.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BasePoleArm.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BasePotion.cs">
@@ -1503,7 +1502,7 @@
     <Compile Include="Expansion\ML\Items\Quivers\BaseQuiver.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Bows\BaseRanged.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseRanged.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseRefreshPotion.cs">
@@ -1518,10 +1517,10 @@
     <Compile Include="Expansion\Original UO\Items\Decorations\BaseSign.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\PoleArms\BaseSpear.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseSpear.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\PoleArms\BaseStaff.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseStaff.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\XxUnsortedxX\BaseStatuette.cs">
@@ -1533,7 +1532,7 @@
     <Compile Include="Holiday Items\Suits\BaseSuit.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Swords\BaseSword.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseSword.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Talismans\BaseTalisman.cs">
@@ -1554,7 +1553,7 @@
     <Compile Include="Expansion\Original UO\Items\Decorations\Walls\BaseWall.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Wands\BaseWand.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\BaseWand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\World\BaseWaterContainer.cs">
@@ -1660,7 +1659,7 @@
     <Compile Include="Expansion\ML\Quest\ThrashersTail.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Blocker.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\Blocker.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Decorations\Blood.cs">
@@ -1711,10 +1710,10 @@
     <Compile Include="Expansion\SA\Items\Resource\DelicateScales.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\EffectController.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\EffectController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\EffectItem.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\EffectItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Resource\ElvenFletchings.cs">
@@ -1768,10 +1767,10 @@
     <Compile Include="Expansion\SE\XxUnsortedxX\Firebomb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\FlipableAddonAttribute.cs">
+    <Compile Include="Expansion\Original UO\Items\FlipableAddonAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\FlipableAttribute.cs">
+    <Compile Include="Expansion\Original UO\Items\FlipableAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\XxUnsortedxX\Fur.cs">
@@ -1807,7 +1806,7 @@
     <Compile Include="Expansion\ML\XxSortingxX\HoveringWisp.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\IDurability.cs">
+    <Compile Include="Expansion\Original UO\Items\IDurability.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOR\Items\Tools\InteriorDecorator.cs">
@@ -1835,7 +1834,7 @@
     <Compile Include="Expansion\SA\XxUnsortedxX\Lodestone.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\LOSBlocker.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\LOSBlocker.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Quest\MagicalRope.cs">
@@ -1847,7 +1846,7 @@
     <Compile Include="Expansion\UOR\Items\Internal\MoonstoneGate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\MorphItem.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\MorphItem.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOTD\XxUnsortedxX\OilCloth.cs">
@@ -1985,7 +1984,7 @@
     <Compile Include="Expansion\SA\Items\Resource\SpiderCarapace.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Static.cs">
+    <Compile Include="Expansion\Original UO\Items\Static.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\XxUnsortedxX\ChickenCoop.cs">
@@ -2124,10 +2123,10 @@
     <Compile Include="Expansion\SA\Items\Resource\VoidOrb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\WarningItem.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\WarningItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\Waypoint.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\Waypoint.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\XxUnsortedxX\WindChimes.cs">
@@ -4019,7 +4018,7 @@
     <Compile Include="Expansion\ML\Items\Sets\Initiation\InitiationGloves.cs" />
     <Compile Include="Expansion\ML\Items\Sets\Initiation\InitiationGorget.cs" />
     <Compile Include="Expansion\ML\Items\Sets\Initiation\InitiationLegs.cs" />
-    <Compile Include="Expansion\Original UO\Mechanics\ArmorEnums.cs">
+    <Compile Include="Expansion\Original UO\Items\ArmorEnums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Items\Artifacts Doom\ArmorOfFortune.cs">
@@ -5488,7 +5487,7 @@
     <Compile Include="Expansion\ML\Items\Jewelry\BlueDiamondRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\Bracelet\BaseBracelet.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\BaseBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Jewelry\BrilliantAmberBracelet.cs">
@@ -5497,7 +5496,7 @@
     <Compile Include="Expansion\ML\Items\Jewelry\DarkSapphireBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\Earrings\BaseEarrings.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\BaseEarrings.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Jewelry\EcruCitrineRing.cs">
@@ -5506,13 +5505,13 @@
     <Compile Include="Expansion\ML\Items\Jewelry\FireRubyBracelet.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\Necklaces\BaseNecklace.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\BaseNecklace.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Jewelry\PerfectEmeraldRing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\Rings\BaseRing.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Jewelry\BaseRing.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Jewelry\TurqouiseRing.cs">
@@ -5548,7 +5547,7 @@
     <Compile Include="Expansion\Original UO\Items\Decorations\Lights\CandleSkull.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\DarkSource.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\DarkSource.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Holiday Items\HangingLantern.cs">
@@ -5569,7 +5568,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\EquipableLight\Lantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\LightSource.cs">
+    <Compile Include="Expansion\Original UO\Items\Admin\LightSource.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SE\XxUnsortedxX\PaperLantern.cs">
@@ -8214,10 +8213,10 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Axes\WarAxe.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\Fists.cs">
+    <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Fists.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Items\Equipment\HitLower.cs">
+    <Compile Include="Expansion\Original UO\Items\HitLower.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Weapons\Swords\ButcherKnife.cs">
@@ -8728,7 +8727,7 @@
     <Compile Include="Expansion\SA\XxUnsortedxX\StoneSlithClaw.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\Original UO\Mechanics\WeaponEnums.cs">
+    <Compile Include="Expansion\Original UO\Items\WeaponEnums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Weapons\AncientWildStaff.cs">
