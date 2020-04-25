@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -38,9 +37,6 @@ namespace Server.Mobiles
             Karma = -450;
 
             VirtualArmor = 28;
-
-            PackItem(new Log(4));
-            PackItem(new Engines.Plants.Seed());
         }
 
         public Bogling(Serial serial)
@@ -48,35 +44,32 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Hides
-        {
-            get
-            {
-                return 6;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
+        public override int Hides => 6;
+        public override int Meat => 1;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Meager);
         }
 
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new Log(4));
+            CorpseLoot.DropItem(new Engines.Plants.Seed());
+
+            base.OnDeath(CorpseLoot);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

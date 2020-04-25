@@ -1,6 +1,3 @@
-using System;
-using Server.Items;
-
 namespace Server.Mobiles
 {
     [CorpseName("a rotting corpse")]
@@ -50,44 +47,13 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmunity
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Poison PoisonImmunity
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
-        public override Poison HitPoison
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 5;
-            }
-        }
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override Poison HitPoison => Poison.Lethal;
+        public override int TreasureMapLevel => 5;
+        public override TribeType Tribe => TribeType.Undead;
+        public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
-        public override TribeType Tribe { get { return TribeType.Undead; } }
-
-        public override OppositionGroup OppositionGroup
-        {
-            get
-            {
-                return OppositionGroup.FeyAndUndead;
-            }
-        }
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 2);
@@ -96,13 +62,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

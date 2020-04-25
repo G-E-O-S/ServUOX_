@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Mobiles
 {
     [CorpseName("a skeletal dragon corpse")]
@@ -51,16 +49,16 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel { get { return !Controlled; } }
-        public override bool BleedImmunity { get { return true; } }
-        public override bool ReacquireOnMovement { get { return !Controlled; } }
-        public override double BonusPetDamageScalar { get { return (Core.SE) ? 3.0 : 1.0; } }
-        public override int Hides { get { return 20; } }
-        public override int Meat { get { return 19; } } // where's it hiding these? :)
-        public override HideType HideType { get { return HideType.Barbed; } }
-        public override OppositionGroup OppositionGroup { get { return OppositionGroup.FeyAndUndead; } }
-        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
-        public override TribeType Tribe { get { return TribeType.Undead; } }
+        public override bool AutoDispel => !Controlled;
+        public override bool BleedImmunity => true;
+        public override bool ReacquireOnMovement => !Controlled;
+        public override double BonusPetDamageScalar => (Core.SE) ? 3.0 : 1.0;
+        public override int Hides => 20;
+        public override int Meat => 19;
+        public override HideType HideType => HideType.Barbed;
+        public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override TribeType Tribe => TribeType.Undead;
 
         public override void GenerateLoot()
         {
@@ -71,13 +69,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

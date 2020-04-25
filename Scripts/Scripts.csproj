@@ -2390,7 +2390,7 @@
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Tempest.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Thrasher.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\TikitaviRenowned.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Twaulo.cs" />
+    <Compile Include="Expansion\ML\Mobiles\Twisted Weald\Twaulo.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\VitaviRenowned.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\WyvernRenowned.cs" />
     <Compile Include="Expansion\AOS\Doom\Mobiles\AbysmalHorror.cs" />
@@ -2582,9 +2582,7 @@
     <Compile Include="Expansion\ML\Mobiles\InterredGrizzle .cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\IronBeetle.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Juggernaut.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\JukaLord.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\JukaMage.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\JukaWarrior.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Jukas.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Deprecated\Jwilson.cs" />
     <Compile Include="Expansion\SE\Mobiles\Kappa.cs" />
     <Compile Include="Expansion\SE\Mobiles\KazeKemono.cs" />
@@ -2622,10 +2620,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ogres.cs" />
     <Compile Include="Expansion\SE\Mobiles\Oni.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Orcs.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcBomber.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcBrute.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcChopper.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcScout.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\OrcsExt.cs" />
     <Compile Include="Expansion\SA\TerMur\Ortanord.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Ilshenar\BloodFox.cs" />
     <Compile Include="Expansion\ML\Mobiles\PalaceOfParaxysmus\ParoxysmusSwampDragon.cs" />
@@ -2683,7 +2678,7 @@
     <Compile Include="Expansion\AOS\Doom\Mobiles\RestlessSoul.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Revenant.cs" />
     <Compile Include="Expansion\SE\Mobiles\RevenantLion.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\GargoylesRedemption\Ridgeback.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Ridgeback.cs" />
     <Compile Include="Expansion\SE\Mobiles\Ronin.cs" />
     <Compile Include="Expansion\UOR\Mobiles\TrinsicInvasion\RottingCorpse.cs" />
     <Compile Include="Expansion\SA\Mobiles\Rotworm.cs" />
@@ -2692,10 +2687,8 @@
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\SandVortex.cs" />
     <Compile Include="Expansion\SA\Mobiles\SAPixie.cs" />
     <Compile Include="Expansion\ML\Mobiles\Satyr.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Savage.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\SavageRider.cs" />
+    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Savages.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\SavageRidgeback.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\SavageShaman.cs" />
     <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\ScaledSwampDragon.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Scorpion.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SeaHorse.cs" />

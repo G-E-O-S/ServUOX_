@@ -1,6 +1,5 @@
 using System;
 using Server.Items;
-using Server.Network;
 
 namespace Server.Mobiles
 {
@@ -45,11 +44,6 @@ namespace Server.Mobiles
             VirtualArmor = 65;
             SpeechHue = Utility.RandomDyedHue();
 
-            PackItem(new PowerCrystal());
-
-            if (0.02 > Utility.RandomDouble())
-                PackItem(new BlackthornWelcomeBook());
-
             m_NextAbilityTime = DateTime.UtcNow + TimeSpan.FromSeconds(Utility.RandomMinMax(5, 30));
 
             SetSpecialAbility(SpecialAbility.ColossalBlow);
@@ -60,74 +54,37 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool BardImmunity
-        {
-            get
-            {
-                return !Core.AOS;
-            }
-        }
-        public override Poison PoisonImmunity
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 5;
-            }
-        }
+        public override bool AlwaysMurderer => true;
+        public override bool BardImmunity => !Core.AOS;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override int Meat => 1;
+        public override int TreasureMapLevel => 5;
 
-        public override void OnDeath(Container c)
+        public override void OnDeath(Container CorpseLoot)
         {
-            base.OnDeath(c);
+            CorpseLoot.DropItem(new PowerCrystal());
+
+            if (0.02 > Utility.RandomDouble())
+                CorpseLoot.DropItem(new BlackthornWelcomeBook());
 
             if (0.05 > Utility.RandomDouble())
             {
                 if (!IsParagon)
                 {
                     if (0.75 > Utility.RandomDouble())
-                        c.DropItem(DawnsMusicGear.RandomCommon);
+                        CorpseLoot.DropItem(DawnsMusicGear.RandomCommon);
                     else
-                        c.DropItem(DawnsMusicGear.RandomUncommon);
+                        CorpseLoot.DropItem(DawnsMusicGear.RandomUncommon);
                 }
                 else
-                    c.DropItem(DawnsMusicGear.RandomRare);
+                    CorpseLoot.DropItem(DawnsMusicGear.RandomRare);
             }
+            base.OnDeath(CorpseLoot);
         }
 
-        public override int GetDeathSound()
-        {
-            return 0x423;
-        }
-
-        public override int GetAttackSound()
-        {
-            return 0x23B;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x140;
-        }
+        public override int GetDeathSound() { return 0x423; }
+        public override int GetAttackSound() { return 0x23B; }
+        public override int GetHurtSound() { return 0x140; }
 
         public override void GenerateLoot()
         {
@@ -167,15 +124,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

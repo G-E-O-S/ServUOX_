@@ -53,77 +53,18 @@ namespace Server.Mobiles
         {
         }
 
-        public override Type[] UniqueSAList
-        {
-            get
-            {
-                return new Type[] { };
-            }
-        }
-        public override Type[] SharedSAList
-        {
-            get
-            {
-                return new Type[] { typeof(AxeOfAbandon), typeof(DemonBridleRing), typeof(VoidInfusedKilt), typeof(BladeOfBattle) };
-            }
-        }
-        public override bool ReacquireOnMovement
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override double BonusPetDamageScalar
-        {
-            get
-            {
-                return (Core.SE) ? 3.0 : 1.0;
-            }
-        }
         // TODO: Undead summoning?
-        public override bool AutoDispel
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Poison PoisonImmunity
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
-        public override bool BleedImmunity
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 19;
-            }
-        }// where's it hiding these? :)
-        public override int Hides
-        {
-            get
-            {
-                return 20;
-            }
-        }
-        public override HideType HideType
-        {
-            get
-            {
-                return HideType.Barbed;
-            }
-        }
+        public override Type[] UniqueSAList => new Type[] { };
+        public override Type[] SharedSAList => new Type[] { typeof(AxeOfAbandon), typeof(DemonBridleRing), typeof(VoidInfusedKilt), typeof(BladeOfBattle) };
+        public override bool ReacquireOnMovement => true;
+        public override double BonusPetDamageScalar => (Core.SE) ? 3.0 : 1.0;
+        public override bool AutoDispel => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override int Meat => 19;
+        public override int Hides => 20;
+        public override HideType HideType => HideType.Barbed;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.Rich, 3);
@@ -132,13 +73,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

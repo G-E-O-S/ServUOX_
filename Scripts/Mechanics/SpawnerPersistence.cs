@@ -784,7 +784,7 @@ namespace Server
             }
 
             ColUtility.Free(list);
-            ToConsole(string.Format("Spawn Removal: {0} spawn lines removed containing -{1}-. [{2} deleted].", count.ToString(), toRemove, deleted));
+            //ToConsole(string.Format("Spawn Removal: {0} spawn lines removed containing -{1}-. [{2} deleted].", count.ToString(), toRemove, deleted));
         }
 
         public static int Remove(XmlSpawner spawner, string toRemove, ref int deleted)
