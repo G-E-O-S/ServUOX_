@@ -46,8 +46,8 @@ namespace Server.Mobiles
 			: base(serial)
 		{ }
 
-		public override bool BardImmune { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
+		public override bool BardImmunity { get { return true; } }
+		public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 		public override bool Commandable { get { return false; } }
 		public override bool PlayerRangeSensitive { get { return false; } }
         public override bool CanDetectHidden { get { return false; } }

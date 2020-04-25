@@ -70,10 +70,10 @@ namespace Server.Mobiles
         }
 
         public override bool IgnoreYoungProtection => Core.ML;
-        public override bool BardImmune => !Core.SE;
+        public override bool BardImmunity => !Core.SE;
         public override bool Unprovokable => Core.SE;
-        public override bool AreaPeaceImmune => Core.SE;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool AreaPeaceImmunity => Core.SE;
+        public override Poison PoisonImmunity => Poison.Lethal;
 
         public override void GenerateLoot()
         {

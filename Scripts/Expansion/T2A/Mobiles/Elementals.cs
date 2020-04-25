@@ -145,7 +145,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
 
         public void AuraEffect(Mobile m)
         {
@@ -219,7 +219,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 2;
 
         public void AuraEffect(Mobile m)

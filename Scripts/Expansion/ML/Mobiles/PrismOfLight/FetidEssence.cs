@@ -62,7 +62,7 @@ namespace Server.Mobiles
                 return Poison.Deadly;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

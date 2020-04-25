@@ -47,8 +47,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BardImmune { get { return !Core.AOS; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BardImmunity { get { return !Core.AOS; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override int Meat { get { return 2; } }
         public override TribeType Tribe { get { return TribeType.Orc; } }
         public override OppositionGroup OppositionGroup { get { return OppositionGroup.SavagesAndOrcs; } }

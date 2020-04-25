@@ -58,7 +58,7 @@ namespace Server.Mobiles
                 return FoodType.Meat;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

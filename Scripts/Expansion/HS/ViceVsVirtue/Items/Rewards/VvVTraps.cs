@@ -429,7 +429,7 @@ namespace Server.Engines.VvV
 			TransformContext context = TransformationSpellHelper.GetContext(m);
 			
 			if ((context != null && (context.Type == typeof(LichFormSpell) || context.Type == typeof(WraithFormSpell))) ||
-                (m is BaseCreature && ((BaseCreature)m).BleedImmune))
+                (m is BaseCreature && ((BaseCreature)m).BleedImmunity))
 				return;
 				
 			m.SendLocalizedMessage(1060160); // You are bleeding!

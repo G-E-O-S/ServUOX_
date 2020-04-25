@@ -131,7 +131,7 @@ namespace Server.Mobiles
 
         public override bool GivesMLMinorArtifact { get { return true; } }
         public override bool Unprovokable{ get{ return true; } }
-		public override Poison PoisonImmune{ get{ return Poison.Deadly; } }		
+		public override Poison PoisonImmunity{ get{ return Poison.Deadly; } }		
 		public override Poison HitPoison{ get{ return Poison.Lethal; } }
 		public override int TreasureMapLevel{ get{ return 5; } }
 

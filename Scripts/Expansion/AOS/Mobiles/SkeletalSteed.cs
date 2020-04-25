@@ -43,8 +43,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lethal;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override bool BleedImmunity => true;
 
         public override void Serialize(GenericWriter writer)
         {

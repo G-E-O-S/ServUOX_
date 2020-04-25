@@ -95,7 +95,7 @@ namespace Server.Mobiles
                 return OppositionGroup.FeyAndUndead;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

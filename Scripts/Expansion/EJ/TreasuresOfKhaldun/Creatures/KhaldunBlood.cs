@@ -60,7 +60,7 @@ namespace Server.Mobiles
             base.OnBeforeDamage(from, ref totalDamage, type);
         }
 
-        public override Poison PoisonImmune { get { return Poison.Lesser; } }
+        public override Poison PoisonImmunity { get { return Poison.Lesser; } }
         public override Poison HitPoison { get { return Poison.Lesser; } }
 
         public override void GenerateLoot()

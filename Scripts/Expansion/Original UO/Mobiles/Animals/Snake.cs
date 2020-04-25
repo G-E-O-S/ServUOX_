@@ -46,7 +46,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lesser;
+        public override Poison PoisonImmunity => Poison.Lesser;
         public override Poison HitPoison => Poison.Lesser;
         public override bool DeathAdderCharmable => true;
         public override int Meat => 1;

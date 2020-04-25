@@ -964,16 +964,16 @@ namespace Server.Mobiles
 
         public virtual Poison HitPoison => null;
         public virtual double HitPoisonChance => 0.5;
-        public virtual Poison PoisonImmune => null;
+        public virtual Poison PoisonImmunity => null;
 
-        public virtual bool BardImmune => false;
-        public virtual bool Unprovokable => BardImmune || IsDeadPet;
-        public virtual bool Uncalmable => BardImmune || IsDeadPet;
-        public virtual bool AreaPeaceImmune => BardImmune || IsDeadPet;
+        public virtual bool BardImmunity => false;
+        public virtual bool Unprovokable => BardImmunity || IsDeadPet;
+        public virtual bool Uncalmable => BardImmunity || IsDeadPet;
+        public virtual bool AreaPeaceImmunity => BardImmunity || IsDeadPet;
 
-        public virtual bool BleedImmune => false;
+        public virtual bool BleedImmunity => false;
         public virtual double BonusPetDamageScalar => 1.0;
-        public virtual bool AllureImmune => false;
+        public virtual bool AllureImmunity => false;
 
         public virtual bool DeathAdderCharmable => false;
 
@@ -1632,13 +1632,13 @@ namespace Server.Mobiles
                 return true;
             }
 
-            Poison p = PoisonImmune;
+            Poison p = PoisonImmunity;
 
             XmlPoison xp = (XmlPoison)XmlAttach.FindAttachment(this, typeof(XmlPoison));
 
             if (xp != null)
             {
-                p = xp.PoisonImmune;
+                p = xp.PoisonImmunity;
             }
 
             return (p != null && p.RealLevel >= poison.RealLevel);

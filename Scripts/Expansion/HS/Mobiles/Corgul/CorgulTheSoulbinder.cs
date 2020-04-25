@@ -22,7 +22,7 @@ namespace Server.Mobiles
         public override int Meat { get { return 5; } }
         public override double TreasureMapChance { get { return .25; } }
         public override int TreasureMapLevel { get { return 7; } }
-        public override Poison PoisonImmune { get { return Poison.Deadly; } }
+        public override Poison PoisonImmunity { get { return Poison.Deadly; } }
 
         public override bool TeleportsTo { get { return true; } }
         public override TimeSpan TeleportDuration { get { return TimeSpan.FromSeconds(Utility.RandomMinMax(10, 50)); } }

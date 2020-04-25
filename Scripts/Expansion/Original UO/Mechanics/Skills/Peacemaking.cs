@@ -112,7 +112,7 @@ namespace Server.SkillHandlers
 								foreach (Mobile m in eable)
 								{
 									if ((m is BaseCreature && ((BaseCreature)m).Uncalmable) ||
-										(m is BaseCreature && ((BaseCreature)m).AreaPeaceImmune) || m == from || !from.CanBeHarmful(m, false, false, true))
+										(m is BaseCreature && ((BaseCreature)m).AreaPeaceImmunity) || m == from || !from.CanBeHarmful(m, false, false, true))
 									{
 										continue;
 									}

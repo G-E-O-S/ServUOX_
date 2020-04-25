@@ -61,7 +61,7 @@ namespace Server.Engines.SorcerersDungeon
         }
 
         public override bool AlwaysMurderer { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Deadly; } }
+        public override Poison PoisonImmunity { get { return Poison.Deadly; } }
 
         public override void GenerateLoot()
         {

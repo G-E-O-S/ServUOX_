@@ -49,7 +49,7 @@ namespace Server.Mobiles
 		}
 		
 		public override Poison HitPoison{ get{ return Poison.Lesser; } }
-		public override Poison PoisonImmune{ get{ return Poison.Lesser; } }
+		public override Poison PoisonImmunity{ get{ return Poison.Lesser; } }
 
         public DescicatedMyrmidexLarvae(Serial serial)
             : base(serial)

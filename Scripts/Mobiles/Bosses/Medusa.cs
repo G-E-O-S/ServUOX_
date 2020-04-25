@@ -88,8 +88,8 @@ namespace Server.Mobiles
         public override bool IgnoreYoungProtection { get { return true; } }
         public override bool AutoDispel { get { return true; } }
         public override double AutoDispelChance { get { return 1.0; } }
-        public override bool BardImmune { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BardImmunity { get { return true; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override Poison HitPoison { get { return (0.8 >= Utility.RandomDouble() ? Poison.Deadly : Poison.Lethal); } }
 
         public override int GetIdleSound() { return 1557; }

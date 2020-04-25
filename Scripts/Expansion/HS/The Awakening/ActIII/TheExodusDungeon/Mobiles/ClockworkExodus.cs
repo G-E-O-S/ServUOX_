@@ -141,7 +141,7 @@ namespace Server.Mobiles
         public override bool Unprovokable { get { return true; } }
         public virtual double ChangeCombatant { get { return 0.3; } }
         public override bool AlwaysMurderer { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Greater; } }
+        public override Poison PoisonImmunity { get { return Poison.Greater; } }
         public override int TreasureMapLevel { get { return 5; } }
 
         public override void GenerateLoot()

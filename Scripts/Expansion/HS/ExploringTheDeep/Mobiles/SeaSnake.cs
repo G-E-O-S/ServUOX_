@@ -49,7 +49,7 @@ namespace Server.Mobiles
 
         public override bool DeathAdderCharmable { get { return true; } }
         public override int Meat { get { return 1; } }
-        public override Poison PoisonImmune { get { return Poison.Deadly; } }
+        public override Poison PoisonImmunity { get { return Poison.Deadly; } }
         public override Poison HitPoison { get { return Poison.Deadly; } }
 
         public SeaSnake(Serial serial)

@@ -60,7 +60,7 @@ namespace Server.Mobiles
                 return Core.ML;
             }
         }
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {
@@ -74,21 +74,21 @@ namespace Server.Mobiles
                 return Core.SE;
             }
         }
-        public override bool AreaPeaceImmune
+        public override bool AreaPeaceImmunity
         {
             get
             {
                 return Core.SE;
             }
         }
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {
                 return true;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

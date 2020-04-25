@@ -88,7 +88,7 @@ namespace Server.Mobiles
                 return true;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

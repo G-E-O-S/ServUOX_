@@ -56,14 +56,14 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {
                 return !Core.AOS;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

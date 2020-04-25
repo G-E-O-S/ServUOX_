@@ -146,7 +146,7 @@ namespace Server.Spells.SkillMasteries
             SetWeaponAbility(WeaponAbility.WhirlwindAttack);
         }
 
-        public override Poison PoisonImmune { get { return Poison.Greater; } }
+        public override Poison PoisonImmunity { get { return Poison.Greater; } }
         public override bool DisallowAllMoves { get { return true; } }
         public override bool AlwaysMurderer { get { return true; } }
 

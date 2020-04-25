@@ -136,7 +136,7 @@ namespace Server.Mobiles
         }
 
         public override int Meat => 2;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override Poison HitPoison => Poison.Lethal;
         public override int TreasureMapLevel => 3;
 
@@ -292,7 +292,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Greater;
+        public override Poison PoisonImmunity => Poison.Greater;
         public override int TreasureMapLevel => 4;
 
         public override TribeType Tribe => TribeType.Ophidian;

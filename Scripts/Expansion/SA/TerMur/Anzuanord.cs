@@ -58,7 +58,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BardImmune => true;
+        public override bool BardImmunity => true;
         public override int Meat => 1;
         public override int Hides => 7;
         public override HideType HideType => HideType.Spined;

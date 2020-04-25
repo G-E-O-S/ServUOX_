@@ -44,7 +44,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {

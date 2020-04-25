@@ -48,7 +48,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Greater;
+        public override Poison PoisonImmunity => Poison.Greater;
         public override int TreasureMapLevel => 2;
         public override bool DisallowAllMoves => true;
 

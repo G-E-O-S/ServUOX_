@@ -44,7 +44,7 @@ namespace Server.Mobiles
 		public EodonTribe TribeType { get; private set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public override Poison PoisonImmune 
+        public override Poison PoisonImmunity 
         { 
             get 
             {

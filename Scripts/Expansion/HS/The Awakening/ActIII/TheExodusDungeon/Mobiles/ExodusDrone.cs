@@ -68,8 +68,8 @@ namespace Server.Mobiles
         public bool CanUseField { get { return this.Hits >= this.HitsMax * 9 / 10; } } // TODO: an OSI bug prevents to verify this
         public override bool IsScaredOfScaryThings { get { return false; } }
         public override bool IsScaryToPets { get { return true; } }
-        public override bool BardImmune { get { return !Core.AOS; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BardImmunity { get { return !Core.AOS; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public override int GetIdleSound() { return 0x218; }
         public override int GetAngerSound() { return 0x26C; }

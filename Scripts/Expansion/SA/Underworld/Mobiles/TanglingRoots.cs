@@ -57,7 +57,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune { get { return Poison.Lesser; } }
+        public override Poison PoisonImmunity { get { return Poison.Lesser; } }
         public override bool DisallowAllMoves { get { return true; } }
         public override OppositionGroup OppositionGroup { get { return OppositionGroup.FeyAndUndead; } }
 

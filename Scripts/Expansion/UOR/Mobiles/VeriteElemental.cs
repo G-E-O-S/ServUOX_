@@ -46,15 +46,15 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AutoDispel { get { return true; } }
-        public override bool BleedImmune { get { return true; } }
-        public override int TreasureMapLevel { get { return 1; } }
+        public override bool AutoDispel => true;
+        public override bool BleedImmunity => true;
+        public override int TreasureMapLevel => 1;
 
-        public override void OnDeath(Container c)
+        public override void OnDeath(Container CorpseLoot)
         {
-            base.OnDeath(c);
-            c.DropItem(new VeriteOre(25));
+            CorpseLoot.DropItem(new VeriteOre(25));
             //ore.ItemID = 0x19B9;
+            base.OnDeath(CorpseLoot);
         }
 
         public static void OnHit(Mobile defender, Item item, int damage)
@@ -94,13 +94,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

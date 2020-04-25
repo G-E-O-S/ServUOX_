@@ -79,7 +79,7 @@ namespace Server.Mobiles
             }
         }
 
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public override void Serialize(GenericWriter writer)
         {

@@ -178,9 +178,9 @@ namespace Server.Items
         public override bool CanBeDistracted { get { return false; } }
         public override bool DeleteOnRelease { get { return true; } }
         public override bool AutoDispel { get { return !Controlled; } }
-        public override bool BleedImmune { get { return true; } }
-        public override bool BardImmune { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BleedImmunity { get { return true; } }
+        public override bool BardImmunity { get { return true; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public override bool CanTransfer(Mobile m)
         {

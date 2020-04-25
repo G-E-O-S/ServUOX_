@@ -46,7 +46,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Greater;
+        public override Poison PoisonImmunity => Poison.Greater;
 
         public override void GenerateLoot()
         {

@@ -55,7 +55,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {
@@ -69,7 +69,7 @@ namespace Server.Mobiles
                 return OppositionGroup.FeyAndUndead;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

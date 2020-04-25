@@ -18,7 +18,7 @@ namespace Server.Items
 
     public class InteriorDecorator : Item
     {
-        public override int LabelNumber { get { return 1041280; } } // an interior decorator
+        public override int LabelNumber => 1041280;  // an interior decorator
 
         [Constructable]
         public InteriorDecorator()
@@ -39,7 +39,6 @@ namespace Server.Items
         public static bool InHouse(Mobile from)
         {
             BaseHouse house = BaseHouse.FindHouseAt(from);
-
             return (house != null && house.IsCoOwner(from));
         }
 
@@ -56,13 +55,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -165,7 +164,6 @@ namespace Server.Items
                 : base(-1, false, TargetFlags.None)
             {
                 CheckLOS = false;
-
                 m_Decorator = decorator;
             }
 
@@ -189,8 +187,7 @@ namespace Server.Items
             {
                 if (m_Decorator.Command == DecorateCommand.GetHue)
                 {
-                    int hue = 0;
-
+                    int hue;
                     if (targeted is Item)
                         hue = ((Item)targeted).Hue;
                     else if (targeted is Mobile)
@@ -201,7 +198,7 @@ namespace Server.Items
                         return;
                     }
 
-                    from.SendLocalizedMessage(1158862, String.Format("{0}", hue)); // That object is hue ~1_HUE~
+                    from.SendLocalizedMessage(1158862, string.Format("{0}", hue)); // That object is hue ~1_HUE~
                 }
                 else if (targeted is Item && CheckUse(m_Decorator, from))
                 {
@@ -225,15 +222,13 @@ namespace Server.Items
                             count = component.Addon.Components.Count;
                             addon = component.Addon;
                         }
-                        else if (item is AddonContainerComponent)
+                        else if (item is AddonContainerComponent component)
                         {
-                            AddonContainerComponent component = (AddonContainerComponent)item;
                             count = component.Addon.Components.Count;
                             addon = component.Addon;
                         }
-                        else if (item is BaseAddonContainer)
+                        else if (item is BaseAddonContainer container)
                         {
-                            BaseAddonContainer container = (BaseAddonContainer)item;
                             count = container.Components.Count;
                             addon = container;
                         }
@@ -246,10 +241,13 @@ namespace Server.Items
 
                         if (m_Decorator.Command == DecorateCommand.Turn)
                         {
-                            FlipableAddonAttribute[] attributes = (FlipableAddonAttribute[])addon.GetType().GetCustomAttributes(typeof(FlipableAddonAttribute), false);
+                            if (addon != null)
+                            {
+                                FlipableAddonAttribute[] attributes = (FlipableAddonAttribute[])addon.GetType().GetCustomAttributes(typeof(FlipableAddonAttribute), false);
 
-                            if (attributes.Length > 0)
-                                isDecorableComponent = true;
+                                if (attributes.Length > 0)
+                                    isDecorableComponent = true;
+                            }
                         }
                     }
                     else if (item is Banner && m_Decorator.Command != DecorateCommand.Turn)
@@ -307,7 +305,7 @@ namespace Server.Items
             protected override void OnTargetCancel(Mobile from, TargetCancelType cancelType)
             {
                 if (cancelType == TargetCancelType.Canceled)
-                    from.CloseGump(typeof(InteriorDecorator.InternalGump));
+                    from.CloseGump(typeof(InternalGump));
             }
 
             private static void Turn(Item item, Mobile from)
@@ -329,12 +327,15 @@ namespace Server.Items
                     else if (item is BaseAddonContainer)
                         addon = (BaseAddonContainer)item;
 
-                    FlipableAddonAttribute[] aAttributes = (FlipableAddonAttribute[])addon.GetType().GetCustomAttributes(typeof(FlipableAddonAttribute), false);
-
-                    if (aAttributes.Length > 0)
+                    if (addon != null)
                     {
-                        aAttributes[0].Flip(from, (Item)addon);
-                        return;
+                        FlipableAddonAttribute[] aAttributes = (FlipableAddonAttribute[])addon.GetType().GetCustomAttributes(typeof(FlipableAddonAttribute), false);
+
+                        if (aAttributes.Length > 0)
+                        {
+                            aAttributes[0].Flip(from, (Item)addon);
+                            return;
+                        }
                     }
                 }
 

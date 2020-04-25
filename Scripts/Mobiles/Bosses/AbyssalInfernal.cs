@@ -65,7 +65,7 @@ namespace Server.Mobiles
         public override Type[] DecorativeList { get { return new Type[] { typeof(MagicalDoor) }; } }
         public override MonsterStatuetteType[] StatueTypes { get { return new MonsterStatuetteType[] { MonsterStatuetteType.AbyssalInfernal, MonsterStatuetteType.ArchDemon }; } }
 
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public override ScaleType ScaleType { get { return ScaleType.All; } }
         public override int Scales { get { return 20; } }

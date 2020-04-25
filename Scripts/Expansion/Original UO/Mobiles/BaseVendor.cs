@@ -50,7 +50,7 @@ namespace Server.Mobiles
 
         public override bool CanTeach => true;
 
-        public override bool BardImmune => true;
+        public override bool BardImmunity => true;
 
         public override bool PlayerRangeSensitive => true;
 

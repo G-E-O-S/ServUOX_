@@ -79,8 +79,8 @@ namespace Server.Mobiles
             return 0x629;
         }
 
-        public override bool BleedImmune { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BleedImmunity { get { return true; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public RisingColossus(Serial serial) : base(serial)
         {

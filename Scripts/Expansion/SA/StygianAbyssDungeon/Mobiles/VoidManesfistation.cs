@@ -62,7 +62,7 @@ namespace Server.Mobiles
             m_NextAIChange = DateTime.UtcNow;
 		}
 
-        public override Poison PoisonImmune { get { return Poison.Parasitic; } }
+        public override Poison PoisonImmunity { get { return Poison.Parasitic; } }
 		public override bool AlwaysMurderer { get { return true; } }
 		public override bool ReacquireOnMovement{ get{ return true; } }
 		public override bool AcquireOnApproach{ get { return true; } }

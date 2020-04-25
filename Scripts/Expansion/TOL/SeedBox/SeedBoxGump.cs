@@ -82,6 +82,7 @@ namespace Server.Engines.Plants
                 AddButton(x, y, entry.Image, entry.Image, i + 100, GumpButtonType.Reply, 0);
                 AddItem(x, y + 30, 0xDCF, entry.Seed.Hue);
 
+                entry.Seed.InvalidateProperties();
                 AddItemProperty(entry.Seed.Serial);
 
                 index++;

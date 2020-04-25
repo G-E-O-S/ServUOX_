@@ -50,7 +50,7 @@ namespace Server.Engines.Shadowguard
             Karma = -32000;
 		}
 		
-		public override Poison PoisonImmune{ get { return Poison.Lethal; } }
+		public override Poison PoisonImmunity{ get { return Poison.Lethal; } }
         public override bool AlwaysMurderer { get { return true; } }
 
         public override void GenerateLoot()
@@ -704,7 +704,7 @@ namespace Server.Engines.Shadowguard
 		public override Type[] SummonTypes { get { return _SummonTypes; } }
 		private Type[] _SummonTypes = new Type[] { typeof(MinotaurCaptain), typeof(Daemon), typeof(Titan) };
 		
-        public override bool BardImmune { get { return true; } }
+        public override bool BardImmunity { get { return true; } }
 
 		private DateTime _NextNuke;
 		private DateTime _NextDismount;

@@ -77,7 +77,7 @@ namespace Server.Mobiles
 
         public override int TreasureMapLevel { get { return 3; } }
         public override bool AlwaysMurderer { get { return true; } }
-        public override bool BardImmune { get { return !Core.AOS; } }
+        public override bool BardImmunity { get { return !Core.AOS; } }
         public override bool CanRummageCorpses { get { return true; } }
         public override int Meat { get { return 1; } }
 

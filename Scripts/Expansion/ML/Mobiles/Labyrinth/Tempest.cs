@@ -68,7 +68,7 @@ namespace Server.Mobiles
                 return 45.0;
             }
         }
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {

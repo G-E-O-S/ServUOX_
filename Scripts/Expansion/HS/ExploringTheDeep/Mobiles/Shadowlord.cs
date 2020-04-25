@@ -149,7 +149,7 @@ namespace Server.Mobiles
             return creature;
         }
 
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
 
         public override void GenerateLoot()
         {

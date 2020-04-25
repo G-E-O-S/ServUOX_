@@ -95,7 +95,7 @@ namespace Server.Mobiles
                 return false;
             }
         }
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {

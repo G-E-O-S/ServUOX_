@@ -53,7 +53,7 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 117.5;
         public override double DispelFocus => 45.0;
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 1;
 
         public override void GenerateLoot()
@@ -201,7 +201,7 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 117.5;  //?
         public override double DispelFocus => 45.0;
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 1;
 
         public override void GenerateLoot()
@@ -283,7 +283,7 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 117.5;  //?
         public override double DispelFocus => 45.0;
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 1;
 
         public override void GenerateLoot()
@@ -360,10 +360,10 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 117.5;  //?
         public override double DispelFocus => 45.0;
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 5;
 
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override Poison HitPoison => Poison.Lethal;
         public override double HitPoisonChance => 0.75;
 
@@ -444,7 +444,7 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 117.5;  //?
         public override double DispelFocus => 45.0;
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 2;
 
         public override void GenerateLoot()

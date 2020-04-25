@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -39,8 +38,6 @@ namespace Server.Mobiles
             Karma = -15000;
 
             VirtualArmor = 50;
-
-            PackItem(new Club());
         }
 
         public ArcticOgreLord(Serial serial)
@@ -48,32 +45,32 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }
-        
-		public override int TreasureMapLevel { get { return 3; } }
-		
+        public override Poison PoisonImmunity => Poison.Regular;
+        public override int TreasureMapLevel => 3;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich);
             AddLoot(LootPack.Rich);
         }
 
+        public override void OnDeath(Container CorpseLoot)
+        {
+            PackItem(new Club());
+
+            base.OnDeath(CorpseLoot);
+        }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

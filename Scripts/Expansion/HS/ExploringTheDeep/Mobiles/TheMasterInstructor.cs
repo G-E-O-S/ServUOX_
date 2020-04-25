@@ -93,8 +93,8 @@ namespace Server.Mobiles
         public override bool AlwaysMurderer => true;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
         public override bool Unprovokable => true;
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override int TreasureMapLevel => 5;
         public override bool AutoDispel => true;
 

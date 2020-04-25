@@ -115,7 +115,7 @@ namespace Server.Mobiles
 			c.DropItem( new BookOfNinjitsu() );
 		}
 
-		public override bool BardImmune{ get{ return true; } }
+		public override bool BardImmunity{ get{ return true; } }
 
 		public override void GenerateLoot()
 		{

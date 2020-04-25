@@ -50,7 +50,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Regular;
+        public override Poison PoisonImmunity => Poison.Regular;
         public override Poison HitPoison => Poison.Regular;
         public override FoodType FavoriteFood => FoodType.Fish;
 

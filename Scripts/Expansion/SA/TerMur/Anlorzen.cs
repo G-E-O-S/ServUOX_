@@ -52,10 +52,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override Poison HitPoison => Poison.Lethal;
         public override bool AlwaysMurderer => true;
-        public override bool BardImmune => true;
+        public override bool BardImmunity => true;
 
         public override void GenerateLoot()
         {

@@ -235,8 +235,8 @@ namespace Server.Engines.Events
         {
         }
 
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Regular;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Regular;
 
         public override void GenerateLoot()
         {

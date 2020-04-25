@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Mobiles
 {
     [CorpseName("a shadow wyrm corpse")]
@@ -57,18 +55,18 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool CanAngerOnTame { get { return true; } }
-        public override bool ReacquireOnMovement { get { return !Controlled; } }
-        public override bool AutoDispel { get { return !Controlled; } }
-        public override Poison PoisonImmune { get { return Poison.Deadly; } }
-        public override Poison HitPoison { get { return Poison.Deadly; } }
-        public override int TreasureMapLevel { get { return 5; } }
-        public override int Meat { get { return 19; } }
-        public override int Hides { get { return 20; } }
-        public override int Scales { get { return 10; } }
-        public override ScaleType ScaleType { get { return ScaleType.Black; } }
-        public override HideType HideType { get { return HideType.Barbed; } }
-        public override bool CanFly { get { return true; } }
+        public override bool CanAngerOnTame => true;
+        public override bool ReacquireOnMovement => !Controlled;
+        public override bool AutoDispel => !Controlled;
+        public override Poison PoisonImmunity => Poison.Deadly;
+        public override Poison HitPoison => Poison.Deadly;
+        public override int TreasureMapLevel => 5;
+        public override int Meat => 19;
+        public override int Hides => 20;
+        public override int Scales => 10;
+        public override ScaleType ScaleType => ScaleType.Black;
+        public override HideType HideType => HideType.Barbed;
+        public override bool CanFly => true;
 
         public override void GenerateLoot()
         {
@@ -89,13 +87,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

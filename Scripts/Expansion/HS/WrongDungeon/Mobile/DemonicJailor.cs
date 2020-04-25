@@ -156,10 +156,10 @@ namespace Server.Mobiles
         }
 
         public override bool AlwaysMurderer { get { return true; } }
-        public override bool BardImmune { get { return !Core.SE; } }
+        public override bool BardImmunity { get { return !Core.SE; } }
         public override bool Unprovokable { get { return Core.SE; } }
-        public override bool AreaPeaceImmune { get { return Core.SE; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool AreaPeaceImmunity { get { return Core.SE; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public override void GenerateLoot()
         {

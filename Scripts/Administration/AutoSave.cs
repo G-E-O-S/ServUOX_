@@ -7,16 +7,16 @@ namespace Server.Misc
 {
     public static class AutoSave
     {
-		private static readonly string[] m_Backups = new string[]
+        private static readonly string[] m_Backups = new string[]
         {
             "Third Backup",
             "Second Backup",
             "Most Recent"
         };
 
-		private static readonly TimeSpan m_Delay;
+        private static readonly TimeSpan m_Delay;
         private static readonly TimeSpan m_Warning;
-		
+
         private static readonly Timer m_Timer;
 
         public static bool SavesEnabled { get; set; }
@@ -24,10 +24,8 @@ namespace Server.Misc
         static AutoSave()
         {
             SavesEnabled = Config.Get("AutoSave.Enabled", true);
-
             m_Delay = Config.Get("AutoSave.Frequency", TimeSpan.FromMinutes(5.0));
             m_Warning = Config.Get("AutoSave.WarningTime", TimeSpan.Zero);
-
             m_Timer = Timer.DelayCall(m_Delay - m_Warning, m_Delay, Tick);
             m_Timer.Stop();
         }
@@ -35,7 +33,6 @@ namespace Server.Misc
         public static void Initialize()
         {
             m_Timer.Start();
-
             CommandSystem.Register("SetSaves", AccessLevel.Administrator, SetSaves_OnCommand);
         }
 
@@ -116,7 +113,7 @@ namespace Server.Misc
 
             if (Directory.Exists(tempRoot))
                 Directory.Delete(tempRoot, true);
-            
+
             string[] existing = Directory.GetDirectories(root);
 
             bool anySuccess = existing.Length == 0;

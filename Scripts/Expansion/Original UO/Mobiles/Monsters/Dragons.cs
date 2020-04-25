@@ -60,7 +60,7 @@ namespace Server.Mobiles
         public override FoodType FavoriteFood => FoodType.Meat;
         public override bool CanAngerOnTame => true;
         public override bool CanFly => true;
-        public override Poison PoisonImmune => Poison.Regular;
+        public override Poison PoisonImmunity => Poison.Regular;
         // public override Poison HitPoison { get { return Utility.RandomBool() ? Poison.Lesser : Poison.Regular; } }
 
         public override int GetIdleSound() { return 0x2D3; }

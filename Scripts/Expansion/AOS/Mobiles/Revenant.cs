@@ -74,9 +74,9 @@ namespace Server.Mobiles
 		public override double DispelDifficulty { get { return 80.0; } }
 		public override double DispelFocus { get { return 20.0; } }
 		public override bool AlwaysMurderer { get { return true; } }
-		public override bool BleedImmune { get { return true; } }
-		public override bool BardImmune { get { return true; } }
-		public override Poison PoisonImmune { get { return Poison.Lethal; } }
+		public override bool BleedImmunity { get { return true; } }
+		public override bool BardImmunity { get { return true; } }
+		public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
 		public override void DisplayPaperdollTo(Mobile to)
 		{

@@ -68,7 +68,7 @@ namespace Server.Mobiles
         {
             get { return InhumanSpeech.Ratman; }
         }
-        public override bool AllureImmune
+        public override bool AllureImmunity
         {
             get
             {

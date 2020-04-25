@@ -54,7 +54,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Greater;
+        public override Poison PoisonImmunity => Poison.Greater;
         public override Poison HitPoison => (0.8 >= Utility.RandomDouble() ? Poison.Greater : Poison.Deadly);
         public override bool DeathAdderCharmable => true;
         public override int Meat => 4;
@@ -165,7 +165,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {
@@ -290,7 +290,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {
@@ -415,7 +415,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {
@@ -540,7 +540,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

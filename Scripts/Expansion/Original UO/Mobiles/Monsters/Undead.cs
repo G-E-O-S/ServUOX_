@@ -45,8 +45,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Regular;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Regular;
+        public override bool BleedImmunity => true;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -146,9 +146,9 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
-        public override Poison PoisonImmune => Poison.Regular;
+        public override Poison PoisonImmunity => Poison.Regular;
         public override TribeType Tribe => TribeType.Undead;
 
         public override void GenerateLoot()
@@ -218,8 +218,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Regular;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Regular;
+        public override bool BleedImmunity => true;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -294,8 +294,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Deadly;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Deadly;
+        public override bool BleedImmunity => true;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
         public override bool CanRummageCorpses => true;
@@ -384,8 +384,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lethal;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override bool BleedImmunity => true;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
         public override bool CanRummageCorpses => true;
@@ -468,8 +468,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lethal;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override bool BleedImmunity => true;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -537,8 +537,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lethal;
-        public override bool BleedImmune => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override bool BleedImmunity => true;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -639,9 +639,9 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
+        public override bool BleedImmunity => true;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override TribeType Tribe => TribeType.Undead;
 
         public override void GenerateLoot()
@@ -706,8 +706,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Regular;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Regular;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -808,8 +808,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -876,8 +876,8 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 
@@ -941,8 +941,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 

@@ -73,7 +73,7 @@ namespace Server.Mobiles
 
         public override bool AutoDispel { get { return true; } }
         public override bool AlwaysMurderer { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public ShameGuardian(Serial serial)
             : base(serial)

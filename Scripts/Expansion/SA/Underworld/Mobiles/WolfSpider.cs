@@ -57,7 +57,7 @@ namespace Server.Mobiles
 
         public override FoodType FavoriteFood { get { return FoodType.Meat; } }
         public override PackInstinct PackInstinct { get { return PackInstinct.Arachnid; } }
-        public override Poison PoisonImmune { get { return Poison.Regular; } }
+        public override Poison PoisonImmunity { get { return Poison.Regular; } }
         public override Poison HitPoison { get { return Poison.Regular; } }
 
         public override void GenerateLoot()

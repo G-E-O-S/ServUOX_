@@ -41,8 +41,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 

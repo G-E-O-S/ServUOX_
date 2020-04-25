@@ -90,7 +90,7 @@ namespace Server.Mobiles
                 return new MonsterStatuetteType[] { };
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

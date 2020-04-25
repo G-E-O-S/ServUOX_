@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles 
@@ -54,10 +53,6 @@ namespace Server.Mobiles
 
             VirtualArmor = 40;
 
-            AddItem(new ThighBoots(Utility.RandomRedHue())); 
-            AddItem(new Surcoat(Utility.RandomRedHue()));    
-            AddItem(new ExecutionersAxe());
-
             Utility.AssignRandomHair(this);
         }
 
@@ -66,13 +61,7 @@ namespace Server.Mobiles
         { 
         }
 
-        public override bool AlwaysMurderer
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool AlwaysMurderer => true;
 
         public bool BlockReflect { get; set; }
         
@@ -98,18 +87,25 @@ namespace Server.Mobiles
             AddLoot(LootPack.Meager);
         }
 
+        public override void OnDeath(Container CorpseLoot)
+        {
+            AddItem(new ThighBoots(Utility.RandomRedHue()));
+            AddItem(new Surcoat(Utility.RandomRedHue()));
+            AddItem(new ExecutionersAxe());
+
+            base.OnDeath(CorpseLoot);
+        }
+
         public override void Serialize(GenericWriter writer) 
         { 
             base.Serialize(writer); 
-
-            writer.Write((int)0); // version 
+            writer.Write(0); 
         }
 
         public override void Deserialize(GenericReader reader) 
         { 
-            base.Deserialize(reader); 
-
-            int version = reader.ReadInt(); 
+            base.Deserialize(reader);
+            _ = reader.ReadInt();
         }
     }
 }

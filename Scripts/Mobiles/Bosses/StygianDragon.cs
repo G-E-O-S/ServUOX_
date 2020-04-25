@@ -87,7 +87,7 @@ namespace Server.Mobiles
 
         public override bool AlwaysMurderer { get { return true; } }
         public override bool Unprovokable { get { return false; } }
-        public override bool BardImmune { get { return false; } }
+        public override bool BardImmunity { get { return false; } }
         public override bool AutoDispel { get { return !Controlled; } }
         public override int Meat { get { return 19; } }
         public override int Hides { get { return 30; } }

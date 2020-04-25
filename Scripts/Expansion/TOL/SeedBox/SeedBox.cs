@@ -1,5 +1,4 @@
 using System;
-using Server;
 using System.Collections.Generic;
 using Server.Engines.VeteranRewards;
 using Server.Items;
@@ -17,8 +16,8 @@ namespace Server.Engines.Plants
         public static readonly int MaxSeeds = 5000;
         public static readonly int MaxUnique = 300;
 
-        public override int DefaultMaxItems { get { return MaxUnique; } }
-        public override bool DisplaysContent { get { return false; } }
+        public override int DefaultMaxItems => MaxUnique;
+        public override bool DisplaysContent => false;
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool IsRewardItem { get; set; }
@@ -43,20 +42,15 @@ namespace Server.Engines.Plants
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int UniqueCount
-        {
-            get { return Entries == null ? 0 : Entries.Where(e => e != null && e.Seed != null && e.Seed.Amount > 0).Count(); }
-        }
+        public int UniqueCount => Entries == null ? 0 : Entries.Where(e => e != null && e.Seed != null && e.Seed.Amount > 0).Count();
 
-        public override double DefaultWeight { get { return 10.0; } }
+        public override double DefaultWeight => 10.0;
 
         [Constructable]
         public SeedBox() : base(19288)
         {
             Entries = new List<SeedEntry>();
-
             LootType = LootType.Blessed;
-
             Level = SecureLevel.Owner;
         }
 
@@ -131,14 +125,14 @@ namespace Server.Engines.Plants
             {
                 return false;
             }
-            else if (!from.InRange(this.GetWorldLocation(), 3) || from.Map != this.Map)
+            else if (!from.InRange(GetWorldLocation(), 3) || from.Map != Map)
             {
                 return false;
             }
             else if (TotalCount + seed.Amount <= MaxSeeds)
             {
                 SeedEntry entry = GetExisting(seed);
-                int oldcount = UniqueCount;
+                _ = UniqueCount;
 
                 if (entry != null)
                 {
@@ -184,12 +178,25 @@ namespace Server.Engines.Plants
 
                     if (from is PlayerMobile)
                     {
+                        /*
                         var gump = new SeedBoxGump((PlayerMobile)from, this);
                         gump.CheckPage(entry);
-
                         BaseGump.SendGump(gump);
-                    }
+                        */
+                        var gump = from.FindGump<SeedBoxGump>();
+                        if (gump != null)
+                        {
+                            gump.CheckPage(entry);
+                            gump.Refresh();
+                        }
+                        else
+                        {
+                            gump = new SeedBoxGump((PlayerMobile)from, this);
+                            gump.CheckPage(entry);
 
+                            BaseGump.SendGump(gump);
+                        }
+                    }
                     InvalidateProperties();
                     return true;
                 }
@@ -247,6 +254,11 @@ namespace Server.Engines.Plants
 
         public void DropSeed(Mobile from, SeedEntry entry, int amount)
         {
+            if (!from.InRange(GetWorldLocation(), 3))
+            {
+                return;
+            }
+
             if (amount > entry.Seed.Amount)
                 amount = entry.Seed.Amount;
 
@@ -305,7 +317,7 @@ namespace Server.Engines.Plants
 
         private void CheckEntries()
         {
-            List<Item> toDelete = new List<Item>(this.Items);
+            List<Item> toDelete = new List<Item>(Items);
 
             foreach (var item in toDelete.Where(i => i != null && i.Amount == 0))
                 item.Delete();
@@ -339,7 +351,7 @@ namespace Server.Engines.Plants
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)1);
+            writer.Write(1);
 
             writer.Write(IsRewardItem);
             writer.Write((int)Level);

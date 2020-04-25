@@ -336,7 +336,7 @@ namespace Server.Mobiles
             Karma = -2500;
         }
 
-        public override Poison PoisonImmune { get { return Poison.Parasitic; } }
+        public override Poison PoisonImmunity { get { return Poison.Parasitic; } }
         public override Poison HitPoison { get { return Poison.Parasitic; } }
 
         public override void Delete()

@@ -127,7 +127,7 @@ namespace Server.Mobiles
         public override bool CanRummageCorpses => true;
         public override Faction FactionAllegiance => Minax.Instance;
         public override Ethics.Ethic EthicAllegiance => Ethics.Ethic.Evil;
-        public override Poison PoisonImmune => Poison.Regular;
+        public override Poison PoisonImmunity => Poison.Regular;
         public override int TreasureMapLevel => 3;
         public override int Meat => 2;
 

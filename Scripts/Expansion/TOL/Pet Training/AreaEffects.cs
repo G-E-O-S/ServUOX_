@@ -1,22 +1,19 @@
 using System;
-using Server;
 using System.Collections.Generic;
 using Server.Spells;
 using System.Linq;
-using Server.Network;
 using Server.Items;
 
 namespace Server.Mobiles
 {
     public abstract class AreaEffect
     {
-        public virtual int ManaCost { get { return 20; } }
-        public virtual int MaxRange { get { return 3; } }
-        public virtual double TriggerChance { get { return 1.0; } }
-        public virtual TimeSpan CooldownDuration { get { return TimeSpan.FromSeconds(30); } }
-        public virtual bool RequiresCombatant { get { return true; } }
-
-        public virtual int EffectRange { get { return 5; } }
+        public virtual int ManaCost => 20;
+        public virtual int MaxRange => 3;
+        public virtual double TriggerChance => 1.0;
+        public virtual TimeSpan CooldownDuration => TimeSpan.FromSeconds(30);
+        public virtual bool RequiresCombatant => true;
+        public virtual int EffectRange => 5;
 
         public AreaEffect()
         {
@@ -51,7 +48,6 @@ namespace Server.Mobiles
             if (CheckMana(creature) && Validate(creature, combatant) && TriggerChance >= Utility.RandomDouble())
             {
                 creature.Mana -= ManaCost;
-
                 DoEffects(creature, combatant);
                 AddToCooldown(creature);
                 return true;
@@ -144,7 +140,7 @@ namespace Server.Mobiles
                     _Cooldown = new List<BaseCreature>();
 
                 _Cooldown.Add(bc);
-                Timer.DelayCall<BaseCreature>(cooldown, RemoveFromCooldown, bc);
+                Timer.DelayCall(cooldown, RemoveFromCooldown, bc);
             }
         }
 
@@ -158,77 +154,28 @@ namespace Server.Mobiles
             _Cooldown.Remove(m);
         }
 
-        public static AreaEffect[] Effects { get { return _Effects; } }
-        private static AreaEffect[] _Effects;
+        public static AreaEffect[] Effects { get; private set; }
 
         static AreaEffect()
         {
-            _Effects = new AreaEffect[7];
+            Effects = new AreaEffect[7];
 
-            _Effects[0] = new AuraOfEnergy();
-            _Effects[1] = new AuraOfNausea();
-            _Effects[2] = new EssenceOfDisease();
-            _Effects[3] = new EssenceOfEarth();
-            _Effects[4] = new ExplosiveGoo();
-            _Effects[5] = new AuraDamage();
-            _Effects[6] = new PoisonBreath();
+            Effects[0] = new AuraOfEnergy();
+            Effects[1] = new AuraOfNausea();
+            Effects[2] = new EssenceOfDisease();
+            Effects[3] = new EssenceOfEarth();
+            Effects[4] = new ExplosiveGoo();
+            Effects[5] = new AuraDamage();
+            Effects[6] = new PoisonBreath();
         }
 
-        public static AreaEffect AuraOfEnergy
-        {
-            get
-            {
-                return _Effects[0];
-            }
-        }
-
-        public static AreaEffect AuraOfNausea
-        {
-            get
-            {
-                return _Effects[1];
-            }
-        }
-
-        public static AreaEffect EssenceOfDisease
-        {
-            get
-            {
-                return _Effects[2];
-            }
-        }
-
-        public static AreaEffect EssenceOfEarth
-        {
-            get
-            {
-                return _Effects[3];
-            }
-        }
-
-        public static AreaEffect ExplosiveGoo
-        {
-            get
-            {
-                return _Effects[4];
-            }
-        }
-
-        public static AreaEffect AuraDamage
-        {
-            get
-            {
-                return _Effects[5];
-            }
-        }
-
-        public static AreaEffect PoisonBreath
-        {
-            get
-            {
-                return _Effects[6];
-            }
-        }
+        public static AreaEffect AuraOfEnergy => Effects[0];
+        public static AreaEffect AuraOfNausea => Effects[1];
+        public static AreaEffect EssenceOfDisease => Effects[2];
+        public static AreaEffect EssenceOfEarth => Effects[3];
+        public static AreaEffect ExplosiveGoo => Effects[4];
+        public static AreaEffect AuraDamage => Effects[5];
+        public static AreaEffect PoisonBreath => Effects[6];
     }
 
     public class AuraOfEnergy : AreaEffect
@@ -242,7 +189,6 @@ namespace Server.Mobiles
             AOS.Damage(defender, creature, Utility.RandomMinMax(20, 30), 0, 0, 0, 0, 100);
 
             defender.SendLocalizedMessage(1072073, false, creature.Name); //  : The creature's aura of energy is damaging you!
-
             creature.DoHarmful(defender);
             defender.FixedParticles(0x374A, 10, 30, 5052, 1278, 0, EffectLayer.Waist);
             defender.PlaySound(0x51D);
@@ -251,10 +197,10 @@ namespace Server.Mobiles
 
     public class AuraOfNausea : AreaEffect
     {
-        public override TimeSpan CooldownDuration { get { return TimeSpan.FromSeconds(40 + Utility.RandomDouble() * 30); } }
-        public override int MaxRange { get { return 4; } }
-        public override int EffectRange { get { return 4; } }
-        public override int ManaCost { get { return 100; } }
+        public override TimeSpan CooldownDuration => TimeSpan.FromSeconds(40 + Utility.RandomDouble() * 30);
+        public override int MaxRange => 4;
+        public override int EffectRange => 4;
+        public override int ManaCost => 100;
 
         public static Dictionary<Mobile, Timer> _Table;
 
@@ -320,7 +266,6 @@ namespace Server.Mobiles
             AOS.Damage(defender, creature, Utility.RandomMinMax(20, 30), 0, 0, 0, 100, 0);
 
             defender.SendLocalizedMessage(1072074, false, creature.Name);
-
             creature.DoHarmful(defender);
             defender.FixedParticles(0x374A, 10, 30, 5052, 1272, 0, EffectLayer.Waist);
             defender.PlaySound(0x476);
@@ -338,7 +283,6 @@ namespace Server.Mobiles
             AOS.Damage(defender, creature, Utility.RandomMinMax(20, 30), 100, 0, 0, 0, 0);
 
             defender.SendLocalizedMessage(1072075, false, creature.Name);
-
             creature.DoHarmful(defender);
             defender.FixedParticles(0x374A, 10, 30, 5052, 1836, 0, EffectLayer.Waist);
             defender.PlaySound(0x22C);
@@ -347,7 +291,7 @@ namespace Server.Mobiles
 
     public class ExplosiveGoo : AreaEffect
     {
-        public override int ManaCost { get { return 30; } }
+        public override int ManaCost => 30;
 
         private bool _DoingEffect;
 
@@ -374,7 +318,7 @@ namespace Server.Mobiles
 
         public override void DoEffect(BaseCreature creature, Mobile defender)
         {
-            Timer.DelayCall<Mobile>(TimeSpan.FromMilliseconds(Utility.RandomMinMax(10, 1000)), m =>
+            Timer.DelayCall(TimeSpan.FromMilliseconds(Utility.RandomMinMax(10, 1000)), m =>
             {
                 if (m.Alive && !m.Deleted && m.Map != null)
                 {
@@ -397,9 +341,9 @@ namespace Server.Mobiles
 
     public class PoisonBreath : AreaEffect
     {
-        public override double TriggerChance { get { return 0.4; } }
-        public override int EffectRange { get { return 10; } }
-        public override int ManaCost { get { return 50; } }
+        public override double TriggerChance => 0.4;
+        public override int EffectRange => 4;
+        public override int ManaCost => 50;
 
         public PoisonBreath()
         {
@@ -466,10 +410,10 @@ namespace Server.Mobiles
 
     public class AuraDamage : AreaEffect
     {
-        public override double TriggerChance { get { return 0.4; } }
-        public override int EffectRange { get { return 10; } }
-        public override int ManaCost { get { return 0; } }
-        public override bool RequiresCombatant { get { return false; } }
+        public override double TriggerChance => 0.4;
+        public override int EffectRange => 5;
+        public override int ManaCost => 0;
+        public override bool RequiresCombatant => false;
 
         public AuraDamage()
         {
@@ -512,8 +456,6 @@ namespace Server.Mobiles
         public class AuraDefinition
         {
             public TimeSpan Cooldown { get; set; }
-            public int Range { get; set; }
-
             public int Damage { get; set; }
             public int Physical { get; set; }
             public int Fire { get; set; }
@@ -526,19 +468,18 @@ namespace Server.Mobiles
             public Type[] Uses { get; private set; }
 
             public AuraDefinition()
-                : this(TimeSpan.FromSeconds(5), 4, 5, 0, 0, 0, 0, 0, 0, 100, new Type[] { })
+                : this(TimeSpan.FromSeconds(5), 5, 0, 0, 0, 0, 0, 0, 100, new Type[] { })
             {
             }
 
             public AuraDefinition(params Type[] uses)
-                : this(TimeSpan.FromSeconds(5), 2, 5, 0, 100, 0, 0, 0, 0, 0, uses)
+                : this(TimeSpan.FromSeconds(5), 5, 0, 100, 0, 0, 0, 0, 0, uses)
             {
             }
 
-            public AuraDefinition(TimeSpan cooldown, int range, int baseDamage, int phys, int fire, int cold, int poison, int energy, int chaos, int direct, Type[] uses)
+            public AuraDefinition(TimeSpan cooldown, int baseDamage, int phys, int fire, int cold, int poison, int energy, int chaos, int direct, Type[] uses)
             {
                 Cooldown = cooldown;
-                Range = range;
                 Damage = baseDamage;
                 Physical = phys;
                 Fire = fire;
@@ -564,13 +505,11 @@ namespace Server.Mobiles
                 Definitions.Add(defaul);
 
                 cora = new AuraDefinition(typeof(CoraTheSorceress));
-                cora.Range = 3;
                 cora.Damage = 10;
                 cora.Fire = 0;
                 Definitions.Add(cora);
 
                 fireAura = new AuraDefinition(typeof(FlameElemental), typeof(FireDaemon), typeof(LesserFlameElemental));
-                fireAura.Range = 5;
                 fireAura.Damage = 7;
                 Definitions.Add(fireAura);
 
@@ -587,9 +526,8 @@ namespace Server.Mobiles
 
                 if (def == null)
                 {
-                    return Definitions[0]; // Default
+                    return Definitions[0];
                 }
-
                 return def;
             }
         }

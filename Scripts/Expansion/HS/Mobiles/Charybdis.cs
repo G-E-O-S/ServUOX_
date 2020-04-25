@@ -409,10 +409,10 @@ namespace Server.Mobiles
 
             public override bool AutoDispel { get { return true; } }
             public override double AutoDispelChance { get { return 1.0; } }
-            public override bool BardImmune { get { return true; } }
+            public override bool BardImmunity { get { return true; } }
             public override bool Unprovokable { get { return true; } }
             public override bool Uncalmable { get { return true; } }
-            public override Poison PoisonImmune { get { return Poison.Lethal; } }
+            public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
             public override int Meat { get { return 1; } }
 

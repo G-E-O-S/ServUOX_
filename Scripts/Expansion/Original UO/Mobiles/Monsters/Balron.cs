@@ -52,7 +52,7 @@ namespace Server.Mobiles
         public override bool CanFly => true;
 
         public override bool CanRummageCorpses => true;
-        public override Poison PoisonImmune => Poison.Deadly;
+        public override Poison PoisonImmunity => Poison.Deadly;
         public override int TreasureMapLevel => 5;
         public override int Meat => 1;
 

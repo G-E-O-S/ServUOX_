@@ -131,10 +131,10 @@ namespace Server.Mobiles
         }
 
         public override bool ReacquireOnMovement => true;
-        public override Poison PoisonImmune => Poison.Deadly;
+        public override Poison PoisonImmunity => Poison.Deadly;
         public override Poison HitPoison => Poison.Deadly;
         public override bool AutoDispel => true;
-        public override bool BardImmune => true;
+        public override bool BardImmunity => true;
         public override FoodType FavoriteFood => FoodType.Meat;
 
         public override void GenerateLoot()

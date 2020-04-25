@@ -46,8 +46,8 @@ namespace Server.Mobiles
         }
 
         public override int TreasureMapLevel => 1;
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lesser;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lesser;
         public override TribeType Tribe => TribeType.Undead;
         public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
 

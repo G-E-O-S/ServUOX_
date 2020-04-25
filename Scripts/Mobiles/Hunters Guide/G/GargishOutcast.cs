@@ -104,7 +104,7 @@ namespace Server.Mobiles
             AddItem(item);
         }
 
-        public override Poison PoisonImmune { get { return Poison.Deadly; } }
+        public override Poison PoisonImmunity { get { return Poison.Deadly; } }
         public override bool AlwaysMurderer { get { return true; } }
         public override bool ReacquireOnMovement { get { return true; } }
         public override bool AcquireOnApproach { get { return true; } }

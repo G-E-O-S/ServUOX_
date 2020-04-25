@@ -75,7 +75,7 @@ namespace Server.Mobiles
         public Mobile Harrower { get; set; }
         public override bool AutoDispel => true;
         public override bool Unprovokable => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override bool DisallowAllMoves => true;
 
         public override void CheckReflect(Mobile caster, ref bool reflect)

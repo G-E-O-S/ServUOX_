@@ -45,7 +45,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune => Poison.Lesser;
+        public override Poison PoisonImmunity => Poison.Lesser;
         public override bool DisallowAllMoves => true;
 
         public override void GenerateLoot()

@@ -50,7 +50,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

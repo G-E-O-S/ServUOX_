@@ -55,7 +55,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {

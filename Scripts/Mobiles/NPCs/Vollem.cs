@@ -48,9 +48,9 @@ namespace Server.Mobiles
         public override bool IsBondable { get { return false; } }
         public override bool DeleteOnRelease { get { return true; } }
         public override bool AutoDispel { get { return !Controlled; } }
-        public override bool BleedImmune { get { return true; } }
-        public override bool BardImmune { get { return !Core.AOS || Controlled; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BleedImmunity { get { return true; } }
+        public override bool BardImmunity { get { return !Core.AOS || Controlled; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
 
         public override FoodType FavoriteFood { get { return FoodType.Meat; } }
         public override int Meat { get { return 5; } }

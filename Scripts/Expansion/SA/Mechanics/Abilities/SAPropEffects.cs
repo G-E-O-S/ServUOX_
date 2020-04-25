@@ -379,7 +379,7 @@ namespace Server.Items
 
     public class SplinteringWeaponContext : PropertyEffect
     {
-        public static List<Mobile> BleedImmune { get; set; } = new List<Mobile>();
+        public static List<Mobile> BleedImmunity { get; set; } = new List<Mobile>();
 
         public SplinteringWeaponContext(Mobile from, Mobile defender, Item weapon)
             : base(from, defender, weapon, EffectsType.Splintering, TimeSpan.FromSeconds(4), TimeSpan.FromSeconds(4))
@@ -388,7 +388,7 @@ namespace Server.Items
 
             if (Core.EJ)
             {
-                if (!(defender is PlayerMobile) || !IsBleedImmune(defender))
+                if (!(defender is PlayerMobile) || !IsBleedImmunity(defender))
                 {
                     BleedAttack.BeginBleed(defender, from, true);
                     AddBleedImmunity(defender);
@@ -448,18 +448,18 @@ namespace Server.Items
             return false;
         }
 
-        public static bool IsBleedImmune(Mobile m)
+        public static bool IsBleedImmunity(Mobile m)
         {
-            return BleedImmune.Contains(m);
+            return BleedImmunity.Contains(m);
         }
 
         public static void AddBleedImmunity(Mobile m)
         {
-            if (!(m is PlayerMobile) || BleedImmune.Contains(m))
+            if (!(m is PlayerMobile) || BleedImmunity.Contains(m))
                 return;
 
-            BleedImmune.Add(m);
-            Timer.DelayCall(TimeSpan.FromSeconds(16), () => BleedImmune.Remove(m));
+            BleedImmunity.Add(m);
+            Timer.DelayCall(TimeSpan.FromSeconds(16), () => BleedImmunity.Remove(m));
         }
     }
 

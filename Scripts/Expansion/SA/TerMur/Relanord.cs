@@ -53,8 +53,8 @@ namespace Server.Mobiles
         }
 
         public override bool AutoDispel => true;
-        public override bool BardImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BardImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
 
         public override void GenerateLoot()
         {

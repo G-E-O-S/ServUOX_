@@ -120,7 +120,7 @@ namespace Server.Items
             TransformContext context = TransformationSpellHelper.GetContext(defender);
 
             if ((context != null && (context.Type == typeof(LichFormSpell) || context.Type == typeof(WraithFormSpell))) ||
-                (defender is BaseCreature && ((BaseCreature)defender).BleedImmune) || Spells.Mysticism.StoneFormSpell.CheckImmunity(defender))
+                (defender is BaseCreature && ((BaseCreature)defender).BleedImmunity) || Spells.Mysticism.StoneFormSpell.CheckImmunity(defender))
             {
                 attacker.SendLocalizedMessage(1062052); // Your target is not affected by the bleed attack!
                 return;

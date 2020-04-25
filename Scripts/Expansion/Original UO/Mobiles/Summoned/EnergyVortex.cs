@@ -68,8 +68,8 @@ namespace Server.Mobiles
         public override bool AlwaysMurderer => true;// Or Llama vortices will appear gray.
         public override double DispelDifficulty => 80.0;
         public override double DispelFocus => 20.0;
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;
 
         public override double GetFightModeRanking(Mobile m, FightMode acqType, bool bPlayerOnly)
         {

@@ -20,7 +20,7 @@ namespace Server.Engines.XmlSpawner2
         // when attached to a mobile, it should gain poison immunity and a poison
 
         //attack, but no poisoning skill
-        public Poison PoisonImmune
+        public Poison PoisonImmunity
         {
             get
             {

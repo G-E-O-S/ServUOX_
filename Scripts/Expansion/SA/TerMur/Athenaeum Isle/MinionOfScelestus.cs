@@ -57,7 +57,7 @@ namespace Server.Mobiles
         }
 
 		public override int TreasureMapLevel { get { return 4; } }
-        public override Poison PoisonImmune { get { return Poison.Parasitic; } }
+        public override Poison PoisonImmunity { get { return Poison.Parasitic; } }
         public override Poison HitPoison { get { return Poison.Lethal; } }
         public override bool TaintedLifeAura { get { return true; } }
         public override bool ReacquireOnMovement { get { return true; } }

@@ -37,14 +37,14 @@ namespace Server.Items
 
             eable.Free();
 
-            if (targets.Count > 0)
+            if (targets != null && targets.Count > 0)
                 m_Target = targets[Utility.Random(targets.Count)];
 
             AOS.Damage(defender, attacker, m_Damage, 0, 0, 0, 0, 0, 100);
 
             if (m_Target != null)
             {
-                defender.MovingEffect(m_Target, weapon.ItemID, 18, 1, false, false);
+                defender?.MovingEffect(m_Target, weapon.ItemID, 18, 1, false, false);
                 Timer.DelayCall(TimeSpan.FromMilliseconds(333.0), new TimerCallback(ThrowAgain));
                 m_Mobile = attacker;
             }

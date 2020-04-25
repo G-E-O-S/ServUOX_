@@ -111,7 +111,7 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 125.0;
         public override double DispelFocus => 45.0;
-        public override Poison PoisonImmune => Poison.Regular;// TODO: Immune to poison?
+        public override Poison PoisonImmunity => Poison.Regular;// TODO: Immune to poison?
         public override bool CanFly => true;
 
         public override void Serialize(GenericWriter writer)

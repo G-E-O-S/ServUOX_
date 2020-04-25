@@ -59,10 +59,10 @@ namespace Server.Mobiles
 
         public override bool IgnoreYoungProtection { get { return Core.ML; } }
         public override bool AutoDispel { get { return true; } }
-        public override bool BardImmune { get { return !Core.SE; } }
+        public override bool BardImmunity { get { return !Core.SE; } }
         public override bool Unprovokable { get { return Core.SE; } }
-        public override bool AreaPeaceImmune { get { return Core.SE; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool AreaPeaceImmunity { get { return Core.SE; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override Poison HitPoison { get { return 0.8 >= Utility.RandomDouble() ? Poison.Greater : Poison.Deadly; } }
         public override int TreasureMapLevel { get { return 1; } }
         public override bool AlwaysMurderer { get { return true; } }

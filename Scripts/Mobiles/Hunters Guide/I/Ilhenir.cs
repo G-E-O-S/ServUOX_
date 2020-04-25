@@ -118,7 +118,7 @@ namespace Server.Mobiles
         }
         public override bool Unprovokable { get { return true; } }
         public override bool Uncalmable { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override int TreasureMapLevel { get { return 5; } }   
 
         public virtual void PackTalismans(int amount)

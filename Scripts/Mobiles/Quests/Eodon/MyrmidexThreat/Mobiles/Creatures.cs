@@ -21,7 +21,7 @@ namespace Server.Mobiles
         private List<BaseCreature> _Spawn;
 
         public override bool AlwaysMurderer { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Parasitic; } }
+        public override Poison PoisonImmunity { get { return Poison.Parasitic; } }
         public override Poison HitPoison { get { return Poison.Parasitic; } }
         public override bool Unprovokable { get { return true; } }
 
@@ -426,7 +426,7 @@ namespace Server.Mobiles
         public bool IsQuest { get; set; }
 
         public override bool AlwaysMurderer { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Parasitic; } }
+        public override Poison PoisonImmunity { get { return Poison.Parasitic; } }
         public override bool Unprovokable { get { return true; } }
 
         private DateTime _NextMastery;

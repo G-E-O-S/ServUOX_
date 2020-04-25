@@ -57,7 +57,7 @@ namespace Server.Mobiles
                 return OppositionGroup.FeyAndUndead;
             }
         }
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {

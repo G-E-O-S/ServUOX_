@@ -99,7 +99,7 @@ namespace Server.Mobiles
 		}
 
 		public override bool AlwaysMurderer{ get{ return true; } }
-		public override bool BardImmune{ get{ return true; } }
+		public override bool BardImmunity{ get{ return true; } }
 		public override bool CanRummageCorpses{ get{ return true; } }
 
         public override double WeaponAbilityChance 

@@ -67,7 +67,7 @@ namespace Server.Mobiles
                 return PackInstinct.Daemon;
             }
         }
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {

@@ -5849,7 +5849,7 @@ namespace Server.Mobiles
                 SkillName mastery = Skills.CurrentMastery;
                 Skills.CurrentMastery = SkillName.Alchemy;
 
-                Server.Spells.SkillMasteries.MasteryInfo.OnMasteryChanged(this, mastery);
+                MasteryInfo.OnMasteryChanged(this, mastery);
             }
 
             TransformContext context = TransformationSpellHelper.GetContext(this);
@@ -5864,7 +5864,7 @@ namespace Server.Mobiles
         {
             if (IsPlayer())
             {
-                IgnoreMobiles = false;
+                IgnoreMobiles = TransformationSpellHelper.UnderTransformation(this, typeof(WraithFormSpell)); 
             }
             else
             {

@@ -64,8 +64,8 @@ namespace Server.Mobiles
         }
 
         public override bool Unprovokable { get { return true; } }
-        public override bool BleedImmune { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override bool BleedImmunity { get { return true; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override bool ShowFameTitle { get { return false; } }
         public override bool ClickTitle { get { return false; } }
         public override bool AlwaysMurderer { get { return true; } }

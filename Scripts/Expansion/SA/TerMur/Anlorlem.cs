@@ -52,10 +52,10 @@ namespace Server.Mobiles
         }
 
         public override int TreasureMapLevel => 3;
-        public override bool BardImmune => !Core.AOS;
+        public override bool BardImmunity => !Core.AOS;
         public override bool Unprovokable => true;
         public override bool ReacquireOnMovement => true;
-        public override Poison PoisonImmune => Poison.Greater;
+        public override Poison PoisonImmunity => Poison.Greater;
 
         public override void GenerateLoot()
         {

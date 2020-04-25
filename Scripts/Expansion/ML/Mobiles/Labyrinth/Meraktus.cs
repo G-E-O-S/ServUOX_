@@ -230,7 +230,7 @@ namespace Server.Mobiles
                 return HideType.Regular;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {
@@ -244,7 +244,7 @@ namespace Server.Mobiles
                 return 3;
             }
         }
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {

@@ -141,7 +141,7 @@ namespace Server.Mobiles
         }
 
         public override bool AutoDispel => true;
-        public override bool BardImmune => !Core.AOS;
+        public override bool BardImmunity => !Core.AOS;
         public override bool CanRummageCorpses => true;
         public override bool AlwaysMurderer => true;
         public override bool ShowFameTitle => false;

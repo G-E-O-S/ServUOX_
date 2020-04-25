@@ -2210,24 +2210,26 @@ namespace Server.Engines.Craft
                 {
                     Item[] items = pack.FindItemsByType(type);
 
-                    if (items != null && items.Length > 0 && items[0] is IPlantHue)
-                        hue = ((IPlantHue)items[0]).PlantHue;
-                    else if (items != null && items.Length > 0 && items[0] is IPigmentHue)
-                        phue = ((IPigmentHue)items[0]).PigmentHue;
-
-                    foreach (Item item in items)
+                    if (items != null)
                     {
-                        if (item is IPlantHue && ((IPlantHue)item).PlantHue != hue)
-                            return true;
-                        else if (item is IPigmentHue && ((IPigmentHue)item).PigmentHue != phue)
-                            return true;
-                    }
+                        if (items.Length > 0 && items[0] is IPlantHue)
+                            hue = ((IPlantHue)items[0]).PlantHue;
+                        else if (items.Length > 0 && items[0] is IPigmentHue)
+                            phue = ((IPigmentHue)items[0]).PigmentHue;
 
-                    if (hue != PlantHue.None)
-                        context.RequiredPlantHue = hue;
-                    else if (phue != PlantPigmentHue.None)
-                        context.RequiredPigmentHue = phue;
-                    
+                        foreach (Item item in items)
+                        {
+                            if (item is IPlantHue && ((IPlantHue)item).PlantHue != hue)
+                                return true;
+                            else if (item is IPigmentHue && ((IPigmentHue)item).PigmentHue != phue)
+                                return true;
+                        }
+
+                        if (hue != PlantHue.None)
+                            context.RequiredPlantHue = hue;
+                        else if (phue != PlantPigmentHue.None)
+                            context.RequiredPigmentHue = phue;
+                    }                 
                 }
             }
 

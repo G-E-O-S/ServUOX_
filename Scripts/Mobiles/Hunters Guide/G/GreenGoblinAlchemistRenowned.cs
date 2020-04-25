@@ -102,7 +102,7 @@ namespace Server.Mobiles
             }
         }
         
-        public override bool AllureImmune
+        public override bool AllureImmunity
         {
             get
             {

@@ -300,9 +300,9 @@ namespace Server.Items
             return false;
         }
 
-        public static bool IsPoisonImmune(BaseCreature bc)
+        public static bool IsPoisonImmunity(BaseCreature bc)
         {
-            return (bc != null && bc.PoisonImmune != null);
+            return (bc != null && bc.PoisonImmunity != null);
         }
 
         public static int GetPoisonLevel(BaseCreature bc)
@@ -344,7 +344,7 @@ namespace Server.Items
                 val += 100;
             }
 
-            if (IsPoisonImmune(bc))
+            if (IsPoisonImmunity(bc))
             {
                 val += 100;
             }

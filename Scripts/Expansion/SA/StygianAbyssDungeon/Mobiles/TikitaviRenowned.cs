@@ -48,7 +48,7 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
-        public override bool AllureImmune
+        public override bool AllureImmunity
         {
             get
             {

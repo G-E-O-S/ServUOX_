@@ -55,9 +55,9 @@ namespace Server.Mobiles
         }
 
         public override bool AutoDispel { get { return true; } }
-        public override bool BardImmune { get { return true; } }
+        public override bool BardImmunity { get { return true; } }
         public override bool Unprovokable { get { return true; } }
-        public override bool AreaPeaceImmune { get { return true; } }
+        public override bool AreaPeaceImmunity { get { return true; } }
 
         public override void GenerateLoot()
         {

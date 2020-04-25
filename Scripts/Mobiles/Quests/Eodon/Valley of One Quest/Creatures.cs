@@ -54,7 +54,7 @@ namespace Server.Mobiles
         }
 
         public override bool AutoDispel { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override bool UseSmartAI { get { return true; } }
         public override bool ReacquireOnMovement { get { return true; } }
         public override bool AttacksFocus { get { return true; } }
@@ -362,7 +362,7 @@ namespace Server.Mobiles
         }
 
         public override bool AutoDispel { get { return true; } }
-        public override Poison PoisonImmune { get { return Poison.Lethal; } }
+        public override Poison PoisonImmunity { get { return Poison.Lethal; } }
         public override bool UseSmartAI { get { return true; } }
         public override int TreasureMapLevel { get { return 7; } }
 

@@ -81,14 +81,14 @@ namespace Server.Mobiles
                 return true;
             }
         }
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {
                 return true;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

@@ -63,8 +63,8 @@ namespace Server.Mobiles
 			AddLoot( LootPack.UltraRich, 2 );
 		}
 
-        public override bool BardImmune => !Core.AOS;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override bool BardImmunity => !Core.AOS;
+        public override Poison PoisonImmunity => Poison.Lethal;
 
         public Vasanord( Serial serial ) : base( serial )
 		{

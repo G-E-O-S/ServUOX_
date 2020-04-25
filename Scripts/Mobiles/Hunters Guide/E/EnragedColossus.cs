@@ -46,8 +46,8 @@ namespace Server.Mobiles
 
         public override double DispelDifficulty => 125.0;
         public override double DispelFocus => 45.0;
-        public override bool BleedImmune => true;
-        public override Poison PoisonImmune => Poison.Lethal;// Immune to poison?
+        public override bool BleedImmunity => true;
+        public override Poison PoisonImmunity => Poison.Lethal;// Immune to poison?
 
         public override int GetAttackSound()
         {

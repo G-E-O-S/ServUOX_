@@ -44,7 +44,7 @@ namespace Server.Mobiles
                 return GuildType.Chaos;
             }
         }
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {

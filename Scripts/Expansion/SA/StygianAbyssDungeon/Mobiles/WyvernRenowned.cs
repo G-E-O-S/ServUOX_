@@ -68,7 +68,7 @@ namespace Server.Mobiles
             get { return true; }
         }
 
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get { return Poison.Deadly; }
         }
@@ -83,7 +83,7 @@ namespace Server.Mobiles
             get { return true; }
         }
 
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get { return true; }
         }

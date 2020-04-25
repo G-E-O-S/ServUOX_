@@ -54,7 +54,7 @@ namespace Server.Mobiles
         public override Ethics.Ethic EthicAllegiance => Ethics.Ethic.Hero;
         public override bool DeathAdderCharmable => true;
         public override int Meat => 1;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         public override Poison HitPoison => Poison.Lethal;
 
         public override void GenerateLoot()

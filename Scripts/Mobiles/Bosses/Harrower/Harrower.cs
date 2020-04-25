@@ -94,7 +94,7 @@ namespace Server.Mobiles
         public Type[] DecorativeList => new Type[] { typeof(EvilIdolSkull), typeof(SkullPole) };
         public override bool AutoDispel => true;
         public override bool Unprovokable => true;
-        public override Poison PoisonImmune => Poison.Lethal;
+        public override Poison PoisonImmunity => Poison.Lethal;
         [CommandProperty(AccessLevel.GameMaster)]
         public override int HitsMax => m_TrueForm ? 65000 : 30000;
         [CommandProperty(AccessLevel.GameMaster)]

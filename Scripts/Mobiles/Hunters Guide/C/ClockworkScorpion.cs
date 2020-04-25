@@ -82,7 +82,7 @@ namespace Server.Mobiles
                 return !Controlled;
             }
         }
-        public override bool BleedImmune
+        public override bool BleedImmunity
         {
             get
             {
@@ -96,14 +96,14 @@ namespace Server.Mobiles
                 return true;
             }
         }
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {
                 return !Core.AOS || Controlled;
             }
         }
-        public override Poison PoisonImmune
+        public override Poison PoisonImmunity
         {
             get
             {

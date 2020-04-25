@@ -46,7 +46,7 @@ namespace Server.Factions
         {
         }
 
-        public override bool BardImmune
+        public override bool BardImmunity
         {
             get
             {
