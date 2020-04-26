@@ -45,14 +45,18 @@ namespace Server.Mobiles
 
             VirtualArmor = 45;
 
-            PackItem(new Bone(3));
-            PackItem(new FertileDirt(Utility.RandomMinMax(1, 5)));
+            SetSpecialAbility(SpecialAbility.DragonBreath);
+        }
+
+        public override void OnDeath(Container CorpseLoot)
+        {
+            CorpseLoot.DropItem(new Bone(3));
+            CorpseLoot.DropItem(new FertileDirt(Utility.RandomMinMax(1, 5)));
 
             if (Core.ML && Utility.RandomDouble() < .33)
-                PackItem(Engines.Plants.Seed.RandomPeculiarSeed(3));
+                CorpseLoot.DropItem(Engines.Plants.Seed.RandomPeculiarSeed(3));
 
-            Item orepile = null; /* no trust, no love :( */
-
+            Item orepile;
             switch (Utility.Random(4))
             {
                 case 0:
@@ -71,21 +75,21 @@ namespace Server.Mobiles
 
             orepile.Amount = Utility.RandomMinMax(1, 10);
             orepile.ItemID = 0x19B9;
-            PackItem(orepile);
+            CorpseLoot.DropItem(orepile);
 
-            PackBones();
-			
-			if ( 0.07 >= Utility.RandomDouble() )
-			{
-				switch ( Utility.Random( 3 ) )
-				{
-					case 0: PackItem( new UnknownBardSkeleton() ); break;
-					case 1: PackItem( new UnknownMageSkeleton() ); break;
-					case 2: PackItem( new UnknownRogueSkeleton() ); break;
-				}
-			}
+            if (0.07 >= Utility.RandomDouble())
+            {
+                switch (Utility.Random(3))
+                {
+                    case 0: CorpseLoot.DropItem(new UnknownBardSkeleton()); break;
+                    case 1: CorpseLoot.DropItem(new UnknownMageSkeleton()); break;
+                    case 2: CorpseLoot.DropItem(new UnknownRogueSkeleton()); break;
+                }
+            }
 
-            SetSpecialAbility(SpecialAbility.DragonBreath);
+            // PackBones();
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override void OnThink()
@@ -106,7 +110,7 @@ namespace Server.Mobiles
 
         private void DoTunnel(Mobile combatant)
         {
-            PublicOverheadMessage(Server.Network.MessageType.Regular, 0x3B3, false, "* The ant lion begins tunneling into the ground *");
+            PublicOverheadMessage(Network.MessageType.Regular, 0x3B3, false, "* The ant lion begins tunneling into the ground *");
             Effects.SendTargetParticles(this, 0x36B0, 20, 10, 1734, 0, 5044, EffectLayer.Head, 0);
 
             Frozen = true;
@@ -161,7 +165,7 @@ namespace Server.Mobiles
         {
             if (_Tunneling && !Hidden && 0.25 > Utility.RandomDouble())
             {
-                PublicOverheadMessage(Server.Network.MessageType.Regular, 0x3B3, false, "* You interrupt the ant lion's digging! *");
+                PublicOverheadMessage(Network.MessageType.Regular, 0x3B3, false, "* You interrupt the ant lion's digging! *");
 
                 Frozen = false;
                 Hidden = false;
@@ -240,13 +244,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             Hidden = false;
             Blessed = false;
@@ -254,7 +258,7 @@ namespace Server.Mobiles
 
         private class InternalItem : Item
         {
-            public override int LabelNumber { get { return 1027025; } }
+            public override int LabelNumber => 1027025;
 
             public InternalItem(int id)
                 : base(id)
@@ -271,14 +275,13 @@ namespace Server.Mobiles
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
-                writer.Write((int)0);
+                writer.Write(0);
             }
 
             public override void Deserialize(GenericReader reader)
             {
                 base.Deserialize(reader);
-                int version = reader.ReadInt();
-
+                _ = reader.ReadInt();
                 Delete();
             }
         }

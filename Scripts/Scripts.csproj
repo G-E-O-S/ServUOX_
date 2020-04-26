@@ -2419,11 +2419,7 @@
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\Beetle.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Betrayer.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Birds.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenInfiltratorQueen.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenInfiltratorWarrior.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenQueen.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenWarrior.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolenWorker.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\BlackSolen.cs" />
     <Compile Include="Expansion\SA\Mobiles\Grubber.cs" />
     <Compile Include="Expansion\SA\TerMur\Lifestealer.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DragonWolf.cs" />
@@ -2498,7 +2494,7 @@
     <Compile Include="Mobiles\Hunters Guide\D\Doppleganger.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Dragons.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DragonsFlameGrandMage.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\DreadSpider.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Spiders.cs" />
     <Compile Include="Mobiles\Hunters Guide\D\DreamWraith .cs" />
     <Compile Include="Expansion\UOR\Mobiles\DullCopperElemental.cs" />
     <Compile Include="Mobiles\Hunters Guide\E\EffetePutridGargoyle.cs" />
@@ -2549,8 +2545,7 @@
     <Compile Include="Mobiles\Hunters Guide\G\GazerLarva.cs" />
     <Compile Include="Mobiles\Hunters Guide\G\GiantBlackWidow.cs" />
     <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\GiantIceWorm.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSerpent.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\GiantSpider.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\Monsters\Serpents.cs" />
     <Compile Include="Expansion\AOS\XxUnsortedxX\Gibberling.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Goats.cs" />
     <Compile Include="Expansion\UOR\Mobiles\GoldenElemental.cs" />
@@ -2609,10 +2604,7 @@
     <Compile Include="Expansion\XSORTINGX\Mobiles\Eodon\Macaw.cs" />
     <Compile Include="Expansion\SA\Mobiles\MaddeningHorror.cs" />
     <Compile Include="Expansion\ML\Mobiles\PrismOfLight\MantraEffervescence.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\BlackthornsDamnation\MeerCaptain.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\BlackthornsDamnation\MeerEternal.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\BlackthornsDamnation\MeerMage.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\BlackthornsDamnation\MeerWarrior.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\BlackthornsDamnation\Meers.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Mimic.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Minotaur.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\MinotaurCaptain.cs" />
@@ -2634,10 +2626,7 @@
     <Compile Include="Expansion\T2A\Mobiles\Phoenix.cs" />
     <Compile Include="Expansion\SA\StygianAbyssDungeon\Mobiles\PitFiend.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Pixie.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueBeast.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueBeastLord.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueRat.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\PlagueSpawn.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\Plagued.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Lion.cs" />
     <Compile Include="Expansion\TOL\Mobiles\Triceratops.cs" />
     <Compile Include="Expansion\HS\Thanksgiving2012\Turkey.cs" />
@@ -2673,11 +2662,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Ratmen.cs" />
     <Compile Include="Expansion\AOS\Doom\Mobiles\Ravager.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Reaper.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\RedSolenInfiltratorQueen.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\RedSolenInfiltratorWarrior.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\RedSolenQueen.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\RedSolenWarrior.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\RedSolenWorker.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\RedSolen.cs" />
     <Compile Include="Expansion\HS\Mobiles\RenegadeChangeling.cs" />
     <Compile Include="Expansion\ML\Mobiles\Labyrinth\Reptalon.cs" />
     <Compile Include="Expansion\AOS\Doom\Mobiles\RestlessSoul.cs" />
@@ -2694,10 +2679,8 @@
     <Compile Include="Expansion\ML\Mobiles\Satyr.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\Savages.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Savage Empire\SavageRidgeback.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\ScaledSwampDragon.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Scorpion.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SeaHorse.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\SeaSerpent.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\SentinelSpider.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SerpentineDragon.cs" />
     <Compile Include="Expansion\AOS\Doom\Mobiles\SerpentsFangHighExecutioner.cs" />
@@ -2707,7 +2690,6 @@
     <Compile Include="Expansion\LBR\Mobiles\ShadowWisp.cs" />
     <Compile Include="Expansion\UOR\Mobiles\ShadowWyrm.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Sheep.cs" />
-    <Compile Include="Expansion\Original UO\Mobiles\Monsters\SilverSerpent.cs" />
     <Compile Include="Expansion\T2A\Mechanics\SiegePerilous\HeroEvil\Hero\Mobiles\Deprecated\SilverSteed.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SkeletalDragon.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\SkeletalDrake.cs" />
@@ -2718,7 +2700,6 @@
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Slime.cs" />
     <Compile Include="Expansion\SA\TerMur\Slith.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Snake.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\SolenHelper.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\Quest\SpeckledScorpion.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\SpectralArmour.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\New Haven\Spellbinder.cs" />
@@ -2726,7 +2707,7 @@
     <Compile Include="Expansion\SA\TerMur\StoneSlith.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\StrongMongbat.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\Succubus.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\SwampDragon.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\SwampDragons.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\TanglingRoots.cs" />
     <Compile Include="Expansion\UOTD\Mobiles\ThirdDawnParrot.cs" />
     <Compile Include="Expansion\ML\Mobiles\TigersClawMaster.cs" />

@@ -47,9 +47,6 @@ namespace Server.Mobiles
             ControlSlots = 2;
             MinTameSkill = 106.0;
 
-            PackItem(new SulfurousAsh(Utility.RandomMinMax(151, 300)));
-            PackItem(new Ruby(Utility.RandomMinMax(16, 30)));
-
             SetSpecialAbility(SpecialAbility.DragonBreath);
         }
 
@@ -58,32 +55,31 @@ namespace Server.Mobiles
         {
         }
 
-        public override FoodType FavoriteFood
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override PackInstinct PackInstinct => PackInstinct.Daemon | PackInstinct.Equine;
+
+        public override void OnDeath(Container CorpseLoot)
         {
-            get
-            {
-                return FoodType.Meat;
-            }
+            CorpseLoot.DropItem(new SulfurousAsh(Utility.RandomMinMax(151, 300)));
+            CorpseLoot.DropItem(new Ruby(Utility.RandomMinMax(16, 30)));
+
+            base.OnDeath(CorpseLoot);
         }
-        public override PackInstinct PackInstinct
+
+        public override void GenerateLoot()
         {
-            get
-            {
-                return PackInstinct.Daemon | PackInstinct.Equine;
-            }
+            AddLoot(LootPack.Rich, 2);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             if (version < 1)

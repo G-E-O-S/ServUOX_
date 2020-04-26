@@ -40,16 +40,18 @@ namespace Server.Mobiles
             ForceActiveSpeed = 0.2;
             ForcePassiveSpeed = 0.4;
         }
-		
-		public virtual void SpawnPackItems()
+
+        public override void OnDeath(Container CorpseLoot)
         {
             int carrots = Utility.RandomMinMax(5, 10);
-            PackItem(new Carrot(carrots));
+            CorpseLoot.DropItem(new Carrot(carrots));
 
             if (Utility.Random(5) == 0)
-                PackItem(new BrightlyColoredEggs());
+                CorpseLoot.DropItem(new BrightlyColoredEggs());
 
-            PackStatue();
+            CorpseLoot.DropItem(Loot.RandomStatue());
+
+            base.OnDeath(CorpseLoot);
         }
 
         public VorpalBunny(Serial serial)

@@ -41,7 +41,6 @@ namespace Server.Mobiles
             VirtualArmor = 18;
 
             AddItem(new LightSource());
-
             PackBones();
         }
 
@@ -50,23 +49,23 @@ namespace Server.Mobiles
         {
         }
 
-        public override OppositionGroup OppositionGroup
+        public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
+
+        public override void OnDeath(Container CorpseLoot)
         {
-            get
-            {
-                return OppositionGroup.FeyAndUndead;
-            }
+            base.OnDeath(CorpseLoot);
         }
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

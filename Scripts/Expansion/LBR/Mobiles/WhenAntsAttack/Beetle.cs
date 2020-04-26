@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Server.ContextMenus;
 using Server.Items;
@@ -8,13 +7,7 @@ namespace Server.Mobiles
     [CorpseName("a giant beetle corpse")]
     public class Beetle : BaseMount
     {
-        public virtual double BoostedSpeed
-        {
-            get
-            {
-                return 0.1;
-            }
-        }
+        public virtual double BoostedSpeed => 0.1;
 
         [Constructable]
         public Beetle()
@@ -22,20 +15,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool SubdueBeforeTame
-        {
-            get
-            {
-                return true;
-            }
-        }// Must be beaten into submission
-        public override bool ReduceSpeedWithDamage
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public override bool SubdueBeforeTame => true;
+        public override bool ReduceSpeedWithDamage => false;
 
         [Constructable]
         public Beetle(string name)
@@ -79,40 +60,19 @@ namespace Server.Mobiles
             AddItem(pack);
         }
 
-        public override int GetAngerSound()
+        public override void OnDeath(Container CorpseLoot)
         {
-            return 0x21D;
+            base.OnDeath(CorpseLoot);
         }
 
-        public override int GetIdleSound()
-        {
-            return 0x21D;
-        }
+        public override int GetAngerSound() { return 0x21D; }
+        public override int GetIdleSound() { return 0x21D; }
+        public override int GetAttackSound() { return 0x162; }
+        public override int GetHurtSound() { return 0x163; }
+        public override int GetDeathSound() { return 0x21D; }
 
-        public override int GetAttackSound()
-        {
-            return 0x162;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x163;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x21D;
-        }
-
-        public override FoodType FavoriteFood
-        {
-            get
-            {
-                return FoodType.Meat;
-            }
-        }
-
-        public override bool CanAutoStable { get { return (Backpack == null || Backpack.Items.Count == 0) && base.CanAutoStable; } }
+        public override FoodType FavoriteFood => FoodType.Meat;
+        public override bool CanAutoStable => (Backpack == null || Backpack.Items.Count == 0) && base.CanAutoStable;
 
         public Beetle(Serial serial)
             : base(serial)
@@ -201,14 +161,12 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             if (version < 1 && PetTrainingHelper.Enabled && ControlSlots <= 3)

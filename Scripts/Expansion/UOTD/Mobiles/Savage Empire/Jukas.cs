@@ -46,7 +46,7 @@ namespace Server.Mobiles
             VirtualArmor = 28;                
 
             AddItem(new JukaBow());
-            AddItem(new Arrow(Utility.RandomMinMax(25, 35)));
+            AddItem(new Arrow(Utility.RandomMinMax(15, 25)));
         }
 
         public JukaLord(Serial serial)
