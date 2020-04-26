@@ -6,36 +6,6 @@ namespace Server.Mobiles
     [CorpseName("a leviathan corpse")]
     public class Leviathan : BaseCreature
     {
-        private static readonly Type[] m_Artifacts = new Type[]
-        {
-            // Decorations
-            typeof(CandelabraOfSouls),
-            typeof(GhostShipAnchor),
-            typeof(GoldBricks),
-            typeof(PhillipsWoodenSteed),
-            typeof(SeahorseStatuette),
-            typeof(ShipModelOfTheHMSCape),
-            typeof(AdmiralsHeartyRum),
-
-            // Equipment
-            typeof(AlchemistsBauble),
-            typeof(ArcticDeathDealer),
-            typeof(BlazeOfDeath),
-            typeof(BurglarsBandana),
-            typeof(CaptainQuacklebushsCutlass),
-            typeof(CavortingClub),
-            typeof(DreadPirateHat),
-            typeof(EnchantedTitanLegBone),
-            typeof(GwennosHarp),
-            typeof(IolosLute),
-            typeof(LunaLance),
-            typeof(NightsKiss),
-            typeof(NoxRangersHeavyCrossbow),
-            typeof(PolarBearMask),
-            typeof(VioletCourage)
-        };
-
-        private Mobile m_Fisher;
         private DateTime m_NextWaterBall;
 
         [Constructable]
@@ -48,10 +18,9 @@ namespace Server.Mobiles
         public Leviathan(Mobile fisher)
             : base(AIType.AI_Mage, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
-            m_Fisher = fisher;
+            Fisher = fisher;
             m_NextWaterBall = DateTime.UtcNow;
 
-            // May not be OSI accurate; mostly copied from krakens
             Name = "a leviathan";
             Body = 77;
             BaseSoundID = 353;
@@ -107,14 +76,56 @@ namespace Server.Mobiles
             : base(serial)
         {
         }
+        // list of artifacts 
+        // luna lance 0
+        // violet courage 1
+        // cavorting club 2
+        // captain quacklebush’s cutlass 3
+        // night’s kiss 4
+        // ship model of the h.m.s. cape 5
+        // the admiral’s hearty rum 6
+        // candelabra of souls 7
+        // iolo’s lute 8
+        // gwenno’s harp 9
+        // arctic death dealer 10
+        // enchanted titan leg bone 11
+        // nox ranger’s heavy crossbow 12
+        // blaze of death 13
+        // dread pirate hat 14
+        // burglar’s bandana 15
+        // gold bricks 16
+        // alchemist’s bauble 17
+        // phillip’s wooden steed 18
+        // polar bear mask 1
 
-        public static Type[] Artifacts { get { return m_Artifacts; } }
-
-        public Mobile Fisher
+        public static Type[] Artifacts { get; } = new Type[]
         {
-            get { return m_Fisher; }
-            set { m_Fisher = value; }
-        }
+
+            typeof(LunaLance),
+            typeof(VioletCourage),
+            typeof(CavortingClub),
+            typeof(CaptainQuacklebushsCutlass),
+            typeof(NightsKiss),
+            typeof(ShipModelOfTheHMSCape),
+            typeof(AdmiralsHeartyRum),
+            typeof(CandelabraOfSouls),
+            typeof(IolosLute),
+            typeof(GwennosHarp),
+            typeof(ArcticDeathDealer),
+            typeof(EnchantedTitanLegBone),
+            typeof(NoxRangersHeavyCrossbow),
+            typeof(BlazeOfDeath),
+            typeof(DreadPirateHat),
+            typeof(BurglarsBandana),
+            typeof(GoldBricks),
+            typeof(AlchemistsBauble),
+            typeof(PhillipsWoodenSteed),
+            typeof(PolarBearMask),
+            typeof(GhostShipAnchor),       //Added With SE Publish 28
+            typeof(SeahorseStatuette),     //Added With SE Publish 28       
+        };
+
+        public Mobile Fisher { get; set; }
 
         public override int DefaultHitsRegen
         {
@@ -180,7 +191,7 @@ namespace Server.Mobiles
 
         public static void GiveArtifactTo(Mobile m)
         {
-            Item item = Loot.Construct(m_Artifacts);
+            Item item = Loot.Construct(Artifacts);
 
             if (item == null)
                 return;
@@ -219,8 +230,8 @@ namespace Server.Mobiles
             {
                 GiveArtifactTo(mob);
 
-                if (mob == m_Fisher)
-                    m_Fisher = null;
+                if (mob == Fisher)
+                    Fisher = null;
             }
         }
 
@@ -228,10 +239,10 @@ namespace Server.Mobiles
         {
             base.OnDeath(c);
 
-            if (m_Fisher != null && 25 > Utility.Random(100))
-                GiveArtifactTo(m_Fisher);
+            if (Fisher != null && 25 > Utility.Random(100))
+                GiveArtifactTo(Fisher);
 
-            m_Fisher = null;
+            Fisher = null;
         }
     }
 }

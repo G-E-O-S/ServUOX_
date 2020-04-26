@@ -11,20 +11,54 @@ namespace Server.Mobiles
         {
             Map.Ilshenar
         };
+        //should only be 19 artifacts
+        // luna lance 0
+        // violet courage 1
+        // cavorting club 2
+        // night’s kiss 3
+        // iolo’s lute 4
+        // gwenno’s harp 5
+        // arctic death dealer 6
+        // enchanted titan leg bone 7
+        // nox ranger’s heavy crossbow 8
+        // blaze of death 9
+        // burglar’s bandana 10
+        // gold bricks 11
+        // alchemist’s bauble 12
+        // phillip’s wooden steed 13
+        // polar bear mask 14
+        // bow of the juka king 15
+        // gloves of the pugilist 16
+        // orcish visage 17
+        // staff of power 18
+        // shield of invulnerability 19
         public static Type[] Artifacts = new Type[]
         {
-            typeof(GoldBricks), typeof(PhillipsWoodenSteed),
-            typeof(AlchemistsBauble), typeof(ArcticDeathDealer),
-            typeof(BlazeOfDeath), typeof(BowOfTheJukaKing),
-            typeof(BurglarsBandana), typeof(CavortingClub),
-            typeof(EnchantedTitanLegBone), typeof(GwennosHarp),
-            typeof(IolosLute), typeof(LunaLance),
-            typeof(NightsKiss), typeof(NoxRangersHeavyCrossbow),
-            typeof(OrcishVisage), typeof(PolarBearMask),
-            typeof(ShieldOfInvulnerability), typeof(StaffOfPower),
-            typeof(VioletCourage), typeof(HeartOfTheLion),
-            typeof(WrathOfTheDryad), typeof(PixieSwatter),
-            typeof(GlovesOfThePugilist)
+            typeof(LunaLance),
+            typeof(VioletCourage),
+            typeof(CavortingClub),
+            typeof(NightsKiss),
+            typeof(IolosLute),
+            typeof(GwennosHarp),
+            typeof(ArcticDeathDealer),
+            typeof(EnchantedTitanLegBone),
+            typeof(NoxRangersHeavyCrossbow),
+            typeof(BlazeOfDeath),
+            typeof(BurglarsBandana),
+            typeof(GoldBricks),
+            typeof(AlchemistsBauble),
+            typeof(PhillipsWoodenSteed),
+            typeof(PolarBearMask),
+            typeof(BowOfTheJukaKing),
+            typeof(GlovesOfThePugilist),
+            typeof(OrcishVisage),
+            typeof(StaffOfPower),
+            typeof(ShieldOfInvulnerability),
+
+            typeof(HeartOfTheLion),  // Added with SE Publish 28
+            //typeof(WrathOfTheDryad),
+            typeof(PixieSwatter)  // Aded With SE Publish 28
+            
         };
         public static int Hue = 0x501;// Paragon hue
 
@@ -34,7 +68,7 @@ namespace Server.Mobiles
         public static double IntBuff = 1.20;
         public static double DexBuff = 1.20;
         public static double SkillsBuff = 1.20;
-        public static double SpeedBuff = 1.20;
+        public static double SpeedBuff = 1.25;// debuffed with SE from 150 to 125
         public static double FameBuff = 1.40;
         public static double KarmaBuff = 1.40;
         public static int DamageBuff = 5;
