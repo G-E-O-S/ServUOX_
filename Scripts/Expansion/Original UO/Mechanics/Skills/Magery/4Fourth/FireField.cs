@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
+using System.Collections;
 
 namespace Server.Spells.Fourth
 {
@@ -22,13 +22,7 @@ namespace Server.Spells.Fourth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Fourth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Fourth;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -76,14 +70,20 @@ namespace Server.Spells.Fourth
                 TimeSpan duration;
 
                 if (Core.AOS)
+                {
                     duration = TimeSpan.FromSeconds((15 + (Caster.Skills.Magery.Fixed / 5)) / 4);
+                }
                 else
+                {
                     duration = TimeSpan.FromSeconds(4.0 + (Caster.Skills[SkillName.Magery].Value * 0.5));
+                }
 
                 Point3D pnt = new Point3D(p);
 
                 if (SpellHelper.CheckField(pnt, Caster.Map))
+                {
                     new FireFieldItem(itemID, pnt, Caster, Caster.Map, duration);
+                }
 
                 for (int i = 1; i <= 2; ++i)
                 {
@@ -93,13 +93,17 @@ namespace Server.Spells.Fourth
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new FireFieldItem(itemID, point, Caster, Caster.Map, duration);
+                        }
 
                         point = new Point3D(eastToWest ? pnt.X + -index : pnt.X, eastToWest ? pnt.Y : pnt.Y + -index, pnt.Z);
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new FireFieldItem(itemID, point, Caster, Caster.Map, duration);
+                        }
                     }, i);
                 }
             }
@@ -115,7 +119,7 @@ namespace Server.Spells.Fourth
             private Mobile m_Caster;
             private int m_Damage;
 
-            public Mobile Caster { get { return m_Caster; } }
+            public Mobile Caster => m_Caster;
 
             public FireFieldItem(int itemID, Point3D loc, Mobile caster, Map map, TimeSpan duration)
                 : this(itemID, loc, caster, map, duration, 2)
@@ -148,26 +152,22 @@ namespace Server.Spells.Fourth
             {
             }
 
-            public override bool BlocksFit
-            {
-                get
-                {
-                    return true;
-                }
-            }
+            public override bool BlocksFit => true;
             public override void OnAfterDelete()
             {
                 base.OnAfterDelete();
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
             }
 
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
 
-                writer.Write((int)2); // version
+                writer.Write(2); // version
 
                 writer.Write(m_Damage);
                 writer.Write(m_Caster);
@@ -180,7 +180,7 @@ namespace Server.Spells.Fourth
 
                 int version = reader.ReadInt();
 
-                switch ( version )
+                switch (version)
                 {
                     case 2:
                         {
@@ -205,7 +205,9 @@ namespace Server.Spells.Fourth
                 }
 
                 if (version < 2)
+                {
                     m_Damage = 2;
+                }
             }
 
             public override bool OnMoveOver(Mobile m)
@@ -213,8 +215,10 @@ namespace Server.Spells.Fourth
                 if (Visible && m_Caster != null && (!Core.AOS || m != m_Caster) && SpellHelper.ValidIndirectTarget(m_Caster, m) && m_Caster.CanBeHarmful(m, false))
                 {
                     if (SpellHelper.CanRevealCaster(m))
+                    {
                         m_Caster.RevealingAction();
-					
+                    }
+
                     m_Caster.DoHarmful(m);
 
                     int damage = m_Damage;
@@ -230,7 +234,9 @@ namespace Server.Spells.Fourth
                     m.PlaySound(0x208);
 
                     if (m is BaseCreature)
+                    {
                         ((BaseCreature)m).OnHarmfulSpell(m_Caster);
+                    }
                 }
 
                 return true;
@@ -256,7 +262,9 @@ namespace Server.Spells.Fourth
                 protected override void OnTick()
                 {
                     if (m_Item.Deleted)
+                    {
                         return;
+                    }
 
                     if (DateTime.UtcNow > m_Item.m_End)
                     {
@@ -275,7 +283,9 @@ namespace Server.Spells.Fourth
                             foreach (Mobile m in eable)
                             {
                                 if ((m.Z + 16) > m_Item.Z && (m_Item.Z + 12) > m.Z && (!Core.AOS || m != caster) && SpellHelper.ValidIndirectTarget(caster, m) && caster.CanBeHarmful(m, false))
+                                {
                                     m_Queue.Enqueue(m);
+                                }
                             }
 
                             eable.Free();
@@ -283,9 +293,11 @@ namespace Server.Spells.Fourth
                             while (m_Queue.Count > 0)
                             {
                                 Mobile m = (Mobile)m_Queue.Dequeue();
-								
+
                                 if (SpellHelper.CanRevealCaster(m))
+                                {
                                     caster.RevealingAction();
+                                }
 
                                 caster.DoHarmful(m);
 
@@ -302,7 +314,9 @@ namespace Server.Spells.Fourth
                                 m.PlaySound(0x208);
 
                                 if (m is BaseCreature)
+                                {
                                     ((BaseCreature)m).OnHarmfulSpell(caster);
+                                }
                             }
                         }
                     }
@@ -322,7 +336,9 @@ namespace Server.Spells.Fourth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IPoint3D)
+                {
                     m_Owner.Target((IPoint3D)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

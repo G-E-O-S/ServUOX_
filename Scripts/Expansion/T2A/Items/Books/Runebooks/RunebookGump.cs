@@ -1,12 +1,10 @@
-using Server;
-using System;
-using System.Collections.Generic;
 using Server.Items;
 using Server.Network;
+using Server.Prompts;
+using Server.Spells.Chivalry;
 using Server.Spells.Fourth;
 using Server.Spells.Seventh;
-using Server.Spells.Chivalry;
-using Server.Prompts;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Server.Gumps
@@ -22,9 +20,13 @@ namespace Server.Gumps
             {
                 string desc;
                 if (i < Book.Entries.Count)
-                    desc = GetName(((RunebookEntry)Book.Entries[i]).Description);
+                {
+                    desc = GetName(Book.Entries[i].Description);
+                }
                 else
+                {
                     desc = "Empty";
+                }
 
                 Intern(desc, false);
             }
@@ -40,7 +42,7 @@ namespace Server.Gumps
             {
                 if (i < Book.Entries.Count)
                 {
-                    RunebookEntry e = (RunebookEntry)Book.Entries[i];
+                    RunebookEntry e = Book.Entries[i];
 
                     Intern(GetLocation(e), false);
                 }
@@ -56,17 +58,29 @@ namespace Server.Gumps
         public static int GetMapHue(Map map)
         {
             if (map == Map.Trammel)
+            {
                 return 10;
+            }
             else if (map == Map.Felucca)
+            {
                 return 81;
+            }
             else if (map == Map.Ilshenar)
+            {
                 return 1102;
+            }
             else if (map == Map.Malas)
+            {
                 return 1102;
+            }
             else if (map == Map.Tokuno)
+            {
                 return 1154;
+            }
             else if (map == Map.TerMur)
+            {
                 return 1645;
+            }
 
             return 0;
         }
@@ -74,7 +88,9 @@ namespace Server.Gumps
         public static string GetName(string name)
         {
             if (name == null || (name = name.Trim()).Length <= 0)
+            {
                 return "(indescript)";
+            }
 
             return name;
         }
@@ -120,18 +136,24 @@ namespace Server.Gumps
                 xOffset += 20;
 
                 for (int j = 0; j < 6; ++j, xOffset += 15)
+                {
                     AddImage(xOffset, 50, 58);
+                }
 
                 AddImage(xOffset - 5, 50, 59);
             }
 
             // First four page buttons
             for (int i = 0, xOffset = 130, gumpID = 2225; i < 4; ++i, xOffset += 35, ++gumpID)
+            {
                 AddButton(xOffset, 187, gumpID, gumpID, 0, GumpButtonType.Page, 2 + i);
+            }
 
             // Next four page buttons
             for (int i = 0, xOffset = 300, gumpID = 2229; i < 4; ++i, xOffset += 35, ++gumpID)
+            {
                 AddButton(xOffset, 187, gumpID, gumpID, 0, GumpButtonType.Page, 6 + i);
+            }
 
             // Charges
             AddHtmlIntern(140, 40, 80, 18, 0, false, false);    // Charges:	
@@ -159,7 +181,7 @@ namespace Server.Gumps
 
                 if (i < entries.Count)
                 {
-                    hue = GetMapHue(((RunebookEntry)entries[i]).Map);
+                    hue = GetMapHue(entries[i].Map);
                 }
                 else
                 {
@@ -193,7 +215,7 @@ namespace Server.Gumps
                 {
                     if (Book.Entries.ElementAtOrDefault(index) != null)
                     {
-                        RunebookEntry e = (RunebookEntry)Book.Entries[index];
+                        RunebookEntry e = Book.Entries[index];
 
                         // Description label
                         AddLabelCroppedIntern(145 + (half * 160), 60, 115, 17, GetMapHue(e.Map), index + 2);
@@ -258,10 +280,14 @@ namespace Server.Gumps
                     AddButton(125, 14, 2205, 2205, 0, GumpButtonType.Page, 1 + page);
 
                     if (page < 7)
+                    {
                         AddButton(393, 14, 2206, 2206, 0, GumpButtonType.Page, 3 + page);
+                    }
 
                     for (int half = 0; half < 2; ++half)
+                    {
                         AddDetails((page * 2) + half, half);
+                    }
                 }
             }
         }
@@ -275,7 +301,7 @@ namespace Server.Gumps
 
         private class InternalPrompt : Prompt
         {
-            public override int MessageCliloc { get { return 502414; } } // Please enter a title for the runebook:
+            public override int MessageCliloc => 502414;  // Please enter a title for the runebook:
             private readonly Runebook m_Book;
 
             public InternalPrompt(Runebook book)
@@ -287,7 +313,9 @@ namespace Server.Gumps
             public override void OnResponse(Mobile from, string text)
             {
                 if (m_Book.Deleted || !from.InRange(m_Book.GetWorldLocation(), (Core.ML ? 3 : 1)))
+                {
                     return;
+                }
 
                 if (m_Book.CheckAccess(from))
                 {
@@ -321,7 +349,9 @@ namespace Server.Gumps
         public void SendLocationMessage(RunebookEntry e, Mobile from)
         {
             if (e.Type == RecallRuneType.Ship)
+            {
                 return;
+            }
 
             int xLong = 0, yLat = 0;
             int xMins = 0, yMins = 0;
@@ -368,13 +398,15 @@ namespace Server.Gumps
                 int type = buttonID / 25;
 
                 if (type == 0 || type == 1)
+                {
                     index = buttonID - 10;
+                }
 
                 if (Book.Entries.ElementAtOrDefault(index) != null)
                 {
                     if (index >= 0 && index < Book.Entries.Count)
                     {
-                        RunebookEntry e = (RunebookEntry)Book.Entries[index];
+                        RunebookEntry e = Book.Entries[index];
 
                         switch (type)
                         {

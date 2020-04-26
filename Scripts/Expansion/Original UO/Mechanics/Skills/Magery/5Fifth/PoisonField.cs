@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
+using System.Collections;
 
 namespace Server.Spells.Fifth
 {
@@ -22,13 +22,7 @@ namespace Server.Spells.Fifth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Fifth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Fifth;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -77,7 +71,9 @@ namespace Server.Spells.Fifth
                 TimeSpan duration = TimeSpan.FromSeconds(3 + (Caster.Skills.Magery.Fixed / 25));
 
                 if (SpellHelper.CheckField(pnt, Caster.Map))
+                {
                     new InternalItem(itemID, pnt, Caster, Caster.Map, duration);
+                }
 
                 for (int i = 1; i <= 2; ++i)
                 {
@@ -87,13 +83,17 @@ namespace Server.Spells.Fifth
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new InternalItem(itemID, point, Caster, Caster.Map, duration);
+                        }
 
                         point = new Point3D(eastToWest ? pnt.X + -index : pnt.X, eastToWest ? pnt.Y : pnt.Y + -index, pnt.Z);
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new InternalItem(itemID, point, Caster, Caster.Map, duration);
+                        }
                     }, i);
                 }
             }
@@ -108,7 +108,7 @@ namespace Server.Spells.Fifth
             private DateTime m_End;
             private Mobile m_Caster;
 
-            public Mobile Caster { get { return m_Caster; } }
+            public Mobile Caster => m_Caster;
 
             public InternalItem(int itemID, Point3D loc, Mobile caster, Map map, TimeSpan duration)
                 : base(itemID)
@@ -134,26 +134,22 @@ namespace Server.Spells.Fifth
             {
             }
 
-            public override bool BlocksFit
-            {
-                get
-                {
-                    return true;
-                }
-            }
+            public override bool BlocksFit => true;
             public override void OnAfterDelete()
             {
                 base.OnAfterDelete();
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
             }
 
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
 
-                writer.Write((int)1); // version
+                writer.Write(1); // version
 
                 writer.Write(m_Caster);
                 writer.WriteDeltaTime(m_End);
@@ -165,7 +161,7 @@ namespace Server.Spells.Fifth
 
                 int version = reader.ReadInt();
 
-                switch ( version )
+                switch (version)
                 {
                     case 1:
                         {
@@ -188,7 +184,9 @@ namespace Server.Spells.Fifth
             public void ApplyPoisonTo(Mobile m)
             {
                 if (m_Caster == null)
+                {
                     return;
+                }
 
                 Poison p;
 
@@ -197,13 +195,21 @@ namespace Server.Spells.Fifth
                     int total = (m_Caster.Skills.Magery.Fixed + m_Caster.Skills.Poisoning.Fixed) / 2;
 
                     if (total >= 1000)
+                    {
                         p = Poison.Deadly;
+                    }
                     else if (total > 850)
+                    {
                         p = Poison.Greater;
+                    }
                     else if (total > 650)
+                    {
                         p = Poison.Regular;
+                    }
                     else
+                    {
                         p = Poison.Lesser;
+                    }
                 }
                 else
                 {
@@ -211,11 +217,17 @@ namespace Server.Spells.Fifth
                 }
 
                 if (m.ApplyPoison(m_Caster, p) == ApplyPoisonResult.Poisoned)
+                {
                     if (SpellHelper.CanRevealCaster(m))
+                    {
                         m_Caster.RevealingAction();
+                    }
+                }
 
                 if (m is BaseCreature)
+                {
                     ((BaseCreature)m).OnHarmfulSpell(m_Caster);
+                }
             }
 
             public override bool OnMoveOver(Mobile m)
@@ -250,7 +262,9 @@ namespace Server.Spells.Fifth
                 protected override void OnTick()
                 {
                     if (m_Item.Deleted)
+                    {
                         return;
+                    }
 
                     if (DateTime.UtcNow > m_Item.m_End)
                     {
@@ -270,7 +284,9 @@ namespace Server.Spells.Fifth
                             foreach (Mobile m in eable)
                             {
                                 if ((m.Z + 16) > m_Item.Z && (m_Item.Z + 12) > m.Z && (!Core.AOS || m != caster) && SpellHelper.ValidIndirectTarget(caster, m) && caster.CanBeHarmful(m, false))
+                                {
                                     m_Queue.Enqueue(m);
+                                }
                             }
 
                             eable.Free();
@@ -302,7 +318,9 @@ namespace Server.Spells.Fifth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IPoint3D)
+                {
                     m_Owner.Target((IPoint3D)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

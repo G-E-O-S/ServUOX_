@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using Server.Network;
 using Server.Regions;
+using System.Collections;
 
 namespace Server.Items
 {
@@ -30,24 +29,21 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)1); // version
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
-
-            if (version == 0)
-                Weight = 1.0;
+            _ = reader.ReadInt();
         }
 
         public override void OnDoubleClick(Mobile from)
         {
             if (!VerifyMove(from))
+            {
                 return;
+            }
 
             if (!from.InRange(GetWorldLocation(), 2))
             {
@@ -70,7 +66,9 @@ namespace Server.Items
                 Consume();
 
                 if (!Deleted && Parent == null)
+                {
                     from.PlaceInBackpack(this);
+                }
 
                 new Campfire().MoveToWorld(fireLocation, from.Map);
             }
@@ -79,10 +77,14 @@ namespace Server.Items
         private Point3D GetFireLocation(Mobile from)
         {
             if (from.Region.IsPartOf<DungeonRegion>())
+            {
                 return Point3D.Zero;
+            }
 
             if (Parent == null)
+            {
                 return Location;
+            }
 
             ArrayList list = new ArrayList(4);
 
@@ -92,7 +94,9 @@ namespace Server.Items
             AddOffsetLocation(from, 1, 0, list);
 
             if (list.Count == 0)
+            {
                 return Point3D.Zero;
+            }
 
             int idx = Utility.Random(list.Count);
             return (Point3D)list[idx];
@@ -116,7 +120,9 @@ namespace Server.Items
                 loc = new Point3D(x, y, map.GetAverageZ(x, y));
 
                 if (map.CanFit(loc, 1) && from.InLOS(loc))
+                {
                     list.Add(loc);
+                }
             }
         }
     }

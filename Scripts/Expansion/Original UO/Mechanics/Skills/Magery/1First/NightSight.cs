@@ -1,4 +1,3 @@
-using System;
 using Server.Targeting;
 
 namespace Server.Spells.First
@@ -16,13 +15,7 @@ namespace Server.Spells.First
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.First;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.First;
 
         public override void OnCast()
         {
@@ -39,7 +32,9 @@ namespace Server.Spells.First
                 int level = (int)(LightCycle.DungeonLevel * ((Core.AOS ? targ.Skills[SkillName.Magery].Value : Caster.Skills[SkillName.Magery].Value) / 100));
 
                 if (level < 0)
+                {
                     level = 0;
+                }
 
                 targ.LightLevel = level;
 

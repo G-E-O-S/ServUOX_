@@ -7042,7 +7042,7 @@ namespace Server.Mobiles
             if (!UseSkill(SkillName.Peacemaking))
                 return false;
 
-            if (Target is Peacemaking.InternalTarget)
+            if (Target is Peacemaking.PeacemakingTarget)
             {
                 Target.Invoke(this, target);
                 return true;
@@ -7064,11 +7064,11 @@ namespace Server.Mobiles
             if (!UseSkill(SkillName.Provocation))
                 return false;
 
-            if (Target is Provocation.InternalFirstTarget)
+            if (Target is Provocation.ProvocationFirstTarget)
             {
                 Target.Invoke(this, target);
 
-                if (Target is Provocation.InternalSecondTarget)
+                if (Target is Provocation.ProvocationSecondTarget)
                 {
                     Mobile second = GetSecondTarget((BaseCreature)target);
 
@@ -7325,7 +7325,7 @@ namespace Server.Mobiles
 
             DetectHidden.OnUse(this);
 
-            if (Target is DetectHidden.InternalTarget)
+            if (Target is DetectHidden.DetectHiddenTarget)
             {
                 Target.Invoke(this, this);
                 DebugSay("Checking for hidden players");

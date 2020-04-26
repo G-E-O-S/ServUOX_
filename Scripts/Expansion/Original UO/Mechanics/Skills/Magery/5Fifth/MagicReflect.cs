@@ -18,13 +18,7 @@ namespace Server.Spells.Fifth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Fifth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Fifth;
         public static void EndReflect(Mobile m)
         {
             if (m_Table.Contains(m))
@@ -34,7 +28,9 @@ namespace Server.Spells.Fifth
                 if (mods != null)
                 {
                     for (int i = 0; i < mods.Length; ++i)
+                    {
                         m.RemoveResistanceMod(mods[i]);
+                    }
                 }
 
                 m_Table.Remove(m);
@@ -45,16 +41,18 @@ namespace Server.Spells.Fifth
         public override bool CheckCast()
         {
             if (Core.AOS)
-                return true;
-
-            if (this.Caster.MagicDamageAbsorb > 0)
             {
-                this.Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+                return true;
+            }
+
+            if (Caster.MagicDamageAbsorb > 0)
+            {
+                Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
                 return false;
             }
-            else if (!this.Caster.CanBeginAction(typeof(DefensiveSpell)))
+            else if (!Caster.CanBeginAction(typeof(DefensiveSpell)))
             {
-                this.Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
+                Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
                 return false;
             }
 
@@ -71,9 +69,9 @@ namespace Server.Spells.Fifth
                 * The magic reflection spell has an indefinite duration, becoming active when cast, and deactivated when re-cast.
                 * Reactive Armor, Protection, and Magic Reflection will stay on—even after logging out, even after dying—until you “turn them off” by casting them again. 
                 */
-                if (this.CheckSequence())
+                if (CheckSequence())
                 {
-                    Mobile targ = this.Caster;
+                    Mobile targ = Caster;
 
                     ResistanceMod[] mods = (ResistanceMod[])m_Table[targ];
 
@@ -90,14 +88,16 @@ namespace Server.Spells.Fifth
                             new ResistanceMod(ResistanceType.Physical, physiMod),
                             new ResistanceMod(ResistanceType.Fire, otherMod),
                             new ResistanceMod(ResistanceType.Cold, otherMod),
-                            new ResistanceMod(ResistanceType.Poison,	otherMod),
-                            new ResistanceMod(ResistanceType.Energy,	otherMod)
+                            new ResistanceMod(ResistanceType.Poison,    otherMod),
+                            new ResistanceMod(ResistanceType.Energy,    otherMod)
                         };
 
                         m_Table[targ] = mods;
 
                         for (int i = 0; i < mods.Length; ++i)
+                        {
                             targ.AddResistanceMod(mods[i]);
+                        }
 
                         string buffFormat = String.Format("{0}\t+{1}\t+{1}\t+{1}\t+{1}", physiMod, otherMod);
 
@@ -111,43 +111,45 @@ namespace Server.Spells.Fifth
                         m_Table.Remove(targ);
 
                         for (int i = 0; i < mods.Length; ++i)
+                        {
                             targ.RemoveResistanceMod(mods[i]);
+                        }
 
                         BuffInfo.RemoveBuff(targ, BuffIcon.MagicReflection);
                     }
                 }
 
-                this.FinishSequence();
+                FinishSequence();
             }
             else
             {
-                if (this.Caster.MagicDamageAbsorb > 0)
+                if (Caster.MagicDamageAbsorb > 0)
                 {
-                    this.Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+                    Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
                 }
-                else if (!this.Caster.CanBeginAction(typeof(DefensiveSpell)))
+                else if (!Caster.CanBeginAction(typeof(DefensiveSpell)))
                 {
-                    this.Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
+                    Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
                 }
-                else if (this.CheckSequence())
+                else if (CheckSequence())
                 {
-                    if (this.Caster.BeginAction(typeof(DefensiveSpell)))
+                    if (Caster.BeginAction(typeof(DefensiveSpell)))
                     {
-                        int value = (int)(this.Caster.Skills[SkillName.Magery].Value + this.Caster.Skills[SkillName.Inscribe].Value);
+                        int value = (int)(Caster.Skills[SkillName.Magery].Value + Caster.Skills[SkillName.Inscribe].Value);
                         value = (int)(8 + (value / 200) * 7.0);//absorb from 8 to 15 "circles"
 
-                        this.Caster.MagicDamageAbsorb = value;
+                        Caster.MagicDamageAbsorb = value;
 
-                        this.Caster.FixedParticles(0x375A, 10, 15, 5037, EffectLayer.Waist);
-                        this.Caster.PlaySound(0x1E9);
+                        Caster.FixedParticles(0x375A, 10, 15, 5037, EffectLayer.Waist);
+                        Caster.PlaySound(0x1E9);
                     }
                     else
                     {
-                        this.Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
+                        Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
                     }
                 }
 
-                this.FinishSequence();
+                FinishSequence();
             }
         }
 

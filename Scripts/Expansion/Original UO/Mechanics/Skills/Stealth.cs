@@ -1,6 +1,5 @@
-using System;
 using Server.Items;
-using Server.Mobiles;
+using System;
 
 namespace Server.SkillHandlers
 {
@@ -21,20 +20,8 @@ namespace Server.SkillHandlers
             /* Plate	*/ { 5, 5, 10, 10, 15, 25, 0 },
             /* Dragon	*/ { 0, 5, 10, 10, 15, 25, 0 }
         };
-        public static double HidingRequirement
-        {
-            get
-            {
-                return (Core.ML ? 30.0 : (Core.SE ? 50.0 : 80.0));
-            }
-        }
-        public static int[,] ArmorTable
-        {
-            get
-            {
-                return m_ArmorTable;
-            }
-        }
+        public static double HidingRequirement => (Core.ML ? 30.0 : (Core.SE ? 50.0 : 80.0));
+        public static int[,] ArmorTable => m_ArmorTable;
         public static void Initialize()
         {
             SkillInfo.Table[(int)SkillName.Stealth].Callback = new SkillUseCallback(OnUse);
@@ -43,25 +30,31 @@ namespace Server.SkillHandlers
         public static int GetArmorRating(Mobile m)
         {
             if (!Core.AOS)
+            {
                 return (int)m.ArmorRating;
+            }
 
             int ar = 0;
 
             for (int i = 0; i < m.Items.Count; i++)
             {
-                BaseArmor armor = m.Items[i] as BaseArmor;
-
-                if (armor == null)
+                if (!(m.Items[i] is BaseArmor armor))
+                {
                     continue;
+                }
 
                 int materialType = (int)armor.MaterialType;
                 int bodyPosition = (int)armor.BodyPosition;
 
                 if (materialType >= m_ArmorTable.GetLength(0) || bodyPosition >= m_ArmorTable.GetLength(1))
+                {
                     continue;
+                }
 
                 if (armor.ArmorAttributes.MageArmor == 0)
+                {
                     ar += m_ArmorTable[materialType, bodyPosition];
+                }
             }
 
             return ar;
@@ -106,7 +99,9 @@ namespace Server.SkillHandlers
                     int steps = (int)(m.Skills[SkillName.Stealth].Value / (Core.AOS ? 5.0 : 10.0));
 
                     if (steps < 1)
+                    {
                         steps = 1;
+                    }
 
                     m.AllowedStealthSteps = steps;
 

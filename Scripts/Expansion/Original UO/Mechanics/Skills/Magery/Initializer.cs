@@ -107,7 +107,9 @@ namespace Server.Spells
                 Register(115, typeof(Necromancy.WraithFormSpell));
 
                 if (Core.SE)
+                {
                     Register(116, typeof(Necromancy.ExorcismSpell));
+                }
 
                 // Paladin abilities
                 Register(200, typeof(Chivalry.CleanseByFireSpell));
@@ -153,13 +155,13 @@ namespace Server.Spells
                     Register(606, typeof(Spellweaving.SummonFeySpell));
                     Register(607, typeof(Spellweaving.SummonFiendSpell));
                     Register(608, typeof(Spellweaving.ReaperFormSpell));
-                    Register( 609, typeof( Spellweaving.WildfireSpell ) );
+                    Register(609, typeof(Spellweaving.WildfireSpell));
                     Register(610, typeof(Spellweaving.EssenceOfWindSpell));
-                    Register( 611, typeof( Spellweaving.DryadAllureSpell ) );
+                    Register(611, typeof(Spellweaving.DryadAllureSpell));
                     Register(612, typeof(Spellweaving.EtherealVoyageSpell));
                     Register(613, typeof(Spellweaving.WordOfDeathSpell));
                     Register(614, typeof(Spellweaving.GiftOfLifeSpell));
-                    Register( 615, typeof( Spellweaving.ArcaneEmpowermentSpell ) );
+                    Register(615, typeof(Spellweaving.ArcaneEmpowermentSpell));
                 }
 
                 if (Core.SA)

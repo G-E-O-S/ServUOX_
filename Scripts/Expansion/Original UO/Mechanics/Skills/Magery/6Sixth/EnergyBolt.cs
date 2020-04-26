@@ -1,5 +1,5 @@
-using System;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.Sixth
 {
@@ -16,20 +16,8 @@ namespace Server.Spells.Sixth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Sixth;
-            }
-        }
-        public override bool DelayedDamage
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Sixth;
+        public override bool DelayedDamage => true;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -105,7 +93,9 @@ namespace Server.Spells.Sixth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IDamageable)
+                {
                     m_Owner.Target((IDamageable)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

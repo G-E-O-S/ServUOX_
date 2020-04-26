@@ -18,13 +18,7 @@ namespace Server.Spells.First
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.First;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.First;
         public static void EndArmor(Mobile m)
         {
             if (m_Table.Contains(m))
@@ -34,7 +28,9 @@ namespace Server.Spells.First
                 if (mods != null)
                 {
                     for (int i = 0; i < mods.Length; ++i)
+                    {
                         m.RemoveResistanceMod(mods[i]);
+                    }
                 }
 
                 m_Table.Remove(m);
@@ -45,16 +41,18 @@ namespace Server.Spells.First
         public override bool CheckCast()
         {
             if (Core.AOS)
-                return true;
-
-            if (this.Caster.MeleeDamageAbsorb > 0)
             {
-                this.Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+                return true;
+            }
+
+            if (Caster.MeleeDamageAbsorb > 0)
+            {
+                Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
                 return false;
             }
-            else if (!this.Caster.CanBeginAction(typeof(DefensiveSpell)))
+            else if (!Caster.CanBeginAction(typeof(DefensiveSpell)))
             {
-                this.Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
+                Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
                 return false;
             }
 
@@ -72,9 +70,9 @@ namespace Server.Spells.First
                 * Reactive Armor, Protection, and Magic Reflection will stay on—even after logging out, even after dying—until you “turn them off” by casting them again. 
                 * (+20 physical -5 elemental at 100 Inscription)
                 */
-                if (this.CheckSequence())
+                if (CheckSequence())
                 {
-                    Mobile targ = this.Caster;
+                    Mobile targ = Caster;
 
                     ResistanceMod[] mods = (ResistanceMod[])m_Table[targ];
 
@@ -95,12 +93,14 @@ namespace Server.Spells.First
                         m_Table[targ] = mods;
 
                         for (int i = 0; i < mods.Length; ++i)
+                        {
                             targ.AddResistanceMod(mods[i]);
+                        }
 
                         int physresist = 15 + (int)(targ.Skills[SkillName.Inscribe].Value / 20);
                         string args = String.Format("{0}\t{1}\t{2}\t{3}\t{4}", physresist, 5, 5, 5, 5);
 
-                        BuffInfo.AddBuff(this.Caster, new BuffInfo(BuffIcon.ReactiveArmor, 1075812, 1075813, args.ToString()));
+                        BuffInfo.AddBuff(Caster, new BuffInfo(BuffIcon.ReactiveArmor, 1075812, 1075813, args.ToString()));
                     }
                     else
                     {
@@ -110,48 +110,54 @@ namespace Server.Spells.First
                         m_Table.Remove(targ);
 
                         for (int i = 0; i < mods.Length; ++i)
+                        {
                             targ.RemoveResistanceMod(mods[i]);
+                        }
 
-                        BuffInfo.RemoveBuff(this.Caster, BuffIcon.ReactiveArmor);
+                        BuffInfo.RemoveBuff(Caster, BuffIcon.ReactiveArmor);
                     }
                 }
 
-                this.FinishSequence();
+                FinishSequence();
             }
             else
             {
-                if (this.Caster.MeleeDamageAbsorb > 0)
+                if (Caster.MeleeDamageAbsorb > 0)
                 {
-                    this.Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
+                    Caster.SendLocalizedMessage(1005559); // This spell is already in effect.
                 }
-                else if (!this.Caster.CanBeginAction(typeof(DefensiveSpell)))
+                else if (!Caster.CanBeginAction(typeof(DefensiveSpell)))
                 {
-                    this.Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
+                    Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
                 }
-                else if (this.CheckSequence())
+                else if (CheckSequence())
                 {
-                    if (this.Caster.BeginAction(typeof(DefensiveSpell)))
+                    if (Caster.BeginAction(typeof(DefensiveSpell)))
                     {
-                        int value = (int)(this.Caster.Skills[SkillName.Magery].Value + this.Caster.Skills[SkillName.Meditation].Value + this.Caster.Skills[SkillName.Inscribe].Value);
+                        int value = (int)(Caster.Skills[SkillName.Magery].Value + Caster.Skills[SkillName.Meditation].Value + Caster.Skills[SkillName.Inscribe].Value);
                         value /= 3;
 
                         if (value < 0)
+                        {
                             value = 1;
+                        }
                         else if (value > 75)
+                        {
                             value = 75;
+                        }
 
-                        this.Caster.MeleeDamageAbsorb = value;
+                        Caster.MeleeDamageAbsorb = value;
 
-                        this.Caster.FixedParticles(0x376A, 9, 32, 5008, EffectLayer.Waist);
-                        this.Caster.PlaySound(0x1F2);
+                        Caster.FixedParticles(0x376A, 9, 32, 5008, EffectLayer.Waist);
+                        Caster.PlaySound(0x1F2);
                     }
                     else
                     {
-                        this.Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
+                        Caster.SendLocalizedMessage(1005385); // The spell will not adhere to you at this time.
                     }
                 }
 
-                this.FinishSequence();
+                FinishSequence();
             }
         }
 

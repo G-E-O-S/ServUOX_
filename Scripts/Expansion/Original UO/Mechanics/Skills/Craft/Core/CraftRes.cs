@@ -30,11 +30,17 @@ namespace Server.Engines.Craft
         public void SendMessage(Mobile from)
         {
             if (MessageNumber > 0)
+            {
                 from.SendLocalizedMessage(MessageNumber);
+            }
             else if (!string.IsNullOrEmpty(MessageString))
+            {
                 from.SendMessage(MessageString);
+            }
             else
+            {
                 from.SendLocalizedMessage(502925); // You don't have the resources required to make that item.
+            }
         }
     }
 }

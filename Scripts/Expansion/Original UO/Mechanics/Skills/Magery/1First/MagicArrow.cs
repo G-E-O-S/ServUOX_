@@ -1,5 +1,5 @@
-using System;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.First
 {
@@ -15,28 +15,10 @@ namespace Server.Spells.First
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.First;
-            }
-        }
-        public override bool DelayedDamageStacking
-        {
-            get
-            {
-                return !Core.AOS;
-            }
-        }
-        public override bool DelayedDamage
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override Type[] DelayDamageFamily { get { return new Type[] { typeof(Server.Spells.Mysticism.NetherBoltSpell) }; } }
+        public override SpellCircle Circle => SpellCircle.First;
+        public override bool DelayedDamageStacking => !Core.AOS;
+        public override bool DelayedDamage => true;
+        public override Type[] DelayDamageFamily => new Type[] { typeof(Server.Spells.Mysticism.NetherBoltSpell) };
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -71,7 +53,7 @@ namespace Server.Spells.First
                 }
 
                 double damage = 0;
-				
+
                 if (Core.AOS)
                 {
                     damage = GetNewAosDamage(10, 1, 4, d);

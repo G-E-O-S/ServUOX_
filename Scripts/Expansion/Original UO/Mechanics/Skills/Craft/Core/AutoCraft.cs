@@ -1,7 +1,7 @@
-using System;
-using Server.Prompts;
-using System.Collections.Generic;
 using Server.Items;
+using Server.Prompts;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Engines.Craft
 {
@@ -43,7 +43,9 @@ namespace Server.Engines.Craft
                 CraftContext context = m_CraftSystem.GetContext(from);
 
                 if (context != null)
+                {
                     context.MakeTotal = amount;
+                }
             }
         }
 
@@ -87,7 +89,9 @@ namespace Server.Engines.Craft
                 int resIndex = (m_CraftItem.UseSubRes2 ? context.LastResourceIndex2 : context.LastResourceIndex);
 
                 if (resIndex > -1)
+                {
                     m_TypeRes = res.GetAt(resIndex).ItemType;
+                }
             }
 
             AutoCraftTable[from] = this;
@@ -113,16 +117,22 @@ namespace Server.Engines.Craft
             CraftItem();
 
             if (m_Ticks >= Amount)
+            {
                 EndTimer(m_From);
+            }
         }
 
         private void CraftItem()
         {
             if (m_From.HasGump(typeof(CraftGump)))
+            {
                 m_From.CloseGump(typeof(CraftGump));
+            }
 
             if (m_From.HasGump(typeof(CraftGumpItem)))
+            {
                 m_From.CloseGump(typeof(CraftGumpItem));
+            }
 
             Attempts++;
 

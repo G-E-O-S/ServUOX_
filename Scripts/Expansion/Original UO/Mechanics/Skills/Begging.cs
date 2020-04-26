@@ -1,10 +1,9 @@
 #region References
-using System;
-
 using Server.Items;
 using Server.Misc;
 using Server.Network;
 using Server.Targeting;
+using System;
 #endregion
 
 namespace Server.SkillHandlers
@@ -22,16 +21,16 @@ namespace Server.SkillHandlers
 
             m.SendLocalizedMessage(500397); // To whom do you wish to grovel?
 
-            Timer.DelayCall(() => m.Target = new InternalTarget());
+            Timer.DelayCall(() => m.Target = new BeggingTarget());
 
             return TimeSpan.FromHours(1.0);
         }
 
-        private class InternalTarget : Target
+        private class BeggingTarget : Target
         {
             private bool m_SetSkillTime = true;
 
-            public InternalTarget()
+            public BeggingTarget()
                 : base(12, false, TargetFlags.None)
             { }
 
@@ -49,10 +48,8 @@ namespace Server.SkillHandlers
 
                 int number = -1;
 
-                if (targeted is Mobile)
+                if (targeted is Mobile targ)
                 {
-                    Mobile targ = (Mobile)targeted;
-
                     if (targ.Player) // We can't beg from players
                     {
                         number = 500398; // Perhaps just asking would work better.

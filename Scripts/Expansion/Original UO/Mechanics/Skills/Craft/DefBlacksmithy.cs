@@ -1,7 +1,6 @@
 #region References
-using System;
-
 using Server.Items;
+using System;
 #endregion
 
 namespace Server.Engines.Craft
@@ -64,23 +63,22 @@ namespace Server.Engines.Craft
 
     public class DefBlacksmithy : CraftSystem
     {
-        public override SkillName MainSkill { get { return SkillName.Blacksmith; } }
+        public override SkillName MainSkill => SkillName.Blacksmith;
 
-        public override int GumpTitleNumber
-        {
-            get { return 1044002; } // <CENTER>BLACKSMITHY MENU</CENTER>
-        }
+        public override int GumpTitleNumber => 1044002;
 
         private static CraftSystem m_CraftSystem;
 
-        public static CraftSystem CraftSystem { get { return m_CraftSystem ?? (m_CraftSystem = new DefBlacksmithy()); } }
+        public static CraftSystem CraftSystem => m_CraftSystem ?? (m_CraftSystem = new DefBlacksmithy());
 
-        public override CraftECA ECA { get { return CraftECA.ChanceMinusSixtyToFourtyFive; } }
+        public override CraftECA ECA => CraftECA.ChanceMinusSixtyToFourtyFive;
 
         public override double GetChanceAtMin(CraftItem item)
         {
             if (item.NameNumber == 1157349 || item.NameNumber == 1157345) // Gloves Of FeudalGrip and Britches Of Warding
+            {
                 return 0.05; // 5%
+            }
 
             return 0.0; // 0%
         }
@@ -201,8 +199,7 @@ namespace Server.Engines.Craft
                 return 0;
             }
 
-            bool anvil, forge;
-            CheckAnvilAndForge(from, 2, out anvil, out forge);
+            CheckAnvilAndForge(from, 2, out bool anvil, out bool forge);
 
             if (anvil && forge)
             {
@@ -352,7 +349,7 @@ namespace Server.Engines.Craft
 
                 index = AddCraft(typeof(GargishPlateLegs), 1111704, 1095342, 68.8, 118.8, typeof(IronIngot), 1044036, 20, 1044037);
 
-                index = AddCraft(typeof(GargishPlateKilt), 1111704, 1095340, 58.9, 108.9, typeof(IronIngot), 1044036, 12, 1044037);             
+                index = AddCraft(typeof(GargishPlateKilt), 1111704, 1095340, 58.9, 108.9, typeof(IronIngot), 1044036, 12, 1044037);
 
                 index = AddCraft(typeof(GargishAmulet), 1111704, 1098595, 60.0, 110.0, typeof(IronIngot), 1044036, 3, 1044037);
 
@@ -658,7 +655,7 @@ namespace Server.Engines.Craft
 
                 index = AddCraft(typeof(GargishDagger), 1011081, 1095362, 0.0, 100.0, typeof(IronIngot), 1044036, 3, 1044037);
 
-                index = AddCraft(typeof(BloodBlade), 1011081, 1095370, 44.1, 125.0, typeof(IronIngot), 1044036, 8, 1044037);             
+                index = AddCraft(typeof(BloodBlade), 1011081, 1095370, 44.1, 125.0, typeof(IronIngot), 1044036, 8, 1044037);
 
                 index = AddCraft(typeof(Shortblade), 1011081, 1095374, 28.0, 100.0, typeof(IronIngot), 1044036, 12, 1044037);
 
@@ -765,7 +762,7 @@ namespace Server.Engines.Craft
             #endregion
 
             #endregion
-                       
+
             #region Bashing
             AddCraft(typeof(HammerPick), 1011084, 1025181, 34.2, 84.2, typeof(IronIngot), 1044036, 16, 1044037);
             AddCraft(typeof(Mace), 1011084, 1023932, 14.5, 64.5, typeof(IronIngot), 1044036, 6, 1044037);
@@ -829,7 +826,7 @@ namespace Server.Engines.Craft
                 AddSkill(index, SkillName.Tailoring, 50.0, 55.0);
                 AddRes(index, typeof(Cloth), 1044286, 10, 1044287);
 
-                index = AddCraft(typeof(DiscMace), 1011084, 1095366, 70.0, 120.0, typeof(IronIngot), 1044036, 20, 1044037);               
+                index = AddCraft(typeof(DiscMace), 1011084, 1095366, 70.0, 120.0, typeof(IronIngot), 1044036, 20, 1044037);
             }
 
             #endregion
@@ -889,7 +886,7 @@ namespace Server.Engines.Craft
             }
 
             #endregion
-            
+
             #region Miscellaneous
 
             index = AddCraft(typeof(DragonGloves), 1011173, 1029795, 68.9, 118.9, typeof(RedScales), 1060883, 16, 1060884);
@@ -965,7 +962,7 @@ namespace Server.Engines.Craft
             Repair = true;
             MarkOption = true;
             CanEnhance = Core.AOS;
-			CanAlter = Core.SA;
+            CanAlter = Core.SA;
         }
     }
 

@@ -1,5 +1,5 @@
-using System;
 using Server.Items;
+using System;
 
 namespace Server.Engines.Craft
 {
@@ -24,21 +24,9 @@ namespace Server.Engines.Craft
 
     public class DefCooking : CraftSystem
     {
-        public override SkillName MainSkill
-        {
-            get
-            {
-                return SkillName.Cooking;
-            }
-        }
+        public override SkillName MainSkill => SkillName.Cooking;
 
-        public override int GumpTitleNumber
-        {
-            get
-            {
-                return 1044003;
-            }// <CENTER>COOKING MENU</CENTER>
-        }
+        public override int GumpTitleNumber => 1044003;
 
         private static CraftSystem m_CraftSystem;
 
@@ -47,19 +35,15 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_CraftSystem == null)
+                {
                     m_CraftSystem = new DefCooking();
+                }
 
                 return m_CraftSystem;
             }
         }
 
-        public override CraftECA ECA
-        {
-            get
-            {
-                return CraftECA.ChanceMinusSixtyToFourtyFive;
-            }
-        }
+        public override CraftECA ECA => CraftECA.ChanceMinusSixtyToFourtyFive;
 
         public override double GetChanceAtMin(CraftItem item)
         {
@@ -82,9 +66,13 @@ namespace Server.Engines.Craft
             int num = 0;
 
             if (tool == null || tool.Deleted || tool.UsesRemaining <= 0)
+            {
                 return 1044038; // You have worn out your tool!
+            }
             else if (!tool.CheckAccessible(from, ref num))
+            {
                 return num; // The tool must be on your person to use.
+            }
 
             return 0;
         }
@@ -96,25 +84,39 @@ namespace Server.Engines.Craft
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)
         {
             if (toolBroken)
+            {
                 from.SendLocalizedMessage(1044038); // You have worn out your tool
+            }
 
             if (failed)
             {
                 if (lostMaterial)
+                {
                     return 1044043; // You failed to create the item, and some of your materials are lost.
+                }
                 else
+                {
                     return 1044157; // You failed to create the item, but no materials were lost.
+                }
             }
             else
             {
                 if (quality == 0)
+                {
                     return 502785; // You were barely able to make this item.  It's quality is below average.
+                }
                 else if (makersMark && quality == 2)
+                {
                     return 1044156; // You create an exceptional quality item and affix your maker's mark.
+                }
                 else if (quality == 2)
+                {
                     return 1044155; // You create an exceptional quality item.
-                else 
+                }
+                else
+                {
                     return 1044154; // You create the item.
+                }
             }
         }
 

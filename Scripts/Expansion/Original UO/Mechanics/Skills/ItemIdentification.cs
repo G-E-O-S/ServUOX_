@@ -1,9 +1,9 @@
-using System;
 using Server.Mobiles;
-using Server.Targeting;
-using System.Collections.Generic;
 using Server.Network;
 using Server.SkillHandlers;
+using Server.Targeting;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Items
 {
@@ -17,18 +17,18 @@ namespace Server.Items
         public static TimeSpan OnUse(Mobile from)
         {
             from.SendLocalizedMessage(500343); // What do you wish to appraise and identify?
-            from.Target = new InternalTarget();
+            from.Target = new ItemIdentificationTarget();
 
             return TimeSpan.FromSeconds(1.0);
         }
 
         [PlayerVendorTarget]
-        private class InternalTarget : Target
+        private class ItemIdentificationTarget : Target
         {
-            public InternalTarget()
+            public ItemIdentificationTarget()
                 : base(8, false, TargetFlags.None)
             {
-                this.AllowNonlocal = true;
+                AllowNonlocal = true;
             }
 
             protected override void OnTarget(Mobile from, object o)
@@ -41,7 +41,7 @@ namespace Server.Items
                     from.SendLocalizedMessage(500353); // You are not certain...
                     return;
                 }
-                
+
                 if (!from.CheckTargetSkill(SkillName.ItemID, o, 0, 100))
                 {
                     from.PrivateOverheadMessage(MessageType.Emote, 0x3B2, 1041352, from.NetState); // You have no idea how much it might be worth.
@@ -53,7 +53,7 @@ namespace Server.Items
                     from.PrivateOverheadMessage(MessageType.Emote, 0x3B2, 1041349, AffixType.Append, "  " + m.Name, "", from.NetState); // It appears to be:
                     return;
                 }
-                
+
                 if (item.Name != null)
                 {
                     from.PrivateOverheadMessage(MessageType.Emote, 0x3B2, false, item.Name, from.NetState);
@@ -110,14 +110,18 @@ namespace Server.Items
                                 imbIngred = "Enchanted Essence";
 
                                 if (skill < 45.0)
+                                {
                                     badSkill = true;
+                                }
                             }
                             else if (weight >= 480)
                             {
                                 imbIngred = "Relic Fragment";
 
                                 if (skill < 95.0)
+                                {
                                     badSkill = true;
+                                }
                             }
 
                             if (imbIngred != null)
@@ -147,12 +151,18 @@ namespace Server.Items
                     if (from.CheckTargetSkill(SkillName.ItemID, o, 0, 100))
                     {
                         if (o is BaseWeapon)
+                        {
                             ((BaseWeapon)o).Identified = true;
+                        }
                         else if (o is BaseArmor)
+                        {
                             ((BaseArmor)o).Identified = true;
+                        }
 
                         if (!Core.AOS)
+                        {
                             ((Item)o).OnSingleClick(from);
+                        }
                     }
                     else
                     {
@@ -181,10 +191,14 @@ namespace Server.Items
                 }
 
                 if (TypeCostCache == null)
+                {
                     TypeCostCache = new Dictionary<Type, int>();
+                }
 
                 if (!TypeCostCache.ContainsKey(type))
+                {
                     TypeCostCache[type] = Utility.RandomMinMax(2, 7);
+                }
 
                 return TypeCostCache[type];
             }

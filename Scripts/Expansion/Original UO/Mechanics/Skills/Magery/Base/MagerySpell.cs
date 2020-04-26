@@ -1,5 +1,5 @@
-using System;
 using Server.Items;
+using System;
 
 namespace Server.Spells
 {
@@ -13,20 +13,18 @@ namespace Server.Spells
         }
 
         public abstract SpellCircle Circle { get; }
-        public override TimeSpan CastDelayBase
-        {
-            get
-            {
-                return TimeSpan.FromMilliseconds(((4 + (int)Circle) * CastDelaySecondsPerTick)  * 1000);
-            }
-        }
+        public override TimeSpan CastDelayBase => TimeSpan.FromMilliseconds(((4 + (int)Circle) * CastDelaySecondsPerTick) * 1000);
         public override bool ConsumeReagents()
         {
             if (base.ConsumeReagents())
+            {
                 return true;
+            }
 
             if (ArcaneGem.ConsumeCharges(Caster, (Core.SE ? 1 : 1 + (int)Circle)))
+            {
                 return true;
+            }
 
             return false;
         }
@@ -36,7 +34,9 @@ namespace Server.Spells
             int circle = (int)Circle;
 
             if (Scroll != null)
+            {
                 circle -= 2;
+            }
 
             double avg = ChanceLength * circle;
 
@@ -47,7 +47,9 @@ namespace Server.Spells
         public override int GetMana()
         {
             if (Scroll is BaseWand)
+            {
                 return 0;
+            }
 
             return m_ManaTable[(int)Circle];
         }
@@ -59,16 +61,22 @@ namespace Server.Spells
             n /= 100.0;
 
             if (n <= 0.0)
+            {
                 return false;
+            }
 
             if (n >= 1.0)
+            {
                 return true;
+            }
 
             int maxSkill = (1 + (int)Circle) * 10;
             maxSkill += (1 + ((int)Circle / 6)) * 25;
 
             if (target.Skills[SkillName.MagicResist].Value < maxSkill)
+            {
                 target.CheckSkill(SkillName.MagicResist, 0.0, target.Skills[SkillName.MagicResist].Cap);
+            }
 
             return (n >= Utility.RandomDouble());
         }
@@ -90,10 +98,14 @@ namespace Server.Spells
         public override TimeSpan GetCastDelay()
         {
             if (!Core.ML && Scroll is BaseWand)
+            {
                 return TimeSpan.Zero;
+            }
 
             if (!Core.AOS)
+            {
                 return TimeSpan.FromSeconds(0.5 + (0.25 * (int)Circle));
+            }
 
             return base.GetCastDelay();
         }

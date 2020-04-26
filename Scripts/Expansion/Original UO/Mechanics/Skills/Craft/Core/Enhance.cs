@@ -1,7 +1,7 @@
-using System;
 using Server.Items;
-using Server.Targeting;
 using Server.Mobiles;
+using Server.Targeting;
+using System;
 using System.Collections.Generic;
 
 namespace Server.Engines.Craft
@@ -27,10 +27,11 @@ namespace Server.Engines.Craft
 
         public static void Initialize()
         {
-            _SpecialTable = new Dictionary<Type, CraftSystem>();
-
-            _SpecialTable[typeof(ClockworkLeggings)] = DefBlacksmithy.CraftSystem;
-            _SpecialTable[typeof(GargishClockworkLeggings)] = DefBlacksmithy.CraftSystem;
+            _SpecialTable = new Dictionary<Type, CraftSystem>
+            {
+                [typeof(ClockworkLeggings)] = DefBlacksmithy.CraftSystem,
+                [typeof(GargishClockworkLeggings)] = DefBlacksmithy.CraftSystem
+            };
         }
 
         private static bool IsSpecial(Item item, CraftSystem system)
@@ -38,7 +39,9 @@ namespace Server.Engines.Craft
             foreach (KeyValuePair<Type, CraftSystem> kvp in _SpecialTable)
             {
                 if (kvp.Key == item.GetType() && kvp.Value == system)
+                {
                     return true;
+                }
             }
 
             return false;
@@ -52,31 +55,45 @@ namespace Server.Engines.Craft
         public static EnhanceResult Invoke(Mobile from, CraftSystem craftSystem, ITool tool, Item item, CraftResource resource, Type resType, ref object resMessage)
         {
             if (item == null)
+            {
                 return EnhanceResult.BadItem;
-			
-			if (item is GargishNecklace || item is GargishEarrings)
+            }
+
+            if (item is GargishNecklace || item is GargishEarrings)
+            {
                 return EnhanceResult.BadItem;
+            }
 
             if (!item.IsChildOf(from.Backpack))
+            {
                 return EnhanceResult.NotInBackpack;
+            }
 
             IResource ires = item as IResource;
 
             if (!CanEnhance(item) || ires == null)
+            {
                 return EnhanceResult.BadItem;
+            }
 
             if (item is IArcaneEquip)
             {
                 IArcaneEquip eq = (IArcaneEquip)item;
                 if (eq.IsArcane)
+                {
                     return EnhanceResult.BadItem;
+                }
             }
 
             if (item is BaseWeapon && Spells.Mysticism.EnchantSpell.IsUnderSpellEffects(from, (BaseWeapon)item))
+            {
                 return EnhanceResult.Enchanted;
+            }
 
             if (CraftResources.IsStandard(resource))
+            {
                 return EnhanceResult.BadResource;
+            }
 
             int num = craftSystem.CanCraft(from, tool, item.GetType());
 
@@ -92,7 +109,7 @@ namespace Server.Engines.Craft
             {
                 craftItem = craftSystem.CraftItems.SearchForSubclass(item.GetType());
             }
-            
+
             if (craftItem == null || craftItem.Resources.Count == 0)
             {
                 return EnhanceResult.BadItem;
@@ -100,30 +117,42 @@ namespace Server.Engines.Craft
 
             #region Mondain's Legacy
             if (craftItem.ForceNonExceptional)
+            {
                 return EnhanceResult.BadItem;
+            }
             #endregion
 
             bool allRequiredSkills = false;
             if (craftItem.GetSuccessChance(from, resType, craftSystem, false, ref allRequiredSkills) <= 0.0)
+            {
                 return EnhanceResult.NoSkill;
+            }
 
             CraftResourceInfo info = CraftResources.GetInfo(resource);
 
             if (info == null || info.ResourceTypes.Length == 0)
+            {
                 return EnhanceResult.BadResource;
+            }
 
             CraftAttributeInfo attributes = info.AttributeInfo;
 
             if (attributes == null)
+            {
                 return EnhanceResult.BadResource;
+            }
 
             int resHue = 0, maxAmount = 0;
 
             if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.None, ref resMessage))
+            {
                 return EnhanceResult.NoResources;
+            }
 
             if (!CraftResources.IsStandard(ires.Resource))
+            {
                 return EnhanceResult.AlreadyEnhanced;
+            }
 
             if (craftSystem is DefBlacksmithy)
             {
@@ -132,7 +161,9 @@ namespace Server.Engines.Craft
                 {
                     hammer.UsesRemaining--;
                     if (hammer.UsesRemaining < 1)
+                    {
                         hammer.Delete();
+                    }
                 }
             }
 
@@ -154,8 +185,10 @@ namespace Server.Engines.Craft
             {
                 BaseWeapon weapon = (BaseWeapon)item;
 
-                if(weapon.ExtendedWeaponAttributes.AssassinHoned > 0)
+                if (weapon.ExtendedWeaponAttributes.AssassinHoned > 0)
+                {
                     return EnhanceResult.BadItem;
+                }
 
                 baseChance = 20;
 
@@ -217,38 +250,58 @@ namespace Server.Engines.Craft
             int skill = from.Skills[craftSystem.MainSkill].Fixed / 10;
 
             if (skill >= 100)
+            {
                 baseChance -= (skill - 90) / 10;
+            }
 
             EnhanceResult res = EnhanceResult.Success;
 
             PlayerMobile user = from as PlayerMobile;
 
             if (physBonus)
+            {
                 CheckResult(ref res, baseChance + phys);
+            }
 
             if (fireBonus)
+            {
                 CheckResult(ref res, baseChance + fire);
+            }
 
             if (coldBonus)
+            {
                 CheckResult(ref res, baseChance + cold);
+            }
 
             if (nrgyBonus)
+            {
                 CheckResult(ref res, baseChance + nrgy);
+            }
 
             if (poisBonus)
+            {
                 CheckResult(ref res, baseChance + pois);
+            }
 
             if (duraBonus)
+            {
                 CheckResult(ref res, baseChance + (dura / 40));
+            }
 
             if (luckBonus)
+            {
                 CheckResult(ref res, baseChance + 10 + (luck / 2));
+            }
 
             if (lreqBonus)
+            {
                 CheckResult(ref res, baseChance + (lreq / 4));
+            }
 
             if (dincBonus)
+            {
                 CheckResult(ref res, baseChance + (dinc / 4));
+            }
 
             if (user.NextEnhanceSuccess)
             {
@@ -262,7 +315,9 @@ namespace Server.Engines.Craft
                 case EnhanceResult.Broken:
                     {
                         if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.Half, ref resMessage))
+                        {
                             return EnhanceResult.NoResources;
+                        }
 
                         item.Delete();
                         break;
@@ -270,7 +325,9 @@ namespace Server.Engines.Craft
                 case EnhanceResult.Success:
                     {
                         if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.All, ref resMessage))
+                        {
                             return EnhanceResult.NoResources;
+                        }
 
                         if (craftItem.CaddelliteCraft)
                         {
@@ -278,7 +335,9 @@ namespace Server.Engines.Craft
                         }
 
                         if (item is IResource)
+                        {
                             ((IResource)item).Resource = resource;
+                        }
 
                         if (item is BaseWeapon)
                         {
@@ -288,7 +347,9 @@ namespace Server.Engines.Craft
                             int hue = w.GetElementalDamageHue();
 
                             if (hue > 0)
+                            {
                                 w.Hue = hue;
+                            }
                         }
                         else if (item is BaseArmor)
                         {
@@ -303,7 +364,9 @@ namespace Server.Engines.Craft
                 case EnhanceResult.Failure:
                     {
                         if (!craftItem.ConsumeRes(from, resType, craftSystem, ref resHue, ref maxAmount, ConsumeType.Half, ref resMessage))
+                        {
                             return EnhanceResult.NoResources;
+                        }
 
                         break;
                     }
@@ -315,14 +378,20 @@ namespace Server.Engines.Craft
         public static void CheckResult(ref EnhanceResult res, int chance)
         {
             if (res != EnhanceResult.Success)
+            {
                 return; // we've already failed..
+            }
 
             int random = Utility.Random(100);
 
             if (10 > random)
+            {
                 res = EnhanceResult.Failure;
+            }
             else if (chance > random)
+            {
                 res = EnhanceResult.Broken;
+            }
         }
 
         public static void BeginTarget(Mobile from, CraftSystem craftSystem, ITool tool)
@@ -331,7 +400,9 @@ namespace Server.Engines.Craft
             PlayerMobile user = from as PlayerMobile;
 
             if (context == null)
+            {
                 return;
+            }
 
             int lastRes = context.LastResourceIndex;
             CraftSubResCol subRes = craftSystem.CraftSubRes;
@@ -422,8 +493,8 @@ namespace Server.Engines.Craft
                         case EnhanceResult.NoSkill:
                             message = 1044153;
                             break; // You don't have the required skills to attempt this item.
-                        case EnhanceResult.Enchanted: 
-                            message = 1080131; 
+                        case EnhanceResult.Enchanted:
+                            message = 1080131;
                             break; // You cannot enhance an item that is currently enchanted.
                     }
 

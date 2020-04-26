@@ -1,6 +1,6 @@
-using System;
 using Server.Items;
 using Server.Targeting;
+using System;
 
 namespace Server.SkillHandlers
 {
@@ -13,16 +13,16 @@ namespace Server.SkillHandlers
 
         public static TimeSpan OnUse(Mobile m)
         {
-            m.Target = new InternalTargetPoison();
+            m.Target = new PoisoningTargetPoison();
 
             m.SendLocalizedMessage(502137); // Select the poison you wish to use
 
             return TimeSpan.FromSeconds(10.0); // 10 second delay before beign able to re-use a skill
         }
 
-        private class InternalTargetPoison : Target
+        private class PoisoningTargetPoison : Target
         {
-            public InternalTargetPoison()
+            public PoisoningTargetPoison()
                 : base(2, false, TargetFlags.None)
             {
             }
@@ -32,7 +32,7 @@ namespace Server.SkillHandlers
                 if (targeted is BasePoisonPotion)
                 {
                     from.SendLocalizedMessage(502142); // To what do you wish to apply the poison?
-                    from.Target = new InternalTarget((BasePoisonPotion)targeted);
+                    from.Target = new ApplyPoisonTarget((BasePoisonPotion)targeted);
                 }
                 else // Not a Poison Potion
                 {
@@ -40,10 +40,10 @@ namespace Server.SkillHandlers
                 }
             }
 
-            private class InternalTarget : Target
+            private class ApplyPoisonTarget : Target
             {
                 private readonly BasePoisonPotion m_Potion;
-                public InternalTarget(BasePoisonPotion potion)
+                public ApplyPoisonTarget(BasePoisonPotion potion)
                     : base(2, false, TargetFlags.None)
                 {
                     m_Potion = potion;
@@ -52,7 +52,9 @@ namespace Server.SkillHandlers
                 protected override void OnTarget(Mobile from, object targeted)
                 {
                     if (m_Potion.Deleted)
+                    {
                         return;
+                    }
 
                     bool startTimer = false;
 
@@ -60,10 +62,8 @@ namespace Server.SkillHandlers
                     {
                         startTimer = true;
                     }
-                    else if (targeted is BaseWeapon)
+                    else if (targeted is BaseWeapon weapon)
                     {
-                        BaseWeapon weapon = (BaseWeapon)targeted;
-
                         if (Core.AOS)
                         {
                             startTimer = (weapon.PrimaryAbility == WeaponAbility.InfectiousStrike || weapon.SecondaryAbility == WeaponAbility.InfectiousStrike);
@@ -86,9 +86,13 @@ namespace Server.SkillHandlers
                     else // Target can't be poisoned
                     {
                         if (Core.AOS)
+                        {
                             from.SendLocalizedMessage(1060204); // You cannot poison that! You can only poison infectious weapons, food or drink.
+                        }
                         else
+                        {
                             from.SendLocalizedMessage(502145); // You cannot poison that! You can only poison bladed or piercing weapons, food or drink.
+                        }
                     }
                 }
 
@@ -149,14 +153,16 @@ namespace Server.SkillHandlers
                             }
                             else
                             {
-                                if (m_Target is BaseWeapon)
+                                if (m_Target is BaseWeapon weapon)
                                 {
-                                    BaseWeapon weapon = (BaseWeapon)m_Target;
-
                                     if (weapon.Type == WeaponType.Slashing)
+                                    {
                                         m_From.SendLocalizedMessage(1010516); // You fail to apply a sufficient dose of poison on the blade
+                                    }
                                     else
+                                    {
                                         m_From.SendLocalizedMessage(1010518); // You fail to apply a sufficient dose of poison
+                                    }
                                 }
                                 else
                                 {

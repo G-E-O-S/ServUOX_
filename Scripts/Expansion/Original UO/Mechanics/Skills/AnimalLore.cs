@@ -1,7 +1,7 @@
-using System;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
 
 namespace Server.SkillHandlers
 {
@@ -20,17 +20,17 @@ namespace Server.SkillHandlers
             }
             else
             {
-                m.Target = new InternalTarget();
+                m.Target = new AnimalLoreTarget();
                 m.SendLocalizedMessage(500328); // What animal should I look at?
             }
 
             return TimeSpan.FromSeconds(1.0);
         }
 
-        private class InternalTarget : Target
+        private class AnimalLoreTarget : Target
         {
-			private static void SendGump(Mobile from, BaseCreature c)
-			{
+            private static void SendGump(Mobile from, BaseCreature c)
+            {
                 from.CheckTargetSkill(SkillName.AnimalLore, c, 0.0, 120.0);
 
                 if (PetTrainingHelper.Enabled && from is PlayerMobile)
@@ -45,17 +45,21 @@ namespace Server.SkillHandlers
                     from.CloseGump(typeof(AnimalLoreGump));
                     from.SendGump(new AnimalLoreGump(c));
                 }
-			}
+            }
 
-			private static void Check(Mobile from, BaseCreature c, double min)
-			{
-				if (from.CheckTargetSkill(SkillName.AnimalLore, c, min, 120.0))
-					SendGump(from, c);
-				else
-					from.SendLocalizedMessage(500334); // You can't think of anything you know offhand.
-			}
+            private static void Check(Mobile from, BaseCreature c, double min)
+            {
+                if (from.CheckTargetSkill(SkillName.AnimalLore, c, min, 120.0))
+                {
+                    SendGump(from, c);
+                }
+                else
+                {
+                    from.SendLocalizedMessage(500334); // You can't think of anything you know offhand.
+                }
+            }
 
-            public InternalTarget()
+            public AnimalLoreTarget()
                 : base(8, false, TargetFlags.None)
             {
             }
@@ -66,39 +70,53 @@ namespace Server.SkillHandlers
                 {
                     from.SendLocalizedMessage(500331); // The spirits of the dead are not the province of animal lore.
                 }
-                else if (targeted is BaseCreature)
+                else if (targeted is BaseCreature c)
                 {
-                    BaseCreature c = (BaseCreature)targeted;
-
                     if (!c.IsDeadPet)
                     {
                         if (c.Body.IsAnimal || c.Body.IsMonster || c.Body.IsSea)
                         {
-							double skill = from.Skills[SkillName.AnimalLore].Value;
-							if(skill < 100.0)
+                            double skill = from.Skills[SkillName.AnimalLore].Value;
+                            if (skill < 100.0)
                             {
-								if (c.Controlled)
-									SendGump(from, c);
-								else
-									from.SendLocalizedMessage(1049674); // At your skill level, you can only lore tamed creatures.
+                                if (c.Controlled)
+                                {
+                                    SendGump(from, c);
+                                }
+                                else
+                                {
+                                    from.SendLocalizedMessage(1049674); // At your skill level, you can only lore tamed creatures.
+                                }
                             }
                             else if (skill < 110.0)
                             {
-								if (c.Controlled)
-									SendGump(from, c);
-								else if (c.Tamable)
-									Check(from, c, 80.0);
-								else
-									from.SendLocalizedMessage(1049675); // At your skill level, you can only lore tamed or tameable creatures.
+                                if (c.Controlled)
+                                {
+                                    SendGump(from, c);
+                                }
+                                else if (c.Tamable)
+                                {
+                                    Check(from, c, 80.0);
+                                }
+                                else
+                                {
+                                    from.SendLocalizedMessage(1049675); // At your skill level, you can only lore tamed or tameable creatures.
+                                }
                             }
                             else
                             {
-								if (c.Controlled)
-									SendGump(from, c);
-								else if (c.Tamable)
-									Check(from, c, 80.0);
-								else
-									Check(from, c, 100.0);
+                                if (c.Controlled)
+                                {
+                                    SendGump(from, c);
+                                }
+                                else if (c.Tamable)
+                                {
+                                    Check(from, c, 80.0);
+                                }
+                                else
+                                {
+                                    Check(from, c, 100.0);
+                                }
                             }
                         }
                         else
@@ -126,50 +144,62 @@ namespace Server.SkillHandlers
             Skill skill = c.Skills[name];
 
             if (skill.Base < 10.0)
+            {
                 return "<div align=right>---</div>";
+            }
 
-            return String.Format("<div align=right>{0:F1}</div>", skill.Value);
+            return $"<div align=right>{skill.Value:F1}</div>";
         }
 
         public static string FormatAttributes(int cur, int max)
         {
             if (max == 0)
+            {
                 return "<div align=right>---</div>";
+            }
 
-            return String.Format("<div align=right>{0}/{1}</div>", cur, max);
+            return $"<div align=right>{cur}/{max}</div>";
         }
 
         public static string FormatStat(int val)
         {
             if (val == 0)
+            {
                 return "<div align=right>---</div>";
+            }
 
-            return String.Format("<div align=right>{0}</div>", val);
+            return $"<div align=right>{val}</div>";
         }
 
         public static string FormatDouble(double val)
         {
             if (val == 0)
+            {
                 return "<div align=right>---</div>";
+            }
 
-            return String.Format("<div align=right>{0:F1}</div>", val);
+            return $"<div align=right>{val:F1}</div>";
         }
 
         public static string FormatElement(int val)
         {
             if (val <= 0)
+            {
                 return "<div align=right>---</div>";
+            }
 
-            return String.Format("<div align=right>{0}%</div>", val);
+            return $"<div align=right>{val}%</div>";
         }
 
         #region Mondain's Legacy
         public static string FormatDamage(int min, int max)
         {
             if (min <= 0 || max <= 0)
+            {
                 return "<div align=right>---</div>";
+            }
 
-            return String.Format("<div align=right>{0}-{1}</div>", min, max);
+            return $"<div align=right>{min}-{max}</div>";
         }
 
         #endregion
@@ -187,14 +217,14 @@ namespace Server.SkillHandlers
             AddImage(118, 277, 2081);
             AddImage(118, 347, 2083);
 
-            AddHtml(147, 108, 210, 18, String.Format("<center><i>{0}</i></center>", c.Name), false, false);
+            AddHtml(147, 108, 210, 18, $"<center><i>{c.Name}</i></center>", false, false);
 
             AddButton(240, 77, 2093, 2093, 2, GumpButtonType.Reply, 0);
 
             AddImage(140, 138, 2091);
             AddImage(140, 335, 2091);
 
-            int pages = (Core.AOS ? 5 : 3);
+            int pages = Core.AOS ? 5 : 3;
             int page = 0;
 
             #region Attributes
@@ -229,7 +259,9 @@ namespace Server.SkillHandlers
                 {
                     double bd = Items.BaseInstrument.GetBaseDifficulty(c);
                     if (c.Uncalmable)
+                    {
                         bd = 0;
+                    }
 
                     AddHtmlLocalized(153, 276, 160, 18, 1070793, LabelColor, false, false); // Barding Difficulty
                     AddHtml(320, y, 35, 18, FormatDouble(bd), false, false);
@@ -376,15 +408,25 @@ namespace Server.SkillHandlers
             int foodPref = 3000340;
 
             if ((c.FavoriteFood & FoodType.FruitsAndVegies) != 0)
+            {
                 foodPref = 1049565; // Fruits and Vegetables
+            }
             else if ((c.FavoriteFood & FoodType.GrainsAndHay) != 0)
+            {
                 foodPref = 1049566; // Grains and Hay
+            }
             else if ((c.FavoriteFood & FoodType.Fish) != 0)
+            {
                 foodPref = 1049568; // Fish
+            }
             else if ((c.FavoriteFood & FoodType.Meat) != 0)
+            {
                 foodPref = 1049564; // Meat
+            }
             else if ((c.FavoriteFood & FoodType.Eggs) != 0)
+            {
                 foodPref = 1044477; // Eggs
+            }
 
             AddHtmlLocalized(153, 168, 160, 18, foodPref, LabelColor, false, false);
 
@@ -394,21 +436,37 @@ namespace Server.SkillHandlers
             int packInstinct = 3000340;
 
             if ((c.PackInstinct & PackInstinct.Canine) != 0)
+            {
                 packInstinct = 1049570; // Canine
+            }
             else if ((c.PackInstinct & PackInstinct.Ostard) != 0)
+            {
                 packInstinct = 1049571; // Ostard
+            }
             else if ((c.PackInstinct & PackInstinct.Feline) != 0)
+            {
                 packInstinct = 1049572; // Feline
+            }
             else if ((c.PackInstinct & PackInstinct.Arachnid) != 0)
+            {
                 packInstinct = 1049573; // Arachnid
+            }
             else if ((c.PackInstinct & PackInstinct.Daemon) != 0)
+            {
                 packInstinct = 1049574; // Daemon
+            }
             else if ((c.PackInstinct & PackInstinct.Bear) != 0)
+            {
                 packInstinct = 1049575; // Bear
+            }
             else if ((c.PackInstinct & PackInstinct.Equine) != 0)
+            {
                 packInstinct = 1049576; // Equine
+            }
             else if ((c.PackInstinct & PackInstinct.Bull) != 0)
+            {
                 packInstinct = 1049577; // Bull
+            }
 
             AddHtmlLocalized(153, 204, 160, 18, packInstinct, LabelColor, false, false);
 

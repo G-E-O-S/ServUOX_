@@ -1,8 +1,8 @@
-using System;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.Seventh
 {
@@ -22,13 +22,7 @@ namespace Server.Spells.Seventh
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Seventh;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Seventh;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -75,15 +69,21 @@ namespace Server.Spells.Seventh
                 TimeSpan duration;
 
                 if (Core.AOS)
+                {
                     duration = TimeSpan.FromSeconds((15 + (Caster.Skills.Magery.Fixed / 5)) / 7);
+                }
                 else
+                {
                     duration = TimeSpan.FromSeconds(Caster.Skills[SkillName.Magery].Value * 0.28 + 2.0); // (28% of magery) + 2.0 seconds
+                }
 
                 Point3D pnt = new Point3D(p);
                 int itemID = eastToWest ? 0x3946 : 0x3956;
 
                 if (SpellHelper.CheckField(pnt, Caster.Map))
+                {
                     new InternalItem(itemID, pnt, Caster, Caster.Map, duration);
+                }
 
                 for (int i = 1; i <= 2; ++i)
                 {
@@ -93,13 +93,17 @@ namespace Server.Spells.Seventh
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new InternalItem(itemID, point, Caster, Caster.Map, duration);
+                        }
 
                         point = new Point3D(eastToWest ? pnt.X + -index : pnt.X, eastToWest ? pnt.Y : pnt.Y + -index, pnt.Z);
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new InternalItem(itemID, point, Caster, Caster.Map, duration);
+                        }
                     }, i);
                 }
             }
@@ -125,7 +129,9 @@ namespace Server.Spells.Seventh
                 m_Caster = caster;
 
                 if (Deleted)
+                {
                     return;
+                }
 
                 m_Timer = new InternalTimer(this, duration);
                 m_Timer.Start();
@@ -138,18 +144,12 @@ namespace Server.Spells.Seventh
                 m_Timer.Start();
             }
 
-            public override bool BlocksFit
-            {
-                get
-                {
-                    return true;
-                }
-            }
+            public override bool BlocksFit => true;
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
 
-                writer.Write((int)0); // version
+                writer.Write(0); // version
             }
 
             public override void Deserialize(GenericReader reader)
@@ -167,10 +167,14 @@ namespace Server.Spells.Seventh
                 {
                     noto = Notoriety.Compute(m_Caster, m);
                     if (noto == Notoriety.Enemy || noto == Notoriety.Ally)
+                    {
                         return false;
+                    }
 
                     if (m.Map != null && (m.Map.Rules & MapRules.FreeMovement) == 0)
+                    {
                         return false;
+                    }
                 }
                 return base.OnMoveOver(m);
             }
@@ -180,7 +184,9 @@ namespace Server.Spells.Seventh
                 base.OnAfterDelete();
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
             }
 
             private class InternalTimer : Timer
@@ -213,7 +219,9 @@ namespace Server.Spells.Seventh
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IPoint3D)
+                {
                     m_Owner.Target((IPoint3D)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

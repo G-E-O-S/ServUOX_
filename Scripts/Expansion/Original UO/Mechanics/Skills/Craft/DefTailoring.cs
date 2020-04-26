@@ -1,5 +1,5 @@
-using System;
 using Server.Items;
+using System;
 using System.Collections.Generic;
 
 namespace Server.Engines.Craft
@@ -63,21 +63,9 @@ namespace Server.Engines.Craft
 
     public class DefTailoring : CraftSystem
     {
-        public override SkillName MainSkill
-        {
-            get
-            {
-                return SkillName.Tailoring;
-            }
-        }
+        public override SkillName MainSkill => SkillName.Tailoring;
 
-        public override int GumpTitleNumber
-        {
-            get
-            {
-                return 1044005;
-            }// <CENTER>TAILORING MENU</CENTER>
-        }
+        public override int GumpTitleNumber => 1044005;
 
         private static CraftSystem m_CraftSystem;
 
@@ -86,25 +74,23 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_CraftSystem == null)
+                {
                     m_CraftSystem = new DefTailoring();
+                }
 
                 return m_CraftSystem;
             }
         }
 
-        public override CraftECA ECA
-        {
-            get
-            {
-                return CraftECA.ChanceMinusSixtyToFourtyFive;
-            }
-        }
+        public override CraftECA ECA => CraftECA.ChanceMinusSixtyToFourtyFive;
 
         public override double GetChanceAtMin(CraftItem item)
         {
             if (item.NameNumber == 1157348 || item.NameNumber == 1159225 || item.NameNumber == 1159213 || item.NameNumber == 1159212 ||
                 item.NameNumber == 1159211 || item.NameNumber == 1159228 || item.NameNumber == 1159229)
+            {
                 return 0.05; // 5%
+            }
 
             return 0.5; // 50%
         }
@@ -119,9 +105,13 @@ namespace Server.Engines.Craft
             int num = 0;
 
             if (tool == null || tool.Deleted || tool.UsesRemaining <= 0)
+            {
                 return 1044038; // You have worn out your tool!
+            }
             else if (!tool.CheckAccessible(from, ref num))
+            {
                 return num; // The tool must be on your person to use.
+            }
 
             return 0;
         }
@@ -137,14 +127,18 @@ namespace Server.Engines.Craft
         public override bool RetainsColorFrom(CraftItem item, Type type)
         {
             if (type != typeof(Cloth) && type != typeof(UncutCloth) && type != typeof(AbyssalCloth))
+            {
                 return false;
+            }
 
             type = item.ItemType;
 
             bool contains = false;
 
             for (int i = 0; !contains && i < m_TailorColorables.Length; ++i)
+            {
                 contains = (m_TailorColorables[i] == type);
+            }
 
             return contains;
         }
@@ -157,25 +151,39 @@ namespace Server.Engines.Craft
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)
         {
             if (toolBroken)
+            {
                 from.SendLocalizedMessage(1044038); // You have worn out your tool
+            }
 
             if (failed)
             {
                 if (lostMaterial)
+                {
                     return 1044043; // You failed to create the item, and some of your materials are lost.
+                }
                 else
+                {
                     return 1044157; // You failed to create the item, but no materials were lost.
+                }
             }
             else
             {
                 if (quality == 0)
+                {
                     return 502785; // You were barely able to make this item.  It's quality is below average.
+                }
                 else if (makersMark && quality == 2)
+                {
                     return 1044156; // You create an exceptional quality item and affix your maker's mark.
+                }
                 else if (quality == 2)
+                {
                     return 1044155; // You create an exceptional quality item.
+                }
                 else
+                {
                     return 1044154; // You create the item.
+                }
             }
         }
 
@@ -217,7 +225,7 @@ namespace Server.Engines.Craft
             }
 
             #endregion
-            
+
             #region Hats
             AddCraft(typeof(SkullCap), 1011375, 1025444, 0.0, 25.0, typeof(Cloth), 1044455, 2, 1044287);
             AddCraft(typeof(Bandana), 1011375, 1025440, 0.0, 25.0, typeof(Cloth), 1044455, 2, 1044287);
@@ -233,13 +241,15 @@ namespace Server.Engines.Craft
             AddCraft(typeof(JesterHat), 1011375, 1025916, 7.2, 32.2, typeof(Cloth), 1044455, 15, 1044287);
 
             if (Core.AOS)
+            {
                 AddCraft(typeof(FlowerGarland), 1011375, 1028965, 10.0, 35.0, typeof(Cloth), 1044455, 5, 1044287);
+            }
 
             if (Core.SE)
             {
                 index = AddCraft(typeof(ClothNinjaHood), 1011375, 1030202, 80.0, 105.0, typeof(Cloth), 1044455, 13, 1044287);
 
-                index = AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);	
+                index = AddCraft(typeof(Kasa), 1011375, 1030211, 60.0, 85.0, typeof(Cloth), 1044455, 12, 1044287);
             }
 
             AddCraft(typeof(OrcMask), 1011375, 1025147, 75.0, 100.0, typeof(Cloth), 1044455, 12, 1044287);
@@ -269,7 +279,7 @@ namespace Server.Engines.Craft
                 AddRes(index, typeof(Leather), 1044462, 5, 1044463);
                 AddRes(index, typeof(VoidCore), 1113334, 5, 1044253);
                 AddRecipe(index, (int)TailorRecipe.MagesHood);
-                
+
                 index = AddCraft(typeof(CowlOfTheMaceAndShield), 1011375, 1159228, 120.0, 215.0, typeof(Cloth), 1044455, 5, 1044287);
                 AddRes(index, typeof(Leather), 1044462, 5, 1044463);
                 AddRes(index, typeof(MaceAndShieldGlasses), 1073381, 1, 1044253);
@@ -327,9 +337,11 @@ namespace Server.Engines.Craft
             AddCraft(typeof(LongPants), 1111747, 1025433, 24.8, 49.8, typeof(Cloth), 1044455, 8, 1044287);
             AddCraft(typeof(Kilt), 1111747, 1025431, 20.7, 45.7, typeof(Cloth), 1044455, 8, 1044287);
             AddCraft(typeof(Skirt), 1111747, 1025398, 29.0, 54.0, typeof(Cloth), 1044455, 10, 1044287);
-            
+
             if (Core.AOS)
+            {
                 AddCraft(typeof(FurSarong), 1111747, 1028971, 35.0, 60.0, typeof(Cloth), 1044455, 12, 1044287);
+            }
 
             if (Core.SE)
             {
@@ -453,7 +465,7 @@ namespace Server.Engines.Craft
 
                 index = AddCraft(typeof(BrocadeGozaMatEastDeed), 1015283, 1030408, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
 
-                index = AddCraft(typeof(BrocadeGozaMatSouthDeed), 1015283, 1030409, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);;
+                index = AddCraft(typeof(BrocadeGozaMatSouthDeed), 1015283, 1030409, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287); ;
 
                 index = AddCraft(typeof(BrocadeSquareGozaMatEastDeed), 1015283, 1030411, 55.0, 80.0, typeof(Cloth), 1044455, 25, 1044287);
 
@@ -510,7 +522,7 @@ namespace Server.Engines.Craft
                 AddRecipe(index, (int)TailorRecipe.ElegantCollarOfFortune);
                 ForceExceptional(index);
             }
-            
+
             #endregion
 
             #region Footwear
@@ -523,7 +535,9 @@ namespace Server.Engines.Craft
             #endregion
 
             if (Core.AOS)
+            {
                 AddCraft(typeof(FurBoots), 1015288, 1028967, 50.0, 75.0, typeof(Cloth), 1044455, 12, 1044287);
+            }
 
             if (Core.SE)
             {
@@ -799,7 +813,7 @@ namespace Server.Engines.Craft
             #region Bone Armor
             index = AddCraft(typeof(BoneHelm), 1049149, 1025206, 85.0, 110.0, typeof(Leather), 1044462, 4, 1044463);
             AddRes(index, typeof(Bone), 1049064, 2, 1049063);
-			
+
             index = AddCraft(typeof(BoneGloves), 1049149, 1025205, 89.0, 114.0, typeof(Leather), 1044462, 6, 1044463);
             AddRes(index, typeof(Bone), 1049064, 2, 1049063);
 
@@ -808,7 +822,7 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(BoneLegs), 1049149, 1025202, 95.0, 120.0, typeof(Leather), 1044462, 10, 1044463);
             AddRes(index, typeof(Bone), 1049064, 6, 1049063);
-		
+
             index = AddCraft(typeof(BoneChest), 1049149, 1025199, 96.0, 121.0, typeof(Leather), 1044462, 12, 1044463);
             AddRes(index, typeof(Bone), 1049064, 10, 1049063);
 
@@ -839,7 +853,7 @@ namespace Server.Engines.Craft
             MarkOption = true;
             Repair = Core.AOS;
             CanEnhance = Core.ML;
-			CanAlter = Core.SA;
+            CanAlter = Core.SA;
         }
 
         private void CutUpCloth(Mobile m, CraftItem craftItem, ITool tool)
@@ -888,8 +902,10 @@ namespace Server.Engines.Craft
 
                         foreach (var kvp in bolts)
                         {
-                            var cloth = new UncutCloth(kvp.Value * 50);
-                            cloth.Hue = kvp.Key;
+                            var cloth = new UncutCloth(kvp.Value * 50)
+                            {
+                                Hue = kvp.Key
+                            };
 
                             DropItem(m, cloth, tool);
                         }
@@ -964,8 +980,10 @@ namespace Server.Engines.Craft
 
                         foreach (var kvp in cloth)
                         {
-                            var c = new UncutCloth(kvp.Value);
-                            c.Hue = kvp.Key;
+                            var c = new UncutCloth(kvp.Value)
+                            {
+                                Hue = kvp.Key
+                            };
 
                             DropItem(m, c, tool);
                         }
@@ -1000,9 +1018,13 @@ namespace Server.Engines.Craft
                 if (!cntnr.TryDropItem(from, item, false))
                 {
                     if (cntnr != from.Backpack)
+                    {
                         from.AddToBackpack(item);
+                    }
                     else
+                    {
                         item.MoveToWorld(from.Location, from.Map);
+                    }
                 }
             }
             else

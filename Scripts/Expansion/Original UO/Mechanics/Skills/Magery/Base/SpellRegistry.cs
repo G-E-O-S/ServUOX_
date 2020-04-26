@@ -16,7 +16,7 @@ namespace Server.Spells
                 return m_Types;
             }
         }
-		
+
         //What IS this used for anyways.
         public static int Count
         {
@@ -27,24 +27,21 @@ namespace Server.Spells
                     m_Count = 0;
 
                     for (int i = 0; i < m_Types.Length; ++i)
+                    {
                         if (m_Types[i] != null)
+                        {
                             ++m_Count;
+                        }
+                    }
                 }
 
                 return m_Count;
             }
         }
 
-        private static readonly Dictionary<Type, Int32> m_IDsFromTypes = new Dictionary<Type, Int32>(m_Types.Length);
-		
-        private static readonly Dictionary<Int32, SpecialMove> m_SpecialMoves = new Dictionary<Int32, SpecialMove>();
-        public static Dictionary<Int32, SpecialMove> SpecialMoves
-        {
-            get
-            {
-                return m_SpecialMoves;
-            }
-        }
+        private static readonly Dictionary<Type, int> m_IDsFromTypes = new Dictionary<Type, int>(m_Types.Length);
+
+        public static Dictionary<int, SpecialMove> SpecialMoves { get; } = new Dictionary<int, SpecialMove>();
 
         public static int GetRegistryNumber(ISpell s)
         {
@@ -59,7 +56,9 @@ namespace Server.Spells
         public static int GetRegistryNumber(Type type)
         {
             if (m_IDsFromTypes.ContainsKey(type))
+            {
                 return m_IDsFromTypes[type];
+            }
 
             return -1;
         }
@@ -67,15 +66,21 @@ namespace Server.Spells
         public static void Register(int spellID, Type type)
         {
             if (spellID < 0 || spellID >= m_Types.Length)
+            {
                 return;
+            }
 
             if (m_Types[spellID] == null)
+            {
                 ++m_Count;
+            }
 
             m_Types[spellID] = type;
 
             if (!m_IDsFromTypes.ContainsKey(type))
+            {
                 m_IDsFromTypes.Add(type, spellID);
+            }
 
             if (type.IsSubclassOf(typeof(SpecialMove)))
             {
@@ -90,21 +95,27 @@ namespace Server.Spells
                 }
 
                 if (spm != null)
-                    m_SpecialMoves.Add(spellID, spm);
+                {
+                    SpecialMoves.Add(spellID, spm);
+                }
             }
         }
 
         public static SpecialMove GetSpecialMove(int spellID)
         {
             if (spellID < 0 || spellID >= m_Types.Length)
+            {
                 return null;
+            }
 
             Type t = m_Types[spellID];
 
-            if (t == null || !t.IsSubclassOf(typeof(SpecialMove)) || !m_SpecialMoves.ContainsKey(spellID))
+            if (t == null || !t.IsSubclassOf(typeof(SpecialMove)) || !SpecialMoves.ContainsKey(spellID))
+            {
                 return null;
+            }
 
-            return m_SpecialMoves[spellID];
+            return SpecialMoves[spellID];
         }
 
         private static readonly object[] m_Params = new object[2];
@@ -112,7 +123,9 @@ namespace Server.Spells
         public static Spell NewSpell(int spellID, Mobile caster, Item scroll)
         {
             if (spellID < 0 || spellID >= m_Types.Length)
+            {
                 return null;
+            }
 
             Type t = m_Types[spellID];
 

@@ -1,12 +1,12 @@
-using System;
 using Server.Mobiles;
 using Server.Network;
+using System;
 
 namespace Server.Items
 {
     public class DeceitBrazier : Item
     {
-        private static readonly Type[] m_Creatures = new Type[]
+        public static Type[] Creatures { get; } = new Type[]
         {
             #region Animals
             typeof(FireSteed), //Set the tents up people!
@@ -66,71 +66,33 @@ namespace Server.Items
             #endregion
         };
 
-        public static Type[] Creatures
-        {
-            get
-            {
-                return m_Creatures;
-            }
-        }
-
         private Timer m_Timer;
-        private DateTime m_NextSpawn;
-        private int m_SpawnRange;
         private TimeSpan m_NextSpawnDelay;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public DateTime NextSpawn
-        {
-            get
-            {
-                return m_NextSpawn;
-            }
-        }
+        public DateTime NextSpawn { get; private set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int SpawnRange
-        {
-            get
-            {
-                return m_SpawnRange;
-            }
-            set
-            {
-                m_SpawnRange = value;
-            }
-        }
+        public int SpawnRange { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public TimeSpan NextSpawnDelay
         {
-            get
-            {
-                return m_NextSpawnDelay;
-            }
-            set
-            {
-                m_NextSpawnDelay = value;
-            }
+            get => m_NextSpawnDelay;
+            set => m_NextSpawnDelay = value;
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1023633;
-            }
-        }// Brazier
+        public override int LabelNumber => 1023633;// Brazier
 
         [Constructable]
         public DeceitBrazier()
             : base(0xE31)
         {
-            Movable = false; 
+            Movable = false;
             Light = LightType.Circle225;
-            m_NextSpawn = DateTime.UtcNow;
+            NextSpawn = DateTime.UtcNow;
             m_NextSpawnDelay = TimeSpan.FromMinutes(15.0);
-            m_SpawnRange = 5;
+            SpawnRange = 5;
         }
 
         public DeceitBrazier(Serial serial)
@@ -142,9 +104,9 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
 
-            writer.Write((int)m_SpawnRange);
+            writer.Write(SpawnRange);
             writer.Write(m_NextSpawnDelay);
         }
 
@@ -156,11 +118,11 @@ namespace Server.Items
 
             if (version >= 0)
             {
-                m_SpawnRange = reader.ReadInt();
+                SpawnRange = reader.ReadInt();
                 m_NextSpawnDelay = reader.ReadTimeSpan();
             }
 
-            m_NextSpawn = DateTime.UtcNow;
+            NextSpawn = DateTime.UtcNow;
         }
 
         public virtual void HeedWarning()
@@ -168,22 +130,18 @@ namespace Server.Items
             PublicOverheadMessage(MessageType.Regular, 0x3B2, 500761);// Heed this warning well, and use this brazier at your own peril.
         }
 
-        public override bool HandlesOnMovement
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override bool HandlesOnMovement => true;
 
         public override void OnMovement(Mobile m, Point3D oldLocation)
         {
-            if (m_NextSpawn < DateTime.UtcNow) // means we haven't spawned anything if the next spawn is below
+            if (NextSpawn < DateTime.UtcNow) // means we haven't spawned anything if the next spawn is below
             {
                 if (Utility.InRange(m.Location, Location, 1) && !Utility.InRange(oldLocation, Location, 1) && m.Player && !(m.IsStaff() || m.Hidden))
                 {
                     if (m_Timer == null || !m_Timer.Running)
+                    {
                         m_Timer = Timer.DelayCall(TimeSpan.FromSeconds(2), new TimerCallback(HeedWarning));
+                    }
                 }
             }
 
@@ -195,19 +153,25 @@ namespace Server.Items
             Map map = Map;
 
             if (map == null)
+            {
                 return Location;
+            }
 
             // Try 10 times to find a Spawnable location.
             for (int i = 0; i < 10; i++)
             {
-                int x = Location.X + (Utility.Random((m_SpawnRange * 2) + 1) - m_SpawnRange);
-                int y = Location.Y + (Utility.Random((m_SpawnRange * 2) + 1) - m_SpawnRange);
+                int x = Location.X + (Utility.Random((SpawnRange * 2) + 1) - SpawnRange);
+                int y = Location.Y + (Utility.Random((SpawnRange * 2) + 1) - SpawnRange);
                 int z = Map.GetAverageZ(x, y);
 
                 if (Map.CanSpawnMobile(new Point2D(x, y), Z))
+                {
                     return new Point3D(x, y, Z);
+                }
                 else if (Map.CanSpawnMobile(new Point2D(x, y), z))
+                {
                     return new Point3D(x, y, z);
+                }
             }
 
             return Location;
@@ -225,10 +189,10 @@ namespace Server.Items
             {
                 try
                 {
-                    if (m_NextSpawn < DateTime.UtcNow)
+                    if (NextSpawn < DateTime.UtcNow)
                     {
                         Map map = Map;
-                        BaseCreature bc = (BaseCreature)Activator.CreateInstance(m_Creatures[Utility.Random(m_Creatures.Length)]);
+                        BaseCreature bc = (BaseCreature)Activator.CreateInstance(Creatures[Utility.Random(Creatures.Length)]);
 
                         if (bc != null)
                         {
@@ -236,10 +200,10 @@ namespace Server.Items
 
                             DoEffect(spawnLoc, map);
 
-                            Timer.DelayCall(TimeSpan.FromSeconds(1), delegate()
+                            Timer.DelayCall(TimeSpan.FromSeconds(1), delegate ()
                             {
                                 bc.Home = Location;
-                                bc.RangeHome = m_SpawnRange;
+                                bc.RangeHome = SpawnRange;
                                 bc.FightMode = FightMode.Closest;
 
                                 bc.MoveToWorld(spawnLoc, map);
@@ -249,7 +213,7 @@ namespace Server.Items
                                 bc.ForceReacquire();
                             });
 
-                            m_NextSpawn = DateTime.UtcNow + m_NextSpawnDelay;
+                            NextSpawn = DateTime.UtcNow + m_NextSpawnDelay;
                         }
                     }
                     else

@@ -1,7 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Server.Commands;
 using Server.Mobiles;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Engines.Craft
 {
@@ -18,7 +18,9 @@ namespace Server.Engines.Craft
             CraftItem = item;
 
             if (Recipes.ContainsKey(id))
+            {
                 throw new Exception("Attempting to create recipe with preexisting ID.");
+            }
 
             Recipes.Add(id, this);
             m_LargestRecipeID = Math.Max(id, m_LargestRecipeID);
@@ -34,7 +36,9 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_TD == null)
+                {
                     m_TD = new TextDefinition(CraftItem.NameNumber, CraftItem.NameString);
+                }
 
                 return m_TD;
             }
@@ -53,12 +57,14 @@ namespace Server.Engines.Craft
             m.SendMessage("Target a player to teach them all of the recipies.");
 
             m.BeginTarget(-1, false, Server.Targeting.TargetFlags.None, new TargetCallback(
-                delegate(Mobile from, object targeted)
+                delegate (Mobile from, object targeted)
                 {
                     if (targeted is PlayerMobile)
                     {
                         foreach (KeyValuePair<int, Recipe> kvp in Recipes)
+                        {
                             ((PlayerMobile)targeted).AcquireRecipe(kvp.Key);
+                        }
 
                         m.SendMessage("You teach them all of the recipies.");
                     }
@@ -77,7 +83,7 @@ namespace Server.Engines.Craft
             m.SendMessage("Target a player to have them forget all of the recipies they've learned.");
 
             m.BeginTarget(-1, false, Targeting.TargetFlags.None, new TargetCallback(
-                delegate(Mobile from, object targeted)
+                delegate (Mobile from, object targeted)
                 {
                     if (targeted is PlayerMobile)
                     {

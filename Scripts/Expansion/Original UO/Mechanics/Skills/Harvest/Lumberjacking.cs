@@ -1,6 +1,6 @@
-using System;
 using Server.Items;
 using Server.Network;
+using System;
 using System.Linq;
 
 namespace Server.Engines.Harvest
@@ -14,7 +14,9 @@ namespace Server.Engines.Harvest
             get
             {
                 if (m_System == null)
+                {
                     m_System = new Lumberjacking();
+                }
 
                 return m_System;
             }
@@ -22,13 +24,7 @@ namespace Server.Engines.Harvest
 
         private readonly HarvestDefinition m_Definition;
 
-        public HarvestDefinition Definition
-        {
-            get
-            {
-                return this.m_Definition;
-            }
-        }
+        public HarvestDefinition Definition => m_Definition;
 
         private Lumberjacking()
         {
@@ -36,45 +32,47 @@ namespace Server.Engines.Harvest
             HarvestVein[] veins;
 
             #region Lumberjacking
-            HarvestDefinition lumber = new HarvestDefinition();
+            HarvestDefinition lumber = new HarvestDefinition
+            {
 
-            // Resource banks are every 4x3 tiles
-            lumber.BankWidth = 4;
-            lumber.BankHeight = 3;
+                // Resource banks are every 4x3 tiles
+                BankWidth = 4,
+                BankHeight = 3,
 
-            // Every bank holds from 20 to 45 logs
-            lumber.MinTotal = 20;
-            lumber.MaxTotal = 45;
+                // Every bank holds from 20 to 45 logs
+                MinTotal = 20,
+                MaxTotal = 45,
 
-            // A resource bank will respawn its content every 20 to 30 minutes
-            lumber.MinRespawn = TimeSpan.FromMinutes(20.0);
-            lumber.MaxRespawn = TimeSpan.FromMinutes(30.0);
+                // A resource bank will respawn its content every 20 to 30 minutes
+                MinRespawn = TimeSpan.FromMinutes(20.0),
+                MaxRespawn = TimeSpan.FromMinutes(30.0),
 
-            // Skill checking is done on the Lumberjacking skill
-            lumber.Skill = SkillName.Lumberjacking;
+                // Skill checking is done on the Lumberjacking skill
+                Skill = SkillName.Lumberjacking,
 
-            // Set the list of harvestable tiles
-            lumber.Tiles = m_TreeTiles;
+                // Set the list of harvestable tiles
+                Tiles = m_TreeTiles,
 
-            // Players must be within 2 tiles to harvest
-            lumber.MaxRange = 2;
+                // Players must be within 2 tiles to harvest
+                MaxRange = 2,
 
-            // Ten logs per harvest action
-            lumber.ConsumedPerHarvest = 10;
-            lumber.ConsumedPerFeluccaHarvest = 20;
+                // Ten logs per harvest action
+                ConsumedPerHarvest = 10,
+                ConsumedPerFeluccaHarvest = 20,
 
-            // The chopping effect
-            lumber.EffectActions = new int[] { Core.SA ? 7 : 13 };
-            lumber.EffectSounds = new int[] { 0x13E };
-            lumber.EffectCounts = (Core.AOS ? new int[] { 1 } : new int[] { 1, 2, 2, 2, 3 });
-            lumber.EffectDelay = TimeSpan.FromSeconds(1.6);
-            lumber.EffectSoundDelay = TimeSpan.FromSeconds(0.9);
+                // The chopping effect
+                EffectActions = new int[] { Core.SA ? 7 : 13 },
+                EffectSounds = new int[] { 0x13E },
+                EffectCounts = (Core.AOS ? new int[] { 1 } : new int[] { 1, 2, 2, 2, 3 }),
+                EffectDelay = TimeSpan.FromSeconds(1.6),
+                EffectSoundDelay = TimeSpan.FromSeconds(0.9),
 
-            lumber.NoResourcesMessage = 500493; // There's not enough wood here to harvest.
-            lumber.FailMessage = 500495; // You hack at the tree for a while, but fail to produce any useable wood.
-            lumber.OutOfRangeMessage = 500446; // That is too far away.
-            lumber.PackFullMessage = 500497; // You can't place any wood into your backpack!
-            lumber.ToolBrokeMessage = 500499; // You broke your axe.
+                NoResourcesMessage = 500493, // There's not enough wood here to harvest.
+                FailMessage = 500495, // You hack at the tree for a while, but fail to produce any useable wood.
+                OutOfRangeMessage = 500446, // That is too far away.
+                PackFullMessage = 500497, // You can't place any wood into your backpack!
+                ToolBrokeMessage = 500499 // You broke your axe.
+            };
 
             if (Core.ML)
             {
@@ -130,8 +128,8 @@ namespace Server.Engines.Harvest
             lumber.RaceBonus = Core.ML;
             lumber.RandomizeVeins = Core.ML;
 
-            this.m_Definition = lumber;
-            this.Definitions.Add(lumber);
+            m_Definition = lumber;
+            Definitions.Add(lumber);
             #endregion
         }
 
@@ -142,19 +140,33 @@ namespace Server.Engines.Harvest
             if (tool is HarvestersAxe && ((HarvestersAxe)tool).Charges > 0)
             {
                 if (type == typeof(Log))
+                {
                     newType = typeof(Board);
+                }
                 else if (type == typeof(OakLog))
+                {
                     newType = typeof(OakBoard);
+                }
                 else if (type == typeof(AshLog))
+                {
                     newType = typeof(AshBoard);
+                }
                 else if (type == typeof(YewLog))
+                {
                     newType = typeof(YewBoard);
+                }
                 else if (type == typeof(HeartwoodLog))
+                {
                     newType = typeof(HeartwoodBoard);
+                }
                 else if (type == typeof(BloodwoodLog))
+                {
                     newType = typeof(BloodwoodBoard);
+                }
                 else if (type == typeof(FrostwoodLog))
+                {
                     newType = typeof(FrostwoodBoard);
+                }
 
                 if (newType != type)
                 {
@@ -196,7 +208,9 @@ namespace Server.Engines.Harvest
         public override bool CheckHarvest(Mobile from, Item tool)
         {
             if (!base.CheckHarvest(from, tool))
+            {
                 return false;
+            }
 
             return true;
         }
@@ -204,15 +218,17 @@ namespace Server.Engines.Harvest
         public override bool CheckHarvest(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
         {
             if (!base.CheckHarvest(from, tool, def, toHarvest))
+            {
                 return false;
+            }
 
-			if (tool.Parent != from && from.Backpack != null && !tool.IsChildOf(from.Backpack))
-			{
-				from.SendLocalizedMessage(1080058); // This must be in your backpack to use it.
-				return false;
-			}
+            if (tool.Parent != from && from.Backpack != null && !tool.IsChildOf(from.Backpack))
+            {
+                from.SendLocalizedMessage(1080058); // This must be in your backpack to use it.
+                return false;
+            }
 
-			return true;
+            return true;
         }
 
         public override Type GetResourceType(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc, HarvestResource resource)
@@ -228,7 +244,9 @@ namespace Server.Engines.Harvest
                 CraftResourceInfo info = CraftResources.GetInfo(hmap.Resource);
 
                 if (info != null)
+                {
                     return info.ResourceTypes[0];
+                }
             }
             #endregion
 
@@ -238,7 +256,9 @@ namespace Server.Engines.Harvest
         public override bool CheckResources(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc, bool timed)
         {
             if (HarvestMap.CheckMapOnHarvest(from, loc, def) == null)
+            {
                 return base.CheckResources(from, tool, def, map, loc, timed);
+            }
 
             return true;
         }
@@ -246,13 +266,21 @@ namespace Server.Engines.Harvest
         public override void OnBadHarvestTarget(Mobile from, Item tool, object toHarvest)
         {
             if (toHarvest is Mobile)
+            {
                 ((Mobile)toHarvest).PrivateOverheadMessage(MessageType.Regular, 0x3B2, 500450, from.NetState); // You can only skin dead creatures.
+            }
             else if (toHarvest is Item)
+            {
                 ((Item)toHarvest).LabelTo(from, 500464); // Use this on corpses to carve away meat and hide
+            }
             else if (toHarvest is Targeting.StaticTarget || toHarvest is Targeting.LandTarget)
+            {
                 from.SendLocalizedMessage(500489); // You can't use an axe on that.
+            }
             else
+            {
                 from.SendLocalizedMessage(1005213); // You can't do that
+            }
         }
 
         public override void OnHarvestStarted(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
@@ -260,7 +288,9 @@ namespace Server.Engines.Harvest
             base.OnHarvestStarted(from, tool, def, toHarvest);
 
             if (Core.ML)
+            {
                 from.RevealingAction();
+            }
         }
 
         public static void Initialize()

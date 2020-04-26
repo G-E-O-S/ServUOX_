@@ -20,11 +20,11 @@ namespace Server.Items
 
         public override void DoSomethingSpecial(Mobile from)
         {
-            foreach (Item item in this.GetItemsInRange(8))
+            foreach (Item item in GetItemsInRange(8))
             {
                 if (item.ItemID == 0x3660 && item.Hue == 1000) //Dark Globe of Sosaria
                 {
-                    Timer m_timerA = new MoveTimer(item, 1); 
+                    Timer m_timerA = new MoveTimer(item, 1);
                     m_timerA.Start();
                 }
             }
@@ -34,14 +34,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private class MoveTimer : Timer
@@ -53,33 +52,45 @@ namespace Server.Items
             public MoveTimer(Item sphere, int coord)
                 : base(TimeSpan.FromSeconds(0.0), TimeSpan.FromSeconds(1.5))
             {
-                this.item = sphere;
-                this.num = coord;
+                item = sphere;
+                num = coord;
             }
 
             protected override void OnTick()
             {
-                if (this.item.Deleted)
+                if (item.Deleted)
                 {
-                    this.Stop();
+                    Stop();
                     return;
                 }
 
-                this.m_Stage++;
-				
-                if (this.m_Cicle == 0)
-                    this.item.Z += 1;
-                else if (this.m_Cicle == 1)
-                    this.item.Z += 0;
-                else
-                    this.item.Z += -1;
+                m_Stage++;
 
-                if (this.m_Stage == 8)
-                    this.m_Cicle++;
-                else if (this.m_Stage == 14)
-                    this.m_Cicle++;
-                else if (this.m_Stage == 22)
-                    this.Stop();
+                if (m_Cicle == 0)
+                {
+                    item.Z += 1;
+                }
+                else if (m_Cicle == 1)
+                {
+                    item.Z += 0;
+                }
+                else
+                {
+                    item.Z += -1;
+                }
+
+                if (m_Stage == 8)
+                {
+                    m_Cicle++;
+                }
+                else if (m_Stage == 14)
+                {
+                    m_Cicle++;
+                }
+                else if (m_Stage == 22)
+                {
+                    Stop();
+                }
             }
         }
     }

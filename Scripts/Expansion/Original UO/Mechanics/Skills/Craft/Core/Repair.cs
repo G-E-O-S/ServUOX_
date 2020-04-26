@@ -1,8 +1,8 @@
-using System;
+using Server.Factions;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
-using Server.Factions;
+using System;
 
 namespace Server.Engines.Craft
 {
@@ -19,44 +19,44 @@ namespace Server.Engines.Craft
 
         public static void Do(Mobile from, CraftSystem craftSystem, ITool tool)
         {
-            from.Target = new InternalTarget(craftSystem, tool);
+            from.Target = new CraftSystemTarget(craftSystem, tool);
             from.SendLocalizedMessage(1044276); // Target an item to repair.
         }
 
         public static void Do(Mobile from, CraftSystem craftSystem, RepairDeed deed)
         {
-            from.Target = new InternalTarget(craftSystem, deed);
+            from.Target = new CraftSystemTarget(craftSystem, deed);
             from.SendLocalizedMessage(1044276); // Target an item to repair.
         }
 
         public static void Do(Mobile from, CraftSystem craftSystem, RepairBenchAddon addon)
         {
-            from.Target = new InternalTarget(craftSystem, addon);
+            from.Target = new CraftSystemTarget(craftSystem, addon);
             from.SendLocalizedMessage(500436); // Select item to repair.
         }
 
-        private class InternalTarget : Target
+        private class CraftSystemTarget : Target
         {
             private readonly CraftSystem m_CraftSystem;
             private readonly ITool m_Tool;
             private readonly RepairDeed m_Deed;
             private readonly RepairBenchAddon m_Addon;
 
-            public InternalTarget(CraftSystem craftSystem, ITool tool)
+            public CraftSystemTarget(CraftSystem craftSystem, ITool tool)
                 : base(10, false, TargetFlags.None)
             {
                 m_CraftSystem = craftSystem;
                 m_Tool = tool;
             }
 
-            public InternalTarget(CraftSystem craftSystem, RepairDeed deed)
+            public CraftSystemTarget(CraftSystem craftSystem, RepairDeed deed)
                 : base(2, false, TargetFlags.None)
             {
                 m_CraftSystem = craftSystem;
                 m_Deed = deed;
             }
 
-            public InternalTarget(CraftSystem craftSystem, RepairBenchAddon addon)
+            public CraftSystemTarget(CraftSystem craftSystem, RepairBenchAddon addon)
                 : base(2, false, TargetFlags.None)
             {
                 m_CraftSystem = craftSystem;
@@ -110,9 +110,13 @@ namespace Server.Engines.Craft
                     double maxSkill = difficulty + 25;
 
                     if (value < minSkill)
+                    {
                         return false; // Too difficult
+                    }
                     else if (value >= maxSkill)
+                    {
                         return true; // No challenge
+                    }
 
                     double chance = (value - minSkill) / (maxSkill - minSkill);
 
@@ -125,9 +129,13 @@ namespace Server.Engines.Craft
                     double maxSkill = difficulty + 25;
 
                     if (value < minSkill)
+                    {
                         return false; // Too difficult
+                    }
                     else if (value >= maxSkill)
+                    {
                         return true; // No challenge
+                    }
 
                     double chance = (value - minSkill) / (maxSkill - minSkill);
 
@@ -211,7 +219,9 @@ namespace Server.Engines.Craft
                         if (!CheckDeed(from))
                         {
                             if (m_Addon != null)
+                            {
                                 m_Addon.Using = false;
+                            }
 
                             return;
                         }
@@ -221,7 +231,9 @@ namespace Server.Engines.Craft
                             from.SendLocalizedMessage(500426); // You can't repair that.
 
                             if (m_Addon != null)
+                            {
                                 m_Addon.Using = false;
+                            }
 
                             return;
                         }
@@ -233,13 +245,16 @@ namespace Server.Engines.Craft
                         else if (!usingDeed && m_CraftSystem is DefTinkering && targeted is BrokenAutomatonHead)
                         {
                             if (((BrokenAutomatonHead)targeted).TryRepair(from))
+                            {
                                 number = 1044279; // You repair the item.
+                            }
                             else
+                            {
                                 number = 1044280; // You fail to repair the item.
+                            }
                         }
-                        else if (targeted is BaseWeapon)
+                        else if (targeted is BaseWeapon weapon)
                         {
-                            BaseWeapon weapon = (BaseWeapon)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             int toWeaken = 0;
 
@@ -252,11 +267,17 @@ namespace Server.Engines.Craft
                                 double skillLevel = value;
 
                                 if (skillLevel >= 90.0)
+                                {
                                     toWeaken = 1;
+                                }
                                 else if (skillLevel >= 70.0)
+                                {
                                     toWeaken = 2;
+                                }
                                 else
+                                {
                                     toWeaken = 3;
+                                }
                             }
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(weapon.GetType()) == null && !CheckSpecial(weapon))
@@ -308,9 +329,8 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseArmor)
+                        else if (targeted is BaseArmor armor)
                         {
-                            BaseArmor armor = (BaseArmor)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             int toWeaken = 0;
 
@@ -323,11 +343,17 @@ namespace Server.Engines.Craft
                                 double skillLevel = value;
 
                                 if (skillLevel >= 90.0)
+                                {
                                     toWeaken = 1;
+                                }
                                 else if (skillLevel >= 70.0)
+                                {
                                     toWeaken = 2;
+                                }
                                 else
+                                {
                                     toWeaken = 3;
+                                }
                             }
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(armor.GetType()) == null && !CheckSpecial(armor))
@@ -375,9 +401,8 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseJewel)
+                        else if (targeted is BaseJewel jewel)
                         {
-                            BaseJewel jewel = (BaseJewel)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             int toWeaken = 0;
 
@@ -390,11 +415,17 @@ namespace Server.Engines.Craft
                                 double skillLevel = value;
 
                                 if (skillLevel >= 90.0)
+                                {
                                     toWeaken = 1;
+                                }
                                 else if (skillLevel >= 70.0)
+                                {
                                     toWeaken = 2;
+                                }
                                 else
+                                {
                                     toWeaken = 3;
+                                }
                             }
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(jewel.GetType()) == null && !CheckSpecial(jewel))
@@ -442,9 +473,8 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseClothing)
+                        else if (targeted is BaseClothing clothing)
                         {
-                            BaseClothing clothing = (BaseClothing)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             int toWeaken = 0;
 
@@ -457,11 +487,17 @@ namespace Server.Engines.Craft
                                 double skillLevel = value;
 
                                 if (skillLevel >= 90.0)
+                                {
                                     toWeaken = 1;
+                                }
                                 else if (skillLevel >= 70.0)
+                                {
                                     toWeaken = 2;
+                                }
                                 else
+                                {
                                     toWeaken = 3;
+                                }
                             }
 
                             if (m_CraftSystem.CraftItems.SearchForSubclass(clothing.GetType()) == null && !CheckSpecial(clothing))
@@ -509,9 +545,8 @@ namespace Server.Engines.Craft
                                 toDelete = true;
                             }
                         }
-                        else if (targeted is BaseTalisman)
+                        else if (targeted is BaseTalisman talisman)
                         {
-                            BaseTalisman talisman = (BaseTalisman)targeted;
                             SkillName skill = m_CraftSystem.MainSkill;
                             int toWeaken = 0;
 
@@ -524,11 +559,17 @@ namespace Server.Engines.Craft
                                 double skillLevel = value;
 
                                 if (skillLevel >= 90.0)
+                                {
                                     toWeaken = 1;
+                                }
                                 else if (skillLevel >= 70.0)
+                                {
                                     toWeaken = 2;
+                                }
                                 else
+                                {
                                     toWeaken = 3;
+                                }
                             }
 
                             if (!(m_CraftSystem is DefTinkering))
@@ -637,8 +678,10 @@ namespace Server.Engines.Craft
                         from.SendLocalizedMessage(number);
 
                         if (toDelete)
+                        {
                             m_Deed.Delete();
-                    }                   
+                        }
+                    }
                 }
             }
 
@@ -693,9 +736,13 @@ namespace Server.Engines.Craft
                     if (skillValue < required)
                     {
                         if (required == 80.0)
+                        {
                             from.SendLocalizedMessage(1157049, name); // You must have at least 80 tinkering skill to attempt to repair ~1_CREATURE~.
+                        }
                         else
+                        {
                             from.SendLocalizedMessage(1113614, name); // You must have some tinkering skills to attempt to repair a ~1_CREATURE~.
+                        }
                     }
                     else if (!from.CanBeginAction(typeof(IRepairableMobile)))
                     {
@@ -712,13 +759,17 @@ namespace Server.Engines.Craft
                     else
                     {
                         if (damage > (int)(skillValue * 0.6))
+                        {
                             damage = (int)(skillValue * 0.6);
+                        }
 
                         SkillLock sl = from.Skills[SkillName.Tinkering].Lock;
                         from.Skills[SkillName.Tinkering].SetLockNoRelay(SkillLock.Locked);
 
                         if (!from.CheckSkill(SkillName.Tinkering, 0.0, 100.0))
+                        {
                             damage /= 6;
+                        }
 
                         from.Skills[SkillName.Tinkering].SetLockNoRelay(sl);
 
@@ -729,16 +780,22 @@ namespace Server.Engines.Craft
                             int v = pack.ConsumeUpTo(m.RepairResource, (damage + 4) / 5);
 
                             if (v <= 0 && m is Golem)
+                            {
                                 v = pack.ConsumeUpTo(typeof(BronzeIngot), (damage + 4) / 5);
+                            }
 
                             if (v > 0)
                             {
                                 m.Hits += damage;
 
                                 if (damage > 1)
+                                {
                                     from.SendLocalizedMessage(1113616, name); // You repair ~1_CREATURE~.
+                                }
                                 else
+                                {
                                     from.SendLocalizedMessage(1157030, name); // You repair ~1_CREATURE~, but it barely helps.
+                                }
 
                                 toDelete = true;
                                 double delay = 10 - (skillValue / 16.65);
@@ -771,10 +828,14 @@ namespace Server.Engines.Craft
         public static bool AllowsRepair(object targeted, CraftSystem system)
         {
             if (targeted is IFactionItem && ((IFactionItem)targeted).FactionItemState != null)
+            {
                 return false;
+            }
 
             if (targeted is BrokenAutomatonHead || targeted is IRepairableMobile)
+            {
                 return true;
+            }
 
             return (targeted is BlankScroll ||
                     (targeted is BaseArmor && ((BaseArmor)targeted).CanRepair) ||

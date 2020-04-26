@@ -1,5 +1,5 @@
-using System;
 using Server.Mobiles;
+using System;
 
 namespace Server.Spells.Eighth
 {
@@ -19,21 +19,17 @@ namespace Server.Spells.Eighth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Eighth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Eighth;
         public override bool CheckCast()
         {
             if (!base.CheckCast())
-                return false;
-
-            if ((this.Caster.Followers + 4) > this.Caster.FollowersMax)
             {
-                this.Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
+                return false;
+            }
+
+            if ((Caster.Followers + 4) > Caster.FollowersMax)
+            {
+                Caster.SendLocalizedMessage(1049645); // You have too many followers to summon that creature.
                 return false;
             }
 
@@ -42,17 +38,21 @@ namespace Server.Spells.Eighth
 
         public override void OnCast()
         {
-            if (this.CheckSequence())
+            if (CheckSequence())
             {
-                TimeSpan duration = TimeSpan.FromSeconds((2 * this.Caster.Skills.Magery.Fixed) / 5);
+                TimeSpan duration = TimeSpan.FromSeconds((2 * Caster.Skills.Magery.Fixed) / 5);
 
                 if (Core.AOS)
-                    SpellHelper.Summon(new SummonedFireElemental(), this.Caster, 0x217, duration, false, false);
+                {
+                    SpellHelper.Summon(new SummonedFireElemental(), Caster, 0x217, duration, false, false);
+                }
                 else
-                    SpellHelper.Summon(new FireElemental(), this.Caster, 0x217, duration, false, false);
+                {
+                    SpellHelper.Summon(new FireElemental(), Caster, 0x217, duration, false, false);
+                }
             }
 
-            this.FinishSequence();
+            FinishSequence();
         }
     }
 }

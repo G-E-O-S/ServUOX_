@@ -1,8 +1,8 @@
-using System;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.Sixth
 {
@@ -21,13 +21,7 @@ namespace Server.Spells.Sixth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Sixth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Sixth;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -53,13 +47,21 @@ namespace Server.Spells.Sixth
                 bool eastToWest;
 
                 if (rx >= 0 && ry >= 0)
+                {
                     eastToWest = false;
+                }
                 else if (rx >= 0)
+                {
                     eastToWest = true;
+                }
                 else if (ry >= 0)
+                {
                     eastToWest = true;
+                }
                 else
+                {
                     eastToWest = false;
+                }
 
                 Effects.PlaySound(p, Caster.Map, 0x20B);
                 int itemID = eastToWest ? 0x3967 : 0x3979;
@@ -68,7 +70,9 @@ namespace Server.Spells.Sixth
                 TimeSpan duration = TimeSpan.FromSeconds(3.0 + (Caster.Skills[SkillName.Magery].Value / 3.0));
 
                 if (SpellHelper.CheckField(pnt, Caster.Map))
+                {
                     new InternalItem(itemID, pnt, Caster, Caster.Map, duration);
+                }
 
                 for (int i = 1; i <= 2; ++i)
                 {
@@ -78,13 +82,17 @@ namespace Server.Spells.Sixth
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new InternalItem(itemID, point, Caster, Caster.Map, duration);
+                        }
 
                         point = new Point3D(eastToWest ? pnt.X + -index : pnt.X, eastToWest ? pnt.Y : pnt.Y + -index, pnt.Z);
                         SpellHelper.AdjustField(ref point, Caster.Map, 16, false);
 
                         if (SpellHelper.CheckField(point, Caster.Map))
+                        {
                             new InternalItem(itemID, point, Caster, Caster.Map, duration);
+                        }
                     }, i);
                 }
             }
@@ -99,7 +107,7 @@ namespace Server.Spells.Sixth
             private Mobile m_Caster;
             private DateTime m_End;
 
-            public Mobile Caster { get { return m_Caster; } }
+            public Mobile Caster => m_Caster;
 
             public InternalItem(int itemID, Point3D loc, Mobile caster, Map map, TimeSpan duration)
                 : base(itemID)
@@ -111,7 +119,9 @@ namespace Server.Spells.Sixth
                 Effects.SendLocationParticles(EffectItem.Create(loc, map, EffectItem.DefaultDuration), 0x376A, 9, 10, 5048);
 
                 if (Deleted)
+                {
                     return;
+                }
 
                 m_Caster = caster;
 
@@ -126,26 +136,22 @@ namespace Server.Spells.Sixth
             {
             }
 
-            public override bool BlocksFit
-            {
-                get
-                {
-                    return true;
-                }
-            }
+            public override bool BlocksFit => true;
             public override void OnAfterDelete()
             {
                 base.OnAfterDelete();
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
             }
 
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
 
-                writer.Write((int)0); // version
+                writer.Write(0); // version
 
                 writer.Write(m_Caster);
                 writer.WriteDeltaTime(m_End);
@@ -157,7 +163,7 @@ namespace Server.Spells.Sixth
 
                 int version = reader.ReadInt();
 
-                switch ( version )
+                switch (version)
                 {
                     case 0:
                         {
@@ -177,7 +183,9 @@ namespace Server.Spells.Sixth
                 if (Visible && m_Caster != null && (!Core.AOS || m != m_Caster) && SpellHelper.ValidIndirectTarget(m_Caster, m) && m_Caster.CanBeHarmful(m, false))
                 {
                     if (SpellHelper.CanRevealCaster(m))
+                    {
                         m_Caster.RevealingAction();
+                    }
 
                     m_Caster.DoHarmful(m);
 
@@ -188,10 +196,14 @@ namespace Server.Spells.Sixth
                         duration = 2.0 + ((int)(m_Caster.Skills[SkillName.EvalInt].Value / 10) - (int)(m.Skills[SkillName.MagicResist].Value / 10));
 
                         if (!m.Player)
+                        {
                             duration *= 3.0;
+                        }
 
                         if (duration < 0.0)
+                        {
                             duration = 0.0;
+                        }
                     }
                     else
                     {
@@ -202,9 +214,11 @@ namespace Server.Spells.Sixth
 
                     m.PlaySound(0x204);
                     m.FixedEffect(0x376A, 10, 16);
-					
+
                     if (m is BaseCreature)
+                    {
                         ((BaseCreature)m).OnHarmfulSpell(m_Caster);
+                    }
                 }
 
                 return true;
@@ -239,7 +253,9 @@ namespace Server.Spells.Sixth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IPoint3D)
+                {
                     m_Owner.Target((IPoint3D)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

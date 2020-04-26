@@ -1,7 +1,6 @@
-using System;
-using System.IO;
-using System.Collections.Generic;
 using Server.Engines.Plants;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Server.Engines.Craft
 {
@@ -19,7 +18,7 @@ namespace Server.Engines.Craft
         NonQuestItem
     }
     #endregion
-	
+
     public class CraftContext
     {
         public Mobile Owner { get; private set; }
@@ -103,7 +102,9 @@ namespace Server.Engines.Craft
             get
             {
                 if (Items.Count > 0)
+                {
                     return Items[0];
+                }
 
                 return null;
             }
@@ -114,14 +115,16 @@ namespace Server.Engines.Craft
             Items.Remove(item);
 
             if (Items.Count == 10)
+            {
                 Items.RemoveAt(9);
+            }
 
             Items.Insert(0, item);
         }
 
         public virtual void Serialize(GenericWriter writer)
         {
-            writer.Write((int)0);
+            writer.Write(0);
 
             writer.Write(Owner);
             writer.Write(GetSystemIndex(System));
@@ -137,7 +140,7 @@ namespace Server.Engines.Craft
 
         public CraftContext(GenericReader reader)
         {
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             Items = new List<CraftItem>();
 
@@ -166,7 +169,9 @@ namespace Server.Engines.Craft
             for (int i = 0; i < Systems.Length; i++)
             {
                 if (Systems[i] == system)
+                {
                     return i;
+                }
             }
 
             return -1;
@@ -175,15 +180,17 @@ namespace Server.Engines.Craft
         public CraftSystem GetCraftSystem(int i)
         {
             if (i >= 0 && i < Systems.Length)
+            {
                 return Systems[i];
+            }
 
             return null;
         }
 
         #region Serialize/Deserialize Persistence
-        private static string FilePath = Path.Combine("Saves", "CraftContext", "Contexts.bin");
+        private static readonly string FilePath = Path.Combine("Saves", "CraftContext", "Contexts.bin");
 
-        private static List<CraftContext> Contexts = new List<CraftContext>();
+        private static readonly List<CraftContext> Contexts = new List<CraftContext>();
 
         public static CraftSystem[] Systems { get; } = new CraftSystem[11];
 

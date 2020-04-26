@@ -1585,7 +1585,7 @@ namespace Server.Mobiles
             {
                 DetectHidden.OnUse(m_Mobile);
 
-                if (m_Mobile.Target is DetectHidden.InternalTarget)
+                if (m_Mobile.Target is DetectHidden.DetectHiddenTarget)
                 {
                     m_Mobile.Target.Invoke(m_Mobile, m_RevealTarget);
                 }

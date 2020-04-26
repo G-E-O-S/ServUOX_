@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Server.Targeting;
-using Server.Mobiles;
 using Server.Items;
+using Server.Mobiles;
+using Server.Targeting;
+using System;
+using System.Linq;
 
 namespace Server.Spells.Seventh
 {
     public class MeteorSwarmSpell : MagerySpell
     {
-        public override DamageType SpellDamageType { get { return DamageType.SpellAOE; } }
+        public override DamageType SpellDamageType => DamageType.SpellAOE;
         public Item Item { get; set; }
 
         private static readonly SpellInfo m_Info = new SpellInfo(
@@ -37,25 +35,15 @@ namespace Server.Spells.Seventh
         public override int GetMana()
         {
             if (Item != null)
+            {
                 return 0;
+            }
 
             return base.GetMana();
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Seventh;
-            }
-        }
-        public override bool DelayedDamage
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Seventh;
+        public override bool DelayedDamage => true;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this, Item);
@@ -85,7 +73,9 @@ namespace Server.Spells.Seventh
                 SpellHelper.Turn(Caster, p);
 
                 if (p is Item)
+                {
                     p = ((Item)p).GetWorldLocation();
+                }
 
                 var targets = AcquireIndirectTargets(p, 2).ToList();
                 var count = Math.Max(1, targets.Count);
@@ -101,14 +91,22 @@ namespace Server.Spells.Seventh
                     double damage;
 
                     if (Core.AOS)
+                    {
                         damage = GetNewAosDamage(51, 1, 5, id is PlayerMobile, id);
+                    }
                     else
+                    {
                         damage = Utility.Random(27, 22);
+                    }
 
                     if (Core.AOS && count > 2)
+                    {
                         damage = (damage * 2) / count;
+                    }
                     else if (!Core.AOS)
+                    {
                         damage /= count;
+                    }
 
                     if (!Core.AOS && m != null && CheckResisted(m))
                     {
@@ -162,7 +160,9 @@ namespace Server.Spells.Seventh
                 IPoint3D p = o as IPoint3D;
 
                 if (p != null)
+                {
                     m_Owner.Target(p, m_Item);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

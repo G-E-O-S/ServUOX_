@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
 using Server.Engines.Quests;
 using Server.Engines.Quests.Collector;
 using Server.Items;
 using Server.Mobiles;
 using Server.Network;
 using Server.Targeting;
+using System;
+using System.Collections.Generic;
 
 namespace Server.Engines.Harvest
 {
@@ -18,21 +18,15 @@ namespace Server.Engines.Harvest
             get
             {
                 if (m_System == null)
+                {
                     m_System = new Fishing();
+                }
 
                 return m_System;
             }
         }
 
-        private readonly HarvestDefinition m_Definition;
-
-        public HarvestDefinition Definition
-        {
-            get
-            {
-                return this.m_Definition;
-            }
-        }
+        public HarvestDefinition Definition { get; }
 
         private Fishing()
         {
@@ -40,48 +34,50 @@ namespace Server.Engines.Harvest
             HarvestVein[] veins;
 
             #region Fishing
-            HarvestDefinition fish = new HarvestDefinition();
+            HarvestDefinition fish = new HarvestDefinition
+            {
 
-            // Resource banks are every 8x8 tiles
-            fish.BankWidth = 8;
-            fish.BankHeight = 8;
+                // Resource banks are every 8x8 tiles
+                BankWidth = 8,
+                BankHeight = 8,
 
-            // Every bank holds from 5 to 15 fish
-            fish.MinTotal = 5;
-            fish.MaxTotal = 15;
+                // Every bank holds from 5 to 15 fish
+                MinTotal = 5,
+                MaxTotal = 15,
 
-            // A resource bank will respawn its content every 10 to 20 minutes
-            fish.MinRespawn = TimeSpan.FromMinutes(10.0);
-            fish.MaxRespawn = TimeSpan.FromMinutes(20.0);
+                // A resource bank will respawn its content every 10 to 20 minutes
+                MinRespawn = TimeSpan.FromMinutes(10.0),
+                MaxRespawn = TimeSpan.FromMinutes(20.0),
 
-            // Skill checking is done on the Fishing skill
-            fish.Skill = SkillName.Fishing;
+                // Skill checking is done on the Fishing skill
+                Skill = SkillName.Fishing,
 
-            // Set the list of harvestable tiles
-            fish.Tiles = m_WaterTiles;
-            fish.SpecialTiles = m_LavaTiles;
-            fish.RangedTiles = true;
+                // Set the list of harvestable tiles
+                Tiles = m_WaterTiles,
+                SpecialTiles = m_LavaTiles,
+                RangedTiles = true,
 
-            // Players must be within 4 tiles to harvest
-            fish.MaxRange = 4;
+                // Players must be within 4 tiles to harvest
+                MaxRange = 4,
 
-            // One fish per harvest action
-            fish.ConsumedPerHarvest = 1;
-            fish.ConsumedPerFeluccaHarvest = 1;
+                // One fish per harvest action
+                ConsumedPerHarvest = 1,
+                ConsumedPerFeluccaHarvest = 1,
 
-            // The fishing
-            fish.EffectActions = new int[] { Core.SA ? 6 : 12 };
-            fish.EffectSounds = new int[0];
-            fish.EffectCounts = new int[] { 1 };
-            fish.EffectDelay = TimeSpan.Zero;
-            fish.EffectSoundDelay = TimeSpan.FromSeconds(8.0);
+                // The fishing
+                EffectActions = new int[] { Core.SA ? 6 : 12 },
+                EffectSounds = new int[0],
+                EffectCounts = new int[] { 1 },
+                EffectDelay = TimeSpan.Zero,
+                EffectSoundDelay = TimeSpan.FromSeconds(8.0),
 
-            fish.NoResourcesMessage = 503172; // The fish don't seem to be biting here.
-            fish.FailMessage = 503171; // You fish a while, but fail to catch anything.
-            fish.TimedOutOfRangeMessage = 500976; // You need to be closer to the water to fish!
-            fish.OutOfRangeMessage = 500976; // You need to be closer to the water to fish!
-            fish.PackFullMessage = 503176; // You do not have room in your backpack for a fish.
-            fish.ToolBrokeMessage = 503174; // You broke your fishing pole.
+                NoResourcesMessage = 503172, // The fish don't seem to be biting here.
+                FailMessage = 503171, // You fish a while, but fail to catch anything.
+                TimedOutOfRangeMessage = 500976, // You need to be closer to the water to fish!
+                OutOfRangeMessage = 500976, // You need to be closer to the water to fish!
+                PackFullMessage = 503176, // You do not have room in your backpack for a fish.
+                ToolBrokeMessage = 503174 // You broke your fishing pole.
+            };
 
             res = new HarvestResource[]
             {
@@ -102,12 +98,12 @@ namespace Server.Engines.Harvest
                 {
                     new BonusHarvestResource(0, 97.0, null, null), //set to same chance as mining ml gems
 			        new BonusHarvestResource(80.0, 2.0, 1113764, typeof(DelicateScales)),
-                	new BonusHarvestResource(80.0, 1.0, 1072597, typeof(WhitePearl))
+                    new BonusHarvestResource(80.0, 1.0, 1072597, typeof(WhitePearl))
                 };
             }
 
-            this.m_Definition = fish;
-            this.Definitions.Add(fish);
+            Definition = fish;
+            Definitions.Add(fish);
             #endregion
         }
 
@@ -133,28 +129,28 @@ namespace Server.Engines.Harvest
         }
 
         private static MutateEntry[] m_MutateTable = new MutateEntry[]
-		{
-			new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
-			new MutateEntry( 90.0,  80.0,  1875.0,  true, typeof( TreasureMap ) ),
-			new MutateEntry( 100.0,  80.0,  750.0,  true, typeof( MessageInABottle ) ),			
-			new MutateEntry( 80.0,  80.0,  4080.0,  true, typeof( BigFish ) ),
-			new MutateEntry( 0.0, 125.0, -2375.0, false, typeof( PrizedFish ), typeof( WondrousFish ), typeof( TrulyRareFish ), typeof( PeculiarFish ) ),
-			new MutateEntry( 0.0, 125.0,  -420.0, false, typeof( Boots ), typeof( Shoes ), typeof( Sandals ), typeof( ThighBoots ) ),
+        {
+            new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
+            new MutateEntry( 90.0,  80.0,  1875.0,  true, typeof( TreasureMap ) ),
+            new MutateEntry( 100.0,  80.0,  750.0,  true, typeof( MessageInABottle ) ),
+            new MutateEntry( 80.0,  80.0,  4080.0,  true, typeof( BigFish ) ),
+            new MutateEntry( 0.0, 125.0, -2375.0, false, typeof( PrizedFish ), typeof( WondrousFish ), typeof( TrulyRareFish ), typeof( PeculiarFish ) ),
+            new MutateEntry( 0.0, 125.0,  -420.0, false, typeof( Boots ), typeof( Shoes ), typeof( Sandals ), typeof( ThighBoots ) ),
             new MutateEntry( 80.0,  80.0, 2500.0, false, typeof( MudPuppy ), typeof( RedHerring) ),
-			new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } )
-		};
+            new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } )
+        };
 
         private static MutateEntry[] m_SiegeMutateTable = new MutateEntry[]
-		{
-			new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
+        {
+            new MutateEntry( 80.0,  80.0,  1865.0,  true, typeof( SpecialFishingNet ) ),
             new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } ),
-			new MutateEntry( 100.0,  80.0,  1865.0,  true, typeof( MessageInABottle ) ),			
-			new MutateEntry( 80.0,  80.0,  4080.0,  true, typeof( BigFish ) ),
-			new MutateEntry( 0.0, 125.0, -2375.0, false, typeof( PrizedFish ), typeof( WondrousFish ), typeof( TrulyRareFish ), typeof( PeculiarFish ) ),
-			new MutateEntry( 0.0, 105.0,  -420.0, false, typeof( Boots ), typeof( Shoes ), typeof( Sandals ), typeof( ThighBoots ) ),
+            new MutateEntry( 100.0,  80.0,  1865.0,  true, typeof( MessageInABottle ) ),
+            new MutateEntry( 80.0,  80.0,  4080.0,  true, typeof( BigFish ) ),
+            new MutateEntry( 0.0, 125.0, -2375.0, false, typeof( PrizedFish ), typeof( WondrousFish ), typeof( TrulyRareFish ), typeof( PeculiarFish ) ),
+            new MutateEntry( 0.0, 105.0,  -420.0, false, typeof( Boots ), typeof( Shoes ), typeof( Sandals ), typeof( ThighBoots ) ),
             new MutateEntry( 80.0,  80.0, 2500.0, false, typeof( MudPuppy ), typeof( RedHerring) ),
-			new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } )
-		};
+            new MutateEntry( 0.0, 200.0,  -200.0, false, new Type[1]{ null } )
+        };
 
         private static MutateEntry[] m_LavaMutateTable = new MutateEntry[]
         {
@@ -167,8 +163,7 @@ namespace Server.Engines.Harvest
         public override bool SpecialHarvest(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc)
         {
             PlayerMobile player = from as PlayerMobile;
-
-            Container pack = from.Backpack;
+            _ = from.Backpack;
 
             if (player != null)
             {
@@ -227,8 +222,9 @@ namespace Server.Engines.Harvest
                     if (oracle != null && sp != null)
                     {
                         if (from.Map != sp.Map)
+                        {
                             from.SendLocalizedMessage(1150861); //Charybdis have never been seen in these waters, try somewhere else.
-
+                        }
                         else if (pole.BaitType == typeof(Charydbis) && from.Skills[SkillName.Fishing].Value >= 100)
                         {
                             if (sp.Charydbis == null && !sp.HasSpawned && sp.CurrentLocation.Contains(loc))
@@ -245,7 +241,9 @@ namespace Server.Engines.Harvest
                             }
                         }
                         else
+                        {
                             from.SendLocalizedMessage(1150858); //You see a few bubbles, but no charybdis.
+                        }
                     }
                 }
                 #endregion
@@ -257,10 +255,12 @@ namespace Server.Engines.Harvest
         public override Type MutateType(Type type, Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc, HarvestResource resource)
         {
             if (FishInfo.IsRareFish(type))
+            {
                 return type;
+            }
 
             bool deepWater = IsDeepWater(loc, map);
-            bool junkproof = HasTypeHook(tool, HookType.JunkProof); 
+            bool junkproof = HasTypeHook(tool, HookType.JunkProof);
 
             double skillBase = from.Skills[SkillName.Fishing].Base;
             double skillValue = from.Skills[SkillName.Fishing].Value;
@@ -273,20 +273,28 @@ namespace Server.Engines.Harvest
 
                 // RedHerring / MudPuppy
                 if (i == 6 && (from.Region == null || !from.Region.IsPartOf("Underworld")))
+                {
                     continue;
+                }
 
                 if (junkproof && i == 5 && 0.80 >= Utility.RandomDouble())
+                {
                     continue;
+                }
 
                 if (!deepWater && entry.m_DeepWater)
+                {
                     continue;
+                }
 
                 if (skillBase >= entry.m_ReqSkill)
                 {
                     double chance = (skillValue - entry.m_MinSkill) / (entry.m_MaxSkill - entry.m_MinSkill);
 
                     if (chance > Utility.RandomDouble())
+                    {
                         return entry.m_Types[Utility.Random(entry.m_Types.Length)];
+                    }
                 }
             }
 
@@ -311,7 +319,9 @@ namespace Server.Engines.Harvest
                     SOS sos = messages[i];
 
                     if ((from.Map == Map.Felucca || from.Map == Map.Trammel) && from.InRange(sos.TargetLocation, 60))
+                    {
                         return true;
+                    }
                 }
             }
 
@@ -322,15 +332,21 @@ namespace Server.Engines.Harvest
         {
             // Searing Weapon Support
             if (type == typeof(BaseWeapon))
+            {
                 return null;
+            }
 
             if (type == typeof(TreasureMap))
             {
                 int level;
                 if (from is PlayerMobile && ((PlayerMobile)from).Young && from.Map == Map.Trammel && TreasureMap.IsInHavenIsland(from))
+                {
                     level = 0;
+                }
                 else
+                {
                     level = 1;
+                }
 
                 return new TreasureMap(level, from.Map == Map.Felucca ? Map.Felucca : Map.Trammel);
             }
@@ -409,9 +425,13 @@ namespace Server.Engines.Harvest
                             case 11:
                                 {
                                     if (Utility.RandomBool())
+                                    {
                                         preLoot = new SkullCap();
+                                    }
                                     else
+                                    {
                                         preLoot = new TricorneHat();
+                                    }
 
                                     break;
                                 }
@@ -428,9 +448,13 @@ namespace Server.Engines.Harvest
                                     };
 
                                     if (Utility.Random(list.Length + 1) == 0)
+                                    {
                                         preLoot = new Candelabra();
+                                    }
                                     else
+                                    {
                                         preLoot = new ShipwreckedItem(Utility.RandomList(list), dredge);
+                                    }
 
                                     break;
                                 }
@@ -448,20 +472,29 @@ namespace Server.Engines.Harvest
                                     double ran = Utility.RandomDouble();
 
                                     if (ran < 0.05)
+                                    {
                                         preLoot = new YellowPolkaDotBikini();
+                                    }
                                     else if (ran < 0.25)
+                                    {
                                         preLoot = new ShipwreckedItem(list[Utility.RandomMinMax(3, 7)], dredge);
+                                    }
                                     else
+                                    {
                                         preLoot = new ShipwreckedItem(list[Utility.Random(3)], dredge);
+                                    }
+
                                     break;
                                 }
-                            #endregion
+                                #endregion
                         }
 
                         if (preLoot != null)
                         {
                             if (preLoot is IShipwreckedItem)
+                            {
                                 ((IShipwreckedItem)preLoot).IsShipwreckedItem = true;
+                            }
 
                             return preLoot;
                         }
@@ -475,9 +508,13 @@ namespace Server.Engines.Harvest
                         else
                         {
                             if (Utility.RandomBool())
+                            {
                                 chest = new MetalGoldenChest();
+                            }
                             else
+                            {
                                 chest = new WoodenChest();
+                            }
                         }
 
                         if (sos.IsAncient)
@@ -489,9 +526,13 @@ namespace Server.Engines.Harvest
                         sos.OnSOSComplete(chest);
 
                         if (sos.IsAncient)
+                        {
                             chest.DropItem(new FabledFishingNet());
+                        }
                         else
+                        {
                             chest.DropItem(new SpecialFishingNet());
+                        }
 
                         chest.Movable = true;
                         chest.Locked = false;
@@ -518,9 +559,13 @@ namespace Server.Engines.Harvest
                 BaseCreature serp;
 
                 if (0.25 > Utility.RandomDouble())
+                {
                     serp = new DeepSeaSerpent();
+                }
                 else
+                {
                     serp = new SeaSerpent();
+                }
 
                 int x = m.X, y = m.Y;
 
@@ -554,13 +599,13 @@ namespace Server.Engines.Harvest
             }
 
             if (item is BigFish || item is WoodenChest || item is MetalGoldenChest)
+            {
                 placeAtFeet = true;
+            }
 
             #region High Seas
-            if (item is RareFish)
+            if (item is RareFish fish)
             {
-                RareFish fish = (RareFish)item;
-
                 if (FishInfo.IsRareFish(fish.GetType()))
                 {
                     fish.Fisher = m;
@@ -584,13 +629,14 @@ namespace Server.Engines.Harvest
                 ((BigFish)item).Fisher = from;
                 ((BigFish)item).DateCaught = DateTime.Now;
             }
-
-            #region Stygian Abyss
             else if (item is RedHerring)
+            {
                 from.SendLocalizedMessage(1095047, null, 0x23); // You take the Red Herring and put it into your pack.  The only thing more surprising than the fact that there is a fish called the Red Herring is the fact that you fished for it!
+            }
             else if (item is MudPuppy)
+            {
                 from.SendLocalizedMessage(1095064, null, 0x23); // You take the Mud Puppy and put it into your pack.  Not surprisingly, it is very muddy.
-            #endregion
+            }
 
             else if (item is WoodenChest || item is MetalGoldenChest)
             {
@@ -642,7 +688,9 @@ namespace Server.Engines.Harvest
                         from.SendLocalizedMessage(1043297, "a fish");
                     }
                     else
+                    {
                         from.SendLocalizedMessage(1043297, String.Format("#{0}", item.LabelNumber));
+                    }
 
                     return;
                 }
@@ -656,22 +704,34 @@ namespace Server.Engines.Harvest
                     number = 1043297;
 
                     if ((item.ItemData.Flags & TileFlag.ArticleA) != 0)
+                    {
                         name = "a " + item.ItemData.Name;
+                    }
                     else if ((item.ItemData.Flags & TileFlag.ArticleAn) != 0)
+                    {
                         name = "an " + item.ItemData.Name;
+                    }
                     else
+                    {
                         name = item.ItemData.Name;
+                    }
                 }
 
                 NetState ns = from.NetState;
 
                 if (ns == null)
+                {
                     return;
+                }
 
                 if (number == 1043297 || ns.HighSeas)
+                {
                     from.SendLocalizedMessage(number, name);
+                }
                 else
+                {
                     from.SendLocalizedMessage(number, true, name);
+                }
             }
         }
 
@@ -683,10 +743,14 @@ namespace Server.Engines.Harvest
                 Item item2 = from.FindItemOnLayer(Layer.TwoHanded);
 
                 if (item != null)
+                {
                     from.AddToBackpack(item);
+                }
 
                 if (item2 != null)
+                {
                     from.AddToBackpack(item2);
+                }
 
                 Timer.DelayCall(TimeSpan.FromMilliseconds(250), () =>
                 {
@@ -701,16 +765,16 @@ namespace Server.Engines.Harvest
         {
             base.OnHarvestStarted(from, tool, def, toHarvest);
 
-            int tileID;
-            Map map;
-            Point3D loc;
 
-            if (this.GetHarvestDetails(from, tool, toHarvest, out tileID, out map, out loc))
+            if (GetHarvestDetails(from, tool, toHarvest, out int tileID, out Map map, out Point3D loc))
+            {
                 Timer.DelayCall(TimeSpan.FromSeconds(1.5),
                     delegate
                     {
                         if (Core.ML)
+                        {
                             from.RevealingAction();
+                        }
 
                         int sound = 0x364;
                         int effect = 0x352D;
@@ -724,6 +788,7 @@ namespace Server.Engines.Harvest
                         Effects.SendLocationEffect(loc, map, effect, 16, 4);
                         Effects.PlaySound(loc, map, sound);
                     });
+            }
         }
 
         public override void OnHarvestFinished(Mobile from, Item tool, HarvestDefinition def, HarvestVein vein, HarvestBank bank, HarvestResource resource, object harvested)
@@ -731,7 +796,9 @@ namespace Server.Engines.Harvest
             base.OnHarvestFinished(from, tool, def, vein, bank, resource, harvested);
 
             if (Core.ML)
+            {
                 from.RevealingAction();
+            }
         }
 
         public override object GetLock(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
@@ -742,7 +809,9 @@ namespace Server.Engines.Harvest
         public override bool BeginHarvesting(Mobile from, Item tool)
         {
             if (!base.BeginHarvesting(from, tool))
+            {
                 return false;
+            }
 
             from.SendLocalizedMessage(500974); // What water do you want to fish in?
             return true;
@@ -751,7 +820,9 @@ namespace Server.Engines.Harvest
         public override bool CheckHarvest(Mobile from, Item tool)
         {
             if (!base.CheckHarvest(from, tool))
+            {
                 return false;
+            }
 
             if (from.Mounted || from.Flying)
             {
@@ -765,7 +836,9 @@ namespace Server.Engines.Harvest
         public override bool CheckHarvest(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
         {
             if (!base.CheckHarvest(from, tool, def, toHarvest))
+            {
                 return false;
+            }
 
             if (from.Mounted || from.Flying)
             {
@@ -787,13 +860,13 @@ namespace Server.Engines.Harvest
         };
 
         #region HighSeas
-        public static int[] LavaTiles { get { return m_LavaTiles; } }
+        public static int[] LavaTiles => m_LavaTiles;
         private static int[] m_LavaTiles = new int[]
         {
             0x1F4, 0x1F5,
             0x1F6, 0x1F7,
 
-            4846, 4847, 4848, 4849, 4850, 
+            4846, 4847, 4848, 4849, 4850,
             4852, 4853, 4854, 4855, 4856, 4857, 4858, 4859, 4560, 4561, 4562,
             4864, 4865, 4866, 4867, 4868,
             4870, 4871, 4872, 4873, 4874,
@@ -812,9 +885,13 @@ namespace Server.Engines.Harvest
                 Static obj = (Static)toHarvest;
 
                 if (lava)
+                {
                     tileID = obj.ItemID;
+                }
                 else
+                {
                     tileID = (obj.ItemID & 0x3FFF) | 0x4000;
+                }
 
                 map = obj.Map;
                 loc = obj.GetWorldLocation();
@@ -824,9 +901,13 @@ namespace Server.Engines.Harvest
                 StaticTarget obj = (StaticTarget)toHarvest;
 
                 if (lava)
+                {
                     tileID = obj.ItemID;
+                }
                 else
+                {
                     tileID = (obj.ItemID & 0x3FFF) | 0x4000;
+                }
 
                 map = from.Map;
                 loc = obj.Location;
@@ -849,7 +930,9 @@ namespace Server.Engines.Harvest
 
             //Lava tile, no lava hook
             if (ValidateSpecialTile(tileID) && !lava)
+            {
                 return false;
+            }
 
             return (map != null && map != Map.Internal);
         }
@@ -862,7 +945,9 @@ namespace Server.Engines.Harvest
                 bool usingLavaHook = HasTypeHook(pole, HookType.Lava);
 
                 if (usingLavaHook && ValidateSpecialTile(tileID))
+                {
                     return GetDefinitionFromSpecialTile(tileID);
+                }
             }
 
             return base.GetDefinition(tileID, tool);
@@ -873,7 +958,9 @@ namespace Server.Engines.Harvest
             foreach (int id in m_LavaTiles)
             {
                 if (tileID == id)
+                {
                     return true;
+                }
             }
             return false;
         }
@@ -883,14 +970,22 @@ namespace Server.Engines.Harvest
             int id = 0;
 
             if (!HasTypeHook(tool, HookType.Lava))
+            {
                 return false;
+            }
 
             if (toHarvest is StaticTarget)
+            {
                 id = ((StaticTarget)toHarvest).ItemID;
+            }
             else if (toHarvest is LandTarget)
+            {
                 id = ((LandTarget)toHarvest).TileID;
+            }
             else if (toHarvest is Static && !((Static)toHarvest).Movable)
+            {
                 id = ((Static)toHarvest).ItemID;
+            }
 
             return ValidateSpecialTile(id);
         }
@@ -898,7 +993,9 @@ namespace Server.Engines.Harvest
         public bool IsLavaHarvest(Item tool, int id)
         {
             if (!HasTypeHook(tool, HookType.Lava))
+            {
                 return false;
+            }
 
             return ValidateSpecialTile(id);
         }
@@ -906,13 +1003,18 @@ namespace Server.Engines.Harvest
         public override void OnToolUsed(Mobile from, Item tool, bool caughtsomething)
         {
             if (tool is FishingPole)
+            {
                 ((FishingPole)tool).OnFishedHarvest(from, caughtsomething);
+            }
         }
 
         public static bool HasTypeHook(Item tool, HookType type)
         {
             if (tool is FishingPole)
+            {
                 return ((FishingPole)tool).HookType == type;
+            }
+
             return false;
         }
 
@@ -921,7 +1023,9 @@ namespace Server.Engines.Harvest
             Type type = FishInfo.GetSpecialItem(from, tool, loc, false);
 
             if (type == null)
+            {
                 type = base.GetResourceType(from, tool, def, map, loc, resource);
+            }
 
             return type;
         }
@@ -934,13 +1038,11 @@ namespace Server.Engines.Harvest
                 from.EndAction(locked);
 
                 if (!CheckHarvest(from, tool))
+                {
                     return;
+                }
 
-                int tileID;
-                Map map;
-                Point3D loc;
-
-                if (!GetHarvestDetails(from, tool, toHarvest, out tileID, out map, out loc))
+                if (!GetHarvestDetails(from, tool, toHarvest, out int tileID, out Map map, out Point3D loc))
                 {
                     OnBadHarvestTarget(from, tool, toHarvest);
                     return;
@@ -952,21 +1054,31 @@ namespace Server.Engines.Harvest
                 }
 
                 if (!CheckRange(from, tool, def, map, loc, true))
+                {
                     return;
+                }
                 else if (!CheckResources(from, tool, def, map, loc, true))
+                {
                     return;
+                }
                 else if (!CheckHarvest(from, tool, def, toHarvest))
+                {
                     return;
+                }
 
                 HarvestBank bank = def.GetBank(map, loc.X, loc.Y);
 
                 if (bank == null)
+                {
                     return;
+                }
 
                 HarvestVein vein = bank.Vein;
 
                 if (vein == null)
+                {
                     return;
+                }
 
                 Type type = null;
 
@@ -979,7 +1091,9 @@ namespace Server.Engines.Harvest
 
                     //Special fish
                     if (type == null)
+                    {
                         type = FishInfo.GetSpecialItem(from, tool, loc, IsLavaHarvest(tool, tileID));
+                    }
 
                     if (type != null)
                     {
@@ -992,7 +1106,9 @@ namespace Server.Engines.Harvest
                         else
                         {
                             if (from.AccessLevel == AccessLevel.Player)
+                            {
                                 bank.Consume(Convert.ToInt32(map != null && map.Rules == MapRules.FeluccaRules ? Math.Ceiling(item.Amount / 2.0) : item.Amount), from);
+                            }
 
                             if (Give(from, item, true))
                             {
@@ -1011,18 +1127,24 @@ namespace Server.Engines.Harvest
                 {
                     def.SendMessageTo(from, def.FailMessage);
 
-                    double skill = (double)from.Skills[SkillName.Fishing].Value / 50;
+                    double skill = from.Skills[SkillName.Fishing].Value / 50;
 
                     if (0.5 / skill > Utility.RandomDouble())
+                    {
                         OnToolUsed(from, tool, false);
+                    }
                 }
                 else
+                {
                     OnToolUsed(from, tool, true);
+                }
 
                 OnHarvestFinished(from, tool, def, vein, bank, null, null);
             }
             else
+            {
                 base.FinishHarvesting(from, tool, def, toHarvest, locked);
+            }
         }
 
         public override bool CheckHarvestSkill(Map map, Point3D loc, Mobile from, HarvestResource res, HarvestDefinition def)
@@ -1031,10 +1153,14 @@ namespace Server.Engines.Harvest
             double value = from.Skills[SkillName.Fishing].Value;
 
             if (deepWater && value < 75.0) // can't fish here yet
+            {
                 return from.Skills[def.Skill].Value >= res.ReqSkill;
+            }
 
             if (!deepWater && value >= 75.0) // you can fish, but no gains!
+            {
                 return true;
+            }
 
             return base.CheckHarvestSkill(map, loc, from, res, def);
         }
@@ -1056,7 +1182,9 @@ namespace Server.Engines.Harvest
                     double chance = (skillValue - entry.m_MinSkill) / (entry.m_MaxSkill - entry.m_MinSkill);
 
                     if (map != null && map.Rules == MapRules.FeluccaRules)
+                    {
                         chance *= 1.5;
+                    }
 
                     if (chance > Utility.RandomDouble())
                     {

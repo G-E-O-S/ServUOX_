@@ -1,4 +1,4 @@
-﻿namespace Server.Items
+namespace Server.Items
 {
     public abstract class BaseWaterContainer : Container, IHasQuantity
     {
@@ -6,7 +6,7 @@
         public BaseWaterContainer(int Item_Id, bool filled)
             : base(Item_Id)
         {
-            Quantity = (filled) ? MaxQuantity : 0;
+            Quantity = filled ? MaxQuantity : 0;
         }
 
         public BaseWaterContainer(Serial serial)
@@ -17,36 +17,15 @@
         public abstract int voidItem_ID { get; }
         public abstract int fullItem_ID { get; }
         public abstract int MaxQuantity { get; }
-        public override int DefaultGumpID
-        {
-            get
-            {
-                return 0x3e;
-            }
-        }
+        public override int DefaultGumpID => 0x3e;
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual bool IsEmpty
-        {
-            get
-            {
-                return (m_Quantity <= 0);
-            }
-        }
+        public virtual bool IsEmpty => (m_Quantity <= 0);
         [CommandProperty(AccessLevel.GameMaster)]
-        public virtual bool IsFull
-        {
-            get
-            {
-                return (m_Quantity >= MaxQuantity);
-            }
-        }
+        public virtual bool IsFull => (m_Quantity >= MaxQuantity);
         [CommandProperty(AccessLevel.GameMaster)]
         public virtual int Quantity
         {
-            get
-            {
-                return m_Quantity;
-            }
+            get => m_Quantity;
             set
             {
                 if (value != m_Quantity)
@@ -62,7 +41,9 @@
                         IEntity rootParent = RootParentEntity;
 
                         if (rootParent != null && rootParent.Map != null && rootParent.Map != Map.Internal)
+                        {
                             MoveToWorld(rootParent.Location, rootParent.Map);
+                        }
                     }
 
                     InvalidateProperties();
@@ -86,9 +67,13 @@
             else
             {
                 if (Name == null)
+                {
                     LabelTo(from, LabelNumber);
+                }
                 else
+                {
                     LabelTo(from, Name);
+                }
             }
         }
 
@@ -101,9 +86,13 @@
             else
             {
                 if (Name == null)
+                {
                     LabelTo(from, LabelNumber);
+                }
                 else
+                {
                     LabelTo(from, Name);
+                }
             }
         }
 
@@ -133,15 +122,14 @@
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
-            writer.Write((int)m_Quantity);
+            writer.Write(0);
+            writer.Write(m_Quantity);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
             m_Quantity = reader.ReadInt();
         }
     }

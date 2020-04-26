@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 using Server.Multis;
 using Server.Network;
@@ -20,13 +19,7 @@ namespace Server.Spells.Sixth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Sixth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Sixth;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -35,7 +28,9 @@ namespace Server.Spells.Sixth
         public override bool CheckCast()
         {
             if (!base.CheckCast())
+            {
                 return false;
+            }
 
             return SpellHelper.CheckTravel(Caster, TravelCheckType.Mark);
         }

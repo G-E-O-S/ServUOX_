@@ -1,5 +1,5 @@
-using System;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.Sixth
 {
@@ -16,27 +16,9 @@ namespace Server.Spells.Sixth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Sixth;
-            }
-        }
-        public override bool DelayedDamageStacking
-        {
-            get
-            {
-                return !Core.AOS;
-            }
-        }
-        public override bool DelayedDamage
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Sixth;
+        public override bool DelayedDamageStacking => !Core.AOS;
+        public override bool DelayedDamage => false;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -83,7 +65,9 @@ namespace Server.Spells.Sixth
                 m_Target = target;
 
                 if (m_Spell != null)
+                {
                     m_Spell.StartDelayedDamageContext(attacker, this);
+                }
 
                 Priority = TimerPriority.FiftyMS;
             }
@@ -131,7 +115,9 @@ namespace Server.Spells.Sixth
                     }
 
                     if (m_Spell != null)
+                    {
                         m_Spell.RemoveDelayedDamageContext(m_Attacker);
+                    }
                 }
             }
         }
@@ -148,7 +134,9 @@ namespace Server.Spells.Sixth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IDamageable)
+                {
                     m_Owner.Target((IDamageable)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

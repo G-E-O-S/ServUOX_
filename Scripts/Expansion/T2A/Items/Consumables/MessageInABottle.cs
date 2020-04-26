@@ -4,7 +4,6 @@ namespace Server.Items
 {
     public class MessageInABottle : Item
     {
-        private Map m_TargetMap;
         private int m_Level;
         [Constructable]
         public MessageInABottle()
@@ -22,7 +21,7 @@ namespace Server.Items
             : base(0x099F)
         {
             Weight = 1.0;
-            m_TargetMap = map;
+            TargetMap = map;
             m_Level = level;
         }
 
@@ -31,41 +30,21 @@ namespace Server.Items
         {
         }
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1041080;
-            }
-        }// a message in a bottle
+        public override int LabelNumber => 1041080;// a message in a bottle
         [CommandProperty(AccessLevel.GameMaster)]
-        public Map TargetMap
-        {
-            get
-            {
-                return m_TargetMap;
-            }
-            set
-            {
-                m_TargetMap = value;
-            }
-        }
+        public Map TargetMap { get; set; }
         [CommandProperty(AccessLevel.GameMaster)]
         public int Level
         {
-            get
-            {
-                return m_Level;
-            }
-            set
-            {
-                m_Level = Math.Max(1, Math.Min(value, 4));
-            }
+            get => m_Level;
+            set => m_Level = Math.Max(1, Math.Min(value, 4));
         }
         public static int GetRandomLevel()
         {
-            if (Core.AOS && 10 == Utility.RandomMinMax(1,25))
+            if (Core.AOS && 10 == Utility.RandomMinMax(1, 25))
+            {
                 return 4; // ancient
+            }
 
             return Utility.RandomMinMax(1, 3);
         }
@@ -74,11 +53,11 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)3); // version
+            writer.Write(3);
 
-            writer.Write((int)m_Level);
+            writer.Write(m_Level);
 
-            writer.Write(m_TargetMap);
+            writer.Write(TargetMap);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -87,7 +66,7 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 3:
                 case 2:
@@ -97,28 +76,32 @@ namespace Server.Items
                     }
                 case 1:
                     {
-                        m_TargetMap = reader.ReadMap();
+                        TargetMap = reader.ReadMap();
                         break;
                     }
                 case 0:
                     {
-                        m_TargetMap = Map.Trammel;
+                        TargetMap = Map.Trammel;
                         break;
                     }
             }
 
             if (version < 2)
+            {
                 m_Level = GetRandomLevel();
+            }
 
-            if (version < 3 && m_TargetMap == Map.Tokuno)
-                m_TargetMap = Map.Trammel;
+            if (version < 3 && TargetMap == Map.Tokuno)
+            {
+                TargetMap = Map.Trammel;
+            }
         }
 
         public override void OnDoubleClick(Mobile from)
         {
             if (IsChildOf(from.Backpack))
             {
-                ReplaceWith(new SOS(m_TargetMap, m_Level));
+                ReplaceWith(new SOS(TargetMap, m_Level));
                 from.LocalOverheadMessage(Network.MessageType.Regular, 0x3B2, 501891); // You extract the message from the bottle.
             }
             else

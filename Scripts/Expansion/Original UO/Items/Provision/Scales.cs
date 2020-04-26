@@ -1,6 +1,6 @@
-using System;
-using Server.Targeting;
 using Server.Engines.Craft;
+using Server.Targeting;
+using System;
 
 namespace Server.Items
 {
@@ -11,15 +11,15 @@ namespace Server.Items
         private ItemQuality _Quality;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public CraftResource Resource { get { return _Resource; } set { _Resource = value; _Resource = value; Hue = CraftResources.GetHue(_Resource); InvalidateProperties(); } }
+        public CraftResource Resource { get => _Resource; set { _Resource = value; _Resource = value; Hue = CraftResources.GetHue(_Resource); InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Crafter { get { return _Crafter; } set { _Crafter = value; InvalidateProperties(); } }
+        public Mobile Crafter { get => _Crafter; set { _Crafter = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality { get { return _Quality; } set { _Quality = value; InvalidateProperties(); } }
+        public ItemQuality Quality { get => _Quality; set { _Quality = value; InvalidateProperties(); } }
 
-        public bool PlayerConstructed { get { return true; } }
+        public bool PlayerConstructed => true;
 
         [Constructable]
         public Scales()
@@ -50,7 +50,7 @@ namespace Server.Items
         {
             if (_Resource > CraftResource.Iron)
             {
-                list.Add(1053099, "#{0}\t{1}", CraftResources.GetLocalizationNumber(_Resource), String.Format("#{0}", LabelNumber.ToString())); // ~1_oretype~ ~2_armortype~
+                list.Add(1053099, "#{0}\t{1}", CraftResources.GetLocalizationNumber(_Resource), $"#{LabelNumber}"); // ~1_oretype~ ~2_armortype~
             }
             else
             {
@@ -63,12 +63,16 @@ namespace Server.Items
             Quality = (ItemQuality)quality;
 
             if (makersMark)
+            {
                 Crafter = from;
+            }
 
             if (!craftItem.ForceNonExceptional)
             {
                 if (typeRes == null)
+                {
                     typeRes = craftItem.Resources.GetAt(0).ItemType;
+                }
 
                 Resource = CraftResources.GetFromType(typeRes);
             }
@@ -80,7 +84,7 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1); // version
+            writer.Write(1);
 
             writer.Write((int)_Resource);
             writer.Write(_Crafter);
@@ -108,13 +112,50 @@ namespace Server.Items
         public override void OnDoubleClick(Mobile from)
         {
             from.SendLocalizedMessage(502431); // What would you like to weigh?
-            from.Target = new InternalTarget(this);
+            if (Core.EJ)
+            {
+                from.Target = new ScalesTargetEJ(this);
+            }
+            else
+            {
+                from.Target = new ScalesTarget(this);
+            }
         }
-
-        private class InternalTarget : Target
+        private class ScalesTargetEJ : Target
         {
             private readonly Scales m_Item;
-            public InternalTarget(Scales item)
+            public ScalesTargetEJ(Scales item)
+                : base(1, false, TargetFlags.None)
+            {
+                m_Item = item;
+            }
+
+            protected override void OnTarget(Mobile from, object targeted)
+            {
+                if (targeted is Item item)
+                {
+                    if (item.Movable)
+                    {
+                        double weight = item.Weight;
+                        from.SendLocalizedMessage(1008115, $"{weight}");// Weight in Stones : # ? need fixed cant get the wieght to show
+
+                    }
+                    else
+                    {
+                        from.SendLocalizedMessage(502432);//That is too heavy for these scales!
+                    }
+                }
+                else
+                {
+                    from.SendLocalizedMessage(502432);//That is too heavy for these scales!
+                }
+            }
+        }
+
+        private class ScalesTarget : Target
+        {
+            private readonly Scales m_Item;
+            public ScalesTarget(Scales item)
                 : base(1, false, TargetFlags.None)
             {
                 m_Item = item;
@@ -123,16 +164,13 @@ namespace Server.Items
             protected override void OnTarget(Mobile from, object targeted)
             {
                 string message;
-
                 if (targeted == m_Item)
                 {
                     message = "It cannot weight itself.";
                 }
-                else if (targeted is Item)
+                else if (targeted is Item item)
                 {
-                    Item item = (Item)targeted;
                     object root = item.RootParent;
-
                     if ((root != null && root != from) || item.Parent == from)
                     {
                         message = "You decide that item's current location is too awkward to get an accurate result.";
@@ -140,16 +178,24 @@ namespace Server.Items
                     else if (item.Movable)
                     {
                         if (item.Amount > 1)
+                        {
                             message = "You place one item on the scale. ";
+                        }
                         else
+                        {
                             message = "You place that item on the scale. ";
+                        }
 
                         double weight = item.Weight;
 
                         if (weight <= 0.0)
+                        {
                             message += "It is lighter than a feather.";
+                        }
                         else
-                            message += String.Format("It weighs {0} stones.", weight);
+                        {
+                            message += $"It weighs {weight} stones.";
+                        }
                     }
                     else
                     {

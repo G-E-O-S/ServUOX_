@@ -1,10 +1,10 @@
-using System;
 using Server.Items;
 using Server.Misc;
 using Server.Mobiles;
+using Server.Multis;
 using Server.Network;
 using Server.Targeting;
-using Server.Multis;
+using System;
 
 namespace Server.Spells.Seventh
 {
@@ -31,13 +31,7 @@ namespace Server.Spells.Seventh
             m_Entry = entry;
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Seventh;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Seventh;
         public override void OnCast()
         {
             if (m_Entry == null)
@@ -206,7 +200,9 @@ namespace Server.Spells.Seventh
                 Map = map;
 
                 if (ShowFeluccaWarning && map == Map.Felucca)
+                {
                     ItemID = 0xDDA;
+                }
 
                 Dispellable = true;
 
@@ -232,25 +228,33 @@ namespace Server.Spells.Seventh
                     base.UseGate(m);
                 }
                 else
+                {
                     m.SendMessage("The other gate no longer exists.");
+                }
             }
 
             public override void OnLocationChange(Point3D old)
             {
                 if (!BoatGate)
+                {
                     base.OnLocationChange(old);
-
+                }
                 else if (LinkedGate != null)
+                {
                     LinkedGate.Target = Location;
+                }
             }
 
             public override void OnMapChange()
             {
                 if (!BoatGate)
+                {
                     base.OnMapChange();
-
+                }
                 else if (LinkedGate != null)
+                {
                     LinkedGate.TargetMap = Map;
+                }
             }
 
             public InternalItem(Serial serial)
@@ -258,13 +262,7 @@ namespace Server.Spells.Seventh
             {
             }
 
-            public override bool ShowFeluccaWarning
-            {
-                get
-                {
-                    return Core.AOS;
-                }
-            }
+            public override bool ShowFeluccaWarning => Core.AOS;
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
@@ -354,9 +352,13 @@ namespace Server.Spells.Seventh
                     Engines.NewMagincia.WritOfLease lease = (Engines.NewMagincia.WritOfLease)o;
 
                     if (lease.RecallLoc != Point3D.Zero && lease.Facet != null && lease.Facet != Map.Internal)
+                    {
                         m_Owner.Effect(lease.RecallLoc, lease.Facet, false);
+                    }
                     else
+                    {
                         from.Send(new MessageLocalized(from.Serial, from.Body, MessageType.Regular, 0x3B2, 3, 502357, from.Name, "")); // I can not recall from that object.
+                    }
                 }
                 else
                 {

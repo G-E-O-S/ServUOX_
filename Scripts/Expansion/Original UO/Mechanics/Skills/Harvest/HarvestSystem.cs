@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using Server.Items;
-using Server.Targeting;
 using Server.Engines.Quests;
 using Server.Engines.Quests.Hag;
+using Server.Items;
 using Server.Mobiles;
+using Server.Targeting;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Server.Engines.Harvest
@@ -28,7 +28,9 @@ namespace Server.Engines.Harvest
             bool wornOut = tool == null || tool.Deleted || (tool is IUsesRemaining && ((IUsesRemaining)tool).UsesRemaining <= 0);
 
             if (wornOut)
+            {
                 from.SendLocalizedMessage(1044038); // You have worn out your tool!
+            }
 
             return !wornOut;
         }
@@ -48,7 +50,9 @@ namespace Server.Engines.Harvest
             bool inRange = from.Map == map && from.InRange(loc, def.MaxRange);
 
             if (!inRange)
+            {
                 def.SendMessageTo(from, timed ? def.TimedOutOfRangeMessage : def.OutOfRangeMessage);
+            }
 
             return inRange;
         }
@@ -59,7 +63,9 @@ namespace Server.Engines.Harvest
             bool available = bank != null && bank.Current >= def.ConsumedPerHarvest;
 
             if (!available)
+            {
                 def.SendMessageTo(from, timed ? def.DoubleHarvestMessage : def.NoResourcesMessage);
+            }
 
             return available;
         }
@@ -91,9 +97,11 @@ namespace Server.Engines.Harvest
         public virtual bool BeginHarvesting(Mobile from, Item tool)
         {
             if (!CheckHarvest(from, tool))
+            {
                 return false;
+            }
 
-			EventSink.InvokeResourceHarvestAttempt(new ResourceHarvestAttemptEventArgs(from, tool, this));
+            EventSink.InvokeResourceHarvestAttempt(new ResourceHarvestAttemptEventArgs(from, tool, this));
             from.Target = new HarvestTarget(tool, this);
             return true;
         }
@@ -103,7 +111,9 @@ namespace Server.Engines.Harvest
             from.EndAction(locked);
 
             if (!CheckHarvest(from, tool))
+            {
                 return;
+            }
 
             if (!GetHarvestDetails(from, tool, toHarvest, out int tileID, out Map map, out Point3D loc))
             {
@@ -117,27 +127,41 @@ namespace Server.Engines.Harvest
             }
 
             if (!CheckRange(from, tool, def, map, loc, true))
+            {
                 return;
+            }
             else if (!CheckResources(from, tool, def, map, loc, true))
+            {
                 return;
+            }
             else if (!CheckHarvest(from, tool, def, toHarvest))
+            {
                 return;
+            }
 
             if (SpecialHarvest(from, tool, def, map, loc))
+            {
                 return;
+            }
 
             HarvestBank bank = def.GetBank(map, loc.X, loc.Y);
 
             if (bank == null)
+            {
                 return;
+            }
 
             HarvestVein vein = bank.Vein;
 
             if (vein != null)
+            {
                 vein = MutateVein(from, tool, def, bank, toHarvest, vein);
+            }
 
             if (vein == null)
+            {
                 return;
+            }
 
             HarvestResource primary = vein.PrimaryResource;
             HarvestResource fallback = vein.FallbackResource;
@@ -147,12 +171,14 @@ namespace Server.Engines.Harvest
 
             Type type = null;
 
-            if(CheckHarvestSkill(map, loc, from, resource, def))
+            if (CheckHarvestSkill(map, loc, from, resource, def))
             {
                 type = GetResourceType(from, tool, def, map, loc, resource);
 
                 if (type != null)
+                {
                     type = MutateType(type, from, tool, def, map, loc, resource);
+                }
 
                 if (type != null)
                 {
@@ -168,7 +194,9 @@ namespace Server.Engines.Harvest
                         int feluccaAmount = def.ConsumedPerFeluccaHarvest;
 
                         if (item is BaseGranite)
+                        {
                             feluccaAmount = 3;
+                        }
 
                         Caddellite.OnHarvest(from, tool, this, item);
 
@@ -182,13 +210,21 @@ namespace Server.Engines.Harvest
                             bool inFelucca = map == Map.Felucca && !Siege.SiegeShard;
 
                             if (eligableForRacialBonus && inFelucca && bank.Current >= feluccaRacialAmount && 0.1 > Utility.RandomDouble())
+                            {
                                 item.Amount = feluccaRacialAmount;
+                            }
                             else if (inFelucca && bank.Current >= feluccaAmount)
+                            {
                                 item.Amount = feluccaAmount;
+                            }
                             else if (eligableForRacialBonus && bank.Current >= racialAmount && 0.1 > Utility.RandomDouble())
+                            {
                                 item.Amount = racialAmount;
+                            }
                             else
+                            {
                                 item.Amount = amount;
+                            }
 
                             // Void Pool Rewards
                             item.Amount += WoodsmansTalisman.CheckHarvest(from, type, this);
@@ -214,20 +250,20 @@ namespace Server.Engines.Harvest
 
                         if (bonus != null && bonus.Type != null && skillBase >= bonus.ReqSkill)
                         {
-							if (bonus.RequiredMap == null || bonus.RequiredMap == from.Map)
-							{
-							    bonusItem = Construct(bonus.Type, from, tool);
+                            if (bonus.RequiredMap == null || bonus.RequiredMap == from.Map)
+                            {
+                                bonusItem = Construct(bonus.Type, from, tool);
                                 Caddellite.OnHarvest(from, tool, this, bonusItem);
 
-                                if (Give(from, bonusItem, true))	//Bonuses always allow placing at feet, even if pack is full irregrdless of def
-								{
+                                if (Give(from, bonusItem, true))    //Bonuses always allow placing at feet, even if pack is full irregrdless of def
+                                {
                                     bonus.SendSuccessTo(from);
-								}
-								else
-								{
+                                }
+                                else
+                                {
                                     bonusItem.Delete();
-								}
-							}
+                                }
+                            }
                         }
 
                         EventSink.InvokeResourceHarvestSuccess(new ResourceHarvestSuccessEventArgs(from, tool, item, bonusItem, this));
@@ -246,7 +282,9 @@ namespace Server.Engines.Harvest
                     toolWithUses.ShowUsesRemaining = true;
 
                     if (toolWithUses.UsesRemaining > 0)
+                    {
                         --toolWithUses.UsesRemaining;
+                    }
 
                     if (toolWithUses.UsesRemaining < 1)
                     {
@@ -257,7 +295,9 @@ namespace Server.Engines.Harvest
             }
 
             if (type == null)
+            {
                 def.SendMessageTo(from, def.FailMessage);
+            }
 
             OnHarvestFinished(from, tool, def, vein, bank, resource, toHarvest);
         }
@@ -310,22 +350,30 @@ namespace Server.Engines.Harvest
         public virtual bool Give(Mobile m, Item item, bool placeAtFeet)
         {
             if (m.PlaceInBackpack(item))
+            {
                 return true;
+            }
 
             if (!placeAtFeet)
+            {
                 return false;
+            }
 
             Map map = m.Map;
 
             if (map == null || map == Map.Internal)
+            {
                 return false;
+            }
 
             List<Item> atFeet = new List<Item>();
 
             IPooledEnumerable eable = m.GetItemsInRange(0);
 
             foreach (Item obj in eable)
+            {
                 atFeet.Add(obj);
+            }
 
             eable.Free();
 
@@ -334,7 +382,9 @@ namespace Server.Engines.Harvest
                 Item check = atFeet[i];
 
                 if (check.StackWith(m, item, false))
+                {
                     return true;
+                }
             }
 
             ColUtility.Free(atFeet);
@@ -351,7 +401,9 @@ namespace Server.Engines.Harvest
         public virtual Type GetResourceType(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc, HarvestResource resource)
         {
             if (resource.Types.Length > 0)
+            {
                 return resource.Types[Utility.Random(resource.Types.Length)];
+            }
 
             return null;
         }
@@ -361,12 +413,16 @@ namespace Server.Engines.Harvest
             bool racialBonus = def.RaceBonus && from.Race == Race.Elf;
 
             if (vein.ChanceToFallback > (Utility.RandomDouble() + (racialBonus ? .20 : 0)))
+            {
                 return fallback;
+            }
 
             double skillValue = from.Skills[def.Skill].Value;
 
             if (fallback != null && (skillValue < primary.ReqSkill || skillValue < primary.MinSkill))
+            {
                 return fallback;
+            }
 
             return primary;
         }
@@ -417,7 +473,9 @@ namespace Server.Engines.Harvest
         public virtual void DoHarvestingSound(Mobile from, Item tool, HarvestDefinition def, object toHarvest)
         {
             if (def.EffectSounds.Length > 0)
+            {
                 from.PlaySound(Utility.RandomList(def.EffectSounds));
+            }
         }
 
         public virtual void DoHarvestingEffect(Mobile from, Item tool, HarvestDefinition def, Map map, Point3D loc)
@@ -451,7 +509,9 @@ namespace Server.Engines.Harvest
                 HarvestDefinition check = Definitions[i];
 
                 if (check.Validate(tileID))
+                {
                     def = check;
+                }
             }
 
             return def;
@@ -467,7 +527,9 @@ namespace Server.Engines.Harvest
                 HarvestDefinition check = Definitions[i];
 
                 if (check.ValidateSpecial(tileID))
+                {
                     def = check;
+                }
             }
 
             return def;
@@ -477,7 +539,9 @@ namespace Server.Engines.Harvest
         public virtual void StartHarvesting(Mobile from, Item tool, object toHarvest)
         {
             if (!CheckHarvest(from, tool))
+            {
                 return;
+            }
 
             if (!GetHarvestDetails(from, tool, toHarvest, out int tileID, out Map map, out Point3D loc))
             {
@@ -494,11 +558,17 @@ namespace Server.Engines.Harvest
             }
 
             if (!CheckRange(from, tool, def, map, loc, false))
+            {
                 return;
+            }
             else if (!CheckResources(from, tool, def, map, loc, false))
+            {
                 return;
+            }
             else if (!CheckHarvest(from, tool, def, toHarvest))
+            {
                 return;
+            }
 
             object toLock = GetLock(from, tool, def, toHarvest);
 
@@ -522,13 +592,11 @@ namespace Server.Engines.Harvest
                 map = obj.Map;
                 loc = obj.GetWorldLocation();
             }
-            else if (toHarvest is StaticTarget)
+            else if (toHarvest is StaticTarget objtarg)
             {
-                StaticTarget obj = (StaticTarget)toHarvest;
-
-                tileID = (obj.ItemID & 0x3FFF) | 0x4000;
+                tileID = (objtarg.ItemID & 0x3FFF) | 0x4000;
                 map = from.Map;
-                loc = obj.Location;
+                loc = objtarg.Location;
             }
             else if (toHarvest is LandTarget obj)
             {
@@ -567,23 +635,38 @@ namespace Server.Engines.Harvest
                 {
                     case 0: // ore
                         if (system is Mining)
+                        {
                             def = ((Mining)system).OreAndStone;
+                        }
+
                         break;
                     case 1: // sand
                         if (system is Mining)
+                        {
                             def = ((Mining)system).Sand;
+                        }
+
                         break;
                     case 2: // wood
                         if (system is Lumberjacking)
+                        {
                             def = ((Lumberjacking)system).Definition;
+                        }
+
                         break;
                     case 3: // grave
                         if (TryHarvestGrave(m))
+                        {
                             return;
+                        }
+
                         break;
                     case 4: // red shrooms
                         if (TryHarvestShrooms(m))
+                        {
                             return;
+                        }
+
                         break;
                 }
 
@@ -603,7 +686,9 @@ namespace Server.Engines.Harvest
             toHarvest = null;
 
             if (m == null || map == null || map == Map.Internal)
+            {
                 return false;
+            }
 
             for (int x = m.X - 1; x <= m.X + 1; x++)
             {
@@ -643,7 +728,9 @@ namespace Server.Engines.Harvest
             Map map = m.Map;
 
             if (map == null)
+            {
                 return false;
+            }
 
             for (int x = m.X - 1; x <= m.X + 1; x++)
             {
@@ -685,7 +772,9 @@ namespace Server.Engines.Harvest
             Map map = m.Map;
 
             if (map == null)
+            {
                 return false;
+            }
 
             for (int x = m.X - 1; x <= m.X + 1; x++)
             {
@@ -743,14 +832,14 @@ namespace Server
     {
         public FurnitureAttribute()
         {
-        }        
+        }
 
         private static bool IsNotChoppables(Item item)
         {
-            return _NotChoppables.Any(t => t == item.GetType());
+            return NotChoppables.Any(t => t == item.GetType());
         }
 
-        private static Type[] _NotChoppables = new Type[]
+        private static Type[] NotChoppables = new Type[]
         {
             typeof(CommodityDeedBox), typeof(ChinaCabinet), typeof(PieSafe), typeof(AcademicBookCase), typeof(JewelryBox),
             typeof(WoodenBookcase), typeof(Countertop), typeof(Mailbox)
@@ -762,11 +851,11 @@ namespace Server
             {
                 return false;
             }
-			
-			if (IsNotChoppables(item))
-			{
-				return false;
-			}
+
+            if (IsNotChoppables(item))
+            {
+                return false;
+            }
 
             if (item.GetType().IsDefined(typeof(FurnitureAttribute), false))
             {

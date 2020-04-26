@@ -179,7 +179,7 @@ namespace Server.Items
         {
             if (CResource > CraftResource.Iron)
             {
-                list.Add(1053099, "#{0}\t{1}", CraftResources.GetLocalizationNumber(CResource), $"#{LabelNumber.ToString()}"); // ~1_oretype~ ~2_armortype~
+                list.Add(1053099, "#{0}\t{1}", CraftResources.GetLocalizationNumber(CResource), $"#{LabelNumber}"); // ~1_oretype~ ~2_armortype~
             }
             else
             {

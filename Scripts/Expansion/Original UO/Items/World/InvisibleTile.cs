@@ -1,15 +1,10 @@
-using System;
-using Server;
 using Server.Network;
 
 namespace Server.Items
 {
     public class InvisibleTile : Item
     {
-        public override string DefaultName
-        {
-            get { return "Invisible Tile"; }
-        }
+        public override string DefaultName => "Invisible Tile";
 
         [Constructable]
         public InvisibleTile()
@@ -39,14 +34,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1);
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -62,7 +56,9 @@ namespace Server.Items
         public override int GetUpdateRange(Mobile m)
         {
             if (m.Player)
+            {
                 return 1;
+            }
 
             return base.GetUpdateRange(m);
         }
@@ -76,14 +72,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1);
+            writer.Write(1);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

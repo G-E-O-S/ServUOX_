@@ -1,8 +1,8 @@
-using System;
+using Server.Engines.Craft;
 using Server.Network;
 using Server.Prompts;
 using Server.Targeting;
-using Server.Engines.Craft;
+using System;
 
 namespace Server.Items
 {
@@ -24,23 +24,20 @@ namespace Server.Items
     {
         private string m_Description;
         private uint m_KeyVal;
-        private Item m_Link;
-        private int m_MaxRange;
-
         private CraftResource _Resource;
         private Mobile _Crafter;
         private ItemQuality _Quality;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public CraftResource Resource { get { return _Resource; } set { _Resource = value; _Resource = value; Hue = CraftResources.GetHue(_Resource); InvalidateProperties(); } }
+        public CraftResource Resource { get => _Resource; set { _Resource = value; _Resource = value; Hue = CraftResources.GetHue(_Resource); InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Mobile Crafter { get { return _Crafter; } set { _Crafter = value; InvalidateProperties(); } }
+        public Mobile Crafter { get => _Crafter; set { _Crafter = value; InvalidateProperties(); } }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public ItemQuality Quality { get { return _Quality; } set { _Quality = value; InvalidateProperties(); } }
+        public ItemQuality Quality { get => _Quality; set { _Quality = value; InvalidateProperties(); } }
 
-        public bool PlayerConstructed { get { return true; } }
+        public bool PlayerConstructed => true;
 
         [Constructable]
         public Key()
@@ -72,9 +69,9 @@ namespace Server.Items
         {
             Weight = 1.0;
 
-            m_MaxRange = 3;
+            MaxRange = 3;
             m_KeyVal = LockVal;
-            m_Link = link;
+            Link = link;
         }
 
         public Key(Serial serial)
@@ -85,10 +82,7 @@ namespace Server.Items
         [CommandProperty(AccessLevel.GameMaster)]
         public string Description
         {
-            get
-            {
-                return m_Description;
-            }
+            get => m_Description;
             set
             {
                 m_Description = value;
@@ -96,25 +90,11 @@ namespace Server.Items
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
-        public int MaxRange
-        {
-            get
-            {
-                return m_MaxRange;
-            }
-
-            set
-            {
-                m_MaxRange = value;
-            }
-        }
+        public int MaxRange { get; set; }
         [CommandProperty(AccessLevel.GameMaster)]
         public uint KeyValue
         {
-            get
-            {
-                return m_KeyVal;
-            }
+            get => m_KeyVal;
 
             set
             {
@@ -123,18 +103,7 @@ namespace Server.Items
             }
         }
         [CommandProperty(AccessLevel.GameMaster)]
-        public Item Link
-        {
-            get
-            {
-                return m_Link;
-            }
-
-            set
-            {
-                m_Link = value;
-            }
-        }
+        public Item Link { get; set; }
         public static uint RandomValue()
         {
             return (uint)(0xFFFFFFFE * Utility.RandomDouble()) + 1;
@@ -143,7 +112,9 @@ namespace Server.Items
         public static void RemoveKeys(Mobile m, uint keyValue)
         {
             if (keyValue == 0)
+            {
                 return;
+            }
 
             RemoveKeys(m.Backpack, keyValue);
             RemoveKeys(m.BankBox, keyValue);
@@ -152,18 +123,20 @@ namespace Server.Items
         public static void RemoveKeys(Container cont, uint keyValue)
         {
             if (cont == null || keyValue == 0)
+            {
                 return;
+            }
 
             Item[] items = cont.FindItemsByType(new Type[] { typeof(Key), typeof(KeyRing) });
 
             foreach (Item item in items)
             {
-                if (item is Key)
+                if (item is Key key)
                 {
-                    Key key = (Key)item;
-
                     if (key.KeyValue == keyValue)
+                    {
                         key.Delete();
+                    }
                 }
                 else
                 {
@@ -177,25 +150,29 @@ namespace Server.Items
         public static bool ContainsKey(Container cont, uint keyValue)
         {
             if (cont == null)
+            {
                 return false;
+            }
 
             Item[] items = cont.FindItemsByType(new Type[] { typeof(Key), typeof(KeyRing) });
 
             foreach (Item item in items)
             {
-                if (item is Key)
+                if (item is Key key)
                 {
-                    Key key = (Key)item;
-
                     if (key.KeyValue == keyValue)
+                    {
                         return true;
+                    }
                 }
                 else
                 {
                     KeyRing keyRing = (KeyRing)item;
 
                     if (keyRing.ContainsKey(keyValue))
+                    {
                         return true;
+                    }
                 }
             }
 
@@ -206,18 +183,18 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)3); // version
+            writer.Write(3);
 
             writer.Write((int)_Resource);
             writer.Write(_Crafter);
             writer.Write((int)_Quality);
 
-            writer.Write((int)m_MaxRange);
+            writer.Write(MaxRange);
 
-            writer.Write((Item)m_Link);
+            writer.Write(Link);
 
-            writer.Write((string)m_Description);
-            writer.Write((uint)m_KeyVal);
+            writer.Write(m_Description);
+            writer.Write(m_KeyVal);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -226,7 +203,7 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 3:
                     {
@@ -238,20 +215,22 @@ namespace Server.Items
                     }
                 case 2:
                     {
-                        m_MaxRange = reader.ReadInt();
+                        MaxRange = reader.ReadInt();
 
                         goto case 1;
                     }
                 case 1:
                     {
-                        m_Link = reader.ReadItem();
+                        Link = reader.ReadItem();
 
                         goto case 0;
                     }
                 case 0:
                     {
-                        if (version < 2 || m_MaxRange == 0)
-                            m_MaxRange = 3;
+                        if (version < 2 || MaxRange == 0)
+                        {
+                            MaxRange = 3;
+                        }
 
                         m_Description = reader.ReadString();
 
@@ -293,12 +272,18 @@ namespace Server.Items
             string desc;
 
             if (m_KeyVal == 0)
+            {
                 desc = "(blank)";
+            }
             else if ((desc = m_Description) == null || (desc = desc.Trim()).Length <= 0)
+            {
                 desc = null;
+            }
 
             if (desc != null)
+            {
                 list.Add(desc);
+            }
 
             if (_Crafter != null)
             {
@@ -328,12 +313,16 @@ namespace Server.Items
             Quality = (ItemQuality)quality;
 
             if (makersMark)
+            {
                 Crafter = from;
+            }
 
             if (!craftItem.ForceNonExceptional)
             {
                 if (typeRes == null)
+                {
                     typeRes = craftItem.Resources.GetAt(0).ItemType;
+                }
 
                 Resource = CraftResources.GetFromType(typeRes);
             }
@@ -348,12 +337,18 @@ namespace Server.Items
             string desc;
 
             if (m_KeyVal == 0)
+            {
                 desc = "(blank)";
+            }
             else if ((desc = m_Description) == null || (desc = desc.Trim()).Length <= 0)
+            {
                 desc = "";
+            }
 
             if (desc.Length > 0)
+            {
                 from.Send(new UnicodeMessage(Serial, ItemID, MessageType.Regular, 0x3B2, 3, "ENU", "", desc));
+            }
         }
 
         public bool UseOn(Mobile from, ILockable o)
@@ -368,33 +363,37 @@ namespace Server.Items
                 {
                     o.Locked = !o.Locked;
 
-                    if (o is LockableContainer)
+                    if (o is LockableContainer conto)
                     {
-                        LockableContainer cont = (LockableContainer)o;
-
-                        if (cont.LockLevel == -255)
-                            cont.LockLevel = cont.RequiredSkill - 10;
+                        if (conto.LockLevel == -255)
+                        {
+                            conto.LockLevel = conto.RequiredSkill - 10;
+                        }
                     }
 
-                    if (o is Item)
+                    if (o is Item item)
                     {
-                        Item item = (Item)o;
-
                         if (o.Locked)
-                            item.SendLocalizedMessageTo(from, 1048000); // You lock it.
-                        else
-                            item.SendLocalizedMessageTo(from, 1048001); // You unlock it.
-
-                        if (item is LockableContainer)
                         {
-                            LockableContainer cont = (LockableContainer)item;
+                            item.SendLocalizedMessageTo(from, 1048000); // You lock it.
+                        }
+                        else
+                        {
+                            item.SendLocalizedMessageTo(from, 1048001); // You unlock it.
+                        }
 
+                        if (item is LockableContainer cont)
+                        {
                             if (cont.TrapType != TrapType.None && cont.TrapOnLockpick)
                             {
                                 if (o.Locked)
+                                {
                                     item.SendLocalizedMessageTo(from, 501673); // You re-enable the trap.
+                                }
                                 else
+                                {
                                     item.SendLocalizedMessageTo(from, 501672); // You disable the trap temporarily.  Lock it again to re-enable it.
+                                }
                             }
                         }
                     }
@@ -410,7 +409,7 @@ namespace Server.Items
 
         private class RenamePrompt : Prompt
         {
-            public override int MessageCliloc { get { return 501665; } }
+            public override int MessageCliloc => 501665;
             private readonly Key m_Key;
             public RenamePrompt(Key key)
             {
@@ -464,9 +463,13 @@ namespace Server.Items
                     }
 
                     if (m_Key.UseOn(from, (ILockable)targeted))
+                    {
                         number = -1;
+                    }
                     else
+                    {
                         number = 501668; // This key doesn't seem to unlock that.
+                    }
                 }
                 else
                 {
@@ -499,10 +502,8 @@ namespace Server.Items
 
                 int number;
 
-                if (targeted is Key)
+                if (targeted is Key k)
                 {
-                    Key k = (Key)targeted;
-
                     if (k.m_KeyVal == 0)
                     {
                         number = 501675; // This key is also blank.

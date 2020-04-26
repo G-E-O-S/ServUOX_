@@ -1,7 +1,7 @@
-using System;
 using Server.Misc;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.Third
 {
@@ -19,13 +19,7 @@ namespace Server.Spells.Third
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Third;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Third;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -100,7 +94,9 @@ namespace Server.Spells.Third
                 m_Caster = caster;
 
                 if (Deleted)
+                {
                     return;
+                }
 
                 m_Timer = new InternalTimer(this, TimeSpan.FromSeconds(10.0));
                 m_Timer.Start();
@@ -113,18 +109,12 @@ namespace Server.Spells.Third
             {
             }
 
-            public override bool BlocksFit
-            {
-                get
-                {
-                    return true;
-                }
-            }
+            public override bool BlocksFit => true;
             public override void Serialize(GenericWriter writer)
             {
                 base.Serialize(writer);
 
-                writer.Write((int)1); // version
+                writer.Write(1); // version
 
                 writer.WriteDeltaTime(m_End);
             }
@@ -135,7 +125,7 @@ namespace Server.Spells.Third
 
                 int version = reader.ReadInt();
 
-                switch ( version )
+                switch (version)
                 {
                     case 1:
                         {
@@ -168,10 +158,14 @@ namespace Server.Spells.Third
                 {
                     noto = Notoriety.Compute(m_Caster, m);
                     if (noto == Notoriety.Enemy || noto == Notoriety.Ally)
+                    {
                         return false;
+                    }
 
                     if (m.Map != null && (m.Map.Rules & MapRules.FreeMovement) == 0)
+                    {
                         return false;
+                    }
                 }
                 return base.OnMoveOver(m);
             }
@@ -181,7 +175,9 @@ namespace Server.Spells.Third
                 base.OnAfterDelete();
 
                 if (m_Timer != null)
+                {
                     m_Timer.Stop();
+                }
             }
 
             private class InternalTimer : Timer
@@ -213,7 +209,9 @@ namespace Server.Spells.Third
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IPoint3D)
+                {
                     m_Owner.Target((IPoint3D)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

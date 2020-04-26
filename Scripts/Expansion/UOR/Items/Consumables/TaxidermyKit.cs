@@ -56,25 +56,24 @@ namespace Server.Items
 			}
 		}
 
-        public static TrophyInfo[] TrophyInfos { get { return m_Table; } }
-        private static TrophyInfo[] m_Table = new TrophyInfo[]
+        public static TrophyInfo[] TrophyInfos { get; } = new TrophyInfo[]
         {
-            new TrophyInfo( typeof( BrownBear ),	  0x1E60,		1041093, 1041107 ),
-			new TrophyInfo( typeof( GreatHart ),	  0x1E61,		1041095, 1041109 ),
-			new TrophyInfo( typeof( BigFish ),		  0x1E62,		1041096, 1041110 ),
-			new TrophyInfo( typeof( Gorilla ),		  0x1E63,		1041091, 1041105 ),
-			new TrophyInfo( typeof( Orc ),			  0x1E64,		1041090, 1041104 ),
-			new TrophyInfo( typeof( PolarBear ),	  0x1E65,		1041094, 1041108 ),
-			new TrophyInfo( typeof( Troll ),		  0x1E66,		1041092, 1041106 ),
-            new TrophyInfo( typeof( RedHerring ),     0x1E62,		1113567, 1113569 ),
-            new TrophyInfo( typeof( MudPuppy ),		  0x1E62,		1113568, 1113570 ),
+            new TrophyInfo( typeof( BrownBear ),      0x1E60,       1041093, 1041107 ),
+            new TrophyInfo( typeof( GreatHart ),      0x1E61,       1041095, 1041109 ),
+            new TrophyInfo( typeof( BigFish ),        0x1E62,       1041096, 1041110 ),
+            new TrophyInfo( typeof( Gorilla ),        0x1E63,       1041091, 1041105 ),
+            new TrophyInfo( typeof( Orc ),            0x1E64,       1041090, 1041104 ),
+            new TrophyInfo( typeof( PolarBear ),      0x1E65,       1041094, 1041108 ),
+            new TrophyInfo( typeof( Troll ),          0x1E66,       1041092, 1041106 ),
+            new TrophyInfo( typeof( RedHerring ),     0x1E62,       1113567, 1113569 ),
+            new TrophyInfo( typeof( MudPuppy ),       0x1E62,       1113568, 1113570 ),
 
             new TrophyInfo( typeof( AutumnDragonfish),     0,       1116124, 1116185 ),
             new TrophyInfo( typeof( BullFish ),            1,       1116129, 1116190 ),
             new TrophyInfo( typeof( FireFish ),            2,       1116127, 1116188 ),
             new TrophyInfo( typeof( GiantKoi ),            3,       1116122, 1116183 ),
             new TrophyInfo( typeof( LavaFish ),            4,       1116130, 1116191 ),
-            new TrophyInfo( typeof( SummerDragonfish ),    5,       1116124, 1116186 ),  
+            new TrophyInfo( typeof( SummerDragonfish ),    5,       1116124, 1116186 ),
             new TrophyInfo( typeof( UnicornFish ),         6,       1116120, 1116181 ),
             new TrophyInfo( typeof( AbyssalDragonfish ),   7,       1116140, 1116201 ),
             new TrophyInfo( typeof( BlackMarlin ),         8,       1116133, 1116194 ),
@@ -174,9 +173,9 @@ namespace Server.Items
                     {
                         int index = lic.KillEntry.KillIndex;
 
-                        if (index >= 0 && index < Server.Engines.HuntsmasterChallenge.HuntingTrophyInfo.Infos.Count)
+                        if (index >= 0 && index < HuntingTrophyInfo.Infos.Count)
                         {
-                            Server.Engines.HuntsmasterChallenge.HuntingTrophyInfo info = Server.Engines.HuntsmasterChallenge.HuntingTrophyInfo.Infos[index];
+                            HuntingTrophyInfo info = HuntingTrophyInfo.Infos[index];
 
                             if (info != null)
                             {
@@ -208,9 +207,9 @@ namespace Server.Items
 
                     if ( obj != null )
                     {
-                        for ( int i = 0; i < m_Table.Length; i++ )
+                        for ( int i = 0; i < TrophyInfos.Length; i++ )
                         {
-                            if ( m_Table[i].CreatureType == obj.GetType() )
+                            if ( TrophyInfos[i].CreatureType == obj.GetType() )
                             {
                                 Container pack = from.Backpack;
 
@@ -242,7 +241,7 @@ namespace Server.Items
                                         weight = (int)fish.Weight;
                                         dateCaught = fish.DateCaught;
 
-                                        from.AddToBackpack(new FishTrophyDeed(weight, hunter, dateCaught, m_Table[i].DeedNumber, m_Table[i].AddonNumber, m_Table[i].NorthID));
+                                        from.AddToBackpack(new FishTrophyDeed(weight, hunter, dateCaught, TrophyInfos[i].DeedNumber, TrophyInfos[i].AddonNumber, TrophyInfos[i].NorthID));
 
                                         fish.Delete();
                                         m_Kit.Delete();
@@ -257,21 +256,21 @@ namespace Server.Items
                                         weight = (int)fish.Weight;
                                         dateCaught = fish.DateCaught;
 
-                                        from.AddToBackpack(new FishTrophyDeed(weight, hunter, dateCaught, m_Table[i].DeedNumber, m_Table[i].AddonNumber, m_Table[i].NorthID));
+                                        from.AddToBackpack(new FishTrophyDeed(weight, hunter, dateCaught, TrophyInfos[i].DeedNumber, TrophyInfos[i].AddonNumber, TrophyInfos[i].NorthID));
 
                                         fish.Delete();
                                         m_Kit.Delete();
                                         return;
                                     }
                                     #endregion
-                                    var deed = new TrophyDeed(m_Table[i], hunter, weight);
+                                    var deed = new TrophyDeed(TrophyInfos[i], hunter, weight);
 
                                     if (dateCaught != DateTime.MinValue)
                                     {
                                         deed.DateCaught = dateCaught;
                                     }
 
-                                    from.AddToBackpack( new TrophyDeed( m_Table[i], hunter, weight ) );
+                                    from.AddToBackpack( new TrophyDeed( TrophyInfos[i], hunter, weight ) );
 
                                     if ( targeted is Corpse )
                                         ((Corpse)targeted).VisitedByTaxidermist = true;

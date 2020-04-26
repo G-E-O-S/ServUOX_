@@ -1,6 +1,5 @@
-using System;
-using Server.Targeting;
 using Server.Mobiles;
+using Server.Targeting;
 
 namespace Server.Spells.Fourth
 {
@@ -17,20 +16,8 @@ namespace Server.Spells.Fourth
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Fourth;
-            }
-        }
-        public override bool DelayedDamage
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Fourth;
+        public override bool DelayedDamage => false;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -101,7 +88,9 @@ namespace Server.Spells.Fourth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is IDamageable)
+                {
                     m_Owner.Target((IDamageable)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

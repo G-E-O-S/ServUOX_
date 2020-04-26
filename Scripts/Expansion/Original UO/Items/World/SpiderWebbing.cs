@@ -1,6 +1,5 @@
-using System;
-using Server;
 using Server.Mobiles;
+using System;
 using System.Collections.Generic;
 
 namespace Server.Items
@@ -8,16 +7,16 @@ namespace Server.Items
     public class SpiderWebbing : Item
     {
         private Timer m_Timer;
-        private static List<Mobile> m_WebVictims = new List<Mobile>();
+        private static readonly List<Mobile> m_WebVictims = new List<Mobile>();
 
         public SpiderWebbing(Mobile m)
             : base(0xEE3 + Utility.Random(4))
-        {            
+        {
             Movable = false;
 
             BeginWebbing(m);
 
-            m_Timer = new InternalTimer(this, m);
+            m_Timer = new SpiderWebbingTimer(this, m);
             m_Timer.Start();
         }
 
@@ -27,9 +26,9 @@ namespace Server.Items
         }
 
         public void BeginWebbing(Mobile m)
-        {            
+        {
             m.RevealingAction();
-            m.Frozen = true;            
+            m.Frozen = true;
             m.SendLocalizedMessage(1113247); // You are wrapped in spider webbing and cannot move!
             m_WebVictims.Add(m);
             BuffInfo.AddBuff(m, new BuffInfo(BuffIcon.Webbing, 1153789, 1153825));
@@ -48,7 +47,7 @@ namespace Server.Items
             m_WebVictims.Remove(m);
         }
 
-        public override bool BlocksFit { get { return true; } }
+        public override bool BlocksFit => true;
 
         public override void OnDelete()
         {
@@ -74,13 +73,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             Delete();
         }
@@ -88,7 +87,9 @@ namespace Server.Items
         public override bool OnMoveOver(Mobile m)
         {
             if (m is BaseCreature && ((BaseCreature)m).IsMonster)
+            {
                 return true;
+            }
 
             if (m.AccessLevel == AccessLevel.Player && m.Alive)
             {
@@ -100,13 +101,13 @@ namespace Server.Items
             return true;
         }
 
-        private class InternalTimer : Timer
+        private class SpiderWebbingTimer : Timer
         {
-            private Mobile m_Target;
-            private Item m_Item;
+            private readonly Mobile m_Target;
+            private readonly Item m_Item;
             private int m_Ticks;
 
-            public InternalTimer(Item item, Mobile target)
+            public SpiderWebbingTimer(Item item, Mobile target)
                 : base(TimeSpan.FromSeconds(1.0), TimeSpan.FromSeconds(1.0))
             {
                 m_Item = item;

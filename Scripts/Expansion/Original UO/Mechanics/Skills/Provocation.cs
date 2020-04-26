@@ -1,8 +1,8 @@
-using System;
+using Server.Engines.Quests;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
-using Server.Engines.Quests;
+using System;
 
 namespace Server.SkillHandlers
 {
@@ -26,14 +26,14 @@ namespace Server.SkillHandlers
         {
             from.RevealingAction();
             from.SendLocalizedMessage(501587); // Whom do you wish to incite?
-            from.Target = new InternalFirstTarget(from, instrument);
+            from.Target = new ProvocationFirstTarget(from, instrument);
         }
 
-        public class InternalFirstTarget : Target
+        public class ProvocationFirstTarget : Target
         {
             private readonly BaseInstrument m_Instrument;
 
-            public InternalFirstTarget(Mobile from, BaseInstrument instrument)
+            public ProvocationFirstTarget(Mobile from, BaseInstrument instrument)
                 : base(BaseInstrument.GetBardRange(from, SkillName.Provocation), false, TargetFlags.None)
             {
                 m_Instrument = instrument;
@@ -65,7 +65,7 @@ namespace Server.SkillHandlers
                         m_Instrument.PlayInstrumentWell(from);
                         from.SendLocalizedMessage(1008085);
                         // You play your music and your target becomes angered.  Whom do you wish them to attack?
-                        from.Target = new InternalSecondTarget(from, m_Instrument, creature);
+                        from.Target = new ProvocationSecondTarget(from, m_Instrument, creature);
                     }
                 }
                 else
@@ -75,12 +75,12 @@ namespace Server.SkillHandlers
             }
         }
 
-        public class InternalSecondTarget : Target
+        public class ProvocationSecondTarget : Target
         {
             private readonly BaseCreature m_Creature;
             private readonly BaseInstrument m_Instrument;
 
-            public InternalSecondTarget(Mobile from, BaseInstrument instrument, BaseCreature creature)
+            public ProvocationSecondTarget(Mobile from, BaseInstrument instrument, BaseCreature creature)
                 : base(BaseInstrument.GetBardRange(from, SkillName.Provocation), false, TargetFlags.None)
             {
                 m_Instrument = instrument;
@@ -125,10 +125,14 @@ namespace Server.SkillHandlers
                         int masteryBonus = 0;
 
                         if (from is PlayerMobile)
+                        {
                             masteryBonus = Spells.SkillMasteries.BardSpell.GetMasteryBonus((PlayerMobile)from, SkillName.Provocation);
+                        }
 
                         if (masteryBonus > 0)
+                        {
                             diff -= (diff * ((double)masteryBonus / 100));
+                        }
 
                         if (music > 100.0)
                         {
@@ -170,7 +174,9 @@ namespace Server.SkillHandlers
                                         if (quest != null)
                                         {
                                             foreach (BaseObjective objective in quest.Objectives)
+                                            {
                                                 objective.Update(creature);
+                                            }
                                         }
                                     }
                                     #endregion
@@ -198,11 +204,15 @@ namespace Server.SkillHandlers
                     if (getmaster != null)
                     {
                         if (getmaster is PlayerMobile)
+                        {
                             return false;
+                        }
                     }
 
                     if (from is PlayerMobile && (m_Creature.GetType() == typeof(Rabbit) || m_Creature.GetType() == typeof(JackRabbit)) && ((creature is WanderingHealer) || (creature is EvilWanderingHealer)))
+                    {
                         return true;
+                    }
 
                     return false;
                 }

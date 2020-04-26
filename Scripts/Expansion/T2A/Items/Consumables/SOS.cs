@@ -1,5 +1,5 @@
-using System;
 using Server.Gumps;
+using System;
 
 namespace Server.Items
 {
@@ -11,33 +11,24 @@ namespace Server.Items
             get
             {
                 if (IsAncient)
+                {
                     return 1063450; // an ancient SOS
+                }
 
                 return 1041081; // a waterstained SOS
             }
         }
 
         private int m_Level;
-        private Map m_TargetMap;
         private Point3D m_TargetLocation;
-        private int m_MessageIndex;
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public bool IsAncient
-        {
-            get
-            {
-                return (m_Level >= 4);
-            }
-        }
+        public bool IsAncient => (m_Level >= 4);
 
         [CommandProperty(AccessLevel.GameMaster)]
         public int Level
         {
-            get
-            {
-                return m_Level;
-            }
+            get => m_Level;
             set
             {
                 m_Level = Math.Max(1, Math.Min(value, 4));
@@ -47,50 +38,28 @@ namespace Server.Items
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public Map TargetMap
-        {
-            get
-            {
-                return m_TargetMap;
-            }
-            set
-            {
-                m_TargetMap = value;
-            }
-        }
+        public Map TargetMap { get; set; }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public Point3D TargetLocation
         {
-            get
-            {
-                return m_TargetLocation;
-            }
-            set
-            {
-                m_TargetLocation = value;
-            }
+            get => m_TargetLocation;
+            set => m_TargetLocation = value;
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
-        public int MessageIndex
-        {
-            get
-            {
-                return m_MessageIndex;
-            }
-            set
-            {
-                m_MessageIndex = value;
-            }
-        }
+        public int MessageIndex { get; set; }
 
         public void UpdateHue()
         {
             if (IsAncient)
+            {
                 Hue = 0x481;
+            }
             else
+            {
                 Hue = 0;
+            }
         }
 
         [Constructable]
@@ -112,9 +81,9 @@ namespace Server.Items
             Weight = 1.0;
 
             m_Level = level;
-            m_MessageIndex = Utility.Random(MessageEntry.Entries.Length);
-            m_TargetMap = map;
-            m_TargetLocation = FindLocation(m_TargetMap);
+            MessageIndex = Utility.Random(MessageEntry.Entries.Length);
+            TargetMap = map;
+            m_TargetLocation = FindLocation(TargetMap);
 
             UpdateHue();
         }
@@ -128,13 +97,13 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)4); // version
+            writer.Write(4); // version
 
             writer.Write(m_Level);
 
-            writer.Write(m_TargetMap);
+            writer.Write(TargetMap);
             writer.Write(m_TargetLocation);
-            writer.Write(m_MessageIndex);
+            writer.Write(MessageIndex);
         }
 
         public override void Deserialize(GenericReader reader)
@@ -143,7 +112,7 @@ namespace Server.Items
 
             int version = reader.ReadInt();
 
-            switch ( version )
+            switch (version)
             {
                 case 4:
                 case 3:
@@ -154,49 +123,61 @@ namespace Server.Items
                     }
                 case 1:
                     {
-                        m_TargetMap = reader.ReadMap();
+                        TargetMap = reader.ReadMap();
                         m_TargetLocation = reader.ReadPoint3D();
-                        m_MessageIndex = reader.ReadInt();
+                        MessageIndex = reader.ReadInt();
 
                         break;
                     }
                 case 0:
                     {
-                        m_TargetMap = Map;
+                        TargetMap = Map;
 
-                        if (m_TargetMap == null || m_TargetMap == Map.Internal)
-                            m_TargetMap = Map.Trammel;
+                        if (TargetMap == null || TargetMap == Map.Internal)
+                        {
+                            TargetMap = Map.Trammel;
+                        }
 
-                        m_TargetLocation = FindLocation(m_TargetMap);
-                        m_MessageIndex = Utility.Random(MessageEntry.Entries.Length);
+                        m_TargetLocation = FindLocation(TargetMap);
+                        MessageIndex = Utility.Random(MessageEntry.Entries.Length);
 
                         break;
                     }
             }
 
             if (version < 2)
+            {
                 m_Level = MessageInABottle.GetRandomLevel();
+            }
 
             if (version < 3)
+            {
                 UpdateHue();
+            }
 
-            if (version < 4 && m_TargetMap == Map.Tokuno)
-                m_TargetMap = Map.Trammel;
+            if (version < 4 && TargetMap == Map.Tokuno)
+            {
+                TargetMap = Map.Trammel;
+            }
         }
-		
+
         public override void OnDoubleClick(Mobile from)
         {
             if (IsChildOf(from.Backpack))
             {
                 MessageEntry entry;
 
-                if (m_MessageIndex >= 0 && m_MessageIndex < MessageEntry.Entries.Length)
-                    entry = MessageEntry.Entries[m_MessageIndex];
+                if (MessageIndex >= 0 && MessageIndex < MessageEntry.Entries.Length)
+                {
+                    entry = MessageEntry.Entries[MessageIndex];
+                }
                 else
-                    entry = MessageEntry.Entries[m_MessageIndex = Utility.Random(MessageEntry.Entries.Length)];
+                {
+                    entry = MessageEntry.Entries[MessageIndex = Utility.Random(MessageEntry.Entries.Length)];
+                }
 
                 from.CloseGump(typeof(MessageGump));
-                from.SendGump(new MessageGump(entry, m_TargetMap, m_TargetLocation));
+                from.SendGump(new MessageGump(entry, TargetMap, m_TargetLocation));
             }
             else
             {
@@ -222,23 +203,37 @@ namespace Server.Items
         public static Point3D FindLocation(Map map)
         {
             if (map == null || map == Map.Internal)
+            {
                 return Point3D.Zero;
+            }
 
             Rectangle2D[] regions;
 
             if (map == Map.Felucca || map == Map.Trammel)
+            {
                 regions = m_BritRegions;
+            }
             else if (map == Map.Ilshenar)
+            {
                 regions = m_IlshRegions;
+            }
             else if (map == Map.Malas)
+            {
                 regions = m_MalasRegions;
+            }
             else if (map == Map.Tokuno)
+            {
                 regions = m_TokunoRegions;
+            }
             else
+            {
                 regions = new Rectangle2D[] { new Rectangle2D(0, 0, map.Width, map.Height) };
+            }
 
             if (regions.Length == 0)
+            {
                 return Point3D.Zero;
+            }
 
             for (int i = 0; i < 50; ++i)
             {
@@ -247,24 +242,36 @@ namespace Server.Items
                 int y = Utility.Random(reg.Y, reg.Height);
 
                 if (!ValidateDeepWater(map, x, y))
+                {
                     continue;
+                }
 
                 bool valid = true;
 
                 for (int j = 1, offset = 5; valid && j <= 5; ++j, offset += 5)
                 {
                     if (!ValidateDeepWater(map, x + offset, y + offset))
+                    {
                         valid = false;
+                    }
                     else if (!ValidateDeepWater(map, x + offset, y - offset))
+                    {
                         valid = false;
+                    }
                     else if (!ValidateDeepWater(map, x - offset, y + offset))
+                    {
                         valid = false;
+                    }
                     else if (!ValidateDeepWater(map, x - offset, y - offset))
+                    {
                         valid = false;
+                    }
                 }
 
                 if (valid)
+                {
                     return new Point3D(x, y, 0);
+                }
             }
 
             return Point3D.Zero;
@@ -276,12 +283,14 @@ namespace Server.Items
             bool water = false;
 
             for (int i = 0; !water && i < m_WaterTiles.Length; i += 2)
+            {
                 water = (tileID >= m_WaterTiles[i] && tileID <= m_WaterTiles[i + 1]);
+            }
 
             return water;
         }
 
-        #if false
+#if false
 		private class MessageGump : Gump
 		{
 			public MessageGump( MessageEntry entry, Map map, Point3D loc ) : base( (640 - entry.Width) / 2, (480 - entry.Height) / 2 )
@@ -301,7 +310,7 @@ namespace Server.Items
 				AddHtml( 38, 38, entry.Width - 83, entry.Height - 86, String.Format( entry.Message, fmt ), false, false );
 			}
 		}
-        #else
+#else
         private class MessageGump : Gump
         {
             public MessageGump(MessageEntry entry, Map map, Point3D loc)
@@ -313,9 +322,13 @@ namespace Server.Items
                 string fmt;
 
                 if (Sextant.Format(loc, map, ref xLong, ref yLat, ref xMins, ref yMins, ref xEast, ref ySouth))
+                {
                     fmt = String.Format("{0}o {1}'{2}, {3}o {4}'{5}", yLat, yMins, ySouth ? "S" : "N", xLong, xMins, xEast ? "E" : "W");
+                }
                 else
+                {
                     fmt = "?????";
+                }
 
                 AddPage(0);
 
@@ -342,7 +355,7 @@ namespace Server.Items
                 }
             }
         }
-        #endif
+#endif
 
         private class MessageEntry
         {
@@ -350,27 +363,9 @@ namespace Server.Items
             private readonly int m_Height;
             private readonly int m_Message;
 
-            public int Width
-            {
-                get
-                {
-                    return m_Width;
-                }
-            }
-            public int Height
-            {
-                get
-                {
-                    return m_Height;
-                }
-            }
-            public int Message
-            {
-                get
-                {
-                    return m_Message;
-                }
-            }
+            public int Width => m_Width;
+            public int Height => m_Height;
+            public int Message => m_Message;
 
             public MessageEntry(int width, int height, int message)
             {
@@ -397,13 +392,7 @@ namespace Server.Items
                 new MessageEntry(280, 250, 1153550),
             };
 
-            public static MessageEntry[] Entries
-            {
-                get
-                {
-                    return m_Entries;
-                }
-            }
+            public static MessageEntry[] Entries => m_Entries;
         }
     }
 }

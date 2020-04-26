@@ -1,6 +1,6 @@
-using System;
 using Server.Items;
 using Server.Targeting;
+using System;
 
 namespace Server.Engines.Craft
 {
@@ -27,16 +27,16 @@ namespace Server.Engines.Craft
             }
             else
             {
-                from.Target = new InternalTarget(craftSystem, tool);
+                from.Target = new ResmeltTarget(craftSystem, tool);
                 from.SendLocalizedMessage(1044273); // Target an item to recycle.
             }
         }
 
-        private class InternalTarget : Target
+        private class ResmeltTarget : Target
         {
             private readonly CraftSystem m_CraftSystem;
             private readonly ITool m_Tool;
-            public InternalTarget(CraftSystem craftSystem, ITool tool)
+            public ResmeltTarget(CraftSystem craftSystem, ITool tool)
                 : base(2, false, TargetFlags.None)
             {
                 m_CraftSystem = craftSystem;
@@ -51,16 +51,19 @@ namespace Server.Engines.Craft
                 {
                     if (num == 1044267)
                     {
-                        bool anvil, forge;
-			
-                        DefBlacksmithy.CheckAnvilAndForge(from, 2, out anvil, out forge);
+
+                        DefBlacksmithy.CheckAnvilAndForge(from, 2, out bool anvil, out bool forge);
 
                         if (!anvil)
+                        {
                             num = 1044266; // You must be near an anvil
+                        }
                         else if (!forge)
+                        {
                             num = 1044265; // You must be near a forge.
+                        }
                     }
-					
+
                     from.SendGump(new CraftGump(from, m_CraftSystem, m_Tool, num));
                 }
                 else
@@ -85,7 +88,7 @@ namespace Server.Engines.Craft
                         isStoreBought = false;
                     }
 
-                    switch ( result )
+                    switch (result)
                     {
                         default:
                         case SmeltResult.Invalid:
@@ -98,7 +101,7 @@ namespace Server.Engines.Craft
                             message = isStoreBought ? 500418 : 1044270;
                             break; // You melt the item down into ingots.
                     }
-					
+
                     from.SendGump(new CraftGump(from, m_CraftSystem, m_Tool, message));
                 }
             }
@@ -108,29 +111,39 @@ namespace Server.Engines.Craft
                 try
                 {
                     if (Ethics.Ethic.IsImbued(item))
+                    {
                         return SmeltResult.Invalid;
+                    }
 
                     if (CraftResources.GetType(resource) != CraftResourceType.Metal)
+                    {
                         return SmeltResult.Invalid;
+                    }
 
                     CraftResourceInfo info = CraftResources.GetInfo(resource);
 
                     if (info == null || info.ResourceTypes.Length == 0)
+                    {
                         return SmeltResult.Invalid;
+                    }
 
                     CraftItem craftItem = m_CraftSystem.CraftItems.SearchFor(item.GetType());
 
                     if (craftItem == null || craftItem.Resources.Count == 0)
+                    {
                         return SmeltResult.Invalid;
+                    }
 
                     CraftRes craftResource = craftItem.Resources.GetAt(0);
 
                     if (craftResource.Amount < 2)
+                    {
                         return SmeltResult.Invalid; // Not enough metal to resmelt
+                    }
 
                     double difficulty = 0.0;
 
-                    switch ( resource )
+                    switch (resource)
                     {
                         case CraftResource.DullCopper:
                             difficulty = 65.0;
@@ -161,15 +174,21 @@ namespace Server.Engines.Craft
                     double skill = Math.Max(from.Skills[SkillName.Mining].Value, from.Skills[SkillName.Blacksmith].Value);
 
                     if (difficulty > skill)
+                    {
                         return SmeltResult.NoSkill;
+                    }
 
                     Type resourceType = info.ResourceTypes[0];
                     Item ingot = (Item)Activator.CreateInstance(resourceType);
 
                     if (item is DragonBardingDeed || (item is BaseArmor && ((BaseArmor)item).PlayerConstructed) || (item is BaseWeapon && ((BaseWeapon)item).PlayerConstructed) || (item is BaseClothing && ((BaseClothing)item).PlayerConstructed))
-                        ingot.Amount = (int)((double)craftResource.Amount * .66);
+                    {
+                        ingot.Amount = (int)(craftResource.Amount * .66);
+                    }
                     else
+                    {
                         ingot.Amount = 1;
+                    }
 
                     item.Delete();
                     from.AddToBackpack(ingot);

@@ -1,12 +1,9 @@
-using System.Collections.Generic;
-using System.Linq;
-
-using System;
-using Server.Engines.Craft;
-using Server.Items;
-using Server.Targeting;
 using Server.Engines.VeteranRewards;
+using Server.Items;
 using Server.SkillHandlers;
+using Server.Targeting;
+using System;
+using System.Linq;
 
 namespace Server.Engines.Craft
 {
@@ -32,7 +29,9 @@ namespace Server.Engines.Craft
         public bool CheckInherit(Type original)
         {
             if (Inherit)
+            {
                 return true;
+            }
 
             var system = CraftContext.Systems.FirstOrDefault(sys => sys.GetType() == CraftSystem);
 
@@ -64,7 +63,7 @@ namespace Server.Engines.Craft
     {
         private readonly CraftSystem m_System;
         private readonly ITool m_Tool;
-        private Item m_Contract;
+        private readonly Item m_Contract;
 
         public AlterItemTarget(CraftSystem system, Item contract)
                 : base(2, false, TargetFlags.None)
@@ -76,8 +75,8 @@ namespace Server.Engines.Craft
         public AlterItemTarget(CraftSystem system, ITool tool)
             : base(1, false, TargetFlags.None)
         {
-            this.m_System = system;
-            this.m_Tool = tool;
+            m_System = system;
+            m_Tool = tool;
         }
 
         private static AlterableAttribute GetAlterableAttribute(object o, bool inherit)
@@ -85,13 +84,13 @@ namespace Server.Engines.Craft
             Type t = o.GetType();
 
             object[] attrs = t.GetCustomAttributes(typeof(AlterableAttribute), inherit);
-            
+
             if (attrs != null && attrs.Length > 0)
             {
-                AlterableAttribute attr = attrs[0] as AlterableAttribute;
-
-                if (attr != null && (!inherit || attr.CheckInherit(t)))
+                if (attrs[0] is AlterableAttribute attr && (!inherit || attr.CheckInherit(t)))
+                {
                     return attr;
+                }
             }
 
             return null;
@@ -101,7 +100,6 @@ namespace Server.Engines.Craft
         {
             int number = -1;
 
-            Item origItem = o as Item;
             SkillName skill = m_System.MainSkill;
             double value = from.Skills[skill].Value;
 
@@ -112,7 +110,7 @@ namespace Server.Engines.Craft
                 alterInfo = GetAlterableAttribute(o, true);
             }
 
-            if (origItem == null || !origItem.IsChildOf(from.Backpack))
+            if (!(o is Item origItem) || !origItem.IsChildOf(from.Backpack))
             {
                 number = 1094729; // The item must be in your backpack for you to alter it.
             }
@@ -125,13 +123,21 @@ namespace Server.Engines.Craft
                         Item contract = null;
 
                         if (skill == SkillName.Blacksmith)
+                        {
                             contract = new AlterContract(RepairSkillType.Smithing, from);
+                        }
                         else if (skill == SkillName.Carpentry)
+                        {
                             contract = new AlterContract(RepairSkillType.Carpentry, from);
+                        }
                         else if (skill == SkillName.Tailoring)
+                        {
                             contract = new AlterContract(RepairSkillType.Tailoring, from);
+                        }
                         else if (skill == SkillName.Tinkering)
+                        {
                             contract = new AlterContract(RepairSkillType.Tinkering, from);
+                        }
 
                         if (contract != null)
                         {
@@ -174,7 +180,7 @@ namespace Server.Engines.Craft
                     number = 1094793;
                 }
             }
-            else if (!Server.SkillHandlers.Imbuing.CheckSoulForge(from, 2, false, false))
+            else if (!Imbuing.CheckSoulForge(from, 2, false, false))
             {
                 number = 1111867; // You must be near a soulforge to alter an item.
             }
@@ -201,10 +207,10 @@ namespace Server.Engines.Craft
             }
             else
             {
-                Item newitem = Activator.CreateInstance(alterInfo.AlteredType) as Item;
-
-                if (newitem == null)
+                if (!(Activator.CreateInstance(alterInfo.AlteredType) is Item newitem))
+                {
                     return;
+                }
 
                 if (origItem is BaseWeapon && newitem is BaseWeapon)
                 {
@@ -296,7 +302,9 @@ namespace Server.Engines.Craft
                 else if (Server.Engines.VendorSearching.VendorSearch.StringList != null)
                 {
                     if (origItem.LabelNumber > 0 && RetainsName(origItem))
+                    {
                         newitem.Name = Server.Engines.VendorSearching.VendorSearch.StringList.GetString(origItem.LabelNumber);
+                    }
                 }
 
                 AlterResists(newitem, origItem);
@@ -315,14 +323,20 @@ namespace Server.Engines.Craft
                 }
 
                 if (from.Backpack == null)
+                {
                     newitem.MoveToWorld(from.Location, from.Map);
+                }
                 else
+                {
                     from.Backpack.DropItem(newitem);
+                }
 
                 newitem.InvalidateProperties();
 
                 if (m_Contract != null)
+                {
                     m_Contract.Delete();
+                }
 
                 origItem.Delete();
 
@@ -332,9 +346,13 @@ namespace Server.Engines.Craft
             }
 
             if (m_Tool != null)
+            {
                 from.SendGump(new CraftGump(from, m_System, m_Tool, number));
+            }
             else
+            {
                 from.SendLocalizedMessage(number);
+            }
         }
 
         private void AlterResists(Item newItem, Item oldItem)
@@ -357,65 +375,81 @@ namespace Server.Engines.Craft
         private bool RetainsName(Item item)
         {
             if (item is Glasses || item is ElvenGlasses || item.IsArtifact)
+            {
                 return true;
+            }
 
             if (item is IArtifact && ((IArtifact)item).ArtifactRarity > 0)
+            {
                 return true;
+            }
 
             return (item.LabelNumber >= 1073505 && item.LabelNumber <= 1073552) || (item.LabelNumber >= 1073111 && item.LabelNumber <= 1075040);
         }
 
         private static bool IsAlterable(Item item)
         {
-            if (item is BaseWeapon)
+            if (item is BaseWeapon weapon)
             {
-                BaseWeapon weapon = (BaseWeapon)item;
-
                 if (weapon.SetID != SetItem.None || !weapon.CanAlter || weapon.NegativeAttributes.Antique != 0)
+                {
                     return false;
+                }
 
                 if ((weapon.RequiredRace != null && weapon.RequiredRace == Race.Gargoyle && !weapon.IsArtifact))
+                {
                     return false;
+                }
             }
 
-            if (item is BaseArmor)
+            if (item is BaseArmor armor)
             {
-                BaseArmor armor = (BaseArmor)item;
-
                 if (armor.SetID != SetItem.None || !armor.CanAlter || armor.NegativeAttributes.Antique != 0)
+                {
                     return false;
+                }
 
                 if ((armor.RequiredRace != null && armor.RequiredRace == Race.Gargoyle && !armor.IsArtifact))
+                {
                     return false;
+                }
 
                 if (armor is RingmailGlovesOfMining && armor.Resource > CraftResource.Iron)
+                {
                     return false;
+                }
             }
 
-            if (item is BaseClothing)
+            if (item is BaseClothing cloth)
             {
-                BaseClothing cloth = (BaseClothing)item;
-
                 if (cloth.SetID != SetItem.None || !cloth.CanAlter || cloth.NegativeAttributes.Antique != 0)
+                {
                     return false;
+                }
 
                 if ((cloth.RequiredRace != null && cloth.RequiredRace == Race.Gargoyle && !cloth.IsArtifact))
+                {
                     return false;
+                }
             }
 
-	        if (item is BaseQuiver)
-	        {
-		        BaseQuiver quiver = (BaseQuiver) item;
-
-		        if (quiver.SetID != SetItem.None || !quiver.CanAlter)
-			        return false;
-	        }
+            if (item is BaseQuiver quiver)
+            {
+                if (quiver.SetID != SetItem.None || !quiver.CanAlter)
+                {
+                    return false;
+                }
+            }
 
             if (item is IVvVItem && ((IVvVItem)item).IsVvVItem)
+            {
                 return false;
+            }
 
             if (item is IRewardItem)
+            {
                 return false;
+            }
 
             return true;
         }

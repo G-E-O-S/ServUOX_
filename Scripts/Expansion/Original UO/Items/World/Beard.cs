@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Items
 {
     public abstract class Beard : Item
@@ -31,18 +29,12 @@ namespace Server.Items
         protected Beard(int itemID, int hue)
             : base(itemID)
         {
-            this.LootType = LootType.Blessed;
-            this.Layer = Layer.FacialHair;
-            this.Hue = hue;
+            LootType = LootType.Blessed;
+            Layer = Layer.FacialHair;
+            Hue = hue;
         }
 
-        public override bool DisplayLootType
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public override bool DisplayLootType => false;
         public override bool VerifyMove(Mobile from)
         {
             return (from.AccessLevel >= AccessLevel.GameMaster);
@@ -51,8 +43,8 @@ namespace Server.Items
         public override DeathMoveResult OnParentDeath(Mobile parent)
         {
             //Dupe( Amount );
-            parent.FacialHairItemID = this.ItemID;
-            parent.FacialHairHue = this.Hue;
+            parent.FacialHairItemID = ItemID;
+            parent.FacialHairHue = Hue;
 
             return DeathMoveResult.MoveToCorpse;
         }
@@ -61,15 +53,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            this.LootType = LootType.Blessed;
-
-            int version = reader.ReadInt();
+            LootType = LootType.Blessed;
+            _ = reader.ReadInt();
         }
     }
 
@@ -94,14 +85,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -126,14 +117,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -158,14 +149,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -190,14 +181,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -222,14 +213,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -254,14 +245,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -286,14 +277,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -318,14 +309,14 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
 
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

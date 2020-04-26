@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 using Server.Mobiles;
 using Server.Multis;
@@ -23,7 +22,7 @@ namespace Server.Spells.Fourth
         private readonly VendorSearchMap m_SearchMap;
         private readonly AuctionMap m_AuctionMap;
 
-        public bool NoSkillRequirement { get { return (Core.SE && (m_Book != null || m_AuctionMap != null || m_SearchMap != null)) || TransformationSpellHelper.UnderTransformation(Caster, typeof(WraithFormSpell)); } }
+        public bool NoSkillRequirement => (Core.SE && (m_Book != null || m_AuctionMap != null || m_SearchMap != null)) || TransformationSpellHelper.UnderTransformation(Caster, typeof(WraithFormSpell));
 
         public RecallSpell(Mobile caster, Item scroll)
             : this(caster, scroll, null, null)
@@ -49,19 +48,17 @@ namespace Server.Spells.Fourth
             m_AuctionMap = map;
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Fourth;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Fourth;
         public override void GetCastSkills(out double min, out double max)
         {
-            if (NoSkillRequirement)	//recall using Runebook charge, wraith form or using vendor search map
+            if (NoSkillRequirement) //recall using Runebook charge, wraith form or using vendor search map
+            {
                 min = max = 0;
+            }
             else
+            {
                 base.GetCastSkills(out min, out max);
+            }
         }
 
         public override void OnCast()
@@ -210,13 +207,19 @@ namespace Server.Spells.Fourth
                 BaseCreature.TeleportPets(Caster, loc, map, true);
 
                 if (m_Book != null)
+                {
                     --m_Book.CurCharges;
+                }
 
                 if (m_SearchMap != null)
+                {
                     m_SearchMap.OnBeforeTravel(Caster);
+                }
 
                 if (m_AuctionMap != null)
+                {
                     m_AuctionMap.OnBeforeTravel(Caster);
+                }
 
                 Caster.PlaySound(0x1FC);
                 Caster.MoveToWorld(loc, map);
@@ -285,18 +288,26 @@ namespace Server.Spells.Fourth
                     BaseBoat boat = ((Key)o).Link as BaseBoat;
 
                     if (!boat.Deleted && boat.CheckKey(((Key)o).KeyValue))
+                    {
                         m_Owner.Effect(boat.GetMarkedLocation(), boat.Map, false, true);
+                    }
                     else
+                    {
                         from.Send(new MessageLocalized(from.Serial, from.Body, MessageType.Regular, 0x3B2, 3, 502357, from.Name, "")); // I can not recall from that object.
+                    }
                 }
                 else if (o is Engines.NewMagincia.WritOfLease)
                 {
                     Engines.NewMagincia.WritOfLease lease = (Engines.NewMagincia.WritOfLease)o;
 
                     if (lease.RecallLoc != Point3D.Zero && lease.Facet != null && lease.Facet != Map.Internal)
+                    {
                         m_Owner.Effect(lease.RecallLoc, lease.Facet, false);
+                    }
                     else
+                    {
                         from.Send(new MessageLocalized(from.Serial, from.Body, MessageType.Regular, 0x3B2, 3, 502357, from.Name, "")); // I can not recall from that object.
+                    }
                 }
 
                 else

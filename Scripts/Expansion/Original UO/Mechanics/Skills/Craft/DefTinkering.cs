@@ -1,8 +1,8 @@
-using System;
 using Server.Factions;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
 
 namespace Server.Engines.Craft
 {
@@ -39,30 +39,12 @@ namespace Server.Engines.Craft
     public class DefTinkering : CraftSystem
     {
         #region Mondain's Legacy
-        public override CraftECA ECA
-        {
-            get
-            {
-                return CraftECA.ChanceMinusSixtyToFourtyFive;
-            }
-        }
+        public override CraftECA ECA => CraftECA.ChanceMinusSixtyToFourtyFive;
         #endregion
 
-        public override SkillName MainSkill
-        {
-            get
-            {
-                return SkillName.Tinkering;
-            }
-        }
+        public override SkillName MainSkill => SkillName.Tinkering;
 
-        public override int GumpTitleNumber
-        {
-            get
-            {
-                return 1044007;
-            }// <CENTER>TINKERING MENU</CENTER>
-        }
+        public override int GumpTitleNumber => 1044007;
 
         private static CraftSystem m_CraftSystem;
 
@@ -71,7 +53,9 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_CraftSystem == null)
+                {
                     m_CraftSystem = new DefTinkering();
+                }
 
                 return m_CraftSystem;
             }
@@ -85,7 +69,9 @@ namespace Server.Engines.Craft
         public override double GetChanceAtMin(CraftItem item)
         {
             if (item.NameNumber == 1044258 || item.NameNumber == 1046445) // potion keg and faction trap removal kit
+            {
                 return 0.5; // 50%
+            }
 
             return 0.0; // 0%
         }
@@ -95,13 +81,21 @@ namespace Server.Engines.Craft
             int num = 0;
 
             if (tool == null || tool.Deleted || tool.UsesRemaining <= 0)
+            {
                 return 1044038; // You have worn out your tool!
+            }
             else if (!tool.CheckAccessible(from, ref num))
+            {
                 return num; // The tool must be on your person to use.
+            }
             else if (itemType != null && (itemType.IsSubclassOf(typeof(BaseFactionTrapDeed)) || itemType == typeof(FactionTrapRemovalKit)) && Faction.Find(from) == null)
+            {
                 return 1044573; // You have to be in a faction to do that.
+            }
             else if (itemType == typeof(ModifiedClockworkAssembly) && !(from is PlayerMobile && ((PlayerMobile)from).MechanicalLife))
+            {
                 return 1113034; // You haven't read the Mechanical Life Manual. Talking to Sutek might help!
+            }
 
             return 0;
         }
@@ -118,7 +112,7 @@ namespace Server.Engines.Craft
             typeof(Key), typeof(Globe),
             typeof(Spyglass), typeof(Lantern),
             typeof(HeatingStand), typeof(BroadcastCrystal), typeof(TerMurStyleCandelabra),
-            typeof(GorgonLense), typeof(MedusaLightScales), typeof(MedusaDarkScales), typeof(RedScales), 
+            typeof(GorgonLense), typeof(MedusaLightScales), typeof(MedusaDarkScales), typeof(RedScales),
             typeof(BlueScales), typeof(BlackScales), typeof(GreenScales), typeof(YellowScales), typeof(WhiteScales),
             typeof(PlantPigment), typeof(SoftenedReeds), typeof(DryReeds), typeof(PlantClippings),
 
@@ -128,47 +122,67 @@ namespace Server.Engines.Craft
         public override bool RetainsColorFrom(CraftItem item, Type type)
         {
             if (type == typeof(CrystalDust))
+            {
                 return false;
+            }
 
             bool contains = false;
             type = item.ItemType;
 
             for (int i = 0; !contains && i < m_TinkerColorables.Length; ++i)
+            {
                 contains = (m_TinkerColorables[i] == type);
+            }
 
             if (!contains && !type.IsSubclassOf(typeof(BaseIngot)))
+            {
                 return false;
+            }
 
             return contains;
         }
 
         public override void PlayCraftEffect(Mobile from)
         {
-            from.PlaySound( 0x23B );
+            from.PlaySound(0x23B);
         }
 
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)
         {
             if (toolBroken)
+            {
                 from.SendLocalizedMessage(1044038); // You have worn out your tool
+            }
 
             if (failed)
             {
                 if (lostMaterial)
+                {
                     return 1044043; // You failed to create the item, and some of your materials are lost.
+                }
                 else
+                {
                     return 1044157; // You failed to create the item, but no materials were lost.
+                }
             }
             else
             {
                 if (quality == 0)
+                {
                     return 502785; // You were barely able to make this item.  It's quality is below average.
+                }
                 else if (makersMark && quality == 2)
+                {
                     return 1044156; // You create an exceptional quality item and affix your maker's mark.
+                }
                 else if (quality == 2)
+                {
                     return 1044155; // You create an exceptional quality item.
-                else 
+                }
+                else
+                {
                     return 1044154; // You create the item.
+                }
             }
         }
 
@@ -192,8 +206,8 @@ namespace Server.Engines.Craft
             AddRes(index, itemType, 1044231 + offset, 1, 1044240);
 
             index = AddCraft(typeof(GoldBracelet), 1044049, 1044221 + offset, 40.0, 90.0, typeof(IronIngot), 1044036, 2, 1044037);
-            AddRes(index, itemType, 1044231 + offset, 1, 1044240);     
-             
+            AddRes(index, itemType, 1044231 + offset, 1, 1044240);
+
         }
 
         public override void InitCraftList()
@@ -242,7 +256,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(ClockFrame), 1044042, 1024173, 0.0, 50.0, typeof(Board), 1044041, 6, 1044351);
             AddCraft(typeof(Axle), 1044042, 1024187, -25.0, 25.0, typeof(Board), 1044041, 2, 1044351);
             AddCraft(typeof(RollingPin), 1044042, 1024163, 0.0, 50.0, typeof(Board), 1044041, 5, 1044351);
-            
+
             if (Core.HS)
             {
                 AddCraft(typeof(Ramrod), 1044042, 1095839, 0.0, 50.0, typeof(Board), 1044041, 8, 1044253);
@@ -253,7 +267,7 @@ namespace Server.Engines.Craft
                     AddRes(index, typeof(Board), 1044041, 4, 1044253);
                 }
             }
-            
+
             if (Core.SA)
             {
                 index = AddCraft(typeof(SoftenedReeds), 1044042, 1112249, 75.0, 100.0, typeof(DryReeds), 1112248, 1, 1112250);
@@ -341,7 +355,7 @@ namespace Server.Engines.Craft
             AddCraft(Core.AOS ? typeof(SmithyHammer) : typeof(SmithHammer), 1044046, 1025091, 40.0, 90.0, typeof(IronIngot), 1044036, 4, 1044037);
             AddCraft(Core.AOS ? typeof(SledgeHammerWeapon) : typeof(SledgeHammer), 1044046, 1024021, 40.0, 90.0, typeof(IronIngot), 1044036, 4, 1044037);
             AddCraft(typeof(Inshave), 1044046, 1024326, 30.0, 80.0, typeof(IronIngot), 1044036, 2, 1044037);
-            AddCraft(typeof(Pickaxe), 1044046, 1023718, 40.0, 90.0, typeof(IronIngot), 1044036, 4, 1044037);            
+            AddCraft(typeof(Pickaxe), 1044046, 1023718, 40.0, 90.0, typeof(IronIngot), 1044036, 4, 1044037);
             AddCraft(typeof(Lockpick), 1044046, 1025371, 45.0, 95.0, typeof(IronIngot), 1044036, 1, 1044037);
             AddCraft(typeof(Skillet), 1044046, 1044567, 30.0, 80.0, typeof(IronIngot), 1044036, 4, 1044037);
             AddCraft(typeof(FlourSifter), 1044046, 1024158, 50.0, 100.0, typeof(IronIngot), 1044036, 3, 1044037);
@@ -349,7 +363,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(MapmakersPen), 1044046, 1044167, 25.0, 75.0, typeof(IronIngot), 1044036, 1, 1044037);
             AddCraft(typeof(ScribesPen), 1044046, 1044168, 25.0, 75.0, typeof(IronIngot), 1044036, 1, 1044037);
             AddCraft(typeof(Clippers), 1044046, 1112117, 50.0, 50.0, typeof(IronIngot), 1044036, 4, 1044037);
-            
+
             if (Core.ML)
             {
                 index = AddCraft(typeof(MetalContainerEngraver), 1044046, 1072154, 75.0, 100.0, typeof(IronIngot), 1044036, 4, 1044037);
@@ -371,13 +385,13 @@ namespace Server.Engines.Craft
             AddCraft(typeof(BarrelHoops), 1044047, 1024321, -15.0, 35.0, typeof(IronIngot), 1044036, 5, 1044037);
             AddCraft(typeof(Hinge), 1044047, 1024181, 5.0, 55.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddCraft(typeof(BolaBall), 1044047, 1023699, 45.0, 95.0, typeof(IronIngot), 1044036, 10, 1044037);
-            
+
             if (Core.ML)
             {
                 index = AddCraft(typeof(JeweledFiligree), 1044047, 1072894, 70.0, 110.0, typeof(IronIngot), 1044036, 2, 1044037);
                 AddRes(index, typeof(StarSapphire), 1044231, 1, 1044253);
                 AddRes(index, typeof(Ruby), 1044234, 1, 1044253);
-            }            
+            }
             #endregion
 
             #region Utensils
@@ -393,7 +407,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(Goblet), 1044048, 1022458, 10.0, 60.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddCraft(typeof(PewterMug), 1044048, 1024097, 10.0, 60.0, typeof(IronIngot), 1044036, 2, 1044037);
             AddCraft(typeof(SkinningKnife), 1044048, 1023781, 25.0, 75.0, typeof(IronIngot), 1044036, 2, 1044037);
-            
+
             if (Core.SA)
             {
                 index = AddCraft(typeof(GargishCleaver), 1044048, 1097478, 20.0, 70.0, typeof(IronIngot), 1044036, 3, 1044037);
@@ -444,7 +458,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(Emerald), 1062601, 10, 1044240);
             AddRes(index, typeof(Ruby), 1062603, 10, 1044240);
             AddRes(index, typeof(CopperWire), 1026265, 1, 1150700);
-            
+
             if (Core.SA)
             {
                 index = AddCraft(typeof(GorgonLense), 1044050, 1112625, 90.0, 120.0, typeof(MedusaDarkScales), 1112626, 2, 1053097);
@@ -578,7 +592,7 @@ namespace Server.Engines.Craft
             AddRes(index, typeof(EmptyBottle), 1044250, 10, 1044253);
             AddRes(index, typeof(BarrelLid), 1044251, 1, 1044253);
             AddRes(index, typeof(BarrelTap), 1044252, 1, 1044253);
-            
+
             if (Core.SA)
             {
                 index = AddCraft(typeof(ModifiedClockworkAssembly), 1044051, 1113031, 65.0, 115.0, typeof(ClockworkAssembly), 1073426, 1, 502910);
@@ -594,7 +608,7 @@ namespace Server.Engines.Craft
                 index = AddCraft(typeof(ModifiedClockworkAssembly), 1044051, 1113033, 65.0, 115.0, typeof(ClockworkAssembly), 1073426, 1, 502910);
                 AddRes(index, typeof(PowerCrystal), 1112811, 1, 502910);
                 AddRes(index, typeof(VoidEssence), 1112327, 3, 502910);
-                ForceNonExceptional(index);                
+                ForceNonExceptional(index);
             }
 
             if (Core.ML)
@@ -806,13 +820,7 @@ namespace Server.Engines.Craft
     {
         private LockableContainer m_Container;
 
-        public LockableContainer Container
-        {
-            get
-            {
-                return m_Container;
-            }
-        }
+        public LockableContainer Container => m_Container;
 
         public abstract TrapType TrapType { get; }
 
@@ -824,17 +832,34 @@ namespace Server.Engines.Craft
         private int Verify(LockableContainer container)
         {
             if (container == null || container.KeyValue == 0)
+            {
                 return 1005638; // You can only trap lockable chests.
+            }
+
             if (From.Map != container.Map || !From.InRange(container.GetWorldLocation(), 2))
+            {
                 return 500446; // That is too far away.
+            }
+
             if (!container.Movable)
+            {
                 return 502944; // You cannot trap this item because it is locked down.
+            }
+
             if (!container.IsAccessibleTo(From))
+            {
                 return 502946; // That belongs to someone else.
+            }
+
             if (container.Locked)
+            {
                 return 502943; // You can only trap an unlocked object.
+            }
+
             if (container.TrapType != TrapType.None)
+            {
                 return 502945; // You can only place one trap on an object at a time.
+            }
 
             return 0;
         }
@@ -874,18 +899,23 @@ namespace Server.Engines.Craft
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                int message;
 
-                if (m_TrapCraft.Acquire(targeted, out message))
+                if (m_TrapCraft.Acquire(targeted, out int message))
+                {
                     m_TrapCraft.CraftItem.CompleteCraft(m_TrapCraft.Quality, false, m_TrapCraft.From, m_TrapCraft.CraftSystem, m_TrapCraft.TypeRes, m_TrapCraft.Tool, m_TrapCraft);
+                }
                 else
+                {
                     Failure(message);
+                }
             }
 
             protected override void OnTargetCancel(Mobile from, TargetCancelType cancelType)
             {
                 if (cancelType == TargetCancelType.Canceled)
+                {
                     Failure(0);
+                }
             }
 
             private void Failure(int message)
@@ -900,9 +930,13 @@ namespace Server.Engines.Craft
                 }
 
                 if (tool != null && !tool.Deleted && tool.UsesRemaining > 0)
+                {
                     from.SendGump(new CraftGump(from, m_TrapCraft.CraftSystem, tool, message));
+                }
                 else if (message > 0)
+                {
                     from.SendLocalizedMessage(message);
+                }
             }
         }
 
@@ -929,13 +963,7 @@ namespace Server.Engines.Craft
     [CraftItemID(0x1BFC)]
     public class DartTrapCraft : TrapCraft
     {
-        public override TrapType TrapType
-        {
-            get
-            {
-                return TrapType.DartTrap;
-            }
-        }
+        public override TrapType TrapType => TrapType.DartTrap;
 
         public DartTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
             : base(from, craftItem, craftSystem, typeRes, tool, quality)
@@ -946,13 +974,7 @@ namespace Server.Engines.Craft
     [CraftItemID(0x113E)]
     public class PoisonTrapCraft : TrapCraft
     {
-        public override TrapType TrapType
-        {
-            get
-            {
-                return TrapType.PoisonTrap;
-            }
-        }
+        public override TrapType TrapType => TrapType.PoisonTrap;
 
         public PoisonTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
             : base(from, craftItem, craftSystem, typeRes, tool, quality)
@@ -963,13 +985,7 @@ namespace Server.Engines.Craft
     [CraftItemID(0x370C)]
     public class ExplosionTrapCraft : TrapCraft
     {
-        public override TrapType TrapType
-        {
-            get
-            {
-                return TrapType.ExplosionTrap;
-            }
-        }
+        public override TrapType TrapType => TrapType.ExplosionTrap;
 
         public ExplosionTrapCraft(Mobile from, CraftItem craftItem, CraftSystem craftSystem, Type typeRes, ITool tool, int quality)
             : base(from, craftItem, craftSystem, typeRes, tool, quality)

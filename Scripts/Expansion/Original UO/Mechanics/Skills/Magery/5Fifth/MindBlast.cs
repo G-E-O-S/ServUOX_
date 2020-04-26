@@ -1,5 +1,5 @@
-using System;
 using Server.Targeting;
+using System;
 
 namespace Server.Spells.Fifth
 {
@@ -17,23 +17,13 @@ namespace Server.Spells.Fifth
             : base(caster, scroll, m_Info)
         {
             if (Core.AOS)
+            {
                 m_Info.LeftHandEffect = m_Info.RightHandEffect = 9002;
+            }
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.Fifth;
-            }
-        }
-        public override bool DelayedDamage
-        {
-            get
-            {
-                return !Core.AOS;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.Fifth;
+        public override bool DelayedDamage => !Core.AOS;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -57,9 +47,11 @@ namespace Server.Spells.Fifth
                     int intel = Math.Min(200, Caster.Int);
 
                     int damage = (int)((Caster.Skills[SkillName.Magery].Value + intel) / 5) + Utility.RandomMinMax(2, 6);
-					
+
                     if (damage > 60)
+                    {
                         damage = 60;
+                    }
 
                     Timer.DelayCall(TimeSpan.FromSeconds(1.0),
                         new TimerStateCallback(AosDelay_Callback),
@@ -72,41 +64,58 @@ namespace Server.Spells.Fifth
 
                 SpellHelper.Turn(from, target);
 
-                if(target != null)
+                if (target != null)
+                {
                     SpellHelper.CheckReflect((int)Circle, ref from, ref target);
+                }
 
                 // Algorithm: (highestStat - lowestStat) / 2 [- 50% if resisted]
 
                 int highestStat = target.Str, lowestStat = target.Str;
 
                 if (target.Dex > highestStat)
+                {
                     highestStat = target.Dex;
+                }
 
                 if (target.Dex < lowestStat)
+                {
                     lowestStat = target.Dex;
+                }
 
                 if (target.Int > highestStat)
+                {
                     highestStat = target.Int;
+                }
 
                 if (target.Int < lowestStat)
+                {
                     lowestStat = target.Int;
+                }
 
                 if (highestStat > 150)
+                {
                     highestStat = 150;
+                }
 
-                if (lowestStat > 150) 
+                if (lowestStat > 150)
+                {
                     lowestStat = 150;
+                }
+
                 double damage;
                 if (Core.AOS)
                 {
-                    damage = GetDamageScalar(m)*(highestStat - lowestStat)/4; //less damage
+                    damage = GetDamageScalar(m) * (highestStat - lowestStat) / 4; //less damage
                 }
                 else
                 {
                     damage = GetDamageScalar(m) * (highestStat - lowestStat) / 2; //less damage
                 }
                 if (damage > 45)
+                {
                     damage = 45;
+                }
 
                 if (CheckResisted(target))
                 {
@@ -159,7 +168,9 @@ namespace Server.Spells.Fifth
             protected override void OnTarget(Mobile from, object o)
             {
                 if (o is Mobile)
+                {
                     m_Owner.Target((Mobile)o);
+                }
             }
 
             protected override void OnTargetFinish(Mobile from)

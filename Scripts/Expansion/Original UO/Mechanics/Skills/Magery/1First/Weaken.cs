@@ -1,5 +1,5 @@
-using System;
 using Server.Targeting;
+using System;
 using System.Collections.Generic;
 
 namespace Server.Spells.First
@@ -33,8 +33,10 @@ namespace Server.Spells.First
 
                 BuffInfo.RemoveBuff(m, BuffIcon.Weaken);
 
-                if(removeMod)
+                if (removeMod)
+                {
                     m.RemoveStatMod("[Magic] Str Curse");
+                }
 
                 m_Table.Remove(m);
             }
@@ -45,13 +47,7 @@ namespace Server.Spells.First
         {
         }
 
-        public override SpellCircle Circle
-        {
-            get
-            {
-                return SpellCircle.First;
-            }
-        }
+        public override SpellCircle Circle => SpellCircle.First;
         public override void OnCast()
         {
             Caster.Target = new InternalTarget(this);
@@ -84,7 +80,9 @@ namespace Server.Spells.First
                 else
                 {
                     if (m.Spell != null)
+                    {
                         m.Spell.OnCasterHurt();
+                    }
 
                     m.Paralyzed = false;
 
@@ -95,14 +93,16 @@ namespace Server.Spells.First
 
                     if (-newOffset < oldOffset)
                     {
-                        SpellHelper.AddStatCurse(this.Caster, m, StatType.Str, false, newOffset);
+                        SpellHelper.AddStatCurse(Caster, m, StatType.Str, false, newOffset);
 
-                        int percentage = (int)(SpellHelper.GetOffsetScalar(this.Caster, m, true) * 100);
-                        TimeSpan length = SpellHelper.GetDuration(this.Caster, m);
+                        int percentage = (int)(SpellHelper.GetOffsetScalar(Caster, m, true) * 100);
+                        TimeSpan length = SpellHelper.GetDuration(Caster, m);
                         BuffInfo.AddBuff(m, new BuffInfo(BuffIcon.Weaken, 1075837, length, m, percentage.ToString()));
 
                         if (m_Table.ContainsKey(m))
+                        {
                             m_Table[m].Stop();
+                        }
 
                         m_Table[m] = Timer.DelayCall(length, () =>
                         {

@@ -1,7 +1,7 @@
+using Server.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Server.Items;
 
 namespace Server.Engines.Craft
 {
@@ -44,7 +44,9 @@ namespace Server.Engines.Craft
         public void AddContext(Mobile m, CraftContext c)
         {
             if (c == null || m == null || c.System != this)
+            {
                 return;
+            }
 
             m_ContextTable[m] = c;
         }
@@ -52,7 +54,9 @@ namespace Server.Engines.Craft
         public CraftContext GetContext(Mobile m)
         {
             if (m == null)
+            {
                 return null;
+            }
 
             if (m.Deleted)
             {
@@ -60,11 +64,12 @@ namespace Server.Engines.Craft
                 return null;
             }
 
-            CraftContext c = null;
-            m_ContextTable.TryGetValue(m, out c);
+            m_ContextTable.TryGetValue(m, out CraftContext c);
 
             if (c == null)
+            {
                 m_ContextTable[m] = c = new CraftContext(m, this);
+            }
 
             return c;
         }
@@ -74,7 +79,9 @@ namespace Server.Engines.Craft
             CraftContext c = GetContext(m);
 
             if (c != null)
+            {
                 c.OnMade(item);
+            }
         }
 
         public void OnRepair(Mobile m, ITool tool, Item deed, Item addon, IEntity e)
@@ -118,12 +125,14 @@ namespace Server.Engines.Craft
         private void AddSystem(CraftSystem system)
         {
             if (Systems == null)
+            {
                 Systems = new List<CraftSystem>();
+            }
 
             Systems.Add(system);
         }
 
-        private Type[] _GlobalNoConsume =
+        private readonly Type[] _GlobalNoConsume =
         {
             typeof(CapturedEssence), typeof(EyeOfTheTravesty), typeof(DiseasedBark),  typeof(LardOfParoxysmus), typeof(GrizzledBones), typeof(DreadHornMane),
 
@@ -153,14 +162,14 @@ namespace Server.Engines.Craft
         public virtual bool ConsumeOnFailure(Mobile from, Type resourceType, CraftItem craftItem, ref MasterCraftsmanTalisman talisman)
         {
             if (!ConsumeOnFailure(from, resourceType, craftItem))
+            {
                 return false;
+            }
 
             Item item = from.FindItemOnLayer(Layer.Talisman);
 
-            if (item is MasterCraftsmanTalisman)
+            if (item is MasterCraftsmanTalisman mct)
             {
-                MasterCraftsmanTalisman mct = (MasterCraftsmanTalisman)item;
-
                 if (mct.Charges > 0)
                 {
                     talisman = mct;
@@ -172,7 +181,7 @@ namespace Server.Engines.Craft
         }
 
         public void CreateItem(Mobile from, Type type, Type typeRes, ITool tool, CraftItem realCraftItem)
-        { 
+        {
             CraftItem craftItem = CraftItems.SearchFor(type);
             if (craftItem != null)
             {
@@ -244,20 +253,20 @@ namespace Server.Engines.Craft
             CraftItem craftItem = CraftItems.GetAt(index);
             craftItem.Hits = hits;
         }
-		
+
         public void SetUseAllRes(int index, bool useAll)
         {
             CraftItem craftItem = CraftItems.GetAt(index);
             craftItem.UseAllRes = useAll;
         }
 
-		public void SetForceTypeRes(int index, bool value)
-		{
-			CraftItem craftItem = CraftItems.GetAt(index);
-			craftItem.ForceTypeRes = value;
-		}
+        public void SetForceTypeRes(int index, bool value)
+        {
+            CraftItem craftItem = CraftItems.GetAt(index);
+            craftItem.ForceTypeRes = value;
+        }
 
-		public void SetNeedHeat(int index, bool needHeat)
+        public void SetNeedHeat(int index, bool needHeat)
         {
             CraftItem craftItem = CraftItems.GetAt(index);
             craftItem.NeedHeat = needHeat;

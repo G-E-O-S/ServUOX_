@@ -1,5 +1,5 @@
-using System;
 using Server.Items;
+using System;
 
 namespace Server.Engines.Craft
 {
@@ -15,21 +15,9 @@ namespace Server.Engines.Craft
 
     public class DefAlchemy : CraftSystem
     {
-        public override SkillName MainSkill
-        {
-            get
-            {
-                return SkillName.Alchemy;
-            }
-        }
+        public override SkillName MainSkill => SkillName.Alchemy;
 
-        public override int GumpTitleNumber
-        {
-            get
-            {
-                return 1044001;
-            }// <CENTER>ALCHEMY MENU</CENTER>
-        }
+        public override int GumpTitleNumber => 1044001;
 
         private static CraftSystem m_CraftSystem;
 
@@ -38,7 +26,9 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_CraftSystem == null)
+                {
                     m_CraftSystem = new DefAlchemy();
+                }
 
                 return m_CraftSystem;
             }
@@ -59,9 +49,13 @@ namespace Server.Engines.Craft
             int num = 0;
 
             if (tool == null || tool.Deleted || tool.UsesRemaining <= 0)
+            {
                 return 1044038; // You have worn out your tool!
+            }
             else if (!tool.CheckAccessible(from, ref num))
+            {
                 return num; // The tool must be on your person to use.
+            }
 
             return 0;
         }
@@ -81,7 +75,9 @@ namespace Server.Engines.Craft
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)
         {
             if (toolBroken)
+            {
                 from.SendLocalizedMessage(1044038); // You have worn out your tool
+            }
 
             if (failed)
             {
@@ -102,9 +98,13 @@ namespace Server.Engines.Craft
                 if (IsPotion(item.ItemType))
                 {
                     if (quality == -1)
+                    {
                         return 1048136; // You create the potion and pour it into a keg.
+                    }
                     else
+                    {
                         return 500279; // You pour the potion into a bottle...
+                    }
                 }
                 else
                 {
@@ -157,7 +157,7 @@ namespace Server.Engines.Craft
                 AddRes(index, typeof(MyrmidexEggsac), 1156725, 5, 1044253);
                 AddRecipe(index, (int)AlchemyRecipes.BarrabHemolymphConcentrate);
             }
-                
+
             // Enhancement
             index = AddCraft(typeof(AgilityPotion), 1116349, 1044540, 15.0, 65.0, typeof(Bloodmoss), 1044354, 1, 1044362);
             AddRes(index, typeof(EmptyBottle), 1044529, 1, 500315);
@@ -181,7 +181,7 @@ namespace Server.Engines.Craft
                 AddRes(index, typeof(Nightshade), 1044358, 3, 1044366);
                 AddRecipe(index, (int)TinkerRecipes.InvisibilityPotion);
             }
-            
+
             if (Core.TOL)
             {
                 index = AddCraft(typeof(JukariBurnPoiltice), 1116349, 1156726, 51.0, 151.0, typeof(EmptyBottle), 1044529, 1, 500315);
@@ -274,7 +274,10 @@ namespace Server.Engines.Craft
                 index = AddCraft(typeof(BlackPowder), 1116351, 1095826, 65.0, 115.0, typeof(SulfurousAsh), 1023980, 1, 1044253);
                 AddRes(index, typeof(Saltpeter), 1116302, 6, 1044253);
                 AddRes(index, typeof(Charcoal), 1116303, 1, 1044253);
-                if (Core.EJ) SetUseAllRes(index, true);
+                if (Core.EJ)
+                {
+                    SetUseAllRes(index, true);
+                }
 
                 // Removed for Dark Tides Cannon Changes
                 if (!Core.EJ)
@@ -293,7 +296,7 @@ namespace Server.Engines.Craft
 
             // Strange Brew
             if (Core.SE)
-            {                
+            {
                 index = AddCraft(typeof(SmokeBomb), 1116353, 1030248, 90.0, 120.0, typeof(Eggs), 1044477, 1, 1044253);
                 AddRes(index, typeof(Ginseng), 1044356, 3, 1044364);
             }
@@ -303,7 +306,9 @@ namespace Server.Engines.Craft
                 index = AddCraft(typeof(HoveringWisp), 1116353, 1072881, 75.0, 125.0, typeof(CapturedEssence), 1032686, 4, 1044253);
 
                 if (!Core.TOL) // Removed at OSI Publish 103
+                {
                     AddRecipe(index, (int)TinkerRecipes.HoveringWisp);
+                }
             }
 
             if (Core.SA)
@@ -337,7 +342,7 @@ namespace Server.Engines.Craft
                 SetItemHue(index, 2625);
 
                 index = AddCraft(typeof(CrystalDust), 1044495, 1112328, 75.0, 100.0, typeof(CrystallineFragments), 1153988, 4, 1044253);
-                SetItemHue(index, 2103);               
+                SetItemHue(index, 2103);
 
                 index = AddCraft(typeof(SoftenedReeds), 1044495, 1112249, 75.0, 100.0, typeof(DryReeds), 1112248, 1, 1112250);
                 AddRes(index, typeof(ScouringToxin), 1112292, 2, 1112326);
@@ -345,7 +350,7 @@ namespace Server.Engines.Craft
                 SetRequiresBasketWeaving(index);
 
                 index = AddCraft(typeof(VialOfVitriol), 1044495, 1113331, 90.0, 100.0, typeof(ParasiticPotion), 1072848, 1, 1113754);
-                AddRes(index, typeof (Nightshade), 1044358, 30, 1044366);
+                AddRes(index, typeof(Nightshade), 1044358, 30, 1044366);
                 AddSkill(index, SkillName.Magery, 75.0, 100.0);
 
                 index = AddCraft(typeof(BottleIchor), 1044495, 1113361, 90.0, 100.0, typeof(DarkglowPotion), 1072849, 1, 1113755);

@@ -1,5 +1,5 @@
-using System;
 using Server.Items;
+using System;
 
 namespace Server.Engines.Craft
 {
@@ -41,29 +41,11 @@ namespace Server.Engines.Craft
 
     public class DefCarpentry : CraftSystem
     {
-        public override SkillName MainSkill
-        {
-            get
-            {
-                return SkillName.Carpentry;
-            }
-        }
+        public override SkillName MainSkill => SkillName.Carpentry;
 
-        public override int GumpTitleNumber
-        {
-            get
-            {
-                return 1044004;
-            }// <CENTER>CARPENTRY MENU</CENTER>
-        }
+        public override int GumpTitleNumber => 1044004;
 
-        public override CraftECA ECA
-        {
-            get
-            {
-                return CraftECA.ChanceMinusSixtyToFourtyFive;
-            }
-        }
+        public override CraftECA ECA => CraftECA.ChanceMinusSixtyToFourtyFive;
 
         private static CraftSystem m_CraftSystem;
 
@@ -72,7 +54,9 @@ namespace Server.Engines.Craft
             get
             {
                 if (m_CraftSystem == null)
+                {
                     m_CraftSystem = new DefCarpentry();
+                }
 
                 return m_CraftSystem;
             }
@@ -93,9 +77,13 @@ namespace Server.Engines.Craft
             int num = 0;
 
             if (tool == null || tool.Deleted || tool.UsesRemaining <= 0)
+            {
                 return 1044038; // You have worn out your tool!
+            }
             else if (!tool.CheckAccessible(from, ref num))
+            {
                 return num; // The tool must be on your person to use.
+            }
 
             return 0;
         }
@@ -111,25 +99,39 @@ namespace Server.Engines.Craft
         public override int PlayEndingEffect(Mobile from, bool failed, bool lostMaterial, bool toolBroken, int quality, bool makersMark, CraftItem item)
         {
             if (toolBroken)
+            {
                 from.SendLocalizedMessage(1044038); // You have worn out your tool
+            }
 
             if (failed)
             {
                 if (lostMaterial)
+                {
                     return 1044043; // You failed to create the item, and some of your materials are lost.
+                }
                 else
+                {
                     return 1044157; // You failed to create the item, but no materials were lost.
+                }
             }
             else
             {
                 if (quality == 0)
+                {
                     return 502785; // You were barely able to make this item.  It's quality is below average.
+                }
                 else if (makersMark && quality == 2)
+                {
                     return 1044156; // You create an exceptional quality item and affix your maker's mark.
+                }
                 else if (quality == 2)
+                {
                     return 1044155; // You create an exceptional quality item.
+                }
                 else
+                {
                     return 1044154; // You create the item.
+                }
             }
         }
 
@@ -234,7 +236,7 @@ namespace Server.Engines.Craft
                 AddSkill(index, SkillName.Magery, 75.0, 120.0);
                 AddRes(index, typeof(Granite), 1044607, 10, 1044253);
                 AddRes(index, typeof(SmallPieceofBlackrock), 1150016, 10, 1044253);
-                AddRes(index, typeof(NexusCore), 1153501, 1, 1044253);                
+                AddRes(index, typeof(NexusCore), 1153501, 1, 1044253);
             }
             #endregion
 
@@ -248,7 +250,7 @@ namespace Server.Engines.Craft
                 index = AddCraft(typeof(CraftableHouseItem), 1044294, 1155850, 42.1, 77.7, typeof(Board), 1044041, 5, 1044351);
                 SetData(index, CraftableItemType.LightWoodenSignHanger);
                 SetDisplayID(index, 2969);
-            }            
+            }
             #endregion
 
             // Furniture
@@ -264,7 +266,7 @@ namespace Server.Engines.Craft
             AddCraft(typeof(Nightstand), 1044291, 1044306, 42.1, 67.1, typeof(Board), 1044041, 17, 1044351);
             AddCraft(typeof(WritingTable), 1044291, 1022890, 63.1, 88.1, typeof(Board), 1044041, 17, 1044351);
             AddCraft(typeof(LargeTable), 1044291, 1044308, 84.2, 109.2, typeof(Board), 1044041, 27, 1044351);
-            AddCraft(typeof(YewWoodTable), 1044291, 1044307, 63.1, 88.1, typeof(Board), 1044041, 23, 1044351);            
+            AddCraft(typeof(YewWoodTable), 1044291, 1044307, 63.1, 88.1, typeof(Board), 1044041, 23, 1044351);
 
             if (Core.SE)
             {
@@ -654,7 +656,7 @@ namespace Server.Engines.Craft
                 AddRes(index, typeof(FireRuby), 1026254, 2, 1053098);
                 ForceNonExceptional(index);
 
-				index = AddCraft(typeof(TallElvenBedSouthDeed), 1044290, 1072858, 94.7, 119.7, typeof(Board), 1044041, 200, 1044351);
+                index = AddCraft(typeof(TallElvenBedSouthDeed), 1044290, 1072858, 94.7, 119.7, typeof(Board), 1044041, 200, 1044351);
                 AddSkill(index, SkillName.Tailoring, 75.0, 80.0);
                 AddRes(index, typeof(Cloth), 1044286, 100, 1044287);
                 AddRecipe(index, (int)CarpRecipes.TallElvenBedSouth);
@@ -729,7 +731,7 @@ namespace Server.Engines.Craft
                 index = AddCraft(typeof(LongTableSouthDeed), 1044290, 1111781, 90.0, 115.0, typeof(Board), 1044041, 80, 1044351);
 
                 index = AddCraft(typeof(LongTableEastDeed), 1044290, 1111782, 90.0, 115.0, typeof(Board), 1044041, 80, 1044351);
-           
+
                 index = AddCraft(typeof(TerMurDresserEastDeed), 1044290, 1111784, 90.0, 115.0, typeof(Board), 1044041, 60, 1044351);
 
                 index = AddCraft(typeof(TerMurDresserSouthDeed), 1044290, 1111783, 90.0, 115.0, typeof(Board), 1044041, 60, 1044351);
@@ -897,7 +899,7 @@ namespace Server.Engines.Craft
 
             index = AddCraft(typeof(LoomSouthDeed), 1044298, 1044344, 84.2, 109.2, typeof(Board), 1044041, 85, 1044351);
             AddSkill(index, SkillName.Tailoring, 65.0, 70.0);
-            AddRes(index, typeof(Cloth), 1044286, 25, 1044287);            
+            AddRes(index, typeof(Cloth), 1044286, 25, 1044287);
 
             index = AddCraft(typeof(StoneOvenEastDeed), 1044298, 1044345, 68.4, 93.4, typeof(Board), 1044041, 85, 1044351);
             AddSkill(index, SkillName.Tinkering, 50.0, 55.0);

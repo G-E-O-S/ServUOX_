@@ -1,9 +1,8 @@
-using System;
-using System.Linq;
-using System.Text;
 using Server.Items;
 using Server.Mobiles;
 using Server.Targeting;
+using System;
+using System.Text;
 
 namespace Server.SkillHandlers
 {
@@ -54,12 +53,18 @@ namespace Server.SkillHandlers
                         Corpse c = (Corpse)target;
 
                         if (c.m_Forensicist != null)
+                        {
                             from.SendLocalizedMessage(1042750, c.m_Forensicist); // The forensicist  ~1_NAME~ has already discovered that:
+                        }
                         else
+                        {
                             c.m_Forensicist = from.Name;
+                        }
 
                         if (((Body)c.Amount).IsHuman)
+                        {
                             from.SendLocalizedMessage(1042751, (c.Killer == null ? "no one" : c.Killer.Name));//This person was killed by ~1_KILLER_NAME~
+                        }
 
                         if (c.Looters.Count > 0)
                         {
@@ -68,9 +73,11 @@ namespace Server.SkillHandlers
                             for (int i = 0; i < c.Looters.Count; i++)
                             {
                                 if (i > 0)
+                                {
                                     sb.Append(", ");
+                                }
 
-                                sb.Append(((Mobile)c.Looters[i]).Name);
+                                sb.Append(c.Looters[i].Name);
                             }
 
                             from.SendLocalizedMessage(1042752, sb.ToString());//This body has been distrubed by ~1_PLAYER_NAMES~
@@ -139,7 +146,7 @@ namespace Server.SkillHandlers
                     {
                         ((IForensicTarget)item).OnForensicEval(from);
                     }
-                    else  if (skill < 41.0)
+                    else if (skill < 41.0)
                     {
                         from.SendLocalizedMessage(501001);//You cannot determain anything useful.
                         return;
@@ -150,11 +157,13 @@ namespace Server.SkillHandlers
                     if (honestySocket != null)
                     {
                         if (honestySocket.HonestyOwner == null)
-                            Server.Services.Virtues.HonestyVirtue.AssignOwner(honestySocket);
+                        {
+                            Services.Virtues.HonestyVirtue.AssignOwner(honestySocket);
+                        }
 
                         if (from.CheckTargetSkill(SkillName.Forensics, target, 41.0, 100.0))
                         {
-                            string region = honestySocket.HonestyRegion == null ? "an unknown place" : honestySocket.HonestyRegion;
+                            string region = honestySocket.HonestyRegion ?? "an unknown place";
 
                             if (from.Skills.Forensics.Value >= 61.0)
                             {

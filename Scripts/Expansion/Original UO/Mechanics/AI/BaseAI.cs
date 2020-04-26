@@ -114,7 +114,7 @@ namespace Server.Mobiles
         {
             var name = m_Mobile.Name;
 
-            return (name != null && Insensitive.StartsWith(speech, name));
+            return name != null && Insensitive.StartsWith(speech, name);
         }
 
         private class InternalEntry : ContextMenuEntry
@@ -402,7 +402,7 @@ namespace Server.Mobiles
             SkillName.ItemID, SkillName.ArmsLore, SkillName.Begging, SkillName.Blacksmith, SkillName.Fletching,
             SkillName.Peacemaking, SkillName.Camping, SkillName.Carpentry, SkillName.Cartography, SkillName.Cooking,
             SkillName.DetectHidden, SkillName.Discordance,
-			SkillName.EvalInt, SkillName.Fishing, SkillName.Provocation, SkillName.Lockpicking, SkillName.Magery,
+            SkillName.EvalInt, SkillName.Fishing, SkillName.Provocation, SkillName.Lockpicking, SkillName.Magery,
             SkillName.MagicResist, SkillName.Tactics, SkillName.Snooping, SkillName.RemoveTrap, SkillName.Musicianship,
             SkillName.Poisoning, SkillName.Archery, SkillName.SpiritSpeak, SkillName.Tailoring, SkillName.AnimalTaming,
             SkillName.TasteID, SkillName.Tinkering, SkillName.Veterinary, SkillName.Forensics, SkillName.Herding,

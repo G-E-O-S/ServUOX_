@@ -1,23 +1,12 @@
-using System;
 using Server.Multis;
 using Server.Network;
+using System;
 
 namespace Server.SkillHandlers
 {
     public class Hiding
     {
-        private static bool m_CombatOverride;
-        public static bool CombatOverride
-        {
-            get
-            {
-                return m_CombatOverride;
-            }
-            set
-            {
-                m_CombatOverride = value;
-            }
-        }
+        public static bool CombatOverride { get; set; }
         public static void Initialize()
         {
             SkillInfo.Table[21].Callback = new SkillUseCallback(OnUse);
@@ -52,31 +41,41 @@ namespace Server.SkillHandlers
             else if (!Core.AOS)
             {
                 if (house == null)
+                {
                     house = BaseHouse.FindHouseAt(new Point3D(m.X - 1, m.Y, 127), m.Map, 16);
+                }
 
                 if (house == null)
+                {
                     house = BaseHouse.FindHouseAt(new Point3D(m.X + 1, m.Y, 127), m.Map, 16);
+                }
 
                 if (house == null)
+                {
                     house = BaseHouse.FindHouseAt(new Point3D(m.X, m.Y - 1, 127), m.Map, 16);
+                }
 
                 if (house == null)
+                {
                     house = BaseHouse.FindHouseAt(new Point3D(m.X, m.Y + 1, 127), m.Map, 16);
+                }
 
                 if (house != null)
+                {
                     bonus = 50.0;
+                }
             }
 
             //int range = 18 - (int)(m.Skills[SkillName.Hiding].Value / 10);
             int skill = Math.Min(100, (int)m.Skills[SkillName.Hiding].Value);
-            int range = Math.Min((int)((100 - skill) / 2) + 8, 18);	//Cap of 18 not OSI-exact, intentional difference
+            int range = Math.Min((100 - skill) / 2 + 8, 18);	//Cap of 18 not OSI-exact, intentional difference
 
-            bool badCombat = (!m_CombatOverride && m.Combatant is Mobile && m.InRange(m.Combatant.Location, range) && ((Mobile)m.Combatant).InLOS(m.Combatant));
+            bool badCombat = (!CombatOverride && m.Combatant is Mobile && m.InRange(m.Combatant.Location, range) && ((Mobile)m.Combatant).InLOS(m.Combatant));
             bool ok = (!badCombat /*&& m.CheckSkill( SkillName.Hiding, 0.0 - bonus, 100.0 - bonus )*/);
 
             if (ok)
             {
-                if (!m_CombatOverride)
+                if (!CombatOverride)
                 {
                     IPooledEnumerable eable = m.GetMobilesInRange(range);
 
@@ -105,13 +104,13 @@ namespace Server.SkillHandlers
                 return TimeSpan.Zero;
                 //return TimeSpan.FromSeconds(1.0);
             }
-            else 
+            else
             {
                 if (ok)
                 {
                     m.Hidden = true;
                     m.Warmode = false;
-					Spells.Sixth.InvisibilitySpell.RemoveTimer(m);
+                    Spells.Sixth.InvisibilitySpell.RemoveTimer(m);
                     Items.InvisibilityPotion.RemoveTimer(m);
                     m.LocalOverheadMessage(MessageType.Regular, 0x1F4, 501240); // You have hidden yourself well.
                 }

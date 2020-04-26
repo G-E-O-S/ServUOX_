@@ -1,4 +1,3 @@
-using System;
 using Server.Gumps;
 using Server.Network;
 
@@ -6,7 +5,7 @@ namespace Server.Items
 {
     public class HairDye : Item
     {
-        public override int LabelNumber { get { return 1041060; } } // Hair Dye
+        public override int LabelNumber => 1041060;  // Hair Dye
 
         [Constructable]
         public HairDye()
@@ -23,13 +22,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         public override void OnDoubleClick(Mobile from)
@@ -93,8 +92,8 @@ namespace Server.Items
 
                 for (int j = 0; j < e.HueCount; ++j)
                 {
-                    AddLabel(278 + ((j / 16) * 80), 52 + ((j % 16) * 17), e.HueStart + j - 1, "*****");
-                    AddRadio(260 + ((j / 16) * 80), 52 + ((j % 16) * 17), 210, 211, false, (i * 100) + j);
+                    AddLabel(278 + (j / 16 * 80), 52 + (j % 16 * 17), e.HueStart + j - 1, "*****");
+                    AddRadio(260 + (j / 16 * 80), 52 + (j % 16 * 17), 210, 211, false, (i * 100) + j);
                 }
             }
         }
@@ -102,12 +101,14 @@ namespace Server.Items
         public override void OnResponse(NetState from, RelayInfo info)
         {
             if (m_HairDye.Deleted)
+            {
                 return;
+            }
 
             Mobile m = from.Mobile;
             int[] switches = info.Switches;
 
-            if (!m_HairDye.IsChildOf(m.Backpack)) 
+            if (!m_HairDye.IsChildOf(m.Backpack))
             {
                 m.SendLocalizedMessage(1042010); //You must have the objectin your backpack to use it.
                 return;
@@ -151,37 +152,16 @@ namespace Server.Items
 
         private class HairDyeEntry
         {
-            private readonly string m_Name;
-            private readonly int m_HueStart;
-            private readonly int m_HueCount;
             public HairDyeEntry(string name, int hueStart, int hueCount)
             {
-                m_Name = name;
-                m_HueStart = hueStart;
-                m_HueCount = hueCount;
+                Name = name;
+                HueStart = hueStart;
+                HueCount = hueCount;
             }
 
-            public string Name
-            {
-                get
-                {
-                    return m_Name;
-                }
-            }
-            public int HueStart
-            {
-                get
-                {
-                    return m_HueStart;
-                }
-            }
-            public int HueCount
-            {
-                get
-                {
-                    return m_HueCount;
-                }
-            }
+            public string Name { get; }
+            public int HueStart { get; }
+            public int HueCount { get; }
         }
     }
 }

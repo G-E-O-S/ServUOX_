@@ -34,7 +34,7 @@ namespace Server.SkillHandlers
             }
             else
             {
-                m.Target = new InternalTarget();
+                m.Target = new RemoveTrapTarget();
 
                 m.SendLocalizedMessage(502368); // Wich trap will you attempt to disarm?
             }
@@ -42,9 +42,9 @@ namespace Server.SkillHandlers
             return TimeSpan.FromSeconds(10.0); // 10 second delay before beign able to re-use a skill
         }
 
-        private class InternalTarget : Target
+        private class RemoveTrapTarget : Target
         {
-            public InternalTarget()
+            public RemoveTrapTarget()
                 : base(2, false, TargetFlags.None)
             {
             }
@@ -192,10 +192,9 @@ namespace Server.SkillHandlers
 
                             if (trap.Owner != null && from != trap.Owner)
                             {
-                                Guild fromG = from.Guild as Guild;
                                 Guild ownerG = trap.Owner.Guild as Guild;
 
-                                if (fromG != null && fromG != ownerG && !fromG.IsAlly(ownerG) && ViceVsVirtueSystem.Instance != null
+                                if (from.Guild is Guild fromG && fromG != ownerG && !fromG.IsAlly(ownerG) && ViceVsVirtueSystem.Instance != null
                                     && ViceVsVirtueSystem.Instance.Battle != null && ViceVsVirtueSystem.Instance.Battle.OnGoing)
                                 {
                                     ViceVsVirtueSystem.Instance.Battle.Update(from, UpdateType.Disarm);
@@ -210,10 +209,8 @@ namespace Server.SkillHandlers
                         }
                     }
                 }
-                else if (targeted is GoblinFloorTrap)
+                else if (targeted is GoblinFloorTrap targ)
                 {
-                    GoblinFloorTrap targ = (GoblinFloorTrap)targeted;
-
                     if (from.InRange(targ.Location, 3))
                     {
                         from.Direction = from.GetDirectionTo(targ);
