@@ -240,8 +240,7 @@ namespace Server.Items
 
     public class MiniHouseInfo
     {
-        public static MiniHouseInfo[] Info { get { return m_Info; } }
-        private static readonly MiniHouseInfo[] m_Info = new MiniHouseInfo[]
+        public static MiniHouseInfo[] Info { get; } = new MiniHouseInfo[]
         {
             /* Stone and plaster house           */ new MiniHouseInfo(0x22C4, 1, 1011303),
             /* Field stone house                 */ new MiniHouseInfo(0x22DE, 1, 1011304),
@@ -267,37 +266,34 @@ namespace Server.Items
             /* Church At Night                   */ new MiniHouseInfo(1072215, 0x2318, 0x2317, 0x2319, 0x1)
         };
 
-        private readonly int[] m_Graphics;
-        private readonly int m_LabelNumber;
-
         public MiniHouseInfo(int start, int count, int labelNumber)
         {
-            m_Graphics = new int[count];
+            Graphics = new int[count];
 
             for (int i = 0; i < count; ++i)
-                m_Graphics[i] = start + i;
+                Graphics[i] = start + i;
 
-            m_LabelNumber = labelNumber;
+            LabelNumber = labelNumber;
         }
 
         public MiniHouseInfo(int labelNumber, params int[] graphics)
         {
-            m_LabelNumber = labelNumber;
-            m_Graphics = graphics;
+            LabelNumber = labelNumber;
+            Graphics = graphics;
         }
 
-        public int[] Graphics { get { return m_Graphics; } }
+        public int[] Graphics { get; }
 
-        public int LabelNumber { get { return m_LabelNumber; } }
+        public int LabelNumber { get; }
 
         public static MiniHouseInfo GetInfo(MiniHouseType type)
         {
             int v = (int)type;
 
-            if (v < 0 || v >= m_Info.Length)
+            if (v < 0 || v >= Info.Length)
                 v = 0;
 
-            return m_Info[v];
+            return Info[v];
         }
     }
 }

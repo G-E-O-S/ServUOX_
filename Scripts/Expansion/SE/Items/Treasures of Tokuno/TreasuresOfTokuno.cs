@@ -33,8 +33,8 @@ namespace Server.Misc
         }
 
         public const int ItemsPerReward = 10;
-		
-        private static readonly Type[] m_LesserArtifactsTotal = new Type[]
+
+        public static Type[] LesserArtifactsTotal { get; } = new Type[]
         {
             typeof(AncientFarmersKasa), typeof(AncientSamuraiDo), typeof(ArmsOfTacticalExcellence), typeof(BlackLotusHood),
             typeof(DaimyosHelm), typeof(DemonForks), typeof(DragonNunchaku), typeof(Exiler), typeof(GlovesOfTheSun),
@@ -42,15 +42,7 @@ namespace Server.Misc
             typeof(TomeOfEnlightenment), typeof(AncientUrn), typeof(HonorableSwords), typeof(PigmentsOfTokuno), typeof(FluteOfRenewal),
             typeof(LeurociansMempoOfFortune), typeof(LesserPigmentsOfTokuno), typeof(MetalPigmentsOfTokuno), typeof(ChestOfHeirlooms)
         };
-		
-        public static Type[] LesserArtifactsTotal
-        {
-            get
-            {
-                return m_LesserArtifactsTotal;
-            }
-        }
-		
+
         private static TreasuresOfTokunoEra _DropEra = TreasuresOfTokunoEra.None;
         private static TreasuresOfTokunoEra _RewardEra = TreasuresOfTokunoEra.ToTOne;
 		

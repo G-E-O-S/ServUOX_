@@ -192,7 +192,7 @@
     <Compile Include="Expansion\Original UO\Items\Provision\Food and Drink\Vegetables\Onion.cs" />
     <Compile Include="Expansion\Original UO\Items\Provision\Food and Drink\Vegetables\Cabbage.cs" />
     <Compile Include="Expansion\Original UO\Items\Provision\Food and Drink\Vegetables\Lettuce.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\BasketOfGreenTeaMug.cs" />
+    <Compile Include="Expansion\SE\Items\Food and Drinks\BasketOfGreenTeaMug.cs" />
     <Compile Include="Expansion\HS\XxUnsortedxX\CoffeeMug.cs" />
     <Compile Include="Expansion\Original UO\Items\Provision\Food and Drink\Beverages\CeramicMug.cs" />
     <Compile Include="Expansion\Original UO\Items\Provision\Food and Drink\Beverages\Goblet.cs" />
@@ -262,9 +262,9 @@
     <Compile Include="Expansion\SA\XxUnsortedxX\GargishApron.cs" />
     <Compile Include="Expansion\SA\XxUnsortedxX\GargoyleHalfApron.cs" />
     <Compile Include="Expansion\ML\XxSortingxX\WoodlandBelt.cs" />
-    <Compile Include="Expansion\SE\FanDancerDojo\HordeMinion.cs" />
-    <Compile Include="Expansion\SE\FanDancerDojo\HordeMinionFamiliar.cs" />
-    <Compile Include="Expansion\SE\Items\Obi.cs" />
+    <Compile Include="Expansion\SE\Mobiles\HordeMinion.cs" />
+    <Compile Include="Expansion\SE\Mobiles\HordeMinionFamiliar.cs" />
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Obi.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Bears.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Pigs.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Animals\Wolves.cs" />
@@ -900,7 +900,7 @@
     <Compile Include="Expansion\EJ\XxUnsortedxX\CircuitTrapTrainingKit.cs" />
     <Compile Include="Expansion\EJ\XxUnsortedxX\CylinderTrapTrainingKit.cs" />
     <Compile Include="Expansion\EJ\XxUnsortedxX\SliderTrapTrainingKit.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\StrangeContraption.cs" />
+    <Compile Include="Expansion\UOTD\StrangeContraption.cs" />
     <Compile Include="Expansion\SA\ItemSockets\SearingWeapon.cs" />
     <Compile Include="Expansion\ML\Quest\RewardBooks.cs" />
     <Compile Include="Expansion\SA\Items\Resource\FocusingGemOfVirtueBane.cs" />
@@ -1046,7 +1046,7 @@
     <Compile Include="Holiday Items\HolidaysSign.cs" />
     <Compile Include="Holiday Items\CrystalSkull.cs" />
     <Compile Include="Holiday Items\ObsidianSkull.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\CustomizableRoundedDoorMat.cs" />
+    <Compile Include="Expansion\SE\Items\Decorative\CustomizableRoundedDoorMat.cs" />
     <Compile Include="Holiday Items\StaghornFern.cs" />
     <Compile Include="Holiday Items\CustomizableSquaredDoorMat.cs" />
     <Compile Include="Holiday Items\Wreath.cs" />
@@ -1206,7 +1206,7 @@
     <Compile Include="Expansion\SA\XxUnsortedxX\DeliciouslyTastyTreat.cs" />
     <Compile Include="Expansion\SA\XxUnsortedxX\IrresistiblyTastyTreat.cs" />
     <Compile Include="Expansion\HS\Consumables\SkinTingeingTincture.cs" />
-    <Compile Include="Expansion\ML\XxSortingxX\SoulstonePromotionalTokens.cs" />
+    <Compile Include="Expansion\AOS\Items\Promotions\SoulstonePromotionalTokens.cs" />
     <Compile Include="Expansion\HS\XxUnsortedxX\TastyTreat.cs" />
     <Compile Include="Expansion\HS\XxUnsortedxX\ShipsStrongbox.cs" />
     <Compile Include="Expansion\SA\XxUnsortedxX\AllegiancePouch.cs" />
@@ -1315,10 +1315,10 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Clothing\BaseClothing.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\HS\Consumables\BaseConflagrationPotion.cs">
+    <Compile Include="Expansion\SE\Items\Publish 32\BaseConflagrationPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\HS\Consumables\BaseConfusionBlastPotion.cs">
+    <Compile Include="Expansion\SE\Items\Publish 32\BaseConfusionBlastPotion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\BaseCurePotion.cs">
@@ -1362,16 +1362,16 @@
     <Compile Include="Expansion\TOL\SeedBox\SeedEntry.cs" />
     <Compile Include="Expansion\HS\XxUnsortedxX\WallSafe.cs" />
     <Compile Include="Expansion\ML\XxSortingxX\BlightedGroveTeleporters.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\BlueNinjaQuestTeleporter.cs" />
+    <Compile Include="Expansion\SE\Items\Teleporters\BlueNinjaQuestTeleporter.cs" />
     <Compile Include="Expansion\XSORTINGX\CrystalTeleporter.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\EffectMobile.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\GreenNinjaQuestTeleporter.cs" />
+    <Compile Include="Expansion\SE\Items\Teleporters\GreenNinjaQuestTeleporter.cs" />
     <Compile Include="Expansion\Original UO\Items\ItemInterfaces.cs" />
     <Compile Include="Expansion\SA\XxUnsortedxX\MacawSpawner.cs" />
     <Compile Include="Expansion\ML\XxSortingxX\PrismOfLightTeleporters.cs" />
     <Compile Include="Expansion\Original UO\Items\World\Teleporters\PvPWarnTeleporter.cs" />
     <Compile Include="Expansion\SA\XxUnsortedxX\UnderworldTele.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\WhiteNinjaQuestTeleporter.cs" />
+    <Compile Include="Expansion\SE\Items\Teleporters\WhiteNinjaQuestTeleporter.cs" />
     <Compile Include="Expansion\ML\Quest\AbyssKey.cs" />
     <Compile Include="Expansion\ML\Quest\BlueKey1.cs" />
     <Compile Include="Expansion\ML\Quest\Bluekeyfragment.cs" />
@@ -1774,7 +1774,7 @@
     <Compile Include="Expansion\SA\Items\Resource\FeyWings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Firebomb.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Firebomb.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\FlipableAddonAttribute.cs">
@@ -1862,7 +1862,7 @@
     <Compile Include="Expansion\UOTD\XxUnsortedxX\OilCloth.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Origami.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Origami.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Quest\GrobusFur.cs">
@@ -2139,7 +2139,7 @@
     <Compile Include="Expansion\Original UO\Items\Admin\Waypoint.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\WindChimes.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\WindChimes.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Customs\GMEthereal.cs">
@@ -2267,7 +2267,7 @@
     <Compile Include="Expansion\Original UO\Items\Addons\GiantWebs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\GozaMats.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\GozaMats.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Addons\GrayBrickFireplaceEastAddon.cs">
@@ -2339,7 +2339,7 @@
     <Compile Include="Mobiles\Bosses\PrimevalLich.cs" />
     <Compile Include="Mobiles\Bosses\Rikktor.cs" />
     <Compile Include="Mobiles\Bosses\Semidar.cs" />
-    <Compile Include="Mobiles\Bosses\Serado.cs" />
+    <Compile Include="Expansion\SE\Mobiles\Champions\Serado.cs" />
     <Compile Include="Mobiles\Bosses\ServantOfSemidar.cs" />
     <Compile Include="Mobiles\Bosses\Silvani.cs" />
     <Compile Include="Mobiles\Event\BaneDragon.cs" />
@@ -4092,7 +4092,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Chain\ChainChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\ChainHatsuburi.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\ChainHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Chain\ChainLegs.cs">
@@ -4272,7 +4272,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Chain\ChainCoif.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\Circlet.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Circlet.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Helmets\CloseHelm.cs">
@@ -4389,7 +4389,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherDo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherGloves.cs">
@@ -4398,31 +4398,31 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherHaidate.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherHiroSode.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherJingasa.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherMempo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherNinjaHood.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherNinjaHood.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherNinjaJacket.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherNinjaJacket.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherNinjaMitts.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherNinjaMitts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherNinjaPants.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherNinjaPants.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherShorts.cs">
@@ -4431,7 +4431,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Leather\LeatherSkirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherSuneate.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Sets\Luck\EtoileBleue.cs">
@@ -4524,7 +4524,7 @@
     <Compile Include="Expansion\ML\Items\Sets\Paladin\PaladinLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\DecorativePlateKabuto.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\DecorativePlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Platemail\FemalePlateChest.cs">
@@ -4533,22 +4533,22 @@
     <Compile Include="Expansion\ML\XxSortingxX\FemaleWoodlandChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\HeavyPlateJingasa.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\HeavyPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LightPlateJingasa.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\LightPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateArms.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateBattleKabuto.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateBattleKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateDo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateGloves.cs">
@@ -4557,28 +4557,28 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateHaidate.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateHatsuburi.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateHatsuburi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateHiroSode.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Platemail\PlateLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateMempo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\PlateSuneate.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\PlateSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\SmallPlateJingasa.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\SmallPlateJingasa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\StandardPlateKabuto.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\StandardPlateKabuto.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\XxSortingxX\WoodlandArms.cs">
@@ -4725,7 +4725,7 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedChest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\StuddedDo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Studded\StuddedDo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedGloves.cs">
@@ -4734,19 +4734,19 @@
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedGorget.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\StuddedHaidate.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Studded\StuddedHaidate.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\StuddedHiroSode.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Studded\StuddedHiroSode.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\Armor and Shields\Studded\StuddedLegs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\StuddedMempo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Studded\StuddedMempo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\StuddedSuneate.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Studded\StuddedSuneate.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\Sets\Virtue\CompassionArms.cs">
@@ -4880,7 +4880,7 @@
     <Compile Include="Expansion\SA\Items\Clothing\EmbroideredOakLeafCloak.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\GauntletsOfAnger.cs">
+    <Compile Include="Expansion\SA\XxUnsortedxX\GauntletsOfAnger.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Clothing\LieutenantOfTheBritannianRoyalGuard.cs">
@@ -4913,7 +4913,7 @@
     <Compile Include="Expansion\SA\Items\Weapons\FangOfRactus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\GladiatorsCollar.cs">
+    <Compile Include="Expansion\SA\XxUnsortedxX\GladiatorsCollar.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\XxUnsortedxX\OrcChieftainHelm.cs">
@@ -5051,7 +5051,7 @@
     <Compile Include="Expansion\Original UO\Items\World\Doors\SecretDoors.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\SlidingDoors.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\SlidingDoors.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Decorations\Floors.cs">
@@ -5072,7 +5072,7 @@
     <Compile Include="Expansion\HS\XxUnsortedxX\Obelisk.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Screens.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Screens.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Decorations\Statues.cs">
@@ -5102,7 +5102,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\WritingTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\BaseSliding.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\BaseSliding.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Customs\DesCityWall.cs">
@@ -5120,7 +5120,7 @@
     <Compile Include="Expansion\ML\XxSortingxX\DungeonWallAndVineAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\SecretSlidingWalls.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\SecretSlidingWalls.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\XxSortingxX\StoneWallAndVineAddon.cs">
@@ -5183,7 +5183,7 @@
     <Compile Include="Expansion\SA\XxUnsortedxX\SADecorationArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\SEDecorationArtifacts.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\SEDecorationArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\World\StealableArtifactsSpawner.cs">
@@ -5255,7 +5255,7 @@
     <Compile Include="Expansion\Original UO\Items\World\Crops\FarmableWheat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Asian.cs">
+    <Compile Include="Expansion\SE\Items\Food and Drinks\Asian.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\XxUnsortedxX\BaseMagicalFood.cs">
@@ -5555,16 +5555,16 @@
     <Compile Include="Expansion\Original UO\Items\Admin\LightSource.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\PaperLantern.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Lights\PaperLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\RedHangingLantern.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Lights\RedHangingLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\RoundPaperLantern.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Lights\RoundPaperLantern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\ShojiLantern.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Lights\ShojiLantern.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Equipment\EquipableLight\Torch.cs">
@@ -5576,7 +5576,7 @@
     <Compile Include="Expansion\Original UO\Items\Decorations\Lights\WallTorch.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\WhiteHangingLantern.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\Lights\WhiteHangingLantern.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Maps\BlankMap.cs">
@@ -6037,7 +6037,7 @@
     <Compile Include="Expansion\ML\XxSortingxX\SentinelsGuard.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\SmallPlateShield.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Plate\SmallPlateShield.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\XxUnsortedxX\WallOfHungryMouths.cs">
@@ -6205,13 +6205,13 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Resources\Log.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\BookOfBushido.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\BookOfBushido.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Items\Equipment\BookOfChivalry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\BookOfNinjitsu.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\BookOfNinjitsu.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\XxSortingxX\ConjurersGrimoire.cs">
@@ -6250,16 +6250,16 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\GreaterAgilityPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\HS\Consumables\ConflagrationPotion.cs">
+    <Compile Include="Expansion\SE\Items\Publish 32\ConflagrationPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\HS\Consumables\GreaterConflagrationPotion.cs">
+    <Compile Include="Expansion\SE\Items\Publish 32\GreaterConflagrationPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\HS\Consumables\ConfusionBlastPotion.cs">
+    <Compile Include="Expansion\SE\Items\Publish 32\ConfusionBlastPotion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\HS\Consumables\GreaterConfusionBlastPotion.cs">
+    <Compile Include="Expansion\SE\Items\Publish 32\GreaterConfusionBlastPotion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Potions\CurePotion.cs">
@@ -6667,25 +6667,25 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Instruments\TambourineTassel.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\EggBomb.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\EggBomb.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Fukiya.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Fukiya.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\FukiyaDarts.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\FukiyaDarts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Items\LeatherNinjaBelt.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Armor\Leather\LeatherNinjaBelt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\NinjaWeapons.cs">
+    <Compile Include="Expansion\SE\Mechanics\Abilities\NinjaWeapons.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Shuriken.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Shuriken.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\SmokeBomb.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\SmokeBomb.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOTD\XxUnsortedxX\GemMiningBook.cs">
@@ -6718,16 +6718,16 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Tools\DyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\FurnitureDyeTub.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\FurnitureDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\LeatherDyeTub.cs">
+    <Compile Include="Expansion\UOTD\LeatherDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\RewardBlackDyeTub.cs">
+    <Compile Include="Expansion\Original UO\Items\Provision\RewardBlackDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\RunebookDyeTub.cs">
+    <Compile Include="Expansion\AOS\Items\RunebookDyeTub.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\XSORTINGX\SpecialDyeTub.cs">
@@ -7006,25 +7006,25 @@
     <Compile Include="Expansion\ML\Items\9th Anniversary Gifts\Evil Home Decor Set\UnsettlingPortrait.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\HearthOfHomeFire.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\HearthOfHomeFire.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\HolySword.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\HolySword.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\LeggingsOfEmbers.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\LeggingsOfEmbers.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\RoseOfTrinsic.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\RoseOfTrinsic.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\SamuraiHelm.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\SamuraiHelm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\ShaminoCrossbow.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\ShaminoCrossbow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\7th Anniversary Gifts\TapestryOfSosaria.cs">
+    <Compile Include="Expansion\SE\Items\7th Anniversary Gifts\TapestryOfSosaria.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\Items\9th Anniversary Gifts\Heritage Collection\Trees\AppleTrunk.cs">
@@ -7576,7 +7576,7 @@
     <Compile Include="Expansion\SA\Items\Resource\ZoogiFungus.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\ML\XxSortingxX\SoulStone.cs">
+    <Compile Include="Expansion\AOS\Items\Promotions\SoulStone.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\T2A\ItemBlessDeed.cs">
@@ -8411,40 +8411,40 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Mechanics\Abilities\SAPropEffects.cs" />
-    <Compile Include="Expansion\SE\XxUnsortedxX\Bokuto.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Bokuto.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Daisho.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Daisho.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Kama.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Kama.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Lajatang.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Lajatang.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\NoDachi.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\NoDachi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Nunchaku.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Nunchaku.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Sai.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Sai.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Tekagi.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Tekagi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Tessen.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Tessen.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Tetsubo.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Tetsubo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Wakizashi.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Wakizashi.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\Yumi.cs">
+    <Compile Include="Expansion\SE\Items\Equipment\Weapons\Yumi.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Mechanics\Slayers\SlayerEntry.cs">
@@ -9258,7 +9258,7 @@
     <Compile Include="Expansion\ML\Items\CommunityCollections\RoyalZooDonationBox.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\Decorative\BakeKitsuneStatue.cs">
+    <Compile Include="Expansion\SE\Items\Decorative\BakeKitsuneStatue.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\XSORTINGX\Decorative\ChangelingStatue.cs">
@@ -10319,8 +10319,8 @@
     <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\SorcerersDungeonResearcher.cs" />
     <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\SorcerersDungeonRewards.cs" />
     <Compile Include="Expansion\TOL\TreasuresOfSorceresDungeon\Spawner.cs" />
-    <Compile Include="Expansion\SE\TreasuresOfTokuno\TreasuresOfTokuno.cs" />
-    <Compile Include="Expansion\SE\TreasuresOfTokuno\TreasuresOfTokunoPersistence.cs" />
+    <Compile Include="Expansion\SE\Items\Treasures of Tokuno\TreasuresOfTokuno.cs" />
+    <Compile Include="Expansion\SE\Items\Treasures of Tokuno\TreasuresOfTokunoPersistence.cs" />
     <Compile Include="Mechanics\Spawner\SpawnObject.cs" />
     <Compile Include="Expansion\SA\Tomb of Kings\Arisen Invasion\ArisenController.cs" />
     <Compile Include="Expansion\SA\Tomb of Kings\Chambers\Chamber.cs" />
@@ -11148,13 +11148,13 @@
     <Compile Include="Mechanics\Spawner\SpawnerType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\SE\XxUnsortedxX\BasePigmentsOfTokuno.cs">
+    <Compile Include="Expansion\SE\Items\Treasures of Tokuno\BasePigmentsOfTokuno.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\TOL\Artifacts\TOTGreaterArtifacts.cs">
+    <Compile Include="Expansion\SE\Items\Treasures of Tokuno\TOTGreaterArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\TOL\Artifacts\TOTLesserArtifacts.cs">
+    <Compile Include="Expansion\SE\Items\Treasures of Tokuno\TOTLesserArtifacts.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\AOS\Mechanics\Shard of the Dead\TrickOrTreat.cs" />
@@ -12379,6 +12379,7 @@
   <ItemGroup>
     <Folder Include="Expansion\AOS\XxUnsortedxX\" />
     <Folder Include="Expansion\ML\Mechanics\Skills\" />
+    <Folder Include="Expansion\SE\XxUnsortedxX\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
