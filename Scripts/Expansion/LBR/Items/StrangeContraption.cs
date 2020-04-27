@@ -107,13 +107,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write(0); // Version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -123,8 +123,8 @@ namespace Server.Items
         public static StrangeContraptionAddon InstanceFel { get; set; }
 
         public static void Initialize()
-        {
-            if (Core.T2A)
+        {            
+            if (Core.LBR)
             {
                 if (InstanceTram == null)
                 {
@@ -198,13 +198,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             if (Core.T2A)
             {

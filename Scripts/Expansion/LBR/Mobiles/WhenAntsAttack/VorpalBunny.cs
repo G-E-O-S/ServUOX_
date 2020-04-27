@@ -6,6 +6,38 @@ namespace Server.Mobiles
     [CorpseName("a vorpal bunny corpse")]
     public class VorpalBunny : BaseCreature
     {
+        public class BunnyHole : Item
+        {
+            public BunnyHole()
+                : base(0x913)
+            {
+                Movable = false;
+                Hue = 1;
+                Name = "a mysterious rabbit hole";
+
+                Timer.DelayCall(TimeSpan.FromSeconds(40.0), new TimerCallback(Delete));
+            }
+
+            public BunnyHole(Serial serial)
+                : base(serial)
+            {
+            }
+
+            public override void Serialize(GenericWriter writer)
+            {
+                base.Serialize(writer);
+                writer.Write(0);
+            }
+
+            public override void Deserialize(GenericReader reader)
+            {
+                base.Deserialize(reader);
+                _ = reader.ReadInt();
+
+                Delete();
+            }
+        }
+
         [Constructable]
         public VorpalBunny()
             : base(AIType.AI_Melee, FightMode.Aggressor, 10, 1, 0.1, 0.2)
@@ -59,10 +91,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override int Meat { get { return 1; } }
-        public override int Hides { get { return 1; } }
-        public override bool BardImmunity { get { return !Core.AOS; } }
-		
+        public override int Meat => 1;
+        public override int Hides => 1;
+        public override bool BardImmunity => !Core.AOS;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich);
@@ -71,7 +103,7 @@ namespace Server.Mobiles
 
         public override IDamageable Combatant
         {
-            get { return base.Combatant; }
+            get => base.Combatant;
             set
             {
                 base.Combatant = value;
@@ -119,51 +151,15 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             DelayBeginTunnel();
-        }
-
-        public class BunnyHole : Item
-        {
-            public BunnyHole()
-                : base(0x913)
-            {
-                Movable = false;
-                Hue = 1;
-                Name = "a mysterious rabbit hole";
-
-                Timer.DelayCall(TimeSpan.FromSeconds(40.0), new TimerCallback(Delete));
-            }
-
-            public BunnyHole(Serial serial)
-                : base(serial)
-            {
-            }
-
-            public override void Serialize(GenericWriter writer)
-            {
-                base.Serialize(writer);
-
-                writer.Write((int)0);
-            }
-
-            public override void Deserialize(GenericReader reader)
-            {
-                base.Deserialize(reader);
-
-                int version = reader.ReadInt();
-
-                Delete();
-            }
         }
     }
 }

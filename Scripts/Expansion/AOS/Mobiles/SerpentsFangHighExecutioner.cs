@@ -32,9 +32,9 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AlwaysMurderer { get { return true; } }
-        public override bool ShowFameTitle { get { return false; } }
-		
+        public override bool AlwaysMurderer => true;
+        public override bool ShowFameTitle => false;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.AosFilthyRich, 6);
@@ -46,26 +46,26 @@ namespace Server.Mobiles
                 from.Damage(damage / 2, from);
         }
 
-        public override void OnDeath(Container c)
+        public override void OnDeath(Container CorpseLoot)
         {
-            base.OnDeath(c);	
-
-                c.DropItem(new SerpentFangKey());
+            CorpseLoot.DropItem(new SerpentFangKey());
 
             if (Utility.RandomDouble() < 0.5)
-                c.DropItem(new SerpentFangSectBadge());
+                CorpseLoot.DropItem(new SerpentFangSectBadge());
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);			
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
-            base.Deserialize(reader);			
-            int version = reader.ReadInt();
+            base.Deserialize(reader);
+            _ = reader.ReadInt();
         }
     }
 }

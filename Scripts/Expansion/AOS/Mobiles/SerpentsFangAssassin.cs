@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -25,21 +24,28 @@ namespace Server.Mobiles
             AddItem(new JinBaori(0x2A));
 
             Item item;
-
-            item = new StuddedGloves();
-            item.Hue = 0x2A;
+            item = new StuddedGloves
+            {
+                Hue = 0x2A
+            };
             AddItem(item);
 
-            item = new LeatherNinjaPants();
-            item.Hue = 0x51D;
+            item = new LeatherNinjaPants
+            {
+                Hue = 0x51D
+            };
             AddItem(item);
 
-            item = new LightPlateJingasa();
-            item.Hue = 0x51D;
+            item = new LightPlateJingasa
+            {
+                Hue = 0x51D
+            };
             AddItem(item);
 
-            item = new Sai();
-            item.Hue = 0x51D;
+            item = new Sai
+            {
+                Hue = 0x51D
+            };
             AddItem(item);
 
             SetStr(440, 460);
@@ -79,32 +85,32 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool AlwaysMurderer { get { return true; } }
-        public override bool ShowFameTitle { get { return false; } }
+        public override bool AlwaysMurderer => true;
+        public override bool ShowFameTitle => false;
 
         public override void GenerateLoot()
         {
             AddLoot(LootPack.AosFilthyRich, 4);
         }
 
-        public override void OnDeath(Container c)
+        public override void OnDeath(Container CorpseLoot)
         {
-            base.OnDeath(c);
-
             if (Utility.RandomDouble() < 0.3)
-                c.DropItem(new SerpentFangSectBadge());
+                CorpseLoot.DropItem(new SerpentFangSectBadge());
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

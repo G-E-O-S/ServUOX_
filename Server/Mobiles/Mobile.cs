@@ -6116,7 +6116,7 @@ namespace Server
                 {
                     if (m_HitsTimer == null)
                     {
-                        m_HitsTimer = new HitsTimer(this);
+                        if (m_HitsTimer == null) m_HitsTimer = new HitsTimer(this);
                     }
 
                     m_HitsTimer.Start();
@@ -6137,7 +6137,7 @@ namespace Server
                 {
                     if (m_StamTimer == null)
                     {
-                        m_StamTimer = new StamTimer(this);
+                        if (m_StamTimer == null) m_StamTimer = new StamTimer(this);
                     }
 
                     m_StamTimer.Start();
@@ -6158,7 +6158,7 @@ namespace Server
                 {
                     if (m_ManaTimer == null)
                     {
-                        m_ManaTimer = new ManaTimer(this);
+                        if (m_ManaTimer == null) m_ManaTimer = new ManaTimer(this);
                     }
 
                     m_ManaTimer.Start();
@@ -6181,7 +6181,7 @@ namespace Server
 
             if (CanRegenHits && Hits < HitsMax)
             {
-                m_HitsTimer = new HitsTimer(this);
+                if (m_HitsTimer == null) m_HitsTimer = new HitsTimer(this);
                 m_HitsTimer.Start();
             }
 
@@ -6190,7 +6190,7 @@ namespace Server
 
             if (CanRegenStam && Stam < StamMax)
             {
-                m_StamTimer = new StamTimer(this);
+                if (m_StamTimer == null) m_StamTimer = new StamTimer(this);
                 m_StamTimer.Start();
             }
 
@@ -6199,7 +6199,7 @@ namespace Server
 
             if (CanRegenMana && Mana < ManaMax)
             {
-                m_ManaTimer = new ManaTimer(this);
+                if (m_ManaTimer == null) m_ManaTimer = new ManaTimer(this);
                 m_ManaTimer.Start();
             }
         }

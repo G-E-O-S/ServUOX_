@@ -60,7 +60,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             if (BaseSoundID == 263)
                 BaseSoundID = 655;
@@ -123,7 +123,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -179,7 +179,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -218,7 +218,7 @@ namespace Server.Mobiles
             VirtualArmor = 40;
             ControlSlots = 4;
 
-            this.AddItem(new LightSource());
+            AddItem(new LightSource());
         }
 
         public SummonedFireElemental(Serial serial)
@@ -238,7 +238,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 
@@ -299,7 +299,7 @@ namespace Server.Mobiles
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

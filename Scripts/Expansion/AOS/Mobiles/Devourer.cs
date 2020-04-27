@@ -1,5 +1,3 @@
-using System;
-
 namespace Server.Mobiles
 {
     [CorpseName("a devourer of souls corpse")]
@@ -53,27 +51,10 @@ namespace Server.Mobiles
         {
         }
 
-        public override Poison PoisonImmunity
-        {
-            get
-            {
-                return Poison.Lethal;
-            }
-        }
-        public override int Meat
-        {
-            get
-            {
-                return 3;
-            }
-        }
-		public override int TreasureMapLevel
-        {
-            get
-            {
-                return 4;
-            }
-        }
+        public override Poison PoisonImmunity => Poison.Lethal;
+        public override int Meat => 3;
+        public override int TreasureMapLevel => 4;
+
         public override void GenerateLoot()
         {
             AddLoot(LootPack.FilthyRich, 2);
@@ -82,13 +63,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

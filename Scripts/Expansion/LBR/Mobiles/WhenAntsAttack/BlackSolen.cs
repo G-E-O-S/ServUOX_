@@ -128,9 +128,9 @@ namespace Server.Mobiles
         }
     }
     
-    public class BaseBlackSolenInfiltrator : BaseCreature, IBlackSolen
+    public class BaseBlackSolen : BaseCreature, IBlackSolen
     {
-        public BaseBlackSolenInfiltrator(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
+        public BaseBlackSolen(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             AI = type;
@@ -141,7 +141,7 @@ namespace Server.Mobiles
             PassiveSpeed = passivespeed;
         }
 
-        public BaseBlackSolenInfiltrator(Serial serial)
+        public BaseBlackSolen(Serial serial)
             : base(serial)
         {
         }
@@ -198,12 +198,12 @@ namespace Server.Mobiles
         }
     }
 
-    public class BaseBlackSolen : BaseBlackSolenInfiltrator
+    public class BaseBlackSolenQueen : BaseBlackSolen
     {
         private static bool m_Laid;
         private DateTime m_NextAcidBreath;
 
-        public BaseBlackSolen(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
+        public BaseBlackSolenQueen(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             AI = type;
@@ -214,7 +214,7 @@ namespace Server.Mobiles
             PassiveSpeed = passivespeed;
         }
 
-        public BaseBlackSolen(Serial serial)
+        public BaseBlackSolenQueen(Serial serial)
             : base(serial)
         {
         }
@@ -346,7 +346,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen infiltrator corpse")]
-    public class BlackSolenInfiltratorQueen : BaseBlackSolenInfiltrator
+    public class BlackSolenInfiltratorQueen : BaseBlackSolen
     {
         [Constructable]
         public BlackSolenInfiltratorQueen()
@@ -472,7 +472,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen queen corpse")]
-    public class BlackSolenQueen : BaseBlackSolen
+    public class BlackSolenQueen : BaseBlackSolenQueen
     {
         [Constructable]
         public BlackSolenQueen()
@@ -615,7 +615,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen worker corpse")]
-    public class BlackSolenWorker : BaseBlackSolenInfiltrator
+    public class BlackSolenWorker : BaseBlackSolen
     {
         [Constructable]
         public BlackSolenWorker()

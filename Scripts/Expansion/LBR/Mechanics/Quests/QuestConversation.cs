@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Server.Gumps;
 using Server.Network;
@@ -7,26 +6,16 @@ namespace Server.Engines.Quests
 {
     public abstract class QuestConversation
     {
-        private QuestSystem m_System;
-        private bool m_HasBeenRead;
         public QuestConversation()
         {
         }
 
         public abstract object Message { get; }
-        public virtual QuestItemInfo[] Info { get { return null; } }
-        public virtual bool Logged { get { return true; } }
+        public virtual QuestItemInfo[] Info => null;
+        public virtual bool Logged => true;
 
-        public QuestSystem System
-        {
-            get { return m_System; }
-            set { m_System = value; }
-        }
-        public bool HasBeenRead
-        {
-            get { return m_HasBeenRead; }
-            set { m_HasBeenRead = value; }
-        }
+        public QuestSystem System { get; set; }
+        public bool HasBeenRead { get; set; }
 
         public virtual void BaseDeserialize(GenericReader reader)
         {
@@ -36,8 +25,7 @@ namespace Server.Engines.Quests
             {
                 case 0:
                     {
-                        m_HasBeenRead = reader.ReadBool();
-
+                        HasBeenRead = reader.ReadBool();
                         break;
                     }
             }
@@ -47,21 +35,20 @@ namespace Server.Engines.Quests
 
         public virtual void ChildDeserialize(GenericReader reader)
         {
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
 
         public virtual void BaseSerialize(GenericWriter writer)
         {
-            writer.WriteEncodedInt((int)0); // version
-
-            writer.Write((bool)m_HasBeenRead);
+            writer.WriteEncodedInt(0);
+            writer.Write(HasBeenRead);
 
             ChildSerialize(writer);
         }
 
         public virtual void ChildSerialize(GenericWriter writer)
         {
-            writer.WriteEncodedInt((int)0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public virtual void OnRead()

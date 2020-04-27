@@ -46,20 +46,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override OppositionGroup OppositionGroup
-        {
-            get
-            {
-                return OppositionGroup.FeyAndUndead;
-            }
-        }
-        public override bool BleedImmunity
-        {
-            get
-            {
-                return true;
-            }
-        }
+        public override OppositionGroup OppositionGroup => OppositionGroup.FeyAndUndead;
+        public override bool BleedImmunity => true;
 
         public override int GetIdleSound()
         {
@@ -84,13 +72,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

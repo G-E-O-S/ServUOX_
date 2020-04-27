@@ -17,10 +17,10 @@ namespace Server.Items
         public GreenThorns(int amount)
             : base(0xF42)
         {
-            this.Stackable = true;
-            this.Weight = 1.0;
-            this.Hue = 0x42;
-            this.Amount = amount;
+            Stackable = true;
+            Weight = 1.0;
+            Hue = 0x42;
+            Amount = amount;
         }
 
         public GreenThorns(Serial serial)
@@ -28,19 +28,13 @@ namespace Server.Items
         {
         }
 
-        TextDefinition ICommodity.Description { get { return LabelNumber; } }
-        bool ICommodity.IsDeedable { get { return true; } }
+        TextDefinition ICommodity.Description => LabelNumber;
+        bool ICommodity.IsDeedable => true;
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return 1060837;
-            }
-        }// green thorns
+        public override int LabelNumber => 1060837;// green thorns
         public override void OnDoubleClick(Mobile from)
         {
-            if (!this.IsChildOf(from.Backpack))
+            if (!IsChildOf(from.Backpack))
             {
                 from.SendLocalizedMessage(1042664); // You must have the object in your backpack to use it.
                 return;
@@ -59,15 +53,13 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private class InternalTarget : Target
@@ -76,15 +68,15 @@ namespace Server.Items
             public InternalTarget(GreenThorns thorn)
                 : base(3, true, TargetFlags.None)
             {
-                this.m_Thorn = thorn;
+                m_Thorn = thorn;
             }
 
             protected override void OnTarget(Mobile from, object targeted)
             {
-                if (this.m_Thorn.Deleted)
+                if (m_Thorn.Deleted)
                     return;
 
-                if (!this.m_Thorn.IsChildOf(from.Backpack))
+                if (!m_Thorn.IsChildOf(from.Backpack))
                 {
                     from.SendLocalizedMessage(1042664); // You must have the object in your backpack to use it.
                     return;
@@ -118,13 +110,13 @@ namespace Server.Items
                     }
                     else
                     {
-                        this.m_Thorn.Consume();
+                        m_Thorn.Consume();
 
                         from.LocalOverheadMessage(MessageType.Emote, 0x961, 1061914); // * You push the strange green thorn into the ground *
                         from.NonlocalOverheadMessage(MessageType.Emote, 0x961, 1061915, from.Name); // * ~1_PLAYER_NAME~ pushes a strange green thorn into the ground. *
 
                         from.BeginAction(typeof(GreenThorns));
-                        new GreenThorns.EndActionTimer(from).Start();
+                        new EndActionTimer(from).Start();
 
                         effect.Start();
                     }
@@ -143,13 +135,13 @@ namespace Server.Items
             public EndActionTimer(Mobile from)
                 : base(TimeSpan.FromMinutes(3.0))
             {
-                this.m_From = from;
-                this.Priority = TimerPriority.FiveSeconds;
+                m_From = from;
+                Priority = TimerPriority.FiveSeconds;
             }
 
             protected override void OnTick()
             {
-                this.m_From.EndAction(typeof(GreenThorns));
+                m_From.EndAction(typeof(GreenThorns));
             }
         }
     }
@@ -255,41 +247,21 @@ namespace Server.Items
             },
                 typeof(SandGreenThornsEffect))
         };
-        private readonly Point3D m_Location;
-        private readonly Map m_Map;
-        private readonly Mobile m_From;
+
         private int m_Step;
         public GreenThornsEffect(Point3D location, Map map, Mobile from)
             : base(TimeSpan.FromSeconds(2.5))
         {
-            this.m_Location = location;
-            this.m_Map = map;
-            this.m_From = from;
+            Location = location;
+            Map = map;
+            From = from;
 
-            this.Priority = TimerPriority.TwoFiftyMS;
+            Priority = TimerPriority.TwoFiftyMS;
         }
 
-        public Point3D Location
-        {
-            get
-            {
-                return this.m_Location;
-            }
-        }
-        public Map Map
-        {
-            get
-            {
-                return this.m_Map;
-            }
-        }
-        public Mobile From
-        {
-            get
-            {
-                return this.m_From;
-            }
-        }
+        public Point3D Location { get; }
+        public Map Map { get; }
+        public Mobile From { get; }
         public static GreenThornsEffect Create(Mobile from, LandTarget land)
         {
             if (!from.Map.CanSpawnMobile(land.Location))
@@ -316,13 +288,13 @@ namespace Server.Items
 
         protected override void OnTick()
         {
-            TimeSpan nextDelay = this.Play(this.m_Step++);
+            TimeSpan nextDelay = Play(m_Step++);
 
             if (nextDelay > TimeSpan.Zero)
             {
-                this.Delay = nextDelay;
+                Delay = nextDelay;
 
-                this.Start();
+                Start();
             }
         }
 
@@ -332,18 +304,18 @@ namespace Server.Items
         {
             for (int i = 0; i < 5; i++) // Try 5 times
             {
-                int x = this.Location.X + Utility.RandomMinMax(-1, 1);
-                int y = this.Location.Y + Utility.RandomMinMax(-1, 1);
-                int z = this.Map.GetAverageZ(x, y);
+                int x = Location.X + Utility.RandomMinMax(-1, 1);
+                int y = Location.Y + Utility.RandomMinMax(-1, 1);
+                int z = Map.GetAverageZ(x, y);
 
-                if (this.Map.CanFit(x, y, this.Location.Z, 1))
+                if (Map.CanFit(x, y, Location.Z, 1))
                 {
-                    item.MoveToWorld(new Point3D(x, y, this.Location.Z), this.Map);
+                    item.MoveToWorld(new Point3D(x, y, Location.Z), Map);
                     return true;
                 }
-                else if (this.Map.CanFit(x, y, z, 1))
+                else if (Map.CanFit(x, y, z, 1))
                 {
-                    item.MoveToWorld(new Point3D(x, y, z), this.Map);
+                    item.MoveToWorld(new Point3D(x, y, z), Map);
                     return true;
                 }
             }
@@ -355,20 +327,20 @@ namespace Server.Items
         {
             for (int i = 0; i < 5; i++) // Try 5 times
             {
-                int x = this.Location.X + Utility.RandomMinMax(-1, 1);
-                int y = this.Location.Y + Utility.RandomMinMax(-1, 1);
-                int z = this.Map.GetAverageZ(x, y);
+                int x = Location.X + Utility.RandomMinMax(-1, 1);
+                int y = Location.Y + Utility.RandomMinMax(-1, 1);
+                int z = Map.GetAverageZ(x, y);
 
-                if (this.Map.CanSpawnMobile(x, y, this.Location.Z))
+                if (Map.CanSpawnMobile(x, y, Location.Z))
                 {
-                    creature.MoveToWorld(new Point3D(x, y, this.Location.Z), this.Map);
-                    creature.Combatant = this.From;
+                    creature.MoveToWorld(new Point3D(x, y, Location.Z), Map);
+                    creature.Combatant = From;
                     return true;
                 }
-                else if (this.Map.CanSpawnMobile(x, y, z))
+                else if (Map.CanSpawnMobile(x, y, z))
                 {
-                    creature.MoveToWorld(new Point3D(x, y, z), this.Map);
-                    creature.Combatant = this.From;
+                    creature.MoveToWorld(new Point3D(x, y, z), Map);
+                    creature.Combatant = From;
                     return true;
                 }
             }
@@ -378,28 +350,14 @@ namespace Server.Items
 
         private class TilesAndEffect
         {
-            private readonly int[] m_Tiles;
-            private readonly Type m_Effect;
             public TilesAndEffect(int[] tiles, Type effect)
             {
-                this.m_Tiles = tiles;
-                this.m_Effect = effect;
+                Tiles = tiles;
+                Effect = effect;
             }
 
-            public int[] Tiles
-            {
-                get
-                {
-                    return this.m_Tiles;
-                }
-            }
-            public Type Effect
-            {
-                get
-                {
-                    return this.m_Effect;
-                }
-            }
+            public int[] Tiles { get; }
+            public Type Effect { get; }
         }
     }
 
@@ -416,59 +374,57 @@ namespace Server.Items
             {
                 case 0:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x106);
-                        Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
+                        Effects.PlaySound(Location, Map, 0x106);
+                        Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 1:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x222);
-
+                        Effects.PlaySound(Location, Map, 0x222);
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 2:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x21F);
-
+                        Effects.PlaySound(Location, Map, 0x21F);
                         return TimeSpan.FromSeconds(5.0);
                     }
                 case 3:
                     {
-                        EffectItem dummy = EffectItem.Create(this.Location, this.Map, TimeSpan.FromSeconds(20.0));
+                        EffectItem dummy = EffectItem.Create(Location, Map, TimeSpan.FromSeconds(20.0));
                         dummy.PublicOverheadMessage(MessageType.Regular, 0x3B2, true, "* The ground erupts with chaotic growth! *");
 
-                        Effects.PlaySound(this.Location, this.Map, 0x12D);
+                        Effects.PlaySound(Location, Map, 0x12D);
 
-                        this.SpawnReagents();
-                        this.SpawnReagents();
+                        SpawnReagents();
+                        SpawnReagents();
 
                         return TimeSpan.FromSeconds(2.0);
                     }
                 case 4:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x12D);
+                        Effects.PlaySound(Location, Map, 0x12D);
 
-                        this.SpawnReagents();
-                        this.SpawnReagents();
+                        SpawnReagents();
+                        SpawnReagents();
 
                         return TimeSpan.FromSeconds(2.0);
                     }
                 case 5:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x12D);
+                        Effects.PlaySound(Location, Map, 0x12D);
 
-                        this.SpawnReagents();
-                        this.SpawnReagents();
+                        SpawnReagents();
+                        SpawnReagents();
 
                         return TimeSpan.FromSeconds(3.0);
                     }
                 default:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x12D);
+                        Effects.PlaySound(Location, Map, 0x12D);
 
-                        this.SpawnReagents();
-                        this.SpawnReagents();
+                        SpawnReagents();
+                        SpawnReagents();
 
                         return TimeSpan.Zero;
                     }
@@ -511,7 +467,7 @@ namespace Server.Items
                     break;
             }
 
-            if (!this.SpawnItem(reagents))
+            if (!SpawnItem(reagents))
                 reagents.Delete();
         }
     }
@@ -529,33 +485,33 @@ namespace Server.Items
             {
                 case 0:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x106);
-                        Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
+                        Effects.PlaySound(Location, Map, 0x106);
+                        Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 1:
                     {
-                        EffectItem hole = EffectItem.Create(this.Location, this.Map, TimeSpan.FromSeconds(10.0));
+                        EffectItem hole = EffectItem.Create(Location, Map, TimeSpan.FromSeconds(10.0));
                         hole.ItemID = 0x913;
 
-                        Effects.PlaySound(this.Location, this.Map, 0x222);
+                        Effects.PlaySound(Location, Map, 0x222);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 2:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x21F);
+                        Effects.PlaySound(Location, Map, 0x21F);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 default:
                     {
-                        EffectItem dummy = EffectItem.Create(this.Location, this.Map, TimeSpan.FromSeconds(20.0));
+                        EffectItem dummy = EffectItem.Create(Location, Map, TimeSpan.FromSeconds(20.0));
                         dummy.PublicOverheadMessage(MessageType.Regular, 0x3B2, true, "* A magical bunny leaps out of its hole, disturbed by the thorn's effect! *");
 
                         BaseCreature spawn = new VorpalBunny();
-                        if (!this.SpawnCreature(spawn))
+                        if (!SpawnCreature(spawn))
                             spawn.Delete();
 
                         return TimeSpan.Zero;
@@ -577,31 +533,31 @@ namespace Server.Items
             {
                 case 0:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x106);
-                        Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
+                        Effects.PlaySound(Location, Map, 0x106);
+                        Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 1:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x222);
+                        Effects.PlaySound(Location, Map, 0x222);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 2:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x21F);
+                        Effects.PlaySound(Location, Map, 0x21F);
 
                         return TimeSpan.FromSeconds(1.0);
                     }
                 default:
                     {
-                        EffectItem dummy = EffectItem.Create(this.Location, this.Map, TimeSpan.FromSeconds(20.0));
+                        EffectItem dummy = EffectItem.Create(Location, Map, TimeSpan.FromSeconds(20.0));
                         dummy.PublicOverheadMessage(MessageType.Regular, 0x3B2, true, "* Strange green tendrils rise from the ground, whipping wildly! *");
-                        Effects.PlaySound(this.Location, this.Map, 0x2B0);
+                        Effects.PlaySound(Location, Map, 0x2B0);
 
                         BaseCreature spawn = new WhippingVine();
-                        if (!this.SpawnCreature(spawn))
+                        if (!SpawnCreature(spawn))
                             spawn.Delete();
 
                         return TimeSpan.Zero;
@@ -623,36 +579,36 @@ namespace Server.Items
             {
                 case 0:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x106);
-                        Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
+                        Effects.PlaySound(Location, Map, 0x106);
+                        Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 1:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x222);
+                        Effects.PlaySound(Location, Map, 0x222);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 2:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x21F);
+                        Effects.PlaySound(Location, Map, 0x21F);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 default:
                     {
-                        EffectItem dummy = EffectItem.Create(this.Location, this.Map, TimeSpan.FromSeconds(20.0));
+                        EffectItem dummy = EffectItem.Create(Location, Map, TimeSpan.FromSeconds(20.0));
                         dummy.PublicOverheadMessage(MessageType.Regular, 0x3B2, true, "* Slithering ice serpents rise to the surface to investigate the disturbance! *");
 
                         BaseCreature spawn = new GiantIceWorm();
-                        if (!this.SpawnCreature(spawn))
+                        if (!SpawnCreature(spawn))
                             spawn.Delete();
 
                         for (int i = 0; i < 3; i++)
                         {
                             BaseCreature snake = new IceSnake();
-                            if (!this.SpawnCreature(snake))
+                            if (!SpawnCreature(snake))
                                 snake.Delete();
                         }
 
@@ -675,29 +631,29 @@ namespace Server.Items
             {
                 case 0:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x106);
-                        Effects.SendLocationParticles(EffectItem.Create(this.Location, this.Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
+                        Effects.PlaySound(Location, Map, 0x106);
+                        Effects.SendLocationParticles(EffectItem.Create(Location, Map, EffectItem.DefaultDuration), 0x3735, 1, 182, 0xBE3);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 1:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x222);
+                        Effects.PlaySound(Location, Map, 0x222);
 
                         return TimeSpan.FromSeconds(4.0);
                     }
                 case 2:
                     {
-                        Effects.PlaySound(this.Location, this.Map, 0x21F);
+                        Effects.PlaySound(Location, Map, 0x21F);
 
                         return TimeSpan.FromSeconds(5.0);
                     }
                 default:
                     {
-                        EffectItem dummy = EffectItem.Create(this.Location, this.Map, TimeSpan.FromSeconds(20.0));
+                        EffectItem dummy = EffectItem.Create(Location, Map, TimeSpan.FromSeconds(20.0));
                         dummy.PublicOverheadMessage(MessageType.Regular, 0x3B2, true, "* The sand collapses, revealing a dark hole. *");
 
-                        GreenThornsSHTeleporter.Create(this.Location, this.Map);
+                        GreenThornsSHTeleporter.Create(Location, Map);
 
                         return TimeSpan.Zero;
                     }
@@ -716,17 +672,11 @@ namespace Server.Items
         private GreenThornsSHTeleporter()
             : base(0x913)
         {
-            this.Movable = false;
-            this.Hue = 0x1;
+            Movable = false;
+            Hue = 0x1;
         }
 
-        public override string DefaultName
-        {
-            get
-            {
-                return "a hole";
-            }
-        }
+        public override string DefaultName => "a hole";
         public static void Create(Point3D location, Map map)
         {
             GreenThornsSHTeleporter tele = new GreenThornsSHTeleporter();
@@ -740,7 +690,7 @@ namespace Server.Items
         {
             if (from.InRange(this, 3))
             {
-                BaseCreature.TeleportPets(from, Destination, this.Map);
+                BaseCreature.TeleportPets(from, Destination, Map);
 
                 from.Location = Destination;
             }
@@ -753,17 +703,15 @@ namespace Server.Items
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
+            _ = reader.ReadInt();
 
-            int version = reader.ReadInt();
-
-            this.Delete();
+            Delete();
         }
 
         private class InternalTimer : Timer
@@ -772,13 +720,13 @@ namespace Server.Items
             public InternalTimer(GreenThornsSHTeleporter teleporter)
                 : base(TimeSpan.FromMinutes(1.0))
             {
-                this.m_Teleporter = teleporter;
-                this.Priority = TimerPriority.FiveSeconds;
+                m_Teleporter = teleporter;
+                Priority = TimerPriority.FiveSeconds;
             }
 
             protected override void OnTick()
             {
-                this.m_Teleporter.Delete();
+                m_Teleporter.Delete();
             }
         }
     }

@@ -12,54 +12,39 @@ namespace Server.Items
         private Mobile m_Crafter;
         private CraftResource m_Resource;
 
-        public override int LabelNumber
-        {
-            get
-            {
-                return this.m_Exceptional ? 1053181 : 1053012;
-            }
-        }// dragon barding deed
+        public override int LabelNumber => m_Exceptional ? 1053181 : 1053012;// dragon barding deed
 
         [CommandProperty(AccessLevel.GameMaster)]
         public Mobile Crafter
         {
-            get
-            {
-                return this.m_Crafter;
-            }
+            get => m_Crafter;
             set
             {
-                this.m_Crafter = value;
-                this.InvalidateProperties();
+                m_Crafter = value;
+                InvalidateProperties();
             }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public bool Exceptional
         {
-            get
-            {
-                return this.m_Exceptional;
-            }
+            get => m_Exceptional;
             set
             {
-                this.m_Exceptional = value;
-                this.InvalidateProperties();
+                m_Exceptional = value;
+                InvalidateProperties();
             }
         }
 
         [CommandProperty(AccessLevel.GameMaster)]
         public CraftResource Resource
         {
-            get
-            {
-                return this.m_Resource;
-            }
+            get => m_Resource;
             set
             {
-                this.m_Resource = value;
-                this.Hue = CraftResources.GetHue(value);
-                this.InvalidateProperties();
+                m_Resource = value;
+                Hue = CraftResources.GetHue(value);
+                InvalidateProperties();
             }
         }
 
@@ -67,16 +52,17 @@ namespace Server.Items
         public DragonBardingDeed()
             : base(0x14F0)
         {
-            this.Weight = 1.0;
+            Weight = 1.0;
         }
 
         public override void GetProperties(ObjectPropertyList list)
         {
             base.GetProperties(list);
 
-            if (this.m_Exceptional && this.m_Crafter != null)
+            if (m_Exceptional && m_Crafter != null)
 				list.Add(1050043, m_Crafter.TitleName); // crafted by ~1_NAME~
         }
+
 		public override void OnSingleClick(Mobile from)
 		{
 			base.OnSingleClick(from);
@@ -89,7 +75,7 @@ namespace Server.Items
         
         public override void OnDoubleClick(Mobile from)
         {
-            if (this.IsChildOf(from.Backpack))
+            if (IsChildOf(from.Backpack))
             {
                 from.BeginTarget(6, false, TargetFlags.None, new TargetCallback(OnTarget));
                 from.SendLocalizedMessage(1053024); // Select the swamp dragon you wish to place the barding on.
@@ -102,7 +88,7 @@ namespace Server.Items
 
         public virtual void OnTarget(Mobile from, object obj)
         {
-            if (this.Deleted)
+            if (Deleted)
                 return;
 
             SwampDragon pet = obj as SwampDragon;
@@ -115,20 +101,20 @@ namespace Server.Items
             {
                 from.SendLocalizedMessage(1053026); // You can only put barding on a tamed swamp dragon that you own.
             }
-            else if (!this.IsChildOf(from.Backpack))
+            else if (!IsChildOf(from.Backpack))
             {
                 from.SendLocalizedMessage(1060640); // The item must be in your backpack to use it.
             }
             else
             {
-                pet.BardingExceptional = this.Exceptional;
-                pet.BardingCrafter = this.Crafter;
-                pet.BardingResource = this.Resource;
+                pet.BardingExceptional = Exceptional;
+                pet.BardingCrafter = Crafter;
+                pet.BardingResource = Resource;
                 pet.HasBarding = true;
-                pet.Hue = this.Hue;
+                pet.Hue = Hue;
                 pet.BardingHP = pet.BardingMaxHP;
 
-                this.Delete();
+                Delete();
 
                 from.SendLocalizedMessage(1053027); // You place the barding on your swamp dragon.  Use a bladed item on your dragon to remove the armor.
             }
@@ -143,17 +129,16 @@ namespace Server.Items
         {
             base.Serialize(writer);
 
-            writer.Write((int)1); // version
+            writer.Write(1);
 
-            writer.Write((bool)this.m_Exceptional);
-            writer.Write((Mobile)this.m_Crafter);
-            writer.Write((int)this.m_Resource);
+            writer.Write(m_Exceptional);
+            writer.Write(m_Crafter);
+            writer.Write((int)m_Resource);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             switch ( version )
@@ -161,33 +146,32 @@ namespace Server.Items
                 case 1:
                 case 0:
                     {
-                        this.m_Exceptional = reader.ReadBool();
-                        this.m_Crafter = reader.ReadMobile();
+                        m_Exceptional = reader.ReadBool();
+                        m_Crafter = reader.ReadMobile();
 
                         if (version < 1)
                             reader.ReadInt();
 
-                        this.m_Resource = (CraftResource)reader.ReadInt();
+                        m_Resource = (CraftResource)reader.ReadInt();
                         break;
                     }
             }
         }
 
         #region ICraftable Members
-
         public int OnCraft(int quality, bool makersMark, Mobile from, CraftSystem craftSystem, Type typeRes, ITool tool, CraftItem craftItem, int resHue)
         {
-            this.Exceptional = (quality >= 2);
+            Exceptional = (quality >= 2);
 
             if (makersMark)
-                this.Crafter = from;
+                Crafter = from;
 
             Type resourceType = typeRes;
 
             if (resourceType == null)
                 resourceType = craftItem.Resources.GetAt(0).ItemType;
 
-            this.Resource = CraftResources.GetFromType(resourceType);
+            Resource = CraftResources.GetFromType(resourceType);
             return quality;
         }
         #endregion

@@ -123,9 +123,9 @@ namespace Server.Mobiles
         }
     }
     
-    public class BaseRedSolenInfiltrator : BaseCreature, IRedSolen
+    public class BaseRedSolen : BaseCreature, IRedSolen
     {
-        public BaseRedSolenInfiltrator(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
+        public BaseRedSolen(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             AI = type;
@@ -136,7 +136,7 @@ namespace Server.Mobiles
             PassiveSpeed = passivespeed;
         }
 
-        public BaseRedSolenInfiltrator(Serial serial)
+        public BaseRedSolen(Serial serial)
             : base(serial)
         {
         }
@@ -193,12 +193,12 @@ namespace Server.Mobiles
         }
     }
     
-    public class BaseRedSolen : BaseRedSolenInfiltrator
+    public class BaseRedSolenQueen : BaseRedSolen
     {
         private static bool m_Laid;
         private DateTime m_NextAcidBreath;
 
-        public BaseRedSolen(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
+        public BaseRedSolenQueen(AIType type, FightMode mode, int rf, int rp, double activespeed, double passivespeed)
             : base(AIType.AI_Melee, FightMode.Closest, 10, 1, 0.2, 0.4)
         {
             AI = type;
@@ -209,7 +209,7 @@ namespace Server.Mobiles
             PassiveSpeed = passivespeed;
         }
 
-        public BaseRedSolen(Serial serial)
+        public BaseRedSolenQueen(Serial serial)
             : base(serial)
         {
         }
@@ -223,7 +223,7 @@ namespace Server.Mobiles
 
             else if (Map != null && attacker != this && m_Laid == false && 0.20 > Utility.RandomDouble())
             {
-                BSQEggSac sac = new BSQEggSac();
+                RSQEggSac sac = new RSQEggSac();
 
                 sac.MoveToWorld(Location, Map);
                 PlaySound(0x582);
@@ -244,7 +244,7 @@ namespace Server.Mobiles
 
         public override void OnDamage(int amount, Mobile from, bool willKill)
         {
-            SolenHelper.OnBlackDamage(from);
+            SolenHelper.OnRedDamage(from);
 
             if (!willKill)
             {
@@ -341,7 +341,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen infiltrator corpse")]
-    public class RedSolenInfiltratorQueen : BaseRedSolenInfiltrator // Creature, IRedSolen
+    public class RedSolenInfiltratorQueen : BaseRedSolen
     {
         [Constructable]
         public RedSolenInfiltratorQueen()
@@ -404,7 +404,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen infiltrator corpse")]
-    public class RedSolenInfiltratorWarrior : BaseRedSolenInfiltrator
+    public class RedSolenInfiltratorWarrior : BaseRedSolen
     {
         [Constructable]
         public RedSolenInfiltratorWarrior()
@@ -466,7 +466,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen queen corpse")]
-    public class RedSolenQueen : BaseRedSolen
+    public class RedSolenQueen : BaseRedSolenQueen
     {
         [Constructable]
         public RedSolenQueen()
@@ -607,7 +607,7 @@ namespace Server.Mobiles
     }
 
     [CorpseName("a solen worker corpse")]
-    public class RedSolenWorker : BaseRedSolenInfiltrator
+    public class RedSolenWorker : BaseRedSolen
     {
         [Constructable]
         public RedSolenWorker()

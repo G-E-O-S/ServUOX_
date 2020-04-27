@@ -65,7 +65,7 @@ namespace Server.Mobiles
             if (combatant == null || combatant.Deleted || combatant.Map != Map || !InRange(combatant, 12) || !CanBeHarmful(combatant) || !InLOS(combatant))
                 return;
 
-            if (DateTime.UtcNow >= this.m_NextAttack)
+            if (DateTime.UtcNow >= m_NextAttack)
             {
                 SandAttack(combatant);
                 m_NextAttack = DateTime.UtcNow + TimeSpan.FromSeconds(10.0 + (10.0 * Utility.RandomDouble()));
@@ -107,7 +107,7 @@ namespace Server.Mobiles
 
             protected override void OnTick()
             {
-                this.m_Mobile.PlaySound(0x4CF);
+                m_Mobile.PlaySound(0x4CF);
                 AOS.Damage(m_Mobile, m_From, Utility.RandomMinMax(1, 40), 90, 10, 0, 0, 0);
             }
         }

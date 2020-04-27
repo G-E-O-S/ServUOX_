@@ -32,15 +32,12 @@ namespace Server.Engines.Quests
             typeof(Samurai.HaochisTrialsQuest),
             typeof(Zento.TerribleHatchlingsQuest)
         };
-        private PlayerMobile m_From;
-        private ArrayList m_Objectives;
-        private ArrayList m_Conversations;
         private Timer m_Timer;
         public QuestSystem(PlayerMobile from)
         {
-            this.m_From = from;
-            this.m_Objectives = new ArrayList();
-            this.m_Conversations = new ArrayList();
+            From = from;
+            Objectives = new ArrayList();
+            Conversations = new ArrayList();
         }
 
         public QuestSystem()
@@ -53,44 +50,13 @@ namespace Server.Engines.Quests
         public abstract bool IsTutorial { get; }
         public abstract TimeSpan RestartDelay { get; }
         public abstract Type[] TypeReferenceTable { get; }
-        public PlayerMobile From
-        {
-            get
-            {
-                return this.m_From;
-            }
-            set
-            {
-                this.m_From = value;
-            }
-        }
-        public ArrayList Objectives
-        {
-            get
-            {
-                return this.m_Objectives;
-            }
-            set
-            {
-                this.m_Objectives = value;
-            }
-        }
-        public ArrayList Conversations
-        {
-            get
-            {
-                return this.m_Conversations;
-            }
-            set
-            {
-                this.m_Conversations = value;
-            }
-        }
+        public PlayerMobile From { get; set; }
+        public ArrayList Objectives { get; set; }
+        public ArrayList Conversations { get; set; }
+
         public static bool CanOfferQuest(Mobile check, Type questType)
         {
-            bool inRestartPeriod;
-
-            return CanOfferQuest(check, questType, out inRestartPeriod);
+            return CanOfferQuest(check, questType, out _);
         }
 
         public static bool CanOfferQuest(Mobile check, Type questType, out bool inRestartPeriod)
@@ -179,25 +145,25 @@ namespace Server.Engines.Quests
 
         public virtual void StartTimer()
         {
-            if (this.m_Timer != null)
+            if (m_Timer != null)
                 return;
 
-            this.m_Timer = Timer.DelayCall(TimeSpan.FromSeconds(0.5), TimeSpan.FromSeconds(0.5), new TimerCallback(Slice));
+            m_Timer = Timer.DelayCall(TimeSpan.FromSeconds(0.5), TimeSpan.FromSeconds(0.5), new TimerCallback(Slice));
         }
 
         public virtual void StopTimer()
         {
-            if (this.m_Timer != null)
-                this.m_Timer.Stop();
+            if (m_Timer != null)
+                m_Timer.Stop();
 
-            this.m_Timer = null;
+            m_Timer = null;
         }
 
         public virtual void Slice()
         {
-            for (int i = this.m_Objectives.Count - 1; i >= 0; --i)
+            for (int i = Objectives.Count - 1; i >= 0; --i)
             {
-                QuestObjective obj = (QuestObjective)this.m_Objectives[i];
+                QuestObjective obj = (QuestObjective)Objectives[i];
 
                 if (obj.GetTimerEvent())
                     obj.CheckProgress();
@@ -219,9 +185,9 @@ namespace Server.Engines.Quests
 
         public virtual void OnKill(BaseCreature creature, Container corpse)
         {
-            for (int i = this.m_Objectives.Count - 1; i >= 0; --i)
+            for (int i = Objectives.Count - 1; i >= 0; --i)
             {
-                QuestObjective obj = (QuestObjective)this.m_Objectives[i];
+                QuestObjective obj = (QuestObjective)Objectives[i];
 
                 if (obj.GetKillEvent(creature, corpse))
                     obj.OnKill(creature, corpse);
@@ -230,9 +196,9 @@ namespace Server.Engines.Quests
 
         public virtual bool IgnoreYoungProtection(Mobile from)
         {
-            for (int i = this.m_Objectives.Count - 1; i >= 0; --i)
+            for (int i = Objectives.Count - 1; i >= 0; --i)
             {
-                QuestObjective obj = (QuestObjective)this.m_Objectives[i];
+                QuestObjective obj = (QuestObjective)Objectives[i];
 
                 if (obj.IgnoreYoungProtection(from))
                     return true;
@@ -243,7 +209,7 @@ namespace Server.Engines.Quests
 
         public virtual void BaseDeserialize(GenericReader reader)
         {
-            Type[] referenceTable = this.TypeReferenceTable;
+            Type[] referenceTable = TypeReferenceTable;
 
             int version = reader.ReadEncodedInt();
 
@@ -253,7 +219,7 @@ namespace Server.Engines.Quests
                     {
                         int count = reader.ReadEncodedInt();
 
-                        this.m_Objectives = new ArrayList(count);
+                        Objectives = new ArrayList(count);
 
                         for (int i = 0; i < count; ++i)
                         {
@@ -262,13 +228,13 @@ namespace Server.Engines.Quests
                             if (obj != null)
                             {
                                 obj.System = this;
-                                this.m_Objectives.Add(obj);
+                                Objectives.Add(obj);
                             }
                         }
 
                         count = reader.ReadEncodedInt();
 
-                        this.m_Conversations = new ArrayList(count);
+                        Conversations = new ArrayList(count);
 
                         for (int i = 0; i < count; ++i)
                         {
@@ -277,7 +243,7 @@ namespace Server.Engines.Quests
                             if (conv != null)
                             {
                                 conv.System = this;
-                                this.m_Conversations.Add(conv);
+                                Conversations.Add(conv);
                             }
                         }
 
@@ -285,50 +251,49 @@ namespace Server.Engines.Quests
                     }
             }
 
-            this.ChildDeserialize(reader);
+            ChildDeserialize(reader);
         }
 
         public virtual void ChildDeserialize(GenericReader reader)
         {
-            int version = reader.ReadEncodedInt();
+            _ = reader.ReadEncodedInt();
         }
 
         public virtual void BaseSerialize(GenericWriter writer)
         {
-            Type[] referenceTable = this.TypeReferenceTable;
+            Type[] referenceTable = TypeReferenceTable;
 
-            writer.WriteEncodedInt((int)0); // version
+            writer.WriteEncodedInt(0);
 
-            writer.WriteEncodedInt((int)this.m_Objectives.Count);
+            writer.WriteEncodedInt(Objectives.Count);
 
-            for (int i = 0; i < this.m_Objectives.Count; ++i)
-                QuestSerializer.Serialize(referenceTable, (QuestObjective)this.m_Objectives[i], writer);
+            for (int i = 0; i < Objectives.Count; ++i)
+                QuestSerializer.Serialize(referenceTable, (QuestObjective)Objectives[i], writer);
 
-            writer.WriteEncodedInt((int)this.m_Conversations.Count);
+            writer.WriteEncodedInt(Conversations.Count);
 
-            for (int i = 0; i < this.m_Conversations.Count; ++i)
-                QuestSerializer.Serialize(referenceTable, (QuestConversation)this.m_Conversations[i], writer);
+            for (int i = 0; i < Conversations.Count; ++i)
+                QuestSerializer.Serialize(referenceTable, (QuestConversation)Conversations[i], writer);
 
-            this.ChildSerialize(writer);
+            ChildSerialize(writer);
         }
 
         public virtual void ChildSerialize(GenericWriter writer)
         {
-            writer.WriteEncodedInt((int)0); // version
+            writer.WriteEncodedInt(0);
         }
 
         public bool IsObjectiveInProgress(Type type)
         {
-            QuestObjective obj = this.FindObjective(type);
-
+            QuestObjective obj = FindObjective(type);
             return (obj != null && !obj.Completed);
         }
 
         public QuestObjective FindObjective(Type type)
         {
-            for (int i = this.m_Objectives.Count - 1; i >= 0; --i)
+            for (int i = Objectives.Count - 1; i >= 0; --i)
             {
-                QuestObjective obj = (QuestObjective)this.m_Objectives[i];
+                QuestObjective obj = (QuestObjective)Objectives[i];
 
                 if (obj.GetType() == type)
                     return obj;
@@ -339,15 +304,15 @@ namespace Server.Engines.Quests
 
         public virtual void SendOffer()
         {
-            this.m_From.SendGump(new QuestOfferGump(this));
+            From.SendGump(new QuestOfferGump(this));
         }
 
         public virtual void GetContextMenuEntries(List<ContextMenuEntry> list)
         {
-            if (this.m_Objectives.Count > 0)
+            if (Objectives.Count > 0)
                 list.Add(new QuestCallbackEntry(6154, new QuestCallback(ShowQuestLog))); // View Quest Log
 
-            if (this.m_Conversations.Count > 0)
+            if (Conversations.Count > 0)
                 list.Add(new QuestCallbackEntry(6156, new QuestCallback(ShowQuestConversation))); // Quest Conversation
 
             list.Add(new QuestCallbackEntry(6155, new QuestCallback(BeginCancelQuest))); // Cancel Quest
@@ -355,98 +320,97 @@ namespace Server.Engines.Quests
 
         public virtual void ShowQuestLogUpdated()
         {
-            this.m_From.CloseGump(typeof(QuestLogUpdatedGump));
-            this.m_From.SendGump(new QuestLogUpdatedGump(this));
+            From.CloseGump(typeof(QuestLogUpdatedGump));
+            From.SendGump(new QuestLogUpdatedGump(this));
         }
 
         public virtual void ShowQuestLog()
         {
-            if (this.m_Objectives.Count > 0)
+            if (Objectives.Count > 0)
             {
-                this.m_From.CloseGump(typeof(QuestItemInfoGump));
-                this.m_From.CloseGump(typeof(QuestLogUpdatedGump));
-                this.m_From.CloseGump(typeof(QuestObjectivesGump));
-                this.m_From.CloseGump(typeof(QuestConversationsGump));
+                From.CloseGump(typeof(QuestItemInfoGump));
+                From.CloseGump(typeof(QuestLogUpdatedGump));
+                From.CloseGump(typeof(QuestObjectivesGump));
+                From.CloseGump(typeof(QuestConversationsGump));
 
-                this.m_From.SendGump(new QuestObjectivesGump(this.m_Objectives));
+                From.SendGump(new QuestObjectivesGump(Objectives));
 
-                QuestObjective last = (QuestObjective)this.m_Objectives[this.m_Objectives.Count - 1];
+                QuestObjective last = (QuestObjective)Objectives[Objectives.Count - 1];
 
                 if (last.Info != null)
-                    this.m_From.SendGump(new QuestItemInfoGump(last.Info));
+                    From.SendGump(new QuestItemInfoGump(last.Info));
             }
         }
 
         public virtual void ShowQuestConversation()
         {
-            if (this.m_Conversations.Count > 0)
+            if (Conversations.Count > 0)
             {
-                this.m_From.CloseGump(typeof(QuestItemInfoGump));
-                this.m_From.CloseGump(typeof(QuestObjectivesGump));
-                this.m_From.CloseGump(typeof(QuestConversationsGump));
+                From.CloseGump(typeof(QuestItemInfoGump));
+                From.CloseGump(typeof(QuestObjectivesGump));
+                From.CloseGump(typeof(QuestConversationsGump));
 
-                this.m_From.SendGump(new QuestConversationsGump(this.m_Conversations));
+                From.SendGump(new QuestConversationsGump(Conversations));
 
-                QuestConversation last = (QuestConversation)this.m_Conversations[this.m_Conversations.Count - 1];
+                QuestConversation last = (QuestConversation)Conversations[Conversations.Count - 1];
 
                 if (last.Info != null)
-                    this.m_From.SendGump(new QuestItemInfoGump(last.Info));
+                    From.SendGump(new QuestItemInfoGump(last.Info));
             }
         }
 
         public virtual void BeginCancelQuest()
         {
-            this.m_From.SendGump(new QuestCancelGump(this));
+            From.SendGump(new QuestCancelGump(this));
         }
 
         public virtual void EndCancelQuest(bool shouldCancel)
         {
-            if (this.m_From.Quest != this)
+            if (From.Quest != this)
                 return;
 
             if (shouldCancel)
             {
-                this.m_From.SendLocalizedMessage(1049015); // You have canceled your quest.
-                this.Cancel();
+                From.SendLocalizedMessage(1049015); // You have canceled your quest.
+                Cancel();
             }
             else
             {
-                this.m_From.SendLocalizedMessage(1049014); // You have chosen not to cancel your quest.
+                From.SendLocalizedMessage(1049014); // You have chosen not to cancel your quest.
             }
         }
 
         public virtual void Cancel()
         {
-            this.ClearQuest(false);
+            ClearQuest(false);
         }
 
         public virtual void Complete()
         {
             EventSink.InvokeQuestComplete(new QuestCompleteEventArgs(From, GetType()));
-
-            this.ClearQuest(true);
+            ClearQuest(true);
         }
 
         public virtual void ClearQuest(bool completed)
         {
-            this.StopTimer();
+            StopTimer();
 
-            if (this.m_From.Quest == this)
+            if (From.Quest == this)
             {
-                this.m_From.Quest = null;
+                From.Quest = null;
 
-                TimeSpan restartDelay = this.RestartDelay;
+                TimeSpan restartDelay = RestartDelay;
 
                 if ((completed && restartDelay > TimeSpan.Zero) || (!completed && restartDelay == TimeSpan.MaxValue))
                 {
-                    List<QuestRestartInfo> doneQuests = this.m_From.DoneQuests;
+                    List<QuestRestartInfo> doneQuests = From.DoneQuests;
 
                     if (doneQuests == null)
-                        this.m_From.DoneQuests = doneQuests = new List<QuestRestartInfo>();
+                        From.DoneQuests = doneQuests = new List<QuestRestartInfo>();
 
                     bool found = false;
 
-                    Type ourQuestType = this.GetType();
+                    Type ourQuestType = GetType();
 
                     for (int i = 0; i < doneQuests.Count; ++i)
                     {
@@ -471,43 +435,43 @@ namespace Server.Engines.Quests
             conv.System = this;
 
             if (conv.Logged)
-                this.m_Conversations.Add(conv);
+                Conversations.Add(conv);
 
-            this.m_From.CloseGump(typeof(QuestItemInfoGump));
-            this.m_From.CloseGump(typeof(QuestObjectivesGump));
-            this.m_From.CloseGump(typeof(QuestConversationsGump));
+            From.CloseGump(typeof(QuestItemInfoGump));
+            From.CloseGump(typeof(QuestObjectivesGump));
+            From.CloseGump(typeof(QuestConversationsGump));
 
             if (conv.Logged)
-                this.m_From.SendGump(new QuestConversationsGump(this.m_Conversations));
+                From.SendGump(new QuestConversationsGump(Conversations));
             else
-                this.m_From.SendGump(new QuestConversationsGump(conv));
+                From.SendGump(new QuestConversationsGump(conv));
 
             if (conv.Info != null)
-                this.m_From.SendGump(new QuestItemInfoGump(conv.Info));
+                From.SendGump(new QuestItemInfoGump(conv.Info));
         }
 
         public virtual void AddObjective(QuestObjective obj)
         {
             obj.System = this;
-            this.m_Objectives.Add(obj);
+            Objectives.Add(obj);
 
-            this.ShowQuestLogUpdated();
+            ShowQuestLogUpdated();
         }
 
         public virtual void Accept()
         {
-            if (this.m_From.Quest != null)
+            if (From.Quest != null)
                 return;
 
-            this.m_From.Quest = this;
-            this.m_From.SendLocalizedMessage(1049019); // You have accepted the Quest.
+            From.Quest = this;
+            From.SendLocalizedMessage(1049019); // You have accepted the Quest.
 
-            this.StartTimer();
+            StartTimer();
         }
 
         public virtual void Decline()
         {
-            this.m_From.SendLocalizedMessage(1049018); // You have declined the Quest.
+            From.SendLocalizedMessage(1049018); // You have declined the Quest.
         }
     }
 
@@ -517,67 +481,60 @@ namespace Server.Engines.Quests
         public QuestCancelGump(QuestSystem system)
             : base(120, 50)
         {
-            this.m_System = system;
+            m_System = system;
 
-            this.Closable = false;
+            Closable = false;
 
-            this.AddPage(0);
-
-            this.AddImageTiled(0, 0, 348, 262, 2702);
-            this.AddAlphaRegion(0, 0, 348, 262);
-
-            this.AddImage(0, 15, 10152);
-            this.AddImageTiled(0, 30, 17, 200, 10151);
-            this.AddImage(0, 230, 10154);
-
-            this.AddImage(15, 0, 10252);
-            this.AddImageTiled(30, 0, 300, 17, 10250);
-            this.AddImage(315, 0, 10254);
-
-            this.AddImage(15, 244, 10252);
-            this.AddImageTiled(30, 244, 300, 17, 10250);
-            this.AddImage(315, 244, 10254);
-
-            this.AddImage(330, 15, 10152);
-            this.AddImageTiled(330, 30, 17, 200, 10151);
-            this.AddImage(330, 230, 10154);
-
-            this.AddImage(333, 2, 10006);
-            this.AddImage(333, 248, 10006);
-            this.AddImage(2, 248, 10006);
-            this.AddImage(2, 2, 10006);
-
-            this.AddHtmlLocalized(25, 22, 200, 20, 1049000, 32000, false, false); // Confirm Quest Cancellation
-            this.AddImage(25, 40, 3007);
+            AddPage(0);
+            AddImageTiled(0, 0, 348, 262, 2702);
+            AddAlphaRegion(0, 0, 348, 262);
+            AddImage(0, 15, 10152);
+            AddImageTiled(0, 30, 17, 200, 10151);
+            AddImage(0, 230, 10154);
+            AddImage(15, 0, 10252);
+            AddImageTiled(30, 0, 300, 17, 10250);
+            AddImage(315, 0, 10254);
+            AddImage(15, 244, 10252);
+            AddImageTiled(30, 244, 300, 17, 10250);
+            AddImage(315, 244, 10254);
+            AddImage(330, 15, 10152);
+            AddImageTiled(330, 30, 17, 200, 10151);
+            AddImage(330, 230, 10154);
+            AddImage(333, 2, 10006);
+            AddImage(333, 248, 10006);
+            AddImage(2, 248, 10006);
+            AddImage(2, 2, 10006);
+            AddHtmlLocalized(25, 22, 200, 20, 1049000, 32000, false, false); // Confirm Quest Cancellation
+            AddImage(25, 40, 3007);
 
             if (system.IsTutorial)
             {
-                this.AddHtmlLocalized(25, 55, 300, 120, 1060836, White, false, false); // This quest will give you valuable information, skills and equipment that will help you advance in the game at a quicker pace.<BR><BR>Are you certain you wish to cancel at this time?
+                AddHtmlLocalized(25, 55, 300, 120, 1060836, White, false, false); // This quest will give you valuable information, skills and equipment that will help you advance in the game at a quicker pace.<BR><BR>Are you certain you wish to cancel at this time?
             }
             else
             {
-                this.AddHtmlLocalized(25, 60, 300, 20, 1049001, White, false, false); // You have chosen to abort your quest:
-                this.AddImage(25, 81, 0x25E7);
-                this.AddHtmlObject(48, 80, 280, 20, system.Name, DarkGreen, false, false);
+                AddHtmlLocalized(25, 60, 300, 20, 1049001, White, false, false); // You have chosen to abort your quest:
+                AddImage(25, 81, 0x25E7);
+                AddHtmlObject(48, 80, 280, 20, system.Name, DarkGreen, false, false);
 
-                this.AddHtmlLocalized(25, 120, 280, 20, 1049002, White, false, false); // Can this quest be restarted after quitting?
-                this.AddImage(25, 141, 0x25E7);
-                this.AddHtmlLocalized(48, 140, 280, 20, (system.RestartDelay < TimeSpan.MaxValue) ? 1049016 : 1049017, DarkGreen, false, false); // Yes/No
+                AddHtmlLocalized(25, 120, 280, 20, 1049002, White, false, false); // Can this quest be restarted after quitting?
+                AddImage(25, 141, 0x25E7);
+                AddHtmlLocalized(48, 140, 280, 20, (system.RestartDelay < TimeSpan.MaxValue) ? 1049016 : 1049017, DarkGreen, false, false); // Yes/No
             }
 
-            this.AddRadio(25, 175, 9720, 9723, true, 1);
-            this.AddHtmlLocalized(60, 180, 280, 20, 1049005, White, false, false); // Yes, I really want to quit!
+            AddRadio(25, 175, 9720, 9723, true, 1);
+            AddHtmlLocalized(60, 180, 280, 20, 1049005, White, false, false); // Yes, I really want to quit!
 
-            this.AddRadio(25, 210, 9720, 9723, false, 0);
-            this.AddHtmlLocalized(60, 215, 280, 20, 1049006, White, false, false); // No, I don't want to quit.
+            AddRadio(25, 210, 9720, 9723, false, 0);
+            AddHtmlLocalized(60, 215, 280, 20, 1049006, White, false, false); // No, I don't want to quit.
 
-            this.AddButton(265, 220, 247, 248, 1, GumpButtonType.Reply, 0);
+            AddButton(265, 220, 247, 248, 1, GumpButtonType.Reply, 0);
         }
 
         public override void OnResponse(NetState sender, RelayInfo info)
         {
             if (info.ButtonID == 1)
-                this.m_System.EndCancelQuest(info.IsSwitched(1));
+                m_System.EndCancelQuest(info.IsSwitched(1));
         }
     }
 
@@ -587,52 +544,39 @@ namespace Server.Engines.Quests
         public QuestOfferGump(QuestSystem system)
             : base(75, 25)
         {
-            this.m_System = system;
+            m_System = system;
 
-            this.Closable = false;
+            Closable = false;
 
-            this.AddPage(0);
-
-            this.AddImageTiled(50, 20, 400, 400, 2624);
-            this.AddAlphaRegion(50, 20, 400, 400);
-
-            this.AddImage(90, 33, 9005);
-            this.AddHtmlLocalized(130, 45, 270, 20, 1049010, White, false, false); // Quest Offer
-            this.AddImageTiled(130, 65, 175, 1, 9101);
-
-            this.AddImage(140, 110, 1209);
-            this.AddHtmlObject(160, 108, 250, 20, system.Name, DarkGreen, false, false);
-
-            this.AddHtmlObject(98, 140, 312, 200, system.OfferMessage, LightGreen, false, true);
-
-            this.AddRadio(85, 350, 9720, 9723, true, 1);
-            this.AddHtmlLocalized(120, 356, 280, 20, 1049011, White, false, false); // I accept!
-
-            this.AddRadio(85, 385, 9720, 9723, false, 0);
-            this.AddHtmlLocalized(120, 391, 280, 20, 1049012, White, false, false); // No thanks, I decline.
-
-            this.AddButton(340, 390, 247, 248, 1, GumpButtonType.Reply, 0);
-
-            this.AddImageTiled(50, 29, 30, 390, 10460);
-            this.AddImageTiled(34, 140, 17, 279, 9263);
-
-            this.AddImage(48, 135, 10411);
-            this.AddImage(-16, 285, 10402);
-            this.AddImage(0, 10, 10421);
-            this.AddImage(25, 0, 10420);
-
-            this.AddImageTiled(83, 15, 350, 15, 10250);
-
-            this.AddImage(34, 419, 10306);
-            this.AddImage(442, 419, 10304);
-            this.AddImageTiled(51, 419, 392, 17, 10101);
-
-            this.AddImageTiled(415, 29, 44, 390, 2605);
-            this.AddImageTiled(415, 29, 30, 390, 10460);
-            this.AddImage(425, 0, 10441);
-
-            this.AddImage(370, 50, 1417);
-            this.AddImage(379, 60, system.Picture);
+            AddPage(0);
+            AddImageTiled(50, 20, 400, 400, 2624);
+            AddAlphaRegion(50, 20, 400, 400);
+            AddImage(90, 33, 9005);
+            AddHtmlLocalized(130, 45, 270, 20, 1049010, White, false, false); // Quest Offer
+            AddImageTiled(130, 65, 175, 1, 9101);
+            AddImage(140, 110, 1209);
+            AddHtmlObject(160, 108, 250, 20, system.Name, DarkGreen, false, false);
+            AddHtmlObject(98, 140, 312, 200, system.OfferMessage, LightGreen, false, true);
+            AddRadio(85, 350, 9720, 9723, true, 1);
+            AddHtmlLocalized(120, 356, 280, 20, 1049011, White, false, false); // I accept!
+            AddRadio(85, 385, 9720, 9723, false, 0);
+            AddHtmlLocalized(120, 391, 280, 20, 1049012, White, false, false); // No thanks, I decline.
+            AddButton(340, 390, 247, 248, 1, GumpButtonType.Reply, 0);
+            AddImageTiled(50, 29, 30, 390, 10460);
+            AddImageTiled(34, 140, 17, 279, 9263);
+            AddImage(48, 135, 10411);
+            AddImage(-16, 285, 10402);
+            AddImage(0, 10, 10421);
+            AddImage(25, 0, 10420);
+            AddImageTiled(83, 15, 350, 15, 10250);
+            AddImage(34, 419, 10306);
+            AddImage(442, 419, 10304);
+            AddImageTiled(51, 419, 392, 17, 10101);
+            AddImageTiled(415, 29, 44, 390, 2605);
+            AddImageTiled(415, 29, 30, 390, 10460);
+            AddImage(425, 0, 10441);
+            AddImage(370, 50, 1417);
+            AddImage(379, 60, system.Picture);
         }
 
         public override void OnResponse(NetState sender, RelayInfo info)
@@ -640,9 +584,9 @@ namespace Server.Engines.Quests
             if (info.ButtonID == 1)
             {
                 if (info.IsSwitched(1))
-                    this.m_System.Accept();
+                    m_System.Accept();
                 else
-                    this.m_System.Decline();
+                    m_System.Decline();
             }
         }
     }
@@ -688,15 +632,15 @@ namespace Server.Engines.Quests
 
         public static string Color(string text, int color)
         {
-            return String.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", color, text);
+            return string.Format("<BASEFONT COLOR=#{0:X6}>{1}</BASEFONT>", color, text);
         }
 
         public static ArrayList BuildList(object obj)
         {
-            ArrayList list = new ArrayList();
-
-            list.Add(obj);
-
+            ArrayList list = new ArrayList
+            {
+                obj
+            };
             return list;
         }
 
@@ -705,14 +649,12 @@ namespace Server.Engines.Quests
             if (message is string)
             {
                 string html = (string)message;
-
-                this.AddHtml(x, y, width, height, Color(html, C16232(color)), back, scroll);
+                AddHtml(x, y, width, height, Color(html, C16232(color)), back, scroll);
             }
             else if (message is int)
             {
                 int html = (int)message;
-
-                this.AddHtmlLocalized(x, y, width, height, html, C16216(color), back, scroll);
+                AddHtmlLocalized(x, y, width, height, html, C16216(color), back, scroll);
             }
         }
     }

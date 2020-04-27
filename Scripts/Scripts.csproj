@@ -55,6 +55,9 @@
     <Compile Include="Expansion\AOS\Items\Equipment\Clothing\Publish 18\FurBoots.cs" />
     <Compile Include="Expansion\AOS\Items\Publish 27\FabledFishingNet.cs" />
     <Compile Include="Expansion\AOS\Mechanics\Special Moves\WeaponAbility.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\FeralTreefellow.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\Treefellow.cs" />
+    <Compile Include="Expansion\AOS\Mobiles\TreefellowGuardian.cs" />
     <Compile Include="Expansion\EJ\Forgotten Treasures\LootBags.cs" />
     <Compile Include="Expansion\EJ\StoreBought\MetalLadder2.cs" />
     <Compile Include="Expansion\HS\Publish 68.3 Items\13th Anniversary Gifts\LargeGrandfatherClock.cs" />
@@ -900,7 +903,7 @@
     <Compile Include="Expansion\EJ\XxUnsortedxX\CircuitTrapTrainingKit.cs" />
     <Compile Include="Expansion\EJ\XxUnsortedxX\CylinderTrapTrainingKit.cs" />
     <Compile Include="Expansion\EJ\XxUnsortedxX\SliderTrapTrainingKit.cs" />
-    <Compile Include="Expansion\UOTD\StrangeContraption.cs" />
+    <Compile Include="Expansion\LBR\Items\StrangeContraption.cs" />
     <Compile Include="Expansion\SA\ItemSockets\SearingWeapon.cs" />
     <Compile Include="Expansion\ML\Quest\RewardBooks.cs" />
     <Compile Include="Expansion\SA\Items\Resource\FocusingGemOfVirtueBane.cs" />
@@ -1916,7 +1919,7 @@
     <Compile Include="Expansion\SA\Items\Resource\PowerCrystal.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\PowerGenerator.cs">
+    <Compile Include="Expansion\LBR\Items\PowerGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\Items\Resource\PrimalLichDust.cs">
@@ -2350,7 +2353,7 @@
     <Compile Include="Expansion\UOR\Mechanics\Factions\Mobiles\Mounts\MinaxWarHorse.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Factions\Mobiles\Mounts\SLWarHorse.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Factions\Mobiles\Mounts\TBWarHorse.cs" />
-    <Compile Include="Mobiles\MobileInterfaces.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\MobileInterfaces.cs" />
     <Compile Include="Expansion\ML\Mobiles\BlightedGrove\Abscess.cs" />
     <Compile Include="Expansion\UOR\Mobiles\AcidElementalRenowned.cs" />
     <Compile Include="Expansion\UOR\Mechanics\Khaldun\Mobiles\AncientLichRenowned.cs" />
@@ -2441,8 +2444,8 @@
     <Compile Include="Mobiles\Hunters Guide\F\FrostMite.cs" />
     <Compile Include="Expansion\SA\Underworld\Mobiles\BloodWorm.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Deprecated\Bogle.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\Bogling.cs" />
-    <Compile Include="Expansion\UOTD\Mobiles\BogThing.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\Bogling.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\PlagueOfDespair\BogThing.cs" />
     <Compile Include="Expansion\AOS\Mobiles\Doom Bosses\BoneDemon.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Brigand.cs" />
     <Compile Include="Expansion\UOR\Mobiles\BronzeElemental.cs" />
@@ -2526,7 +2529,6 @@
     <Compile Include="Mobiles\Hunters Guide\E\ExodusOverseer.cs" />
     <Compile Include="Expansion\SA\Mobiles\StygianDragonLair\FairyDragon.cs" />
     <Compile Include="Expansion\SE\Mobiles\FanDancer.cs" />
-    <Compile Include="Expansion\AOS\Mobiles\FeralTreefellow.cs" />
     <Compile Include="Expansion\ML\Mobiles\PrismOfLight\Ferret.cs" />
     <Compile Include="Expansion\ML\Mobiles\PrismOfLight\FetidEssence.cs" />
     <Compile Include="Mobiles\Hunters Guide\F\FierceDragon.cs" />
@@ -2720,7 +2722,6 @@
     <Compile Include="Customs\ToxicElemental.cs" />
     <Compile Include="Expansion\SA\TerMur\ToxicSlith.cs" />
     <Compile Include="Expansion\SA\TerMur\TrapdoorSpider.cs" />
-    <Compile Include="Expansion\AOS\Mobiles\Treefellow.cs" />
     <Compile Include="Expansion\ML\Mobiles\PaintedCaves\Troglodyte.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\Monsters\Troll.cs" />
     <Compile Include="Expansion\SE\Mobiles\TsukiWolf.cs" />
@@ -3199,8 +3200,7 @@
     <Compile Include="Expansion\ML\Quest\InspectedKegofTotalRefreshment.cs" />
     <Compile Include="Mobiles\Quests\PileofInspectedValoriteIngots.cs" />
     <Compile Include="Mobiles\Quests\PileofInspectedVeriteIngots.cs" />
-    <Compile Include="Expansion\AOS\Mobiles\TreefellowGuardian.cs" />
-    <Compile Include="Mobiles\Quests\TreefellowWood.cs" />
+    <Compile Include="Expansion\AOS\Mechanics\Quests\Items\TreefellowWood.cs" />
     <Compile Include="Mobiles\Quests\UndeadGargoyleMedallions.cs" />
     <Compile Include="Expansion\HS\XxUnsortedxX\VialofArmorEssence.cs" />
     <Compile Include="Mobiles\NPCs\Zosilem.cs" />
@@ -3793,7 +3793,7 @@
     <Compile Include="Expansion\HS\XxUnsortedxX\ShrineOfWisdomAddon.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\SHTeleporter.cs">
+    <Compile Include="Expansion\LBR\Items\SHTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Customs\SkullPileAddon.cs">
@@ -3809,7 +3809,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\SA\XxUnsortedxX\SmallSoulForge.cs" />
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\SolenAntHole.cs">
+    <Compile Include="Expansion\LBR\Items\SolenAntHole.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Carpentry Craftables\SpinningwheelEastAddon.cs">
@@ -5198,7 +5198,7 @@
     <Compile Include="Expansion\UOR\Items\Consumables\CommodityDeed.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\DragonBardingDeed.cs">
+    <Compile Include="Expansion\LBR\Items\DragonBardingDeed.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\HS\Consumables\ForgedPardon.cs">
@@ -10666,7 +10666,7 @@
     <Compile Include="Expansion\Original UO\Items\Craft and Component\Reagents\FertileDirt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\UOTD\XxUnsortedxX\GreenThorns.cs">
+    <Compile Include="Expansion\LBR\Items\GreenThorns.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\UOTD\XxUnsortedxX\OrangePetals.cs">
@@ -10713,52 +10713,52 @@
     </Compile>
     <Compile Include="Expansion\AOS\Mechanics\Shard of the Dead\PlayerZombies.cs" />
     <Compile Include="Expansion\AOS\Mechanics\Shard of the Dead\PumpkinPatch.cs" />
-    <Compile Include="Expansion\LBR\Quests\BaseQuester.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Mobiles\BaseQuester.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Items\DynamicTeleporter.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Items\DynamicTeleporter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Items\EnchantedSextant.cs">
+    <Compile Include="Expansion\LBR\Items\EnchantedSextant.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Items\HornOfRetreat.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Items\HornOfRetreat.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Items\QuestItem.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Items\QuestItem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestCallbackEntry.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestCallbackEntry.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestConversation.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestConversation.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestItemInfo.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestItemInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestObjective.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestObjective.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestRestartInfo.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestRestartInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestSerializer.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestSerializer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\QuestSystem.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\QuestSystem.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Regions\CancelQuestRegion.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Regions\CancelQuestRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Regions\QuestCompleteObjectiveRegion.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Regions\QuestCompleteObjectiveRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Regions\QuestNoEntryRegion.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Regions\QuestNoEntryRegion.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Expansion\LBR\Quests\Regions\QuestOfferRegion.cs">
+    <Compile Include="Expansion\LBR\Mechanics\Quests\Regions\QuestOfferRegion.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Expansion\ML\MondainsLegacyQuests\BaseEscort.cs">
@@ -12377,9 +12377,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Expansion\AOS\XxUnsortedxX\" />
     <Folder Include="Expansion\ML\Mechanics\Skills\" />
-    <Folder Include="Expansion\SE\XxUnsortedxX\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.targets" />
   <ProjectExtensions>
