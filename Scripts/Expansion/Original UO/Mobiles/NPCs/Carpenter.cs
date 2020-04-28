@@ -11,8 +11,8 @@ namespace Server.Mobiles
         public Carpenter()
             : base("the carpenter")
         {
-            this.SetSkill(SkillName.Carpentry, 85.0, 100.0);
-            this.SetSkill(SkillName.Lumberjacking, 60.0, 83.0);
+            SetSkill(SkillName.Carpentry, 85.0, 100.0);
+            SetSkill(SkillName.Lumberjacking, 60.0, 83.0);
         }
 
         public Carpenter(Serial serial)
@@ -20,39 +20,27 @@ namespace Server.Mobiles
         {
         }
 
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.TinkersGuild;
-            }
-        }
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return this.m_SBInfos;
-            }
-        }
+        public override NpcGuild NpcGuild => NpcGuild.TinkersGuild;
+        protected override List<SBInfo> SBInfos => this.m_SBInfos;
+
         public override void InitSBInfo()
         {
-            this.m_SBInfos.Add(new SBStavesWeapon());
-            this.m_SBInfos.Add(new SBCarpenter());
-            this.m_SBInfos.Add(new SBWoodenShields());
+            m_SBInfos.Add(new SBStavesWeapon());
+            m_SBInfos.Add(new SBCarpenter());
+            m_SBInfos.Add(new SBWoodenShields());
 			
-            if (this.IsTokunoVendor)
-                this.m_SBInfos.Add(new SBSECarpenter());
+            if (IsTokunoVendor)
+                m_SBInfos.Add(new SBSECarpenter());
         }
 
         public override void InitOutfit()
         {
             base.InitOutfit();
-
-            this.AddItem(new Server.Items.HalfApron());
+            AddItem(new Items.HalfApron());
         }
 
         #region Bulk Orders
-        public override BODType BODType { get { return BODType.Carpentry; } }
+        public override BODType BODType => BODType.Carpentry;
 
         public override bool IsValidBulkOrder(Item item)
         {
@@ -69,21 +57,18 @@ namespace Server.Mobiles
             if (from is PlayerMobile)
                 ((PlayerMobile)from).NextCarpentryBulkOrder = TimeSpan.Zero;
         }
-
         #endregion
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

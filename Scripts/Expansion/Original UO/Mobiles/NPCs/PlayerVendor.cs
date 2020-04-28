@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-
 using Server.ContextMenus;
 using Server.Gumps;
 using Server.Items;
@@ -44,6 +43,7 @@ namespace Server.Mobiles
 
         public Item Item { get; }
         public int Price { get; }
+
         public string FormattedPrice
         {
             get
@@ -56,10 +56,7 @@ namespace Server.Mobiles
         }
         public string Description
         {
-            get
-            {
-                return m_Description;
-            }
+            get => m_Description;
             set
             {
                 if (value != null)
@@ -72,8 +69,9 @@ namespace Server.Mobiles
             }
         }
         public DateTime Created { get; }
-        public bool IsForSale { get { return Price >= 0; } }
-        public bool IsForFree { get { return Price == 0; } }
+        public bool IsForSale => Price >= 0;
+        public bool IsForFree => Price == 0;
+
         public bool Valid { get; private set; }
 
         public void Invalidate()
@@ -95,7 +93,7 @@ namespace Server.Mobiles
         {
         }
 
-        public override int DefaultMaxWeight { get { return 0; } }
+        public override int DefaultMaxWeight => 0;
 
         public override bool CheckHold(Mobile m, Item item, bool message, bool checkItems, int plusItems, int plusWeight)
         {
@@ -129,7 +127,6 @@ namespace Server.Mobiles
                     return false;
                 }
             }
-
             return true;
         }
 
@@ -244,13 +241,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private class BuyEntry : ContextMenuEntry
@@ -263,7 +260,7 @@ namespace Server.Mobiles
                 m_Item = item;
             }
 
-            public override bool NonLocalUse { get { return true; } }
+            public override bool NonLocalUse => true;
 
             public override void OnClick()
             {
@@ -282,8 +279,8 @@ namespace Server.Mobiles
         private string m_ShopName;
         private Timer m_PayTimer;
 
-        public double CommissionPerc { get { return 5.25; } }
-        public virtual bool IsCommission { get { return false; } }
+        public double CommissionPerc => 5.25;
+        public virtual bool IsCommission => false;
 
         public PlayerVendor(Mobile owner, BaseHouse house)
         {
@@ -352,10 +349,7 @@ namespace Server.Mobiles
         [CommandProperty(AccessLevel.GameMaster)]
         public string ShopName
         {
-            get
-            {
-                return m_ShopName;
-            }
+            get => m_ShopName;
             set
             {
                 if (value == null)
@@ -374,10 +368,7 @@ namespace Server.Mobiles
 
         public BaseHouse House
         {
-            get
-            {
-                return m_House;
-            }
+            get => m_House;
             set
             {
                 if (m_House != null)
@@ -433,7 +424,7 @@ namespace Server.Mobiles
 
                     if (trinket != null)
                     {
-                        return perDay - (int)((double)perDay * ((double)trinket.Bonus / 100));
+                        return perDay - (int)(perDay * ((double)trinket.Bonus / 100));
                     }
 
                     return perDay;
@@ -481,26 +472,25 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)2); // version
+            writer.Write(2);
 
-            writer.Write((bool)VendorSearch);
-            writer.Write((bool)BaseHouse.NewVendorSystem);
-            writer.Write((string)m_ShopName);
-            writer.WriteDeltaTime((DateTime)NextPayTime);
-            writer.Write((Item)House);
+            writer.Write(VendorSearch);
+            writer.Write(BaseHouse.NewVendorSystem);
+            writer.Write(m_ShopName);
+            writer.WriteDeltaTime(NextPayTime);
+            writer.Write(House);
 
-            writer.Write((Mobile)Owner);
-            writer.Write((int)BankAccount);
-            writer.Write((int)HoldGold);
+            writer.Write(Owner);
+            writer.Write(BankAccount);
+            writer.Write(HoldGold);
 
-            writer.Write((int)m_SellItems.Count);
+            writer.Write(m_SellItems.Count);
             foreach (VendorItem vi in m_SellItems.Values)
             {
-                writer.Write((Item)vi.Item);
-                writer.Write((int)vi.Price);
-                writer.Write((string)vi.Description);
-
-                writer.Write((DateTime)vi.Created);
+                writer.Write(vi.Item);
+                writer.Write(vi.Price);
+                writer.Write(vi.Description);
+                writer.Write(vi.Created);
             }
         }
 
@@ -629,8 +619,10 @@ namespace Server.Mobiles
 
         public virtual void InitOutfit()
         {
-            Item item = new FancyShirt(Utility.RandomNeutralHue());
-            item.Layer = Layer.InnerTorso;
+            Item item = new FancyShirt(Utility.RandomNeutralHue())
+            {
+                Layer = Layer.InnerTorso
+            };
             AddItem(item);
             AddItem(new LongPants(Utility.RandomNeutralHue()));
             AddItem(new BodySash(Utility.RandomNeutralHue()));
@@ -639,8 +631,10 @@ namespace Server.Mobiles
 
             Utility.AssignRandomHair(this);
 
-            Container pack = new VendorBackpack();
-            pack.Movable = false;
+            Container pack = new VendorBackpack
+            {
+                Movable = false
+            };
             AddItem(pack);
         }
 
@@ -1583,10 +1577,9 @@ namespace Server.Mobiles
                 else
                     firstWord = text;
 
-                int price;
                 string description;
 
-                if (int.TryParse(firstWord, out price))
+                if (int.TryParse(firstWord, out int price))
                 {
                     if (sep >= 0)
                         description = text.Substring(sep + 1).Trim();
@@ -1676,9 +1669,7 @@ namespace Server.Mobiles
 
                 text = text.Trim();
 
-                int amount;
-
-                if (!int.TryParse(text, out amount))
+                if (!int.TryParse(text, out int amount))
                     amount = 0;
 
                 GiveGold(from, amount);

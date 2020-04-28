@@ -20,34 +20,11 @@ namespace Server.Mobiles
         {
         }
 
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.BlacksmithsGuild;
-            }
-        }
-        public override bool IsActiveVendor
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool ClickTitle
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override VendorShoeType ShoeType
-        {
-            get
-            {
-                return VendorShoeType.ThighBoots;
-            }
-        }
+        public override NpcGuild NpcGuild => NpcGuild.BlacksmithsGuild;
+        public override bool IsActiveVendor => true;
+        public override bool ClickTitle => true;
+        public override VendorShoeType ShoeType => VendorShoeType.ThighBoots;
+
         public override void InitSBInfo()
         {
             SBInfos.Add(new SBBlacksmith());
@@ -55,7 +32,7 @@ namespace Server.Mobiles
 
         public override void InitOutfit()
         {
-            Item item = (Utility.RandomBool() ? null : new Server.Items.RingmailChest());
+            Item item = (Utility.RandomBool() ? null : new Items.RingmailChest());
 
             if (item != null && !EquipItem(item))
             {
@@ -64,10 +41,10 @@ namespace Server.Mobiles
             }
 
             if (item == null)
-                AddItem(new Server.Items.FullApron());
+                AddItem(new Items.FullApron());
 
-            AddItem(new Server.Items.Bascinet());
-            AddItem(new Server.Items.SmithHammer());
+            AddItem(new Items.Bascinet());
+            AddItem(new Items.SmithHammer());
 
             base.InitOutfit();
         }
@@ -120,20 +97,18 @@ namespace Server.Mobiles
             if (Core.SE && from is PlayerMobile)
                 ((PlayerMobile)from).NextSmithBulkOrder = TimeSpan.Zero;
         }
-
         #endregion
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

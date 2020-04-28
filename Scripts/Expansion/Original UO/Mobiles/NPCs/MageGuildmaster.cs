@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Server.ContextMenus;
-using Server.Targeting;
-using Server.Items;
-using Server.Gumps;
-
 namespace Server.Mobiles
 {
     public class MageGuildmaster : BaseGuildmaster
@@ -29,40 +22,27 @@ namespace Server.Mobiles
         {
         }
 
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.MagesGuild;
-            }
-        }
-        public override VendorShoeType ShoeType
-        {
-            get
-            {
-                return Utility.RandomBool() ? VendorShoeType.Shoes : VendorShoeType.Sandals;
-            }
-        }
+        public override NpcGuild NpcGuild => NpcGuild.MagesGuild;
+        public override VendorShoeType ShoeType => Utility.RandomBool() ? VendorShoeType.Shoes : VendorShoeType.Sandals;
+
         public override void InitOutfit()
         {
             base.InitOutfit();
 
-            AddItem(new Server.Items.Robe(Utility.RandomBlueHue()));
-            AddItem(new Server.Items.GnarledStaff());
+            AddItem(new Items.Robe(Utility.RandomBlueHue()));
+            AddItem(new Items.GnarledStaff());
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

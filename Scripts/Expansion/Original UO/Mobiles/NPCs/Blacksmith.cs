@@ -7,21 +7,9 @@ namespace Server.Mobiles
     public class Blacksmith : BaseVendor
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return m_SBInfos;
-            }
-        }
+        protected override List<SBInfo> SBInfos => m_SBInfos;
 
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.BlacksmithsGuild;
-            }
-        }
+        public override NpcGuild NpcGuild => NpcGuild.BlacksmithsGuild;
 
         [Constructable]
         public Blacksmith()
@@ -70,17 +58,11 @@ namespace Server.Mobiles
             }
         }
 
-        public override VendorShoeType ShoeType
-        {
-            get
-            {
-                return VendorShoeType.None;
-            }
-        }
+        public override VendorShoeType ShoeType => VendorShoeType.None;
 
         public override void InitOutfit()
         {
-            Item item = (Utility.RandomBool() ? null : new Server.Items.RingmailChest());
+            Item item = (Utility.RandomBool() ? null : new Items.RingmailChest());
 
             if (item != null && !EquipItem(item))
             {
@@ -89,16 +71,16 @@ namespace Server.Mobiles
             }
 
             if (item == null)
-                AddItem(new Server.Items.FullApron());
+                AddItem(new Items.FullApron());
 
-            AddItem(new Server.Items.Bascinet());
-            AddItem(new Server.Items.SmithHammer());
+            AddItem(new Items.Bascinet());
+            AddItem(new Items.SmithHammer());
 
             base.InitOutfit();
         }
 
         #region Bulk Orders
-        public override BODType BODType { get { return BODType.Smith; } }
+        public override BODType BODType => BODType.Smith;
 
         public override Item CreateBulkOrder(Mobile from, bool fromContextMenu)
         {
@@ -147,7 +129,6 @@ namespace Server.Mobiles
             if (Core.SE && from is PlayerMobile)
                 ((PlayerMobile)from).NextSmithBulkOrder = TimeSpan.Zero;
         }
-
         #endregion
 
         public Blacksmith(Serial serial)
@@ -158,15 +139,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

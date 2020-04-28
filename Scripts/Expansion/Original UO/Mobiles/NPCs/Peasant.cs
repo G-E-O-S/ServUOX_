@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -8,7 +7,7 @@ namespace Server.Mobiles
         [Constructable]
         public Peasant()
         {
-            this.Title = "the peasant";
+            Title = "the peasant";
         }
 
         public Peasant(Serial serial)
@@ -16,35 +15,24 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool CanTeach
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool ClickTitle
-        {
-            get
-            {
-                return false;
-            }
-        }// Do not display 'the peasant' when single-clicking
+        public override bool CanTeach => true;
+        public override bool ClickTitle => false;// Do not display 'the peasant' when single-clicking
+
         public override void InitOutfit()
         {
-            if (this.Female)
-                this.AddItem(new PlainDress());
+            if (Female)
+                AddItem(new PlainDress());
             else
-                this.AddItem(new Shirt(GetRandomHue()));
+                AddItem(new Shirt(GetRandomHue()));
 
             int lowHue = GetRandomHue();
 
-            this.AddItem(new ShortPants(lowHue));
+            AddItem(new ShortPants(lowHue));
 
-            if (this.Female)
-                this.AddItem(new Boots(lowHue));
+            if (Female)
+                AddItem(new Boots(lowHue));
             else
-                this.AddItem(new Shoes(lowHue));
+                AddItem(new Shoes(lowHue));
 
             //if ( !Female )
             //AddItem( new BodySash( lowHue ) );
@@ -56,21 +44,19 @@ namespace Server.Mobiles
 
             Utility.AssignRandomHair(this);
 
-            this.PackGold(200, 250);
+            PackGold(10, 50);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private static int GetRandomHue()

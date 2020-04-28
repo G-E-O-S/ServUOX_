@@ -1,4 +1,3 @@
-using System;
 using Server.Items;
 
 namespace Server.Mobiles
@@ -16,10 +15,11 @@ namespace Server.Mobiles
             "Cove", "Serpent's Hold", "Jhelom", // ML List
             "Nujel'm"
         };
+
         [Constructable]
         public SeekerOfAdventure()
         {
-            this.Title = "the seeker of adventure";
+            Title = "the seeker of adventure";
         }
 
         public SeekerOfAdventure(Serial serial)
@@ -27,13 +27,8 @@ namespace Server.Mobiles
         {
         }
 
-        public override bool ClickTitle
-        {
-            get
-            {
-                return false;
-            }
-        }// Do not display 'the seeker of adventure' when single-clicking
+        public override bool ClickTitle => false;// Do not display 'the seeker of adventure' when single-clicking
+
         public override string[] GetPossibleDestinations()
         {
             if (Core.ML)
@@ -44,44 +39,42 @@ namespace Server.Mobiles
 
         public override void InitOutfit()
         {
-            if (this.Female)
-                this.AddItem(new FancyDress(GetRandomHue()));
+            if (Female)
+                AddItem(new FancyDress(GetRandomHue()));
             else
-                this.AddItem(new FancyShirt(GetRandomHue()));
+                AddItem(new FancyShirt(GetRandomHue()));
 
             int lowHue = GetRandomHue();
 
-            this.AddItem(new ShortPants(lowHue));
+            AddItem(new ShortPants(lowHue));
 
-            if (this.Female)
-                this.AddItem(new ThighBoots(lowHue));
+            if (Female)
+                AddItem(new ThighBoots(lowHue));
             else
-                this.AddItem(new Boots(lowHue));
+                AddItem(new Boots(lowHue));
 
-            if (!this.Female)
-                this.AddItem(new BodySash(lowHue));
+            if (!Female)
+                AddItem(new BodySash(lowHue));
 
-            this.AddItem(new Cloak(GetRandomHue()));
+            AddItem(new Cloak(GetRandomHue()));
 
-            this.AddItem(new Longsword());
+            AddItem(new Longsword());
 
             Utility.AssignRandomHair(this);
 
-            this.PackGold(100, 150);
+            PackGold(50, 150);
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         private static int GetRandomHue()

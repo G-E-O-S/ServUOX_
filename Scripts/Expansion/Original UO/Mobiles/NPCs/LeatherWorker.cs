@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Server.Mobiles 
@@ -17,32 +16,25 @@ namespace Server.Mobiles
         { 
         }
 
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return this.m_SBInfos;
-            }
-        }
+        protected override List<SBInfo> SBInfos => m_SBInfos;
+
         public override void InitSBInfo() 
         { 
-            this.m_SBInfos.Add(new SBLeatherArmor()); 
-            this.m_SBInfos.Add(new SBStuddedArmor()); 
-            this.m_SBInfos.Add(new SBLeatherWorker()); 
+            m_SBInfos.Add(new SBLeatherArmor()); 
+            m_SBInfos.Add(new SBStuddedArmor()); 
+            m_SBInfos.Add(new SBLeatherWorker()); 
         }
 
         public override void Serialize(GenericWriter writer) 
         { 
-            base.Serialize(writer); 
-
-            writer.Write((int)0); // version 
+            base.Serialize(writer);
+            writer.Write(0); 
         }
 
         public override void Deserialize(GenericReader reader) 
         { 
-            base.Deserialize(reader); 
-
-            int version = reader.ReadInt(); 
+            base.Deserialize(reader);
+            _ = reader.ReadInt();
         }
     }
 }

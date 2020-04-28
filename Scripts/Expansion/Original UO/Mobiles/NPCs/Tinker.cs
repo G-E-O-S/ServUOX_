@@ -24,27 +24,16 @@ namespace Server.Mobiles
         {
         }
 
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.TinkersGuild;
-            }
-        }
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return m_SBInfos;
-            }
-        }
+        public override NpcGuild NpcGuild => NpcGuild.TinkersGuild;
+        protected override List<SBInfo> SBInfos => m_SBInfos;
+
         public override void InitSBInfo()
         {
             m_SBInfos.Add(new SBTinker(this));
         }
 
         #region Bulk Orders
-        public override BODType BODType { get { return BODType.Tinkering; } }
+        public override BODType BODType => BODType.Tinkering;
 
         public override bool IsValidBulkOrder(Item item)
         {
@@ -61,7 +50,6 @@ namespace Server.Mobiles
             if (from is PlayerMobile)
                 ((PlayerMobile)from).NextTinkeringBulkOrder = TimeSpan.Zero;
         }
-
         #endregion
 
         public override void AddCustomContextEntries(Mobile from, List<ContextMenuEntry> list)
@@ -111,15 +99,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

@@ -7,51 +7,32 @@ namespace Server.Mobiles
     public class Tailor : BaseVendor
     {
         private readonly List<SBInfo> m_SBInfos = new List<SBInfo>();
-        protected override List<SBInfo> SBInfos
-        {
-            get
-            {
-                return this.m_SBInfos;
-            }
-        }
-
-        public override NpcGuild NpcGuild
-        {
-            get
-            {
-                return NpcGuild.TailorsGuild;
-            }
-        }
+        protected override List<SBInfo> SBInfos => m_SBInfos;
+        public override NpcGuild NpcGuild => NpcGuild.TailorsGuild;
 
         [Constructable]
         public Tailor()
             : base("the tailor")
         {
-            this.SetSkill(SkillName.Tailoring, 64.0, 100.0);
+            SetSkill(SkillName.Tailoring, 64.0, 100.0);
         }
 
         public override void InitSBInfo()
         {
             if(!IsStygianVendor)
             { 
-                this.m_SBInfos.Add(new SBTailor());
+                m_SBInfos.Add(new SBTailor());
             }
             else
             {
-                this.m_SBInfos.Add(new SBSATailor());
+                m_SBInfos.Add(new SBSATailor());
             }
         }
 
-        public override VendorShoeType ShoeType
-        {
-            get
-            {
-                return Utility.RandomBool() ? VendorShoeType.Sandals : VendorShoeType.Shoes;
-            }
-        }
+        public override VendorShoeType ShoeType => Utility.RandomBool() ? VendorShoeType.Sandals : VendorShoeType.Shoes;
 
         #region Bulk Orders
-        public override BODType BODType { get { return BODType.Tailor; } }
+        public override BODType BODType => BODType.Tailor;
 
         public override Item CreateBulkOrder(Mobile from, bool fromContextMenu)
         {
@@ -100,7 +81,6 @@ namespace Server.Mobiles
             if (Core.SE && from is PlayerMobile)
                 ((PlayerMobile)from).NextTailorBulkOrder = TimeSpan.Zero;
         }
-
         #endregion
 
         public Tailor(Serial serial)
@@ -111,15 +91,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-
-            writer.Write((int)0); // version
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
     }
 }

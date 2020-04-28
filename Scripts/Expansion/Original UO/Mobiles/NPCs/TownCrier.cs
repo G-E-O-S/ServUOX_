@@ -26,7 +26,6 @@ namespace Server.Mobiles
     public class GlobalTownCrierEntryList : ITownCrierEntryList
     {
         private static GlobalTownCrierEntryList m_Instance;
-        private List<TownCrierEntry> m_Entries;
 
         public GlobalTownCrierEntryList()
         {
@@ -43,21 +42,9 @@ namespace Server.Mobiles
             }
         }
 
-        public bool IsEmpty
-        {
-            get
-            {
-                return (m_Entries == null || m_Entries.Count == 0);
-            }
-        }
+        public bool IsEmpty => (Entries == null || Entries.Count == 0);
 
-        public List<TownCrierEntry> Entries
-        {
-            get
-            {
-                return m_Entries;
-            }
-        }
+        public List<TownCrierEntry> Entries { get; private set; }
 
         public static void Initialize()
         {
@@ -73,34 +60,34 @@ namespace Server.Mobiles
 
         public TownCrierEntry GetRandomEntry()
         {
-            if (m_Entries == null || m_Entries.Count == 0)
+            if (Entries == null || Entries.Count == 0)
                 return null;
 
-            for (int i = m_Entries.Count - 1; m_Entries != null && i >= 0; --i)
+            for (int i = Entries.Count - 1; Entries != null && i >= 0; --i)
             {
-                if (i >= m_Entries.Count)
+                if (i >= Entries.Count)
                     continue;
 
-                TownCrierEntry tce = m_Entries[i];
+                TownCrierEntry tce = Entries[i];
 
                 if (tce.Expired)
                     RemoveEntry(tce);
             }
 
-            if (m_Entries == null || m_Entries.Count == 0)
+            if (Entries == null || Entries.Count == 0)
                 return null;
 
-            return m_Entries[Utility.Random(m_Entries.Count)];
+            return Entries[Utility.Random(Entries.Count)];
         }
 
         public TownCrierEntry AddEntry(string[] lines, TimeSpan duration)
         {
-            if (m_Entries == null)
-                m_Entries = new List<TownCrierEntry>();
+            if (Entries == null)
+                Entries = new List<TownCrierEntry>();
 
             TownCrierEntry tce = new TownCrierEntry(lines, duration);
 
-            m_Entries.Add(tce);
+            Entries.Add(tce);
 
             List<TownCrier> instances = TownCrier.Instances;
 
@@ -112,10 +99,10 @@ namespace Server.Mobiles
 
         public void AddEntry(TownCrierEntry entry)
         {
-            if (m_Entries == null)
-                m_Entries = new List<TownCrierEntry>();
+            if (Entries == null)
+                Entries = new List<TownCrierEntry>();
 
-            m_Entries.Add(entry);
+            Entries.Add(entry);
 
             List<TownCrier> instances = TownCrier.Instances;
 
@@ -125,13 +112,13 @@ namespace Server.Mobiles
 
         public void RemoveEntry(TownCrierEntry tce)
         {
-            if (m_Entries == null)
+            if (Entries == null)
                 return;
 
-            m_Entries.Remove(tce);
+            Entries.Remove(tce);
 
-            if (m_Entries.Count == 0)
-                m_Entries = null;
+            if (Entries.Count == 0)
+                Entries = null;
         }
 
         #region Serialization
@@ -200,58 +187,37 @@ namespace Server.Mobiles
 
     public class TownCrierEntry
     {
-        private readonly string[] m_Lines;
-        private readonly DateTime m_ExpireTime;
-
         public TownCrierEntry(string[] lines, TimeSpan duration)
         {
-            m_Lines = lines;
+            Lines = lines;
 
             if (duration < TimeSpan.Zero)
                 duration = TimeSpan.Zero;
             else if (duration > TimeSpan.FromDays(365.0))
                 duration = TimeSpan.FromDays(365.0);
 
-            m_ExpireTime = DateTime.UtcNow + duration;
+            ExpireTime = DateTime.UtcNow + duration;
         }
 
-        public string[] Lines
-        {
-            get
-            {
-                return m_Lines;
-            }
-        }
+        public string[] Lines { get; }
 
-        public DateTime ExpireTime
-        {
-            get
-            {
-                return m_ExpireTime;
-            }
-        }
+        public DateTime ExpireTime { get; }
 
-        public bool Expired
-        {
-            get
-            {
-                return (DateTime.UtcNow >= m_ExpireTime);
-            }
-        }
+        public bool Expired => (DateTime.UtcNow >= ExpireTime);
 
         public TownCrierEntry(GenericReader reader)
         {
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
 
             int count = reader.ReadInt();
-            m_Lines = new string[count];
+            Lines = new string[count];
 
             for (int i = 0; i < count; i++)
             {
-                m_Lines[i] = reader.ReadString();
+                Lines[i] = reader.ReadString();
             }
 
-            m_ExpireTime = reader.ReadDateTime();
+            ExpireTime = reader.ReadDateTime();
         }
 
         public void Serialize(GenericWriter writer)
@@ -264,7 +230,7 @@ namespace Server.Mobiles
                 writer.Write(str);
             }
 
-            writer.Write(m_ExpireTime);
+            writer.Write(ExpireTime);
         }
     }
 
@@ -293,7 +259,7 @@ namespace Server.Mobiles
             from.SendMessage("Duration set to: {0}", ts);
             from.SendMessage("Enter the first line to shout:");
 
-            from.Prompt = new TownCrierLinesPrompt(m_Owner, null, new List<String>(), ts);
+            from.Prompt = new TownCrierLinesPrompt(m_Owner, null, new List<string>(), ts);
         }
 
         public override void OnCancel(Mobile from)
@@ -307,9 +273,9 @@ namespace Server.Mobiles
     {
         private readonly ITownCrierEntryList m_Owner;
         private readonly TownCrierEntry m_Entry;
-        private readonly List<String> m_Lines;
+        private readonly List<string> m_Lines;
         private readonly TimeSpan m_Duration;
-        public TownCrierLinesPrompt(ITownCrierEntryList owner, TownCrierEntry entry, List<String> lines, TimeSpan duration)
+        public TownCrierLinesPrompt(ITownCrierEntryList owner, TownCrierEntry entry, List<string> lines, TimeSpan duration)
         {
             m_Owner = owner;
             m_Entry = entry;
@@ -460,7 +426,7 @@ namespace Server.Mobiles
                     m_From.SendMessage("Editing entry #{0}.", index + 1);
                     m_From.SendMessage("Push <ESC> to delete this entry.");
                     m_From.SendMessage("Enter the first line to shout:");
-                    m_From.Prompt = new TownCrierLinesPrompt(m_Owner, tce, new List<String>(), ts);
+                    m_From.Prompt = new TownCrierLinesPrompt(m_Owner, tce, new List<string>(), ts);
                 }
             }
         }
@@ -468,16 +434,13 @@ namespace Server.Mobiles
 
     public class TownCrier : Mobile, ITownCrierEntryList
     {
-        private static readonly List<TownCrier> m_Instances = new List<TownCrier>();
-
-        private List<TownCrierEntry> m_Entries;
         private Timer m_NewsTimer;
         private Timer m_AutoShoutTimer;
 
         [Constructable]
         public TownCrier()
         {
-            m_Instances.Add(this);
+            Instances.Add(this);
 
             InitStats(100, 100, 25);
 
@@ -540,48 +503,36 @@ namespace Server.Mobiles
         public TownCrier(Serial serial)
             : base(serial)
         {
-            m_Instances.Add(this);
+            Instances.Add(this);
         }
 
-        public static List<TownCrier> Instances
-        {
-            get
-            {
-                return m_Instances;
-            }
-        }
+        public static List<TownCrier> Instances { get; } = new List<TownCrier>();
 
-        public List<TownCrierEntry> Entries
-        {
-            get
-            {
-                return m_Entries;
-            }
-        }
+        public List<TownCrierEntry> Entries { get; private set; }
 
         public TownCrierEntry GetRandomEntry()
         {
-            if (m_Entries == null || m_Entries.Count == 0)
+            if (Entries == null || Entries.Count == 0)
                 return GlobalTownCrierEntryList.Instance.GetRandomEntry();
 
-            for (int i = m_Entries.Count - 1; m_Entries != null && i >= 0; --i)
+            for (int i = Entries.Count - 1; Entries != null && i >= 0; --i)
             {
-                if (i >= m_Entries.Count)
+                if (i >= Entries.Count)
                     continue;
 
-                TownCrierEntry tce = m_Entries[i];
+                TownCrierEntry tce = Entries[i];
 
                 if (tce.Expired)
                     RemoveEntry(tce);
             }
 
-            if (m_Entries == null || m_Entries.Count == 0)
+            if (Entries == null || Entries.Count == 0)
                 return GlobalTownCrierEntryList.Instance.GetRandomEntry();
 
             TownCrierEntry entry = GlobalTownCrierEntryList.Instance.GetRandomEntry();
 
             if (entry == null || Utility.RandomBool())
-                entry = m_Entries[Utility.Random(m_Entries.Count)];
+                entry = Entries[Utility.Random(Entries.Count)];
 
             return entry;
         }
@@ -594,12 +545,12 @@ namespace Server.Mobiles
 
         public TownCrierEntry AddEntry(string[] lines, TimeSpan duration)
         {
-            if (m_Entries == null)
-                m_Entries = new List<TownCrierEntry>();
+            if (Entries == null)
+                Entries = new List<TownCrierEntry>();
 
             TownCrierEntry tce = new TownCrierEntry(lines, duration);
 
-            m_Entries.Add(tce);
+            Entries.Add(tce);
 
             if (m_AutoShoutTimer == null)
                 m_AutoShoutTimer = Timer.DelayCall(TimeSpan.FromMinutes(1.0), TimeSpan.FromMinutes(5.0), new TimerCallback(AutoShout_Callback));
@@ -609,10 +560,10 @@ namespace Server.Mobiles
 
         public void AddEntry(TownCrierEntry entry)
         {
-            if (m_Entries == null)
-                m_Entries = new List<TownCrierEntry>();
+            if (Entries == null)
+                Entries = new List<TownCrierEntry>();
 
-            m_Entries.Add(entry);
+            Entries.Add(entry);
 
             if (m_AutoShoutTimer == null)
                 m_AutoShoutTimer = Timer.DelayCall(TimeSpan.FromMinutes(1.0), TimeSpan.FromMinutes(5.0), new TimerCallback(AutoShout_Callback));
@@ -620,15 +571,15 @@ namespace Server.Mobiles
 
         public void RemoveEntry(TownCrierEntry tce)
         {
-            if (m_Entries == null)
+            if (Entries == null)
                 return;
 
-            m_Entries.Remove(tce);
+            Entries.Remove(tce);
 
-            if (m_Entries.Count == 0)
-                m_Entries = null;
+            if (Entries.Count == 0)
+                Entries = null;
 
-            if (m_Entries == null && GlobalTownCrierEntryList.Instance.IsEmpty)
+            if (Entries == null && GlobalTownCrierEntryList.Instance.IsEmpty)
             {
                 if (m_AutoShoutTimer != null)
                     m_AutoShoutTimer.Stop();
@@ -702,28 +653,26 @@ namespace Server.Mobiles
 
         public override void OnDelete()
         {
-            m_Instances.Remove(this);
+            Instances.Remove(this);
             base.OnDelete();
         }
 
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
+            writer.Write(1);
 
-            writer.Write((int)1); // version
+            writer.Write(Entries == null ? 0 : Entries.Count);
 
-            writer.Write(m_Entries == null ? 0 : m_Entries.Count);
-
-            if (m_Entries != null)
+            if (Entries != null)
             {
-                m_Entries.ForEach(e => e.Serialize(writer));
+                Entries.ForEach(e => e.Serialize(writer));
             }
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-
             int version = reader.ReadInt();
 
             switch (version)

@@ -2642,7 +2642,7 @@
     <Compile Include="Expansion\XSORTINGX\Mobiles\PalaminoHorse.cs" />
     <Compile Include="Expansion\XSORTINGX\Mobiles\SabertoothedTiger.cs" />
     <Compile Include="Expansion\TOL\Mobiles\WildTiger.cs" />
-    <Compile Include="Mobiles\NPCs\BaseTurnInMobile.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\BaseTurnInMobile.cs" />
     <Compile Include="Mobiles\NPCs\Brae.cs" />
     <Compile Include="Mobiles\NPCs\Emilio.cs" />
     <Compile Include="Mobiles\NPCs\Evan.cs" />
@@ -2765,7 +2765,7 @@
     <Compile Include="Mobiles\NPCs\AlelleTheAborist.cs" />
     <Compile Include="Mobiles\NPCs\Alethanian.cs" />
     <Compile Include="Mobiles\NPCs\AluniolTheHealer.cs" />
-    <Compile Include="Expansion\LBR\Mobiles\AmbitiousSolenQueen.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\AmbitiousSolenQueen.cs" />
     <Compile Include="Mobiles\NPCs\Amelia.cs" />
     <Compile Include="Mobiles\NPCs\Aminia.cs" />
     <Compile Include="Mobiles\NPCs\AndreasVesalius.cs" />
@@ -2780,7 +2780,7 @@
     <Compile Include="Mobiles\NPCs\Arielle.cs" />
     <Compile Include="Mobiles\NPCs\AriellesBauble.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\NPCs\Armorer.cs" />
-    <Compile Include="Mobiles\NPCs\Artist.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\NPCs\Artist.cs" />
     <Compile Include="Mobiles\NPCs\Athialon.cs" />
     <Compile Include="Mobiles\NPCs\AttendantFortuneTeller.cs" />
     <Compile Include="Mobiles\NPCs\AttendantGuide.cs" />
@@ -2798,7 +2798,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\BaseGuildmaster.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\BaseHealer.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\BaseHire.cs" />
-    <Compile Include="Mobiles\NPCs\BaseShieldGuard.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\BaseShieldGuard.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\BaseVendor.cs" />
     <Compile Include="Mobiles\NPCs\Beekeeper.cs" />
     <Compile Include="Mobiles\NPCs\Belulah.cs" />
@@ -2922,7 +2922,7 @@
     <Compile Include="Expansion\Original UO\Mobiles\NPCs\Mage.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\NPCs\MageGuildmaster.cs" />
     <Compile Include="Mobiles\NPCs\Mallew.cs" />
-    <Compile Include="Mobiles\NPCs\Mapmaker.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\NPCs\Mapmaker.cs" />
     <Compile Include="Mobiles\NPCs\Mardoth.cs" />
     <Compile Include="Mobiles\NPCs\Margo.cs" />
     <Compile Include="Mobiles\NPCs\Maul.cs" />
@@ -3014,7 +3014,7 @@
     <Compile Include="Mobiles\NPCs\Walker.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\NPCs\WanderingHealer.cs" />
     <Compile Include="Mobiles\NPCs\WarriorGuard.cs" />
-    <Compile Include="Mobiles\NPCs\WarriorGuildmaster.cs" />
+    <Compile Include="Expansion\Original UO\Mobiles\NPCs\WarriorGuildmaster.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\NPCs\Weaponsmith.cs" />
     <Compile Include="Expansion\Original UO\Mobiles\NPCs\Weaver.cs" />
     <Compile Include="Mobiles\NPCs\Xanthe.cs" />
@@ -3227,7 +3227,7 @@
     <Compile Include="Mobiles\NPCs\Tallinin.cs" />
     <Compile Include="Mobiles\NPCs\Tiana.cs" />
     <Compile Include="Mobiles\Quests\SolenMatriarch\Conversations.cs" />
-    <Compile Include="Mobiles\NPCs\SolenMatriarch.cs" />
+    <Compile Include="Expansion\LBR\Mobiles\WhenAntsAttack\SolenMatriarch.cs" />
     <Compile Include="Mobiles\Quests\SolenMatriarch\Objectives.cs" />
     <Compile Include="Mobiles\Quests\SolenMatriarch\SolenMatriarchQuest.cs" />
     <Compile Include="Mobiles\Quests\StudyOfTheSolenHive\Conversations.cs" />
