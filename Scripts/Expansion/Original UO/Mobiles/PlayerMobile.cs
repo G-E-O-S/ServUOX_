@@ -6870,7 +6870,7 @@ namespace Server.Mobiles
 
         public void ClaimAutoStabledPets()
         {
-            if (!PetAutoStable || !Region.AllowAutoClaim(this) || AutoStabled.Count <= 0)
+            if ( !PetAutoStable || !Region.AllowAutoClaim(this) || AutoStabled == null || AutoStabled.Count <= 0)
             {
                 return;
             }
@@ -6884,16 +6884,14 @@ namespace Server.Mobiles
             for (int i = AutoStabled.Count - 1; i >= 0; --i)
             {
                 BaseCreature pet = AutoStabled[i] as BaseCreature;
+                if (pet == null) continue;
 
-                if (pet == null || pet.Deleted)
+                if (pet.Deleted)
                 {
                     pet.IsStabled = false;
                     pet.StabledBy = null;
 
-                    if (Stabled.Contains(pet))
-                    {
-                        Stabled.Remove(pet);
-                    }
+                    if (Stabled.Contains(pet)) Stabled.Remove(pet);
 
                     continue;
                 }

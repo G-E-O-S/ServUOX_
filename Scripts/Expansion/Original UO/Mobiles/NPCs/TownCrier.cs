@@ -7,7 +7,6 @@ using Server.Items;
 using Server.Network;
 using Server.Prompts;
 using System.IO;
-using Server.Engines.CityLoyalty;
 using Server.ContextMenus;
 using Server.Services.TownCryer;
 
@@ -244,9 +243,7 @@ namespace Server.Mobiles
 
         public override void OnResponse(Mobile from, string text)
         {
-            TimeSpan ts;
-
-            if (!TimeSpan.TryParse(text, out ts))
+            if (!TimeSpan.TryParse(text, out TimeSpan ts))
             {
                 from.SendMessage("Value was not properly formatted. Use: <hours:minutes:seconds>");
                 from.SendGump(new TownCrierGump(from, m_Owner));
@@ -352,7 +349,7 @@ namespace Server.Mobiles
             AddButton(300 - 8 - 30, 8, 0xFAB, 0xFAD, 1, GumpButtonType.Reply, 0);
             AddTooltip(3000161); // New Message
 
-            if (count == 0)
+            if (entries == null || count == 0)
             {
                 AddHtml(8, 30, 284, 20, "<basefont color=#FFFFFF>The crier has no news.</basefont>", false, false);
             }
@@ -360,7 +357,7 @@ namespace Server.Mobiles
             {
                 for (int i = 0; i < entries.Count; ++i)
                 {
-                    TownCrierEntry tce = (TownCrierEntry)entries[i];
+                    TownCrierEntry tce = entries[i];
 
                     TimeSpan toExpire = tce.ExpireTime - DateTime.UtcNow;
 

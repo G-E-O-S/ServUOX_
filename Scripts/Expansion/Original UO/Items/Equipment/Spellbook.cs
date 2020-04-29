@@ -354,7 +354,7 @@ namespace Server.Items
                 {
                     return; // They are customizing
                 }
-
+                /*
                 Spellbook book = null;
                 int spellID = e.SpellID;
 
@@ -362,6 +362,10 @@ namespace Server.Items
                 {
                     book = Find(from, spellID);
                 }
+                */
+
+                int spellID = e.SpellID;
+                Spellbook book = Find(from, spellID);
 
                 if (book != null && book.HasSpell(spellID))
                 {

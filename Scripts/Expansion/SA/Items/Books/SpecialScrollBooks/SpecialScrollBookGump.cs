@@ -205,6 +205,7 @@ namespace Server.Gumps
                     value /= 10;
 
                     Book.Construct(User, Skill, value);
+                    Refresh();
                 }
             }
         }

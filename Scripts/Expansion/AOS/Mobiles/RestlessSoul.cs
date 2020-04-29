@@ -48,6 +48,7 @@ namespace Server.Mobiles
         {
         }
 
+        public override bool AlwaysMurderer => true;
         public override bool AlwaysAttackable => true;
         public override bool BleedImmunity => true;
         public override int TreasureMapLevel => 2;

@@ -1,5 +1,4 @@
 using System;
-using Server;
 using Server.Gumps;
 using Server.Mobiles;
 using Server.Network;
@@ -78,7 +77,7 @@ namespace Server.Items
                             m_Book.Recipes.ForEach(x =>
                             {
                                 if (x.RecipeID == m_Recipe.RecipeID)
-                                    x.Amount = x.Amount - 1;
+                                    x.Amount -=  1;
                             });
 
                             m_Book.InvalidateProperties();

@@ -8,56 +8,26 @@ namespace Server.Mobiles
     [CorpseName("the remains of Meraktus")]
     public class Meraktus : BaseChampion
     {
-        public override ChampionSkullType SkullType
-        {
-            get
-            {
-                return ChampionSkullType.Pain;
-            }
-        }
+        public override ChampionSkullType SkullType => ChampionSkullType.Pain;
 
-        public override Type[] UniqueList
-        {
-            get
-            {
-                return new Type[] { typeof(Subdue) };
-            }
-        }
-        public override Type[] SharedList
-        {
-            get
-            {
-                return new Type[]
+        public override Type[] UniqueList => new Type[] { typeof(Subdue) };
+        public override Type[] SharedList => new Type[]
                 {
                     typeof(RoyalGuardSurvivalKnife),
                     typeof(TheMostKnowledgePerson),
                     typeof(OblivionsNeedle)
                 };
-            }
-        }
-        public override Type[] DecorativeList
-        {
-            get
-            {
-                return new Type[]
+        public override Type[] DecorativeList => new Type[]
                 {
                     typeof(ArtifactLargeVase),
                     typeof(ArtifactVase),
                     typeof(MinotaurStatueDeed)
                 };
-            }
-        }
 
-        public override MonsterStatuetteType[] StatueTypes
-        {
-            get
-            {
-                return new MonsterStatuetteType[]
+        public override MonsterStatuetteType[] StatueTypes => new MonsterStatuetteType[]
                 {
                     MonsterStatuetteType.Minotaur
                 };
-            }
-        }
 
         [Constructable]
         public Meraktus()
@@ -95,85 +65,91 @@ namespace Server.Mobiles
 
             VirtualArmor = 28; // Don't know what it should be
 
-            for (int i = 0; i < Utility.RandomMinMax(0, 1); i++)
-            {
-                PackItem(Loot.RandomScroll(0, Loot.ArcanistScrollTypes.Length, SpellbookType.Arcanist));
-            }
-
             NoKillAwards = true;
-
-            if (Core.ML)
-            {
-                PackResources(8);
-                PackTalismans(5);
-            }
 
             Timer.DelayCall(TimeSpan.FromSeconds(1), new TimerCallback(SpawnTormented));
 
             SetWeaponAbility(WeaponAbility.Dismount);
         }
 
-        public virtual void PackResources(int amount)
+        public override int GetAngerSound() { return 0x597; }
+        public override int GetIdleSound() { return 0x596; }
+        public override int GetAttackSound() { return 0x599; }
+        public override int GetHurtSound() { return 0x59a; }
+        public override int GetDeathSound() { return 0x59c; }
+
+        public override int Meat => 2;
+        public override int Hides => 10;
+        public override HideType HideType => HideType.Regular;
+        public override Poison PoisonImmunity => Poison.Regular;
+        public override int TreasureMapLevel => 3;
+        public override bool BardImmunity => true;
+        public override bool Unprovokable => true;
+        public override bool Uncalmable => true;
+
+        public virtual void PackResources(Container CorpseLoot, int amount)
         {
             for (int i = 0; i < amount; i++)
                 switch (Utility.Random(6))
                 {
                     case 0:
-                        PackItem(new Blight());
+                        CorpseLoot.DropItem(new Blight());
                         break;
                     case 1:
-                        PackItem(new Scourge());
+                        CorpseLoot.DropItem(new Scourge());
                         break;
                     case 2:
-                        PackItem(new Taint());
+                        CorpseLoot.DropItem(new Taint());
                         break;
                     case 3:
-                        PackItem(new Putrefaction());
+                        CorpseLoot.DropItem(new Putrefaction());
                         break;
                     case 4:
-                        PackItem(new Corruption());
+                        CorpseLoot.DropItem(new Corruption());
                         break;
                     case 5:
-                        PackItem(new Muculent());
+                        CorpseLoot.DropItem(new Muculent());
                         break;
                 }
         }
 
-        public virtual void PackTalismans(int amount)
+        public override void OnDeath(Container CorpseLoot)
         {
-            int count = Utility.Random(amount);
-
-            for (int i = 0; i < count; i++)
-                PackItem(new RandomTalisman());
-        }
-
-        public override void OnDeath(Container c)
-        {
-            base.OnDeath(c);
+            for (int i = 0; i < Utility.RandomMinMax(0, 1); i++)
+            {
+                PackItem(Loot.RandomScroll(0, Loot.ArcanistScrollTypes.Length, SpellbookType.Arcanist));
+            }
 
             if (Core.ML)
             {
-                c.DropItem(new MalletAndChisel());
+                PackResources(CorpseLoot, 8);
+
+                for (int i = 0; i < Utility.Random(3); i++)
+                    PackItem(new RandomTalisman());
+
+                CorpseLoot.DropItem(new MalletAndChisel());
 
                 switch (Utility.Random(3))
                 {
                     case 0:
-                        c.DropItem(new MinotaurHedge());
+                        CorpseLoot.DropItem(new MinotaurHedge());
                         break;
                     case 1:
-                        c.DropItem(new BonePile());
+                        CorpseLoot.DropItem(new BonePile());
                         break;
                     case 2:
-                        c.DropItem(new LightYarn());
+                        CorpseLoot.DropItem(new LightYarn());
                         break;
                 }
 
                 if (Utility.RandomBool())
-                    c.DropItem(new TormentedChains());
+                    CorpseLoot.DropItem(new TormentedChains());
 
                 if (Utility.RandomDouble() < 0.025)
-                    c.DropItem(new CrimsonCincture());
+                    CorpseLoot.DropItem(new CrimsonCincture());
             }
+
+            base.OnDeath(CorpseLoot);
         }
 
         public override void GenerateLoot()
@@ -182,87 +158,9 @@ namespace Server.Mobiles
             {
                 AddLoot(LootPack.AosSuperBoss, 5);  // Need to verify
             }
-        }
-
-        public override int GetAngerSound()
-        {
-            return 0x597;
-        }
-
-        public override int GetIdleSound()
-        {
-            return 0x596;
-        }
-
-        public override int GetAttackSound()
-        {
-            return 0x599;
-        }
-
-        public override int GetHurtSound()
-        {
-            return 0x59a;
-        }
-
-        public override int GetDeathSound()
-        {
-            return 0x59c;
-        }
-
-        public override int Meat
-        {
-            get
+            else
             {
-                return 2;
-            }
-        }
-        public override int Hides
-        {
-            get
-            {
-                return 10;
-            }
-        }
-        public override HideType HideType
-        {
-            get
-            {
-                return HideType.Regular;
-            }
-        }
-        public override Poison PoisonImmunity
-        {
-            get
-            {
-                return Poison.Regular;
-            }
-        }
-        public override int TreasureMapLevel
-        {
-            get
-            {
-                return 3;
-            }
-        }
-        public override bool BardImmunity
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool Unprovokable
-        {
-            get
-            {
-                return true;
-            }
-        }
-        public override bool Uncalmable
-        {
-            get
-            {
-                return true;
+                AddLoot(LootPack.FilthyRich, 5);
             }
         }
 
@@ -290,18 +188,18 @@ namespace Server.Mobiles
                     targets.Add(m);
             }
             eable.Free();
+
             PlaySound(0x2F3);
             for (int i = 0; i < targets.Count; ++i)
             {
                 Mobile m = (Mobile)targets[i];
-                if (m != null && !m.Deleted && m is PlayerMobile)
+                if (m == null || m.Deleted) continue;
+                               
+                if (m is PlayerMobile pm && pm.Mounted)
                 {
-                    PlayerMobile pm = m as PlayerMobile;
-                    if (pm != null && pm.Mounted)
-                    {
-                        pm.SetMountBlock(BlockMountType.DismountRecovery, TimeSpan.FromSeconds(10), true);
-                    }
+                    pm.SetMountBlock(BlockMountType.DismountRecovery, TimeSpan.FromSeconds(10), true);
                 }
+
                 double damage = m.Hits * 0.6;//was .6
                 if (damage < 10.0)
                     damage = 10.0;
@@ -322,13 +220,13 @@ namespace Server.Mobiles
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);
-            writer.Write((int)0);
+            writer.Write(0);
         }
 
         public override void Deserialize(GenericReader reader)
         {
             base.Deserialize(reader);
-            int version = reader.ReadInt();
+            _ = reader.ReadInt();
         }
 
         #region SpawnHelpers

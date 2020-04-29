@@ -277,7 +277,7 @@ namespace Server.Items
 					break;
 				case "magincia mint":
 				{
-					loc = new Point3D(3728, 2164, 20);
+					loc = new Point3D(3792, 2232, 20);
 					map = Map.Trammel;
 				}
 					break;
@@ -407,7 +407,7 @@ namespace Server.Items
 					break;
 				case "fel magincia mint":
 				{
-					loc = new Point3D(3728, 2164, 20);
+					loc = new Point3D(3792, 2232, 20);
 					map = Map.Felucca;
 				}
 					break;
